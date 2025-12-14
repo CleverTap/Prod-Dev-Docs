@@ -16,8 +16,8 @@ The Delete Variables API endpoint allows you to delete variables individually or
 
 # Endpoint
 
-Here is a sample endpoint from the account in the India region:  
-<https://in1.api.clevertap.com/1/deleteVars>
+Here is a sample endpoint from the account in the India region:\
+[https://in1.api.clevertap.com/1/deleteVars](https://in1.api.clevertap.com/1/deleteVars)
 
 # Authentication
 
@@ -37,37 +37,81 @@ The HTTP method is **POST** for the Delete Variables API
 
 # Body Parameters
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Parameter",
-    "h-1": "Description",
-    "h-2": "Type",
-    "h-3": "Example",
-    "h-4": "Required/Optional",
-    "0-0": "deleteAllVars",
-    "0-1": "Determines whether you want to delete all variables in your Remote Config.",
-    "0-2": "Boolean",
-    "0-3": "{  \n  \"deleteAllVars\": false  \n}",
-    "0-4": "Optional",
-    "1-0": "variableNames",
-    "1-1": "Contains a list of variable names you want to delete from your Remote Config.",
-    "1-2": "String",
-    "1-3": "{  \n\"variableNames\": [\"var1\", \"folder1.var2\", \"non.existing\"]  \n}",
-    "1-4": "Required"
-  },
-  "cols": 5,
-  "rows": 2,
-  "align": [
-    "left",
-    "left",
-    "left",
-    "left",
-    "left"
-  ]
-}
-[/block]
+<Table align={["left","left","left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Parameter
+      </th>
 
+      <th>
+        Description
+      </th>
+
+      <th>
+        Type
+      </th>
+
+      <th>
+        Example
+      </th>
+
+      <th>
+        Required/Optional
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        deleteAllVars
+      </td>
+
+      <td>
+        Determines whether you want to delete all variables in your Remote Config.
+      </td>
+
+      <td>
+        Boolean
+      </td>
+
+      <td>
+        \{\
+          "deleteAllVars": false\
+        }
+      </td>
+
+      <td>
+        Optional
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        variableNames
+      </td>
+
+      <td>
+        Contains a list of variable names you want to delete from your Remote Config.
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        \{\
+        "variableNames": ["var1", "folder1.var2", "non.existing"]\
+        }
+      </td>
+
+      <td>
+        Required
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 # Sample Request
 
