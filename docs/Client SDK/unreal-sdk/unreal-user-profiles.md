@@ -18,9 +18,9 @@ User profiles help you associate key attributes such as name, email, preferences
 
 Use `OnUserLogin()` when a user is identified and logs into your app. This method:
 
-- Sets or updates the user's identity
-- Merges anonymous session data into the identified user profile
-- Allows you to set properties such as name, email, and preferences
+* Sets or updates the user's identity
+* Merges anonymous session data into the identified user profile
+* Allows you to set properties such as name, email, and preferences
 
 ```cplusplus
 FCleverTapProperties Profile;
@@ -48,7 +48,7 @@ CleverTap.OnUserLogin(Profile);
 ```
 
 > 📘 Identify a User with `OnUserLogin()`
-> 
+>
 > Call `OnUserLogin()` only once per session to identify a new user. The SDK links the anonymous profile to a known identity and resets the tracking context. If you call it again in the same session, the SDK will ignore it unless the user identity has changed.
 
 ## Update a User Profile
