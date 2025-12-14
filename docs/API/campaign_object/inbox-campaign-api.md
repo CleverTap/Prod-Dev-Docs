@@ -14,6 +14,6 @@ next:
 ---
 This document provides information about the following API endpoints available to communicate with your users via CleverTap's Inbox channel.
 
-- [getMessages API](doc:getmessages-api)
-- [markMessagesAsRead API](doc:markmessagesasread-api)
-- [markMessagesAsClicked API](doc:markmessagesasclicked-api)
+* [getMessages API](doc:getmessages-api)
+* [markMessagesAsRead API](doc:markmessagesasread-api)
+* [markMessagesAsClicked API](doc:markmessagesasclicked-api)
