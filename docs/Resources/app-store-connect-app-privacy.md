@@ -1,0 +1,116 @@
+---
+title: App Store Connect - App Privacy
+excerpt: ''
+deprecated: false
+hidden: false
+metadata:
+  title: ''
+  description: ''
+  robots: index
+next:
+  description: ''
+---
+## Overview
+
+Starting December 8, 2020, Apple requires [App Privacy Details](https://developer.apple.com/app-store/app-privacy-details/) for all new apps and app updates. Refer to [Manage App Privacy](https://help.apple.com/app-store-connect/#/dev1b4647c5b) to understand Apple’s privacy rules and app integrations with multiple third-party SDK(s) to make the correct decision for your app. 
+
+> 📘 Note
+> 
+> This document is not legal advice. It is provided for your information and convenience. You must work closely with legal and other professional advisors to determine exactly how Apple policies apply to you.
+
+# Data types
+
+CleverTap collects the following data for your app:
+
+- **Collected** - CleverTap SDK requires this data. It is collected by default.
+- **Not collected **-  CleverTap SDK does not require this data.
+- **May be, By Default: Not collected** -  Not required by CleverTap SDK. However, you can configure to send this data to CleverTap for additional tracking. 
+
+# Data type
+
+The following table should help you to answer the privacy declaration. 
+
+[block:parameters]
+{
+  "data": {
+    "h-0": "<p>Data Type</p>",
+    "h-1": "<p>Sent To CleverTap?</p>",
+    "h-2": "<p>Description</p>",
+    "0-0": "<p><strong>Contact information</strong></p><ul><li><p>Name</p></li><li><p>Email address</p></li><li><p>Phone number </p></li><li><p>Physical address</p></li><li><p>Other user contact info </p></li></ul>",
+    "0-1": "<p>May be, By Default: Not collected</p>",
+    "0-2": "<p>If you have configured to send this data, then declare accordingly.</p>",
+    "1-0": "<p><strong>Health and fitness</strong></p><p>Health</p><p>Fitness</p>",
+    "1-1": "<p>May be, By Default: Not collected</p>",
+    "1-2": "<p>If you have configured to send this data, then declare accordingly.</p>",
+    "2-0": "<p><strong>Financial info</strong></p><p>Payment info</p><p>Credit info</p><p>Other financial info</p>",
+    "2-1": "<p>May be, By Default: Not collected</p>",
+    "2-2": "<p>If you have configured to send this data, then declare accordingly.</p>",
+    "3-0": "<p><strong>Location info</strong></p><p>Precise location</p><p>Coarse location</p>",
+    "3-1": "<p>May be, By Default: Not collected</p>",
+    "3-2": "<p>If you have configured to send this data, then declare accordingly.<br>This data requires additional integration :</p><ul><li><a href=\"https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/3.7.0\">Precise Location Integration</a></li><li><a href=\"https://developer.clevertap.com/docs/sdk-changes-for-gdpr-compliance#section-device-network-information-reporting-in-i-os\">Coarse Location integration</a>.</li></ul>",
+    "4-0": "<p><strong>Sensitive info</strong> </p>",
+    "4-1": "<p>May be, By Default: Not collected</p>",
+    "4-2": "<p>If you have configured to send this data, then declare accordingly.</p>",
+    "5-0": "<p><strong>Contacts</strong> </p>",
+    "5-1": "<p>May be, By Default: Not collected</p>",
+    "5-2": "<p>If you have configured to send this data, then declare accordingly.</p>",
+    "6-0": "<p><strong>User content</strong></p><p>Emails or text messages</p><p>Photos or videos</p><p>Audio data</p><p>Gameplay content</p><p>Customer support</p><p>Other user content</p>",
+    "6-1": "<p>May be, By Default: Not collected</p>",
+    "6-2": "<p>If you have configured to send this data, then declare accordingly.</p>",
+    "7-0": "<p><strong>Browsing history</strong> </p>",
+    "7-1": "<p>Not collected</p>",
+    "7-2": "<p>If you have configured to send this data, then declare accordingly.</p>",
+    "8-0": "<p><strong>Search history</strong> </p>",
+    "8-1": "<p>Not collected</p>",
+    "8-2": "<p>If you have configured to send this data, then declare accordingly.</p>",
+    "9-0": "<p><strong>Identifiers</strong></p><p>User ID</p><p>Device ID</p>",
+    "9-1": "<p>May be, By Default: Not collected</p>",
+    "9-2": "<p>Latest CleverTap iOS SDK does not capture IDFA or other device IDs such as IMEI. The IDFV is used to create CleverTap ID which is disclosed under Other Data.</p>",
+    "10-0": "<p><strong>Purchases</strong></p><p>Purchase history</p>",
+    "10-1": "<p>May be, By Default: Not collected</p>",
+    "10-2": "<p>If you have configured to send this data, then declare accordingly.</p>",
+    "11-0": "<p><strong>Usage data</strong></p><p>Product interaction</p><p>Advertising data</p><p>Other usage data (for example, Wi-Fi)</p>",
+    "11-1": "<p>Required, Collected</p><p>Product interaction => Yes<br>Advertising data => No<br>Other usage data => No</p>",
+    "11-2": "<ul><li>Product interactions - App launches are measured, as well as any other user interaction configured by the app developer.</li><li>Advertising &#x26; Other usage data -   If you have configured to send this data, then declare accordingly.</li></ul>",
+    "12-0": "**Diagnostics data**Crash dataPerformance dataOther diagnostics data",
+    "12-1": "Not collectedCrash data ==> No  \nPerformance data ==> No  \nOther diagnostics data => No",
+    "12-2": "For Crash & other diagnostics data. If you have configured to send this data, then declare accordingly.",
+    "13-0": "**Other Data** ",
+    "13-1": "Required, Collected",
+    "13-2": "Technical device information (for example, OS, device type, language, Wi-Fi status, screen size,  etc.) or network information (for example, IP address, HTTP user agent) is received by CleverTap.  \nIDFV is collected."
+  },
+  "cols": 3,
+  "rows": 14,
+  "align": [
+    "left",
+    "left",
+    "left"
+  ]
+}
+[/block]
+
+# Data use
+
+Understand how each data type is used by you and your third-party partners. For example, collecting an email address and using it to authenticate the user and personalize the user’s experience within your app would include App Functionality and Product Personalization. For more information, see [Apple Data Type Usage](https://developer.apple.com/app-store/app-privacy-details/#data-type-usage)
+
+| Purpose                              | Selection based on how data from CleverTap will be used                                                                                                                                                                                      |
+| :----------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Third-Party Advertising              | Select if you share the data type with a third party for the purpose of displaying third-party advertisements in your app.                                                                                                                   |
+| Developer’s Advertising or Marketing | Select if you share the data type with a third party for displaying first-party advertisements in your app, sending marketing communications directly to your users, or sharing data with entities who will display your advertisements.     |
+| Analytics                            | Select if you are using data to evaluate user behavior, which includes understanding the effectiveness of existing product features, plan new features, or measure audience size or characteristics.                                         |
+| Product Personalization              | Customizing what the user sees, such as a list of recommended products, posts, or suggestions. Select if you plan to use CleverTap Engagement features such as Product Experiences, In Apps, App Inbox, and so on to personalize the product |
+| App Functionality                    | Authenticate the user, enable features, prevent fraud, implement security measures, ensure server up-time, minimize app crashes, improve scalability and performance, or perform customer support. Select if applicable.                     |
+| Other Purposes                       | Any other purposes not listed. Select if applicable                                                                                                                                                                                          |
+
+# Data linked to the user
+
+Data types collected through CleverTap are typically connected to identifiers when configured.  Therefore, app developers must select 'Yes' when asked if the data is linked to an identity.  
+The associations that the customer is capable of making (for example, to a customer account or an identifiable individual) is unique to the customers and at their own discretion.
+
+# Tracking
+
+You’ll need to understand whether you and/or your third-party partners use data from your app to track users and, if so, which data is used for this purpose.  CleverTap iOS SDK does not track data by default and it is unique to the customers and at their own discretion.
+
+# Privacy links
+
+Please refer to CleverTap privacy policy here: <https://clevertap.com/privacy-policy/>
