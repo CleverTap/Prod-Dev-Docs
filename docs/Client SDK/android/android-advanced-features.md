@@ -113,13 +113,13 @@ PII data is stored across the SDK and could contain sensitive information. From 
 
 CleverTap supports three encryption levels for PII data:
 
-- **NONE (0)**: Data is stored in plaintext.
-- **MEDIUM (1)**: Only PII fields are encrypted.
-- **FULL_DATA (2)**: Encrypts all stored data, not just PII fields. Available from Android SDK version 7.7.0 and above.
+* **NONE (0)**: Data is stored in plaintext.
+* **MEDIUM (1)**: Only PII fields are encrypted.
+* **FULL\_DATA (2)**: Encrypts all stored data, not just PII fields. Available from Android SDK version 7.7.0 and above.
 
 > 📘 Default Encryption Level
-> 
-> By default, the encryption level is set to** NONE (0)**.
+>
+> By default, the encryption level is set to **NONE (0)**.
 
 ### Set Encryption Level for the Default Instance
 
@@ -180,7 +180,7 @@ Encrypting data in transit ensures that sensitive personal data, such as Email, 
 From CleverTap Android SDK 7.5.0 onwards, this feature is supported natively in the SDK, with encryption and decryption handled automatically.
 
 > 📘 Private Beta
-> 
+>
 > This feature is currently released in Private Beta. To enable it, contact CleverTap Support. Check that it is activated for your account before implementing it in the SDK.
 
 ### Encryption Scope
@@ -251,25 +251,11 @@ CleverTapAPI.setDebugLevel(CleverTapAPI.LogLevel.OFF); //Switch off logs for Pro
 2. After setting the debug level to `CleverTap.Loglevel.VERBOSE`, search for Clevertap.  The logcat displays the handshakes between CleverTap and your app. 
 3. Copy the CleverTap ID from the logs. 
 4. Open the CleverTap dashboard. 
-5. Navigate to _Segments_> _Find People_ > search _By Identity_.
+5. Navigate to *Segments*> *Find People* > search *By Identity*.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/d46c9c8-Android_search_by__identity.png",
-        "Find People by Identity",
-        1205
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Find People by Identity"
-    }
-  ]
-}
-[/block]
-
+<Image title="Find People by Identity" alt={1205} align="center" border={true} src="https://files.readme.io/d46c9c8-Android_search_by__identity.png">
+  Find People by Identity
+</Image>
 
 ## Changing Account Credentials
 
