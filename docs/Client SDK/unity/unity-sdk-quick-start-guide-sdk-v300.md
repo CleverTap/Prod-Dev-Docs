@@ -22,44 +22,29 @@ You can now install the CleverTap Unity SDK using the `.unitypackage` Unity pack
 
 This installation involves the following major steps:
 
-1. Import the CleverTap Unity Package  
+1. Import the CleverTap Unity Package\
    Select one of the following options based on your preferred installation method:
-   - [Import the CleverTap Unity Package](doc:unity-sdk-quick-start-guide-sdk-v300#import-the-clevertap-unity-package) This method includes the full SDK structure and supports most Unity LTS versions.
-   - [Import the CleverTap Unity Package as a Local Dependency](doc:unity-sdk-quick-start-guide-sdk-v300#import-the-clevertap-unity-package-as-a-local-dependency)
+   * [Import the CleverTap Unity Package](doc:unity-sdk-quick-start-guide-sdk-v300#import-the-clevertap-unity-package) This method includes the full SDK structure and supports most Unity LTS versions.
+   * [Import the CleverTap Unity Package as a Local Dependency](doc:unity-sdk-quick-start-guide-sdk-v300#import-the-clevertap-unity-package-as-a-local-dependency)
 2. [Set Up the Unity SDK](doc:unity-sdk-quick-start-guide-sdk-v300#set-up-the-unity-sdk) to initialize CleverTap in your Unity project and configure mandatory project settings.
-3. Configure Platform-Specific Settings.  
+3. Configure Platform-Specific Settings.\
    Complete the required platform integrations:
-   - [Set Up for iOS](doc:unity-sdk-quick-start-guide-sdk-v300#ios-specific-instructions)
-   - [Set Up for Android](doc:unity-sdk-quick-start-guide-sdk-v300#android-specific-instructions)
+   * [Set Up for iOS](doc:unity-sdk-quick-start-guide-sdk-v300#ios-specific-instructions)
+   * [Set Up for Android](doc:unity-sdk-quick-start-guide-sdk-v300#android-specific-instructions)
 4. Learn how to implement [Unity callbacks](doc:unity-sdk-quick-start-guide-sdk-v300#callbacks) to handle key events such as push notifications and profile updates.
-5. Verify Your Integration  
+5. Verify Your Integration\
    Ensure the setup is complete by tracking:
-   - [User Profiles](doc:unity-sdk-quick-start-guide-sdk-v300#track-user-profiles)
-   - [User Events](doc:unity-sdk-quick-start-guide-sdk-v300#track-user-events)
+   * [User Profiles](doc:unity-sdk-quick-start-guide-sdk-v300#track-user-profiles)
+   * [User Events](doc:unity-sdk-quick-start-guide-sdk-v300#track-user-events)
 
 ## Import the CleverTap Unity Package
 
 1. Download the latest version of the CleverTap Unity SDK from the [CleverTap Unity GitHub repository](https://github.com/CleverTap/clevertap-unity-sdk).
-2. Import the `.unitypackage` into your Unity project. In the Unity Editor, Go to _Assets_ > _Import Package_ > _Custom Package_.
+2. Import the `.unitypackage` into your Unity project. In the Unity Editor, Go to *Assets* > *Import Package* > *Custom Package*.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/c3ce30731cbcbe122c8cec845b18de0535bcd7a17b3599aaa897a6826dc65ba9-image.png",
-        null,
-        "Import the Unity Package"
-      ],
-      "align": "center",
-      "sizing": "75% ",
-      "border": true,
-      "caption": "Import Unity Package"
-    }
-  ]
-}
-[/block]
-
+<Image alt="Import the Unity Package" align="center" width="75% " border={true} src="https://files.readme.io/c3ce30731cbcbe122c8cec845b18de0535bcd7a17b3599aaa897a6826dc65ba9-image.png">
+  Import Unity Package
+</Image>
 
 3. Add the **PlayServiceResolver** and the **ExternalDependencyManager** folders. These folders will install the [EDM4U](https://github.com/googlesamples/unity-jar-resolver) plugin, which automatically adds all the Android and iOS dependencies when building your project.
 4. Ensure that the scripts inside the `Editor` folder are added. The `AndroidPostImport` script sets up `clevertap-android-wrapper` library for Android. `IOSPostBuildProcessor` and `AndroidProjectPostProcessor` scripts help iOS and Android setup.
@@ -70,61 +55,31 @@ Clone the latest release version of CleverTap Unity SDK. The SDK can be imported
 
 ## Set Up the Unity SDK
 
-CleverTap API can be accessed anywhere in your project by simply calling the static CleverTap class. No need to create _GameObject_ with the _CleverTapUnity_ name or attach any script. The new architecture handles the following: 
+CleverTap API can be accessed anywhere in your project by simply calling the static CleverTap class. No need to create *GameObject* with the *CleverTapUnity* name or attach any script. The new architecture handles the following: 
 
 You can access the CleverTap API anywhere in your project using the static CleverTap class. No need to manually create a `GameObject` named `CleverTapUnity` or attach any scripts. The updated SDK architecture automatically handles the following:
 
-- Instantiation of platform-specific binding (iOS, Android, Native)
-- Creating the required `GameObject`
-- Script attachment.
+* Instantiation of platform-specific binding (iOS, Android, Native)
+* Creating the required `GameObject`
+* Script attachment.
 
-Use the Unity Editor CleverTap Settings dialog (_Assets_ > _CleverTap Settings_) to configure your account for iOS and Android builds automatically.
+Use the Unity Editor CleverTap Settings dialog (*Assets* > *CleverTap Settings*) to configure your account for iOS and Android builds automatically.
 
-Enter your CleverTap Account ID, CleverTap Account token, Region, and personalization settings in the CleverTap Settings _Assets_ > _CleverTap Settings_.
+Enter your CleverTap Account ID, CleverTap Account token, Region, and personalization settings in the CleverTap Settings *Assets* > *CleverTap Settings*.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/dee9d52b1d06816dc153b375e12823968d711ebb22fd715e5bb819cbd77f037f-image.png",
-        null,
-        "Set Up the Unity SDK"
-      ],
-      "align": "center",
-      "sizing": "75% ",
-      "border": true,
-      "caption": "Set Up the Unity SDK"
-    }
-  ]
-}
-[/block]
+<Image alt="Set Up the Unity SDK" align="center" width="75% " border={true} src="https://files.readme.io/dee9d52b1d06816dc153b375e12823968d711ebb22fd715e5bb819cbd77f037f-image.png">
+  Set Up the Unity SDK
+</Image>
 
-
-You can find the CleverTap Account ID, CleverTap Account token, and CleverTap Region on the _[Settings](https://dashboard.clevertap.com/x/settings.html)_ page of the CleverTap dashboard.
+You can find the CleverTap Account ID, CleverTap Account token, and CleverTap Region on the *[Settings](https://dashboard.clevertap.com/x/settings.html)* page of the CleverTap dashboard.
 
 > 🚧 Credentials and Access
-> 
+>
 > The **CleverTap Account ID** and **CleverTap Token** are available as **Project ID** and **Project Token** respectively on the CleverTap dashboard. Member and Creator roles in the project do not have access to view the Passcode and Project Token of the account on the dashboard.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/58a914144b7f1cadba173f86170d6e21cc68ff77f61276ce3d0fac67be7b56b1-image.png",
-        null,
-        "CleverTap Account Details"
-      ],
-      "align": "center",
-      "sizing": "75% ",
-      "border": true,
-      "caption": "CleverTap Account Details"
-    }
-  ]
-}
-[/block]
-
+<Image alt="CleverTap Account Details" align="center" width="75% " border={true} src="https://files.readme.io/58a914144b7f1cadba173f86170d6e21cc68ff77f61276ce3d0fac67be7b56b1-image.png">
+  CleverTap Account Details
+</Image>
 
 This ensures that the CleverTap Post Processor scripts automatically add these settings to the `Info.plist` and `AndroidManifest.xml`  files.
 
@@ -140,63 +95,33 @@ If you override `UnityAppController`, inherit from `CleverTapUnityAppController`
 
 Follow these steps in Unity Editor:
 
-1. Set your Account ID (Project ID), Account token (Project Token), and [iOS Specific settings](doc:unity-sdk-quick-start-guide-sdk-v300#ios-specific-settings) in the CleverTap Settings _Assets_ > _CleverTap Settings_.
+1. Set your Account ID (Project ID), Account token (Project Token), and [iOS Specific settings](doc:unity-sdk-quick-start-guide-sdk-v300#ios-specific-settings) in the CleverTap Settings *Assets* > *CleverTap Settings*.
    #### iOS Specific Settings
    Configure the CleverTap Unity SDK with the required iOS settings:
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/40ff8e34ef92c8217dfaecc5d28f2c4b26da1e51fb01f80d463feb69ca76e5a6-image.png",
-        null,
-        "iOS Specific Settings"
-      ],
-      "align": "center",
-      "sizing": "55% ",
-      "border": true,
-      "caption": "iOS Specific Settings"
-    }
-  ]
-}
-[/block]
+<Image alt="iOS Specific Settings" align="center" width="55% " border={true} src="https://files.readme.io/40ff8e34ef92c8217dfaecc5d28f2c4b26da1e51fb01f80d463feb69ca76e5a6-image.png">
+  iOS Specific Settings
+</Image>
 
-
-- _Disable IDFV_ – Set `CleverTapDisableIDFV` to `true` to disable IDFV (Identifier for Vendor) usage for CleverTap ID.
+* *Disable IDFV* – Set `CleverTapDisableIDFV` to `true` to disable IDFV (Identifier for Vendor) usage for CleverTap ID.
 
 > 📘 IDFV Usage for CleverTap ID
-> 
-> Starting from CleverTap Unity SDK 2.1.2, you can optionally disable the usage of IDFV for CleverTap ID by selecting CLEVERTAP_DISABLE_IDFV. We recommend this for apps that send data from different iOS apps to a common CleverTap account. By default, the CLEVERTAP_DISABLE_IDFV checkbox is not selected.
+>
+> Starting from CleverTap Unity SDK 2.1.2, you can optionally disable the usage of IDFV for CleverTap ID by selecting CLEVERTAP\_DISABLE\_IDFV. We recommend this for apps that send data from different iOS apps to a common CleverTap account. By default, the CLEVERTAP\_DISABLE\_IDFV checkbox is not selected.
 
-- _Use AutoIntegrate_ – Initializes the iOS SDK with `[CleverTap autoIntegrate]`, automatically swizzling the application and push notification methods. To disable swizzling, set `CleverTapIOSUseAutoIntegrate` to `false`.
-- _Use UNUserNotificationCenter_ – Ensures that notifications are handled correctly, and it is required whether you use autoIntegrate or not. If you implement the delegate in your own class, disable the `UNUserNotificationCenterDelegate` from being set to `CleverTapUnityAppController` by unchecking the `CleverTapIOSUseUNUserNotificationCenter` setting. In this case, you must implement the `UNUserNotificationCenterDelegate` methods yourself and call the CleverTap methods.
-- _Present Notifications Foreground_ – Set this option to `true` to display remote notifications even when the app is in the foreground. By default, it is set to `false`, and `UNNotificationPresentationOptionNone` is used, meaning the notification is received silently. However, if the notification contains a deep link, the app will still open it in the background.  
+* *Use AutoIntegrate* – Initializes the iOS SDK with `[CleverTap autoIntegrate]`, automatically swizzling the application and push notification methods. To disable swizzling, set `CleverTapIOSUseAutoIntegrate` to `false`.
+* *Use UNUserNotificationCenter* – Ensures that notifications are handled correctly, and it is required whether you use autoIntegrate or not. If you implement the delegate in your own class, disable the `UNUserNotificationCenterDelegate` from being set to `CleverTapUnityAppController` by unchecking the `CleverTapIOSUseUNUserNotificationCenter` setting. In this case, you must implement the `UNUserNotificationCenterDelegate` methods yourself and call the CleverTap methods.
+* *Present Notifications Foreground* – Set this option to `true` to display remote notifications even when the app is in the foreground. By default, it is set to `false`, and `UNNotificationPresentationOptionNone` is used, meaning the notification is received silently. However, if the notification contains a deep link, the app will still open it in the background.\
   When set to `true`, the notification is displayed using one or more of the following iOS presentation options:
-  - `UNNotificationPresentationOptionBanner` or `UNNotificationPresentationOptionAlert` (for visual display)
-  - `UNNotificationPresentationOptionBadge` (to update the app icon badge)
-  - `UNNotificationPresentationOptionSound` (to play a notification sound)
+  * `UNNotificationPresentationOptionBanner` or `UNNotificationPresentationOptionAlert` (for visual display)
+  * `UNNotificationPresentationOptionBadge` (to update the app icon badge)
+  * `UNNotificationPresentationOptionSound` (to play a notification sound)
 
-2. Set up [EDM4U](https://github.com/CleverTap/clevertap-unity-sdk/tree/master/docs) plugin to install CocoaPods automatically. Go to _Assets_ > _External Dependency Manager_ > _iOS Resolver_ > _Settings_. You can also install CocoaPods manually using`pod install`.
+2. Set up [EDM4U](https://github.com/CleverTap/clevertap-unity-sdk/tree/master/docs) plugin to install CocoaPods automatically. Go to *Assets* > *External Dependency Manager* > *iOS Resolver* > *Settings*. You can also install CocoaPods manually using`pod install`.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/1355ad1e04174bf3a26c9176cf45e1210c6dd22ce03d31869dc242bc4db0443f-image.png",
-        null,
-        "Set up EDM4U plugin"
-      ],
-      "align": "center",
-      "sizing": "65% ",
-      "border": true,
-      "caption": "Set up EDM4U plugin"
-    }
-  ]
-}
-[/block]
-
+<Image alt="Set up EDM4U plugin" align="center" width="65% " border={true} src="https://files.readme.io/1355ad1e04174bf3a26c9176cf45e1210c6dd22ce03d31869dc242bc4db0443f-image.png">
+  Set up EDM4U plugin
+</Image>
 
 3. Open the `.xcworkspace` project.
 4. Add the Push Notifications capability to your Xcode project to enable Push Notifications.
@@ -210,28 +135,13 @@ To know how to add a region code for iOS in Unity SDK, refer to [Region Codes.](
 
 To integrate the required dependencies and configurations for your Android project, follow these steps in Unity Editor:
 
-1. Go to _File_ > _Build Settings_ >  _Android_ > _Player Settings_ > _Publishing Settings_ > _Build_.
+1. Go to *File* > *Build Settings* >  *Android* > *Player Settings* > *Publishing Settings* > *Build*.
 2. Enable .gradle templates and custom AndroidManifest.
-3. [EDM4U](https://github.com/googlesamples/unity-jar-resolver) populates the _Custom Main Gradle Template_ and _Gradle Properties Template_ with the required Android dependencies.
+3. [EDM4U](https://github.com/googlesamples/unity-jar-resolver) populates the *Custom Main Gradle Template* and *Gradle Properties Template* with the required Android dependencies.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/9a40fa9106dd42dee514c494a0956bcd8cf6d5ddd37d0b2de12e4a4f009dda6e-image.png",
-        null,
-        "Build Settings"
-      ],
-      "align": "center",
-      "sizing": "65% ",
-      "border": true,
-      "caption": "Build Settings"
-    }
-  ]
-}
-[/block]
-
+<Image alt="Build Settings" align="center" width="65% " border={true} src="https://files.readme.io/9a40fa9106dd42dee514c494a0956bcd8cf6d5ddd37d0b2de12e4a4f009dda6e-image.png">
+  Build Settings
+</Image>
 
 4. Make the following changes to your Android application project, if applicable:
 
@@ -289,20 +199,20 @@ To integrate the required dependencies and configurations for your Android proje
 
       Otherwise, use `com.clevertap.unity.CleverTapOverrideActivity` as shown in the [Sample Manifest below](doc:unity-sdk-quick-start-guide-sdk-v300#sample-manifest-structure). 
 5. To enable Push Notifications, add the Firebase Unity SDK to your app. For more information, refer to [Firebase Unity Setup Docs](https://firebase.google.com/docs/cloud-messaging/unity/client).
-   - Download and import the `FirebaseMessaging.unitypackage` into your Unity project. Refer to [Firebase Unity SDK repository](https://firebase.google.com/docs/unity/setup).
+   * Download and import the `FirebaseMessaging.unitypackage` into your Unity project. Refer to [Firebase Unity SDK repository](https://firebase.google.com/docs/unity/setup).
 
 > 📘 Note
-> 
-> The Firebase Unity SDK auto-generates required entries in `AndroidManifest.xml` using your `google-services.json`.  
-> If you override this file, merge your custom configuration instead of reverting changes.  
+>
+> The Firebase Unity SDK auto-generates required entries in `AndroidManifest.xml` using your `google-services.json`.\
+> If you override this file, merge your custom configuration instead of reverting changes.\
 > This ensures CleverTap and Firebase settings coexist correctly.
 
 6. Edit the `AndroidManifest.xml` in `Assets/Plugins/Android` to add the following configurations:
 
-   - Your app’s Bundle Identifier
-   - FCM Sender ID
-   - Deep Link URL Scheme (if applicable)
-   - CleverTap Credentials (if not added via the _CleverTap Settings_ dialog)
+   * Your app’s Bundle Identifier
+   * FCM Sender ID
+   * Deep Link URL Scheme (if applicable)
+   * CleverTap Credentials (if not added via the *CleverTap Settings* dialog)
 
    #### Sample Manifest structure:
 
@@ -477,23 +387,9 @@ CleverTap.OnUserLogin(newProps);
 
 Navigate to the CleverTap Dashboard and check if the events and user profiles update as expected.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/8f5fc71ad7ab4a47d0b2482bc2acff48f834007c9878bfc7f03ee83c910bc739-image.png",
-        null,
-        "CleverTap Dashboard"
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "CleverTap Dashboard"
-    }
-  ]
-}
-[/block]
-
+<Image alt="CleverTap Dashboard" align="center" border={true} src="https://files.readme.io/8f5fc71ad7ab4a47d0b2482bc2acff48f834007c9878bfc7f03ee83c910bc739-image.png">
+  CleverTap Dashboard
+</Image>
 
 # Track User Events
 
@@ -517,9 +413,9 @@ CleverTap.RecordEvent("testEventWithProps", Props);
 
 If you encounter issues during integration, such as missing callbacks, user data not syncing, or build errors, refer to the following:
 
-- [Unity Troubleshooting and FAQs](doc:unity-troubleshooting-and-faqs)  
+* [Unity Troubleshooting and FAQs](doc:unity-troubleshooting-and-faqs)\
   Covers common issues, platform-specific caveats, and debugging tips.
 
-- Check that all required steps are completed correctly for both Android and iOS platforms.
+* Check that all required steps are completed correctly for both Android and iOS platforms.
 
 If you still face issues, contact the CleverTap Support team via the Support tab in your CleverTap dashboard.
