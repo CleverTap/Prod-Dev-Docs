@@ -65,7 +65,7 @@ CleverTap.GetCleverTapID();
 ```
 
 > 🚧 Platform-Specific Behavior
-> 
+>
 > iOS returns the ID immediately. Android requires the async callback above after SDK initialization.
 
 ## Set Multi Values For Key
