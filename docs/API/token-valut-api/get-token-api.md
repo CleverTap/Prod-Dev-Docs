@@ -38,7 +38,7 @@ Include the following headers in every GetToken API request.
 | Authorization | Yes      | Use `Authorization: Bearer YOUR_ACCESS_TOKEN`, where `YOUR_ACCESS_TOKEN` is your Vault access token. |
 
 > 📘 **Note**
-> 
+>
 > To use this API, first authenticate and retrieve an access token. To get your access token, refer to [Get Access Token](doc:get-access-token).
 
 # Request Parameters
@@ -168,9 +168,9 @@ if ($curlError) {
 
 In this example:
 
-- Replace `vault-endpoint` with the base URL for your vault deployment.
-- Replace `YOUR_ACCESS_TOKEN` with your vault access token.
-- Replace `user@example.com` with the PII value you want to tokenize.
+* Replace `vault-endpoint` with the base URL for your vault deployment.
+* Replace `YOUR_ACCESS_TOKEN` with your vault access token.
+* Replace `user@example.com` with the PII value you want to tokenize.
 
 # Example Request for Multiple Values
 
@@ -192,13 +192,10 @@ curl -X POST https://vault-endpoint/ct-vault/api/tokenization/tokens/batch \
 
 ```
 ```python
-
 ```
 ```javascript
-
 ```
 ```php
-
 ```
 
 # Response Parameters
@@ -213,8 +210,8 @@ This section describes the fields in a successful response.
 | dataType     | String  | Yes                          | Describes the type of the input value, for example `string`, `email`, or `phone`. The actual values depend on your Vault configuration.                        |
 | expiry       | String  | Yes, if expiry is configured | The timestamp when the token expires, in ISO 8601 format, such as `2027-09-24T12:34:56Z`. If your Vault does not use token expiry, this field might be absent. |
 
-- Store tokens as UTF-8 strings with enough length to accommodate the longest token your configuration can produce. As a safe default, use a column of at least 255 characters.
-- Do not rely on token prefixes, length, or character patterns for security or business logic.
+* Store tokens as UTF-8 strings with enough length to accommodate the longest token your configuration can produce. As a safe default, use a column of at least 255 characters.
+* Do not rely on token prefixes, length, or character patterns for security or business logic.
 
 # Example Response for a Single Value
 
@@ -302,9 +299,9 @@ The following is the response for getting tokens for multiple values:
 
 This API is idempotent for the same input value. If you send the same `value` multiple times, the following happens:
 
-- The API returns the same `token`.
-- On the first request, `newlyCreated` is true and `exists` is false.
-- On subsequent requests, `newlyCreated` is false and `exists` is true.
+* The API returns the same `token`.
+* On the first request, `newlyCreated` is true and `exists` is false.
+* On subsequent requests, `newlyCreated` is false and `exists` is true.
 
 For example,
 
@@ -340,11 +337,11 @@ All error responses use `Content-Type: application/json`.
 
 This section describes the fields in a error response.
 
-| Field      | Type   | Description                                                |
-| ---------- | ------ | ---------------------------------------------------------- |
-| error      | String | Machine readable error code.                               |
-| message    | String | Human readable description of the error and how to fix it. |
-| request_id | String | Optional correlation ID for support and debugging.         |
+| Field       | Type   | Description                                                |
+| ----------- | ------ | ---------------------------------------------------------- |
+| error       | String | Machine readable error code.                               |
+| message     | String | Human readable description of the error and how to fix it. |
+| request\_id | String | Optional correlation ID for support and debugging.         |
 
 The following is the sample error response:
 
@@ -360,16 +357,16 @@ The following is the sample error response:
 
 This table shows the list of error codes for the GetToken API.
 
-| HTTP status | error               | Description                                                                                                                                     |
-| :---------- | :------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------- |
-| 400         | invalid_input       | The request payload is missing required fields or contains malformed data. For example, `value` is absent or does not meet format requirements. |
-| 401         | unauthorized        | The request does not include valid credentials. The access token is missing, invalid, or expired.                                               |
-| 403         | forbidden           | The caller is authenticated but does not have permission to use the Vault or perform tokenization.                                              |
-| 500         | server_error        | The service encountered an unexpected error. You can retry after a short delay or contact support with the `request_id`.                        |
-| 503         | service_unavailable | The service is temporarily unavailable. Implement retries with exponential backoff.                                                             |
+| HTTP status | error                | Description                                                                                                                                     |
+| :---------- | :------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------- |
+| 400         | invalid\_input       | The request payload is missing required fields or contains malformed data. For example, `value` is absent or does not meet format requirements. |
+| 401         | unauthorized         | The request does not include valid credentials. The access token is missing, invalid, or expired.                                               |
+| 403         | forbidden            | The caller is authenticated but does not have permission to use the Vault or perform tokenization.                                              |
+| 500         | server\_error        | The service encountered an unexpected error. You can retry after a short delay or contact support with the `request_id`.                        |
+| 503         | service\_unavailable | The service is temporarily unavailable. Implement retries with exponential backoff.                                                             |
 
 # Related API
 
 For a complete token lifecycle, use the GetToken API with the following related endpoints:
 
-- [GetValue API](doc:get-value-api) to convert a token back to the original PII value, subject to permissions.
+* [GetValue API](doc:get-value-api) to convert a token back to the original PII value, subject to permissions.
