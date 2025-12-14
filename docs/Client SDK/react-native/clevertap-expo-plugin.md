@@ -21,17 +21,17 @@ This is ideal for teams using Expo’s managed workflow who want to avoid ejecti
 Before starting, refer to [Expo Plugin Quick Start Guide](doc:expo-plugin-quick-start-guide) for more details.
 
 > 📘 Public Beta
-> 
+>
 > This feature is released in Public Beta. it is fully functional, and we are actively fine-tuning it based on your feedback to ensure the best experience.
-> 
+>
 > For questions or to report issues, refer to the [CleverTap Developer Documentation](doc:getting-started) or contact our Support team via the Support section in the CleverTap Dashboard.
 
 # Prerequisites
 
 Ensure you have the following prerequisites to integrate CleverTap Expo Plugin with your app:
 
-- CleverTap account
-- Integrated Development Environment (IDE) for React Native development, such as VS Code, Atom, or WebStorm
+* CleverTap account
+* Integrated Development Environment (IDE) for React Native development, such as VS Code, Atom, or WebStorm
 
 # Supported Versions
 
@@ -60,7 +60,7 @@ Follow these steps to integrate the CleverTap Expo Plugin into your application:
 | Step 3 | [iOS Integration](doc:expo-plugin-quick-start-guide#ios-specific-configuration)                |
 
 > 📘 Note:
-> 
+>
 > These steps are detailed in the [Expo Plugin Quick Start Guide](doc:expo-plugin-quick-start-guide). Refer to it for complete instructions and examples.
 
 # CleverTap Expo Plugin Resources
@@ -78,5 +78,5 @@ The following table lists resources to support your integration and testing effo
 
 Refer to the following for additional CleverTap Expo Plugin references:
 
-- [CleverTap React Native SDK](doc:react-native)
-- [CleverTap Expo Plugin on npm](https://www.npmjs.com/package/@clevertap/clevertap-expo-plugin)
+* [CleverTap React Native SDK](doc:react-native)
+* [CleverTap Expo Plugin on npm](https://www.npmjs.com/package/@clevertap/clevertap-expo-plugin)
