@@ -11,7 +11,7 @@ next:
   description: ''
 ---
 > 📘 Feature Availability
-> 
+>
 > A new and enhanced version of Product Experiences is coming soon. New customers (CleverTap for Enterprise or CleverTap for Startups) who have not enabled the current functionalities can use this feature only when the new version is released. However, the existing users can continue to use it. The [methods](https://developer.clevertap.com/docs/may-2023#ios-500) for the Product Experiences feature have been deprecated and will be removed from the code by September 2024.
 
 # Overview
@@ -42,7 +42,7 @@ CleverTapProductConfig *productConfig = [[CleverTap sharedInstance] productConfi
 
 ## 3. Set default parameter values
 
-You can set in-app default parameter values in the Product Config object so that your app behaves as intended before values are fetched from CleverTap, and so that default values are available if none are set on the dashboard.  
+You can set in-app default parameter values in the Product Config object so that your app behaves as intended before values are fetched from CleverTap, and so that default values are available if none are set on the dashboard.\
 Define a set of parameter names, and default parameter values using a `plist` file or an NSDictionary object.
 
 **plist file** 
@@ -69,7 +69,7 @@ NSMutableDictionary *defaults = [NSMutableDictionary new];
 
 ## 4. Fetch and activate values
 
-To fetch parameter values from CleverTap, call the `fetch()` method. Any values that you set on the dashboard are fetched and stored in the Product Config object.  
+To fetch parameter values from CleverTap, call the `fetch()` method. Any values that you set on the dashboard are fetched and stored in the Product Config object.\
 To make fetched parameter values available to your app, call the `activate()` method.
 
 For cases where you want to fetch and activate values in one call, you can use a `fetchAndActivate()`request to fetch values from CleverTap and make them available to the app:
@@ -116,7 +116,7 @@ CleverTap.sharedInstance()?.productConfig.fetchAndActivate()
 
 ## 8. Throttling
 
-If an app fetches too many times in a short time period, fetch calls are throttled.  
+If an app fetches too many times in a short time period, fetch calls are throttled.\
 Throttling is controlled from the CleverTap servers as well from the SDK. 
 
 The maximum value of the two will be considered to make the next fetch request. The default fetch interval defined in the SDK is 12 Minutes (`CTProductConfigConstants.DEFAULT_MIN_FETCH_INTERVAL_SECONDS`)
@@ -222,9 +222,9 @@ NSNumber *numberValue = [[[[CleverTap sharedInstance] productConfig] get:@"key"]
 id jsonValue = [[[[CleverTap sharedInstance] productConfig] get:@"key"] jsonValue];
 ```
 
-The Supported data types are: Boolean, Double, Long, String, and JSON.  
-##Considerations:  
-JSON operations will be similar to that of String.  
+The Supported data types are: Boolean, Double, Long, String, and JSON.\
+\##Considerations:\
+JSON operations will be similar to that of String.\
 The getters return the default values of the type in case we don’t find any value for a key.
 
 | Type           | Default Value |
@@ -236,7 +236,7 @@ The getters return the default values of the type in case we don’t find any va
 
 ## Considerations:
 
-JSON operations will be similar to that of String.  
+JSON operations will be similar to that of String.\
 The getters return the default values of the type in case we don’t find any value for a key.
 
 ## 11. Resetting the Product Config
