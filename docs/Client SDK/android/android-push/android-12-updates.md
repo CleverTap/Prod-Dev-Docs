@@ -30,12 +30,12 @@ The `PendingIntent` is a unique instance that the CleverTap SDK creates inside e
 
 Android has restricted the usage of [Notification Trampolines](https://developer.android.com/about/versions/12/behavior-changes-12). The push notification must start the activity directly after the notification tap. It means that the broadcast receiver or service is now redundant for opening the activity.  
 
-- Automatic Handling by CleverTap SDK - When there is no target activity in the activity stack, the  CleverTap SDK uses the `onActivityCreated()` method from `com.clevertap.android.sdk.ActivityLifecycleCallback` class to perform the following:
+* Automatic Handling by CleverTap SDK - When there is no target activity in the activity stack, the  CleverTap SDK uses the `onActivityCreated()` method from `com.clevertap.android.sdk.ActivityLifecycleCallback` class to perform the following:
 
-  - Raise the Notification Clicked event
-  - Provide a callback to the application
+  * Raise the Notification Clicked event
+  * Provide a callback to the application
 
-- Manual Handling by the Application - If a target activity is available in the activity stack, then you must handle these actions manually. For example, the payment screen is visible to the user, and the target activity of the deeplink is the payment screen. The `onNewIntent()` method can process the Notification Clicked event and provide the callback to the application using the`clevertapApi.pushNotificationClickedEvent()` method. 
+* Manual Handling by the Application - If a target activity is available in the activity stack, then you must handle these actions manually. For example, the payment screen is visible to the user, and the target activity of the deeplink is the payment screen. The `onNewIntent()` method can process the Notification Clicked event and provide the callback to the application using the`clevertapApi.pushNotificationClickedEvent()` method. 
 
 #### Example
 
@@ -75,14 +75,14 @@ class HomeScreenActivity extends AppCompatActivity {
 
 The tables below show Notification Clicked Handling in Android 12.
 
-- Without a deeplink or with an internal deeplink:
+* Without a deeplink or with an internal deeplink:
 
 | Application Running Status | Activity in Backstack                                                                                                                     | Activity not in Backstack                                                                                                                                                               |
 | :------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Foreground/Background      | Call the `clevertapApi.pushNotificationClickedEvent()` method to raise notification clicks and callback  from the `onNewIntent` callback. | The `onActivityCreated` callback from the `com.clevertap.android.sdk.ActivityLifecycleCallback` class raises the Notification Clicked event and provides a callback to the application. |
 | Killed                     | Not Applicable.                                                                                                                           | The `onActivityCreated` callback from the `com.clevertap.android.sdk.ActivityLifecycleCallback` class raises the Notification Clicked event and provides a callback to the application. |
 
-- With an external deeplink:
+* With an external deeplink:
 
 | Application Running Status | Activity in Backstack           | Activity not in Backstack       |
 | :------------------------- | :------------------------------ | :------------------------------ |
@@ -90,7 +90,7 @@ The tables below show Notification Clicked Handling in Android 12.
 | Killed                     | Not Applicable                  | No Notification Clicks tracked. |
 
 > 📘 Tracking Deeplinks
-> 
+>
 > The notification trampoline restrictions mean that we cannot track the Notification Clicked events when the deeplinks point to a third-party application.
 
 ### Notification CTA Click Handling
@@ -105,13 +105,13 @@ The `PendingIntent` is a unique instance that the CleverTap SDK creates inside e
 
 Android has restricted the usage of [Notification Trampolines](https://developer.android.com/about/versions/12/behavior-changes-12) in all OS versions above version 12. The push notification must start the activity directly after the notification tap. It means that the broadcast receiver or service is now redundant for opening the activity.  
 
-- Automatic Handling by CleverTap SDK - When there is no target activity in the activity stack, the  CleverTap SDK uses the `onActivityCreated()` method from the `com.clevertap.android.sdk.ActivityLifecycleCallback` class to perform the following:
+* Automatic Handling by CleverTap SDK - When there is no target activity in the activity stack, the  CleverTap SDK uses the `onActivityCreated()` method from the `com.clevertap.android.sdk.ActivityLifecycleCallback` class to perform the following:
 
-- Raise the Notification Clicked event
+* Raise the Notification Clicked event
 
-- Provide a callback to the application
+* Provide a callback to the application
 
-- Manual Handling by the Application - If a target activity is available in the activity stack, then you must handle these actions manually. For example, the payment screen is visible to the user, and the target activity of deeplink is the payment screen. The `onNewIntent()` method can process the Notification Clicked event and provide the callback to the application using the`clevertapApi.pushNotificationClickedEvent()` method. 
+* Manual Handling by the Application - If a target activity is available in the activity stack, then you must handle these actions manually. For example, the payment screen is visible to the user, and the target activity of deeplink is the payment screen. The `onNewIntent()` method can process the Notification Clicked event and provide the callback to the application using the`clevertapApi.pushNotificationClickedEvent()` method. 
 
 #### Example
 
@@ -151,14 +151,14 @@ class HomeScreenActivity extends AppCompatActivity {
 
 The tables below show Notification Clicked Handling in Android 12.
 
-- Without a deeplink or with an internal deeplink:
+* Without a deeplink or with an internal deeplink:
 
 | Application Running Status | Activity in Backstack                                                                                                                     | Activity not in Backstack                                                                                                                                                               |
 | :------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Foreground/Background      | Call the `clevertapApi.pushNotificationClickedEvent()` method to raise notification clicks and callback  from the `onNewIntent` callback. | The `onActivityCreated` callback from the `com.clevertap.android.sdk.ActivityLifecycleCallback` class raises the Notification Clicked event and provides a callback to the application. |
 | Killed                     | Not Applicable.                                                                                                                           | The `onActivityCreated` callback from the `com.clevertap.android.sdk.ActivityLifecycleCallback` class raises the Notification Clicked event and provides a callback to the application. |
 
-- With an external deeplink:
+* With an external deeplink:
 
 | Application Running Status | Activity in Backstack           | Activity not in Backstack       |
 | :------------------------- | :------------------------------ | :------------------------------ |
@@ -166,7 +166,7 @@ The tables below show Notification Clicked Handling in Android 12.
 | Killed                     | Not Applicable.                 | No Notification Clicks tracked. |
 
 > 📘 Tracking Deeplinks
-> 
+>
 > The notification trampoline restrictions mean that we cannot track the Notification Clicked events when the deeplinks point to a third-party application.
 
 ### Clear Notification on CTA Click
@@ -181,13 +181,13 @@ The `PendingIntent` is a unique instance that the CleverTap SDK creates inside e
 
  Android has restricted the usage of [Notification Trampolines](https://developer.android.com/about/versions/12/behavior-changes-12) in all OS versions above version 12. The push notification must start the activity directly after the notification tap. It means that the broadcast receiver or service is now redundant for opening the activity.
 
-- Automatic handling by CleverTap SDK - This handling is not applicable for clearing a notification.
+* Automatic handling by CleverTap SDK - This handling is not applicable for clearing a notification.
 
-- Manual handling by the application - There are two cases of manual handling for clearing notifications:
+* Manual handling by the application - There are two cases of manual handling for clearing notifications:
 
-- Target activity available in the activity stack - You must handle these actions manually. For example, the payment screen is visible to the user, and the target activity of deeplink is the payment screen.  The `onNewIntent()` method can process the clearing of notifications.
+* Target activity available in the activity stack - You must handle these actions manually. For example, the payment screen is visible to the user, and the target activity of deeplink is the payment screen.  The `onNewIntent()` method can process the clearing of notifications.
 
-- Target activity not available in the activity stack - Register the activity lifecycle callbacks of the `android.app.Application.ActivityLifecycleCallbacks` class to clear the notification in the `onActivityCreated` method.
+* Target activity not available in the activity stack - Register the activity lifecycle callbacks of the `android.app.Application.ActivityLifecycleCallbacks` class to clear the notification in the `onActivityCreated` method.
 
 #### Example
 
@@ -319,7 +319,7 @@ You must explicitly declare the `android:exported` attribute if your app contain
 
 ### Custom Notifications
 
-To streamline User Experience when apps use entirely Custom Notification layouts, Android 12 will prevent such notifications from using the whole notification area.  
-Android 12 introduces a standard template for notifications, ensuring the same decoration for all notifications. It has a fixed header with the app name and a consistent expand/collapse appearance.  
-Detailed documentation and illustration are available in the [Android user experience documentation](https://developer.android.com/about/versions/12/behavior-changes-12#custom-notifications).  
+To streamline User Experience when apps use entirely Custom Notification layouts, Android 12 will prevent such notifications from using the whole notification area.\
+Android 12 introduces a standard template for notifications, ensuring the same decoration for all notifications. It has a fixed header with the app name and a consistent expand/collapse appearance.\
+Detailed documentation and illustration are available in the [Android user experience documentation](https://developer.android.com/about/versions/12/behavior-changes-12#custom-notifications).\
 CleverTap Push Templates SDK will be released soon, supporting Android 12 changes related to Custom Notifications.
