@@ -19,15 +19,15 @@ Nested Objects allow developers to represent structured user data directly withi
 For more information, refer to [Nested Objects](https://docs.clevertap.com/docs/nested-objects).
 
 > 📘 Public Beta
-> 
+>
 > This feature is released in Public Beta. For more information about this feature, contact your Customer Success Manager or CleverTap Support.
 
 ## Prerequisites
 
 Before using Nested Objects, check the following:
 
-- The feature is enabled for your CleverTap account.
-- Your account schema supports object and array data types.
+* The feature is enabled for your CleverTap account.
+* Your account schema supports object and array data types.
 
 ## Sending Structured Data
 
@@ -72,13 +72,13 @@ Follow these guidelines to maintain consistent and valid ingestion:
 
 **Ingestion**
 
-- Keep schema definitions identical across all data sources.
-- Avoid sending empty or null objects. CleverTap automatically excludes them during ingestion.
+* Keep schema definitions identical across all data sources.
+* Avoid sending empty or null objects. CleverTap automatically excludes them during ingestion.
 
 **Validation**
 
-- Validate all JSON payloads before sending them to the API.
-- Monitor your account’s ingestion logs for errors or dropped fields.
+* Validate all JSON payloads before sending them to the API.
+* Monitor your account’s ingestion logs for errors or dropped fields.
 
 ## System Considerations
 
@@ -111,10 +111,10 @@ When errors occur, review the API response message and check the CleverTap dashb
 
 Use the following steps to diagnose issues when sending or querying nested data:
 
-- **Schema mismatch:** Check that your schema and payload structure match exactly.
-- **Oversized payload:** Reduce nested array lengths or split data into multiple events.
-- **Dropped fields:** Verify the number of keys and nesting depth are within limits.
-- **Slow queries:** Limit nested filters and use simpler segmentation rules.
+* **Schema mismatch:** Check that your schema and payload structure match exactly.
+* **Oversized payload:** Reduce nested array lengths or split data into multiple events.
+* **Dropped fields:** Verify the number of keys and nesting depth are within limits.
+* **Slow queries:** Limit nested filters and use simpler segmentation rules.
 
 # FAQs
 
