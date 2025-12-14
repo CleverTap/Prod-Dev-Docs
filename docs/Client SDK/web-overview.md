@@ -18,9 +18,9 @@ This section demonstrates how to set up CleverTap’s JavaScript library on your
 
 Ensure you have the following prerequisites to start the Web integration:
 
-- CleverTap account
-- A functional website
-- Web Integrated Development Environment (IDE) such as Visual Studio Code and WebStorm
+* CleverTap account
+* A functional website
+* Web Integrated Development Environment (IDE) such as Visual Studio Code and WebStorm
 
 # Supported Versions
 
@@ -30,26 +30,40 @@ The CleverTap Web SDK version 2.3.0 supports all web browsers with existing vers
 
 Refer to the following table for Web SDK versions and Web SDK code size:
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Version",
-    "h-1": "SDK",
-    "h-2": "Code Size",
-    "0-0": "2.3.0",
-    "0-1": "Web",
-    "0-2": "Minified Version: Approximately 240.7 KB  \nUnpacked Version: 2.1 MB"
-  },
-  "cols": 3,
-  "rows": 1,
-  "align": [
-    "left",
-    "left",
-    "left"
-  ]
-}
-[/block]
+<Table align={["left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Version
+      </th>
 
+      <th>
+        SDK
+      </th>
+
+      <th>
+        Code Size
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        2.3.0
+      </td>
+
+      <td>
+        Web
+      </td>
+
+      <td>
+        Minified Version: Approximately 240.7 KB\
+        Unpacked Version: 2.1 MB
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 # Integrate the Web SDK
 
@@ -76,8 +90,25 @@ The following table lists all the Web SDK resources:
 
 Following are the additional Web SDK references:
 
-[block:html]
-{
-  "html": "<div class=\"two-col-container\">\n  <div class=\"link-content\">\n    <h4 class=\"custom-heading\">Web Data Tracking</h4>\n    <p><a class=\"links\" href=\"https://developer.clevertap.com/docs/web-quickstart-guide#identify-users\" target=\"_blank\" rel=\"noopener noreferrer\">Web User Profile</a></p>\n    <p><a class=\"links\" href=\"https://developer.clevertap.com/docs/web-quickstart-guide#track-user-events\" target=\"_blank\" rel=\"noopener noreferrer\">Web User Events</a></p>\n  </div>\n  <div class=\"link-content\">\n    <h4 class=\"custom-heading\">Web Push</h4>\n    <p><a class=\"links\" href=\"https://developer.clevertap.com/docs/web-push\" target=\"_blank\" rel=\"noopener noreferrer\">Web Push Notifications\n      </a></p>\n  </div>\n  <div class=\"link-content\">\n    <h4 class=\"custom-heading\">Web SDK Features</h4>\n    <p><a class=\"links\" href=\"https://developer.clevertap.com/docs/web-popup\" target=\"_blank\" rel=\"noopener noreferrer\">Web Pop-Ups and Exit Intent</a></p>\n    <p><a class=\"links\" href=\"https://developer.clevertap.com/docs/web-native-display\" target=\"_blank\" rel=\"noopener noreferrer\">Web Native Display\n      </a></p>\n    <p><a class=\"links\" href=\"https://developer.clevertap.com/docs/web-inbox\" target=\"_blank\" rel=\"noopener noreferrer\">Web Inbox\n      </a></p>\n  </div> \n</div>"
-}
-[/block]
+<HTMLBlock>{`
+<div class="two-col-container">
+  <div class="link-content">
+    <h4 class="custom-heading">Web Data Tracking</h4>
+    <p><a class="links" href="https://developer.clevertap.com/docs/web-quickstart-guide#identify-users" target="_blank" rel="noopener noreferrer">Web User Profile</a></p>
+    <p><a class="links" href="https://developer.clevertap.com/docs/web-quickstart-guide#track-user-events" target="_blank" rel="noopener noreferrer">Web User Events</a></p>
+  </div>
+  <div class="link-content">
+    <h4 class="custom-heading">Web Push</h4>
+    <p><a class="links" href="https://developer.clevertap.com/docs/web-push" target="_blank" rel="noopener noreferrer">Web Push Notifications
+      </a></p>
+  </div>
+  <div class="link-content">
+    <h4 class="custom-heading">Web SDK Features</h4>
+    <p><a class="links" href="https://developer.clevertap.com/docs/web-popup" target="_blank" rel="noopener noreferrer">Web Pop-Ups and Exit Intent</a></p>
+    <p><a class="links" href="https://developer.clevertap.com/docs/web-native-display" target="_blank" rel="noopener noreferrer">Web Native Display
+      </a></p>
+    <p><a class="links" href="https://developer.clevertap.com/docs/web-inbox" target="_blank" rel="noopener noreferrer">Web Inbox
+      </a></p>
+  </div> 
+</div>
+`}</HTMLBlock>
