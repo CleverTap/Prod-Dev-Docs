@@ -79,6 +79,14 @@ POST
 | from       | Start of date range for events needed. Value specified in format YYYYMMDD.                                                                                                                                                                         | int    | 20171201       |
 | to         | End of date range for events needed. Value specified in format YYYYMMDD.                                                                                                                                                                           | int    | 20171225       |
 
+```json
+{
+  "event_name": "Charged",
+  "from": 1622505600,
+  "to": 1625097600
+}
+```
+
 ### Sample Request
 
 Here is an example cURL request to the Get User Profiles API showing the headers needed to authenticate the request from the account in the India region:
@@ -201,6 +209,13 @@ defer resp.Body.Close()
 ```
 
 ### Sample Response
+
+```json
+{
+ "cursor":"AfljfgIJBgBnamF5Kz8NegcBAwxhbCe%2Fbmhhe04BBAVlYjT4YG5reQEATQQrai57K2oue04FAUhnd38%3D",
+ "status":"success"
+}
+```
 
 ## Get User Profiles Using Cursor
 
@@ -328,7 +343,107 @@ If additional user profiles are available, next_cursor will be returned. The val
 
 User profiles will be returned in a records object. The schema for the user profile object is documented in the section below.
 
+```json
+{
+
+  "status": "success",
+
+  "next_cursor": "ZiZjNwMEBQBkaWZzY2MuO20BBQFlYmN7ZG5hewYBTQVjb2BzZmphfwEABQUra2Jmeg%3D%3D",
+
+  "records": [
+
+    {
+
+      "identity": "5555555555",
+
+      "profileData": {
+
+        "favoriteFood": "pizza",
+
+        "MSG-email": true,	// Channel preference flag (for exmaple, email messaging enabled)
+
+        "subscription-groups": {	// Subscription group preferences for messaging channels
+
+          "email": {
+
+            "tech news": true,	// Subscribed to group "tech news"
+
+            "marketing": false,	// Not subscribed to group "marketing"
+
+            "service updates": true	// Subscribed to group "service updates"
+
+          }
+
+        }
+
+      },
+
+      "events": {
+
+        "App Launched": {
+
+          "count": 10,
+
+          "first_seen": 1457271567,
+
+          "last_seen": 1458041215
+
+        },
+
+        "Charged": {
+
+          "count": 6,
+
+          "first_seen": 1457962417,
+
+          "last_seen": 1458041276
+
+        }
+
+      },
+
+      "platformInfo": [
+
+        {
+
+          "platform": "iOS",
+
+          "os_version": "10.2",
+
+          "app_version": "6.1.3",
+
+          "make": "Apple",
+
+          "model": "iPhone7,2",
+
+          "push_token": "95f98af6ad9a5e714a56c5bf527a78cb1e3eda18d2f23bc8591437d0d8ae71a3",
+
+          "objectId": "-1a063854f83a4c6484285039ecff87cb"
+
+        },
+
+        {
+
+          "platform": "Web",
+
+          "objectId": "a8ffcbc9-a747-4ee3-a791-c5e58ad03097"
+
+        }
+
+      ]
+
+    }
+
+  ]
+
+}
+```
+
 If no more user profiles are available, `next_cursor` will not be returned, and a success response will be returned.
+
+```json
+{ "status" : "success"}
+```
 
 ### User Profile Object
 
@@ -473,13 +588,29 @@ The user profile returns in a record object. The schema for the user profile obj
 
     "email": "jack@gmail.com",
 
+    "identity": "5555555555",
+
     "profileData": {
 
-      "Last Score": 308,
+      "High Score": 200,
 
-      "High Score": 308,
+      "Favorite Food": "Pizza",
 
-      "Replayed": true
+      "MSG-email": true,		// Channel preference flag (for exmaple, email messaging enabled)
+
+      "subscription-groups": {	// Subscription group preferences for messaging channels
+
+        "email": {							 
+
+          "tech news": true,	// Subscribed to group "tech news"	
+
+          "marketing": false,	// Not subscribed to group "marketing"
+
+          "service updates": true		//Subscribed to group "service updates"
+
+        }
+
+      }
 
     },
 
@@ -489,19 +620,9 @@ The user profile returns in a record object. The schema for the user profile obj
 
         "count": 10,
 
-        "first_seen": 1457271567,
+        "first_seen": 1622505600,
 
-        "last_seen": 1458041215
-
-      },
-
-      "Charged": {
-
-        "count": 6,
-
-        "first_seen": 1457962417,
-
-        "last_seen": 1458041276
+        "last_seen": 1625097600
 
       }
 
@@ -513,25 +634,17 @@ The user profile returns in a record object. The schema for the user profile obj
 
         "platform": "iOS",
 
-        "os_version": "10.2",
+        "os_version": "14.6",
 
-        "app_version": "6.1.3",
+        "app_version": "1.2.3",
 
         "make": "Apple",
 
-        "model": "iPhone7,2",
+        "model": "iPhone 12",
 
-        "push_token": "95f98af6ad9a5e714a56c5bf527a78cb1e3eda18d2f23bc8591437d0d8ae71a3",
+        "push_token": "abcdef12345",
 
-        "objectId": "-1a063854f83a4c6484285039ecff87cb"
-
-      },
-
-      {
-
-        "platform": "Web",
-
-        "objectId": "a8ffcbc9-a747-4ee3-a791-c5e58ad03097"
+        "objectId": "1a063854f83a4c6484285039ecff87cb"
 
       }
 
@@ -541,8 +654,6 @@ The user profile returns in a record object. The schema for the user profile obj
 
 }
 ```
-
-<br />
 
 # Additional Resources
 
