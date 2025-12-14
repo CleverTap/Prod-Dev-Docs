@@ -10,8 +10,4 @@ metadata:
 next:
   description: ''
 ---
-[block:api-header]
-{
-  "title": "Overview"
-}
-[/block]
+## Overview
