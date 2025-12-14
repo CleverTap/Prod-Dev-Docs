@@ -26,28 +26,28 @@ Set the SDK to DEBUG mode during development to view warnings and other importan
 
 Debug level can be one of the following:
 
-- `-1`: Disables all debugging. You can set the `debugLevel` to -1 if you want to disable CleverTap logs for the production environment.
-- `0`: Default, shows minimal SDK integration related logging.
-- `2`: Shows debug output.
-- `3`: Shows verbose output.
+* `-1`: Disables all debugging. You can set the `debugLevel` to -1 if you want to disable CleverTap logs for the production environment.
+* `0`: Default, shows minimal SDK integration related logging.
+* `2`: Shows debug output.
+* `3`: Shows verbose output.
 
 ```javascript JavaScript
 CleverTap.setDebugLevel(debugLevel);
 ```
 
 > 🚧 Note
-> 
+>
 > To get the SDK logs in the killed state, add platform-specific debugging. 
-> 
-> - For Android platform, refer to [Android Debugging](doc:android-advanced-features#debugging).
-> - For iOS platform, refer to [iOS Debugging](doc:advanced-options-ios#debugging).
+>
+> * For Android platform, refer to [Android Debugging](doc:android-advanced-features#debugging).
+> * For iOS platform, refer to [iOS Debugging](doc:advanced-options-ios#debugging).
 
 ## Custom Push Notifications (Android Only)
 
 CleverTap's React Native SDK provides a built-in mechanism for receiving [push notifications](https://developer.clevertap.com/docs/react-native-push-notification) via FCM. However, if you have your own custom Service for managing push notifications, you can inform CleverTap about the service’s token ID whenever it is available. Following are the APIs for supported Platforms:
 
 > 📘 Note
-> 
+>
 > FCM Token, HPS Token, and BPS Token should be fetched from respective push providers after user permissions are granted.
 
 #### Registering FCM Token
@@ -124,7 +124,7 @@ CleverTap.pushDisplayUnitClickedEventForID('Display Unit Id');// Replace "displa
 ## Product Config
 
 > 📘 Feature Availability
-> 
+>
 > A new and enhanced version of Product Experiences is coming soon. New customers (CleverTap for Enterprise or CleverTap for Startups) who have not enabled the current functionalities can use this feature only when the new version is released. However, the existing users can continue to use it. The [methods](https://developer.clevertap.com/docs/may-2023#react-native-110) for the Product Experiences feature have been deprecated and will be removed from the code by September 2024.
 
 #### Set Product Configuration to Default
@@ -320,8 +320,8 @@ PII data is stored across the SDK and could be sensitive information. From Cleve
 
 Currently, two levels of encryption are supported, i.e., None(0) and Medium(1). The encryption level is None by default.
 
-- **None**: All stored data is in plaintext
-- **Medium**: PII data is encrypted completely
+* **None**: All stored data is in plaintext
+* **Medium**: PII data is encrypted completely
 
 ### Android
 
@@ -352,5 +352,5 @@ From CleverTap Android SDK v7.5.0 and iOS SDK v7.3.1 onwards, this feature is su
 
 To learn more, refer to:
 
-- [Encryption in Transit for Android](doc:android-advanced-features#encryption-in-transit)
-- [Encryption in Transit for iOS](doc:advanced-options-ios#encryption-in-transit)
+* [Encryption in Transit for Android](doc:android-advanced-features#encryption-in-transit)
+* [Encryption in Transit for iOS](doc:advanced-options-ios#encryption-in-transit)
