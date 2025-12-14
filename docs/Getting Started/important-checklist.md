@@ -14,5 +14,5 @@ next:
       slug: clevertap-sdks
       title: SDKs
 ---
-1) Link to Integration checklist
-2) Link to App Go Live checklist
+1. Link to Integration checklist
+2. Link to App Go Live checklist
