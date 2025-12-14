@@ -3,12 +3,12 @@ title: markMessagesAsClicked API
 excerpt: Learn how to track clicks on links embedded in the Inbox message using API.
 deprecated: false
 hidden: true
+link:
+  new_tab: false
 metadata:
   title: ''
   description: ''
   robots: index
-next:
-  description: ''
 ---
 # Overview
 
@@ -32,148 +32,6 @@ POST
 
 The following headers are required when you use CleverTap APIs:
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 The `X-CleverTap-Account-Id` and `X-CleverTap-Passcode` authenticate the request.
 
 | Header                 | Description                                                 | Type   | Example Value                         |
@@ -185,7 +43,6 @@ The `X-CleverTap-Account-Id` and `X-CleverTap-Passcode` authenticate the request
 # Body Parameters
 
 The following are the body parameters included in the JSON response payload:
-
 
 <Table align={["left","left","left","left"]}>
   <thead>
@@ -241,18 +98,7 @@ The following are the body parameters included in the JSON response payload:
       </td>
 
       <td>
-        [  
-            {  
-              "messageId": 1,  
-              "wzrk_id": "12345679_20240130",  
-              "wzrk_pivot": "wzrk_default"  
-            },  
-            {  
-              "messageId": 2,  
-              "wzrk_id": "12345679_20240131",  
-              "wzrk_pivot": "wzrk_default"  
-            }  
-          ]
+        <code>{'['}<br />{'    {'}<br />{'      "messageId": 1,'}<br />{'      "wzrk_id": "12345679_20240130",'}<br />{'      "wzrk_pivot": "wzrk_default"'}<br />{'    },'}<br />{'    {'}<br />{'      "messageId": 2,'}<br />{'      "wzrk_id": "12345679_20240131",'}<br />{'      "wzrk_pivot": "wzrk_default"'}<br />{'    }'}<br />{']'}</code>
       </td>
     </tr>
 
@@ -306,8 +152,7 @@ The following are the body parameters included in the JSON response payload:
       </td>
 
       <td>
-        wzrk\_default\
-        (when the default variant is rolled out to the user)
+        wzrk\_default<br />(when the default variant is rolled out to the user)
       </td>
     </tr>
   </tbody>
@@ -316,6 +161,7 @@ The following are the body parameters included in the JSON response payload:
 # Example Request
 
 Here is an example cURL request to the markMessagesAsRead API showing the headers needed to authenticate the request from the account in the India region:
+
 ```curl
 curl --location --request POST 'https://in1.api.clevertap.com/1/inbox/markMessagesAsClicked' \
 --header 'X-CleverTap-Account-Id: YOUR_ACCOUNT_ID' \
@@ -337,6 +183,7 @@ curl --location --request POST 'https://in1.api.clevertap.com/1/inbox/markMessag
   ]
 }'
 ```
+
 ```ruby
 require "uri"
 require "json"
@@ -371,6 +218,7 @@ request.body = JSON.dump({
 response = https.request(request)
 puts response.read_body
 ```
+
 ```python
 import requests
 import json
@@ -403,6 +251,7 @@ response = requests.request("POST", url, headers=headers, data=payload)
 
 print(response.text)
 ```
+
 ```php
 <?php
 
@@ -431,6 +280,7 @@ $response = curl_exec($curl);
 curl_close($curl);
 echo $response;
 ```
+
 ```node
 var request = require('request');
 var options = {
@@ -465,148 +315,23 @@ request(options, function (error, response) {
 });
 ```
 
-
 # Example Response
 
 The following response is received when the request is processed successfully:
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+```json
+{
+  "status": "success"
+}
+```
 
 If there is an error in processing the request, the following response is received:
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+```json
+{
+  "status": "fail",
+  "error": "Error message"
+}
+```
 
 For more information about different errors you might encounter, refer to [Inbox API Errors](doc:inbox-api-errors).
