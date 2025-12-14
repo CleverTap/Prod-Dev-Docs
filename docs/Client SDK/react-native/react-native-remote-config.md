@@ -17,23 +17,23 @@ With the CleverTap React Native SDK, you can create variables on your app that t
 You can define variables using the CleverTap React Native SDK. When you define a variable in your code, you can sync it to the CleverTap Dashboard via the provided SDK methods.
 
 > 📘 SDK Prerequisite
-> 
+>
 > Before you proceed, ensure that you are using React Native v1.1.0 or higher to use the Remote Config feature.
 
 # Supported Variable Types
 
 CleverTap React Native SDK supports the following variable types:
 
-- String
-- Boolean
-- Dictionary
-- Int
-- Float
-- Double
-- Short
-- Long
-- Number
-- File (supported for CleverTap SDK **v3.1.0 or higher**)
+* String
+* Boolean
+* Dictionary
+* Int
+* Float
+* Double
+* Short
+* Long
+* Number
+* File (supported for CleverTap SDK **v3.1.0 or higher**)
 
 # Define Variables
 
@@ -78,11 +78,11 @@ CleverTap.syncVariables();
 ```
 
 > 📘 Key Points to Remember
-> 
-> - In a scenario where there is already a draft created by another user profile in the dashboard, the sync call will fail to avoid overriding important changes made by someone else. In this case, Publish or Dismiss the existing draft before you proceed with syncing variables again. However, you can override a draft you created via the sync method previously to optimize the integration experience.
-> - You can receive the following Logcat logs from the CleverTap SDK:
->   - Variables synced successfully.
->   - Unauthorized access from a non-test profile. To address this, mark the profile as a test profile from the CleverTap dashboard.
+>
+> * In a scenario where there is already a draft created by another user profile in the dashboard, the sync call will fail to avoid overriding important changes made by someone else. In this case, Publish or Dismiss the existing draft before you proceed with syncing variables again. However, you can override a draft you created via the sync method previously to optimize the integration experience.
+> * You can receive the following Logcat logs from the CleverTap SDK:
+>   * Variables synced successfully.
+>   * Unauthorized access from a non-test profile. To address this, mark the profile as a test profile from the CleverTap dashboard.
 
 # Fetch Variables During a Session
 
@@ -152,10 +152,10 @@ CleverTap.fetchVariables((err, success) => {
 ```
 
 > 📘 Note
-> 
-> - Always call `fetchVariables()` immediately after any user property updates used in Product Experience segments.
-> - The fetch call is asynchronous; use the callback to confirm success.
-> - Existing `VariableCallback` instances are automatically triggered when variables change.
+>
+> * Always call `fetchVariables()` immediately after any user property updates used in Product Experience segments.
+> * The fetch call is asynchronous; use the callback to confirm success.
+> * Existing `VariableCallback` instances are automatically triggered when variables change.
 
 ## Access Variable Values
 
@@ -185,10 +185,10 @@ CleverTap.getVariable('reactnative_var_string', (err, variable) => {
 
 CleverTap React Native SDK provides feedback through multiple callbacks. You can select only the required callbacks. They are as follows:
 
-- [All Variables Callbacks](doc:react-native-remote-config#all-variables-callbacks)
-- [Individual Variable Callback](doc:react-native-remote-config#individual-variable-callback) 
-- [All File Variables Callback](doc:react-native-remote-config#all-file-variables-callback) 
-- [File Variables Individual Callback](doc:react-native-remote-config#file-variables-individual-callback) 
+* [All Variables Callbacks](doc:react-native-remote-config#all-variables-callbacks)
+* [Individual Variable Callback](doc:react-native-remote-config#individual-variable-callback) 
+* [All File Variables Callback](doc:react-native-remote-config#all-file-variables-callback) 
+* [File Variables Individual Callback](doc:react-native-remote-config#file-variables-individual-callback) 
 
 ## All Variables Callbacks
 
