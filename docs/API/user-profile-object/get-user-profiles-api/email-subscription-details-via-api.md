@@ -38,9 +38,11 @@ Getting a list of user profiles by events requires two steps:
 * With your first API call, specify the event name, date range, and batch size needed. This request returns a cursor you will use to get the list of user profile records in the [Get User Profiles Using Cursor](doc:get-user-profiles-api#get-cursor-by-specifying-events-for-user-profiles) section.
 * Make a second API call using the cursor from the [Get Cursor by Specifying Events for User Profiles](doc:subscription-api#get-cursor-by-specifying-events-for-user-profiles) section. This call returns the first batch of user profiles and another cursor to get the second batch of user profiles. You repeat this process until the cursor is not returned in the response, meaning no more matching user profiles exist.
 
-> 📘 Batch Size
->
-> The batch size denotes the maximum number of records that can be fetched in a single call. The batch size should be provided in multiples of 23 (23, 46, 69....) as there is a total of 23 memory buckets available in CleverTap's data storage mechanism.
+<Callout icon="📘" theme="info">
+  **Batch Size**
+
+  The batch size denotes the maximum number of records that can be fetched in a single call. The batch size should be provided in multiples of 23 (23, 46, 69....) as there is a total of 23 memory buckets available in CleverTap's data storage mechanism.
+</Callout>
 
 ## Get Cursor by Specifying Events for User Profiles
 
