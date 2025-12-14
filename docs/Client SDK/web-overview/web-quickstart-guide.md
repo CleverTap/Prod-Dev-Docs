@@ -30,10 +30,10 @@ There are two ways to integrate CleverTap Web SDK:
 To get started, use the following steps:
 
 1. Copy and paste the code snippet below inside the `<head>` section of your website.
-2. Replace `CLEVERTAP_ACCOUNT_ID` with your CleverTap Account ID. You can find your CleverTap Account ID on the _Settings_ page of the CleverTap dashboard. 
+2. Replace `CLEVERTAP_ACCOUNT_ID` with your CleverTap Account ID. You can find your CleverTap Account ID on the *Settings* page of the CleverTap dashboard. 
 
 > 📘 Note
-> 
+>
 > If you are upgrading from Legacy SDK, we strongly recommend testing for event/user properties instrumentation with all integrated platforms like Website, App WebViews, and TVs.
 
 ```javascript
@@ -56,7 +56,7 @@ clevertap.privacy.push({useIP: false}); //set the flag to true, if the user agre
 
 ## Option B - Using the Package Manager (Recommended)
 
-CleverTap Web SDK is available as an **npm** package for adding to your website.  
+CleverTap Web SDK is available as an **npm** package for adding to your website.\
 Use the following npm command for the node package manager:
 
 ```javascript
@@ -82,7 +82,7 @@ The legacy Web SDK represented below is deprecated, and no fixes will be release
 To add the CleverTap JavaScript library manually to your website:
 
 1. Copy and paste the code snippet below inside the `<head> `section of your website.
-2. Replace `CLEVERTAPACCOUNT_ID` with your CleverTap Account ID. You can find your CleverTap Account ID on the _Settings_ page of the CleverTap dashboard.
+2. Replace `CLEVERTAPACCOUNT_ID` with your CleverTap Account ID. You can find your CleverTap Account ID on the *Settings* page of the CleverTap dashboard.
 3. Replace the existing code snippet with the new code snippet mentioned below. 
 
 **Existing Code Snippet**
@@ -127,7 +127,7 @@ clevertap.privacy.push({useIP: false}); //set the flag to true, if the user agre
 
 ### Option B: Migrate to the Latest SDK Using the Package Manager
 
-CleverTap Web SDK is available as an _npm_ package for adding to your website. Use the following _npm_ command for the node package manager:
+CleverTap Web SDK is available as an *npm* package for adding to your website. Use the following *npm* command for the node package manager:
 
 ```javascript
 npm install clevertap-web-sdk --save
@@ -136,7 +136,7 @@ npm install clevertap-web-sdk --save
 Please feel free to reach out to our customer support in case you face any issues.
 
 > 📘 Endpoint Change
-> 
+>
 > The CleverTap Web SDK endpoint is now also configured with domains and sub-domains of `clevertap-prod.com`.
 
 ## Add Region Code
@@ -154,14 +154,14 @@ clevertap.spa = true
 ```
 
 > 📘 Progressive Web Applications
-> 
+>
 > In the case of a PWA (Progressive Web Application), all the functionalities similar to the standard website are available.
 
 # Identify Users
 
 CleverTap automatically creates a user profile for each person visiting your website. At first, the user profile starts out as anonymous which means the user profile does not contain any identifiable information. 
 
-1. Enrich the user profile with information, such as the user’s name or email, by calling `clevertap.onuserlogin`.  
+1. Enrich the user profile with information, such as the user’s name or email, by calling `clevertap.onuserlogin`.\
    Here is an example showing how to add a name and an email to a user’s profile:
 
 ```javascript
@@ -210,7 +210,7 @@ clevertap.onUserLogin.push({
 
 CleverTap provides the ability to track custom events that are specific to your website. For example, if you are an e-commerce company, you most likely want to track what products were viewed. 
 
-1. Track custom events by calling `clevertap.event.push("EVENT_NAME")`.  
+1. Track custom events by calling `clevertap.event.push("EVENT_NAME")`.\
    Here is an example to track that a product was viewed:
 
 ```javascript
@@ -230,9 +230,9 @@ clevertap.event.push("Product Viewed", {
 
 Below are a few more things to consider:
 
-- The CleverTap JavaScript library does not have any external dependencies, such as third-party libraries like jQuery.
-- CleverTap’s JavaScript library works well within [Google Tag Manager](https://developers.google.com/tag-manager/quickstart).
-- We recommend recording an event only after it has passed all of your validations successfully. For example, record an _Added to Cart_ event only on successful addition to the cart.
+* The CleverTap JavaScript library does not have any external dependencies, such as third-party libraries like jQuery.
+* CleverTap’s JavaScript library works well within [Google Tag Manager](https://developers.google.com/tag-manager/quickstart).
+* We recommend recording an event only after it has passed all of your validations successfully. For example, record an *Added to Cart* event only on successful addition to the cart.
 
 # Debugging
 
@@ -254,7 +254,7 @@ clevertap.setLogLevel(LOG_LEVEL)
 
 # Offline Mode
 
-The offline mode allows setting CleverTap SDK to offline state. The `setOffline` method determines the SDK's online state. By default, the offline state of the SDK is set to false.  
+The offline mode allows setting CleverTap SDK to offline state. The `setOffline` method determines the SDK's online state. By default, the offline state of the SDK is set to false.\
 However, once the `setoffline` method is passed with `true` as described below, the CleverTap SDK goes offline. All the events are recorded and queued locally, but they are not sent to the CleverTap server.
 
 If the `setoffline` method is passed with `false` as described below, the CleverTap SDK is set to online mode, and the queued events are sent to the CleverTap server immediately.
