@@ -25,41 +25,11 @@ To integrate CleverTap Web SDK with Samsung Tizen TV:
 3. Open the **Package Manager** console extracted from **Tizen Studio**.
 4. From the **Extension SDK** tab, install **TV Extensions-7.0**.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/068c0e9-TizenPackageManager.png",
-        "",
-        ""
-      ],
-      "align": "center",
-      "sizing": "80% ",
-      "border": true
-    }
-  ]
-}
-[/block]
+<Image align="center" className="border" width="80% " border={true} src="https://files.readme.io/068c0e9-TizenPackageManager.png" />
 
 5. Create the sample project and update the `index.html` file as required. Add the CleverTap script in the `index.html` file.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/08584b3-RunAsTizen.png",
-        "",
-        ""
-      ],
-      "align": "center",
-      "sizing": "90% ",
-      "border": true
-    }
-  ]
-}
-[/block]
+<Image align="center" className="border" width="90% " border={true} src="https://files.readme.io/08584b3-RunAsTizen.png" />
 
 6. Click **Run As** > **Tizen Web Simulator Application(Samsung TV)**.
 
@@ -137,5 +107,5 @@ cleverTapAPI.removeMultiValueForKey("userTVCount","1")
 ```
 
 > 📘 Note
-> 
+>
 > CleverTap Push Notifications do not work on Tizen as the Service worker runs only on an HTTPS or a localhost connection. It does not work on `file://`.
