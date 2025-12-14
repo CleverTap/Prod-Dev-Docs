@@ -24,8 +24,8 @@ To use the CleverTap Push Templates SDK, you must integrate the CleverTap Androi
 
 The Android Push Templates SDK supports the following two integration options:
 
-- [Out-of-the-box Implementation](doc:android-push-templates#configure-out-of-the-box-push-notification-handling) : Uses CleverTap's default notification handling, where templates are rendered without additional customization or code changes in your app.
-- [Custom Implementation](doc:android-push-templates#customize-push-notification-handling): Allows you to control how push notifications are received and displayed.
+* [Out-of-the-box Implementation](doc:android-push-templates#configure-out-of-the-box-push-notification-handling) : Uses CleverTap's default notification handling, where templates are rendered without additional customization or code changes in your app.
+* [Custom Implementation](doc:android-push-templates#customize-push-notification-handling): Allows you to control how push notifications are received and displayed.
 
 ## Configure Out-of-the-Box Push Notification Handling
 
@@ -76,80 +76,51 @@ You can implement the following customizable push notification templates using t
 
 **Basic Templates**
 
-- [Standard Push Template](doc:android-push-templates#standard-push-template)
-- [Advanced Push Template](doc:android-push-templates#advanced-push-template)
+* [Standard Push Template](doc:android-push-templates#standard-push-template)
+* [Advanced Push Template](doc:android-push-templates#advanced-push-template)
 
 **Carousel Templates**
 
-- [Auto Carousel Template](doc:android-push-templates#auto-carousel-template)
-- [Manual Carousel Template](doc:android-push-templates#manual-carousel-template)
+* [Auto Carousel Template](doc:android-push-templates#auto-carousel-template)
+* [Manual Carousel Template](doc:android-push-templates#manual-carousel-template)
 
 **Advanced Templates**
 
-- [Timer Template](doc:android-push-templates#timer-template)
-- [Text over Image Template](doc:android-push-templates#text-over-image-template)
-- [Five Icons Template](doc:android-push-templates#five-icons-template)
-- [Rating Template](doc:android-push-templates#rating-template)
-- [Product Catalog Template](doc:android-push-templates#product-catalog-template)
-- [Input Box Template](doc:android-push-templates#input-box-template)
+* [Timer Template](doc:android-push-templates#timer-template)
+* [Text over Image Template](doc:android-push-templates#text-over-image-template)
+* [Five Icons Template](doc:android-push-templates#five-icons-template)
+* [Rating Template](doc:android-push-templates#rating-template)
+* [Product Catalog Template](doc:android-push-templates#product-catalog-template)
+* [Input Box Template](doc:android-push-templates#input-box-template)
 
 # Standard Push Template
 
 Standard Template is a default template for push notifications received on apps that supports a simple layout with title, message, image, and optional buttons, ideal for quick, informative alerts. For example, an e-commerce business might want to inform customers that their order is on the way. To use a GIF in a standard push template, pass the key `wzrk_gif` with the value set to the URL of the GIF image.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/7a4e66924248b609d31ccdc200b05788c5a2b1b5e6550e58de559233caefe4b2-image.png",
-        null,
-        "Standard Push Template"
-      ],
-      "align": "center",
-      "sizing": "35% ",
-      "caption": "Standard Push Template"
-    }
-  ]
-}
-[/block]
-
+<Image alt="Standard Push Template" align="center" width="35% " src="https://files.readme.io/7a4e66924248b609d31ccdc200b05788c5a2b1b5e6550e58de559233caefe4b2-image.png">
+  Standard Push Template
+</Image>
 
 ## GIF Support in Standard Push Template
 
 CleverTap supports GIFs in standard push templates from SDK version 7.5.0 on devices running Android 14 and above. This allows you to add animated media to push notifications, enhancing user engagement through dynamic visuals.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/47c076dffe3d89c693a3fc4aeac5117649dc0a28af5e2b820157f86d7919ed29-Screen_Recording_Jul_28_2025_1.gif",
-        "",
-        ""
-      ],
-      "align": "center",
-      "sizing": "35% "
-    }
-  ]
-}
-[/block]
-
+<Image align="center" width="35% " src="https://files.readme.io/47c076dffe3d89c693a3fc4aeac5117649dc0a28af5e2b820157f86d7919ed29-Screen_Recording_Jul_28_2025_1.gif" />
 
 ### Specifications and Design Guidelines
 
-- Supported on Android 14+ with SDK v7.5.0 or later.
-- Applies only to the Standard push template.
-- For older Android versions or SDKs, CleverTap shows the first frame of the GIF as a static image.
-- Use the recommended aspect ratio for the selected template to avoid cropping or distortion.
-- Keep file size under 1MB for smooth rendering.
-- Opt for looped, visually clear GIFs that work well even if partially cropped.
+* Supported on Android 14+ with SDK v7.5.0 or later.
+* Applies only to the Standard push template.
+* For older Android versions or SDKs, CleverTap shows the first frame of the GIF as a static image.
+* Use the recommended aspect ratio for the selected template to avoid cropping or distortion.
+* Keep file size under 1MB for smooth rendering.
+* Opt for looped, visually clear GIFs that work well even if partially cropped.
 
 ### Limitations
 
-- Devices running Android 13 and below do not support GIF playback; a static fallback image is shown.
-- Some OEMs may not fully support GIF rendering, even on Android 14 and above.
-- On certain devices, the heads-up notification may display only the first frame, while the full GIF appears when the notification tray is expanded.
+* Devices running Android 13 and below do not support GIF playback; a static fallback image is shown.
+* Some OEMs may not fully support GIF rendering, even on Android 14 and above.
+* On certain devices, the heads-up notification may display only the first frame, while the full GIF appears when the notification tray is expanded.
 
 # Advanced Push Template
 
@@ -157,241 +128,797 @@ This template supports rich media, deep links, and enhanced customization for mo
 
 For template outputs Android 11 and below, refer to [Push Templates on Android v11 and below](https://github.com/CleverTap/clevertap-android-sdk/blob/master/docs/CTPUSHTEMPLATESANDROID12.md).
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/65cc6bcd2523518ceab5cdc452022fbc4f4bce889e87469c883fd394b1fb18e4-image.png",
-        null,
-        "Advanced Push Template"
-      ],
-      "align": "center",
-      "sizing": "35% ",
-      "caption": "Advanced Push Template"
-    }
-  ]
-}
-[/block]
-
+<Image alt="Advanced Push Template" align="center" width="35% " src="https://files.readme.io/65cc6bcd2523518ceab5cdc452022fbc4f4bce889e87469c883fd394b1fb18e4-image.png">
+  Advanced Push Template
+</Image>
 
 ## Template Keys
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Advanced Template Keys",
-    "h-1": "Required",
-    "h-2": "Description",
-    "0-0": "pt_id",
-    "0-1": "Required",
-    "0-2": "Indicates the type of template, for example, `pt_basic`.",
-    "1-0": "pt_title",
-    "1-1": "Required",
-    "1-2": "Maps to the campaign title, the main headline of your notification must be concise and attention-grabbing, defining the exact purpose of your campaign.",
-    "2-0": "pt_msg",
-    "2-1": "Required",
-    "2-2": "Maps to the campaign message, the body text of your notification. The message should clearly convey the purpose of your campaign.",
-    "3-0": "pt_msg_summary",
-    "3-1": "Required",
-    "3-2": "Message line when Notification is expanded.",
-    "4-0": "pt_subtitle",
-    "4-1": "Optional",
-    "4-2": "Subtitle",
-    "5-0": "pt_bg",
-    "5-1": "Required",
-    "5-2": "Background color of your push notification. You can use it to match your brand theme or draw visual attention to the notification. It accepts HEX codes or color pickers.",
-    "6-0": "pt_bg_dark",
-    "6-1": "Optional",
-    "6-2": "Background color of your push notification in dark mode",
-    "7-0": "pt_big_img",
-    "7-1": "Optional",
-    "7-2": "Image",
-    "8-0": "pt_big_img_alt_text",
-    "8-1": "Optional",
-    "8-2": "Alt Text for Image",
-    "9-0": "pt_gif",
-    "9-1": "Optional",
-    "9-2": "GIF",
-    "10-0": "pt_gif_frames",
-    "10-1": "Optional",
-    "10-2": "Number of frames to extract from the GIF",
-    "11-0": "pt_ico",
-    "11-1": "Optional",
-    "11-2": "Large Icon",
-    "12-0": "wzrk_hide_large_icon",
-    "12-1": "Optional",
-    "12-2": "Hide the large icon in Android notifications  \nValues:  \n  \n<li> hide = `true` to hide the icon </li> <li> hide = `false` to show the icon (Default) </li>",
-    "13-0": "pt_dl1",
-    "13-1": "Optional",
-    "13-2": "One Deep Link (minimum)",
-    "14-0": "pt_title_clr",
-    "14-1": "Optional",
-    "14-2": "Title Color in HEX",
-    "15-0": "pt_title_clr_dark",
-    "15-1": "Optional",
-    "15-2": "Title Color in HEX in dark mode",
-    "16-0": "pt_msg_clr",
-    "16-1": "Optional",
-    "16-2": "Message Color in HEX",
-    "17-0": "pt_msg_clr_dark",
-    "17-1": "Optional",
-    "17-2": "Message Color in HEX in dark mode",
-    "18-0": "pt_small_icon_clr",
-    "18-1": "Optional",
-    "18-2": "Small Icon Color in HEX",
-    "19-0": "pt_small_icon_clr_dark",
-    "19-1": "Optional",
-    "19-2": "Small Icon Color in HEX in dark mode",
-    "20-0": "pt_scale_type",
-    "20-1": "Optional",
-    "20-2": "Specify the image scaling type for notifications.  Available values: <li>`fit_center` </li>  <li>`center_crop`</li>  \nFor more information on how it works, refer to [Image Scaling](doc:android-push-templates#image-scaling).",
-    "21-0": "pt_sticky",
-    "21-1": "Optional",
-    "21-2": "Should the notification be sticky? (\"true\"/\"false\")",
-    "22-0": "pt_dismiss",
-    "22-1": "Optional",
-    "22-2": "Auto dismiss the notification after a set time (value in seconds)",
-    "23-0": "pt_json",
-    "23-1": "Optional",
-    "23-2": "Above template keys in JSON format"
-  },
-  "cols": 3,
-  "rows": 24,
-  "align": [
-    "right",
-    "center",
-    "left"
-  ]
-}
-[/block]
+<Table align={["right","center","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Advanced Template Keys
+      </th>
 
+      <th>
+        Required
+      </th>
+
+      <th>
+        Description
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        pt\_id
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Indicates the type of template, for example, `pt_basic`.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_title
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Maps to the campaign title, the main headline of your notification must be concise and attention-grabbing, defining the exact purpose of your campaign.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_msg
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Maps to the campaign message, the body text of your notification. The message should clearly convey the purpose of your campaign.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_msg\_summary
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Message line when Notification is expanded.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_subtitle
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Subtitle
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_bg
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Background color of your push notification. You can use it to match your brand theme or draw visual attention to the notification. It accepts HEX codes or color pickers.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_bg\_dark
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Background color of your push notification in dark mode
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_big\_img
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Image
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_big\_img\_alt\_text
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Alt Text for Image
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_gif
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        GIF
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_gif\_frames
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Number of frames to extract from the GIF
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_ico
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Large Icon
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        wzrk\_hide\_large\_icon
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Hide the large icon in Android notifications\
+        Values:  
+
+        <li> hide = `true` to hide the icon </li> <li> hide = `false` to show the icon (Default) </li>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_dl1
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        One Deep Link (minimum)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_title\_clr
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Title Color in HEX
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_title\_clr\_dark
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Title Color in HEX in dark mode
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_msg\_clr
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Message Color in HEX
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_msg\_clr\_dark
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Message Color in HEX in dark mode
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_small\_icon\_clr
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Small Icon Color in HEX
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_small\_icon\_clr\_dark
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Small Icon Color in HEX in dark mode
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_scale\_type
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Specify the image scaling type for notifications.  Available values: <li>`fit_center` </li>  <li>`center_crop`</li>\
+        For more information on how it works, refer to [Image Scaling](doc:android-push-templates#image-scaling).
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_sticky
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Should the notification be sticky? ("true"/"false")
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_dismiss
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Auto dismiss the notification after a set time (value in seconds)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_json
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Above template keys in JSON format
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 # Auto Carousel Template
 
 Auto Carousel is an automatic revolving carousel push notification that automatically cycles through multiple cards or slides within a single notification. Each card typically includes an image, title, description, and a CTA button, allowing users to view multiple offers, messages, or product highlights without leaving their device’s notification tray.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/b06f01f282ddb61ab6bca44b51c79e65c9735b224432fadaf0799eb6c1dd7a70-Screen_Recording_Jun_4_2025_from_Google_Drive.mp4_1.gif",
-        null,
-        "Auto Carousel Template"
-      ],
-      "align": "center",
-      "sizing": "35% ",
-      "caption": "Auto Carousel Template"
-    }
-  ]
-}
-[/block]
-
+<Image alt="Auto Carousel Template" align="center" width="35% " src="https://files.readme.io/b06f01f282ddb61ab6bca44b51c79e65c9735b224432fadaf0799eb6c1dd7a70-Screen_Recording_Jun_4_2025_from_Google_Drive.mp4_1.gif">
+  Auto Carousel Template
+</Image>
 
 ## Template Keys
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Auto Carousel Template Keys",
-    "h-1": "Required",
-    "h-2": "Description",
-    "0-0": "pt_id",
-    "0-1": "Required",
-    "0-2": "Indicates the type of template, for example, `pt_carousel`.",
-    "1-0": "pt_title",
-    "1-1": "Required",
-    "1-2": "Maps to the campaign title, the main headline of your notification must be concise and attention-grabbing, defining the exact purpose of your campaign.",
-    "2-0": "pt_msg",
-    "2-1": "Required",
-    "2-2": "Maps to the campaign message, the body text of your notification. The message should clearly convey the purpose of your campaign.",
-    "3-0": "pt_msg_summary",
-    "3-1": "Optional",
-    "3-2": "Message line when Notification is expanded.",
-    "4-0": "pt_subtitle",
-    "4-1": "Optional",
-    "4-2": "Subtitle",
-    "5-0": "pt_dl1",
-    "5-1": "Required",
-    "5-2": "Deep Link (Max one)",
-    "6-0": "pt_img1",
-    "6-1": "Required",
-    "6-2": "Image One",
-    "7-0": "pt_img1_alt_text",
-    "7-1": "Optional",
-    "7-2": "Alt Text for Image One",
-    "8-0": "pt_img2",
-    "8-1": "Required",
-    "8-2": "Image Two",
-    "9-0": "pt_img2_alt_text",
-    "9-1": "Optional",
-    "9-2": "Alt Text for Image Two",
-    "10-0": "pt_img3",
-    "10-1": "Required",
-    "10-2": "Image Three",
-    "11-0": "pt_img3_alt_text",
-    "11-1": "Optional",
-    "11-2": "Alt Text for Image Three",
-    "12-0": "pt_img`n`",
-    "12-1": "Optional",
-    "12-2": "Image `N`",
-    "13-0": "pt_img`n`\\_alt_text",
-    "13-1": "Optional",
-    "13-2": "Alt Text for Image `N`",
-    "14-0": "pt_bg",
-    "14-1": "Required",
-    "14-2": "Background Color in HEX",
-    "15-0": "pt_bg_dark",
-    "15-1": "Required",
-    "15-2": "Background Color in HEX in dark mode",
-    "16-0": "pt_ico",
-    "16-1": "Optional",
-    "16-2": "Large Icon",
-    "17-0": "wzrk_hide_large_icon",
-    "17-1": "Optional",
-    "17-2": "Hide the large icon in Android notifications  \nValues:  \n  \n<li> hide = `true` to hide the icon </li> <li> hide = `false` to show the icon (Default) </li>",
-    "18-0": "pt_title_clr",
-    "18-1": "Optional",
-    "18-2": "Title Color in HEX",
-    "19-0": "pt_title_clr_dark",
-    "19-1": "Optional",
-    "19-2": "Title Color in HEX in dark mode.",
-    "20-0": "pt_msg_clr",
-    "20-1": "Optional",
-    "20-2": "Message Color in HEX",
-    "21-0": "pt_msg_clr_dark",
-    "21-1": "Optional",
-    "21-2": "Message Color in HEX in dark mode",
-    "22-0": "pt_small_icon_clr",
-    "22-1": "Optional",
-    "22-2": "Small Icon Color in HEX",
-    "23-0": "pt_small_icon_clr_dark",
-    "23-1": "Optional",
-    "23-2": "Small Icon Color in HEX in dark mode",
-    "24-0": "pt_sticky",
-    "24-1": "Optional",
-    "24-2": "Should the notification be sticky? (\"true\"/\"false\")",
-    "25-0": "pt_dismiss",
-    "25-1": "Optional",
-    "25-2": "Auto dismiss the notification after a set time (value in seconds)",
-    "26-0": "pt_scale_type",
-    "26-1": "Optional",
-    "26-2": "Specify the image scaling type for notifications.  Available values: <li>`fit_center` </li>  <li>`center_crop`</li>  \nFor more information on how it works, refer to [Image Scaling](doc:android-push-templates#image-scaling).",
-    "27-0": "pt_json",
-    "27-1": "Optional",
-    "27-2": "Above keys in JSON format"
-  },
-  "cols": 3,
-  "rows": 28,
-  "align": [
-    "right",
-    "center",
-    "left"
-  ]
-}
-[/block]
+<Table align={["right","center","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Auto Carousel Template Keys
+      </th>
 
+      <th>
+        Required
+      </th>
+
+      <th>
+        Description
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        pt\_id
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Indicates the type of template, for example, `pt_carousel`.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_title
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Maps to the campaign title, the main headline of your notification must be concise and attention-grabbing, defining the exact purpose of your campaign.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_msg
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Maps to the campaign message, the body text of your notification. The message should clearly convey the purpose of your campaign.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_msg\_summary
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Message line when Notification is expanded.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_subtitle
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Subtitle
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_dl1
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Deep Link (Max one)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_img1
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Image One
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_img1\_alt\_text
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Alt Text for Image One
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_img2
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Image Two
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_img2\_alt\_text
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Alt Text for Image Two
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_img3
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Image Three
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_img3\_alt\_text
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Alt Text for Image Three
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_img`n`
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Image `N`
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_img`n`\_alt\_text
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Alt Text for Image `N`
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_bg
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Background Color in HEX
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_bg\_dark
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Background Color in HEX in dark mode
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_ico
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Large Icon
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        wzrk\_hide\_large\_icon
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Hide the large icon in Android notifications\
+        Values:  
+
+        <li> hide = `true` to hide the icon </li> <li> hide = `false` to show the icon (Default) </li>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_title\_clr
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Title Color in HEX
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_title\_clr\_dark
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Title Color in HEX in dark mode.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_msg\_clr
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Message Color in HEX
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_msg\_clr\_dark
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Message Color in HEX in dark mode
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_small\_icon\_clr
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Small Icon Color in HEX
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_small\_icon\_clr\_dark
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Small Icon Color in HEX in dark mode
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_sticky
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Should the notification be sticky? ("true"/"false")
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_dismiss
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Auto dismiss the notification after a set time (value in seconds)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_scale\_type
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Specify the image scaling type for notifications.  Available values: <li>`fit_center` </li>  <li>`center_crop`</li>\
+        For more information on how it works, refer to [Image Scaling](doc:android-push-templates#image-scaling).
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_json
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Above keys in JSON format
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 # Manual Carousel Template
 
@@ -399,140 +926,483 @@ Manual Carousel is an interactive push notification format that allows users to 
 
 If only a single image is available for download, this template falls back to the Basic Template.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/314a341e4efcff60b16c13c2d9d89c91866ff0a66eb39458de68670c9d1d7ab7-Screen_Recording_Jun_4_2025_from_Google_Drive_1.mp4_1.gif",
-        null,
-        "Manual Carousel Template"
-      ],
-      "align": "center",
-      "sizing": "35% ",
-      "border": true,
-      "caption": "Manual Carousel Template"
-    }
-  ]
-}
-[/block]
-
+<Image alt="Manual Carousel Template" align="center" width="35% " border={true} src="https://files.readme.io/314a341e4efcff60b16c13c2d9d89c91866ff0a66eb39458de68670c9d1d7ab7-Screen_Recording_Jun_4_2025_from_Google_Drive_1.mp4_1.gif">
+  Manual Carousel Template
+</Image>
 
 ## Template Keys
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Manual Carousel Template Keys",
-    "h-1": "Required",
-    "h-2": "Description",
-    "0-0": "pt_id",
-    "0-1": "Required",
-    "0-2": "Indicates the type of template, for example,`pt_manual_carousel`",
-    "1-0": "pt_title",
-    "1-1": "Required",
-    "1-2": "Maps to the campaign title, the main headline of your notification must be concise and attention-grabbing, defining the exact purpose of your campaign.",
-    "2-0": "pt_msg",
-    "2-1": "Required",
-    "2-2": "Maps to the campaign message, the body text of your notification. The message should clearly convey the purpose of your campaign.",
-    "3-0": "pt_msg_summary",
-    "3-1": "Optional",
-    "3-2": "Message line when Notification is expanded",
-    "4-0": "pt_subtitle",
-    "4-1": "Optional",
-    "4-2": "Subtitle",
-    "5-0": "pt_dl1",
-    "5-1": "Required",
-    "5-2": "Deep Link One",
-    "6-0": "pt_dl2",
-    "6-1": "Optional",
-    "6-2": "Deep Link Two",
-    "7-0": "pt_dl`n`",
-    "7-1": "Optional",
-    "7-2": "Deep Link for the nth image",
-    "8-0": "pt_img1",
-    "8-1": "Required",
-    "8-2": "Image One",
-    "9-0": "pt_img1_alt_text",
-    "9-1": "Optional",
-    "9-2": "Alt Text for Image One",
-    "10-0": "pt_img2",
-    "10-1": "Required",
-    "10-2": "Image Two",
-    "11-0": "pt_img2_alt_text",
-    "11-1": "Optional",
-    "11-2": "Alt Text for Image Two",
-    "12-0": "pt_img3",
-    "12-1": "Required",
-    "12-2": "Image Three",
-    "13-0": "pt_img3_alt_text",
-    "13-1": "Optional",
-    "13-2": "Alt Text for Image Three",
-    "14-0": "pt_img`n`",
-    "14-1": "Optional",
-    "14-2": "Image `N`",
-    "15-0": "pt_img`n`\\_alt_text",
-    "15-1": "Optional",
-    "15-2": "Alt Text for Image `N`",
-    "16-0": "pt_bg",
-    "16-1": "Required",
-    "16-2": "Background Color in HEX",
-    "17-0": "pt_bg_dark",
-    "17-1": "Required",
-    "17-2": "Background Color in HEX in dark mode",
-    "18-0": "pt_ico",
-    "18-1": "Optional",
-    "18-2": "Large Icon",
-    "19-0": "wzrk_hide_large_icon",
-    "19-1": "Optional",
-    "19-2": "Hide the large icon in Android notifications  \nValues:  \n  \n<li> hide = `true` to hide the icon </li> <li> hide = `false` to show the icon (Default) </li>",
-    "20-0": "pt_title_clr",
-    "20-1": "Optional",
-    "20-2": "Title Color in HEX",
-    "21-0": "pt_title_clr_dark",
-    "21-1": "Optional",
-    "21-2": "Title Color in HEX in dark mode",
-    "22-0": "pt_msg_clr",
-    "22-1": "Optional",
-    "22-2": "Message Color in HEX",
-    "23-0": "pt_msg_clr_dark",
-    "23-1": "Optional",
-    "23-2": "Message Color in HEX in dark mode",
-    "24-0": "pt_small_icon_clr",
-    "24-1": "Optional",
-    "24-2": "Small Icon Color in HEX",
-    "25-0": "pt_small_icon_clr_dark",
-    "25-1": "Optional",
-    "25-2": "Small Icon Color in HEX in dark mode",
-    "26-0": "pt_sticky",
-    "26-1": "Optional",
-    "26-2": "Should the notification be sticky? (\"true\"/\"false\")",
-    "27-0": "pt_dismiss",
-    "27-1": "Optional",
-    "27-2": "Auto dismiss the notification after a set time (value in seconds)",
-    "28-0": "pt_scale_type",
-    "28-1": "Optional",
-    "28-2": "Specify the image scaling type for notifications.  Available values: <li>`fit_center` </li>  <li>`center_crop`</li>  \nFor more information on how it works, refer to [Image Scaling](doc:android-push-templates#image-scaling).",
-    "29-0": "pt_json",
-    "29-1": "Optional",
-    "29-2": "Above keys in JSON format",
-    "30-0": "pt_manual_carousel_type",
-    "30-1": "Optional",
-    "30-2": "`filmstrip`",
-    "31-0": "pt_gif_frames",
-    "31-1": "Optional",
-    "31-2": "Number of frames to extract from the GIF"
-  },
-  "cols": 3,
-  "rows": 32,
-  "align": [
-    "right",
-    "center",
-    "left"
-  ]
-}
-[/block]
+<Table align={["right","center","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Manual Carousel Template Keys
+      </th>
 
+      <th>
+        Required
+      </th>
+
+      <th>
+        Description
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        pt\_id
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Indicates the type of template, for example,`pt_manual_carousel`
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_title
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Maps to the campaign title, the main headline of your notification must be concise and attention-grabbing, defining the exact purpose of your campaign.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_msg
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Maps to the campaign message, the body text of your notification. The message should clearly convey the purpose of your campaign.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_msg\_summary
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Message line when Notification is expanded
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_subtitle
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Subtitle
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_dl1
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Deep Link One
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_dl2
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Deep Link Two
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_dl`n`
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Deep Link for the nth image
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_img1
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Image One
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_img1\_alt\_text
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Alt Text for Image One
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_img2
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Image Two
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_img2\_alt\_text
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Alt Text for Image Two
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_img3
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Image Three
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_img3\_alt\_text
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Alt Text for Image Three
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_img`n`
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Image `N`
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_img`n`\_alt\_text
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Alt Text for Image `N`
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_bg
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Background Color in HEX
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_bg\_dark
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Background Color in HEX in dark mode
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_ico
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Large Icon
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        wzrk\_hide\_large\_icon
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Hide the large icon in Android notifications\
+        Values:  
+
+        <li> hide = `true` to hide the icon </li> <li> hide = `false` to show the icon (Default) </li>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_title\_clr
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Title Color in HEX
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_title\_clr\_dark
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Title Color in HEX in dark mode
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_msg\_clr
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Message Color in HEX
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_msg\_clr\_dark
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Message Color in HEX in dark mode
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_small\_icon\_clr
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Small Icon Color in HEX
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_small\_icon\_clr\_dark
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Small Icon Color in HEX in dark mode
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_sticky
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Should the notification be sticky? ("true"/"false")
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_dismiss
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Auto dismiss the notification after a set time (value in seconds)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_scale\_type
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Specify the image scaling type for notifications.  Available values: <li>`fit_center` </li>  <li>`center_crop`</li>\
+        For more information on how it works, refer to [Image Scaling](doc:android-push-templates#image-scaling).
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_json
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Above keys in JSON format
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_manual\_carousel\_type
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        `filmstrip`
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_gif\_frames
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Number of frames to extract from the GIF
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 # Five Icons Template
 
@@ -542,190 +1412,516 @@ The library does not notify if at least three icons are not retrieved. The bifur
 
 By default, if the user clicks on any notification area except the five and close icons, an activity intent launches.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/563c039e56f135aea167f9fecda45c428087ada312e0013d1347567fcd8f724e-image.png",
-        null,
-        ""
-      ],
-      "align": "center",
-      "sizing": "50% ",
-      "border": true
-    }
-  ]
-}
-[/block]
-
+<Image align="center" className="border" width="50% " border={true} src="https://files.readme.io/563c039e56f135aea167f9fecda45c428087ada312e0013d1347567fcd8f724e-image.png" />
 
 ## Template Keys
 
-| Five Icons Template Keys | Required | Description                                                       |
-| -----------------------: | :------: | :---------------------------------------------------------------- |
-|                    pt_id | Required | Indicates the type of template, for example,`pt_five_icons`       |
-|                  pt_img1 | Required | Icon One                                                          |
-|         pt_img1_alt_text | Optional | Alt Text for Icon One                                             |
-|                  pt_img2 | Required | Icon Two                                                          |
-|         pt_img2_alt_text | Optional | Alt Text for Icon Two                                             |
-|                  pt_img3 | Required | Icon Three                                                        |
-|         pt_img3_alt_text | Optional | Alt Text for Icon Three                                           |
-|                  pt_img4 | Optional | Icon Four                                                         |
-|         pt_img4_alt_text | Optional | Alt Text for Icon Four                                            |
-|                  pt_img5 | Optional | Icon Five                                                         |
-|         pt_img5_alt_text | Optional | Alt Text for Icon Five                                            |
-|                   pt_dl1 | Required | Deep Link for first icon                                          |
-|                   pt_dl2 | Required | Deep Link for second icon                                         |
-|                   pt_dl3 | Required | Deep Link for third icon                                          |
-|                   pt_dl4 | Optional | Deep Link for fourth icon                                         |
-|                   pt_dl5 | Optional | Deep Link for fifth icon                                          |
-|                    pt_bg | Required | Background Color in HEX                                           |
-|        pt_small_icon_clr | Optional | Small Icon Color in HEX                                           |
-|   pt_small_icon_clr_dark | Optional | Small Icon Color in HEX in dark mode                              |
-|                pt_sticky | Optional | Should the notification be sticky? ("true"/"false")               |
-|               pt_dismiss | Optional | Auto dismiss the notification after a set time (value in seconds) |
-|                  pt_json | Optional | Above keys in JSON format                                         |
+|   Five Icons Template Keys | Required | Description                                                       |
+| -------------------------: | :------: | :---------------------------------------------------------------- |
+|                     pt\_id | Required | Indicates the type of template, for example,`pt_five_icons`       |
+|                   pt\_img1 | Required | Icon One                                                          |
+|        pt\_img1\_alt\_text | Optional | Alt Text for Icon One                                             |
+|                   pt\_img2 | Required | Icon Two                                                          |
+|        pt\_img2\_alt\_text | Optional | Alt Text for Icon Two                                             |
+|                   pt\_img3 | Required | Icon Three                                                        |
+|        pt\_img3\_alt\_text | Optional | Alt Text for Icon Three                                           |
+|                   pt\_img4 | Optional | Icon Four                                                         |
+|        pt\_img4\_alt\_text | Optional | Alt Text for Icon Four                                            |
+|                   pt\_img5 | Optional | Icon Five                                                         |
+|        pt\_img5\_alt\_text | Optional | Alt Text for Icon Five                                            |
+|                    pt\_dl1 | Required | Deep Link for first icon                                          |
+|                    pt\_dl2 | Required | Deep Link for second icon                                         |
+|                    pt\_dl3 | Required | Deep Link for third icon                                          |
+|                    pt\_dl4 | Optional | Deep Link for fourth icon                                         |
+|                    pt\_dl5 | Optional | Deep Link for fifth icon                                          |
+|                     pt\_bg | Required | Background Color in HEX                                           |
+|       pt\_small\_icon\_clr | Optional | Small Icon Color in HEX                                           |
+| pt\_small\_icon\_clr\_dark | Optional | Small Icon Color in HEX in dark mode                              |
+|                 pt\_sticky | Optional | Should the notification be sticky? ("true"/"false")               |
+|                pt\_dismiss | Optional | Auto dismiss the notification after a set time (value in seconds) |
+|                   pt\_json | Optional | Above keys in JSON format                                         |
 
 # Timer Template
 
 Timer template is a dynamic and time-sensitive push notification template designed to display a live countdown timer directly within the notification. This format is ideal for creating urgency around limited-time offers, flash sales, upcoming events, or deadlines. You can update the new message, title, or background image automatically once the countdown expires, keeping the notification relevant and engaging after expiry.
 
-Timer notification is only supported for Android version 8 and above. For Android versions below 8, the library falls back to the _Basic Template_.
+Timer notification is only supported for Android version 8 and above. For Android versions below 8, the library falls back to the *Basic Template*.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/a0dd4a50b5b7783a1f970928b1d13d16d660728b9afb935e4947fbd3c942fb00-Timer_12_Light_Live.mp4_1.gif",
-        null,
-        "Timer Template"
-      ],
-      "align": "center",
-      "sizing": "35% ",
-      "caption": "Timer Template"
-    }
-  ]
-}
-[/block]
-
+<Image alt="Timer Template" align="center" width="35% " src="https://files.readme.io/a0dd4a50b5b7783a1f970928b1d13d16d660728b9afb935e4947fbd3c942fb00-Timer_12_Light_Live.mp4_1.gif">
+  Timer Template
+</Image>
 
 ## Template Keys
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Timer Template Keys",
-    "h-1": "Required",
-    "h-2": "Description",
-    "0-0": "pt_id",
-    "0-1": "Required",
-    "0-2": "Indicates the type of template, for example, `pt_timer`",
-    "1-0": "pt_title",
-    "1-1": "Required",
-    "1-2": "Maps to the campaign title, the main headline of your notification must be concise and attention-grabbing, defining the exact purpose of your campaign.",
-    "2-0": "pt_title_alt",
-    "2-1": "Optional",
-    "2-2": "Title to show after timer expires",
-    "3-0": "pt_msg",
-    "3-1": "Required",
-    "3-2": "Maps to the campaign message, the body text of your notification. The message should clearly convey the purpose of your campaign.",
-    "4-0": "pt_msg_alt",
-    "4-1": "Optional",
-    "4-2": "Message to show after timer expires",
-    "5-0": "pt_msg_summary",
-    "5-1": "Optional",
-    "5-2": "Message line when Notification is expanded",
-    "6-0": "pt_subtitle",
-    "6-1": "Optional",
-    "6-2": "Subtitle",
-    "7-0": "pt_dl1",
-    "7-1": "Required",
-    "7-2": "Deep Link",
-    "8-0": "pt_big_img",
-    "8-1": "Optional",
-    "8-2": "Image",
-    "9-0": "pt_big_img_alt",
-    "9-1": "Optional",
-    "9-2": "Image to show when timer expires",
-    "10-0": "   pt_big_img_alt_text",
-    "10-1": "Optional",
-    "10-2": "Alt Text for Image",
-    "11-0": "pt_big_img_alt_alt_text",
-    "11-1": "Optional",
-    "11-2": "Alt Text for Image to show when timer expires",
-    "12-0": "pt_gif",
-    "12-1": "Optional",
-    "12-2": "GIF",
-    "13-0": "pt_gif_frames",
-    "13-1": "Optional",
-    "13-2": "Number of frames to extract from the GIF",
-    "14-0": "pt_bg",
-    "14-1": "Required",
-    "14-2": "Background Color in HEX",
-    "15-0": "pt_bg_dark",
-    "15-1": "Required",
-    "15-2": "Background Color in HEX in dark mode",
-    "16-0": "pt_chrono_title_clr",
-    "16-1": "Optional",
-    "16-2": "Color for timer text in HEX",
-    "17-0": "pt_chrono_title_clr_dark",
-    "17-1": "Optional",
-    "17-2": "Color for timer text in HEX in dark mode",
-    "18-0": "pt_timer_threshold",
-    "18-1": "Required",
-    "18-2": "Timer duration in seconds (minimum 10)",
-    "19-0": "pt_timer_end",
-    "19-1": "Optional",
-    "19-2": "Epoch Timestamp to countdown to (for example, $D_1595871380 or 1595871380). Not required if `pt_timer_threshold` is specified.",
-    "20-0": "pt_title_clr",
-    "20-1": "Optional",
-    "20-2": "Title Color in HEX",
-    "21-0": "pt_title_clr_dark",
-    "21-1": "Optional",
-    "21-2": "Title Color in HEX in dark mode",
-    "22-0": "pt_msg_clr",
-    "22-1": "Optional",
-    "22-2": "Message Color in HEX",
-    "23-0": "pt_msg_clr_dark",
-    "23-1": "Optional",
-    "23-2": "Message Color in HEX in dark mode",
-    "24-0": "pt_small_icon_clr",
-    "24-1": "Optional",
-    "24-2": "Small Icon Color in HEX",
-    "25-0": "pt_small_icon_clr_dark",
-    "25-1": "Optional",
-    "25-2": "Small Icon Color in HEX in dark mode",
-    "26-0": "pt_scale_type",
-    "26-1": "Optional",
-    "26-2": "Specify the image scaling type for notifications.  Available values: <li>`fit_center` </li>  <li>`center_crop`</li>  \nFor more information on how it works, refer to [Image Scaling](doc:android-push-templates#image-scaling).",
-    "27-0": "pt_render_terminal",
-    "27-1": "Optional",
-    "27-2": "Determines whether terminal notification is rendered  \nValue- `true` or `false`",
-    "28-0": "pt_sticky",
-    "28-1": "Optional",
-    "28-2": "Should the notification be sticky? (\"true\"/\"false\")",
-    "29-0": "pt_dismiss",
-    "29-1": "Optional",
-    "29-2": "Auto dismiss the notification after a set time (value in seconds)",
-    "30-0": "pt_msg_summary_alt",
-    "30-1": "Optional",
-    "30-2": " Summary to display once the timer expires",
-    "31-0": "pt_json",
-    "31-1": "Optional",
-    "31-2": "Above keys in JSON format"
-  },
-  "cols": 3,
-  "rows": 32,
-  "align": [
-    "right",
-    "center",
-    "left"
-  ]
-}
-[/block]
+<Table align={["right","center","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Timer Template Keys
+      </th>
 
+      <th>
+        Required
+      </th>
+
+      <th>
+        Description
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        pt\_id
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Indicates the type of template, for example, `pt_timer`
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_title
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Maps to the campaign title, the main headline of your notification must be concise and attention-grabbing, defining the exact purpose of your campaign.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_title\_alt
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Title to show after timer expires
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_msg
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Maps to the campaign message, the body text of your notification. The message should clearly convey the purpose of your campaign.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_msg\_alt
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Message to show after timer expires
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_msg\_summary
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Message line when Notification is expanded
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_subtitle
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Subtitle
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_dl1
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Deep Link
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_big\_img
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Image
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_big\_img\_alt
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Image to show when timer expires
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+           pt\_big\_img\_alt\_text
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Alt Text for Image
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_big\_img\_alt\_alt\_text
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Alt Text for Image to show when timer expires
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_gif
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        GIF
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_gif\_frames
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Number of frames to extract from the GIF
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_bg
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Background Color in HEX
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_bg\_dark
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Background Color in HEX in dark mode
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_chrono\_title\_clr
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Color for timer text in HEX
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_chrono\_title\_clr\_dark
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Color for timer text in HEX in dark mode
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_timer\_threshold
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Timer duration in seconds (minimum 10)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_timer\_end
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Epoch Timestamp to countdown to (for example, $D\_1595871380 or 1595871380). Not required if `pt_timer_threshold` is specified.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_title\_clr
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Title Color in HEX
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_title\_clr\_dark
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Title Color in HEX in dark mode
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_msg\_clr
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Message Color in HEX
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_msg\_clr\_dark
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Message Color in HEX in dark mode
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_small\_icon\_clr
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Small Icon Color in HEX
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_small\_icon\_clr\_dark
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Small Icon Color in HEX in dark mode
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_scale\_type
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Specify the image scaling type for notifications.  Available values: <li>`fit_center` </li>  <li>`center_crop`</li>\
+        For more information on how it works, refer to [Image Scaling](doc:android-push-templates#image-scaling).
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_render\_terminal
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Determines whether terminal notification is rendered\
+        Value- `true` or `false`
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_sticky
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Should the notification be sticky? ("true"/"false")
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_dismiss
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Auto dismiss the notification after a set time (value in seconds)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_msg\_summary\_alt
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+         Summary to display once the timer expires
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_json
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Above keys in JSON format
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 # Text over Image Template
 
@@ -733,439 +1929,1430 @@ Text over Image template is a visually immersive push notification format design
 
 The library falls back to the Advanced Template if the image cannot be downloaded.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/aca5987a4cff4a252167cf9c0c954a422b08bfd7cfa7860b6ebb2c7bd0bc40f9-image.png",
-        null,
-        "Text over Image Push Template"
-      ],
-      "align": "center",
-      "sizing": "35% ",
-      "caption": "Text over Image Push Template"
-    }
-  ]
-}
-[/block]
-
+<Image alt="Text over Image Push Template" align="center" width="35% " src="https://files.readme.io/aca5987a4cff4a252167cf9c0c954a422b08bfd7cfa7860b6ebb2c7bd0bc40f9-image.png">
+  Text over Image Push Template
+</Image>
 
 ## Template Keys
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Text over Image Template Keys",
-    "h-1": "Required",
-    "h-2": "Description",
-    "0-0": "pt_id",
-    "0-1": "Required",
-    "0-2": "Indicates the type of template, for example, `pt_zero_bezel`.",
-    "1-0": "pt_title",
-    "1-1": "Required",
-    "1-2": "Maps to the campaign title, the main headline of your notification must be concise and attention-grabbing, defining the exact purpose of your campaign.",
-    "2-0": "pt_msg",
-    "2-1": "Required",
-    "2-2": "Maps to the campaign message, the body text of your notification. The message should clearly convey the purpose of your campaign.",
-    "3-0": "pt_msg_summary",
-    "3-1": "Optional",
-    "3-2": "Message line when Notification is expanded.",
-    "4-0": "pt_subtitle",
-    "4-1": "Optional",
-    "4-2": "Subtitle",
-    "5-0": "pt_big_img",
-    "5-1": "Required",
-    "5-2": "Image",
-    "6-0": "pt_big_img_alt_text",
-    "6-1": "Optional",
-    "6-2": "Alt Text for Image",
-    "7-0": "pt_gif",
-    "7-1": "Optional",
-    "7-2": "GIF",
-    "8-0": "pt_gif_frames",
-    "8-1": "Optional",
-    "8-2": "Number of frames to extract from the GIF",
-    "9-0": "pt_small_view",
-    "9-1": "Optional",
-    "9-2": "Select text-only small view layout (`text_only`)",
-    "10-0": "pt_dl1",
-    "10-1": "Optional",
-    "10-2": "Deep Link",
-    "11-0": "pt_title_clr",
-    "11-1": "Optional",
-    "11-2": "Title Color in HEX",
-    "12-0": "pt_title_clr_dark",
-    "12-1": "Optional",
-    "12-2": "Title Color in HEX in dark mode",
-    "13-0": "pt_msg_clr",
-    "13-1": "Optional",
-    "13-2": "Message Color in HEX",
-    "14-0": "pt_msg_clr_dark",
-    "14-1": "Optional",
-    "14-2": "Message Color in HEX in dark mode",
-    "15-0": "pt_small_icon_clr",
-    "15-1": "Optional",
-    "15-2": "Small Icon Color in HEX",
-    "16-0": "pt_small_icon_clr_dark",
-    "16-1": "Optional",
-    "16-2": "Small Icon Color in HEX",
-    "17-0": "pt_scale_type",
-    "17-1": "Optional",
-    "17-2": "Specify the image scaling type for notifications.  Available values: <li>`fit_center` </li>  <li>`center_crop`</li>  \nFor more information on how it works, refer to [Image Scaling](doc:android-push-templates#image-scaling).",
-    "18-0": "pt_big_img_collapsed",
-    "18-1": "Optional",
-    "18-2": "Image for the collapsed view",
-    "19-0": "pt_gif_collapsed",
-    "19-1": "Optional",
-    "19-2": "GIF for the collapsed view",
-    "20-0": "pt_gif_frames_collapsed",
-    "20-1": "Optional",
-    "20-2": "Number of frames to extract from the GIF for the collapsed view",
-    "21-0": "pt_big_img_collapsed_alt_text",
-    "21-1": "Optional",
-    "21-2": "Alt Text for Image in the collapsed view",
-    "22-0": "pt_scale_type_collapsed",
-    "22-1": "Optional",
-    "22-2": "ScaleType for the image in the collapsed View (\"center_crop\"/\"fit_center\")",
-    "23-0": "pt_sticky",
-    "23-1": "Optional",
-    "23-2": "Should the notification be sticky? (\"true\"/\"false\")",
-    "24-0": "pt_dismiss",
-    "24-1": "Optional",
-    "24-2": "Auto dismiss the notification after a set time (value in seconds)",
-    "25-0": "pt_ico",
-    "25-1": "Optional",
-    "25-2": "Large Icon",
-    "26-0": "wzrk_hide_large_icon",
-    "26-1": "Optional",
-    "26-2": "Hide the large icon in Android notifications  \nValues:  \n  \n<li> hide = `true` to hide the icon </li> <li> hide = `false` to show the icon (Default) </li>",
-    "27-0": "pt_json",
-    "27-1": "Optional",
-    "27-2": "Above keys in JSON format"
-  },
-  "cols": 3,
-  "rows": 28,
-  "align": [
-    "right",
-    "center",
-    "left"
-  ]
-}
-[/block]
+<Table align={["right","center","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Text over Image Template Keys
+      </th>
 
+      <th>
+        Required
+      </th>
+
+      <th>
+        Description
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        pt\_id
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Indicates the type of template, for example, `pt_zero_bezel`.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_title
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Maps to the campaign title, the main headline of your notification must be concise and attention-grabbing, defining the exact purpose of your campaign.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_msg
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Maps to the campaign message, the body text of your notification. The message should clearly convey the purpose of your campaign.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_msg\_summary
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Message line when Notification is expanded.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_subtitle
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Subtitle
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_big\_img
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Image
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_big\_img\_alt\_text
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Alt Text for Image
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_gif
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        GIF
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_gif\_frames
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Number of frames to extract from the GIF
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_small\_view
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Select text-only small view layout (`text_only`)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_dl1
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Deep Link
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_title\_clr
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Title Color in HEX
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_title\_clr\_dark
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Title Color in HEX in dark mode
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_msg\_clr
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Message Color in HEX
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_msg\_clr\_dark
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Message Color in HEX in dark mode
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_small\_icon\_clr
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Small Icon Color in HEX
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_small\_icon\_clr\_dark
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Small Icon Color in HEX
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_scale\_type
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Specify the image scaling type for notifications.  Available values: <li>`fit_center` </li>  <li>`center_crop`</li>\
+        For more information on how it works, refer to [Image Scaling](doc:android-push-templates#image-scaling).
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_big\_img\_collapsed
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Image for the collapsed view
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_gif\_collapsed
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        GIF for the collapsed view
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_gif\_frames\_collapsed
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Number of frames to extract from the GIF for the collapsed view
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_big\_img\_collapsed\_alt\_text
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Alt Text for Image in the collapsed view
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_scale\_type\_collapsed
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        ScaleType for the image in the collapsed View ("center\_crop"/"fit\_center")
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_sticky
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Should the notification be sticky? ("true"/"false")
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_dismiss
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Auto dismiss the notification after a set time (value in seconds)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_ico
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Large Icon
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        wzrk\_hide\_large\_icon
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Hide the large icon in Android notifications\
+        Values:  
+
+        <li> hide = `true` to hide the icon </li> <li> hide = `false` to show the icon (Default) </li>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_json
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Above keys in JSON format
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 # Rating Template
 
-Rating template lets your users give you feedback. This feedback is captured in the event _Rating Submitted_ within the property `wzrk_c2a`.
+Rating template lets your users give you feedback. This feedback is captured in the event *Rating Submitted* within the property `wzrk_c2a`.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/e026a6e56be3574972ff15ae648e46be20699f55cd77eac60f318c3d77c3948e-image.png",
-        null,
-        "Rating Template"
-      ],
-      "align": "center",
-      "sizing": "35% ",
-      "caption": "Rating Template"
-    }
-  ]
-}
-[/block]
-
+<Image alt="Rating Template" align="center" width="35% " src="https://files.readme.io/e026a6e56be3574972ff15ae648e46be20699f55cd77eac60f318c3d77c3948e-image.png">
+  Rating Template
+</Image>
 
 ## Template Keys
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Rating Template Keys",
-    "h-1": "Required",
-    "h-2": "Description",
-    "0-0": "pt_id",
-    "0-1": "Required",
-    "0-2": "Value - `pt_rating`",
-    "1-0": "pt_title",
-    "1-1": "Required",
-    "1-2": "Title",
-    "2-0": "pt_msg",
-    "2-1": "Required",
-    "2-2": "Message",
-    "3-0": "pt_default_dl",
-    "3-1": "Required",
-    "3-2": "Default Deep Link for Push Notification",
-    "4-0": "pt_dl1",
-    "4-1": "Required",
-    "4-2": "Deep Link for first/all star(s)",
-    "5-0": "pt_bg",
-    "5-1": "Required",
-    "5-2": "Background Color in HEX",
-    "6-0": "pt_bg_dark",
-    "6-1": "Required",
-    "6-2": "Background Color in HEX in dark mode",
-    "7-0": "pt_msg_summary",
-    "7-1": "Optional",
-    "7-2": "Message line when Notification is expanded",
-    "8-0": "pt_subtitle",
-    "8-1": "Optional",
-    "8-2": "Subtitle",
-    "9-0": "pt_dl2",
-    "9-1": "Optional",
-    "9-2": "Deep Link for second star",
-    "10-0": "pt_dl3",
-    "10-1": "Optional",
-    "10-2": "Deep Link for third star",
-    "11-0": "pt_dl4",
-    "11-1": "Optional",
-    "11-2": "Deep Link for fourth star",
-    "12-0": "pt_dl5",
-    "12-1": "Optional",
-    "12-2": "Deep Link for fifth star",
-    "13-0": "pt_ico",
-    "13-1": "Optional",
-    "13-2": "Large Icon",
-    "14-0": "wzrk_hide_large_icon",
-    "14-1": "Optional",
-    "14-2": "Hide the large icon in Android notifications  \nValues:  \n  \n<li> hide = `true` to hide the icon </li> <li> hide = `false` to show the icon (Default) </li>",
-    "15-0": "pt_title_clr",
-    "15-1": "Optional",
-    "15-2": "Title Color in HEX",
-    "16-0": "pt_title_clr_dark",
-    "16-1": "Optional",
-    "16-2": "Title Color in HEX in dark mode.",
-    "17-0": "pt_msg_clr",
-    "17-1": "Optional",
-    "17-2": "Message Color in HEX",
-    "18-0": "pt_msg_clr_dark",
-    "18-1": "Optional",
-    "18-2": "Message Color in HEX in dark mode",
-    "19-0": "pt_small_icon_clr",
-    "19-1": "Optional",
-    "19-2": "Small Icon Color in HEX",
-    "20-0": "pt_small_icon_clr_dark",
-    "20-1": "Optional",
-    "20-2": "Small Icon Color in HEX in dark mode",
-    "21-0": "pt_scale_type",
-    "21-1": "Optional",
-    "21-2": "Specify the image scaling type for notifications.  Available values: <li>`fit_center` </li>  <li>`center_crop`</li>  \nFor more information on how it works, refer to [Image Scaling](doc:push-templates-android#image-scaling).",
-    "22-0": "pt_json",
-    "22-1": "Optional",
-    "22-2": "Above keys in JSON format",
-    "23-0": "pt_big_img",
-    "23-1": "Optional",
-    "23-2": "Image",
-    "24-0": "pt_big_img_alt_text",
-    "24-1": "Optional",
-    "24-2": "Alt Text for Image",
-    "25-0": "pt_gif",
-    "25-1": "Optional",
-    "25-2": "GIF",
-    "26-0": "pt_gif_frames",
-    "26-1": "Optional",
-    "26-2": "Number of frames to extract from the GIF",
-    "27-0": "pt_sticky",
-    "27-1": "Optional",
-    "27-2": "Should the notification be sticky? (\"true\"/\"false\")",
-    "28-0": "pt_dismiss",
-    "28-1": "Optional",
-    "28-2": "Auto dismiss the notification after a set time (value in seconds)"
-  },
-  "cols": 3,
-  "rows": 29,
-  "align": [
-    "right",
-    "center",
-    "left"
-  ]
-}
-[/block]
+<Table align={["right","center","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Rating Template Keys
+      </th>
 
+      <th>
+        Required
+      </th>
+
+      <th>
+        Description
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        pt\_id
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Value - `pt_rating`
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_title
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Title
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_msg
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Message
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_default\_dl
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Default Deep Link for Push Notification
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_dl1
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Deep Link for first/all star(s)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_bg
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Background Color in HEX
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_bg\_dark
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Background Color in HEX in dark mode
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_msg\_summary
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Message line when Notification is expanded
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_subtitle
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Subtitle
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_dl2
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Deep Link for second star
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_dl3
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Deep Link for third star
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_dl4
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Deep Link for fourth star
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_dl5
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Deep Link for fifth star
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_ico
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Large Icon
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        wzrk\_hide\_large\_icon
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Hide the large icon in Android notifications\
+        Values:  
+
+        <li> hide = `true` to hide the icon </li> <li> hide = `false` to show the icon (Default) </li>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_title\_clr
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Title Color in HEX
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_title\_clr\_dark
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Title Color in HEX in dark mode.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_msg\_clr
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Message Color in HEX
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_msg\_clr\_dark
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Message Color in HEX in dark mode
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_small\_icon\_clr
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Small Icon Color in HEX
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_small\_icon\_clr\_dark
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Small Icon Color in HEX in dark mode
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_scale\_type
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Specify the image scaling type for notifications.  Available values: <li>`fit_center` </li>  <li>`center_crop`</li>\
+        For more information on how it works, refer to [Image Scaling](doc:push-templates-android#image-scaling).
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_json
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Above keys in JSON format
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_big\_img
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Image
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_big\_img\_alt\_text
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Alt Text for Image
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_gif
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        GIF
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_gif\_frames
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Number of frames to extract from the GIF
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_sticky
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Should the notification be sticky? ("true"/"false")
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_dismiss
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Auto dismiss the notification after a set time (value in seconds)
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 # Product Catalog Template
 
-The product catalog template lets you showcase different product images (or a product catalog) before the user can click on the _BUY NOW_ option, which can take them directly to the product via deep links. This template has two variants.
+The product catalog template lets you showcase different product images (or a product catalog) before the user can click on the *BUY NOW* option, which can take them directly to the product via deep links. This template has two variants.
 
 ## Vertical View
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/21393452affbcdbd00b8a7550c07b59db3a855a46f0746099529338ef5208a2f-image.png",
-        null,
-        "Product Catalog Template- Vertical View"
-      ],
-      "align": "center",
-      "sizing": "35% ",
-      "border": true,
-      "caption": "Product Catalog Template- Vertical View"
-    }
-  ]
-}
-[/block]
-
+<Image alt="Product Catalog Template- Vertical View" align="center" width="35% " border={true} src="https://files.readme.io/21393452affbcdbd00b8a7550c07b59db3a855a46f0746099529338ef5208a2f-image.png">
+  Product Catalog Template- Vertical View
+</Image>
 
 ## Linear View
 
 Use the following keys to enable the linear view variant of this template:
 
-|              Template Key | Required | Value  |
-| ------------------------: | :------: | :----- |
-| pt_product_display_linear | Optional | `true` |
+|                 Template Key | Required | Value  |
+| ---------------------------: | :------: | :----- |
+| pt\_product\_display\_linear | Optional | `true` |
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/1e2e81891b1ce9faa0a12731f254d616dcf51818c28f14f6428c0a5d833855b8-image.png",
-        null,
-        "Product Catalog Template-Linear View"
-      ],
-      "align": "center",
-      "sizing": "35% ",
-      "border": true,
-      "caption": "Product Catalog Template-Linear View"
-    }
-  ]
-}
-[/block]
-
+<Image alt="Product Catalog Template-Linear View" align="center" width="35% " border={true} src="https://files.readme.io/1e2e81891b1ce9faa0a12731f254d616dcf51818c28f14f6428c0a5d833855b8-image.png">
+  Product Catalog Template-Linear View
+</Image>
 
 ## Template Keys
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Product Catalog Template Keys",
-    "h-1": "Required",
-    "h-2": "Description",
-    "0-0": "pt_id",
-    "0-1": "Required",
-    "0-2": "Value - `pt_product_display`",
-    "1-0": "pt_msg",
-    "1-1": "Required",
-    "1-2": "Message",
-    "2-0": "pt_title",
-    "2-1": "Required",
-    "2-2": "Title",
-    "3-0": "pt_img1",
-    "3-1": "Required",
-    "3-2": "Image One",
-    "4-0": "pt_img1_alt_text",
-    "4-1": "Optional",
-    "4-2": "Alt Text for Image One",
-    "5-0": "pt_img2",
-    "5-1": "Required",
-    "5-2": "Image Two",
-    "6-0": "pt_img2_alt_text",
-    "6-1": "Optional",
-    "6-2": "Alt Text for Image Two",
-    "7-0": "pt_img3",
-    "7-1": "Required",
-    "7-2": "Image Three",
-    "8-0": "pt_img3_alt_text",
-    "8-1": "Optional",
-    "8-2": "Alt Text for Image Three",
-    "9-0": "pt_bt1",
-    "9-1": "Required",
-    "9-2": "Big text for first image",
-    "10-0": "pt_bt2",
-    "10-1": "Required",
-    "10-2": "Big text for second image",
-    "11-0": "pt_bt3",
-    "11-1": "Required",
-    "11-2": "Big text for third image",
-    "12-0": "pt_st2",
-    "12-1": "Required",
-    "12-2": "Small text for second image",
-    "13-0": "pt_st1",
-    "13-1": "Required",
-    "13-2": "Small text for first image",
-    "14-0": "pt_st3",
-    "14-1": "Required",
-    "14-2": "Small text for third image",
-    "15-0": "pt_dl1",
-    "15-1": "Required",
-    "15-2": "Deep Link for first image",
-    "16-0": "pt_dl2",
-    "16-1": "Required",
-    "16-2": "Deep Link for second image",
-    "17-0": "pt_dl3",
-    "17-1": "Required",
-    "17-2": "Deep Link for third image",
-    "18-0": "pt_price1",
-    "18-1": "Required",
-    "18-2": "Price for first image",
-    "19-0": "pt_price2",
-    "19-1": "Required",
-    "19-2": "Price for second image",
-    "20-0": "pt_price3",
-    "20-1": "Required",
-    "20-2": "Price for third image",
-    "21-0": "pt_bg",
-    "21-1": "Required",
-    "21-2": "Background Color in HEX",
-    "22-0": "pt_bg_dark",
-    "22-1": "Required",
-    "22-2": "Background Color in HEX in dark mode",
-    "23-0": "pt_product_display_action",
-    "23-1": "Required",
-    "23-2": "Action Button Label Text",
-    "24-0": "pt_product_display_action_clr",
-    "24-1": "Required",
-    "24-2": "Action Button Background Color in HEX",
-    "25-0": "pt_subtitle",
-    "25-1": "Optional",
-    "25-2": "Subtitle",
-    "26-0": "pt_product_display_linear",
-    "26-1": "Optional",
-    "26-2": "Linear Layout Template (\"true\"/\"false\")",
-    "27-0": "pt_title_clr",
-    "27-1": "Optional",
-    "27-2": "Title Color in HEX",
-    "28-0": "pt_title_clr_dark",
-    "28-1": "Optional",
-    "28-2": "Title Color in HEX in dark mode.",
-    "29-0": "pt_msg_clr",
-    "29-1": "Optional",
-    "29-2": "Message Color in HEX",
-    "30-0": "pt_msg_clr_dark",
-    "30-1": "Optional",
-    "30-2": "Message Color in HEX in dark mode",
-    "31-0": "pt_small_icon_clr",
-    "31-1": "Optional",
-    "31-2": "Small Icon Color in HEX",
-    "32-0": "pt_small_icon_clr_dark",
-    "32-1": "Optional",
-    "32-2": "Small Icon Color in HEX in dark mode",
-    "33-0": "pt_sticky",
-    "33-1": "Optional",
-    "33-2": "Should the notification be sticky? (\"true\"/\"false\")",
-    "34-0": "pt_dismiss",
-    "34-1": "Optional",
-    "34-2": "Auto dismiss the notification after a set time (value in seconds)",
-    "35-0": "pt_scale_type",
-    "35-1": "Optional",
-    "35-2": "Specify the image scaling type for notifications.  Available values: <li>`fit_center` </li>  <li>`center_crop`</li>  \nFor more information on how it works, refer to [Image Scaling](doc:android-push-templates#image-scaling).",
-    "36-0": "pt_json",
-    "36-1": "Optional",
-    "36-2": "Above keys in JSON format"
-  },
-  "cols": 3,
-  "rows": 37,
-  "align": [
-    "right",
-    "center",
-    "left"
-  ]
-}
-[/block]
+<Table align={["right","center","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Product Catalog Template Keys
+      </th>
 
+      <th>
+        Required
+      </th>
+
+      <th>
+        Description
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        pt\_id
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Value - `pt_product_display`
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_msg
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Message
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_title
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Title
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_img1
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Image One
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_img1\_alt\_text
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Alt Text for Image One
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_img2
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Image Two
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_img2\_alt\_text
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Alt Text for Image Two
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_img3
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Image Three
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_img3\_alt\_text
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Alt Text for Image Three
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_bt1
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Big text for first image
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_bt2
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Big text for second image
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_bt3
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Big text for third image
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_st2
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Small text for second image
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_st1
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Small text for first image
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_st3
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Small text for third image
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_dl1
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Deep Link for first image
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_dl2
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Deep Link for second image
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_dl3
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Deep Link for third image
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_price1
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Price for first image
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_price2
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Price for second image
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_price3
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Price for third image
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_bg
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Background Color in HEX
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_bg\_dark
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Background Color in HEX in dark mode
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_product\_display\_action
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Action Button Label Text
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_product\_display\_action\_clr
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Action Button Background Color in HEX
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_subtitle
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Subtitle
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_product\_display\_linear
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Linear Layout Template ("true"/"false")
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_title\_clr
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Title Color in HEX
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_title\_clr\_dark
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Title Color in HEX in dark mode.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_msg\_clr
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Message Color in HEX
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_msg\_clr\_dark
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Message Color in HEX in dark mode
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_small\_icon\_clr
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Small Icon Color in HEX
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_small\_icon\_clr\_dark
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Small Icon Color in HEX in dark mode
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_sticky
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Should the notification be sticky? ("true"/"false")
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_dismiss
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Auto dismiss the notification after a set time (value in seconds)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_scale\_type
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Specify the image scaling type for notifications.  Available values: <li>`fit_center` </li>  <li>`center_crop`</li>\
+        For more information on how it works, refer to [Image Scaling](doc:android-push-templates#image-scaling).
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_json
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Above keys in JSON format
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 # Input Box Template
 
@@ -1177,31 +3364,16 @@ The CTA variant of the Input Box Template uses action buttons on the notificatio
 
 To set the CTAs, use the Advanced Options when setting up the campaign on the dashboard.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://github.com/CleverTap/clevertap-android-sdk/raw/master/static/inputctabasicdismiss.gif",
-        "Input Box Template-With CTAs",
-        618
-      ],
-      "align": "center",
-      "sizing": "35% ",
-      "border": true,
-      "caption": "Input Box Template-With CTAs"
-    }
-  ]
-}
-[/block]
+<Image title="Input Box Template-With CTAs" alt={618} align="center" width="35% " border={true} src="https://github.com/CleverTap/clevertap-android-sdk/raw/master/static/inputctabasicdismiss.gif">
+  Input Box Template-With CTAs
+</Image>
 
-
-|        Template Key | Required | Value                                                        |
-| ------------------: | :------: | :----------------------------------------------------------- |
-| pt_dismiss_on_click | Optional | `true` (Dismisses the notification without opening the app). |
+|           Template Key | Required | Value                                                        |
+| ---------------------: | :------: | :----------------------------------------------------------- |
+| pt\_dismiss\_on\_click | Optional | `true` (Dismisses the notification without opening the app). |
 
 > 📘 **Display the Notification in the tray (for Android 12 and above)**
-> 
+>
 > To keep the notification in the notification tray even after clicking the CTA, set the value for the `pt_dismiss_on_click` payload key as `false` and add the `dismissNotification` function to your code.
 
 Following is a sample code for adding the `dismissNotification` function:
@@ -1239,31 +3411,16 @@ This variant of the Input Box Template is advantageous if the user wants to be r
 
 Ensure to set one of the CTAs as a Remind Later button. Set the action ID to `remind` from the dashboard.
 
-|                            Template Key | Required | Value                                                                                                                                                                  |
-| --------------------------------------: | :------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                           pt_event_name | Required | For example: `Remind Later`,                                                                                                                                           |
-| pt\_event\_property\_\<property_name_1> | Optional | For example: `<property_value>`,                                                                                                                                       |
-| pt\_event\_property\_\<property_name_2> | Optional | future epoch timestamp. For example: `\$D_1592503813`                                                                                                                  |
-|                     pt_dismiss_on_click | Required | Value should be `true`. It dismisses the notification without opening the app and raises a required event to the user profile, needed to send a reminder notification. |
+|                              Template Key | Required | Value                                                                                                                                                                  |
+| ----------------------------------------: | :------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|                           pt\_event\_name | Required | For example: `Remind Later`,                                                                                                                                           |
+| pt\_event\_property\_\<property\_name\_1> | Optional | For example: `<property_value>`,                                                                                                                                       |
+| pt\_event\_property\_\<property\_name\_2> | Optional | future epoch timestamp. For example: `\$D_1592503813`                                                                                                                  |
+|                    pt\_dismiss\_on\_click | Required | Value should be `true`. It dismisses the notification without opening the app and raises a required event to the user profile, needed to send a reminder notification. |
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://github.com/CleverTap/clevertap-android-sdk/raw/master/static/inputCtaRemind.gif",
-        "Input Box Template-CTAs with Remind Later option",
-        618
-      ],
-      "align": "center",
-      "sizing": "35% ",
-      "border": true,
-      "caption": "Input Box Template-CTAs with Remind Later option"
-    }
-  ]
-}
-[/block]
-
+<Image title="Input Box Template-CTAs with Remind Later option" alt={618} align="center" width="35% " border={true} src="https://github.com/CleverTap/clevertap-android-sdk/raw/master/static/inputCtaRemind.gif">
+  Input Box Template-CTAs with Remind Later option
+</Image>
 
 ## Reply as an Event
 
@@ -1271,32 +3428,17 @@ This variant raises an event capturing the user's input as an event property. Th
 
 To use this variant, use the following values for the keys.
 
-|                            Template Key | Required | Value                                   |
-| --------------------------------------: | :------: | :-------------------------------------- |
-|                          pt_input_label | Required | for example, `Search`                   |
-|                       pt_input_feedback | Required | for example, `Thanks for your feedback` |
-|                          pt\_event_name | Required | for example. `Searched`,                |
-| pt\_event\_property\_\<property_name_2> | Required | fixed value - `pt_input_reply`          |
-| pt\_event\_property\_\<property_name_1> | Optional | for example. `<property_value>`,        |
+|                              Template Key | Required | Value                                   |
+| ----------------------------------------: | :------: | :-------------------------------------- |
+|                          pt\_input\_label | Required | for example, `Search`                   |
+|                       pt\_input\_feedback | Required | for example, `Thanks for your feedback` |
+|                           pt\_event\_name | Required | for example. `Searched`,                |
+| pt\_event\_property\_\<property\_name\_2> | Required | fixed value - `pt_input_reply`          |
+| pt\_event\_property\_\<property\_name\_1> | Optional | for example. `<property_value>`,        |
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://github.com/CleverTap/clevertap-android-sdk/raw/master/static/inputCtaNoOpen.gif",
-        "Input Box Template-Reply as an Event",
-        618
-      ],
-      "align": "center",
-      "sizing": "35% ",
-      "border": true,
-      "caption": "Input Box Template-Reply as an Event"
-    }
-  ]
-}
-[/block]
-
+<Image title="Input Box Template-Reply as an Event" alt={618} align="center" width="35% " border={true} src="https://github.com/CleverTap/clevertap-android-sdk/raw/master/static/inputCtaNoOpen.gif">
+  Input Box Template-Reply as an Event
+</Image>
 
 ## Reply as an Intent
 
@@ -1304,138 +3446,403 @@ This variant passes the reply to the app as an Intent. The app can then process 
 
 To use this variant, use the following values for the keys.
 
-|       Template Key | Required | Value                                    |
-| -----------------: | :------: | :--------------------------------------- |
-|     pt_input_label | Required | for example, `Search`                    |
-|  pt_input_feedback | Required | for example., `Thanks for your feedback` |
-| pt_input_auto_open | Required | fixed value - `true`                     |
+|          Template Key | Required | Value                                    |
+| --------------------: | :------: | :--------------------------------------- |
+|      pt\_input\_label | Required | for example, `Search`                    |
+|   pt\_input\_feedback | Required | for example., `Thanks for your feedback` |
+| pt\_input\_auto\_open | Required | fixed value - `true`                     |
 
 To capture the input, the app can get the `pt_input_reply` key from the Intent extras.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://github.com/CleverTap/clevertap-android-sdk/raw/master/static/inputCtaWithOpen.gif",
-        "Input Box Template-Reply as an Intent",
-        618
-      ],
-      "align": "center",
-      "sizing": "35% ",
-      "border": true,
-      "caption": "Input Box Template-Reply as an Intent"
-    }
-  ]
-}
-[/block]
-
+<Image title="Input Box Template-Reply as an Intent" alt={618} align="center" width="35% " border={true} src="https://github.com/CleverTap/clevertap-android-sdk/raw/master/static/inputCtaWithOpen.gif">
+  Input Box Template-Reply as an Intent
+</Image>
 
 ## Template Keys
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Input Box Template Keys",
-    "h-1": "Required",
-    "h-2": "Description",
-    "0-0": "pt_id",
-    "0-1": "Required",
-    "0-2": "Value - `pt_input`",
-    "1-0": "pt_title",
-    "1-1": "Required",
-    "1-2": "Title",
-    "2-0": "pt_msg",
-    "2-1": "Required",
-    "2-2": "Message",
-    "3-0": "pt_big_img",
-    "3-1": "Required",
-    "3-2": "Image",
-    "4-0": "pt_big_img_alt",
-    "4-1": "Optional",
-    "4-2": "Image to be shown after feedback is collected",
-    "5-0": "pt_input_label",
-    "5-1": "Required",
-    "5-2": "Label text to be shown on the input",
-    "6-0": "pt_input_feedback",
-    "6-1": "Required",
-    "6-2": "Feedback",
-    "7-0": "pt_dl1",
-    "7-1": "Required",
-    "7-2": "Deep Link",
-    "8-0": "pt_msg_summary",
-    "8-1": "Optional",
-    "8-2": "Message line when Notification is expanded",
-    "9-0": "pt_subtitle",
-    "9-1": "Optional",
-    "9-2": "Subtitle",
-    "10-0": "pt_event_name",
-    "10-1": "Optional",
-    "10-2": "Name of Event to be raised",
-    "11-0": "pt\\_event\\_property\\_\\<property_name_1>",
-    "11-1": "Optional",
-    "11-2": "Value for event property \\<property_name_1>",
-    "12-0": "pt\\_event\\_property\\_\\<property_name_2>",
-    "12-1": "Optional",
-    "12-2": "Value for event property \\<property_name_2>",
-    "13-0": "pt\\_event\\_property\\_\\<property_name_n>",
-    "13-1": "Optional",
-    "13-2": "Value for event property \\<property_name_n>",
-    "14-0": "pt_input_auto_open",
-    "14-1": "Optional",
-    "14-2": "Auto open the app after feedback",
-    "15-0": "pt_title_clr",
-    "15-1": "Optional",
-    "15-2": "Title Color in HEX",
-    "16-0": "pt_title_clr_dark",
-    "16-1": "Optional",
-    "16-2": "Title Color in HEX in dark mode.",
-    "17-0": "pt_msg_clr",
-    "17-1": "Optional",
-    "17-2": "Message Color in HEX",
-    "18-0": "pt_msg_clr_dark",
-    "18-1": "Optional",
-    "18-2": "Message Color in HEX in dark mode",
-    "19-0": "pt_small_icon_clr",
-    "19-1": "Optional",
-    "19-2": "Small Icon Color in HEX",
-    "20-0": "pt_small_icon_clr_dark",
-    "20-1": "Optional",
-    "20-2": "Small Icon Color in HEX in dark mode",
-    "21-0": "pt_ico",
-    "21-1": "Optional",
-    "21-2": "Large Icon",
-    "22-0": "wzrk_hide_large_icon",
-    "22-1": "Optional",
-    "22-2": "Hide the large icon in Android notifications  \nValues:  \n  \n<li> hide = `true` to hide the icon </li> <li> hide = `false` to show the icon (Default) </li>",
-    "23-0": "pt_dismiss_on_click",
-    "23-1": "Optional",
-    "23-2": "Dismiss notification on click",
-    "24-0": "pt_json",
-    "24-1": "Optional",
-    "24-2": "Above keys in JSON format"
-  },
-  "cols": 3,
-  "rows": 25,
-  "align": [
-    "right",
-    "center",
-    "left"
-  ]
-}
-[/block]
+<Table align={["right","center","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Input Box Template Keys
+      </th>
 
+      <th>
+        Required
+      </th>
+
+      <th>
+        Description
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        pt\_id
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Value - `pt_input`
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_title
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Title
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_msg
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Message
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_big\_img
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Image
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_big\_img\_alt
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Image to be shown after feedback is collected
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_input\_label
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Label text to be shown on the input
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_input\_feedback
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Feedback
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_dl1
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        Deep Link
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_msg\_summary
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Message line when Notification is expanded
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_subtitle
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Subtitle
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_event\_name
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Name of Event to be raised
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_event\_property\_\<property\_name\_1>
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Value for event property \<property\_name\_1>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_event\_property\_\<property\_name\_2>
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Value for event property \<property\_name\_2>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_event\_property\_\<property\_name\_n>
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Value for event property \<property\_name\_n>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_input\_auto\_open
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Auto open the app after feedback
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_title\_clr
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Title Color in HEX
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_title\_clr\_dark
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Title Color in HEX in dark mode.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_msg\_clr
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Message Color in HEX
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_msg\_clr\_dark
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Message Color in HEX in dark mode
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_small\_icon\_clr
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Small Icon Color in HEX
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_small\_icon\_clr\_dark
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Small Icon Color in HEX in dark mode
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_ico
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Large Icon
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        wzrk\_hide\_large\_icon
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Hide the large icon in Android notifications\
+        Values:  
+
+        <li> hide = `true` to hide the icon </li> <li> hide = `false` to show the icon (Default) </li>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_dismiss\_on\_click
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Dismiss notification on click
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt\_json
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Above keys in JSON format
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 # Template Variations
 
 Users can preview and render different variations of outputs for each Push template type based on the following factors:
 
-- **Version-based Output**: Notifications render differently for Android version 12 and above and version 11 and below. Key considerations include the following:
-  - **Android 13 and above**: Use images no larger than 450x450 px for optimal rendering.
-  - **Android 12 and above**: Center-align any text within images is centered for to ensure better visibility.
-  - **Android 11 and 12**: Use image file size below 100 KB to prevent rendering issues.
-  - **Android 11 and below**: Use images of under 3 MB or lower is recommended for better to maintain optimal performance.
-- **CTA-based Output**: Notification renders based on whether CTA buttons are included in the payload.
+* **Version-based Output**: Notifications render differently for Android version 12 and above and version 11 and below. Key considerations include the following:
+  * **Android 13 and above**: Use images no larger than 450x450 px for optimal rendering.
+  * **Android 12 and above**: Center-align any text within images is centered for to ensure better visibility.
+  * **Android 11 and 12**: Use image file size below 100 KB to prevent rendering issues.
+  * **Android 11 and below**: Use images of under 3 MB or lower is recommended for better to maintain optimal performance.
+* **CTA-based Output**: Notification renders based on whether CTA buttons are included in the payload.
 
 # Dark Mode
 
@@ -1447,11 +3854,11 @@ Push templates automatically adapt to the device's theme settings, rendering not
 | **Dark mode disabled** | Notification renders with a **light background**. | ![](https://files.readme.io/e5e9256facd596cdea7b325ad9945868ed3a4d3c5527ef09d46ae64ae350fc5d-image.png) |
 
 > 📘 **Custom Color Definitions**
-> 
+>
 > Templates support **custom color definitions** that adapt to both themes for visual consistency.
 
 > 🚧 **SDK Version Requirement**
-> 
+>
 > To use the Dark mode feature, ensure you are using Push Templates SDK version 2.1.0 and above.
 
 # Image Scaling
@@ -1460,88 +3867,244 @@ Android supports various image scaling options to control how images appear in p
 
 The following table lists the different scaling settings in Push templates:
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Image Scaling Type",
-    "h-1": "Description",
-    "h-2": "Sample Output",
-    "0-0": "**Keep Original**",
-    "0-1": "Applies to all expanded images in Android push templates.  \n  \nThe image is scaled proportionally (maintaining the aspect ratio) to ensure that both its width and height fit within the boundaries of the image container. This ensures the entire image is visible without any cropping.",
-    "0-2": "![](https://files.readme.io/8ee6f3ee4c83f0c5858268cca7d494fdc6492c2eaff59a7daf85d504260f365c-image.png)",
-    "1-0": "**Scale to Fill**",
-    "1-1": "Applies to all expanded images in all Android push templates.  \n  \nThe image is resized uniformly while preserving the aspect ratio.  If necessary, it is scaled down so that both width and height fit within the image container. This ensures the full image is displayed without any part being cropped.",
-    "1-2": "![](https://files.readme.io/ca12801ffa07a814fa59f413d383b80185acb5d6c9dc36b5aa04721bc21800ae-image.png)"
-  },
-  "cols": 3,
-  "rows": 2,
-  "align": [
-    "left",
-    "left",
-    "left"
-  ]
-}
-[/block]
+<Table align={["left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Image Scaling Type
+      </th>
 
+      <th>
+        Description
+      </th>
+
+      <th>
+        Sample Output
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        **Keep Original**
+      </td>
+
+      <td>
+        Applies to all expanded images in Android push templates.  
+
+        The image is scaled proportionally (maintaining the aspect ratio) to ensure that both its width and height fit within the boundaries of the image container. This ensures the entire image is visible without any cropping.
+      </td>
+
+      <td>
+        ![](https://files.readme.io/8ee6f3ee4c83f0c5858268cca7d494fdc6492c2eaff59a7daf85d504260f365c-image.png)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **Scale to Fill**
+      </td>
+
+      <td>
+        Applies to all expanded images in all Android push templates.  
+
+        The image is resized uniformly while preserving the aspect ratio.  If necessary, it is scaled down so that both width and height fit within the image container. This ensures the full image is displayed without any part being cropped.
+      </td>
+
+      <td>
+        ![](https://files.readme.io/ca12801ffa07a814fa59f413d383b80185acb5d6c9dc36b5aa04721bc21800ae-image.png)
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 > 🚧 **SDK Version Requirement**
-> 
+>
 > To use the Image scaling feature, ensure you are using Push Templates SDK version 2.1.0 and above.
 
 # Image Specifications
 
 The following are the image specifications and guidelines for the Push Templates:
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Template",
-    "h-1": "Aspect Ratios (Approx.)",
-    "h-2": "Maximum File Size  \n(OS version 12 and above)",
-    "0-0": "**Standard**",
-    "0-1": "<li> OS version 12 and above: **3:2**</li> <li>OS version 11 and below: **5:3**</li>",
-    "0-2": "",
-    "1-0": "**Advanced**",
-    "1-1": "<li>OS version 12 and above: **3:2**</li><li>OS version 11 and below: **5:3**</li>",
-    "1-2": "500 KB",
-    "2-0": "**Auto Carousel**",
-    "2-1": "<li>OS version 12 and above: **3:2**</li><li>OS version 11 and below: **5:3**</li>",
-    "2-2": "86 KB",
-    "3-0": "**Manual Carousel**",
-    "3-1": "<li>OS version 12 and above: **3:2**</li><li>OS version 11 and below: **5:3**</li>",
-    "3-2": "86 KB",
-    "4-0": "**Five Icon**",
-    "4-1": "<li> OS version 12 and above: **1:1**</li><li>OS version 11 and below: **1:1**</li>",
-    "4-2": "50 KB",
-    "5-0": "**Text over Image**",
-    "5-1": "<li>OS version 12 and above: **1:1**</li><li>OS version 11 and below: **2:1**</li>",
-    "5-2": "500 KB",
-    "6-0": "**Timer**",
-    "6-1": "<li>OS version 12 and above: **3:2**</li><li>OS version 11 and below: **5:3**</li>",
-    "6-2": "326 KB",
-    "7-0": "**Product Catalogue Linear View**",
-    "7-1": "<li>OS version 12 and above - **3:2**</li><li>OS version 11 and below- **2:1**</li>",
-    "7-2": "86 KB",
-    "8-0": "**Product Catalogue Vertical View**",
-    "8-1": "<li>OS version 12 and above - **3:4**</li><li>OS version 11 and below- **1:1**</li>",
-    "8-2": "86 KB",
-    "9-0": "**Input Box**",
-    "9-1": "<li>OS version 12 and above - **3:2**</li><li>OS version 11 and below- **5:3**</li>",
-    "9-2": "500 KB",
-    "10-0": "**Ratings**",
-    "10-1": "<li>OS version 12 and above - **3:1**</li><li>OS version 11 and below- **5:3**</li>",
-    "10-2": "500 KB"
-  },
-  "cols": 3,
-  "rows": 11,
-  "align": [
-    "right",
-    "left",
-    "left"
-  ]
-}
-[/block]
+<Table align={["right","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Template
+      </th>
 
+      <th>
+        Aspect Ratios (Approx.)
+      </th>
+
+      <th>
+        Maximum File Size
+
+
+
+
+        (OS version 12 and above)
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        **Standard**
+      </td>
+
+      <td>
+        <li> OS version 12 and above: **3:2**</li> <li>OS version 11 and below: **5:3**</li>
+      </td>
+
+      <td>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **Advanced**
+      </td>
+
+      <td>
+        <li>OS version 12 and above: **3:2**</li><li>OS version 11 and below: **5:3**</li>
+      </td>
+
+      <td>
+        500 KB
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **Auto Carousel**
+      </td>
+
+      <td>
+        <li>OS version 12 and above: **3:2**</li><li>OS version 11 and below: **5:3**</li>
+      </td>
+
+      <td>
+        86 KB
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **Manual Carousel**
+      </td>
+
+      <td>
+        <li>OS version 12 and above: **3:2**</li><li>OS version 11 and below: **5:3**</li>
+      </td>
+
+      <td>
+        86 KB
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **Five Icon**
+      </td>
+
+      <td>
+        <li> OS version 12 and above: **1:1**</li><li>OS version 11 and below: **1:1**</li>
+      </td>
+
+      <td>
+        50 KB
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **Text over Image**
+      </td>
+
+      <td>
+        <li>OS version 12 and above: **1:1**</li><li>OS version 11 and below: **2:1**</li>
+      </td>
+
+      <td>
+        500 KB
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **Timer**
+      </td>
+
+      <td>
+        <li>OS version 12 and above: **3:2**</li><li>OS version 11 and below: **5:3**</li>
+      </td>
+
+      <td>
+        326 KB
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **Product Catalogue Linear View**
+      </td>
+
+      <td>
+        <li>OS version 12 and above - **3:2**</li><li>OS version 11 and below- **2:1**</li>
+      </td>
+
+      <td>
+        86 KB
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **Product Catalogue Vertical View**
+      </td>
+
+      <td>
+        <li>OS version 12 and above - **3:4**</li><li>OS version 11 and below- **1:1**</li>
+      </td>
+
+      <td>
+        86 KB
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **Input Box**
+      </td>
+
+      <td>
+        <li>OS version 12 and above - **3:2**</li><li>OS version 11 and below- **5:3**</li>
+      </td>
+
+      <td>
+        500 KB
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **Ratings**
+      </td>
+
+      <td>
+        <li>OS version 12 and above - **3:1**</li><li>OS version 11 and below- **5:3**</li>
+      </td>
+
+      <td>
+        500 KB
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 # Image Guidelines
 
