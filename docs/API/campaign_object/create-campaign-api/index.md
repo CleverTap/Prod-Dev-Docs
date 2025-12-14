@@ -30,7 +30,7 @@ This endpoint is limited to 3 requests per second.
 
 ## Base URL - Target User Events & Properties
 
-Here is an example base URL from the account in the India region:\
+Here is an example base URL from the account in the India region:  
 [https://in1.api.clevertap.com/1/targets/create.json](https://in1.api.clevertap.com/1/targets/create.json)
 
 ### Region
@@ -53,8 +53,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
 
 > 📘 Mobile Push Notification Parameters
 >
-> The parameters in bold and marked with \* provide additional functionality for creating a push campaign.
-
+> The parameters in bold and marked with * provide additional functionality for creating a push campaign.
 
 <Table align={["left","left","left","left","left"]}>
   <thead>
@@ -106,7 +105,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
 
     <tr>
       <td>
-        target\_mode
+        target_mode
       </td>
 
       <td>
@@ -128,11 +127,11 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
 
     <tr>
       <td>
-        provider\_nick\_name
+        provider_nick_name
       </td>
 
       <td>
-        Allows you to specify which vendor/provider to use for your campaign. For each target\_mode, you can have multiple providers integrated with CleverTap, and this parameter allows you to select which provider to use for the campaign. For example, you select target\_mode = email and you have integrated both SendGrid and Amazon SNS with CleverTap to send emails. In this scenario, you can set provider\_nick\_name = SendGrid to send the campaign through SendGrid. This parameter is only for Email, WhatsApp, and SMS.
+        Allows you to specify which vendor/provider to use for your campaign. For each target_mode, you can have multiple providers integrated with CleverTap, and this parameter allows you to select which provider to use for the campaign. For example, you select target_mode = email and you have integrated both SendGrid and Amazon SNS with CleverTap to send emails. In this scenario, you can set provider_nick_name = SendGrid to send the campaign through SendGrid. This parameter is only for Email, WhatsApp, and SMS.
       </td>
 
       <td>
@@ -150,7 +149,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
 
     <tr>
       <td>
-        provider\_group\_nickname
+        provider_group_nickname
       </td>
 
       <td>
@@ -172,7 +171,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
 
     <tr>
       <td>
-        content.sms.template\_id
+        content.sms.template_id
       </td>
 
       <td>
@@ -194,7 +193,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
 
     <tr>
       <td>
-        **conversion\_goal\***
+        **conversion_goal***
       </td>
 
       <td>
@@ -210,46 +209,13 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        "conversion\_goal": \{\
-          "event\_name": "Charged",\
-          "filter\_type": \{\
-            "event\_property": \[\
-              \{\
-                "property\_name": "Items|Book name",\
-                "operator": "equals",\
-                "property\_value": "book name"\
-              },\
-              \{\
-                "property\_name": "Items|Category",\
-                "operator": "equals",\
-                "property\_value": "category"\
-              },\
-              \{\
-                "property\_name": "Payment mode",\
-                "operator": "equals",\
-                "property\_value": "UPI"\
-              },\
-              \{\
-                "property\_name": "Amount",\
-                "operator": "between",\
-                "property\_value": [3456, 4567]\
-              }\
-            ],\
-            "first\_time": "yes",\
-            "last\_time": "yes",\
-            "time\_of\_day": \[["21:00", "23:00"]],\
-            "day\_of\_week": [1, 3],\
-            "day\_of\_month": [1, 3, 16, 31]\
-          },\
-          "conversion\_time": "3D",\
-          "revenue\_property": "Amount"\
-        }
+        Example: Track conversions for the "Charged" event when users match specific event properties (for example, Items|Book name, Items|Category, Payment mode, and Amount between 3456 and 4567), within a defined conversion_time window, using Amount as the revenue property.
       </td>
     </tr>
 
     <tr>
       <td>
-        **conversion\_goal.event\_name\***
+        **conversion_goal.event_name***
       </td>
 
       <td>
@@ -257,7 +223,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        Required if conversion\_goal is provided
+        Required if conversion_goal is provided
       </td>
 
       <td>
@@ -265,22 +231,21 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        "event\_name": "Charged",
+        "event_name": "Charged",
       </td>
     </tr>
 
     <tr>
       <td>
-        **conversion\_goal.filter\_type\***
+        **conversion_goal.filter_type***
       </td>
 
       <td>
-        Filters for provided event\_name\
-        The type of filter applied in conversion tracking. For example, first\_time, time\_of\_day and so on.
+        Filters for provided event_name. The type of filter applied in conversion tracking. For example, event_property, first_time, last_time, time_of_day, day_of_week, and day_of_month.
       </td>
 
       <td>
-        Required if conversion\_goal is provided
+        Required if conversion_goal is provided
       </td>
 
       <td>
@@ -288,31 +253,17 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        "filter\_type": \{\
-          "event\_property": [  
-            {  
-              "property_name": "Items|Book name",  
-              "operator": "equals",  
-              "property_value": "book name"  
-            }  
-          ],\
-          "first\_time": "yes",\
-          "last\_time": "yes",\
-          "time\_of\_day": ["21:00", "23:00"],\
-          "day\_of\_week": [1, 3],\
-          "day\_of\_month": [1, 3, 16, 31]\
-        }
+        Example: Filter only the "Charged" events where event_property matches specific values (for example, Items|Book name, Items|Category), first_time = "yes", last_time = "yes", and the event occurs during specific times of the day and specific days of the week or month.
       </td>
     </tr>
 
     <tr>
       <td>
-        * \*conversion\_goal. filter\_type.\
-          event\_property\*\*\*
+        _conversion_goal.filter_type.event_property_**
       </td>
 
       <td>
-        Event Property for given event\_name.
+        Event Property for given event_name.
       </td>
 
       <td>
@@ -324,39 +275,17 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        "event\_property": \[\
-          \{\
-            "property\_name": "Items|Book name",\
-            "operator": "equals",\
-            "property\_value": "book name"\
-          },\
-          \{\
-            "property\_name": "Items|Category",\
-            "operator": "equals",\
-            "property\_value": "category"\
-          },\
-          \{\
-            "property\_name": "Payment mode",\
-            "operator": "equals",\
-            "property\_value": "UPI"\
-          },\
-          \{\
-            "property\_name": "Amount",\
-            "operator": "between",\
-            "property\_value": [3456, 4567]\
-          }\
-        ]
+        Example: A list of objects such as property_name = "Items|Book name", operator = "equals", property_value = "book name"; property_name = "Items|Category", operator = "equals", property_value = "category"; property_name = "Payment mode", operator = "equals", property_value = "UPI"; or property_name = "Amount" with operator = "between" and a numeric range.
       </td>
     </tr>
 
     <tr>
       <td>
-        * \*conversion\_goal.filter\_type.\
-          event\_property.property\_name\*\*\*
+        _conversion_goal.filter_type.event_property.property_name_**
       </td>
 
       <td>
-        Name of the event\_property.
+        Name of the event_property.
       </td>
 
       <td>
@@ -368,29 +297,28 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        "property\_name": "Items|Book name"
+        "property_name": "Items|Book name"
       </td>
     </tr>
 
     <tr>
       <td>
-        * \*conversion\_goal.filter\_type.\
-          event\_property.operator\*\*\*
+        _conversion_goal.filter_type.event_property.operator_**
       </td>
 
       <td>
-        Operator required for property\_name and property\_value.\
-        Valid values are:\
-        equals\
-        greater\_than\
-        greater\_than\_equals\
-        less\_than\
-        less\_than\_equals\
-        contains\
-        does\_not\_contain\
-        not\_equals\
-        exists (does not require property\_value)\
-        does\_not\_exist (does not require property\_value)\
+        Operator required for property_name and property_value.  
+        Valid values are:  
+        equals  
+        greater_than  
+        greater_than_equals  
+        less_than  
+        less_than_equals  
+        contains  
+        does_not_contain  
+        not_equals  
+        exists (does not require property_value)  
+        does_not_exist (does not require property_value)  
         between (requires 2 values in an array)
       </td>
 
@@ -409,12 +337,11 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
 
     <tr>
       <td>
-        * \*conversion\_goal.filter\_type.\
-          event\_property.property\_value\*\*\*
+        _conversion_goal.filter_type.event_property.property_value_**
       </td>
 
       <td>
-        Provides value of the event\_property.
+        Provides value of the event_property.
       </td>
 
       <td>
@@ -426,20 +353,19 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        "property\_value":"book name"
+        "property_value":"book name"
       </td>
     </tr>
 
     <tr>
       <td>
-        * \*conversion\_goal.\
-          filter\_type.first\_time\*\*\*
+        _conversion_goal.filter_type.first_time_**
       </td>
 
       <td>
-        Provides value of the first\_time.\
-        Valid values are:\
-        "yes"\
+        Provides value of the first_time.  
+        Valid values are:  
+        "yes"  
         "no"
       </td>
 
@@ -452,20 +378,19 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        "first\_time":"yes",
+        "first_time":"yes",
       </td>
     </tr>
 
     <tr>
       <td>
-        * \*conversion\_goal.\
-          filter\_type.last\_time\*\*\*
+        _conversion_goal.filter_type.last_time_**
       </td>
 
       <td>
-        Provides value of last\_time.\
-        Valid values:\
-        "yes"\
+        Provides value of last_time.  
+        Valid values:  
+        "yes"  
         "no"
       </td>
 
@@ -478,20 +403,19 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        "last\_time":"yes",
+        "last_time":"yes",
       </td>
     </tr>
 
     <tr>
       <td>
-        * \*conversion\_goal.\
-          filter\_type.time\_of\_day\*\*\*
+        _conversion_goal.filter_type.time_of_day_**
       </td>
 
       <td>
-        Provides value of time\_of\_day.\
-        Valid values:\
-        \[ [from_time, to_time] , [from_time, to_time] ]\
+        Provides value of time_of_day.  
+        Valid values:  
+        [ [from_time, to_time] , [from_time, to_time] ]  
         time: "HH:MM"
       </td>
 
@@ -504,23 +428,22 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        "time\_of\_day": \[\
-          ["21:00", "23:00"],\
-          ["11:34", "12:44"],\
-          ["13:01", "13:40"]\
+        "time_of_day": [  
+        ["21:00", "23:00"],  
+        ["11:34", "12:44"],  
+        ["13:01", "13:40"]  
         ]
       </td>
     </tr>
 
     <tr>
       <td>
-        * \*conversion\_goal.\
-          filter\_type.day\_of\_week\*\*\*
+        _conversion_goal.filter_type.day_of_week_**
       </td>
 
       <td>
-        Provides value of day\_of\_week.\
-        Valid values:\
+        Provides value of day_of_week.  
+        Valid values:  
         [0 to 6] is [Sun to Sat]
       </td>
 
@@ -533,20 +456,19 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        "day\_of\_week": [1, 3, 5]
+        "day_of_week": [1, 3, 5]
       </td>
     </tr>
 
     <tr>
       <td>
-        * \*conversion\_goal.\
-          filter\_type.day\_of\_month\*\*\*
+        _conversion_goal.filter_type.day_of_month_**
       </td>
 
       <td>
-        Provides value of day\_of\_month.\
-        Valid values:\
-        [dates_of_month,....]\
+        Provides value of day_of_month.  
+        Valid values:  
+        [dates_of_month,....]  
         range: [1 to 31]
       </td>
 
@@ -559,24 +481,24 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        "day\_of\_month": [1, 3, 16, 31]
+        "day_of_month": [1, 3, 16, 31]
       </td>
     </tr>
 
     <tr>
       <td>
-        **conversion\_goal.conversion\_time\***
+        **conversion_goal.conversion_time***
       </td>
 
       <td>
-        Denotes the period that conversions are tracked for once the campaign is published.\
-        Accepted values:\
-        [30m, 1H, 2H, 4H, 8H, 12H, 1D, 2D, 3D, 5D, 1W, 2W, 1M, 2M, 5M]\
-        where, m: minutes, H: hour, D: day, W: week, M:month
+        Denotes the period that conversions are tracked for once the campaign is published.  
+        Accepted values:  
+        [30m, 1H, 2H, 4H, 8H, 12H, 1D, 2D, 3D, 5D, 1W, 2W, 1M, 2M, 5M]  
+        where, m: minutes, H: hour, D: day, W: week, M: month.
       </td>
 
       <td>
-        Required if conversion\_goal is provided
+        Required if conversion_goal is provided
       </td>
 
       <td>
@@ -584,46 +506,13 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        "conversion\_goal": \{\
-          "event\_name": "Charged",\
-          "filter\_type": \{\
-            "event\_property": \[\
-              \{\
-                "property\_name": "Items|Book name",\
-                "operator": "equals",\
-                "property\_value": "book name"\
-              },\
-              \{\
-                "property\_name": "Items|Category",\
-                "operator": "equals",\
-                "property\_value": "category"\
-              },\
-              \{\
-                "property\_name": "Payment mode",\
-                "operator": "equals",\
-                "property\_value": "UPI"\
-              },\
-              \{\
-                "property\_name": "Amount",\
-                "operator": "between",\
-                "property\_value": [3456, 4567]\
-              }\
-            ],\
-            "first\_time": "yes",\
-            "last\_time": "yes",\
-            "time\_of\_day": \[["21:00", "23:00"]],\
-            "day\_of\_week": [1, 3],\
-            "day\_of\_month": [1, 3, 16, 31]\
-          },\
-          "conversion\_time": "3D",\
-          "revenue\_property": "Amount"\
-        }
+        Example: "conversion_time": "3D" to track conversions for 3 days after the campaign is sent.
       </td>
     </tr>
 
     <tr>
       <td>
-        **conversion\_goal.revenue\_property\***
+        **conversion_goal.revenue_property***
       </td>
 
       <td>
@@ -631,7 +520,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        Required if conversion\_goal is provided
+        Required if conversion_goal is provided
       </td>
 
       <td>
@@ -639,7 +528,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        "revenue\_property": "Amount"
+        "revenue_property": "Amount"
       </td>
     </tr>
 
@@ -649,7 +538,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        Allows you to filter target base on the user events and profile properties. Send an empty object (\{}) to target your entire user base.
+        Allows you to filter target base on the user events and profile properties. Send an empty object to target your entire user base.
       </td>
 
       <td>
@@ -661,26 +550,13 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        "where": \{\
-          "event\_name": "Charged",\
-          "from": 20251001,\
-          "to": 20251220,\
-          "common\_profile\_properties": \{\
-            "profile\_fields": [  
-              {  
-                "name": "Customer Type",  
-                "operator": "equals",  
-                "value": "Platinum"  
-              }  
-            ]\
-          }\
-        }
+        Example: Target users who performed the "Charged" event between 20171001 and 20171220 and whose "Customer Type" profile field equals "Platinum".
       </td>
     </tr>
 
     <tr>
       <td>
-        where.event\_name
+        where.event_name
       </td>
 
       <td>
@@ -718,7 +594,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        20251001
+        20171001
       </td>
     </tr>
 
@@ -740,13 +616,13 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        20251220
+        20171220
       </td>
     </tr>
 
     <tr>
       <td>
-        where.profile\_fields
+        where.profile_fields
       </td>
 
       <td>
@@ -762,21 +638,13 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        "common\_profile\_properties": \{\
-          "profile\_fields": [  
-            {  
-              "name": "Customer Type",  
-              "operator": "equals",  
-              "value": "Platinum"  
-            }  
-          ]\
-        }
+        Example: A profile_fields list with name = "Customer Type", operator = "equals", value = "Platinum".
       </td>
     </tr>
 
     <tr>
       <td>
-        estimate\_only
+        estimate_only
       </td>
 
       <td>
@@ -798,11 +666,11 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
 
     <tr>
       <td>
-        async\_estimate
+        async_estimate
       </td>
 
       <td>
-        This allows setting of the estimate\_only flag asynchronously. If this parameter is set to true, it returns a request ID that can be passed in the subsequent API call.
+        This allows setting of the estimate_only flag asynchronously. If this parameter is set to true, it returns a request ID that can be passed in the subsequent API call.
       </td>
 
       <td>
@@ -820,7 +688,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
 
     <tr>
       <td>
-        system\_control\_group\_include
+        system_control_group_include
       </td>
 
       <td>
@@ -842,11 +710,11 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
 
     <tr>
       <td>
-        control\_group
+        control_group
       </td>
 
       <td>
-        If the custom control group is enabled from the dashboard, you can choose to use the control group for API campaigns
+        If the custom control group is enabled from the dashboard, you can choose to use the control group for API campaigns.
       </td>
 
       <td>
@@ -858,20 +726,17 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        "control\_group": \{\
-        "type": "custom"\
-        "name": "name of control group"\
-        }
+        Example: A custom control group with type = "custom" and name = "name of control group".
       </td>
     </tr>
 
     <tr>
       <td>
-        control\_group
+        control_group
       </td>
 
       <td>
-        You can create a campaign control group via API by specifying the % as described on the left
+        You can create a campaign control group via API by specifying the % as described on the left.
       </td>
 
       <td>
@@ -883,16 +748,13 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        "control\_group": \{\
-        "type": "campaign"\
-        "percentage": 5\
-        }
+        Example: A campaign control group with type = "campaign" and percentage = 5.
       </td>
     </tr>
 
     <tr>
       <td>
-        skip\_estimate
+        skip_estimate
       </td>
 
       <td>
@@ -908,13 +770,13 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        "skip\_estimate":true
+        "skip_estimate":true
       </td>
     </tr>
 
     <tr>
       <td>
-        send\_to\_all\_devices
+        send_to_all_devices
       </td>
 
       <td>
@@ -952,19 +814,19 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        upper\_cap\_for\_target\_segment\*
+        upper_cap_for_target_segment*
       </td>
     </tr>
 
     <tr>
       <td>
-        **upper\_cap\_for\_target\_segment\***
+        **upper_cap_for_target_segment***
       </td>
 
       <td>
-        Do not send the campaign if the target segment exceeds the provided number of users.\
-        By default all target segment users are selected.\
-        Note: Do not provide this parameter if users\_limit\_overall is provided. (Minimum value is 100)
+        Do not send the campaign if the target segment exceeds the provided number of users.  
+        By default all target segment users are selected.  
+        Note: Do not provide this parameter if users_limit_overall is provided. (Minimum value is 100)
       </td>
 
       <td>
@@ -976,19 +838,19 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        "upper\_cap\_for\_target\_segment” : 500
+        "upper_cap_for_target_segment" : 500
       </td>
     </tr>
 
     <tr>
       <td>
-        **users\_limit\_overall\***
+        **users_limit_overall***
       </td>
 
       <td>
-        Send only to the provided number of qualified users.\
-        By default all target segment users are selected.\
-        Note: Do not provide this parameter if upper\_cap\_for\_target\_segment is provided. (Minimum value is 100)
+        Send only to the provided number of qualified users.  
+        By default all target segment users are selected.  
+        Note: Do not provide this parameter if upper_cap_for_target_segment is provided. (Minimum value is 100)
       </td>
 
       <td>
@@ -1000,13 +862,13 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        “users\_limit\_overall” : 250
+        "users_limit_overall" : 250
       </td>
     </tr>
 
     <tr>
       <td>
-        **users\_limit\_per\_run\***
+        **users_limit_per_run***
       </td>
 
       <td>
@@ -1022,17 +884,17 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        "users\_limit\_per\_run":199,
+        "users_limit_per_run":199,
       </td>
     </tr>
 
     <tr>
       <td>
-        send\_email\_to\_opted\_out\_users
+        send_email_to_opted_out_users
       </td>
 
       <td>
-        Valid values are: true and false. Set to false by default. When true, emails are sent to all qualified users, including those who have unsubscribed. For more information, refer to [Override Communication Preferences for Email](https://docs.clevertap.com/docs/create-message-email#override-communication-preferences-for-email).
+        Valid values are: true and false. Set to false by default. When true, emails are sent to all qualified users, including those who have unsubscribed. For more information, refer to [Override Communication Preferences for Email](doc:create-message-email#override-communication-preferences-for-email).
       </td>
 
       <td>
@@ -1044,17 +906,17 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        "send\_email\_to\_opted\_out\_users":true
+        "send_email_to_opted_out_users":true
       </td>
     </tr>
 
     <tr>
       <td>
-        subscription\_groups
+        subscription_groups
       </td>
 
       <td>
-        Campaign is only sent to users who are subscribed to at least one of these groups. For more information, refer to [Manage Email Preferences](https://docs.clevertap.com/docs/manage-email-preferences) .
+        Campaign is only sent to users who are subscribed to at least one of these groups. For more information, refer to [Manage Email Preferences](https://staging.docs.user.clevertap.net/docs/manage-email-preferences).
       </td>
 
       <td>
@@ -1088,13 +950,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        "content": \{\
-        "subject": "Welcome",\
-        "body": "\
-        Your HTML content for the email\
-        ",\
-        "sender\_name": "CleverTap"\
-        }
+        Example: subject = "Welcome", body = "Your HTML content for the email", sender_name = "CleverTap".
       </td>
     </tr>
 
@@ -1166,7 +1022,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
 
     <tr>
       <td>
-        content.sender\_name
+        content.sender_name
       </td>
 
       <td>
@@ -1188,7 +1044,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
 
     <tr>
       <td>
-        content.template\_name
+        content.template_name
       </td>
 
       <td>
@@ -1204,7 +1060,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        "662da022\_5583\_406d\_9c71\_428d5e3164bb:ticket\_update"
+        "662da022_5583_406d_9c71_428d5e3164bb:ticket_update"
       </td>
     </tr>
 
@@ -1226,11 +1082,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        "replacements" : \{\
-        "1" : ,\
-        "2" : ,\
-        "3" :\
-        }
+        Example: "1", "2", "3" as replacement values for template placeholders.
       </td>
     </tr>
 
@@ -1306,7 +1158,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        The language code of the message. To get the language code from the CT dashboard, go to Settings > Channels > Whatsapp and open any template. Click the **Template** tab. The template name displays the locale code in parentheses. For example,  Dynamic URL *(fr)*.
+        The language code of the message. To get the language code from the CT dashboard, go to Settings > Channels > Whatsapp and open any template. Click the <strong>Template</strong> tab. The template name displays the locale code in parentheses. For example,  Dynamic URL <em>(fr)</em>.
       </td>
 
       <td>
@@ -1324,14 +1176,14 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
 
     <tr>
       <td>
-        wzrk\_cid
+        wzrk_cid
       </td>
 
       <td>
-        Platform-specific key that is required to target users on devices running Android O - can be used to determine notification channel to which a given push notification must belong.\
-        If a Notification ID is mandatory, then the channel ID is expected. An error occurs if a valid channel ID is not received.  
+        Platform-specific key that is required to target users on devices running Android O - can be used to determine notification channel to which a given push notification must belong.  
+        If a Notification ID is mandatory, then the channel ID is expected. An error occurs if a valid channel ID is not received.
 
-        * \*Note:\*\* If the channel ID is not saved on the CleverTap dashboard, then the channel ID does not work in Create Campaign API.
+        **Note:** If the channel ID is not saved on the CleverTap dashboard, then the channel ID does not work in Create Campaign API.
       </td>
 
       <td>
@@ -1349,7 +1201,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
 
     <tr>
       <td>
-        wzrk\_bc
+        wzrk_bc
       </td>
 
       <td>
@@ -1371,13 +1223,13 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
 
     <tr>
       <td>
-        wqrk\_bi
+        wqrk_bi
       </td>
 
       <td>
-        Platform-specific key that can be used while targeting users on devices running Android O - can be used to determine which icon should be used.\
-        Accepted values:\
-        app icon\
+        Platform-specific key that can be used while targeting users on devices running Android O - can be used to determine which icon should be used.  
+        Accepted values:  
+        app icon  
         notification icon
       </td>
 
@@ -1396,11 +1248,11 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
 
     <tr>
       <td>
-        wzrk\_acts
+        wzrk_acts
       </td>
 
       <td>
-        Android Action Buttons\
+        Android Action Buttons  
         "l"= Action Title, "dl" = Deep link, "id" = Action id, "ico" = icon resource identifier
       </td>
 
@@ -1413,20 +1265,13 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        "wzrk\_acts": [  
-            {  
-              "l": "Action button 1",  
-              "dl": "deep link for action button 1",  
-              "id": "action id of the action button 1",  
-              "ico": "Icon resource identifier for action button 1"  
-            }  
-          ]
+        Example: An array of action objects with label, deep link, id, and icon resource identifier.
       </td>
     </tr>
 
     <tr>
       <td>
-        platform\_specific
+        platform_specific
       </td>
 
       <td>
@@ -1448,11 +1293,11 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
 
     <tr>
       <td>
-        enable\_rendermax
+        enable_rendermax
       </td>
 
       <td>
-        This field helps enable RenderMax when creating a campaign via API. It is available only for Mobile Push campaigns and must be added under the platform\_specific key for Android devices only. For more information about the feature, refer to [RenderMax](https://docs.clevertap.com/docs/rendermax). Valid values are: true or false.
+        This field helps enable RenderMax when creating a campaign via API. It is available only for Mobile Push campaigns and must be added under the platform_specific key for Android devices only. For more information about the feature, refer to [RenderMax](https://docs.clevertap.com/docs/rendermax). Valid values are: true or false.
       </td>
 
       <td>
@@ -1464,13 +1309,13 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        "enable\_rendermax": true
+        "enable_rendermax": true
       </td>
     </tr>
 
     <tr>
       <td>
-        background\_image
+        background_image
       </td>
 
       <td>
@@ -1486,20 +1331,20 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        "background\_image": "[http://example.jpg](http://example.jpg)"
+        "background_image": "[http://example.jpg](http://example.jpg)"
       </td>
     </tr>
 
     <tr>
       <td>
-        **notification\_tray\_priority\***
+        **notification_tray_priority***
       </td>
 
       <td>
-        This field helps to set priority for the notification tray in android.\
-        Valid values are:\
-        "max"\
-        "high"\
+        This field helps to set priority for the notification tray in android.  
+        Valid values are:  
+        "max"  
+        "high"  
         "default"
       </td>
 
@@ -1512,19 +1357,19 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        "notification\_tray\_priority": "max"
+        "notification_tray_priority": "max"
       </td>
     </tr>
 
     <tr>
       <td>
-        **delivery\_priority\***
+        **delivery_priority***
       </td>
 
       <td>
-        This field helps to set delivery priority of notification in android.\
-        Valid values are:\
-        "normal"\
+        This field helps to set delivery priority of notification in android.  
+        Valid values are:  
+        "normal"  
         "high"
       </td>
 
@@ -1537,13 +1382,13 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        "delivery\_priority": "high"
+        "delivery_priority": "high"
       </td>
     </tr>
 
     <tr>
       <td>
-        **android\_collapse\***
+        **android_collapse***
       </td>
 
       <td>
@@ -1559,13 +1404,13 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        "android\_collapse" : "any message or number".
+        "android_collapse" : "any message or number".
       </td>
     </tr>
 
     <tr>
       <td>
-        **ios\_collapse\***
+        **ios_collapse***
       </td>
 
       <td>
@@ -1581,17 +1426,17 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        "ios\_collapse" : "any message or number"
+        "ios_collapse" : "any message or number"
       </td>
     </tr>
 
     <tr>
       <td>
-        **summary\***
+        **summary***
       </td>
 
       <td>
-        You can provide summary\
+        You can provide summary  
         about the notification you are sending to user valid only in Android.
       </td>
 
@@ -1610,7 +1455,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
 
     <tr>
       <td>
-        **subtitle\***
+        **subtitle***
       </td>
 
       <td>
@@ -1632,11 +1477,11 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
 
     <tr>
       <td>
-        **large\_icon\***
+        **large_icon***
       </td>
 
       <td>
-        By default, the app icon appears as the large icon. The CleverTap dashboard provides an option to show other icons apart from the app icon.          
+        By default, the app icon appears as the large icon. The CleverTap dashboard provides an option to show other icons apart from the app icon.
       </td>
 
       <td>
@@ -1648,13 +1493,13 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        "large\_icon": "logo.com"
+        "large_icon": "logo.com"
       </td>
     </tr>
 
     <tr>
       <td>
-        **Custom KVs\***
+        **Custom KVs***
       </td>
 
       <td>
@@ -1670,14 +1515,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        "platform\_specific": \{\
-          "ios": \{\
-            "Key": "Value\_ios"\
-          },\
-          "android": \{\
-            "Key": "Value\_android"\
-          }\
-        }
+        Example: platform_specific.ios.Key = "Value_ios" and platform_specific.android.Key = "Value_android".
       </td>
     </tr>
 
@@ -1687,7 +1525,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        To raise Notification viewed event for Push notifications, raise the flag to "true" in the platform\_specific: iOS section of the request payload.
+        To raise Notification viewed event for Push notifications, raise the flag to "true" in the platform_specific: iOS section of the request payload.
       </td>
 
       <td>
@@ -1705,7 +1543,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
 
     <tr>
       <td>
-        respect\_frequency\_caps
+        respect_frequency_caps
       </td>
 
       <td>
@@ -1727,7 +1565,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
 
     <tr>
       <td>
-        respect\_throttle
+        respect_throttle
       </td>
 
       <td>
@@ -1743,7 +1581,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        "respect\_throttle":true
+        "respect_throttle":true
       </td>
     </tr>
 
@@ -1753,11 +1591,11 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        This allows setting of time to live for push notifications for android and iOS.\
-        The subkeys for ttl are\
-        “ttl\_type” - with input as “relative”   "h-1":  and ”absolute”\
-        “value” -For relative ttl, the input is an integer in minutes.\
-        For absolute ttl, the input should be an integer in the yyyyMMddHHmm format.  
+        This allows setting of time to live for push notifications for android and iOS.  
+        The subkeys for ttl are  
+        “ttl_type” - with input as “relative” and ”absolute”  
+        “value” - For relative ttl, the input is an integer in minutes.  
+        For absolute ttl, the input should be an integer in the yyyyMMddHHmm format.
 
         More information is available [here](https://docs.clevertap.com/docs/create-message-push).
       </td>
@@ -1767,22 +1605,13 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        Depends on subkey\
-        ttl\_type: string\
+        Depends on subkey  
+        ttl_type: string  
         value: Long
       </td>
 
       <td>
-        For Absolute TTL -\
-        "ttl" : \{\
-        "ttl\_type": "absolute",\
-        "value" : 202207200000\
-        },\
-        For Relative TTL -\
-        "ttl" : \{\
-        "ttl\_type": "relative",\
-        "value" : 2880\
-        },
+        Example: Absolute TTL with ttl_type = "absolute" and value = 202207200000, or Relative TTL with ttl_type = "relative" and value = 2880.
       </td>
     </tr>
 
@@ -1810,7 +1639,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
 
     <tr>
       <td>
-        **when\***
+        **when***
       </td>
 
       <td>
@@ -1826,27 +1655,13 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        "when": \{\
-          "type": "later",\
-          "delivery\_date\_time": ["20220420 13:00", "20220421 14:00"],\
-          "delivery\_timezone": "user",\
-          "user\_timezone\_wrap\_around": true,\
-          "dnd": \{\
-            "message\_state": 1,\
-            "dnd\_timezone": "user",\
-            "dnd\_info": \{\
-              "2": ["21:00", "06:00"],\
-              "4": ["23:56", "04:34"]\
-            }\
-          },\
-          "campaign\_cutoff": "14:20"\
-        }
+        Example: type = "later", delivery_date_time list, delivery_timezone = "user", user_timezone_wrap_around flag, dnd configuration, and a campaign_cutoff time.
       </td>
     </tr>
 
     <tr>
       <td>
-        **when.type\***
+        **when.type***
       </td>
 
       <td>
@@ -1868,7 +1683,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
 
     <tr>
       <td>
-        **when.delivery\_date\_time\***
+        **when.delivery_date_time***
       </td>
 
       <td>
@@ -1884,13 +1699,13 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        "delivery\_date\_time": ["20230503 15:20"]
+        "delivery_date_time": ["20230503 15:20"]
       </td>
     </tr>
 
     <tr>
       <td>
-        **when.repeats\_every\***
+        **when.repeats_every***
       </td>
 
       <td>
@@ -1906,17 +1721,17 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        "repeats\_every" : 2
+        "repeats_every" : 2
       </td>
     </tr>
 
     <tr>
       <td>
-        **when.repeat\_type\***
+        **when.repeat_type***
       </td>
 
       <td>
-        Can be "day" or "week"\
+        Can be "day" or "week"  
         Note: Repeat by month is not implemented.
       </td>
 
@@ -1929,13 +1744,13 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        "repeat\_type" : "week"
+        "repeat_type" : "week"
       </td>
     </tr>
 
     <tr>
       <td>
-        **when.start\_time\***
+        **when.start_time***
       </td>
 
       <td>
@@ -1951,22 +1766,22 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        "start\_time" : "20220415 12:05",
+        "start_time" : "20220415 12:05",
       </td>
     </tr>
 
     <tr>
       <td>
-        **when.end\_by\_date\***
+        **when.end_by_date***
       </td>
 
       <td>
-        "YYYYMMDD", End the campaign after provided date.\
-        Note: Either end\_by\_date or end\_by\_occurrences can be provided.
+        "YYYYMMDD", End the campaign after provided date.  
+        Note: Either end_by_date or end_by_occurrences can be provided.
       </td>
 
       <td>
-        Optional\
+        Optional  
         Note: This is applicable only if when.type = "recurring"
       </td>
 
@@ -1975,18 +1790,18 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        "end\_by\_date" : "20220420"
+        "end_by_date" : "20220420"
       </td>
     </tr>
 
     <tr>
       <td>
-        **when.end\_by\_occurrences\***
+        **when.end_by_occurrences***
       </td>
 
       <td>
-        End the campaign after provided number of occurrences.\
-        Note: Either end\_by\_date or end\_by\_occurrences can be provided.
+        End the campaign after provided number of occurrences.  
+        Note: Either end_by_date or end_by_occurrences can be provided.
       </td>
 
       <td>
@@ -1998,13 +1813,13 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        "end\_by\_occurrences" : 8
+        "end_by_occurrences" : 8
       </td>
     </tr>
 
     <tr>
       <td>
-        **when.repeat\_on\_days\_of\_week\***
+        **when.repeat_on_days_of_week***
       </td>
 
       <td>
@@ -2012,7 +1827,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        Required if when.type = "recurring" and repeat\_type = "week"
+        Required if when.type = "recurring" and repeat_type = "week"
       </td>
 
       <td>
@@ -2020,13 +1835,13 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        "repeat\_on\_days\_of\_week": [1, 3, 5]
+        "repeat_on_days_of_week": [1, 3, 5]
       </td>
     </tr>
 
     <tr>
       <td>
-        **when.delivery\_timezone\***
+        **when.delivery_timezone***
       </td>
 
       <td>
@@ -2042,19 +1857,19 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        "delivery\_timezone":"user"\
-        OR\
-        "delivery\_timezone":"account"
+        "delivery_timezone":"user"  
+        OR  
+        "delivery_timezone":"account"
       </td>
     </tr>
 
     <tr>
       <td>
-        **when.user\_timezone\_wrap\_around\***
+        **when.user_timezone_wrap_around***
       </td>
 
       <td>
-        If the campaign start time is after a user's local time, then drop the campaign (user\_timezone\_wrap\_around : false) or deliver the campaign the next day (user\_timezone\_wrap\_around : true).
+        If the campaign start time is after a user's local time, then drop the campaign (user_timezone_wrap_around : false) or deliver the campaign the next day (user_timezone_wrap_around : true).
       </td>
 
       <td>
@@ -2066,13 +1881,13 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        "user\_timezone\_wrap\_around":true
+        "user_timezone_wrap_around":true
       </td>
     </tr>
 
     <tr>
       <td>
-        **dnd\***
+        **dnd***
       </td>
 
       <td>
@@ -2088,27 +1903,20 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        "dnd": \{\
-          "message\_state": "delay",\
-          "dnd\_timezone": "user",\
-          "dnd\_info": \{\
-            "2": ["21:00", "06:00"],\
-            "4": ["23:56", "04:34"]\
-          }\
-        }
+        Example: message_state (delay or discard), dnd_timezone (user or account), and dnd_info specifying days and time ranges.
       </td>
     </tr>
 
     <tr>
       <td>
-        **dnd.message\_state\***
+        **dnd.message_state***
       </td>
 
       <td>
-        The following are the values for parameter:\
-        "delay": Delay message send until the end of DND.\
-        "discard" : Discard messages scheduled during DND.\
-        Note: By default, messages scheduled during DND are discarded (if message\_state is not provided).
+        The following are the values for parameter:  
+        "delay": Delay message send until the end of DND.  
+        "discard" : Discard messages scheduled during DND.  
+        Note: By default, messages scheduled during DND are discarded (if message_state is not provided).
       </td>
 
       <td>
@@ -2120,19 +1928,19 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        "message\_state":"discard"
+        "message_state":"discard"
       </td>
     </tr>
 
     <tr>
       <td>
-        **dnd.dnd\_info\***
+        **dnd.dnd_info***
       </td>
 
       <td>
-        Provides the following information:\
-        Format: [Start Time in minutes, End Time in minutes]\
-        Day: Denotes the days of week on which the DND is applicable.\
+        Provides the following information:  
+        Format: [Start Time in minutes, End Time in minutes]  
+        Day: Denotes the days of week on which the DND is applicable.  
         Format: [Sun to Sat] is [1 to 7] value
       </td>
 
@@ -2145,20 +1953,17 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        "dnd\_info": \{\
-          "2": ["21:00", "06:00"],\
-          "4": ["23:56", "04:34"]\
-        }
+        Example: day 2 has ["21:00", "06:00"], day 4 has ["23:56", "04:34"].
       </td>
     </tr>
 
     <tr>
       <td>
-        **dnd.dnd\_timezone\***
+        **dnd.dnd_timezone***
       </td>
 
       <td>
-        Timezone for DND (user\_timezone or account\_timezone)
+        Timezone for DND (user_timezone or account_timezone)
       </td>
 
       <td>
@@ -2170,40 +1975,38 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        "dnd\_timezone":"user",\
-        OR\
-        "dnd\_timezone":"account",
+        "dnd_timezone":"user",  
+        OR  
+        "dnd_timezone":"account",
       </td>
     </tr>
 
     <tr>
       <td>
-        **when.campaign\_cutoff\***
+        **when.campaign_cutoff***
       </td>
 
       <td>
-        Stop sending messages from this campaign after a particular time (Campaign Cutoff)\
+        Stop sending messages from this campaign after a particular time (Campaign Cutoff)  
         Format : "HH:MM"
       </td>
 
       <td>
-        Optional
+
       </td>
 
       <td>
-        String (Time)
+
       </td>
 
       <td>
-        "campaign\_cutoff": "12:20"
+
       </td>
     </tr>
   </tbody>
 </Table>
 
-
-Example Payloads : 
-
+**Example Payloads**
 
 ```json Web Push Notification
 {
@@ -2871,1481 +2674,67 @@ Example Payloads :
 }
 ```
 
-
-Following is the JSON payload for the iOS Carousel Push template:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Following is the JSON payload for the iOS Carousel Push template
+
+```json
+{
+  "name": "My API Campaign",
+  "estimate_only": false,
+  "target_mode": "push",
+  "where": {
+    "event_name": "App Launched",
+    "from": 20250606,
+    "to": 20250609
+  },
+  "respect_frequency_caps": false,
+  "content": {
+    "title": "TEST!",
+    "body": "How are you doing today?",
+    "platform_specific": {
+      "ios": {
+        "mutable-content": "true",
+        "deep_link": "example.com",
+        "sound_file": "example.caf",
+        "category": "CTNotification",
+        "badge_count": 1,
+        "ct_ContentSlider": {
+          "orientation": "landscape",
+          "showsPaging": 1,
+          "autoPlay": 1,
+          "autoDismiss": 1,
+          "items": [
+            {
+              "caption": "caption one",
+              "subcaption": "subcaption one",
+              "imageUrl": "<https://s3.amazonaws.com/ct-demo-images/landscape-1.jpg>",
+              "actionUrl": "<com.clevertap.ctcontent.example://item/one>"
+            },
+            {
+              "caption": "caption two",
+              "subcaption": "subcaption two",
+              "imageUrl": "<https://s3.amazonaws.com/ct-demo-images/landscape-2.jpg>",
+              "actionUrl": "<com.clevertap.ctcontent.example://item/two>"
+            }
+          ],
+          "type": "carousalImg"
+        },
+        "ct_mediaType": "image",
+        "ct_mediaUrl": "<https://s3.amazonaws.com/ct-demo-images/landscape-1.jpg>"
+      }
+    }
+  },
+  "devices": ["ios"],
+  "when": "now"
+}
+```
 
 Following is the JSON payload for WhatsApp interactive message templates:
 
-> 📘 Note:
->
-> Currently, Create Campaign APIs for WhatsApp do not support Carousel templates, Limited Time Offer (LTO) templates, Custom key-value pairs,, and templates with copy code button.
+<Callout icon="📘" theme="info">
+  Note
 
+  Currently, Create Campaign APIs for WhatsApp do not support Carousel templates, Limited Time Offer (LTO) templates, Custom key-value pairs,, and templates with copy code button.
+</Callout>
 
 ```json Image Template
 {
@@ -4603,7 +2992,6 @@ Following is the JSON payload for WhatsApp interactive message templates:
 
 ```
 
-
 ## Labels
 
 You can associate one or more labels with a campaign when creating it. Labels make it easier to organize, search, and filter campaigns in the CleverTap dashboard.
@@ -4616,563 +3004,41 @@ You can associate one or more labels with a campaign when creating it. Labels ma
 
 ### Example Payload with Labels
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+```json
+{
+  "name": "Test Labels",
+  "estimate_only": false,
+  "target_mode": "push",
+  "labels": [
+    "news",
+    "sports"
+  ],
+  "where": {
+    "event_name": "App Launched",
+    "from": 20250901,
+    "to": 20250931,
+    "common_profile_properties": {
+      "profile_fields": [
+        {
+          "name": "Customer Type",
+          "operator": "equals",
+          "value": "Platinum"
+        }
+      ]
+    }
+  },
+  "respect_frequency_caps": false,
+  "content": {
+    "title": "Hi!",
+    "body": "How are you doing today?"
+  },
+  "when": "now"
+}
+```
 
 # SMS
 
 The Generic Sample Campaign API includes configurations for without Key Values, Key Value in Header Body, Key Value in Message Body, Target Level Key Value & Template ID, with payloads added below.
-
 
 <Table align={["left","left","left","left","left"]}>
   <thead>
@@ -5186,7 +3052,7 @@ The Generic Sample Campaign API includes configurations for without Key Values, 
       </th>
 
       <th>
-        Required/Optional
+        Required / Optional
       </th>
 
       <th>
@@ -5202,7 +3068,7 @@ The Generic Sample Campaign API includes configurations for without Key Values, 
   <tbody>
     <tr>
       <td>
-        $$header1
+        `$$header1`
       </td>
 
       <td>
@@ -5224,33 +3090,11 @@ The Generic Sample Campaign API includes configurations for without Key Values, 
 
     <tr>
       <td>
-        $$message1
+        `$$message1`
       </td>
 
       <td>
-        The message (body) key must match the key-value pairs defined in the Provider Setup body
-      </td>
-
-      <td>
-        Required
-      </td>
-
-      <td>
-        String
-      </td>
-
-      <td>
-
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        1726822661
-      </td>
-
-      <td>
-        This is the provider ID given by CleverTap, and you can obtain it from the URL when viewing the provider details in the dashboard or you can reach out to support team or account manager to get this value.
+        The message (body) key must match the key-value pairs defined in the Provider Setup body.
       </td>
 
       <td>
@@ -5268,7 +3112,29 @@ The Generic Sample Campaign API includes configurations for without Key Values, 
 
     <tr>
       <td>
-        name
+        `1726822661`
+      </td>
+
+      <td>
+        This is the provider ID given by CleverTap. You can obtain it from the URL when viewing provider details in the dashboard or by contacting support or your account manager.
+      </td>
+
+      <td>
+        Required
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `name`
       </td>
 
       <td>
@@ -5284,17 +3150,17 @@ The Generic Sample Campaign API includes configurations for without Key Values, 
       </td>
 
       <td>
-        “My Campaign”
+        `"My Campaign"`
       </td>
     </tr>
 
     <tr>
       <td>
-        provider\_nickname
+        `provider_nickname`
       </td>
 
       <td>
-        Allows you to specify which vendor/provider to use for your campaign. For each target\_mode, you can have multiple providers integrated with CleverTap, and this parameter allows you to select which provider to use for the campaign. For example, you select target\_mode = email and you have integrated both SendGrid and Amazon SNS with CleverTap to send emails. In this scenario, you can set provider\_nick\_name = SendGrid to send the campaign through SendGrid. This parameter is only for Email, WhatsApp, and SMS.
+        Specifies which vendor/provider to use for the campaign. Applicable only for Email, WhatsApp, and SMS when multiple providers are integrated for the same `target_mode`.
       </td>
 
       <td>
@@ -5306,17 +3172,17 @@ The Generic Sample Campaign API includes configurations for without Key Values, 
       </td>
 
       <td>
-        "Provider 1"
+        `"Provider 1"`
       </td>
     </tr>
 
     <tr>
       <td>
-        where
+        `where`
       </td>
 
       <td>
-        Allows you to filter target base on the user events and profile properties. Send an empty object (\{}) to target your entire user base.
+        Filters the target audience based on user events and profile properties. Use an empty object (`{}`) to target all users.
       </td>
 
       <td>
@@ -5328,30 +3194,26 @@ The Generic Sample Campaign API includes configurations for without Key Values, 
       </td>
 
       <td>
-        "where": \{\
-        "event\_name": "Charged",\
-        "from": 20251001,\
-        "to": 20251220,\
-        "common\_profile\_properties": \{\
-        "profile\_fields": ed/Optional",\
-            "h-3": "Type",\
-            "h-4": "Example Value",\
-            "0-0": "name",\
-            "0-1": "The name of your campaign shown in the CleverTap dashboard.",\
-            "0-2": "Required",  
-
-        }\
-        }
+        `{
+                                                  "event_name": "Charged",
+                                                  "from": 20251001,
+                                                  "to": 20251220,
+                                                  "common_profile_properties": {
+                                                    "profile_fields": {
+                                                      "field_name": "value"
+                                                    }
+                                                  }
+                                                }`
       </td>
     </tr>
 
     <tr>
       <td>
-        where.event\_name
+        `where.event_name`
       </td>
 
       <td>
-        Allows you to target users based on an event they perform.
+        Targets users based on an event they perform.
       </td>
 
       <td>
@@ -5363,17 +3225,17 @@ The Generic Sample Campaign API includes configurations for without Key Values, 
       </td>
 
       <td>
-        "charged"
+        `"charged"`
       </td>
     </tr>
 
     <tr>
       <td>
-        where.from
+        `where.from`
       </td>
 
       <td>
-        Start of date range for event needed. Value specified in format YYYYMMDD.
+        Start date of the event range. Format: `YYYYMMDD`.
       </td>
 
       <td>
@@ -5381,21 +3243,21 @@ The Generic Sample Campaign API includes configurations for without Key Values, 
       </td>
 
       <td>
-        int
+        Integer
       </td>
 
       <td>
-        20251001
+        `20251001`
       </td>
     </tr>
 
     <tr>
       <td>
-        where.to
+        `where.to`
       </td>
 
       <td>
-        End of date range for event needed. Value specified in format YYYYMMDD.
+        End date of the event range. Format: `YYYYMMDD`.
       </td>
 
       <td>
@@ -5403,21 +3265,21 @@ The Generic Sample Campaign API includes configurations for without Key Values, 
       </td>
 
       <td>
-        int
+        Integer
       </td>
 
       <td>
-        20251220
+        `20251220`
       </td>
     </tr>
 
     <tr>
       <td>
-        where.profile\_fields
+        `where.profile_fields`
       </td>
 
       <td>
-        Allows you to target users based on the values of their profile fields.
+        Targets users based on the values of their profile fields.
       </td>
 
       <td>
@@ -5425,27 +3287,21 @@ The Generic Sample Campaign API includes configurations for without Key Values, 
       </td>
 
       <td>
-        int
+        Object
       </td>
 
       <td>
-        "common\_profile\_properties": \{\
-        "profile\_fields": "h-0": "Parameter",\
-            "h-1": "Description",\
-            "h-2": "Required/Optional",\
-            "h-3": "Type",  
-
-        }
+        See example below
       </td>
     </tr>
 
     <tr>
       <td>
-        when
+        `when`
       </td>
 
       <td>
-        When you want to send out the messages. Valid inputs are now (to send the notification right away) or YYYYMMDD HH:MM to schedule the messages for a specific date and time in the future.
+        Specifies when the message is sent. Use `now` for immediate delivery or `YYYYMMDD HH:MM` for scheduled delivery.
       </td>
 
       <td>
@@ -5457,13 +3313,13 @@ The Generic Sample Campaign API includes configurations for without Key Values, 
       </td>
 
       <td>
-        "now"
+        `"now"`
       </td>
     </tr>
 
     <tr>
       <td>
-        content.body
+        `content.body`
       </td>
 
       <td>
@@ -5484,7 +3340,6 @@ The Generic Sample Campaign API includes configurations for without Key Values, 
     </tr>
   </tbody>
 </Table>
-
 
 ```json Basic SMS Campaign Payload
 {
@@ -5622,11 +3477,9 @@ The Generic Sample Campaign API includes configurations for without Key Values, 
 }'
 ```
 
-
 ## Example Request - Target User Events & Properties
 
-Here is an example cURL request to the *Create Campaign* API showing the headers needed to authenticate the request from the account in the India region:
-
+Here is an example cURL request to the _Create Campaign_ API showing the headers needed to authenticate the request from the account in the India region:
 
 ```curl
 curl -X POST -d ' {"name": "My Sms API campaign","estimate_only": true,"target_mode":"sms", "where":{"event_name":"Charged","from":20251001,"to":20251220,"common_profile_properties":{"profile_fields": [ {"name": "Customer Type","operator":"equals","value": "Platinum"}]}},"respect_frequency_caps": false,"content": { "body": "Sms body"},"when": "now"}' \
@@ -5730,379 +3583,34 @@ function callback(error, response, body) {
 request(options, callback);
 ```
 
-
 ## Example Response - Target User Events & Properties
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+```json
+{
+  "status": "success",
+  "estimates": {
+    "web": 2
+  }
+}
+```
 
 ## Example Request - Event Occurrence
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+```json
+{
+    "advanced_query": {
+        "did_all": [
+            {
+                "event_name": "App Launched",
+                "from": 20200101,
+                "to": 20200218,
+                "operator": "greater_than_equals",
+                "value": 5,
+            }
+        ]
+    }
+}
+```
 
 
 
@@ -6114,31 +3622,31 @@ You can message 1000 users per API request.
 
 ## Base URL - Target Users by their Identities
 
-The endpoint is different based on the channel you are sending the message. 
+The endpoint is different based on the channel you are sending the message.
 
 Following are some example base URLs from the account in the India region:
 
-**SMS**\
+**SMS**  
 [https://in1.api.clevertap.com/1/send/sms.json](https://in1.api.clevertap.com/1/send/sms.json)
 
-**Push**\
+**Push**  
 [https://in1.api.clevertap.com/1/send/push.json](https://in1.api.clevertap.com/1/send/push.json)
 
 > ❗️ Note:
 >
 > The push.json API currently does not support Pull Notifications.
 
-**Web Push**\
+**Web Push**  
 [https://in1.api.clevertap.com/1/send/webpush.json](https://in1.api.clevertap.com/1/send/webpush.json)
 
-**Email**\
+**Email**  
 [https://in1.api.clevertap.com/1/send/email.json](https://in1.api.clevertap.com/1/send/email.json)
 
 > 📘 Region
 >
 > These are some example base URLs from the account in the India region. To know the API endpoint for your account, refer to [Region](https://developer.clevertap.com/docs/create-campaign-api#region).
 
-**WhatsApp**\
+**WhatsApp**  
 [https://in1.api.clevertap.com/1/send/whatsapp.json](https://in1.api.clevertap.com/1/send/whatsapp.json)
 
 ## HTTP Method - Target Users by their Identities
@@ -6149,21 +3657,19 @@ POST
 
 These headers are all required. The X-CleverTap-Account-Id and X-CleverTap-Passcode are used to authenticate the request. Please see the [authentication guide](doc:authentication) to see how to get their values.
 
-
 | Header                 | Description                                                                | Type   | Example Value                                  |
 | :--------------------- | :------------------------------------------------------------------------- | :----- | :--------------------------------------------- |
-| X-CleverTap-Account-Id | Your CleverTap Account ID.                                                 | string | "X-CleverTap-Account-Id: ACCOUNT\_ID"          |
+| X-CleverTap-Account-Id | Your CleverTap Account ID.                                                 | string | "X-CleverTap-Account-Id: ACCOUNT_ID"           |
 | X-CleverTap-Passcode   | Your CleverTap Account Passcode.                                           | string | "X-CleverTap-Passcode: PASSCODE"               |
 | Content-Type           | Request content-type should always set to application/json; charset=utf-8. | string | "Content-Type: application/json;charset=utf-8" |
 
 ## Body Parameters - Target Users by their Identities
 
-The body is uploaded as a JSON payload. 
+The body is uploaded as a JSON payload.
 
-to, name, title, body, subject, sender\_name, and  target\_mode are required parameters. 
+to, name, title, body, subject, sender_name, and  target_mode are required parameters.
 
-The to parameter is an object that has the following child properties: FBID, Email, Identity, objectId, which are used as identifiers to target your users. Each request can contain a max of 1000 users across these identifiers. 
-
+The to parameter is an object that has the following child properties: FBID, Email, Identity, objectId, which are used as identifiers to target your users. Each request can contain a max of 1000 users across these identifiers.
 
 <Table align={["left","left","left","left","left"]}>
   <thead>
@@ -6209,24 +3715,12 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-        "to": \{\
-                "FBID":   "h-0": "Parameter",\
-            "h-1",  
-
-        ```
-            "Email": ,
-        "h-4": "Example Value",
-        "0-0": "to",
-        "0-1",
-            "Identity": ",
-        "0-3": "object",
-        "0-4",
-            "objectId": ,
-        "1-1": "Facebook ID for user.",
-        "1-2": "required",
-        "1-3"
+        "to": \{
+        "FBID": ["1234567890"],
+        "Email": ["[user@example.com](mailto:user@example.com)"],
+        "Identity": ["user_123"],
+        "objectId": ["abcdef123456"]
         }
-        ```
       </td>
     </tr>
 
@@ -6248,10 +3742,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-        "to": \{\
-                "FBID":   "h-0": "Parameter",\
-            "h-1"\
-        }
+        "FBID": ["1234567890"]
       </td>
     </tr>
 
@@ -6273,12 +3764,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-        \{\
-            "to": \{\
-                "Email": h-0": "Parameter",\
-            "h-1": "Description",\
-            "h-2"\
-        }
+        "Email": ["[user@example.com](mailto:user@example.com)"]
       </td>
     </tr>
 
@@ -6300,11 +3786,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-        \{\
-            "to": \{\
-              "Identity": -0": "Parameter",\
-            "h-1"\
-        }
+        "Identity": ["user_123"]
       </td>
     </tr>
 
@@ -6326,30 +3808,26 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-        \{\
-            "to": \{\
-                "objectId": ": "Parameter",\
-            "h-1"\
-        }
+        "objectId": ["abcdef123456"]
       </td>
     </tr>
 
     <tr>
       <td>
-        tag\_group
+        tag_group
       </td>
 
       <td>
-        <li>Each message can be tagged into a tag group.</li>
-        <li>Metrics, such as sent and viewed, will be shown against each tag group in the CleverTap dashboard.</li>
-        <li>You can create a maximum of 500 tag groups.</li>
-        If not specified, the metrics are shown against the “Not Tagged” tag.</li>
-        <li>The _Stats_ page shows the tag group for the selected campaign.</li>
-        <li>For campaigns created via the Target Users by Identity API with tag groups, CleverTap strongly recommends setting up individual subscriptions. This approach ensures that even if a campaign contains many tag groups, it does not affect row allocation for other campaigns.</li>
+        \<li>Each message can be tagged into a tag group.\</li>
+        \<li>Metrics, such as sent and viewed, will be shown against each tag group in the CleverTap dashboard.\</li>
+        \<li>You can create a maximum of 500 tag groups.\</li>
+        \<li>If not specified, the metrics are shown against the “Not Tagged” tag.\</li>
+        \<li>The <em>Stats</em> page shows the tag group for the selected campaign.\</li>
+        \<li>For campaigns created via the Target Users by Identity API with tag groups, CleverTap strongly recommends setting up individual subscriptions so large tag groups do not affect row allocation for other campaigns.\</li>
       </td>
 
       <td>
-        optional (either use tag \_group or campaign\_id)
+        optional (either use tag_group or campaign_id)
       </td>
 
       <td>
@@ -6379,11 +3857,11 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-        "content": \{\
-                "subject": "Welcome",\
-                "body": "<div>Your HTML content for the email</div>",\
-                "sender\_name": "CleverTap"\
-            }
+        "content": \{
+        "subject": "Welcome",
+        "body": "\<div>Your HTML content for the email\</div>",
+        "sender_name": "CleverTap"
+        }
       </td>
     </tr>
 
@@ -6415,7 +3893,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-        Body content of your push notification, web push, email and sms which is sent to the user.
+        Body content of your push notification, web push, email and SMS which is sent to the user.
       </td>
 
       <td>
@@ -6455,7 +3933,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
 
     <tr>
       <td>
-        content.sender\_name
+        content.sender_name
       </td>
 
       <td>
@@ -6477,11 +3955,14 @@ The to parameter is an object that has the following child properties: FBID, Ema
 
     <tr>
       <td>
-        content.message\_type 
+        content.message_type
       </td>
 
       <td>
-        Type of the  message. These can be two types:                 1. Template - Use when you are using a template to trigger the message               2. Freeform - When you are replying back to the user. 
+        Type of the message. These can be two types:
+
+        1. Template – Use when you are using a template to trigger the message.
+        2. Freeform – When you are replying back to the user.
       </td>
 
       <td>
@@ -6503,11 +3984,11 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-        Contains all the information about the message content in the template. 
+        Contains all the information about the message content in the template.
       </td>
 
       <td>
-        Required(Applicable only for WhatsApp)
+        Required (Applicable only for WhatsApp)
       </td>
 
       <td>
@@ -6515,47 +3996,37 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-         "template": \{\
-                    "template\_name": "Image\_Template\_1",\
-                      "header": \{\
-                        "type": "image",\
-                        "media": \{\
-                            "url": "[https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo\_1280x720\_5mb.jpg"](https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg")\
-                        }\
-                    },\
-                    "body": \{\
-                        "type": "text",\
-                        "replacements": ["var1","Var2"]\
-                    },  
-
-        ```
-                "buttons": \[
-                    {
-                        "replacements": [  
-                            "mvi qr payload 5"  
-                        ]
-                    },
-                    {
-                        "replacements": [  
-                            "mvi qr payload 7"  
-                        ]
-                    }
-                ]
-        ```}
+        "template": \{
+        "template_name": "Image_Template_1",
+        "header": \{
+        "type": "image",
+        "media": \{
+        "url": "[https://example.com/sample-image.jpg](https://example.com/sample-image.jpg)"
+        }
+        },
+        "body": \{
+        "type": "text",
+        "replacements": ["var1", "Var2"]
+        },
+        "buttons": [
+        \{ "replacements": ["mvi qr payload 5"] },
+        \{ "replacements": ["mvi qr payload 7"] }
+        ]
+        }
       </td>
     </tr>
 
     <tr>
       <td>
-        content.template.template\_name 
+        content.template.template_name
       </td>
 
       <td>
-        Name of the template used
+        Name of the template used.
       </td>
 
       <td>
-        Required(Applicable only for WhatsApp)
+        Required (Applicable only for WhatsApp)
       </td>
 
       <td>
@@ -6563,7 +4034,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-        "video\_Template\_1"
+        "video_Template_1"
       </td>
     </tr>
 
@@ -6573,11 +4044,12 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-        Language code for the language used to create the template. For more information, see [Meta Message Templates](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates/#supported-languages)
+        Language code for the language used to create the template.
+        For more information, see Meta Message Templates (supported languages).
       </td>
 
       <td>
-        Required(Applicable only for WhatsApp)
+        Required (Applicable only for WhatsApp)
       </td>
 
       <td>
@@ -6599,7 +4071,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-        Required (Applicable only for WhatsApp) 
+        Required (Applicable only for WhatsApp)
       </td>
 
       <td>
@@ -6607,13 +4079,13 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-        "header": \{\
-                        "type": "image",\
-                        "media": \{\
-                            "url": "[https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo\_1280x720\_5mb.jpg"](https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg")\
-                        }\
-                    },\
-        For more header types, refer to the examples. 
+        "header": \{
+        "type": "image",
+        "media": \{
+        "url": "[https://example.com/sample-image.jpg](https://example.com/sample-image.jpg)"
+        }
+        }
+        (For more header types, refer to the examples.)
       </td>
     </tr>
 
@@ -6645,7 +4117,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-        Media-related information (URL of the video)
+        Media-related information (for example, URL of the video).
       </td>
 
       <td>
@@ -6657,13 +4129,9 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-        "header": \{\
-                        "type": "image",\
-                        "media": \{\
-                            "url": "[https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo\_1280x720\_5mb.jpg"](https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg")\
-                        }\
-                    },\
-        For more header types, refer to the examples.
+        "media": \{
+        "url": "[https://example.com/sample-video.mp4](https://example.com/sample-video.mp4)"
+        }
       </td>
     </tr>
 
@@ -6673,7 +4141,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-        Replacement Object for text headers. Applicable only for text headers. 
+        Replacement object for text headers. Applicable only for text headers.
       </td>
 
       <td>
@@ -6685,11 +4153,10 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-        "header": \{\
-                        "type": "text",\
-                        "replacements": [ "header var 1"   ]  
-
-        `        },`
+        "header": \{
+        "type": "text",
+        "replacements": ["header var 1"]
+        }
       </td>
     </tr>
 
@@ -6699,7 +4166,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-        Body section of the template
+        Body section of the template.
       </td>
 
       <td>
@@ -6711,26 +4178,24 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-        "body": \{\
-                        "type": "text",\
-                        "replacements": [  
-                            "Var 1", "Var 2"  
-                        ]\
-                    }
+        "body": \{
+        "type": "text",
+        "replacements": ["Var 1", "Var 2"]
+        }
       </td>
     </tr>
 
     <tr>
       <td>
-        content.template.body.type 
+        content.template.body.type
       </td>
 
       <td>
-        Type of the body (text in this case)
+        Type of the body (text in this case).
       </td>
 
       <td>
-        Required(Applicable only for WhatsApp)
+        Required (Applicable only for WhatsApp)
       </td>
 
       <td>
@@ -6748,11 +4213,11 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-        Replacement variables in the body. A replacement value is required for each dynamic variable in the body. 
+        Replacement variables in the body. A replacement value is required for each dynamic variable in the body.
       </td>
 
       <td>
-        Required(Applicable only for WhatsApp)
+        Required (Applicable only for WhatsApp)
       </td>
 
       <td>
@@ -6770,11 +4235,11 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-        Button-related information
+        Button-related information.
       </td>
 
       <td>
-        Required(Applicable only for WhatsApp)
+        Required (Applicable only for WhatsApp)
       </td>
 
       <td>
@@ -6782,28 +4247,24 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-        "buttons": \[\
-                        \{\
-                            "replacements": [  
-                                "quick reply custom payload 1"  
-                            ]\
-                        },\
-                        \{\
-                            "replacements": [  
-                                "quick reply custom payload 2"  
-                            ]\
-                        }\
-                    ]
+        "buttons": [
+        \{ "replacements": ["quick reply custom payload 1"] },
+        \{ "replacements": ["quick reply custom payload 2"] }
+        ]
       </td>
     </tr>
 
     <tr>
       <td>
-        provider\_nick\_name
+        provider_nick_name
       </td>
 
       <td>
-        Allows you to specify which vendor/provider to use for your campaign. For each target\_mode, you can have multiple providers integrated with CleverTap, and this parameter allows you to select which provider to use for the campaign. For example, you select target\_mode = email and you have integrated both SendGrid and Amazon SNS with CleverTap to send emails. In this scenario, you can set provider\_nick\_name = SendGrid to send the campaign through SendGrid. This parameter is required for WhatsApp and SMS.
+        Allows you to specify which vendor/provider to use for your campaign. For each target_mode, you can have multiple
+        providers integrated with CleverTap, and this parameter allows you to select which provider to use for the campaign.
+        For example, you select target_mode = email and you have integrated both SendGrid and Amazon SNS with CleverTap to
+        send emails. In this scenario, you can set provider_nick_name = SendGrid to send the campaign through SendGrid.
+        This parameter is required for WhatsApp and SMS.
       </td>
 
       <td>
@@ -6821,7 +4282,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
 
     <tr>
       <td>
-        respect\_frequency\_caps
+        respect_frequency_caps
       </td>
 
       <td>
@@ -6843,11 +4304,12 @@ The to parameter is an object that has the following child properties: FBID, Ema
 
     <tr>
       <td>
-        send\_email\_to\_opted\_out\_users
+        send_email_to_opted_out_users
       </td>
 
       <td>
-        Valid values are: true and false. Set to false by default. When true, emails are sent to all qualified users, including those who have unsubscribed. For more information, refer to [Override Communication Preferences for Email](doc:create-message-email#override-communication-preferences-for-email).
+        Valid values are: true and false. Set to false by default. When true, emails are sent to all qualified users,
+        including those who have unsubscribed. For more information, refer to Override Communication Preferences for Email.
       </td>
 
       <td>
@@ -6859,19 +4321,19 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-        "send\_email\_to\_opted\_out\_users":true
+        "send_email_to_opted_out_users": true
       </td>
     </tr>
 
     <tr>
       <td>
-        wzrk\_cid
+        wzrk_cid
       </td>
 
       <td>
-        Platform specific key that is required to target users on devices running Android O - can be used to determine notification channel to which a given push notification must belong.  
-
-        If a Notification ID is mandatory then the channel ID is expected. An error occurs if a valid channel ID is not received.
+        Platform specific key that is required to target users on devices running Android O – can be used to determine
+        the notification channel to which a given push notification must belong. If a Notification ID is mandatory,
+        then the channel ID is expected. An error occurs if a valid channel ID is not received.
       </td>
 
       <td>
@@ -6889,11 +4351,12 @@ The to parameter is an object that has the following child properties: FBID, Ema
 
     <tr>
       <td>
-        badge\_id
+        badge_id
       </td>
 
       <td>
-        Platform specific key that can be used while targeting users on devices running Android O - can be used to determine the notification count shown on the app icon
+        Platform specific key that can be used while targeting users on devices running Android O – can be used to
+        determine the notification count shown on the app icon.
       </td>
 
       <td>
@@ -6911,15 +4374,17 @@ The to parameter is an object that has the following child properties: FBID, Ema
 
     <tr>
       <td>
-        badge\_icon
+        badge_icon
       </td>
 
       <td>
-        Platform specific key that can be used while targeting users on devices running Android O - can be used to determine which icon should be used.  
+        Platform specific key that can be used while targeting users on devices running Android O – can be used to
+        determine which icon should be used. Accepted values:
 
-        Accepted values\
-        `app icon`\
-        `notification icon`
+        <br />
+
+        <code>app icon</code>,
+        <code>notification icon</code>
       </td>
 
       <td>
@@ -6941,7 +4406,8 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-        To raise Notification viewed event for Push notifications, raise the flag to "true" in the platform\_specific: ios section of the request payload.
+        To raise Notification viewed event for Push notifications, raise the flag to "true" in the
+        platform_specific: ios section of the request payload.
       </td>
 
       <td>
@@ -6959,11 +4425,11 @@ The to parameter is an object that has the following child properties: FBID, Ema
 
     <tr>
       <td>
-        platform\_specific
+        platform_specific
       </td>
 
       <td>
-        The platform-specific details for Push and Web Push notification
+        The platform-specific details for Push and Web Push notification.
       </td>
 
       <td>
@@ -6981,7 +4447,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
 
     <tr>
       <td>
-        background\_image
+        background_image
       </td>
 
       <td>
@@ -7003,7 +4469,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
 
     <tr>
       <td>
-        ct\_mediaUrl
+        ct_mediaUrl
       </td>
 
       <td>
@@ -7025,11 +4491,11 @@ The to parameter is an object that has the following child properties: FBID, Ema
 
     <tr>
       <td>
-        wzrk\_clr
+        wzrk_clr
       </td>
 
       <td>
-        A Platform specific key that can be used to set color for small icons in push notifications.
+        A platform specific key that can be used to set color for small icons in push notifications.
       </td>
 
       <td>
@@ -7041,17 +4507,19 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-        \# 1DA1F2
+        #1DA1F2
       </td>
     </tr>
 
     <tr>
       <td>
-        respect\_communication\_preference
+        respect_communication_preference
       </td>
 
       <td>
-        Send this value as *False* to override the communication preferences of the user. For example, transaction updates, user replies, and so on. Check that you do not breach any compliance regulations by overriding the user communication preferences. 
+        Send this value as False to override the communication preferences of the user.
+        For example, transaction updates, user replies, and so on.
+        Check that you do not breach any compliance regulations by overriding the user communication preferences.
       </td>
 
       <td>
@@ -7069,15 +4537,16 @@ The to parameter is an object that has the following child properties: FBID, Ema
 
     <tr>
       <td>
-        message\_id
+        message_id
       </td>
 
       <td>
-        A unique identifier to track the status of each message sent to the end user. The limit is 8 characters.
+        A unique identifier to track the status of each message sent to the end user.
+        The limit is 8 characters.
       </td>
 
       <td>
-        Required(Applicable only for WhatsApp)
+        Required (Applicable only for WhatsApp)
       </td>
 
       <td>
@@ -7090,1257 +4559,3 @@ The to parameter is an object that has the following child properties: FBID, Ema
     </tr>
   </tbody>
 </Table>
-Below are example payloads for web push, push, email, SMS, and WhatsApp.
-
-
-```json Web Push
-{
-    "to": {
-        "FBID": [
-            "102029292929388",
-            "114342342453463"
-        ],
-       
-        "Email": [
-            "john@doe.com",
-            "jane@doe.com"
-        ],
-        "Identity": [
-            "JohnDoe"
-        ],
-        "objectId": [
-            "_asdnkansdjknaskdjnasjkndja",
-            "-adffajjdfoaiaefiohnefwprjf"
-        ]
-    },
-    "tag_group": "my tag group",
-		"campaign_id": 1000000043,
-    "respect_frequency_caps": false,
-     "content": {
-        "title": "Hi!",
-        "body": "How are you doing today?",
-       "platform_specific": {
-            "safari": {
-                "deep_link": "https://www.google.com",
-                "ttl":10
-            },
-            "chrome": {
-              "image": "https://www.exampleImage.com",
-              "icon":"https://www.exampleIcon.com",
-              "deep_link": "http://www.example.com",
-              "ttl":10,
-              "require_interaction":true,
-              "cta_title1":"title",
-              "cta_link1":"http://www.example2.com",
-              "cta_iconlink1":"https://www.exampleIcon2.com"
-            },
-            "firefox": {
-            	"icon":"https://www.exampleIcon.com",
-                "deep_link": "https://www.google.com",
-                "ttl":10
-            }
-        }
-    }
-}
-```
-```json Push
-{
-    "to": {
-        "FBID": [
-            "102029292929388",
-            "114342342453463"
-        ],
-        "GPID": [
-            "1928288389299292"
-        ],
-        "Email": [
-            "john@doe.com",
-            "jane@doe.com"
-        ],
-        "Identity": [
-            "JohnDoe"
-        ],
-        "objectId": [
-            "_asdnkansdjknaskdjnasjkndja",
-            "-adffajjdfoaiaefiohnefwprjf"
-        ]
-    },
-    "tag_group": "my tag group",
-    "respect_frequency_caps": false,
-    "content": {
-        "title": "Welcome",
-        "body": "Hello world!",
-        "platform_specific": {
-            "ios": {
-                "deep_link": "example.com",
-                "sound_file": "example.caf",
-                "mutable-content": "true", 
-                "ct_mediaUrl": "https://i.ibb.co/pJ8D5Z7/woman-g40aa99db5-1920.jpg",
-                "category": "notification category",
-                "badge_count": 1,
-                "key": "value_ios"
-            },
-            "android": {
-                "background_image": "http://example.jpg",
-                "default_sound": true,
-                "deep_link": "example.com",
-                "large_icon": "http://example.png",
-                "key": "value_android"
-            }
-        }
-    }
-}
-```
-```json Email
-{
-    "to": {
-        "FBID": [
-            "102029292929388",
-            "114342342453463"
-        ],
-        "GPID": [
-            "1928288389299292"
-        ],
-        "Email": [
-            "john@doe.com",
-            "jane@doe.com"
-        ],
-        "Identity": [
-            "JohnDoe"
-        ],
-        "objectId": [
-            "_asdnkansdjknaskdjnasjkndja",
-            "-adffajjdfoaiaefiohnefwprjf"
-        ]
-    },
-    "tag_group": "my tag group",
-    "respect_frequency_caps": false,
-    "send_email_to_opted_out_users":true,
-    "content": {
-        "subject": "Welcome",
-        "body": "<div>Your HTML content for the email</div>",
-        "sender_name": "CleverTap"
-    }
-}
-```
-```json SMS
-{
-    "to": {
-        "FBID": [
-            "102029292929388",
-            "114342342453463"
-        ],
-        "GPID": [
-            "1928288389299292"
-        ],
-        "Email": [
-            "john@doe.com",
-            "jane@doe.com"
-        ],
-        "Identity": [
-            "JohnDoe"
-        ],
-        "objectId": [
-            "_asdnkansdjknaskdjnasjkndja",
-            "-adffajjdfoaiaefiohnefwprjf"
-        ]
-    },
-    "tag_group": "my tag group",
-    "respect_frequency_caps": false,
-     "content": {
-        "body": "Sms body"
-    }
-}
-```
-```json WhatsApp
-{
-  "to": {
-    "Identity": [
-      "johndoe@mail.com"
-    ]
-  },
-  "tag_group": "Tag Group 1",
-  "provider_nick_name": "Provider_1",
-  "respect_frequency_caps": false,
-  "message_id": "4536tsytr",
-  "respect_communication_preference": true,
-  "content": {
-    "message_type": "template",
-    "template": {
-      "template_name": "video_Template_1",
-      "header": {
-        "type": "video",
-        "media": {
-          "url": "https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.mp4"
-        }
-      },
-      "body": {
-        "type": "text",
-        "replacements": [
-          "var1",
-          "Var2"
-        ]
-      },
-      //dynamic redirection CTA
-      "buttons": [
-        {
-          "replacements": [
-            "CTA_var"
-          ]
-        }
-      ],
-      "language": "en"
-    }
-  }
-}
-```
-
-
-Following is the JSON payload for WhatsApp interactive message templates:
-
-> 📘 Note:
->
-> Currently, Create Campaign APIs for WhatsApp do not support Carousel templates, Limited Time Offer (LTO) templates, Custom key-value pairs, and templates with copy code button.
-
-
-```json Image Template
-{
-  "to": {
-    "Identity": [
-      "johndoe@mail.com"
-    ]
-  },
-  "tag_group": "Tag Group 1",
-  "provider_nick_name": "Provider_1",
-  "respect_frequency_caps": false,
-  "message_id": "4536tsytr",
-  "respect_communication_preference": true,
-  "content": {
-    "message_type": "template",
-    "template": {
-      "template_name": "Image_Template_1",
-      "header": {
-        "type": "image",
-        "media": {
-          "url": "https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg"
-        }
-      },
-      "body": {
-        "type": "text",
-        "replacements": [
-          "var1",
-          "Var2"
-        ]
-      },
-      "language": "en"
-    }
-  }
-}
-
-```
-```json Video Template
-{
-    "to": {
-        "Identity": [
-            "johndoe@mail.com"
-        ]
-    },
-     "tag_group": "Tag Group 1",
-    "provider_nick_name": "Provider_1",
-    "respect_frequency_caps":false,
-    "message_id": "4536tsytr",
-    "respect_communication_preference":true,
-    "content": {
-        "message_type": "template",
-        "template": {
-            "template_name": "video_Template_1",
-            "language": "en",
-              "header": {
-                "type": "video",
-                "media": {
-                    "url": "https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.mp4"
-                }
-            },
-            "body": {
-                "type": "text",
-                "replacements": ["var1","Var2"]
-            }
-          
-           
-        }
-    }
-}
-
-
-```
-```json Document Template
-{
-    "to": {
-        "Identity": [
-            "johndoe@mail.com"
-        ]
-    },
-     "tag_group": "Tag Group 1",
-    "provider_nick_name": "Provider_1",
-    "respect_frequency_caps":false,
-    "message_id": "4536tsytr",
-    "respect_communication_preference":true,
-    "content": {
-        "message_type": "template",
-        "template": {
-            "template_name": "document_Template_1",
-            "language": "en",
-              "header": {
-                "type": "document",
-                "media": {
-                    "url": "http://www.ecommercecompany/allproducts/pdf/productcatalog.pdf"
-                }
-            },
-            "body": {
-                "type": "text",
-                "replacements": ["var1","Var2"]
-            }
-          
-           
-        }
-    }
-}
-
-
-```
-```json Text Header with Quick Reply Button and Custom Button Payload
-{
-  "to": {
-    "Identity": [
-      "john@clevertap.com"
-    ]
-  },
-  "tag_group": "Tag1",
-  "provider_nick_name": "WhatsApp Provider",
-  "message_id": "4764387",
-  "respect_frequency_caps": false,
-  "content": {
-    "message_type": "template",
-    "template": {
-      "template_name": "shipping_order",
-      "header": {
-        "type": "text",
-        "replacements": [
-          "header var 1",
-          "header var 2"
-        ]
-      },
-      "body": {
-        "type": "text",
-        "replacements": [
-          "1"
-        ]
-      },
-                   // No need to mention footers info in API payload
-            // Requirements are required only if you want to send custom payloads in the quick reply button. ds
-      "buttons": [
-        {
-          "replacements": [
-            "jack"
-          ]
-        }
-      ],
-      "language": "en_US"
-    }
-  }
-}
-```
-```json Location
-{
-    "to": {
-        "Identity": [
-            "johndoe@mail.com"
-        ]
-    },
-     "tag_group": "Tag Group 1",
-    "provider_nick_name": "Provider_1",
-    "respect_frequency_caps":false,
-    "message_id": "4536tsytr",
-    "respect_communication_preference":true,
-    "content": {
-        "message_type": "template",
-        "template": {
-            "template_name": "location_Template_1",
-            "language": "en",
-              "header": {
-                "type": "location",
-                "media": {
-                    "longitude": 80.82947469999999,
-                    "latitude": 16.0174248,
-                    "name": "johnhouse",
-                    "address": "johnhouse, New York, 522265, India",
-                    "url": "https://maps.google.com/?q=Repalle,+New+York+522265,+America&ftid=0x3a49f59a2391c549:0xfe237504b0eca607"
-                }
-            },
-            "body": {
-                "type": "text",
-                "replacements": ["var1","Var2"]
-            }
-          
-           
-        }
-    }
-}
-
-```
-```json Media Template With Dynamic CTA buttons
-{
-  "to": {
-    "Identity": [
-      "johndoe@mail.com"
-    ]
-  },
-  "tag_group": "Tag Group 1",
-  "provider_nick_name": "Provider_1",
-  "respect_frequency_caps": false,
-  "message_id": "4536tsytr",
-  "respect_communication_preference": true,
-  "content": {
-    "message_type": "template",
-    "language": "en",
-    "template": {
-      "template_name": "Image_Template_1",
-      "header": {
-        "type": "image",
-        "media": {
-          "url": "https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg"
-        }
-      },
-      "body": {
-        "type": "text",
-        "replacements": [
-          "var1",
-          "Var2"
-        ]
-      },
-          //example CTA URL: www.example.com/{{1}}
-      "buttons": [
-        {
-          "replacements": [
-            "CTA"
-          ]
-        }
-      ]
-    }
-  }
-}
-```
-```json Media Templates With Custom Payloads
-{
-  "to": {
-    "Identity": [
-      "johndoe@mail.com"
-    ]
-  },
-  "tag_group": "Tag Group 1",
-  "provider_nick_name": "Provider_1",
-  "respect_frequency_caps": false,
-  "message_id": "4536tsytr",
-  "respect_communication_preference": true,
-  "content": {
-    "message_type": "template",
-    "language": "en",
-    "template": {
-      "template_name": "Image_Template_1",
-      "header": {
-        "type": "image",
-        "media": {
-          "url": "https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg"
-        }
-      },
-      "body": {
-        "type": "text",
-        "replacements": [
-          "var1",
-          "Var2"
-        ]
-      },
-      "buttons": [
-        {
-          "replacements": [
-            "mvi qr payload 5"
-          ]
-        },
-        {
-          "replacements": [
-            "mvi qr payload 7"
-          ]
-        }
-      ]
-    }
-  }
-}
-```
-```json Freeform Simple Text Message
-{
-  "to": {
-    "Identity": [
-      "johndoe@mail.com"
-    ]
-  },
-  "tag_group": "whatsapp initial tag group",
-  "provider_nick_name": "provider_1",
-  "respect_frequency_caps": false,
-  "message_id": "4536tsytr",
-  "respect_communication_preference": true,
-  "content": {
-    "message_type": "freeform",
-    "freeform": {
-      "body": {
-        "type": "text",
-        "text": "Hi, How can we help you"
-      }
-    }
-  }
-}
-```
-```json Freeform Image Message
-{
-  "to": {
-    "Identity": [
-      "johndoe@mail.com"
-    ]
-  },
-  "tag_group": "whatsapp initial tag group",
-  "provider_nick_name": "provider_1",
-  "respect_frequency_caps": false,
-  "message_id": "4536tsytr",
-  "respect_communication_preference": true,
-  "content": {
-    "message_type": "freeform",
-    "freeform": {
-      "body": {
-        "type": "image",
-        "media": {
-          "url": "https://d2h5ndkimzo5f0.cloudfront.net/dist/1655455488/i/d024319ee2bf46cdbafbbe0d02afdb00.jpeg?v=1686580980",
-          "caption": "example caption"
-        }
-      }
-    }
-  }
-}
-```
-```json Freeform Video Message
-{
-    "to": {
-        "Identity": [
-           "johndoe@mail.com"
-        ]
-    },
-    "tag_group": "whatsapp initial tag group",
-    "provider_nick_name": "provider_1",
-    "respect_frequency_caps": false,
-    "message_id": "4536tsytr",
-    "respect_communication_preference":true,
-    "content": {
-        "message_type": "freeform",
-        "freeform": {
-            "body": {
-                "type": "video",
-                "media": {
-                    "url": "https://d2h5ndkimzo5f0.cloudfront.net/dist/1655455488/i/d024319ee2bf46cdbafbbe0d02afdb00.mp4?v=1686580980",
-                    "caption": "example caption"
-                }
-            }
-        }
-    }
-}
-
-```
-```json Freeform Audio Message
-{
-    "to": {
-        "Identity": [
-           "johndoe@mail.com"
-        ]
-    },
-    "tag_group": "whatsapp initial tag group",
-    "provider_nick_name": "provider_1",
-    "respect_frequency_caps": false,
-    "message_id": "4536tsytr",
-    "respect_communication_preference":true,
-    "content": {
-        "message_type": "freeform",
-        "freeform": {
-            "body": {
-                "type": "audio",
-                "media": {
-                    "url": "https://d2h5ndkimzo5f0.cloudfront.net/dist/1655455488/i/d024319ee2bf46cdbafbbe0d02afdb00.mp3?v=1686580980",
-                }
-            }
-        }
-    }
-}
-
-```
-```json Freeform Document Message
-{
-    "to": {
-        "Identity": [
-           "johndoe@mail.com"
-        ]
-    },
-    "tag_group": "whatsapp initial tag group",
-    "provider_nick_name": "provider_1",
-    "respect_frequency_caps": false,
-    "message_id": "4536tsytr",
-    "respect_communication_preference":true,
-    "content": {
-        "message_type": "freeform",
-        "freeform": {
-            "body": {
-                "type": "document",
-                "media": {
-                    "url": "https://d2h5ndkimzo5f0.cloudfront.net/dist/1655455488/i/31f19b65c9df40a2acc72034e5231922.pdf?v=1686589587",
-                    "filename": "example.pdf"
-                }
-            }
-        }
-    }
-}
-
-```
-```json Location Template
-{
-    "to": {
-        "Identity": [
-           "johndoe@mail.com"
-        ]
-    },
-    "tag_group": "whatsapp initial tag group",
-    "provider_nick_name": "provider_1",
-    "respect_frequency_caps": false,
-    "message_id": "4536tsytr",
-    "respect_communication_preference":true,
-    "content": {
-        "message_id": "1234589",
-        "message_type": "freeform",
-        "freeform": {
-            "body": {
-                "type": "location",
-                "media": {
-                    "longitude": 80.82947469999999,
-                    "latitude": 16.0174248,
-                    "name": "johnhouse",
-                    "address": "Johnhouse, New York, 522265, India",
-                    "url": "https://maps.google.com/?q=Repalle,+New+York+522265,+America&ftid=0x3a49f59a2391c549:0xfe237504b0eca607"
-                }
-            }
-        }
-    }
-}
-```
-
-
-## Example Request - Target Users by their Identities
-
-Here is an example cURL request to the *Create Campaign* API showing the headers needed to authenticate the request from the account in the India region:
-
-
-```curl
-curl -X POST -d '{"to":{"FBID":["102029292929388","114342342453463"],"Email":["john@doe.com","jane@doe.com"],"Identity":["JohnDoe"],"objectId":["_asdnkansdjknaskdjnasjkndja","-adffajjdfoaiaefiohnefwprjf"]},"campaign_id":1000000043,"tag_group":"mytaggroup","respect_frequency_caps":false,"content":{"body":"Smsbody"}}' \
-"https://in1.api.clevertap.com/1/send/sms.json" \
--H "X-CleverTap-Account-Id: ACCOUNT_ID" \
--H "X-CleverTap-Passcode: PASSCODE" \
--H "Content-Type: application/json"
-```
-```ruby
-require 'net/http'
-require 'uri'
-require 'json'
-
-uri = URI.parse("https://in1.api.clevertap.com/1/send/sms.json")
-request = Net::HTTP::Post.new(uri)
-request.content_type = "application/json"
-request["X-CleverTap-Account-Id"] = "ACCOUNT_ID"
-request["X-CleverTap-Passcode"] = "PASSCODE"
-request.body = JSON.dump({
-  "to" => {
-    "FBID" => [
-      "102029292929388",
-      "114342342453463"
-    ],
-   
-    "Email" => [
-      "john@doe.com",
-      "jane@doe.com"
-    ],
-    "Identity" => [
-      "JohnDoe"
-    ],
-    "objectId" => [
-      "_asdnkansdjknaskdjnasjkndja",
-      "-adffajjdfoaiaefiohnefwprjf"
-    ]
-  },
-  "tag_group" => "mytaggroup",
-  "respect_frequency_caps" => false,
-  "content" => {
-    "body" => "Smsbody"
-  }
-})
-
-req_options = {
-  use_ssl: uri.scheme == "https",
-}
-
-response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
-  http.request(request)
-end
-```
-```python
-import requests
-
-headers = {
-    'X-CleverTap-Account-Id': 'ACCOUNT_ID',
-    'X-CleverTap-Passcode': 'PASSCODE',
-    'Content-Type': 'application/json',
-}
-
-data = '{"to":{"FBID":["102029292929388","114342342453463"],"Email":["john@doe.com","jane@doe.com"],"Identity":["JohnDoe"],"objectId":["_asdnkansdjknaskdjnasjkndja","-adffajjdfoaiaefiohnefwprjf"]},"tag_group":"mytaggroup","respect_frequency_caps":false,"content":{"body":"Smsbody"}}'
-
-response = requests.post('https://in1.api.clevertap.com/1/send/sms.json', headers=headers, data=data)
-```
-```php
-<?php
-include('vendor/rmccue/requests/library/Requests.php');
-Requests::register_autoloader();
-$headers = array(
-    'X-CleverTap-Account-Id' => 'ACCOUNT_ID',
-    'X-CleverTap-Passcode' => 'PASSCODE',
-    'Content-Type' => 'application/json'
-);
-$data = '{"to":{"FBID":["102029292929388","114342342453463"],"Email":["john@doe.com","jane@doe.com"],"Identity":["JohnDoe"],"objectId":["_asdnkansdjknaskdjnasjkndja","-adffajjdfoaiaefiohnefwprjf"]},"tag_group":"mytaggroup","respect_frequency_caps":false,"content":{"body":"Smsbody"}}';
-$response = Requests::post('https://in1.api.clevertap.com/1/send/sms.json', $headers, $data);
-```
-```javascript Node.js
-var request = require('request');
-
-var headers = {
-    'X-CleverTap-Account-Id': 'ACCOUNT_ID',
-    'X-CleverTap-Passcode': 'PASSCODE',
-    'Content-Type': 'application/json'
-};
-
-var dataString = '{"to":{"FBID":["102029292929388","114342342453463"],"GPID":["1928288389299292"],"Email":["john@doe.com","jane@doe.com"],"Identity":["JohnDoe"],"objectId":["_asdnkansdjknaskdjnasjkndja","-adffajjdfoaiaefiohnefwprjf"]},"tag_group":"mytaggroup","respect_frequency_caps":false,"content":{"body":"Smsbody"}}';
-
-var options = {
-    url: 'https://in1.api.clevertap.com/1/send/sms.json',
-    method: 'POST',
-    headers: headers,
-    body: dataString
-};
-
-function callback(error, response, body) {
-    if (!error && response.statusCode == 200) {
-        console.log(body);
-    }
-}
-
-request(options, callback);
-```
-
-
-## Example Response - Target Users by their Identities
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-A successful response implies payload validity and addition to the processing queue. Message delivery is handled by the provider (push or email) and depends on if you provided a valid recipient id.
-
-## Errors
-
-If there are errors, you will receive a response in the format below. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Following are the possible error codes:
-
-
-<Table align={["left","left","left"]}>
-  <thead>
-    <tr>
-      <th>
-        Error Code
-      </th>
-
-      <th>
-        Error Message
-      </th>
-
-      <th>
-        Troubleshooting Steps
-      </th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr>
-      <td>
-        21
-      </td>
-
-      <td>
-        "to" is a mandatory field"
-      </td>
-
-      <td>
-        Check if the *to* field in the payload is missing recipient records.
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        73
-      </td>
-
-      <td>
-        respect\_frequency\_caps
-      </td>
-
-      <td>
-        The value must be  Boolean.
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        76
-      </td>
-
-      <td>
-        "tag\_group" has to be string
-      </td>
-
-      <td>
-        Check if the value for tag group is *string*. 
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        76
-      </td>
-
-      <td>
-        "message\_type" has to be string
-      </td>
-
-      <td>
-        Check if the value for the Message Type is string.
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        78
-      </td>
-
-      <td>
-        Invalid payload pls update and try again
-      </td>
-
-      <td>
-        Invalid JSON payload. Verify the payload.
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        84
-      </td>
-
-      <td>
-        "Invalid recipients"
-      </td>
-
-      <td>
-        Recipient information mentioned in the payload does not exist in the CleverTap dashboard. 
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        89
-      </td>
-
-      <td>
-        Unexpected error, please try again
-      </td>
-
-      <td>
-        The message failed to send due to an unknown error.  
-
-        Try again. If the error persists, open a  support ticket from the dashboard.
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        89
-      </td>
-
-      <td>
-        The WhatsApp provider you've selected is not supported with your current WhatsApp add-on. To use this provider, please enable the WhatsApp Connect add-on
-      </td>
-
-      <td>
-        1\. Check that you are not using external providers in the Send Message API .\
-        2\. Check your organization settings to determine if the  WhatsApp Connect Add-on is enabled for your project. If the error persists even if the add-on is enabled, please contact our support. 
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        89
-      </td>
-
-      <td>
-        The WhatsApp provider you've selected is not supported with your current WhatsApp add-on. To use this provider, please enable the WhatsApp Direct add-on
-      </td>
-
-      <td>
-        1\. Check that you are not using CleverTap BSP in the Send Message API .\
-        2\. Check your organization settings to determine if the  WhatsApp Direct Add-on is enabled for your project. If the error persists even if the add-on is enabled, please contact our support.
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        89
-      </td>
-
-      <td>
-        "provider\_nick\_name" can't be empty
-      </td>
-
-      <td>
-        The provider nick name is mandatory for WhatsApp campaigns. Check if the provider\_nick\_name is missing or empty.
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        89
-      </td>
-
-      <td>
-        The provider\_nick\_name used in request does not exist in your account.
-      </td>
-
-      <td>
-        Check if the provider used in the message payload exists in the CleverTap dashboard. To check, navigate to Settings > Channel > WhatsApp. 
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        89
-      </td>
-
-      <td>
-        "message\_id" length can't be greater than 8
-      </td>
-
-      <td>
-        Check if the length of the message ID is greater than 8 characters.
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        89
-      </td>
-
-      <td>
-        "message\_id" can't be empty
-      </td>
-
-      <td>
-        Check if the value for the Message ID is missing.
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        89
-      </td>
-
-      <td>
-        Received invalid message type
-      </td>
-
-      <td>
-        The only accepted values are "template" or "freeform".
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        89
-      </td>
-
-      <td>
-        Template not found for the specified provider
-      </td>
-
-      <td>
-        Check if the template used in the payload exists for the specified provider. Navigate to Settings > Channel > WhatsApp> [provider name] to check the template. To fix this, either use a provider that has the specified template or use the template that is available for the provider mentioned in the payload. 
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        89
-      </td>
-
-      <td>
-        Template name is mandatory
-      </td>
-
-      <td>
-        Check if the template name is missing or empty.
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        89
-      </td>
-
-      <td>
-        Invalid number of body/header/button replacements specified, the body/header/button has [n] replacement(s).
-      </td>
-
-      <td>
-        The number of variables and values in the payload must match for body, header, or button. 
-      </td>
-    </tr>
-  </tbody>
-</Table>
-
-
-## View Campaigns Created Through APIs
-
-To view campaigns created through APIs:
-
-1. Navigate to the *Campaigns* section from the CleverTap dashboard. The list of campaign displays.
-2. Click the Filter icon > *Created by* filter and select the *serverapi&lt;channel name&gt;* option.
-
-<Image alt="Filter API Campaigns" align="center" border={true} src="https://files.readme.io/ee5427a-small-Filter_campaigns_by_API.png">  Filter API Campaigns
-
-
-
-
-
-
-
-
-
-
-
-3. Click **Apply**. All the related campaigns are displayed. 
-4. Click any of the campaigns to view details and stats.
-
-# Unsubscribe Link for Emails
-
-If you’re using Amazon SES or your own SMTP gateway, you can follow the steps [listed on this page](https://docs.clevertap.com/docs/handling-unsubscribes) to enable your users to unsubscribe from your email notifications.
-
-# FAQs
-
-To understand the common queries and concerns related to CleverTap APIs, refer to [API FAQs](doc:api-faqs).
