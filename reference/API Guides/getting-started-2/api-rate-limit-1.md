@@ -16,7 +16,7 @@ The concurrent API request limit defines the maximum number of API calls an appl
 
 ## Account-Level Request Limit
 
-The following table lists the maximum number of concurrent requests allowed per user account for an API. The HTTP **429** error code will return a _Too many concurrent requests_ error message upon breaching the concurrency limit. For more details on errors, refer to [API Errors](https://developer.clevertap.com/docs/api-errors#4xx-client-error-codes).
+The following table lists the maximum number of concurrent requests allowed per user account for an API. The HTTP **429** error code will return a *Too many concurrent requests* error message upon breaching the concurrency limit. For more details on errors, refer to [API Errors](https://developer.clevertap.com/docs/api-errors#4xx-client-error-codes).
 
 | API                                                  | Maximum Concurrent Requests |
 | :--------------------------------------------------- | :-------------------------- |
