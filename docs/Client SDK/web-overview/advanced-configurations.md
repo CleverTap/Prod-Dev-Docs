@@ -18,15 +18,15 @@ To comply with the General Data Protection Regulation (GDPR), you need to make s
 
 ## Data Suppress
 
-- This will ensure that the data from the device will not reach CleverTap's servers. 
-- By default, the optOut is set to False.
-- If a device needs to be opted out of data collection, the suppression flag must be set at the JavaScript SDK level. 
+* This will ensure that the data from the device will not reach CleverTap's servers. 
+* By default, the optOut is set to False.
+* If a device needs to be opted out of data collection, the suppression flag must be set at the JavaScript SDK level. 
 
 ## IP Collection
 
-- This will ensure that the CleverTap does not auto collect the device IP.
-- By default, the useIP is set to False.
-- If a customer wants to collect to the device IP, they need to explicitly set it to true.
+* This will ensure that the CleverTap does not auto collect the device IP.
+* By default, the useIP is set to False.
+* If a customer wants to collect to the device IP, they need to explicitly set it to true.
 
 ```javascript Javascript
 clevertap.privacy.push({optOut: true}); //call the flag to true, if the user of the device opts out of sharing their data
@@ -44,11 +44,11 @@ We have implemented a separate encryption mechanism for local storage data to en
 
 The following keys contain PII data and will be encrypted.
 
-| Keys    | Description                                                    |
-| :------ | :------------------------------------------------------------- |
-| WZRK_K  | Contains information about the latest logged-in user.          |
-| WZRK_X  | Stores a cache of all users logged in from a specific machine. |
-| WZRK_PR | Contains user profile details.                                 |
+| Keys     | Description                                                    |
+| :------- | :------------------------------------------------------------- |
+| WZRK\_K  | Contains information about the latest logged-in user.          |
+| WZRK\_X  | Stores a cache of all users logged in from a specific machine. |
+| WZRK\_PR | Contains user profile details.                                 |
 
 We support an opt-in encryption mechanism, allowing users to choose whether to enable encryption for their local storage data. To enable encryption, use the following method:
 
