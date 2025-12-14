@@ -12,22 +12,22 @@ next:
 ---
 # Overview
 
-The _Upload Events API_ provides you the capability to upload user events to CleverTap. For example, you can use this API to store user events, such as product views and purchases. You associate these events with a specific user by using an identifier, such as an email address or a phone number. By storing user events in CleverTap, you can create richer segments and run targeted campaigns.
+The *Upload Events API* provides you the capability to upload user events to CleverTap. For example, you can use this API to store user events, such as product views and purchases. You associate these events with a specific user by using an identifier, such as an email address or a phone number. By storing user events in CleverTap, you can create richer segments and run targeted campaigns.
 
 Uploading events to CleverTap requires a POST request with a JSON payload specifying the event information. A maximum of 1000 event records can be sent per API call. 
 
 While the maximum number of event types per account is 512, some events are reserved for system events, so you may not get to use all of them. For each event type, the maximum number of properties is 256. The number of events submitted per account across those event types is unlimited. 
 
 > 📘 Concurrent Requests
-> 
-> Concurrent requests to the _Upload Events_ API are limited to 15 per account. Requests that exceed the limit will return a 429 HTTP response code.
+>
+> Concurrent requests to the *Upload Events* API are limited to 15 per account. Requests that exceed the limit will return a 429 HTTP response code.
 
 For more information on request limits, refer to [API Request Limit](doc:api-request-limit).
 
 ## Base URL
 
-Here is an example base URL from the account in the India region:  
-<https://in1.api.clevertap.com/1/upload>
+Here is an example base URL from the account in the India region:\
+[https://in1.api.clevertap.com/1/upload](https://in1.api.clevertap.com/1/upload)
 
 ### Region
 
@@ -49,57 +49,181 @@ Event keys are limited to 120 characters and property values are limited to 512 
 
 For each event, a user identifier is required. This is the key that CleverTap uses to find the user whose profile needs to be updated. You have to set a value for one of these parameters to identify the user: identity, FBID, GPID, or objectId. If this identity is not found, a new user profile will be created. 
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Parameter",
-    "h-1": "Description",
-    "h-2": "Type",
-    "h-3": "Example Value",
-    "0-0": "type",
-    "0-1": "(Required) Set to event.",
-    "0-2": "string",
-    "0-3": "\"event\"",
-    "1-0": "evtName",
-    "1-1": "(Required) Name of event.",
-    "1-2": "string",
-    "1-3": "“Product Viewed”",
-    "2-0": "evtData",
-    "2-1": "(Required) Event properties describing the event. Passed as key/value pairs.",
-    "2-2": "object",
-    "2-3": "\"evtData\":  \n{ \"Product name\": \"Casio Watch\", \"Category\": \"Mens Watch\" }",
-    "3-0": "ts",
-    "3-1": "(Optional) Date and time when the event occurred, formatted as a UNIX epoch in seconds. Defaults to the current timestamp if omitted.",
-    "3-2": "ts",
-    "3-3": "1468308340",
-    "4-0": "identity",
-    "4-1": "Identity to recognize a unique user. It can be the user’s email, a phone number, or any other identifier you are using to tag your users.  \nYou have to set a value for one of these parameters to identify the user: identity, FBID, GPID, or objectId.",
-    "4-2": "string",
-    "4-3": "“[jack@gmail.com](mailto:jack@gmail.com)”",
-    "5-0": "FBID",
-    "5-1": "Identify a unique user by Facebook ID.  \n  \nYou have to set a value for one of these parameters to identify the user: identity, FBID, GPID, or objectId.",
-    "5-2": "string",
-    "5-3": "“34322423\"",
-    "6-0": "GPID",
-    "6-1": "Identify a unique user by Google Plus ID.  \n  \nYou have to set a value for one of these parameters to identify the user: identity, FBID, GPID, or objectId.",
-    "6-2": "string",
-    "6-3": "“34322424\"",
-    "7-0": "objectId",
-    "7-1": "Identify a unique user by CleverTap Global Object ID.  \n  \nYou have to set a value for one of these parameters to identify the user: identity, FBID, GPID, or objectId.",
-    "7-2": "string",
-    "7-3": "“34322425\""
-  },
-  "cols": 4,
-  "rows": 8,
-  "align": [
-    "left",
-    "left",
-    "left",
-    "left"
-  ]
-}
-[/block]
+<Table align={["left","left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Parameter
+      </th>
 
+      <th>
+        Description
+      </th>
+
+      <th>
+        Type
+      </th>
+
+      <th>
+        Example Value
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        type
+      </td>
+
+      <td>
+        (Required) Set to event.
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        "event"
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        evtName
+      </td>
+
+      <td>
+        (Required) Name of event.
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        “Product Viewed”
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        evtData
+      </td>
+
+      <td>
+        (Required) Event properties describing the event. Passed as key/value pairs.
+      </td>
+
+      <td>
+        object
+      </td>
+
+      <td>
+        "evtData":\
+        \{ "Product name": "Casio Watch", "Category": "Mens Watch" }
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        ts
+      </td>
+
+      <td>
+        (Optional) Date and time when the event occurred, formatted as a UNIX epoch in seconds. Defaults to the current timestamp if omitted.
+      </td>
+
+      <td>
+        ts
+      </td>
+
+      <td>
+        1468308340
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        identity
+      </td>
+
+      <td>
+        Identity to recognize a unique user. It can be the user’s email, a phone number, or any other identifier you are using to tag your users.\
+        You have to set a value for one of these parameters to identify the user: identity, FBID, GPID, or objectId.
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        “[jack@gmail.com](mailto:jack@gmail.com)”
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        FBID
+      </td>
+
+      <td>
+        Identify a unique user by Facebook ID.  
+
+        You have to set a value for one of these parameters to identify the user: identity, FBID, GPID, or objectId.
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        “34322423"
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        GPID
+      </td>
+
+      <td>
+        Identify a unique user by Google Plus ID.  
+
+        You have to set a value for one of these parameters to identify the user: identity, FBID, GPID, or objectId.
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        “34322424"
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        objectId
+      </td>
+
+      <td>
+        Identify a unique user by CleverTap Global Object ID.  
+
+        You have to set a value for one of these parameters to identify the user: identity, FBID, GPID, or objectId.
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        “34322425"
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 Here is an example JSON payload.
 
@@ -148,7 +272,7 @@ Here is an example JSON payload.
 
 ## Example Request
 
-Here is an example cURL request to the _Upload Events_ API showing the headers needed to authenticate the request from the account in the India region:
+Here is an example cURL request to the *Upload Events* API showing the headers needed to authenticate the request from the account in the India region:
 
 ```curl
 curl -X POST -d '{ "d": [ { "FBID": "34322423", "ts": 1468308340, "type": "event", "evtName": "Product viewed", "evtData": { "Product name": "Casio Chronograph Watch", "Category": "Mens Watch", "Price": 59.99, "Currency": "USD" } } ] }' "https://in1.api.clevertap.com/1/upload" \
@@ -269,6 +393,6 @@ To test if your data will be submitted without errors, you can add the parameter
 
 # Additional Notes
 
-- You can also use the [Data Upload Script](https://github.com/CleverTap/clevertap-data-upload) to upload the event data to the CleverTap dashboard.
-- A list of error codes for this API can be found on the [Errors](doc:api-errors) page.
-- To understand the common queries and concerns related to CleverTap APIs, refer to [API FAQs](doc:api-faqs).
+* You can also use the [Data Upload Script](https://github.com/CleverTap/clevertap-data-upload) to upload the event data to the CleverTap dashboard.
+* A list of error codes for this API can be found on the [Errors](doc:api-errors) page.
+* To understand the common queries and concerns related to CleverTap APIs, refer to [API FAQs](doc:api-faqs).
