@@ -34,14 +34,21 @@ POST
 
 The following headers are required when you use CleverTap APIs:
 
+```json
+X-CleverTap-Account-Id:<encoded-account-id>
+X-CleverTap-Passcode:<account-passcode>
+Content-Type:application/json; charset=utf-8
+Accept-Encoding: gzip
+```
+
 The `X-CleverTap-Account-Id` and `X-CleverTap-Passcode` authenticate the request.
 
-| Header                 | Description                                                 | Type   | Example Value                         |
-| :--------------------- | :---------------------------------------------------------- | :----- | :------------------------------------ |
-| X-CleverTap-Account-Id | Your CleverTap Account ID.                                  | string | "X-CleverTap-Account-Id: ACCOUNT\_ID" |
-| X-CleverTap-Passcode   | Your CleverTap Account Passcode.                            | string | "X-CleverTap-Passcode: PASSCODE"      |
-| Content-Type           | The request content-type is always set to application/json. | string | "Content-Type: application/json"      |
-| Accept-Encoding        | The type of encoding used when fetching the messages.       | string | gzip                                  |
+| Header                 | Description                                                 | Type   | Example Value                        |
+| :--------------------- | :---------------------------------------------------------- | :----- | :----------------------------------- |
+| X-CleverTap-Account-Id | Your CleverTap Account ID.                                  | string | "X-CleverTap-Account-Id: ACCOUNT_ID" |
+| X-CleverTap-Passcode   | Your CleverTap Account Passcode.                            | string | "X-CleverTap-Passcode: PASSCODE"     |
+| Content-Type           | The request content-type is always set to application/json. | string | "Content-Type: application/json"     |
+| Accept-Encoding        | The type of encoding used when fetching the messages.       | string | gzip                                 |
 
 # Body Parameters
 
@@ -53,211 +60,270 @@ The following are the body parameters included in the JSON response payload:
       <th>
         Parameter
       </th>
+
       <th>
         Description
       </th>
+
       <th>
         Type
       </th>
+
       <th>
         Example Value
       </th>
     </tr>
   </thead>
+
   <tbody>
     <tr>
       <td>
         status
       </td>
+
       <td>
         Indicates whether the request was successfully processed. This value is either set as success or fail.
       </td>
+
       <td>
         string
       </td>
+
       <td>
         fail
       </td>
     </tr>
+
     <tr>
       <td>
         totalAvailableMessages
       </td>
+
       <td>
         Indicates the number of messages present for the user in CleverTap Inbox.
       </td>
+
       <td>
         numeric
       </td>
+
       <td>
         5
       </td>
     </tr>
+
     <tr>
       <td>
-        wzrk\_id
+        wzrk_id
       </td>
+
       <td>
         Indicates the internal key to identify the campaign. The customer must retain this parameter to generate click events.
       </td>
+
       <td>
         string
       </td>
+
       <td>
-        12345679\_20240130
+        12345679_20240130
       </td>
     </tr>
+
     <tr>
       <td>
-        wzrk\_pivot
+        wzrk_pivot
       </td>
+
       <td>
         Indicates the internal key to identify the campaign variants. The customer must retain this parameter to generate click events.
       </td>
+
       <td>
         string
       </td>
+
       <td>
-        wzrk\_default\
+        wzrk_default  
         (when the default variant is rolled out to the user)
       </td>
     </tr>
+
     <tr>
       <td>
         messages
       </td>
+
       <td>
         Contains a list of messages for the user. Each message stores message-related data and the message content. If the user has no messages, the list is empty.
       </td>
+
       <td>
         array
       </td>
+
       <td>
-        Example array with message object containing wzrk\_id, wzrk\_pivot, isRead, messageId, createdAt, and msg fields
+        Example array with message object containing wzrk_id, wzrk_pivot, isRead, messageId, createdAt, and msg fields
       </td>
     </tr>
+
     <tr>
       <td>
         createdAt
       </td>
+
       <td>
         Indicates the timestamp when the message was created for the user.
       </td>
+
       <td>
         timestamp
       </td>
+
       <td>
         1707198495
       </td>
     </tr>
+
     <tr>
       <td>
         isRead
       </td>
+
       <td>
         Indicates if the message is read.
       </td>
+
       <td>
         Boolean
       </td>
+
       <td>
         true
       </td>
     </tr>
+
     <tr>
       <td>
         messageId
       </td>
+
       <td>
         Uniquely identifies the message.
       </td>
+
       <td>
         numeric
       </td>
+
       <td>
         1
       </td>
     </tr>
+
     <tr>
       <td>
         msg
       </td>
+
       <td>
         Stores the message content along with the custom key-value pairs.
       </td>
+
       <td>
         string
       </td>
+
       <td>
         Object containing type, content array, and other message properties
       </td>
     </tr>
+
     <tr>
       <td>
         type
       </td>
+
       <td>
-        Indicates the type of message template selected under *WHAT* section of the Campaign dashboard.
+        Indicates the type of message template selected under _WHAT_ section of the Campaign dashboard.
       </td>
+
       <td>
         string
       </td>
+
       <td>
         carousel-image
       </td>
     </tr>
+
     <tr>
       <td>
-        custom\_kv
+        custom_kv
       </td>
+
       <td>
-        Stores the Custom KV pairs specified under the *WHAT* section of the campaign.
+        Stores the Custom KV pairs specified under the _WHAT_ section of the campaign.
       </td>
+
       <td>
         object
       </td>
+
       <td>
         Object containing android, ios, and web platform-specific key-value pairs
       </td>
     </tr>
+
     <tr>
       <td>
         msg.content.message
       </td>
+
       <td>
         Stores the text specified in the message.
       </td>
+
       <td>
         object
       </td>
+
       <td>
         Object with text and color properties
       </td>
     </tr>
+
     <tr>
       <td>
         msg.content.title
       </td>
+
       <td>
         Stores the text specified in the title.
       </td>
+
       <td>
         object
       </td>
+
       <td>
         Object with text and color properties
       </td>
     </tr>
+
     <tr>
       <td>
         msg.content.action
       </td>
+
       <td>
-        Stores actions specified under the *WHAT* section of the campaign including URL, links, and media properties for iOS, Android, and Web platforms.
+        Stores actions specified under the _WHAT_ section of the campaign including URL, links, and media properties for iOS, Android, and Web platforms.
       </td>
+
       <td>
         string
       </td>
+
       <td>
         Object containing hasUrl, hasLinks, url, and links properties
       </td>
@@ -278,7 +344,6 @@ curl --location --request POST 'https://in1.api.clevertap.com/1/inbox/getMessage
   "userId": "test@stockx.com"
 }'
 ```
-
 ```ruby
 require "uri"
 require "json"
@@ -300,7 +365,6 @@ request.body = JSON.dump({
 response = http.request(request)
 puts response.read_body
 ```
-
 ```python
 import requests
 import json
@@ -322,7 +386,6 @@ response = requests.request("POST", url, headers=headers, data=payload)
 
 print(response.text)
 ```
-
 ```php
 <?php
 
@@ -354,7 +417,6 @@ $response = curl_exec($curl);
 curl_close($curl);
 echo $response;
 ```
-
 ```node
 var request = require('request');
 var options = {
@@ -553,6 +615,7 @@ request(options, function (error, response) {
     }
     ```
   </Tab>
+
   <Tab title="Message With Icon Template">
     ```json
     {
@@ -735,6 +798,7 @@ request(options, function (error, response) {
     }
     ```
   </Tab>
+
   <Tab title="Carousel Message Template">
     ```json
     {
@@ -923,6 +987,7 @@ request(options, function (error, response) {
     }
     ```
   </Tab>
+
   <Tab title="Image Only Carousel Template">
     ```json
     {
