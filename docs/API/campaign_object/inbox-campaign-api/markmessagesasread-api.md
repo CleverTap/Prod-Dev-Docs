@@ -30,7 +30,15 @@ POST
 
 # Headers
 
-The API headers are used while processing the API request. The below headers are required when you use CleverTap APIs:
+The API headers are used while processing the API request. The headers below are required when you use CleverTap APIs:
+
+```json
+X-CleverTap-Account-Id:<encoded-account-id>
+X-CleverTap-Passcode:<account-passcode>
+Content-Type:application/json; charset=utf-8
+```
+
+<br />
 
 The `X-CleverTap-Account-Id` and `X-CleverTap-Passcode` authenticate the request.
 
@@ -46,7 +54,7 @@ The following are the body parameters included in the JSON response payload:
 
 | Parameter  | Description                                                                                                                                                                                                  | Type    | Example Value                                                     |
 | :--------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------ | :---------------------------------------------------------------- |
-| userId     | Uniquely identifies the user.                                                                                                                                                                                | string  | [test@stockx.com](mailto:test@stockx.com)                         |
+| userId     | Uniquely identifies the user.                                                                                                                                                                                | string  | [test@clevertap.com](mailto:test@stockx.com)                      |
 | message    | Contains a list of messages read by the user. For each user, it consists of the following information: `messageId`, `wzrk_id`, and `wzrk_pivot` values. The maximum number of messages for a user can be 50. | array   | See example request below                                         |
 | messageID  | Uniquely identifies the message that must be marked as read for the user.                                                                                                                                    | numeric | 1                                                                 |
 | wzrk_id    | Indicates the internal key to identify the campaign. This parameter is required to generate click events.                                                                                                    | string  | 12345679_20240130                                                 |
@@ -63,7 +71,7 @@ curl --location --request POST 'https://in1.api.clevertap.com/1/inbox/markMessag
 --header 'X-CleverTap-Passcode: YOUR_ACCOUNT_PASSCODE' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-  "userId": "test@stockx.com",
+  "userId": "test@clevertap.com",
   "messages": [
     {
       "messageId": 2,
@@ -94,7 +102,7 @@ request["X-CleverTap-Passcode"] = "YOUR_ACCOUNT_PASSCODE"
 request["X-CleverTap-Token"] = "YOUR_ACCOUNT_TOKEN"
 request["Content-Type"] = "application/json"
 request.body = JSON.dump({
-  "userId": "stockx1@test.com",
+  "userId": "test@clevertap.com",
   "messages": [
     {
       "wzrk_id": "1711383026_20240325",
@@ -121,7 +129,7 @@ import json
 url = "https://in1.api.clevertap.com/1/inbox/markAsRead"
 
 payload = json.dumps({
-  "userId": "stockx1@test.com",
+  "userId": "test@clevertap.com",
   "messages": [
     {
       "wzrk_id": "1711383026_20240325",
@@ -163,7 +171,7 @@ curl_setopt_array($curl, array(
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => 'POST',
   CURLOPT_POSTFIELDS =>'{
-  "userId": "stockx1@test.com",
+  "userId": "test@clevertap.com",
   "messages": [
     {
       "wzrk_id": "1711383026_20240325",
@@ -204,7 +212,7 @@ var options = {
     'Content-Type': 'application/json'
   },
   body: JSON.stringify({
-    "userId": "stockx1@test.com",
+    "userId": "test@clevertap.com",
     "messages": [
       {
         "wzrk_id": "1711383026_20240325",
