@@ -18,79 +18,85 @@ next:
 
 Integrate the CleverTap SDK into your iOS and Android apps.
 
-##**iOS**
+## **iOS**
+
 * Follow the integration instructions starting with step 2 in the [iOS Quick Start Guide](https://developer.clevertap.com/docs/ios-quickstart-guide#section-step-2-add-clever-tap-credentials).
 * In your AppDelegate `didFinishLaunchingWithOptions:` notify the CleverTap React Native SDK of application launch:
-[block:code]
-{
-  "codes": [
-    {
-      "code": "[CleverTap autoIntegrate]; // integrate CleverTap SDK using the autoIntegrate option\n[[CleverTapReactManager sharedInstance] applicationDidLaunchWithOptions:launchOptions];\n\n",
-      "language": "objectivec"
-    }
-  ]
-}
-[/block]
 
-[block:callout]
-{
-  "type": "warning",
-  "body": "Add the CleverTap imports at the top of the file.",
-  "title": "Note"
-}
-[/block]
+```objectivec
+[CleverTap autoIntegrate]; // integrate CleverTap SDK using the autoIntegrate option
+[[CleverTapReactManager sharedInstance] applicationDidLaunchWithOptions:launchOptions];
+```
 
-[block:code]
-{
-  "codes": [
-    {
-      "code": "#import <CleverTapSDK/CleverTap.h>\n#import <CleverTapReact/CleverTapReactManager.h>\n  \n  ",
-      "language": "objectivec"
-    }
-  ]
-}
-[/block]
+> 🚧 Note
+>
+> Add the CleverTap imports at the top of the file.
 
-[block:callout]
-{
-  "type": "info",
-  "title": "Note",
-  "body": "If you are using `use_modular_headers!` in the podfile then you must import following in your AppDelegate class:\n1.@import CleverTapSDK;\n2.@import CleverTapReact;"
-}
-[/block]
-##**Android**
+```objectivec
+#import <CleverTapSDK/CleverTap.h>
+#import <CleverTapReact/CleverTapReactManager.h>
+```
+
+> 📘 Note
+>
+> If you are using `use_modular_headers!` in the podfile then you must import following in your AppDelegate class:\
+> 1.\@import CleverTapSDK;\
+> 2.\@import CleverTapReact;
+
+## **Android**
+
 * Follow the integration instructions starting with step 2 in the [Android Quick Start Guide](https://developer.clevertap.com/docs/android-quickstart-guide#section-step-2-add-your-clever-tap-credentials-in-android-manifest-xml).
 
 The CleverTap SDK is not yet upgraded to AndroidX. Add the following to your `gradle.properties` file:
-[block:code]
-{
-  "codes": [
-    {
-      "code": "android.useAndroidX=true\nandroid.enableJetifier=true\n  \n  ",
-      "language": "xml"
-    }
-  ]
+
+```xml
+android.useAndroidX=true
+android.enableJetifier=true
+```
+
+* Add CleverTapPackage to the packages list in MainApplication.java (android/app/src/\[...]/MainApplication.java)
+
+```javascript
+// ...
+
+// CleverTap imports
+import com.clevertap.android.sdk.ActivityLifecycleCallback;
+import com.clevertap.react.CleverTapPackage;
+
+//...
+
+// add CleverTapPackage to react-native package list
+@Override
+  protected List<ReactPackage> getPackages() {
+    return Arrays.<ReactPackage>asList(
+            new MainReactPackage(),
+            new CleverTapPackage(), // <-- add this
+
+// ...
+
+// add onCreate() override
+@Override
+public void onCreate() {
+   // Register the CleverTap ActivityLifecycleCallback; before calling super
+  ActivityLifecycleCallback.register(this);	
+  super.onCreate();
 }
-[/block]
-* Add CleverTapPackage to the packages list in MainApplication.java (android/app/src/[...]/MainApplication.java)
-[block:code]
-{
-  "codes": [
-    {
-      "code": "// ...\n\n// CleverTap imports\nimport com.clevertap.android.sdk.ActivityLifecycleCallback;\nimport com.clevertap.react.CleverTapPackage;\n\n//...\n\n// add CleverTapPackage to react-native package list\n@Override\n  protected List<ReactPackage> getPackages() {\n    return Arrays.<ReactPackage>asList(\n            new MainReactPackage(),\n            new CleverTapPackage(), // <-- add this\n\n// ...\n\n// add onCreate() override\n@Override\npublic void onCreate() {\n   // Register the CleverTap ActivityLifecycleCallback; before calling super\n  ActivityLifecycleCallback.register(this);\t\n  super.onCreate();\n}\n    \n    ",
-      "language": "javascript"
-    }
-  ]
+```
+
+* Optionally, override onCreate in MainActivity.java to notify CleverTap of a launch deep link (android/app/src/\[...]/MainActivity.java).
+
+```javascript
+import com.clevertap.react.CleverTapModule;
+
+public class MainActivity extends ReactActivity {
+	// ...
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+    	super.onCreate(savedInstanceState);
+    	CleverTapModule.setInitialUri(getIntent().getData());
+	}
+
+    // ...
 }
-[/block]
-* Optionally, override onCreate in MainActivity.java to notify CleverTap of a launch deep link (android/app/src/[...]/MainActivity.java).
-[block:code]
-{
-  "codes": [
-    {
-      "code": "import com.clevertap.react.CleverTapModule;\n\npublic class MainActivity extends ReactActivity {\n\t// ...\n\n\t@Override\n\tprotected void onCreate(Bundle savedInstanceState) {\n    \tsuper.onCreate(savedInstanceState);\n    \tCleverTapModule.setInitialUri(getIntent().getData());\n\t}\n\n    // ...\n}\n\n",
-      "language": "javascript"
-    }
-  ]
-}
-[/block]
+```
