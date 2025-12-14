@@ -21,16 +21,16 @@ next:
       url: https://developer.clevertap.com/docs/android-resources
 ---
 > 📘 Feature Availability
-> 
+>
 > A new and enhanced version of Product Experiences is coming soon. New customers (CleverTap for Enterprise or CleverTap for Startups) who have not enabled the current functionalities can use this feature only when the new version is released. However, the existing users can continue to use it. The [methods](https://developer.clevertap.com/docs/may-2023#android-500) for the Product Experiences feature have been deprecated and will be removed from the code by September 2024.
 
 Product Experiences allow you to control and enhance the user experience for your products. 
 
 The CleverTap Product Experiences comprise the following:
 
-- Product Config - Change the behavior and appearance of your app remotely without an update. This helps you to deliver in-app personalization experience to your app users and test their responses. 
-- A/B Tests - Compare different versions of an app to each other and determine which one performs better. 
-- Feature Flags - Toggle a feature on and off.
+* Product Config - Change the behavior and appearance of your app remotely without an update. This helps you to deliver in-app personalization experience to your app users and test their responses. 
+* A/B Tests - Compare different versions of an app to each other and determine which one performs better. 
+* Feature Flags - Toggle a feature on and off.
 
 # Implement Product Config/AB Tests
 
@@ -92,7 +92,7 @@ cleverTapAPI.productConfig().setDefaults(map);
 
 ## 3. Fetch and activate values
 
-To fetch parameter values from CleverTap, call the `fetch()` method. Any values that you set on the dashboard are fetched and stored in the Product Config object.  
+To fetch parameter values from CleverTap, call the `fetch()` method. Any values that you set on the dashboard are fetched and stored in the Product Config object.\
 To make fetched parameter values available to your app, call the `activate()` method.
 
 For cases where you want to fetch and activate values in one call, you can use a `fetchAndActivate()` request to fetch values from CleverTap and make them available to the app:
@@ -152,7 +152,7 @@ You must call `activate()` if you want to apply the last fetched values inside t
 
 ## 5. Throttling
 
-If an app fetches too many times in a short time period, fetch calls are throttled.  
+If an app fetches too many times in a short time period, fetch calls are throttled.\
 Throttling is controlled from the CleverTap servers as well from the SDK. 
 
 The maximum value of the two will be considered to make the next fetch request. Default fetch interval defined in the SDK is **12 Minutes** (`CTProductConfigConstants.DEFAULT_MIN_FETCH_INTERVAL_SECONDS`)
@@ -178,9 +178,9 @@ cleverTapAPI.productConfig().getString("key_json")
 
 The Supported data types are: Boolean, Double, Long, String, and JSON.
 
-## Considerations: 
+## Considerations:
 
-JSON operations will be similar to that of String.  
+JSON operations will be similar to that of String.\
 The getters return the default values of the type in case we don’t find any value for a key.
 
 | Type           | Default Value |
