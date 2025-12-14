@@ -16,30 +16,30 @@ Segment Native Android integration allows you to push your Android application d
 
 With this integration, you can:
 
-- Push User Profiles
-- Push Events
-- Integrate Push Notifications
+* Push User Profiles
+* Push Events
+* Integrate Push Notifications
 
 > ⚠️ End-of-Support Announcement: Analytics-Android SDK
-> 
+>
 > The **Analytics-Android SDK** will reach end of support in March 2026. After this date, no new updates, security patches, or bug fixes will be provided.  
-> 
+>
 > Segment is focusing future development on the **Analytics-Kotlin SDK**, which offers enhanced functionality and broader platform support.  
-> 
-> **CleverTap fully supports the Analytics-Kotlin integration.**  
+>
+> **CleverTap fully supports the Analytics-Kotlin integration.**\
 > To migrate, refer to the following resources:
-> 
-> - [Segment Analytics-Kotlin Integration](doc:segment-analytics-kotlin-integration)  
-> - [Analytics-Kotlin-CleverTap GitHub repository](https://github.com/CleverTap/analytics-kotlin-clevertap/tree/main)  
-> - [Segment’s official migration guide](https://segment.com/docs/connections/sources/catalog/libraries/mobile/kotlin-android/migration/)
+>
+> * [Segment Analytics-Kotlin Integration](doc:segment-analytics-kotlin-integration)  
+> * [Analytics-Kotlin-CleverTap GitHub repository](https://github.com/CleverTap/analytics-kotlin-clevertap/tree/main)  
+> * [Segment’s official migration guide](https://segment.com/docs/connections/sources/catalog/libraries/mobile/kotlin-android/migration/)
 
 # Prerequisites
 
 The following are the prerequisites for performing this integration:
 
-- A CleverTap account
-- A Segment account
-- A functional Android application
+* A CleverTap account
+* A Segment account
+* A functional Android application
 
 # Integration
 
@@ -55,39 +55,26 @@ Destinations are the business tools or applications to which Segment forwards yo
 
 To add CleverTap details in Segment:
 
-1. Go to _Destinations_ in Segment application.
-2. Click on _Add Destination_ and select _CleverTap_.
-3. In the _Destination Catalog/CleverTap_ page, click on _Configure CleverTap_. 
-4. Add CleverTap _Account ID_ and _Account Token_, which you can find on the CleverTap Dashboard under _Settings_ page.
-5. Select the appropriate region from the _Region_ dropdown. To identify the region of your CleverTap account, refer to the following table:
+1. Go to *Destinations* in Segment application.
+2. Click on *Add Destination* and select *CleverTap*.
+3. In the *Destination Catalog/CleverTap* page, click on *Configure CleverTap*. 
+4. Add CleverTap *Account ID* and *Account Token*, which you can find on the CleverTap Dashboard under *Settings* page.
+5. Select the appropriate region from the *Region* dropdown. To identify the region of your CleverTap account, refer to the following table:
 
 | CleverTap Dashboard URL                                                                              | Region            |
 | :--------------------------------------------------------------------------------------------------- | :---------------- |
-| <https://in1.dashboard.clevertap.com/login.html#/>                                                   | IN                |
-| <https://sg1.dashboard.clevertap.com/login.html#/>                                                   | SG                |
-| <https://us1.dashboard.clevertap.com/login.html#/>                                                   | US                |
-| <https://eu1.dashboard.clevertap.com/login.html#/>                                                   | None              |
+| [https://in1.dashboard.clevertap.com/login.html#/](https://in1.dashboard.clevertap.com/login.html#/) | IN                |
+| [https://sg1.dashboard.clevertap.com/login.html#/](https://sg1.dashboard.clevertap.com/login.html#/) | SG                |
+| [https://us1.dashboard.clevertap.com/login.html#/](https://us1.dashboard.clevertap.com/login.html#/) | US                |
+| [https://eu1.dashboard.clevertap.com/login.html#/](https://eu1.dashboard.clevertap.com/login.html#/) | None              |
 | [https://aps3.dashboard.clevertap.com/login.html](https://aps3.dashboard.clevertap.com/login.html#/) | Indonesia         |
 | [https://mec1.dashboard.clevertap.com/login.html](https://mec1.dashboard.clevertap.com/login.html#/) | Middle East (UAE) |
 
-6. Turn on the toggle at the top of the _Settings_ page to enable the destination.
+6. Turn on the toggle at the top of the *Settings* page to enable the destination.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/de3fc69-2023-03-15_17-34-07.png",
-        "Enable the CleverTap Settings",
-        "Enable the CleverTap Settings"
-      ],
-      "align": "center",
-      "caption": "Enable the CleverTap Settings"
-    }
-  ]
-}
-[/block]
-
+<Image title="Enable the CleverTap Settings" alt="Enable the CleverTap Settings" align="center" src="https://files.readme.io/de3fc69-2023-03-15_17-34-07.png">
+  Enable the CleverTap Settings
+</Image>
 
 You can integrate CleverTap from the server-side or mobile destination (iOS or Android). Select mobile destinations to use CleverTap push notifications or In-App notifications.
 
@@ -206,7 +193,7 @@ public void onCreate()
 
 | Parameter        | Description                                                                                                                                                      |
 | :--------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `YOUR_WRITE_KEY` | From the Segment dashboard, navigate to _Connections > Sources_. Select the source and then navigate to _Settings_ > _API Keys_ to find the _Write Key_ details. |
+| `YOUR_WRITE_KEY` | From the Segment dashboard, navigate to *Connections > Sources*. Select the source and then navigate to *Settings* > *API Keys* to find the *Write Key* details. |
 
 2. Add the following permissions in the `AndroidManifest.xml` file:
 
@@ -241,7 +228,7 @@ Analytics.with(getApplicationContext()).identify(61026032, traits, null);
 Pushing the user information applies only to Segment-CleverTap SDK version v1.1.2 and above.
 
 > 📘 Update User Property to CleverTap
-> 
+>
 > To update any user property to CleverTap, pass the same user identity passed during the user login or sign-up.
 
 For more details, refer to [User Profile Considerations](doc:concepts-user-profiles#user-profile-consideration).
@@ -262,12 +249,12 @@ new Properties().putValue("value", "testValue") .putValue("testDate", new Date(S
 );
 ```
 
-Here, _testEvent_ is the Event Name and Value. _testDate _ is the Event Date Property.  
+Here, *testEvent* is the Event Name and Value. *testDate* is the Event Date Property.\
 For more details,  refer to [Event Considerations](doc:events#event-consideration).
 
 ## Push Charged Events
 
-When an event is tracked using the server-side destination with the name `Order Completed`(as per [e-commerce tracking API](https://segment.com/docs/connections/spec/ecommerce/v2/)), Segment maps that event to CleverTap’s charged event.  
+When an event is tracked using the server-side destination with the name `Order Completed`(as per [e-commerce tracking API](https://segment.com/docs/connections/spec/ecommerce/v2/)), Segment maps that event to CleverTap’s charged event.\
 To push charged events to the CleverTap dashboard, add the following code:
 
 ```kotlin
@@ -297,27 +284,13 @@ void raiseChargedEvent(Analytics analytics){
 
 It appears as a charged event on the CleverTap dashboard, as shown in the following figure:
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/72d0670-2023-01-12_15-57-27.png",
-        "Push Charged Events",
-        2742
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Charged Event on CleverTap Dashboard"
-    }
-  ]
-}
-[/block]
-
+<Image title="Push Charged Events" alt={2742} align="center" border={true} src="https://files.readme.io/72d0670-2023-01-12_15-57-27.png">
+  Charged Event on CleverTap Dashboard
+</Image>
 
 # Integrate Push Notifications
 
-**Case 1**: When you are using push notifications only from CleverTap.  
+**Case 1**: When you are using push notifications only from CleverTap.\
   Add the following code to your `AndroidManifest.xml` file:
 
 ```xml
@@ -340,7 +313,7 @@ android:value="ic_stat_red_star"/>
 </service>
 ```
 
-**Case 2**: When you send Push from different tools, such as Firebase.  
+**Case 2**: When you send Push from different tools, such as Firebase.\
 To enable this, perform the following steps:
 
 1. Add the following code to your `AndroidManifest.xml` file:
@@ -361,7 +334,7 @@ To enable this, perform the following steps:
 2. Add the following code to your `onNewToken` method: 
 
 > 📘 Note
-> 
+>
 > Use the `onTokenRefresh` method only if your firebase message delivery system version is 18.0 and above.
 
 ```kotlin
@@ -436,7 +409,7 @@ CleverTapAPI.createNotificationChannel(getApplicationContext(),"YourChannelId","
 
 # Integrate In-App in Android
 
-All the required methods are available out of the box in the Segment-CleverTap SDK.  
+All the required methods are available out of the box in the Segment-CleverTap SDK.\
 For more information about integrating In-App in Android, refer to [Android In-App](doc:android-in-app-notifications).
 
 # Integrate App Inbox in Android
@@ -586,7 +559,7 @@ For additional methods and App Inbox features, refer to the [App Inbox for Andro
 
 # Integrate Native Display in Android
 
-CleverTap supports Native Display for CleverTap Android SDK version 3.6.2 and above.  
+CleverTap supports Native Display for CleverTap Android SDK version 3.6.2 and above.\
 To integrate Native Display with your application:
 
 1. Add the following code to register the Native Display Listener and get the NativeDisplayUnits using the `setDisplayUnitListener` method:
