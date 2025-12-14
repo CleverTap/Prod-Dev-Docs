@@ -16,8 +16,8 @@ The Create API allows you to define variables with valid names, types, and defau
 
 # Endpoint
 
-Here is a sample endpoint from the account in the India region:  
-<https://in1.api.clevertap.com/1/createVars>
+Here is a sample endpoint from the account in the India region:\
+[https://in1.api.clevertap.com/1/createVars](https://in1.api.clevertap.com/1/createVars)
 
 # Authentication
 
@@ -78,5 +78,5 @@ curl -X POST -d '{"variableNAmes":["var1","folder1.var2"]}' "https://in1.api.cle
 ```
 
 > 📘 Note
-> 
+>
 > Newly defined Variables need to be Published from the Dashboard in order for it to persist.
