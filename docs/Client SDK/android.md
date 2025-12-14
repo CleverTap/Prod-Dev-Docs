@@ -18,13 +18,13 @@ This section shows how to track custom events, enrich user profiles, and send pu
 
 Ensure you have the following prerequisites to start the Android integration:
 
-- CleverTap account
-- Android Studio
+* CleverTap account
+* Android Studio
 
 # Supported Versions
 
-- For [Android 14](https://developer.android.com/about/versions/14/summary), we recommend using the CleverTap Android SDK v6.1.1 or higher.
-- For [Android 15](https://developer.android.com/about/versions/15/summary), we recommend using the CleverTap Android SDK v7.2.0 or higher.
+* For [Android 14](https://developer.android.com/about/versions/14/summary), we recommend using the CleverTap Android SDK v6.1.1 or higher.
+* For [Android 15](https://developer.android.com/about/versions/15/summary), we recommend using the CleverTap Android SDK v7.2.0 or higher.
 
 # Android SDK Versions and Size
 
@@ -67,36 +67,44 @@ Refer to the following for additional Android SDK references.
 <details>
   <summary>Android Data Tracking</summary>
 
-- [Android User Profiles](doc:user-profiles-android) 
-- [Android User Events](doc:user-events-android) 
+* [Android User Profiles](doc:user-profiles-android) 
+* [Android User Events](doc:user-events-android) 
 
 </details>
 
 <details>
   <summary>Android Push</summary>
 
-- [Android Push](doc:android-push)
-- [CleverTap Huawei Push Integration](doc:clevertap-huawei-push-integration) 
-- [CleverTap Baidu Push Integration](doc:baidu-push-notifications) 
-- [CleverTap Xiaomi Push Integration](doc:xiaomi-push-notifications) 
-- [Android Push Templates](doc:push-templates-android) 
+* [Android Push](doc:android-push)
+* [CleverTap Huawei Push Integration](doc:clevertap-huawei-push-integration) 
+* [CleverTap Baidu Push Integration](doc:baidu-push-notifications) 
+* [CleverTap Xiaomi Push Integration](doc:xiaomi-push-notifications) 
+* [Android Push Templates](doc:push-templates-android) 
 
 </details>
 
 <details>
   <summary>Android SDK Features</summary>
 
-- [Android In-App](doc:android-in-app-notifications) 
-- [Android App Inbox](doc:android-app-inbox) 
-- [Android Native Display](doc:android-native-display) 
-- [Android Product Experiences](doc:android-remote-config) 
-- [Multi-Instance Support Android](doc:multi-instance-support-android) 
-- [Geofence Android SDK](doc:geofence-android-sdk) 
+* [Android In-App](doc:android-in-app-notifications) 
+* [Android App Inbox](doc:android-app-inbox) 
+* [Android Native Display](doc:android-native-display) 
+* [Android Product Experiences](doc:android-remote-config) 
+* [Multi-Instance Support Android](doc:multi-instance-support-android) 
+* [Geofence Android SDK](doc:geofence-android-sdk) 
 
 </details>
 
-[block:html]
-{
-  "html": "<style>\n  .rm-Guides .content-body, .rm-Guides #content-head .col-xs-9 {\n      max-width: 100%;\n      width: 1000px;\n  }\n  .markdown-body summary {\n  font-size: 20px;\n  font-weight: bold; \n  text-transform: camelcase;\n}\n</style>"
+<HTMLBlock>{`
+<style>
+  .rm-Guides .content-body, .rm-Guides #content-head .col-xs-9 {
+      max-width: 100%;
+      width: 1000px;
+  }
+  .markdown-body summary {
+  font-size: 20px;
+  font-weight: bold; 
+  text-transform: camelcase;
 }
-[/block]
+</style>
+`}</HTMLBlock>
