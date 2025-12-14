@@ -18,14 +18,14 @@ The Create Segment API allows you to create new user segments within CleverTap, 
 
 This API is useful for:
 
-- Creating dynamic user groups for targeted marketing or messaging campaigns.
-- Enhancing the segment creation process via APIs to scale marketing efforts across multiple channels.
+* Creating dynamic user groups for targeted marketing or messaging campaigns.
+* Enhancing the segment creation process via APIs to scale marketing efforts across multiple channels.
 
 # Base URL
 
 Here is an example base URL from the account in the India region:
 
-<https://in1.api.clevertap.com/api/createSegment>
+[https://in1.api.clevertap.com/api/createSegment](https://in1.api.clevertap.com/api/createSegment)
 
 ### Region
 
@@ -49,12 +49,12 @@ The request body contains an array of customer segments, each defined by a `segm
 | `customer_segment_id` | A unique identifier for the segment. It must be unique across all API requests. | Required          | String | `SEG12345`      |
 
 > 📘 Naming Conventions for Creating API Segment
-> 
+>
 > To optimize the usage of the Create Segment API, follow these best practices:
-> 
-> - Use clear, consistent naming conventions for segment names. For example, Premium Users 2024, Active Buyers.
-> - Avoid special characters or spaces in segment names.
-> - Maintain a structured approach to naming to easily track and reference segments.
+>
+> * Use clear, consistent naming conventions for segment names. For example, Premium Users 2024, Active Buyers.
+> * Avoid special characters or spaces in segment names.
+> * Maintain a structured approach to naming to easily track and reference segments.
 
 ## Sample Request
 
