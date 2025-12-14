@@ -10,10 +10,10 @@ metadata:
 next:
   description: ''
 ---
-You can upload your user data to Clevertap and then use this data to analyze, engage, and retain users. You can then use the power of our analytics, segmentation, experiences to enhance engagement and retention. 
+You can upload your user data to Clevertap and then use this data to analyze, engage, and retain users. You can then use the power of our analytics, segmentation, experiences to enhance engagement and retention.\
 You can upload profile data such as name, email address, and event data such as product purchased and the purchase amount. Once you have established a connection with our servers, you can upload data automatically at regular intervals.
 
-#Pre-requisites
+# Pre-requisites
 
 You must have an SFTP client to be able to import data into CleverTap's SFTP server. 
 
@@ -21,23 +21,9 @@ You must have an SFTP client to be able to import data into CleverTap's SFTP ser
 
 Go to Settings> Partner Data> Import and click the SFTP button. 
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/c6ca9a4-AWS_Data_Import_button.png",
-        "AWS_Data_Import_button.png",
-        1187,
-        686,
-        "#f8f8fa"
-      ],
-      "caption": "Import Data",
-      "border": true
-    }
-  ]
-}
-[/block]
+<Image title="AWS_Data_Import_button.png" alt={1187} border={true} src="https://files.readme.io/c6ca9a4-AWS_Data_Import_button.png">
+  Import Data
+</Image>
 
 # Step 2 - Add Credentials
 
@@ -47,220 +33,527 @@ Once our SFTP server receives the SSH public key, a user is created for you. Aft
 
 Add new credentials by clicking the +Credentials button from the Credentials tab. The Add new credentials window appears. 
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/cdd0fcc-AWS_Data_Import_credentials_add.png",
-        "AWS_Data_Import_credentials_add.png",
-        492,
-        531,
-        "#fafafc"
-      ],
-      "border": true
-    }
-  ]
-}
-[/block]
+<Image title="AWS_Data_Import_credentials_add.png" alt={492} className="border" border={true} src="https://files.readme.io/cdd0fcc-AWS_Data_Import_credentials_add.png" />
+
 Enter your credentials in the following boxes and click Save:
 
 * Username -   Your account ID is your username. It will be populated automatically.
 * Key name - It is the name of your key. It can be any name to identify your key.
 * SSH key - It is your machine's SSH public key. This is the key of the machine that uploads data to Clevertap.
- 
+
 Your credentials will be verified and saved under the Credentials tab. 
-[block:callout]
-{
-  "type": "info",
-  "title": "Limit",
-  "body": "You can add up to 10 credentials."
-}
-[/block]
+
+> 📘 Limit
+>
+> You can add up to 10 credentials.
+
 Refer to the server URL displayed in the notes of the Credentials tab for connecting to the SFTP URL. 
 
-#Step 3 - Upload CSV files
+# Step 3 - Upload CSV files
 
 You can upload Profiles or Events data to CleverTap with an SFTP client. Each upload must be followed with a manifest file to map your data upload with CleverTap properties. 
-[block:callout]
-{
-  "type": "info",
-  "title": "File uploads",
-  "body": "All files (Events and Profiles) must be uploaded in the CSV format. The manifest file is a JSON file that provides metadata for the uploaded CSV data file. The processing of the data file will start only after the manifest file is uploaded. Every manifest file must have a unique name."
-}
-[/block]
-##Events CSV file
+
+> 📘 File uploads
+>
+> All files (Events and Profiles) must be uploaded in the CSV format. The manifest file is a JSON file that provides metadata for the uploaded CSV data file. The processing of the data file will start only after the manifest file is uploaded. Every manifest file must have a unique name.
+
+## Events CSV file
 
 The Events CSV file contains all the event details that you want to send to CleverTap. 
 
 The Events file must have the following mandatory fields:
-[block:parameters]
-{
-  "data": {
-    "0-0": "ts",
-    "0-1": "Timestamp of the event",
-    "1-0": "ObjectId/Identity/guid/fbid",
-    "1-1": "Identity of the user",
-    "h-0": "Column Header",
-    "h-1": "Description"
-  },
-  "cols": 2,
-  "rows": 2
-}
-[/block]
+
+<Table align={["left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Column Header
+      </th>
+
+      <th>
+        Description
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        ts
+      </td>
+
+      <td>
+        Timestamp of the event
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        ObjectId/Identity/guid/fbid
+      </td>
+
+      <td>
+        Identity of the user
+      </td>
+    </tr>
+  </tbody>
+</Table>
+
 Following is an example for an Events CSV file:
-[block:parameters]
-{
-  "data": {
-    "0-0": "Purchased",
-    "h-0": "event_name",
-    "h-1": "time_stamp",
-    "h-2": "identity",
-    "h-3": "cookie_id",
-    "h-4": "item_name",
-    "h-5": "item_price",
-    "h-6": "item_delivery_date",
-    "1-0": "Purchased",
-    "2-0": "Purchased",
-    "3-0": "Purchased",
-    "0-1": "1578503667",
-    "1-1": "1578503667",
-    "2-1": "1578503667",
-    "3-1": "1578503667",
-    "0-2": "abc@gmail.com",
-    "1-2": "abc@gmail.com",
-    "2-2": "abc@gmail.com",
-    "3-2": "abc@gmail.com",
-    "0-3": "cookie_123",
-    "1-3": "cookie_123",
-    "2-3": "cookie_123",
-    "3-3": "cookie_123",
-    "0-4": "Awesome Ring - 10",
-    "1-4": "Awesome Ring - 11",
-    "2-4": "Awesome Ring - 12",
-    "3-4": "Awesome Ring - 13",
-    "0-5": "123",
-    "1-5": "123",
-    "2-5": "123",
-    "3-5": "123",
-    "0-6": "$D_1589274432",
-    "1-6": "$D_1589274432",
-    "2-6": "$D_1589274432",
-    "3-6": "$D_1589274432"
-  },
-  "cols": 7,
-  "rows": 4
-}
-[/block]
 
-[block:callout]
-{
-  "type": "info",
-  "title": "Data file timestamp",
-  "body": "The timestamp column(ts) of the data file must have an epoch format. \nIf there is any other column that has date-time values, mention these values in the $D_epoch format."
-}
-[/block]
+<Table align={["left","left","left","left","left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        event_name
+      </th>
 
-##Profiles CSV file
+      <th>
+        time_stamp
+      </th>
+
+      <th>
+        identity
+      </th>
+
+      <th>
+        cookie_id
+      </th>
+
+      <th>
+        item_name
+      </th>
+
+      <th>
+        item_price
+      </th>
+
+      <th>
+        item_delivery_date
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        Purchased
+      </td>
+
+      <td>
+        1578503667
+      </td>
+
+      <td>
+        [abc@gmail.com](mailto:abc@gmail.com)
+      </td>
+
+      <td>
+        cookie\_123
+      </td>
+
+      <td>
+        Awesome Ring - 10
+      </td>
+
+      <td>
+        123
+      </td>
+
+      <td>
+        $D\_1589274432
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Purchased
+      </td>
+
+      <td>
+        1578503667
+      </td>
+
+      <td>
+        [abc@gmail.com](mailto:abc@gmail.com)
+      </td>
+
+      <td>
+        cookie\_123
+      </td>
+
+      <td>
+        Awesome Ring - 11
+      </td>
+
+      <td>
+        123
+      </td>
+
+      <td>
+        $D\_1589274432
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Purchased
+      </td>
+
+      <td>
+        1578503667
+      </td>
+
+      <td>
+        [abc@gmail.com](mailto:abc@gmail.com)
+      </td>
+
+      <td>
+        cookie\_123
+      </td>
+
+      <td>
+        Awesome Ring - 12
+      </td>
+
+      <td>
+        123
+      </td>
+
+      <td>
+        $D\_1589274432
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Purchased
+      </td>
+
+      <td>
+        1578503667
+      </td>
+
+      <td>
+        [abc@gmail.com](mailto:abc@gmail.com)
+      </td>
+
+      <td>
+        cookie\_123
+      </td>
+
+      <td>
+        Awesome Ring - 13
+      </td>
+
+      <td>
+        123
+      </td>
+
+      <td>
+        $D\_1589274432
+      </td>
+    </tr>
+  </tbody>
+</Table>
+
+> 📘 Data file timestamp
+>
+> The timestamp column(ts) of the data file must have an epoch format.\
+> If there is any other column that has date-time values, mention these values in the $D\_epoch format.
+
+## Profiles CSV file
 
 The Profiles CSV file contains all the user profile details that you want to send to CleverTap. 
 
 The Profiles file must have the following mandatory fields:
-[block:parameters]
-{
-  "data": {
-    "0-0": "ObjectId/Identity/guid",
-    "h-0": "Column Header",
-    "h-1": "Description",
-    "0-1": "Identity of the user",
-    "1-0": "ts",
-    "1-1": "Timestamp of the upload"
-  },
-  "cols": 2,
-  "rows": 2
-}
-[/block]
-Following is an example for a Profiles CSV file:
-[block:parameters]
-{
-  "data": {
-    "h-0": "time_stamp",
-    "h-1": "identity",
-    "h-2": "cookie_id",
-    "h-3": "id_name",
-    "h-4": "id_email",
-    "h-5": "id_phone",
-    "h-6": "id_phone.operation",
-    "h-7": "is_married",
-    "0-0": "1574668407",
-    "1-0": "1574668408",
-    "0-1": "johndoe@gmail.com",
-    "1-1": "janedoe@gmail.com",
-    "0-2": "dummy_cookie-001",
-    "1-2": "dummy_cookie-002",
-    "0-3": "JohnDoe-001",
-    "1-3": "JaneDoe-002",
-    "0-4": "johndoe@abc.com",
-    "1-4": "janedoe@abc.com",
-    "0-5": "+918876543211",
-    "1-5": "+918876543212",
-    "0-6": "",
-    "1-6": "",
-    "0-7": "Y",
-    "1-7": "N",
-    "h-8": "age",
-    "0-8": "21",
-    "1-8": "22",
-    "h-9": "Playlist",
-    "0-9": "Rock",
-    "1-9": "Pop",
-    "2-0": "1574668409",
-    "3-0": "1574668410",
-    "2-1": "johnroe@gmail.com",
-    "3-1": "janeroe@gmail.com",
-    "2-2": "dummy_cookie-003",
-    "3-2": "dummy_cookie-004",
-    "2-3": "JohnRoe-003",
-    "3-3": "JaneRoe-004",
-    "h-10": "Playlist.operation",
-    "2-10": "",
-    "3-10": "",
-    "2-4": "johnroe@abc.com",
-    "3-4": "janeroe@abc.com",
-    "2-5": "+918876543213",
-    "3-5": "",
-    "2-6": "$set",
-    "3-6": "$delete",
-    "2-7": "Y",
-    "3-7": "N",
-    "h-11": "",
-    "2-11": "",
-    "3-11": "",
-    "0-10": "$add",
-    "1-10": "$remove",
-    "2-8": "25",
-    "3-8": "28"
-  },
-  "cols": 11,
-  "rows": 4
-}
-[/block]
 
-###Operations for profile properties
+<Table align={["left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Column Header
+      </th>
+
+      <th>
+        Description
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        ObjectId/Identity/guid
+      </td>
+
+      <td>
+        Identity of the user
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        ts
+      </td>
+
+      <td>
+        Timestamp of the upload
+      </td>
+    </tr>
+  </tbody>
+</Table>
+
+Following is an example for a Profiles CSV file:
+
+<Table align={["left","left","left","left","left","left","left","left","left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        time_stamp
+      </th>
+
+      <th>
+        identity
+      </th>
+
+      <th>
+        cookie_id
+      </th>
+
+      <th>
+        id_name
+      </th>
+
+      <th>
+        id_email
+      </th>
+
+      <th>
+        id_phone
+      </th>
+
+      <th>
+        id_phone.operation
+      </th>
+
+      <th>
+        is_married
+      </th>
+
+      <th>
+        age
+      </th>
+
+      <th>
+        Playlist
+      </th>
+
+      <th>
+        Playlist.operation
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        1574668407
+      </td>
+
+      <td>
+        [johndoe@gmail.com](mailto:johndoe@gmail.com)
+      </td>
+
+      <td>
+        dummy\_cookie-001
+      </td>
+
+      <td>
+        JohnDoe-001
+      </td>
+
+      <td>
+        [johndoe@abc.com](mailto:johndoe@abc.com)
+      </td>
+
+      <td>
+        +918876543211
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+        Y
+      </td>
+
+      <td>
+        21
+      </td>
+
+      <td>
+        Rock
+      </td>
+
+      <td>
+        $add
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        1574668408
+      </td>
+
+      <td>
+        [janedoe@gmail.com](mailto:janedoe@gmail.com)
+      </td>
+
+      <td>
+        dummy\_cookie-002
+      </td>
+
+      <td>
+        JaneDoe-002
+      </td>
+
+      <td>
+        [janedoe@abc.com](mailto:janedoe@abc.com)
+      </td>
+
+      <td>
+        +918876543212
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+        N
+      </td>
+
+      <td>
+        22
+      </td>
+
+      <td>
+        Pop
+      </td>
+
+      <td>
+        $remove
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        1574668409
+      </td>
+
+      <td>
+        [johnroe@gmail.com](mailto:johnroe@gmail.com)
+      </td>
+
+      <td>
+        dummy\_cookie-003
+      </td>
+
+      <td>
+        JohnRoe-003
+      </td>
+
+      <td>
+        [johnroe@abc.com](mailto:johnroe@abc.com)
+      </td>
+
+      <td>
+        +918876543213
+      </td>
+
+      <td>
+        $set
+      </td>
+
+      <td>
+        Y
+      </td>
+
+      <td>
+        25
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        1574668410
+      </td>
+
+      <td>
+        [janeroe@gmail.com](mailto:janeroe@gmail.com)
+      </td>
+
+      <td>
+        dummy\_cookie-004
+      </td>
+
+      <td>
+        JaneRoe-004
+      </td>
+
+      <td>
+        [janeroe@abc.com](mailto:janeroe@abc.com)
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+        $delete
+      </td>
+
+      <td>
+        N
+      </td>
+
+      <td>
+        28
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+
+      </td>
+    </tr>
+  </tbody>
+</Table>
+
+### Operations for profile properties
+
 You can use the following operations on profile properties: 
 
 * $add - This operation will add value to the property array. For example,  you can add rock songs as  Playlist values.  
 * $remove- This operation will remove the value from the property array. For example, you can remove Pop from the existing Playlist.
 * $set - Use this operation to replace the current value. In our example, the phone number will be set as "+918876543213."
-* $delete - This operation removes the property. For example, you can completely remove the property id_phone for Jane Roe and all the values in it. 
-[block:callout]
-{
-  "type": "info",
-  "body": "To add or remove multiple values in a property, create a separate row for each value.",
-  "title": "Note"
-}
-[/block]
+* $delete - This operation removes the property. For example, you can completely remove the property id\_phone for Jane Roe and all the values in it. 
 
+> 📘 Note
+>
+> To add or remove multiple values in a property, create a separate row for each value.
 
 # Step 4 - Upload Manifest File
 
@@ -268,67 +561,167 @@ The next step after uploading the CSV file is uploading the manifest file. The m
 
 The manifest file is a JSON file that will map the custom attributes in your CSV files with CleverTap properties.  The format for the manifest file is  `anyfilename.manifest`. The following keys are mandatory in a manifest file:
 
-[block:parameters]
-{
-  "data": {
-    "0-0": "type",
-    "0-1": "The event/profile/(any other type of data that we may support in the future).",
-    "1-0": "fileName",
-    "1-1": "The name of the data file.",
-    "2-0": "clientEmail",
-    "2-1": "This is a mandatory field.  We send the update mails to this email ID.",
-    "h-0": "Expected keys",
-    "h-1": "Description",
-    "3-0": "columns",
-    "3-1": "This is an optional field. \n\nctName - This is an optional field. The actual property name in CleverTap.\ndataType - This is an optional field. The supported dataTypes are STRING, INTEGER, FLOAT and LONG. The default dataype is STRING."
-  },
-  "cols": 2,
-  "rows": 4
-}
-[/block]
+<Table align={["left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Expected keys
+      </th>
 
-##Manifest file for Events
+      <th>
+        Description
+      </th>
+    </tr>
+  </thead>
 
-Create a manifest file to map your custom events to CleverTap Events. 
+  <tbody>
+    <tr>
+      <td>
+        type
+      </td>
+
+      <td>
+        The event/profile/(any other type of data that we may support in the future).
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        fileName
+      </td>
+
+      <td>
+        The name of the data file.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        clientEmail
+      </td>
+
+      <td>
+        This is a mandatory field.  We send the update mails to this email ID.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        columns
+      </td>
+
+      <td>
+        This is an optional field. 
+
+        ctName - This is an optional field. The actual property name in CleverTap.\
+        dataType - This is an optional field. The supported dataTypes are STRING, INTEGER, FLOAT and LONG. The default dataype is STRING.
+      </td>
+    </tr>
+  </tbody>
+</Table>
+
+## Manifest file for Events
+
+Create a manifest file to map your custom events to CleverTap Events.\
 Following is a sample manifest file for Events:
-[block:code]
+
+```json
 {
-  "codes": [
-    {
-      "code": "{\n\t\"fileName\": \"events.csv\",\n\t\"type\": \"event\",\n\t\"columns\": {\n\t\t\"event_name\": {\n\t\t\t\"ctName\": \"evtName\",\n        \t\t\"dataType\": \"STRING\",\n     \n\t\t},\n\t\t\"time_stamp\": {\n\t\t\t\"ctName\": \"ts\",\n      \t\t\t\"dataType\": \"INTEGER\"\n\t\t},\n\t\t\"identity\": {\n\t\t\t\"ctName\": \"identity\",\n      \t\t\t\"dataType\": \"STRING\"\n\t\t},\n\t\t\"cookie_id\": {\n\t\t\t\"ctName\": \"objectId\",\n      \t\t\t\"dataType\": \"STRING\"\n\t\t},\n\t\t\"item_name\": {\n\t\t\t\"ctName\": \"Name\",\n      \t\t\t\"dataType\": \"STRING\"\n\t\t},\n\t\t\"item_price\": {\n\t\t\t\"ctName\": \"Price\",\n      \t\t\t\"dataType\": \"FLOAT\"\n\t\t},\n\t\t\"item_delivery_date\": {\n\t\t\t\"ctName\": \"DeliveryDate\",\n      \t\t\t\"dataType\": \"STRING\"\n\t\t}\n\t},\n\t\"clientEmail\": \"admin@clientdomain.com\"\n  \n  \n}",
-      "language": "json"
-    }
-  ]
+	"fileName": "events.csv",
+	"type": "event",
+	"columns": {
+		"event_name": {
+			"ctName": "evtName",
+        		"dataType": "STRING",
+     
+		},
+		"time_stamp": {
+			"ctName": "ts",
+      			"dataType": "INTEGER"
+		},
+		"identity": {
+			"ctName": "identity",
+      			"dataType": "STRING"
+		},
+		"cookie_id": {
+			"ctName": "objectId",
+      			"dataType": "STRING"
+		},
+		"item_name": {
+			"ctName": "Name",
+      			"dataType": "STRING"
+		},
+		"item_price": {
+			"ctName": "Price",
+      			"dataType": "FLOAT"
+		},
+		"item_delivery_date": {
+			"ctName": "DeliveryDate",
+      			"dataType": "STRING"
+		}
+	},
+	"clientEmail": "admin@clientdomain.com"
+  
+  
 }
-[/block]
-##Manifest file for Profiles
+```
+
+## Manifest file for Profiles
 
 Create a manifest file to map the details of your user profiles to CleverTap Profiles.  
 
 Following is a sample manifest file for Profiles:
 
-[block:code]
+```json
 {
-  "codes": [
-    {
-      "code": "{\n\t\"fileName\": \"profiles.csv\",\n\t\"type\": \"profile\",\n\t\"columns\": {\n\t\t\"time_stamp\": {\n\t\t\t\"ctName\": \"ts\",\n      \t\t\t\"dataType\": \"INTEGER\"   \n\t\t},\n\t\t\"identity\": {\n\t\t\t\"ctName\": \"identity\",\n       \t\t\t\"dataType\": \"STRING\"\n\t\t},\n\t\t\"cookie_id\": {\n\t\t\t\"ctName\": \"objectId\",\n       \t\t\t\"dataType\": \"STRING\"\n\t\t},\n\t\t\"id_name\": {\n\t\t\t\"ctName\": \"Name\",\n       \t\t\t\"dataType\": \"STRING\"\n\t\t},\n\t\t\"id_email\": {\n\t\t\t\"ctName\": \"Email\",\n       \t\t\t\"dataType\": \"STRING\"\n\t\t},\n\t\t\"id_phone\" : {\n\t\t\t\"ctName\": \"Phone\",\n       \t\t\t\"dataType\": \"STRING\"\n\t\t},\n\t\t\"is_married\": {\n\t\t\t\"ctName\": \"Married\",\n       \t\t\t\"dataType\": \"STRING\"\n\t\t},\n\t\t\"age\": {\n\t\t\t\"ctName\": \"Age\",\n       \t\t\t\" dataType\": \"INTEGER\"\n\t\t}\n\t},\n\t\"clientEmail\": \"admin@clientdomain.com\"\n}",
-      "language": "json"
-    }
-  ]
+	"fileName": "profiles.csv",
+	"type": "profile",
+	"columns": {
+		"time_stamp": {
+			"ctName": "ts",
+      			"dataType": "INTEGER"   
+		},
+		"identity": {
+			"ctName": "identity",
+       			"dataType": "STRING"
+		},
+		"cookie_id": {
+			"ctName": "objectId",
+       			"dataType": "STRING"
+		},
+		"id_name": {
+			"ctName": "Name",
+       			"dataType": "STRING"
+		},
+		"id_email": {
+			"ctName": "Email",
+       			"dataType": "STRING"
+		},
+		"id_phone" : {
+			"ctName": "Phone",
+       			"dataType": "STRING"
+		},
+		"is_married": {
+			"ctName": "Married",
+       			"dataType": "STRING"
+		},
+		"age": {
+			"ctName": "Age",
+       			" dataType": "INTEGER"
+		}
+	},
+	"clientEmail": "admin@clientdomain.com"
 }
-[/block]
+```
 
-[block:callout]
-{
-  "type": "info",
-  "title": "Manifest note",
-  "body": "If a column is not mapped to a CleverTap property name, the data is processed with the column name as the property name."
-}
-[/block]
+> 📘 Manifest note
+>
+> If a column is not mapped to a CleverTap property name, the data is processed with the column name as the property name.
 
-#Step 5 -  Upload Data
+# Step 5 -  Upload Data
 
 You are now ready to upload data files to our servers. 
+
 1. Upload the data file first through SFTP. 
 2. Upload the manifest file to mark the end of the data upload and begin the processing of data.
 
@@ -342,129 +735,294 @@ We will send you a success email after the upload and processing is complete.
 
 You can now start using this data in our engagement channels. 
 
-
 If the import fails for some reason, we will send you a failure email with the attached CSV file that contains the failed records. You can download this CSV file and check it for errors. 
 
 Following is an example of an error file. The last column in this file displays all the errors.  
-[block:parameters]
-{
-  "data": {
-    "h-0": "time_stamp",
-    "h-1": "identity",
-    "h-2": "cookie_id",
-    "h-3": "id_name",
-    "h-4": "id_email",
-    "h-5": "id_phone",
-    "h-6": "is_married",
-    "h-7": "age",
-    "0-0": "1574668407",
-    "1-0": "1574668408",
-    "0-1": "johndoe@gmail.com",
-    "1-1": "janedoe@gmail.com",
-    "0-2": "dummy_cookie-001",
-    "1-2": "dummy_cookie-002",
-    "0-3": "JohnDoe-001",
-    "1-3": "JaneDoe-003",
-    "0-4": "johndoe@abc.com",
-    "1-4": "janedoe@abc.com",
-    "0-5": "+918876543211",
-    "1-5": "+918876543212",
-    "0-6": "Y",
-    "1-6": "N",
-    "0-7": "21",
-    "1-7": "22",
-    "h-8": "Failure Description",
-    "0-8": "Phone number is not valid",
-    "1-8": "Phone number is not valid"
-  },
-  "cols": 9,
-  "rows": 2
-}
-[/block]
-##Troubleshoot errors
+
+<Table align={["left","left","left","left","left","left","left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        time_stamp
+      </th>
+
+      <th>
+        identity
+      </th>
+
+      <th>
+        cookie_id
+      </th>
+
+      <th>
+        id_name
+      </th>
+
+      <th>
+        id_email
+      </th>
+
+      <th>
+        id_phone
+      </th>
+
+      <th>
+        is_married
+      </th>
+
+      <th>
+        age
+      </th>
+
+      <th>
+        Failure Description
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        1574668407
+      </td>
+
+      <td>
+        [johndoe@gmail.com](mailto:johndoe@gmail.com)
+      </td>
+
+      <td>
+        dummy\_cookie-001
+      </td>
+
+      <td>
+        JohnDoe-001
+      </td>
+
+      <td>
+        [johndoe@abc.com](mailto:johndoe@abc.com)
+      </td>
+
+      <td>
+        +918876543211
+      </td>
+
+      <td>
+        Y
+      </td>
+
+      <td>
+        21
+      </td>
+
+      <td>
+        Phone number is not valid
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        1574668408
+      </td>
+
+      <td>
+        [janedoe@gmail.com](mailto:janedoe@gmail.com)
+      </td>
+
+      <td>
+        dummy\_cookie-002
+      </td>
+
+      <td>
+        JaneDoe-003
+      </td>
+
+      <td>
+        [janedoe@abc.com](mailto:janedoe@abc.com)
+      </td>
+
+      <td>
+        +918876543212
+      </td>
+
+      <td>
+        N
+      </td>
+
+      <td>
+        22
+      </td>
+
+      <td>
+        Phone number is not valid
+      </td>
+    </tr>
+  </tbody>
+</Table>
+
+## Troubleshoot errors
 
 There may be instances where you may see some errors during file upload. Following is an explanation of the errors and the steps to resolve them:
-[block:parameters]
-{
-  "data": {
-    "h-0": "Error name",
-    "h-1": "Resolution",
-    "0-0": "No data file found",
-    "1-0": "File couldn't be read",
-    "2-0": "Internal infra error",
-    "3-0": "Incorrect details in manifest file",
-    "0-1": "The data file is not uploaded. Upload the data file again and create a new manifest file for it.",
-    "1-1": "The file is not in the expected format. Upload the file again with the correct format, that is, CSV for data files and manifest file for mapping.",
-    "2-1": "Upload the file again followed by a new manifest file.",
-    "3-1": "This error file is emailed to you. Check the manifest file for incorrect details.",
-    "4-0": "Timestamp is mandatory and must be in epoch format",
-    "5-0": "Atleast one of identity / fbId / gpId / objectId is mandatory under 1024 chars to identify the user",
-    "6-0": "[Internal error] Error while importing data",
-    "7-0": "Event name is mandatory",
-    "8-0": "Event name belongs to CleverTap restricted system events",
-    "9-0": "Cannot have more than 100 event properties",
-    "10-0": "Profile operation must be one of $add, $set, $remove, $delete",
-    "4-1": "Check the format for timestamp. So a date such as \"Thursday, March 5, 2020 9:55:27 AM\" should be represented as \"1583402127\".",
-    "5-1": "Check that a minimum of one ID is present.",
-    "6-1": "This is an internal error. Try importing the data again.",
-    "7-1": "The event name is blank or the column name is not available.",
-    "8-1": "Do not use the event names of the existing system events.",
-    "9-1": "A maximum of 100 event properties is allowed. Check that the event properties do not exceed it.",
-    "10-1": "Add a valid profile operation."
-  },
-  "cols": 2,
-  "rows": 11
-}
-[/block]
+
+<Table align={["left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Error name
+      </th>
+
+      <th>
+        Resolution
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        No data file found
+      </td>
+
+      <td>
+        The data file is not uploaded. Upload the data file again and create a new manifest file for it.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        File couldn't be read
+      </td>
+
+      <td>
+        The file is not in the expected format. Upload the file again with the correct format, that is, CSV for data files and manifest file for mapping.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Internal infra error
+      </td>
+
+      <td>
+        Upload the file again followed by a new manifest file.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Incorrect details in manifest file
+      </td>
+
+      <td>
+        This error file is emailed to you. Check the manifest file for incorrect details.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Timestamp is mandatory and must be in epoch format
+      </td>
+
+      <td>
+        Check the format for timestamp. So a date such as "Thursday, March 5, 2020 9:55:27 AM" should be represented as "1583402127".
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Atleast one of identity / fbId / gpId / objectId is mandatory under 1024 chars to identify the user
+      </td>
+
+      <td>
+        Check that a minimum of one ID is present.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        [Internal error] Error while importing data
+      </td>
+
+      <td>
+        This is an internal error. Try importing the data again.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Event name is mandatory
+      </td>
+
+      <td>
+        The event name is blank or the column name is not available.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Event name belongs to CleverTap restricted system events
+      </td>
+
+      <td>
+        Do not use the event names of the existing system events.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Cannot have more than 100 event properties
+      </td>
+
+      <td>
+        A maximum of 100 event properties is allowed. Check that the event properties do not exceed it.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Profile operation must be one of $add, $set, $remove, $delete
+      </td>
+
+      <td>
+        Add a valid profile operation.
+      </td>
+    </tr>
+  </tbody>
+</Table>
+
 The status for each file is sent via email. 
 
-
 # View imports
-After a successful import, you can view your imported files on the CleverTap dashboard. 
+
+After a successful import, you can view your imported files on the CleverTap dashboard.\
 Click Settings > Import > Imports tab to check for your uploaded files.  The Imports tab displays your uploaded files and their status. 
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/e6ac85d-AWS_Data_Import_Files_Status.png",
-        "AWS_Data_Import_Files_Status.png",
-        1436,
-        764,
-        "#f6f6f4"
-      ],
-      "border": true
-    }
-  ]
-}
-[/block]
+<Image title="AWS_Data_Import_Files_Status.png" alt={1436} className="border" border={true} src="https://files.readme.io/e6ac85d-AWS_Data_Import_Files_Status.png" />
 
-#FAQs
+# FAQs
 
-Q. What is the maximum file size for upload?
+Q. What is the maximum file size for upload?\
 A. You can upload a maximum of 5 GB for each data file. 
- 
-Q. How much time will it take to complete the file processing?
+
+Q. How much time will it take to complete the file processing?\
 A. It will take up to 2 hours to complete the processing for a maximum upload of a 5 GB data file.
 
-Q. Is segmentation possible on the uploaded data? 
+Q. Is segmentation possible on the uploaded data?\
 A. Yes.
 
-Q. Is engagement possible from the uploaded data? 
+Q. Is engagement possible from the uploaded data?\
 A. Yes. You can use our engagement channels to engage with your users. 
 
-Q. Do you support live campaigns on the uploaded data?
+Q. Do you support live campaigns on the uploaded data?\
 A. Yes. However, the support is available only for Push, Email, and SMS engagement channels.
 
-Q. Can we do uploads at regular intervals?
+Q. Can we do uploads at regular intervals?\
 A. Yes.  You can write a script to connect to CleverTap SFTP and transfer data every day when it is ready.
 
-Q. Can we upload any event or profile file without the manifest file?
+Q. Can we upload any event or profile file without the manifest file?\
 A. No. Every data file is recognized by a unique manifest file. Every manifest file should have a unique name.
 
-Q. Can we upload any event or profile file without the column headers in the CSV file?
+Q. Can we upload any event or profile file without the column headers in the CSV file?\
 A. Column headers are mandatory for a file. Without the column headers, the file will go into an error state.
 
-Q. What are the mandatory columns in the event and profile data files?
+Q. What are the mandatory columns in the event and profile data files?\
 A. The column headers mandatory are ObjectId & ts.
