@@ -17,23 +17,23 @@ With the CleverTap SDK, you can create variables on your client that take on new
 You can define variables in the platform-specific call in our SDK. When you define a variable in your code, you can sync it to the Dashboard via the provided SDK method.
 
 > 📘 SDK Prerequisite
-> 
+>
 > Before you proceed, check that you are using iOS SDK v5.0.0 or higher to use the Remote Config feature.
 
 # Supported Variable Types
 
 Currently, CleverTap SDK supports the following variable types:
 
-- String
-- Boolean
-- Dictionary
-- Int
-- Float
-- Double
-- Short
-- Long
-- Number
-- File (supported for CleverTap SDK **v7.0.0 and above**)
+* String
+* Boolean
+* Dictionary
+* Int
+* Float
+* Double
+* Short
+* Long
+* Number
+* File (supported for CleverTap SDK **v7.0.0 and above**)
 
 # Define Variables
 
@@ -132,11 +132,11 @@ CleverTap.sharedInstance()?.syncVariables();
 ```
 
 > 📘 Key Points to Remember
-> 
-> - If another user profile has already created a draft in the dashboard, the sync call will fail to avoid overwriting important changes. In such a case, you should either Publish or Dismiss the existing draft before proceeding with syncing variables again. However, if you have created a draft previously using the sync method, you can override this draft to enhance the integration experience.
->   - You may receive the following console logs from the CleverTap SDK:
->     - Variables synced successfully.
->     - Unauthorised access from a non-test profile. To address this, mark the profile as a test profile from the CleverTap dashboard.
+>
+> * If another user profile has already created a draft in the dashboard, the sync call will fail to avoid overwriting important changes. In such a case, you should either Publish or Dismiss the existing draft before proceeding with syncing variables again. However, if you have created a draft previously using the sync method, you can override this draft to enhance the integration experience.
+>   * You may receive the following console logs from the CleverTap SDK:
+>     * Variables synced successfully.
+>     * Unauthorised access from a non-test profile. To address this, mark the profile as a test profile from the CleverTap dashboard.
 
 # Fetch Variables During a Session
 
@@ -237,17 +237,17 @@ NSDictionary *profile = @{
 ```
 
 > 📘 Note
-> 
-> - Always call `fetchVariables()` immediately after any user property updates used in Product Experience segments.
-> - The fetch call is asynchronous; use the callback to confirm success.
-> - Existing `VariableCallback` instances are automatically triggered when variables change.
+>
+> * Always call `fetchVariables()` immediately after any user property updates used in Product Experience segments.
+> * The fetch call is asynchronous; use the callback to confirm success.
+> * Existing `VariableCallback` instances are automatically triggered when variables change.
 
 ## Access Variable Values
 
 You can access the fetched values in the following ways:
 
-- [From `Var` Instance](doc:ios-remote-config#from-var-instance) 
-- [Using `CleverTap` Instance Method](doc:ios-remote-config#using-clevertap-instance-method) 
+* [From `Var` Instance](doc:ios-remote-config#from-var-instance) 
+* [Using `CleverTap` Instance Method](doc:ios-remote-config#using-clevertap-instance-method) 
 
 ### From `Var` Instance
 
@@ -297,12 +297,12 @@ CleverTap.sharedInstance()?.getVariableValue("variable name")
 
 CleverTap iOS SDK provides several callbacks for the developer to receive feedback from the SDK. You can use them as per your requirement, using all of them is not mandatory. They are as follows:
 
-- All Variables Callbacks 
-- Individual Variable Callback
-- Variables Delegate
-- All File variables Callback
-- File variables individual Callback
-- File variables Delegates
+* All Variables Callbacks 
+* Individual Variable Callback
+* Variables Delegate
+* All File variables Callback
+* File variables individual Callback
+* File variables Delegates
 
 ## All Variables Callbacks
 
@@ -512,19 +512,19 @@ For troubleshooting, enable CleverTap SDK logs and set the log level to [Debug/V
 3. Attempt to sync variables again.
 
 > 📘 Note
-> 
+>
 > You can override a draft you previously created via the sync method.
 
 # Verifying Successful Sync
 
-Check the log message _Variables synced successfully_ in the console output.
+Check the log message *Variables synced successfully* in the console output.
 
 ### Important Considerations
 
 1. **Variable Definition**: Ensure variables are defined before calling `SyncVariables`.
-   - If variables are defined in different parts of the app, navigate through those screens before calling `SyncVariables`.
+   * If variables are defined in different parts of the app, navigate through those screens before calling `SyncVariables`.
 
 2. **Instance-Specific**: Variables are defined per CleverTap instance.
-   - Use the default/shared instance if you have only one CleverTap instance.
+   * Use the default/shared instance if you have only one CleverTap instance.
 
 3. **Production Builds**: Remove the `SyncVariables` method call from release/production builds as it will not function in those environments.
