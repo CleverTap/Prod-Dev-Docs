@@ -44,7 +44,7 @@ The body is uploaded as a JSON payload.
 
 ## Example Request
 
-Here is an example cURL request to the _Content Blocks_ API. 
+Here is an example cURL request to the *Content Blocks* API. 
 
 ```curl cU
 curl --location --request POST 'https://(region).clevertap.com/v1/contentBlock/update' \
