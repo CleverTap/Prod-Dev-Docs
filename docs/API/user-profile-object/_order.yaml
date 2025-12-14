@@ -3,3 +3,4 @@
 - upload-device-tokens-api
 - get-profile-count-api
 - delete-user-profile-api
+- demerge-user-profile-api
