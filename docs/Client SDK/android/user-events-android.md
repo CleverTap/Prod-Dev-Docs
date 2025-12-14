@@ -51,7 +51,7 @@ next:
 
 A user event is an action a user takes in your mobile application. CleverTap records the event on the user profile using an event name and optional associated key:value-based event properties. You can then segment users, target, and personalize messaging based on the event name and specific event properties.
 
-Below is an example of recording a user event called _Product Viewed_: 
+Below is an example of recording a user event called *Product Viewed*: 
 
 ```java JAVA
 // event without properties
@@ -62,7 +62,7 @@ cleverTap.pushEvent("Product viewed");
 clevertapDefaultInstance?.pushEvent("Product viewed")
 ```
 
-To record a list of items viewed, use the Items collection. Along with the product name, you can also add properties like size, color, category etc.  An example of recording a _Product Viewed_ user event with properties is shown as follows:
+To record a list of items viewed, use the Items collection. Along with the product name, you can also add properties like size, color, category etc.  An example of recording a *Product Viewed* user event with properties is shown as follows:
 
 ```java JAVA
 // event with properties
@@ -187,7 +187,7 @@ cleverTapAPI.recordScreen("Home")
 
 ## Record Errors
 
- Internally records an _Error Occurred_ event, which can be viewed in the dashboard.
+ Internally records an *Error Occurred* event, which can be viewed in the dashboard.
 
 ```java
 cleverTapAPI.pushError("Payments Api Failed",501)
