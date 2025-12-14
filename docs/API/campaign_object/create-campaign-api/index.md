@@ -5589,3 +5589,28 @@ Following are the possible error codes:
 </Table>
 
 <br />
+
+## View Campaigns Created Through APIs
+
+To view campaigns created through APIs:
+
+1. Navigate to the _Campaigns_ section from the CleverTap dashboard. The list of campaigns displays.
+2. Click the Filter icon, then under _Created by_, select the `serverapi<channel name>` option.
+3. Click **Apply**. All the related campaigns are displayed.
+4. Click any of the campaigns to view details and stats.
+
+<Image
+  src="https://files.readme.io/ee5427a-small-Filter_campaigns_by_API.png"
+  alt="Filter API Campaigns"
+  title="Filter API Campaigns"
+  align="center"
+  border={true}
+/>
+
+# Unsubscribe Link for Emails
+
+If you’re using Amazon SES or your own SMTP gateway, you can follow the steps [listed on this page](https://docs.clevertap.com/docs/handling-unsubscribes) to enable your users to unsubscribe from your email notifications.
+
+# FAQs
+
+To understand the common queries and concerns related to CleverTap APIs, refer to [API FAQs](doc:api-faqs).
