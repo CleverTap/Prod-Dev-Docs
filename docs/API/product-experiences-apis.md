@@ -14,6 +14,6 @@ With Product Experiences, you can change the behavior and appearance of your app
 
 Our APIs enable you to push Product Experiences to your app. You can use the following APIs for product Experiences. 
 
-  * [Keys API](doc:keys-api) 
-  * [Product Config API](doc:product-config-api) 
-  * [Feature Flag API](doc:feature-flag-api)
+* [Keys API](doc:keys-api) 
+* [Product Config API](doc:product-config-api) 
+* [Feature Flag API](doc:feature-flag-api)
