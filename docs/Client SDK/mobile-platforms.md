@@ -10,11 +10,8 @@ metadata:
 next:
   description: ''
 ---
-[block:api-header]
-{
-  "title": "Overview"
-}
-[/block]
+## Overview
+
 CleverTap provides [SDKs](doc:clevertap-sdks) that enables app developers to track, segment, and engage their users. 
 
 Learn how to integrate the CleverTap SDK into your app with [KaiOS](https://developer.clevertap.com/docs/kaios).
