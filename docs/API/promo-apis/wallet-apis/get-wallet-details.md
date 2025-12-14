@@ -16,16 +16,16 @@ The Get Wallet Details API fetches user wallet information, including the wallet
 
 This API is designed to offer the following two key components:
 
-- **Wallet Definition**: Provides the following essential wallet configuration details necessary for accurate wallet identification and display within your application:
-  - Wallet Name
-  - Loyalty Points Name
-  - Wallet ID
-- **Wallet Ledger Balance**: Provides a detailed breakdown of the user's wallet activity for display within the application user interface, as follows:
-  - Active Points
-  - Promised Points
-  - Credited Points
-  - Expired Points
-  - Redeemed Points
+* **Wallet Definition**: Provides the following essential wallet configuration details necessary for accurate wallet identification and display within your application:
+  * Wallet Name
+  * Loyalty Points Name
+  * Wallet ID
+* **Wallet Ledger Balance**: Provides a detailed breakdown of the user's wallet activity for display within the application user interface, as follows:
+  * Active Points
+  * Promised Points
+  * Credited Points
+  * Expired Points
+  * Redeemed Points
 
 Using these insights, you can present an up-to-date and transparent view of the user's wallet activity within your application.
 
@@ -33,7 +33,7 @@ Using these insights, you can present an up-to-date and transparent view of the 
 
 Here is an example base URL from the account in the India region:
 
-<https://in1.api.clevertap.com/1/promo/wallets>
+[https://in1.api.clevertap.com/1/promo/wallets](https://in1.api.clevertap.com/1/promo/wallets)
 
 ## Region
 
@@ -66,25 +66,11 @@ curl -X GET "https://in1.api.clevertap.com/1/promo/wallets?identity=krishna123" 
 
 ## Find CleverTap Account ID and Passcode
 
-You can find the CleverTap Account ID and Passcode from the CleverTap dashboard by navigating to the _Settings_ > _Project_ page on the CleverTap dashboard.
+You can find the CleverTap Account ID and Passcode from the CleverTap dashboard by navigating to the *Settings* > *Project* page on the CleverTap dashboard.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/739d78a63824aae1ab3162099ad19831000b8f090ce5960502d7fb7497def258-image.png",
-        null,
-        "Find CleverTap Project Details"
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Find CleverTap Project Details"
-    }
-  ]
-}
-[/block]
-
+<Image alt="Find CleverTap Project Details" align="center" border={true} src="https://files.readme.io/739d78a63824aae1ab3162099ad19831000b8f090ce5960502d7fb7497def258-image.png">
+  Find CleverTap Project Details
+</Image>
 
 # Sample Response
 
