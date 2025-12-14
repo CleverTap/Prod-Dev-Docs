@@ -5376,7 +5376,13 @@ A successful response implies payload validity and addition to the processing qu
 ## Errors
 
 If there are errors, you will receive a response in the format below.
-
+```json
+{
+    "status": "fail",
+    "error": "<error message here>",
+    "code": <error code here>
+}
+```
 Following are the possible error codes:
 
 <Table align={["left","left","left"]}>
