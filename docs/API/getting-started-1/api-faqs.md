@@ -25,7 +25,7 @@ A.  It means 15 API requests can be processed simultaneously. It may take one or
 A. CORS errors (Cross-Origin Resource Sharing) can occur when accessing an API endpoint from a different domain or origin. If you encounter a CORS error while making API requests, the API you are trying to access is not configured to accept requests from your domain.
 
 > 📘 Note
-> 
+>
 > Only web browsers enforce CORS errors. You will not encounter CORS errors when accessing an API using cURL or Postman.
 
 ## Q. Has CleverTap adopted the CORS standard for its APIs?
@@ -70,25 +70,11 @@ A. A profile deletion may take up to 48 hours after it is marked for deletion fr
 
 ## Q. How can I confirm that the user profile will be deleted?
 
-A. In the CleverTap dashboard, you can navigate to the user profile by selecting _Segment > Find People > By identity_. The profile marked for deletion will appear with a red banner and a message saying _The profile has been marked for deletion_.
+A. In the CleverTap dashboard, you can navigate to the user profile by selecting *Segment > Find People > By identity*. The profile marked for deletion will appear with a red banner and a message saying *The profile has been marked for deletion*.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/15bd1f4-Deleted_Profile.png",
-        "User Profile marked for Deletion",
-        1171
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "User Profile marked for Deletion"
-    }
-  ]
-}
-[/block]
-
+<Image title="User Profile marked for Deletion" alt={1171} align="center" border={true} src="https://files.readme.io/15bd1f4-Deleted_Profile.png">
+  User Profile marked for Deletion
+</Image>
 
 ## Q. Does CleverTap restore the profile and its event data after deleting it?
 
@@ -96,8 +82,8 @@ A. No, CleverTap does not restore the data. Unfortunately, once you delete profi
 
 CleverTap suggests using the Delete API only in the following two cases:
 
-- If you push incorrect data.
-- If you opt for your data deletion under the [General Data Protection Regulation (GDPR)](https://docs.clevertap.com/docs/gdpr) Act.
+* If you push incorrect data.
+* If you opt for your data deletion under the [General Data Protection Regulation (GDPR)](https://docs.clevertap.com/docs/gdpr) Act.
 
 However, please be aware that proceeding with this request leads to losing all your data.
 
