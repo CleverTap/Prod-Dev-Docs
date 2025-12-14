@@ -18,15 +18,15 @@ This section shows you how to track custom events, enrich user profiles, and sen
 
 Ensure you have the following prerequisites to start the iOS integration:
 
-- CleverTap account
-- Apple Xcode IDE
+* CleverTap account
+* Apple Xcode IDE
 
 # Supported Versions
 
 The CleverTap iOS SDK supports the following versions:
 
-- iOS 9.0 or later
-- tvOS 9.0 or later
+* iOS 9.0 or later
+* tvOS 9.0 or later
 
 # iOS SDK Versions and Size
 
@@ -66,8 +66,35 @@ The following table lists all the iOS SDK resources:
 
 The following are the additional iOS SDK references:
 
-[block:html]
-{
-  "html": "<div class=\"two-col-container\">\n  <div class=\"link-content\">\n    <h4 class=\"custom-heading\">iOS Data Tracking</h4>\n    <p><a class=\"links\" href=\"https://developer.clevertap.com/docs/user-profiles-ios\" target=\"_blank\" rel=\"noopener noreferrer\">iOS User Profile</a></p>\n    <p><a class=\"links\" href=\"https://developer.clevertap.com/docs/user-events-ios\" target=\"_blank\" rel=\"noopener noreferrer\">iOS User Events</a></p>\n  </div>\n  <div class=\"link-content\">\n    <h4 class=\"custom-heading\">iOS Push</h4>\n    <p><a class=\"links\" href=\"https://developer.clevertap.com/docs/push-notifications-ios\" target=\"_blank\" rel=\"noopener noreferrer\">iOS Push Notifications\n      </a></p>\n    <p><a class=\"links\" href=\"https://developer.clevertap.com/docs/rich-push-notifications\" target=\"_blank\" rel=\"noopener noreferrer\">iOS Rich Push Notifications\n</a></p>\n  </div>\n  <div class=\"link-content\">\n    <h4 class=\"custom-heading\">iOS SDK Features</h4>\n    <p><a class=\"links\" href=\"https://developer.clevertap.com/docs/in-app-notification-ios\" target=\"_blank\" rel=\"noopener noreferrer\">iOS In App Notification\n      </a></p>\n    <p><a class=\"links\" href=\"https://developer.clevertap.com/docs/app-inbox-ios\" target=\"_blank\" rel=\"noopener noreferrer\">iOS App Inbox\n      </a></p>\n    <a class=\"links\" href=\"https://developer.clevertap.com/docs/native-display-ios\" target=\"_blank\" rel=\"noopener noreferrer\">iOS Native Display\n     </a>\n  </div>\n  <div class=\"link-content\">\n    <h4 class=\"custom-heading\">iOS Product Experience and Custom Proxy Domain</h4>\n    <p><a class=\"links\" href=\"https://developer.clevertap.com/docs/ios-remote-config\" target=\"_blank\" rel=\"noopener noreferrer\">iOS Product Experiences\n      </a></p>\n    <p><a class=\"links\" href=\"https://developer.clevertap.com/docs/ios-custom-proxy-domain\" target=\"_blank\" rel=\"noopener noreferrer\">iOS Custom Proxy Domain\n      </a></p>\n  </div>\n</div>"
-}
-[/block]
+<HTMLBlock>{`
+<div class="two-col-container">
+  <div class="link-content">
+    <h4 class="custom-heading">iOS Data Tracking</h4>
+    <p><a class="links" href="https://developer.clevertap.com/docs/user-profiles-ios" target="_blank" rel="noopener noreferrer">iOS User Profile</a></p>
+    <p><a class="links" href="https://developer.clevertap.com/docs/user-events-ios" target="_blank" rel="noopener noreferrer">iOS User Events</a></p>
+  </div>
+  <div class="link-content">
+    <h4 class="custom-heading">iOS Push</h4>
+    <p><a class="links" href="https://developer.clevertap.com/docs/push-notifications-ios" target="_blank" rel="noopener noreferrer">iOS Push Notifications
+      </a></p>
+    <p><a class="links" href="https://developer.clevertap.com/docs/rich-push-notifications" target="_blank" rel="noopener noreferrer">iOS Rich Push Notifications
+</a></p>
+  </div>
+  <div class="link-content">
+    <h4 class="custom-heading">iOS SDK Features</h4>
+    <p><a class="links" href="https://developer.clevertap.com/docs/in-app-notification-ios" target="_blank" rel="noopener noreferrer">iOS In App Notification
+      </a></p>
+    <p><a class="links" href="https://developer.clevertap.com/docs/app-inbox-ios" target="_blank" rel="noopener noreferrer">iOS App Inbox
+      </a></p>
+    <a class="links" href="https://developer.clevertap.com/docs/native-display-ios" target="_blank" rel="noopener noreferrer">iOS Native Display
+     </a>
+  </div>
+  <div class="link-content">
+    <h4 class="custom-heading">iOS Product Experience and Custom Proxy Domain</h4>
+    <p><a class="links" href="https://developer.clevertap.com/docs/ios-remote-config" target="_blank" rel="noopener noreferrer">iOS Product Experiences
+      </a></p>
+    <p><a class="links" href="https://developer.clevertap.com/docs/ios-custom-proxy-domain" target="_blank" rel="noopener noreferrer">iOS Custom Proxy Domain
+      </a></p>
+  </div>
+</div>
+`}</HTMLBlock>
