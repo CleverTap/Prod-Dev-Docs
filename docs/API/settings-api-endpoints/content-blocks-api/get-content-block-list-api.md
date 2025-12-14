@@ -45,7 +45,7 @@ Refer [Headers](docs:common-api-components#api-headers) for more details.
 
 ## Example Request
 
-Here is an example cURL request to the _Get Content Content Blocks List_ API. 
+Here is an example cURL request to the *Get Content Content Blocks List* API. 
 
 ```curl
 curl --location --request GET 'https://(region).api.clevertap.com/v1/contentBlock/list' \
