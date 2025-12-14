@@ -17,14 +17,14 @@ next:
 The Notify API enables you to send a user real-time, personalized transactional messages through a predefined Notify setup created on the CleverTap dashboard. For more information about the feature and how to set up a notify campaign on the CleverTap dashboard, refer to [Notify User Guide](https://docs.clevertap.com/docs/notify). 
 
 > 📘 Private Beta
-> 
+>
 > Notify is currently released in Private Beta for the Email channel with SendGrid as the email provider. To access this feature, contact your Customer Success Manager.
 
 # Base URL
 
 Here is an example base URL from the account in the India region:
 
-<https://in1.api.clevertap.com/v1/notify>
+[https://in1.api.clevertap.com/v1/notify](https://in1.api.clevertap.com/v1/notify)
 
 # Region
 
@@ -38,51 +38,113 @@ POST
 
 To authenticate and process your Notify API request, you must include the following headers in every API request:
 
+
 | Header                   | Value              | Required | Description                                                                                                                                                                                                                                         |
 | ------------------------ | ------------------ | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `Content-Type`           | `application/json` | Yes      | Payload format                                                                                                                                                                                                                                      |
-| `X-CleverTap-Account-Id` | `Your Account ID`  | Yes      | Your CleverTap Account ID. You can find this information on the _Settings_ > _Projects_ page.                                                                                                                                                       |
-| `X-CleverTap-Passcode`   | `Your Passcode`    | Yes      | Your CleverTap Passcode. You can find this information on the _Settings_ > _Projects_ page. For more information about API headers used while processing API requests. For more information, refer to [Headers](doc:common-api-components#headers). |
+| `X-CleverTap-Account-Id` | `Your Account ID`  | Yes      | Your CleverTap Account ID. You can find this information on the *Settings* > *Projects* page.                                                                                                                                                       |
+| `X-CleverTap-Passcode`   | `Your Passcode`    | Yes      | Your CleverTap Passcode. You can find this information on the *Settings* > *Projects* page. For more information about API headers used while processing API requests. For more information, refer to [Headers](doc:common-api-components#headers). |
 
 # Body Parameters
 
 The request body includes the following parameters:
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Parameter",
-    "h-1": "Type",
-    "h-2": "Description",
-    "h-3": "Required",
-    "0-0": "`identity`",
-    "0-1": "string",
-    "0-2": "Identity of the user profile to whom the message must be sent. Use this when the recipient is a known user in CleverTap. ",
-    "0-3": "Yes, if `recipient` is not provided.",
-    "1-0": "`notifyId`",
-    "1-1": "string",
-    "1-2": "Unique ID of the Notify setup configured on the CleverTap dashboard. For more information, refer to [Create Notify Campaign](https://docs.clevertap.com/docs/notify#create-notify-campaign).",
-    "1-3": "Yes",
-    "2-0": "`recipient`",
-    "2-1": "object",
-    "2-2": "Object used to specify the recipient's email address directly. ",
-    "2-3": "Yes. This parameter is mandatory if:<li> User profile does not exist in CleverTap </li> <li>`identity` information is missing for the user profile</li><li> You want to override the  existing `identity`.</li>",
-    "3-0": "`notifyFields`",
-    "3-1": "object",
-    "3-2": "Key-value pairs used to personalize the message content. Each key must match the variable names defined in the message template. Pass an empty object (`{}`) if the message does not include personalization.",
-    "3-3": "Required only if the message contains personalization variables."
-  },
-  "cols": 4,
-  "rows": 4,
-  "align": [
-    null,
-    null,
-    null,
-    null
-  ]
-}
-[/block]
 
+<Table>
+  <thead>
+    <tr>
+      <th>
+        Parameter
+      </th>
+
+      <th>
+        Type
+      </th>
+
+      <th>
+        Description
+      </th>
+
+      <th>
+        Required
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        `identity`
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        Identity of the user profile to whom the message must be sent. Use this when the recipient is a known user in CleverTap. 
+      </td>
+
+      <td>
+        Yes, if `recipient` is not provided.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `notifyId`
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        Unique ID of the Notify setup configured on the CleverTap dashboard. For more information, refer to [Create Notify Campaign](https://docs.clevertap.com/docs/notify#create-notify-campaign).
+      </td>
+
+      <td>
+        Yes
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `recipient`
+      </td>
+
+      <td>
+        object
+      </td>
+
+      <td>
+        Object used to specify the recipient's email address directly. 
+      </td>
+
+      <td>
+        Yes. This parameter is mandatory if:<li> User profile does not exist in CleverTap </li> <li>`identity` information is missing for the user profile</li><li> You want to override the  existing `identity`.</li>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `notifyFields`
+      </td>
+
+      <td>
+        object
+      </td>
+
+      <td>
+        Key-value pairs used to personalize the message content. Each key must match the variable names defined in the message template. Pass an empty object (`{}`) if the message does not include personalization.
+      </td>
+
+      <td>
+        Required only if the message contains personalization variables.
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 # User Identification and Attribution
 
@@ -90,61 +152,679 @@ CleverTap determines how to send Notify campaigns based on the presence of `iden
 
 To deliver a Notify message, your API request must include at least one of the following fields:
 
-- `identity`: A unique identifier linked to a CleverTap user profile
-- `recipient`: The email address where the message should be sent
+* `identity`: A unique identifier linked to a CleverTap user profile
+* `recipient`: The email address where the message should be sent
 
 ## User Resolution Logic for Notify Messages
 
+
 The table below outlines how CleverTap handles message delivery based on different combinations of the `identity` and `recipient` parameters:
 
-| Parameters                                                | Description                                                                                                                                                                                                                                           | Example Payload                                                                                                                                                                                          |
-| :-------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| When both `identity` and `recipient` are present          | <li>Sends the email to the email ID specified in the `recipient` field.</li><li>Used when the user profile exists on the dashboard but does not have an email ID, or the message must be sent to an alternate email address.                          | `{     "identity": "user_123",     "notifyId": "4d06dacc-b52a-4e72-9193-b58c78d5840f",     "recipient": {       "email": "[abc@example.com](mailto:abc@example.com) "     },     "notifyFields": {}   }` |
-| When `identity` is present and `recipient` is not present | Sends an email to the email ID of the profile whose `identity` is present.                                                                                                                                                                            | `{     "identity": "user_123",     "notifyId": "4d06dacc-b52a-4e72-9193-b58c78d5840f",     "notifyFields": {}   }`                                                                                       |
-| When `identity` is not present but `recipient` is present | <li>Sends an email to the email ID mentioned in the `recipient` field.</li><li>Used when the recipient profile does not exist on the dashboard. The message is still sent, but delivery or engagement metrics are not tracked for such profiles.</li> | `{     "notifyId": "4d06dacc-b52a-4e72-9193-b58c78d5840f",     "recipient": {       "email": "[new_user@example.com]"     },     "notifyFields": {}   }`                                                 |
+<Table align={["left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Parameters
+      </th>
+
+      <th>
+        Description
+      </th>
+
+      <th>
+        Example Payload
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        When both 
+
+        `identity`
+
+         and 
+
+        `recipient`
+
+         are present
+      </td>
+
+      <td>
+        <li>Sends the email to the email ID specified in the `recipient` field.</li>
+        <li>Used when the user profile exists on the dashboard but does not have an email ID, or the message must be sent to an alternate email address.</li>
+      </td>
+
+      <td>
+        `{     "identity": "user_123",     "notifyId": "4d06dacc-b52a-4e72-9193-b58c78d5840f",     "recipient": {       "email": "[abc@example.com](mailto:abc@example.com) "     },     "notifyFields": {}   }`
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        When 
+
+        `identity`
+
+         is present and 
+
+        `recipient`
+
+         is not present
+      </td>
+
+      <td>
+        Sends an email to the email ID of the profile whose 
+
+        `identity`
+
+         is present.
+      </td>
+
+      <td>
+        `{     "identity": "user_123",     "notifyId": "4d06dacc-b52a-4e72-9193-b58c78d5840f",     "notifyFields": {}   }`
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        When 
+
+        `identity`
+
+         is not present but 
+
+        `recipient`
+
+         is present
+      </td>
+
+      <td>
+        <li>Sends an email to the email ID mentioned in the `recipient` field.</li>
+        <li>Used when the recipient profile does not exist on the dashboard. The message is still sent, but delivery or engagement metrics are not tracked for such profiles.</li>
+      </td>
+
+      <td>
+        `{     "notifyId": "4d06dacc-b52a-4e72-9193-b58c78d5840f",     "recipient": {       "email": "[new_user@example.com]"     },     "notifyFields": {}   }`
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 # Sample Request
 
 To trigger a Notify campaign via API, include the following parameters in your request body: user `identity` or `recipient` details, `notifyId`, and personalization data through `notifyFields`(optional).
-
 When setting up a Notify campaign in the CleverTap dashboard, you can personalize messages using template variables (placeholders) such as `{{Notify.order_id}}`. The placeholders are dynamically replaced with user-specific values from the API payload. For more information, refer to [Create Notify Campaign](https://docs.clevertap.com/docs/notify#create-notify-campaign).
 
 For example, to trigger an order confirmation Notify campaign for a specific user profile (with identity `123`) with the order ID, the API request may look like this:
 
-```json
-POST /v1/notify HTTP/1.1
-Host: api.clevertap.com  
-Content-Type: application/json  
-X-CleverTap-Account-Id: YOUR_ACCOUNT_ID  
-X-CleverTap-Passcode: YOUR_PASSCODE
 
-{  
-  "identity": "123",  
-  "notifyId": "4d06dacc-b52a-4e72-9193-b58c78d5840f",  
-  "recipient": {  
-    "email": "abc@gmail.com"  
-  },  
-  "notifyFields": {  
-    "order_id": "A1234" 
-  }  
-}
-```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Sample Response
 
 If the request is valid, the API responds with a success message and a unique request ID.
 
-```json
-{
-  "status": "success",         // Status of request
-  "requestId": "429374...",    // Unique request identifier
-  "message": "Added to queue"  // Delivery status message
-}
-```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Error Codes
 
 In case of an error in the Notify delivery, the following error codes indicate the nature of the error encountered:
+
 
 | **Error Code** | **HTTP Status Code** | **Error Name**             | **Description**                                                                                                                                                                                              | **Response Payload**                                                                                    |
 | -------------- | -------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------- |
