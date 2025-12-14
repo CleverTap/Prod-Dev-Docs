@@ -12,13 +12,13 @@ next:
 ---
 # Overview
 
-The `markMessagesAsClicked` API raises a _Notification Clicked_ event for the users on the CleverTap dashboard whenever they click any link in the Inbox message. 
+The `markMessagesAsClicked` API raises a *Notification Clicked* event for the users on the CleverTap dashboard whenever they click any link in the Inbox message. 
 
 # Base URL
 
 Here is an example base URL from the account in the India region:
 
-<https://in1.api.clevertap.com/1/inbox/markMessagesAsClicked>
+[https://in1.api.clevertap.com/1/inbox/markMessagesAsClicked](https://in1.api.clevertap.com/1/inbox/markMessagesAsClicked)
 
 ### Region
 
@@ -32,68 +32,290 @@ POST
 
 The following headers are required when you use CleverTap APIs:
 
-```json
-X-CleverTap-Account-Id:<encoded-account-id>
-X-CleverTap-Passcode:<account-passcode>
-Content-Type:application/json; charset=utf-8
-```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 The `X-CleverTap-Account-Id` and `X-CleverTap-Passcode` authenticate the request.
 
-| Header                 | Description                                                 | Type   | Example Value                        |
-| :--------------------- | :---------------------------------------------------------- | :----- | :----------------------------------- |
-| X-CleverTap-Account-Id | Your CleverTap Account ID.                                  | string | "X-CleverTap-Account-Id: ACCOUNT_ID" |
-| X-CleverTap-Passcode   | Your CleverTap Account Passcode.                            | string | "X-CleverTap-Passcode: PASSCODE"     |
-| Content-Type           | The request content-type is always set to application/json. | string | "Content-Type: application/json"     |
+| Header                 | Description                                                 | Type   | Example Value                         |
+| :--------------------- | :---------------------------------------------------------- | :----- | :------------------------------------ |
+| X-CleverTap-Account-Id | Your CleverTap Account ID.                                  | string | "X-CleverTap-Account-Id: ACCOUNT\_ID" |
+| X-CleverTap-Passcode   | Your CleverTap Account Passcode.                            | string | "X-CleverTap-Passcode: PASSCODE"      |
+| Content-Type           | The request content-type is always set to application/json. | string | "Content-Type: application/json"      |
 
 # Body Parameters
 
 The following are the body parameters included in the JSON response payload:
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Parameter",
-    "h-1": "Description",
-    "h-2": "Type",
-    "h-3": "Example Value",
-    "0-0": "userId",
-    "0-1": "Uniquely identifies the user.",
-    "0-2": "string",
-    "0-3": "[test@stockx.com](mailto:test@stockx.com)",
-    "1-0": "messages",
-    "1-1": "Contains a list of messages read by the user. For each user, it consists of the following information: `messageId`, `wzrk_id`, and `wzrk_pivot` values. The maximum number of message IDs for a user is 100.",
-    "1-2": "array",
-    "1-3": "[  \n    {  \n      \"messageId\": 1,  \n      \"wzrk_id\": \"12345679_20240130\",  \n      \"wzrk_pivot\": \"wzrk_default\"  \n    },  \n    {  \n      \"messageId\": 2,  \n      \"wzrk_id\": \"12345679_20240131\",  \n      \"wzrk_pivot\": \"wzrk_default\"  \n    }  \n  ]",
-    "2-0": "messageID",
-    "2-1": "Uniquely identifies the message that must be marked as read for the user.",
-    "2-2": "numeric",
-    "2-3": "1",
-    "3-0": "wzrk_id",
-    "3-1": "Indicates the internal key to identify the campaign. This parameter is required to generate click events.",
-    "3-2": "string",
-    "3-3": "12345679_20240130",
-    "4-0": "wzrk_pivot",
-    "4-1": "Indicates the internal key to identify the campaign variants. This parameter is required to generate click events.",
-    "4-2": "string",
-    "4-3": "wzrk_default  \n(when the default variant is rolled out to the user)"
-  },
-  "cols": 4,
-  "rows": 5,
-  "align": [
-    "left",
-    "left",
-    "left",
-    "left"
-  ]
-}
-[/block]
 
+<Table align={["left","left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Parameter
+      </th>
+
+      <th>
+        Description
+      </th>
+
+      <th>
+        Type
+      </th>
+
+      <th>
+        Example Value
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        userId
+      </td>
+
+      <td>
+        Uniquely identifies the user.
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        [test@stockx.com](mailto:test@stockx.com)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        messages
+      </td>
+
+      <td>
+        Contains a list of messages read by the user. For each user, it consists of the following information: `messageId`, `wzrk_id`, and `wzrk_pivot` values. The maximum number of message IDs for a user is 100.
+      </td>
+
+      <td>
+        array
+      </td>
+
+      <td>
+        [  
+            {  
+              "messageId": 1,  
+              "wzrk_id": "12345679_20240130",  
+              "wzrk_pivot": "wzrk_default"  
+            },  
+            {  
+              "messageId": 2,  
+              "wzrk_id": "12345679_20240131",  
+              "wzrk_pivot": "wzrk_default"  
+            }  
+          ]
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        messageID
+      </td>
+
+      <td>
+        Uniquely identifies the message that must be marked as read for the user.
+      </td>
+
+      <td>
+        numeric
+      </td>
+
+      <td>
+        1
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        wzrk\_id
+      </td>
+
+      <td>
+        Indicates the internal key to identify the campaign. This parameter is required to generate click events.
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        12345679\_20240130
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        wzrk\_pivot
+      </td>
+
+      <td>
+        Indicates the internal key to identify the campaign variants. This parameter is required to generate click events.
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        wzrk\_default\
+        (when the default variant is rolled out to the user)
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 # Example Request
 
 Here is an example cURL request to the markMessagesAsRead API showing the headers needed to authenticate the request from the account in the India region:
-
 ```curl
 curl --location --request POST 'https://in1.api.clevertap.com/1/inbox/markMessagesAsClicked' \
 --header 'X-CleverTap-Account-Id: YOUR_ACCOUNT_ID' \
@@ -243,24 +465,148 @@ request(options, function (error, response) {
 });
 ```
 
+
 # Example Response
 
 The following response is received when the request is processed successfully:
 
-```json
-{
-  "status": "success"
-}
-```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 If there is an error in processing the request, the following response is received:
 
-```json
-{
-    "status": "fail",
-    "error": "<errordescription>",
-    "code": <errorcode>
-}
-```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 For more information about different errors you might encounter, refer to [Inbox API Errors](doc:inbox-api-errors).
