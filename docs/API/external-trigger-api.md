@@ -15,17 +15,17 @@ next:
 The External Trigger campaign allows you to trigger campaign delivery based on API calls or external events. The API endpoint enables you to send messages to designated users via the External Trigger API.
 
 > 📘 Public Beta
-> 
+>
 > This feature is released in Public Beta.
 
 # Base URL
 
 The base URL varies depending on the type of External Trigger campaign. Here are the example base URLs from the account in the India region, along with use cases and examples:
 
-| Campaign Type                                     | Description                                                                                                                                                       | Example                                                                                                                                                                                     | Base URL                                                    |
-| ------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
-| Single Campaign ID targeting one or more users    | Use this endpoint when you want to trigger a single External Trigger campaign (identified by a unique `campaign_id`) for one or more users in a single API call.  | Sending a promotional offer campaign to a list of users. OTPs or transactional messages                                                                                                     | <https://in1.api.clevertap.com/1/send/externaltrigger.json> |
-| Multiple Campaign IDs targeting one or more users | Use this endpoint to trigger different External Trigger campaigns for different users or to send multiple campaigns to the same users within a single API request | For example, you could send a "You’ve Earned 100 Loyalty Points" campaign to high spenders and a "Refer a Friend and Get Rs. 200" campaign to low-engagement users in the same API request. | <https://in1.api.clevertap.com/2/send/externaltrigger.json> |
+| Campaign Type                                     | Description                                                                                                                                                       | Example                                                                                                                                                                                     | Base URL                                                                                                               |
+| ------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Single Campaign ID targeting one or more users    | Use this endpoint when you want to trigger a single External Trigger campaign (identified by a unique `campaign_id`) for one or more users in a single API call.  | Sending a promotional offer campaign to a list of users. OTPs or transactional messages                                                                                                     | [https://in1.api.clevertap.com/1/send/externaltrigger.json](https://in1.api.clevertap.com/1/send/externaltrigger.json) |
+| Multiple Campaign IDs targeting one or more users | Use this endpoint to trigger different External Trigger campaigns for different users or to send multiple campaigns to the same users within a single API request | For example, you could send a "You’ve Earned 100 Loyalty Points" campaign to high spenders and a "Refer a Friend and Get Rs. 200" campaign to low-engagement users in the same API request. | [https://in1.api.clevertap.com/2/send/externaltrigger.json](https://in1.api.clevertap.com/2/send/externaltrigger.json) |
 
 ## Region
 
@@ -59,7 +59,7 @@ The body is uploaded as a JSON payload. A payload is an object keyed with `"Exte
 | `ExternalTrigger` | Key-value map containing the campaign message content. You can include personalized fields such as name, product details, and pricing.                                                                                                                                                                                                                      | Yes      | Map                                                   | `{ "ExternalTrigger": { "Name": "John", "productDetails": [{ "productName": "Apple Watch","productID": "APPL2209","imageURL": "https://example.jpg"}] } }` |
 
 > 🚧 Note
-> 
+>
 > CleverTap only supports **String** data type for mapped property values.
 
 # Example Payloads
@@ -252,9 +252,9 @@ curl --location 'https://in1.api.clevertap.com/2/send/externaltrigger.json' \
 
 # Example Request
 
-Here is an example cURL request to the _External Trigger_ API showing the headers needed to authenticate the request from the account in the India region:
+Here is an example cURL request to the *External Trigger* API showing the headers needed to authenticate the request from the account in the India region:
 
-- **For Single Campaign ID targeting one or more users** 
+* **For Single Campaign ID targeting one or more users** 
 
 ```curl
 curl --location --request POST 'https://in1.api.clevertap.com/1/send/externaltrigger.json' \
@@ -423,7 +423,7 @@ axios
 
 ```
 
-- **For Multiple Campaign IDs targeting one or more users**
+* **For Multiple Campaign IDs targeting one or more users**
 
 ```curl
 curl --location --request POST 'https://in1.api.clevertap.com/2/send/externaltrigger.json' \
