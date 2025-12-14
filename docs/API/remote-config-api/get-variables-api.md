@@ -16,8 +16,8 @@ The Get API endpoint retrieves Variables and their values for the current user o
 
 # Endpoint
 
-Here is a base sample endpoint from the account in the India region:  
-<https://in1.api.clevertap.com/1/getVars>
+Here is a base sample endpoint from the account in the India region:\
+[https://in1.api.clevertap.com/1/getVars](https://in1.api.clevertap.com/1/getVars)
 
 # Authentication
 
@@ -37,45 +37,105 @@ Refer to [Regions](https://developer.clevertap.com/docs/common-api-components#re
 
 # Body Parameters
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Parameter",
-    "h-1": "Description",
-    "h-2": "Type",
-    "h-3": "Example",
-    "h-4": "Required/Optional",
-    "0-0": "identity",
-    "0-1": "This indicates an identity to recognize a unique user. It can be the user’s email ID, phone number, or any other identifier that you are using to tag your users.",
-    "0-2": "String",
-    "0-3": "`(\"user@clevertap.com\" / user )`",
-    "0-4": "Required  \n  \n(Either `identity` or `guid` is required)",
-    "1-0": "clevertapId",
-    "1-1": "Identify a unique user by CleverTap Global Object ID.",
-    "1-2": "String",
-    "1-3": "“12345678\"",
-    "1-4": "Optional  \n(Either `identity` or `clevertapId` is required)",
-    "2-0": "includeDefaults",
-    "2-1": "This parameter determines if the response must return the default values of Variables that do not have set override.",
-    "2-2": "Boolean",
-    "2-3": "false (default)",
-    "2-4": "Optional"
-  },
-  "cols": 5,
-  "rows": 3,
-  "align": [
-    "left",
-    "left",
-    "left",
-    "left",
-    "left"
-  ]
-}
-[/block]
+<Table align={["left","left","left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Parameter
+      </th>
 
+      <th>
+        Description
+      </th>
+
+      <th>
+        Type
+      </th>
+
+      <th>
+        Example
+      </th>
+
+      <th>
+        Required/Optional
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        identity
+      </td>
+
+      <td>
+        This indicates an identity to recognize a unique user. It can be the user’s email ID, phone number, or any other identifier that you are using to tag your users.
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        `("user@clevertap.com" / user )`
+      </td>
+
+      <td>
+        Required  
+
+        (Either `identity` or `guid` is required)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        clevertapId
+      </td>
+
+      <td>
+        Identify a unique user by CleverTap Global Object ID.
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        “12345678"
+      </td>
+
+      <td>
+        Optional\
+        (Either `identity` or `clevertapId` is required)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        includeDefaults
+      </td>
+
+      <td>
+        This parameter determines if the response must return the default values of Variables that do not have set override.
+      </td>
+
+      <td>
+        Boolean
+      </td>
+
+      <td>
+        false (default)
+      </td>
+
+      <td>
+        Optional
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 > 📘 Note
-> 
+>
 > In case the identity or clevertapId does not exist, the API returns all defined Variables default values. New user profiles are not created.
 
 ## Sample Request
