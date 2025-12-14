@@ -12,7 +12,7 @@ metadata:
 ---
 # Overview
 
-The `markMessagesAsClicked` API raises a *Notification Clicked* event for the users on the CleverTap dashboard whenever they click any link in the Inbox message. 
+The `markMessagesAsClicked` API raises a _Notification Clicked_ event for the users on the CleverTap dashboard whenever they click any link in the Inbox message.
 
 # Base URL
 
@@ -32,13 +32,19 @@ POST
 
 The following headers are required when you use CleverTap APIs:
 
+```json
+X-CleverTap-Account-Id:<encoded-account-id>
+X-CleverTap-Passcode:<account-passcode>
+Content-Type:application/json; charset=utf-8
+```
+
 The `X-CleverTap-Account-Id` and `X-CleverTap-Passcode` authenticate the request.
 
-| Header                 | Description                                                 | Type   | Example Value                         |
-| :--------------------- | :---------------------------------------------------------- | :----- | :------------------------------------ |
-| X-CleverTap-Account-Id | Your CleverTap Account ID.                                  | string | "X-CleverTap-Account-Id: ACCOUNT\_ID" |
-| X-CleverTap-Passcode   | Your CleverTap Account Passcode.                            | string | "X-CleverTap-Passcode: PASSCODE"      |
-| Content-Type           | The request content-type is always set to application/json. | string | "Content-Type: application/json"      |
+| Header                 | Description                                                 | Type   | Example Value                        |
+| :--------------------- | :---------------------------------------------------------- | :----- | :----------------------------------- |
+| X-CleverTap-Account-Id | Your CleverTap Account ID.                                  | string | "X-CleverTap-Account-Id: ACCOUNT_ID" |
+| X-CleverTap-Passcode   | Your CleverTap Account Passcode.                            | string | "X-CleverTap-Passcode: PASSCODE"     |
+| Content-Type           | The request content-type is always set to application/json. | string | "Content-Type: application/json"     |
 
 # Body Parameters
 
@@ -98,7 +104,17 @@ The following are the body parameters included in the JSON response payload:
       </td>
 
       <td>
-        <code>{'['}<br />{'    {'}<br />{'      "messageId": 1,'}<br />{'      "wzrk_id": "12345679_20240130",'}<br />{'      "wzrk_pivot": "wzrk_default"'}<br />{'    },'}<br />{'    {'}<br />{'      "messageId": 2,'}<br />{'      "wzrk_id": "12345679_20240131",'}<br />{'      "wzrk_pivot": "wzrk_default"'}<br />{'    }'}<br />{']'}</code>
+        <code>
+        {'{'}
+              "messageId": 1,
+              "wzrk_id": "12345679_20240130",
+              "wzrk_pivot": "wzrk_default"
+            {'}'},{'{'}
+              "messageId": 2,
+              "wzrk_id": "12345679_20240131",
+              "wzrk_pivot": "wzrk_default"
+            {'}'}
+        </code>
       </td>
     </tr>
 
@@ -122,7 +138,7 @@ The following are the body parameters included in the JSON response payload:
 
     <tr>
       <td>
-        wzrk\_id
+        wzrk_id
       </td>
 
       <td>
@@ -134,13 +150,13 @@ The following are the body parameters included in the JSON response payload:
       </td>
 
       <td>
-        12345679\_20240130
+        12345679_20240130
       </td>
     </tr>
 
     <tr>
       <td>
-        wzrk\_pivot
+        wzrk_pivot
       </td>
 
       <td>
@@ -152,7 +168,8 @@ The following are the body parameters included in the JSON response payload:
       </td>
 
       <td>
-        wzrk\_default<br />(when the default variant is rolled out to the user)
+        wzrk_default<br />
+        (when the default variant is rolled out to the user)
       </td>
     </tr>
   </tbody>
