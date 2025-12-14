@@ -4,3 +4,4 @@
 - post_1-send-webpush-json
 - post_1-targets-create-json
 - post_1-send-email-json
+- post_1-send-sms-json
