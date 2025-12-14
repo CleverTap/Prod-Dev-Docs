@@ -33,7 +33,7 @@ next:
       url: https://developer.clevertap.com/docs/android-resources
 ---
 > 📘 Discontinuation of Xiaomi Push Service
-> 
+>
 > Xiaomi Corporation made a significant announcement recently, notifying users about discontinuing the Mi Push service beyond Mainland China starting from April 2, 2024, citing operational concerns. For more information, refer to [Discontinuation of Xiaomi Push Service](doc:discontinuation-of-xiaomi-push-service).
 
 Chinese OEMs command a considerable market share in the smartphone market. Many of these Chinese OEMs terminate processes running in the background and limit an app's ability to send push notifications to improve battery life. Due to this limitation, users are unable to receive important push notifications. 
@@ -48,68 +48,26 @@ The first step to access the Xiaomi cloud push is to register as a Xiaomi develo
 
 Once you log in to the console, click on Create App and enter the required details.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/c6e8764-CreateXiaomiApp.png",
-        "Create Application",
-        3828
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Create Application"
-    }
-  ]
-}
-[/block]
-
+<Image title="Create Application" alt={3828} align="center" border={true} src="https://files.readme.io/c6e8764-CreateXiaomiApp.png">
+  Create Application
+</Image>
 
 # Get the app's Package name/App ID / AppKey / App Secret
 
 Once the App is created on your console, click on the App name to get your Package Name/App ID/ App Key/ App Secret. Among these, the AppID and AppKey are the client’s identity, used when the client SDK initializes; the AppSecret is authenticated for sending a message at the server-side.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/4a0b991-XiaomiCreds.png",
-        "Obtain the App Credentials",
-        1914
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Obtain the App Credentials"
-    }
-  ]
-}
-[/block]
-
+<Image title="Obtain the App Credentials" alt={1914} align="center" border={true} src="https://files.readme.io/4a0b991-XiaomiCreds.png">
+  Obtain the App Credentials
+</Image>
 
 Click on [Mi Push Console](https://admin.xmpush.xiaomi.com/en/) and click on Enable Push to enable push services for your app.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/14ff6c4-Xiaomi_Push_MI_Console.png",
-        "Enable Push Services for your App",
-        1999
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Enable Push Services for your App"
-    }
-  ]
-}
-[/block]
-
+<Image title="Enable Push Services for your App" alt={1999} align="center" border={true} src="https://files.readme.io/14ff6c4-Xiaomi_Push_MI_Console.png">
+  Enable Push Services for your App
+</Image>
 
 > 📘 IP Whitelisting
-> 
+>
 > IP Whitelisting is not supported with Mi Push integration.
 
 # Integrate Xiaomi Push SDK
@@ -123,7 +81,7 @@ Follow the steps to integrate the default Xiaomi push service provided by Clever
 It is easier to configure the Xiaomi push with our CleverTap plugin.
 
 > 📘 Mandatory Library Inclusion in Gradle Dependencies
-> 
+>
 > Xiaomi Push SDK (XPS) v1.5.0 release makes it mandatory to include the Xiaomi Push library as a part of your Gradle dependencies.
 
 To configure your app with CleverTap Xiaomi plugin:
@@ -162,7 +120,7 @@ If you are using obfuscation for your builds, you might need to add the followin
 ```
 
 > 📘 minSDK Version Mandatory Update
-> 
+>
 > CleverTap Xiaomi Push SDK v1.5.0 release makes it mandatory to support minSdkVersion 19.
 
 3. Configure the `AndroidManifest.xml` file.
@@ -186,11 +144,11 @@ If you are using obfuscation for your builds, you might need to add the followin
 
 #### From CleverTap Android SDK v4.5.0 and CleverTap Xiaomi Push SDK v1.4.0 onwards
 
-- Method to change credentials for the CleverTap Xiaomi Push SDK `CleverTapAPI.changeXiaomiCredentials(String xiaomiAppID, String xiaomiAppKey)`. This needs to be added before `CleverTapAPI` instance creation.
+* Method to change credentials for the CleverTap Xiaomi Push SDK `CleverTapAPI.changeXiaomiCredentials(String xiaomiAppID, String xiaomiAppKey)`. This needs to be added before `CleverTapAPI` instance creation.
 
-- Method to run Xiaomi Push SDK on all devices, Xiaomi only devices or turn off push on all devices.
+* Method to run Xiaomi Push SDK on all devices, Xiaomi only devices or turn off push on all devices.
 
-- This needs to be added before `CleverTapAPI` instance creation.
+* This needs to be added before `CleverTapAPI` instance creation.
 
 ```java
 // possible values are PushConstants.ALL_DEVICES, PushConstants.XIAOMI_MIUI_DEVICES,PushConstants.NO_DEVICES
@@ -293,12 +251,12 @@ else
 ```
 
 > 📘 Note
-> 
+>
 > Ensure to call the `setRegion()` method to provide the device region to Xiaomi. For more information, refer to the [Xiaomi](https://dev.mi.com/console/doc/detail?pId=2626) documentation.
 
 ### Receive Push Notifications from CleverTap
 
-In the `onReceivePassThroughMessage` method, write the following code for CleverTap to render push notification and raise the _Notification Viewed_ event.
+In the `onReceivePassThroughMessage` method, write the following code for CleverTap to render push notification and raise the *Notification Viewed* event.
 
 ```java JAVA
 @Override
@@ -343,27 +301,14 @@ fun onReceivePassThroughMessage(context:Context, message:MiPushMessage) {
 ```
 
 > 📘 Note
-> 
+>
 > From CleverTap Android SDK v5.1.0 onwards, the following API now runs on the caller's thread. Ensure to call it in `onReceivePassThroughMessage()` of messaging service:
-> 
-> - `CTXiaomiMessageHandler().createNotification(getApplicationContext(), message)`
-> - `CleverTapAPI.createNotification(getApplicationContext(),extras);`
+>
+> * `CTXiaomiMessageHandler().createNotification(getApplicationContext(), message)`
+> * `CleverTapAPI.createNotification(getApplicationContext(),extras);`
 
 # Update AppSecret / Package Name in Settings Dashboard
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/6a83025-17.png",
-        "Update Xiaomi Credentials on Dashboard",
-        1462
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Update Xiaomi Credentials on Dashboard"
-    }
-  ]
-}
-[/block]
+<Image title="Update Xiaomi Credentials on Dashboard" alt={1462} align="center" border={true} src="https://files.readme.io/6a83025-17.png">
+  Update Xiaomi Credentials on Dashboard
+</Image>
