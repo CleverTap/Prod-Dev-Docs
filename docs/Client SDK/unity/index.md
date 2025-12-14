@@ -3,12 +3,12 @@ title: Unity SDK
 excerpt: Learn how to install and integrate your app with Unity SDK.
 deprecated: false
 hidden: false
+link:
+  new_tab: false
 metadata:
   title: ''
   description: ''
   robots: index
-next:
-  description: ''
 ---
 # Overview
 
@@ -98,9 +98,11 @@ The following table lists all the Unity SDK resources:
 | [Changelog](https://github.com/CleverTap/clevertap-unity-sdk/blob/master/CHANGELOG.md)       | Provides details about the most recent updates to our SDKs, including bug fixes, new features, and enhancements. |
 
 # Additional Reference
+
 Use the following resources to implement and troubleshoot the CleverTap Unity SDK. These references cover core integration areas like data tracking, push notifications, In-App messaging, and common troubleshooting scenarios to help maximise your Unity integration.
 
-&lt;HTMLBlock&gt;{`
+<HTMLBlock>
+{`
 <div class="two-col-container">
   <div class="link-content">
     <h4 class="custom-heading">Unity Data Tracking</h4>
@@ -124,3 +126,4 @@ Use the following resources to implement and troubleshoot the CleverTap Unity SD
   </div>
 </div>
 `}
+</HTMLBlock>
