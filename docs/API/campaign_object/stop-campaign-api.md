@@ -16,8 +16,8 @@ The Stop Scheduled Campaign API lets you stop a scheduled or running campaign be
 
 ## Base URL
 
-Here is an example base URL from the account in the India region:  
-<https://in1.api.clevertap.com/1/targets/stop.json>
+Here is an example base URL from the account in the India region:\
+[https://in1.api.clevertap.com/1/targets/stop.json](https://in1.api.clevertap.com/1/targets/stop.json)
 
 Refer to [Region](https://developer.clevertap.com/docs/common-api-components#region) for region-specific URLs.
 
@@ -207,22 +207,22 @@ The **Stop Campaign API** can be used to halt a campaign depending on its curren
 
 # Use Cases
 
-- Cancel a campaign mistakenly scheduled with incorrect targeting.
-- Stop a running campaign immediately if it contains sensitive or incorrect content.
-- Integrate with monitoring/alerting systems to auto-stop campaigns when anomalies are detected.
+* Cancel a campaign mistakenly scheduled with incorrect targeting.
+* Stop a running campaign immediately if it contains sensitive or incorrect content.
+* Integrate with monitoring/alerting systems to auto-stop campaigns when anomalies are detected.
 
 # Rate Limiting
 
-- This API follows the same rate limits as other campaign APIs.
-- It is **3 requests per second per account**. 
-- If rate limits are exceeded, a `429 Too Many Requests` error may occur.
+* This API follows the same rate limits as other campaign APIs.
+* It is **3 requests per second per account**. 
+* If rate limits are exceeded, a `429 Too Many Requests` error may occur.
 
 # Error Codes
 
 When an API request fails or returns an unexpected result, CleverTap provides both an HTTP status code and a CleverTap-specific error code to help identify the issue.
 
-- HTTP Status Code: Indicates the overall result of the HTTP request (for example, 400 for bad request, 401 for unauthorized, etc.).
-- Error Code: A CleverTap-specific numeric code that provides more granular information about the exact error condition.
+* HTTP Status Code: Indicates the overall result of the HTTP request (for example, 400 for bad request, 401 for unauthorized, etc.).
+* Error Code: A CleverTap-specific numeric code that provides more granular information about the exact error condition.
 
 The following table lists the possible combinations of HTTP status and error codes for this API:
 
