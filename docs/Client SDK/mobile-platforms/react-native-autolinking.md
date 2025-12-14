@@ -16,18 +16,16 @@ React Native libraries often come with platform-specific (native) code. Autolink
 
 Add a library using your favorite package manager and run the build:
 
+```objectivec
+sh
+# install
+yarn add react-native-webview
+cd ios && pod install && cd .. # CocoaPods on iOS needs this extra step
+# run
+yarn react-native run-ios
+yarn react-native run-android
+```
 
-
-[block:code]
-{
-  "codes": [
-    {
-      "code": "sh\n# install\nyarn add react-native-webview\ncd ios && pod install && cd .. # CocoaPods on iOS needs this extra step\n# run\nyarn react-native run-ios\nyarn react-native run-android\n\n\n  \n  ",
-      "language": "objectivec"
-    }
-  ]
-}
-[/block]
 That's it. No more editing build config files to use native code.
 
 > Autolinking is a replacement for [`react-native link`](./linking.md). If you have been using React Native before version 0.60, please `unlink` native dependencies if you have any from a previous install.
@@ -38,10 +36,10 @@ Each platform defines its own [`platforms`](./platforms.md) configuration. It in
 
 ## Platform iOS
 
-The [native_modules.rb](https://github.com/react-native-community/cli/blob/master/packages/platform-ios/native_modules.rb) script required by `Podfile` gets the package metadata from `react-native config` during install phase and:
+The [native\_modules.rb](https://github.com/react-native-community/cli/blob/master/packages/platform-ios/native_modules.rb) script required by `Podfile` gets the package metadata from `react-native config` during install phase and:
 
 1. Adds dependencies via CocoaPods dev pods (using files from a local path).
-1. Adds build phase scripts to the App project’s build phase. (see examples below)
+2. Adds build phase scripts to the App project’s build phase. (see examples below)
 
 This means that all libraries need to ship a Podspec either in the root of their folder or where the Xcode project is. Podspec references the native code that your library depends on.
 
@@ -53,21 +51,21 @@ See example usage in React Native template's [Podfile](https://github.com/facebo
 
 ## Platform Android
 
-The [native_modules.gradle](https://github.com/react-native-community/cli/blob/master/packages/platform-android/native_modules.gradle) script is included in your project's `settings.gradle` and `app/build.gradle` files and:
+The [native\_modules.gradle](https://github.com/react-native-community/cli/blob/master/packages/platform-android/native_modules.gradle) script is included in your project's `settings.gradle` and `app/build.gradle` files and:
 
 1. At build time, before the build script is run:
    1. A first Gradle plugin (in `settings.gradle`) runs `applyNativeModulesSettingsGradle` method. It uses the package metadata from `react-native config` to add Android projects.
-   1. A second Gradle plugin (in `app/build.gradle`) runs `applyNativeModulesAppBuildGradle` method. It creates a list of React Native packages to include in the generated `/android/build/generated/rn/src/main/java/com/facebook/react/PackageList.java` file.
-1. At runtime, the list of React Native packages generated in step 1.2 is registered by `getPackages` method of `ReactNativeHost` in `MainApplication.java`.
+   2. A second Gradle plugin (in `app/build.gradle`) runs `applyNativeModulesAppBuildGradle` method. It creates a list of React Native packages to include in the generated `/android/build/generated/rn/src/main/java/com/facebook/react/PackageList.java` file.
+2. At runtime, the list of React Native packages generated in step 1.2 is registered by `getPackages` method of `ReactNativeHost` in `MainApplication.java`.
    1. You can optionally pass in an instance of `MainPackageConfig` when initializing `PackageList` if you want to override the default configuration of `MainReactPackage`.
 
 ### Example
 
 See example usage in React Native template:
 
-- [settings.gradle](https://github.com/facebook/react-native/blob/0.60-stable/template/android/settings.gradle)
-- [app/build.gradle](https://github.com/facebook/react-native/blob/0.60-stable/template/android/app/build.gradle#L185)
-- [MainApplication.java](https://github.com/facebook/react-native/blob/769e35ba5f4c31ef913035a5cc8bc0e88546ca55/template/android/app/src/main/java/com/helloworld/MainApplication.java#L22-L28)
+* [settings.gradle](https://github.com/facebook/react-native/blob/0.60-stable/template/android/settings.gradle)
+* [app/build.gradle](https://github.com/facebook/react-native/blob/0.60-stable/template/android/app/build.gradle#L185)
+* [MainApplication.java](https://github.com/facebook/react-native/blob/769e35ba5f4c31ef913035a5cc8bc0e88546ca55/template/android/app/src/main/java/com/helloworld/MainApplication.java#L22-L28)
 
 ## What do I need to have in my package to make it work?
 
@@ -126,9 +124,9 @@ module.exports = {
 
 There is nothing extra you need to do - monorepos are supported by default.
 
-Please note that in certain scenarios, such as when using Yarn workspaces, your packages might be hoisted to the root of the repository. If that is the case, please make sure that the following paths are pointing to the
+Please note that in certain scenarios, such as when using Yarn workspaces, your packages might be hoisted to the root of the repository. If that is the case, please make sure that the following paths are pointing to the\
 correct location and update them accordingly:
 
-- path to `native_modules.rb` in your `ios/Podfile`
-- path to `native_modules.gradle` in your `android/settings.gradle`
-- path to `native_modules.gradle` in your `android/app/build.gradle`
+* path to `native_modules.rb` in your `ios/Podfile`
+* path to `native_modules.gradle` in your `android/settings.gradle`
+* path to `native_modules.gradle` in your `android/app/build.gradle`
