@@ -14,7 +14,7 @@ next:
 
 A User Event is an action that a user takes in your mobile application. CleverTap records the event on the User Profile, using an event name and optional associated key:value-based event properties. You can then segment users, and target and personalize messaging based on both the event name and specific event properties.
 
-An example of recording a _Product Viewed_ user event is shown as follows:
+An example of recording a *Product Viewed* user event is shown as follows:
 
 ```swift
 // event without properties
@@ -25,7 +25,7 @@ CleverTap.sharedInstance()?.recordEvent("Product viewed")
 [[CleverTap sharedInstance] recordEvent:@"Product viewed"];
 ```
 
-To record a list of items viewed, use the Items collection. Along with the product name, you can also add properties like size, color, category etc.  An example of recording a _Product Viewed_ user event with properties is shown as follows:
+To record a list of items viewed, use the Items collection. Along with the product name, you can also add properties like size, color, category etc.  An example of recording a *Product Viewed* user event with properties is shown as follows:
 
 ```swift
 // event with properties
