@@ -16,15 +16,15 @@ next:
 
 With iOS SDK 7.0.0 and above, the CleverTap platform supports displaying Custom Code In-App messages. This feature allows developers to customize how In-App notifications are configured and displayed. The SDK provides the following two types of customizable components:
 
-- Templates
-- Functions
+* Templates
+* Functions
 
 # Key Differences
 
-- **Templates** can include action arguments, while Functions cannot.
-- **Functions** can be used as actions; Templates cannot. Functions can be set as either of the following:
-  - **Visual Functions** can contain UI logic and can be part of the [In-App queue](https://developer.clevertap.com/docs/ios-custom-code-in-app-templates#in-app-queue).
-  - **Non-Visual Functions** are triggered directly upon invocation without UI logic.
+* **Templates** can include action arguments, while Functions cannot.
+* **Functions** can be used as actions; Templates cannot. Functions can be set as either of the following:
+  * **Visual Functions** can contain UI logic and can be part of the [In-App queue](https://developer.clevertap.com/docs/ios-custom-code-in-app-templates#in-app-queue).
+  * **Non-Visual Functions** are triggered directly upon invocation without UI logic.
 
 # Create Templates and Functions
 
@@ -38,20 +38,20 @@ The template builders validate the definitions and raise a `NSException` if the 
 
 Arguments are key-value pairs used to configure custom code templates. The supported argument types are:
 
-- **Primitives**: BOOL, NSString, NSNumber. Each primitive must have a default value to be used if no other value is provided.
-- **Dictionary**: A collection of key-value pairs where keys are argument names and values are supported primitive types.
-- **File**: A file argument that is downloaded when the template is triggered.
-- **Action**: An action argument for an action. It can be a function template or a built-in action such as _close_ or _open url_.
+* **Primitives**: BOOL, NSString, NSNumber. Each primitive must have a default value to be used if no other value is provided.
+* **Dictionary**: A collection of key-value pairs where keys are argument names and values are supported primitive types.
+* **File**: A file argument that is downloaded when the template is triggered.
+* **Action**: An action argument for an action. It can be a function template or a built-in action such as *close* or *open url*.
 
 ### Hierarchical Arguments
 
 You can group arguments in two ways:
 
-- By Using a `map` Argument
-- By Including Group Name in Argument’s Name With a Dot (.) Symbol
+* By Using a `map` Argument
+* By Including Group Name in Argument’s Name With a Dot (.) Symbol
 
 > 📘 File and Action Type Arguments
-> 
+>
 > File and Action arguments are not supported within a Map. The group should be specified in the argument's name to include a File or Action argument in a group.
 
 #### By Using a `map` Argument
@@ -183,7 +183,7 @@ class TemplateProducer: CTTemplateProducer {
 Templates must be synced with the CleverTap dashboard to be available in campaigns. First, define and register all templates and functions in the SDK, then use the`cleverTapInstance.syncRegisteredInAppTemplates` method to sync them.
 
 > 🚧 Sync Caution
-> 
+>
 > Remember that this syncing can only be done in debug builds using a test user. We recommend you run this function only during template development and remove it before release. Do not include it in release builds.
 
 ## Display Templates
@@ -192,9 +192,9 @@ When a custom template is triggered, its presenter is invoked. Depending on the 
 
 All presenter methods provide a `CustomTemplateContext` that enables you to:
 
-- Obtain argument values with `get*(String name)` methods.
-- Trigger actions by their name through `CustomTemplateContext.triggerActionArgument`.
-- Set the status of the template invocation using the `CustomTemplateContext.setPresented` and `CustomTemplateContext.setDismissed` methods inform the SDK about the current template invocation. A presented state means that the In-App is displayed to the user. A dismissed state means that the In-App has been dismissed and is no longer visible.
+* Obtain argument values with `get*(String name)` methods.
+* Trigger actions by their name through `CustomTemplateContext.triggerActionArgument`.
+* Set the status of the template invocation using the `CustomTemplateContext.setPresented` and `CustomTemplateContext.setDismissed` methods inform the SDK about the current template invocation. A presented state means that the In-App is displayed to the user. A dismissed state means that the In-App has been dismissed and is no longer visible.
 
 ### Example of Template Presenter
 
@@ -238,7 +238,7 @@ class Presenter: CTTemplatePresenter {
 When an In-App message is triggered, it is added to a queue based on its priority and displayed only after all previous messages have been dismissed. This queue persists across app launches, ensuring that messages are shown when possible. Custom code In-App messages follow the same logic—they are triggered only when their corresponding notification is next in the queue. However, the next In-App message is not displayed until the current template invokes the`CustomTemplateContext.Dismissed()` method.
 
 > 📘 Single Visual Template Limitation
-> 
+>
 > The SDK can only display one visual template or In-App message at a time. New messages cannot be shown until the current message is dismissed.
 
 ## File Downloading and Caching
