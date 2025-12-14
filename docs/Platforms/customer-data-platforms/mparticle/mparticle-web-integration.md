@@ -14,17 +14,17 @@ next:
 
 You can integrate mParticle Web SDK with CleverTap to control the flow of information from the web SDK. You can send the following information to the CleverTap dashboard:
 
-- Push User Information
-- Push Events
-- Integrate Push Notifications
+* Push User Information
+* Push Events
+* Integrate Push Notifications
 
 # Prerequisites
 
 The following are the prerequisites to perform this integration:
 
-- A CleverTap account
-- An mParticle account
-- A functional website
+* A CleverTap account
+* An mParticle account
+* A functional website
 
 # Integration
 
@@ -38,212 +38,112 @@ For CleverTap mParticle Web integration, the following are the major steps:
 
 To add an event output:
 
-1. Navigate to _Setup_ > _Outputs_ from the mParticle dashboard.
-2. Click **Add Event Output** and select _CleverTap_ from the dropdown list.
+1. Navigate to *Setup* > *Outputs* from the mParticle dashboard.
+2. Click **Add Event Output** and select *CleverTap* from the dropdown list.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/df98cb8-AddEventOutput.png",
-        "Select CleverTap from dropdown.png",
-        2478
-      ],
-      "align": "center",
-      "sizing": "90% ",
-      "border": true
-    }
-  ]
-}
-[/block]
+<Image title="Select CleverTap from dropdown.png" alt={2478} align="center" className="border" width="90% " border={true} src="https://files.readme.io/df98cb8-AddEventOutput.png" />
 
-3. After selecting, _CleverTap Default Group_ is added under the _Events_ tab of the _Outputs_ page.
+3. After selecting, *CleverTap Default Group* is added under the *Events* tab of the *Outputs* page.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/ed02d50-mParticleAddEventOutput.png",
-        "CleverTap is added to Events tab.png",
-        2478
-      ],
-      "align": "center",
-      "sizing": "90% ",
-      "border": true
-    }
-  ]
-}
-[/block]
+<Image title="CleverTap is added to Events tab.png" alt={2478} align="center" className="border" width="90% " border={true} src="https://files.readme.io/ed02d50-mParticleAddEventOutput.png" />
 
-4. Click the ![Add Event Configuration](https://files.readme.io/dfea20a-Plus_Icon.png) icon to add event configuration. The _Output: Event Configuration_ popup opens.
+4. Click the ![Add Event Configuration](https://files.readme.io/dfea20a-Plus_Icon.png) icon to add event configuration. The *Output: Event Configuration* popup opens.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/33f6567-Output_Event_Configuration_popup.png",
-        "Output Event Configuration popup.png",
-        1116
-      ],
-      "align": "center",
-      "sizing": "80% ",
-      "border": true
-    }
-  ]
-}
-[/block]
+<Image title="Output Event Configuration popup.png" alt={1116} align="center" className="border" width="80% " border={true} src="https://files.readme.io/33f6567-Output_Event_Configuration_popup.png" />
 
 5. Enter the following details and click **Save** to save the details:
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Field",
-    "h-1": "Description",
-    "0-0": "Configuration Name",
-    "0-1": "Enter the name to identify your configuration uniquely.",
-    "1-0": "Use the same settings for Development & Production",
-    "1-1": "Select this option if you want to apply the same configuration settings for your production and development projects.  \nOR  \nSelect PROD or DEV to apply these configuration settings to the respective project.",
-    "2-0": "Account ID, Account Passcode, and Account Token",
-    "2-1": "Enter these details to authenticate your CleverTap account. Navigate to the _Settings_ > _Project_ page from the CleverTap dashboard to obtain these details.",
-    "3-0": "Region",
-    "3-1": "Enter the region of your CleverTap account. For more information, refer to [Region](https://developer.clevertap.com/docs/common-api-components#region). "
-  },
-  "cols": 2,
-  "rows": 4,
-  "align": [
-    "left",
-    "left"
-  ]
-}
-[/block]
+<Table align={["left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Field
+      </th>
 
-The _Output Configuration Saved_ message is displayed at the top of the _Output_ page.
+      <th>
+        Description
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        Configuration Name
+      </td>
+
+      <td>
+        Enter the name to identify your configuration uniquely.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Use the same settings for Development & Production
+      </td>
+
+      <td>
+        Select this option if you want to apply the same configuration settings for your production and development projects.\
+        OR\
+        Select PROD or DEV to apply these configuration settings to the respective project.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Account ID, Account Passcode, and Account Token
+      </td>
+
+      <td>
+        Enter these details to authenticate your CleverTap account. Navigate to the *Settings* > *Project* page from the CleverTap dashboard to obtain these details.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Region
+      </td>
+
+      <td>
+        Enter the region of your CleverTap account. For more information, refer to [Region](https://developer.clevertap.com/docs/common-api-components#region). 
+      </td>
+    </tr>
+  </tbody>
+</Table>
+
+The *Output Configuration Saved* message is displayed at the top of the *Output* page.
 
 ## Connect Input Feed and Output Event on mParticle Dashboard
 
 To connect input feed and output event on the mParticle dashboard:
 
-1. Navigate to the _Connections_ > _Connect_ page from the mParticle dashboard.
-2. Select _Web_ from _Available Inputs_. 
+1. Navigate to the *Connections* > *Connect* page from the mParticle dashboard.
+2. Select *Web* from *Available Inputs*. 
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/6f21739-CleverTapmParticle.png",
-        null,
-        ""
-      ],
-      "align": "center",
-      "sizing": "80% ",
-      "border": true
-    }
-  ]
-}
-[/block]
+<Image align="center" className="border" width="80% " border={true} src="https://files.readme.io/6f21739-CleverTapmParticle.png" />
 
-3. Click **Connect Output**. The _Connect Output_ pop-up opens.
+3. Click **Connect Output**. The *Connect Output* pop-up opens.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/9e3be9a-2023-03-15_12-56-21.png",
-        null,
-        ""
-      ],
-      "align": "center",
-      "sizing": "80% ",
-      "border": true
-    }
-  ]
-}
-[/block]
+<Image align="center" className="border" width="80% " border={true} src="https://files.readme.io/9e3be9a-2023-03-15_12-56-21.png" />
 
-4. Select _CleverTap_ and then select the _Configuration Name_ you want to connect.
+4. Select *CleverTap* and then select the *Configuration Name* you want to connect.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/8ee4281-mParticle_Web_Integration.png",
-        null,
-        ""
-      ],
-      "align": "center",
-      "sizing": "80% ",
-      "border": true
-    }
-  ]
-}
-[/block]
+<Image align="center" className="border" width="80% " border={true} src="https://files.readme.io/8ee4281-mParticle_Web_Integration.png" />
 
-5. Toggle the _Connection Status_ to forward data to the CleverTap dashboard.
-6. Select _Customer ID_ from the _User ID_ dropdown list.
-7. (Optional) Select _Min Platform Version_.
+5. Toggle the *Connection Status* to forward data to the CleverTap dashboard.
+6. Select *Customer ID* from the *User ID* dropdown list.
+7. (Optional) Select *Min Platform Version*.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/12ee071-2023-03-15_13-00-59.png",
-        null,
-        ""
-      ],
-      "align": "center",
-      "sizing": "80% ",
-      "border": true
-    }
-  ]
-}
-[/block]
+<Image align="center" className="border" width="80% " border={true} src="https://files.readme.io/12ee071-2023-03-15_13-00-59.png" />
 
 8. Click **Add Connection** and click **Done**.
 9. (Optional) Set up the forwarding rule for your output. It allows you to control the data you want to forward to the CleverTap dashboard.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/a531ae2-2023-03-15_13-20-13.png",
-        null,
-        ""
-      ],
-      "align": "center",
-      "sizing": "80% ",
-      "border": true
-    }
-  ]
-}
-[/block]
+<Image align="center" className="border" width="80% " border={true} src="https://files.readme.io/a531ae2-2023-03-15_13-20-13.png" />
 
 10. (Optional) Enter the percentage of the user base for which you want to event data to help control the cost.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/3f9b0f9-2023-03-15_13-21-39.png",
-        null,
-        ""
-      ],
-      "align": "center",
-      "sizing": "90% ",
-      "border": true
-    }
-  ]
-}
-[/block]
+<Image align="center" className="border" width="90% " border={true} src="https://files.readme.io/3f9b0f9-2023-03-15_13-21-39.png" />
 
 11. Click **Save**.
 
