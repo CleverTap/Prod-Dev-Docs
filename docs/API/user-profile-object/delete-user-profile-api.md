@@ -11,123 +11,317 @@ next:
   description: ''
 ---
 # Overview
+
 This endpoint enables you to delete a user profile.
 
 ## Base URL
-https://location.api.clevertap.com/1/delete/profiles.json
-[block:callout]
-{
-  "type": "info",
-  "title": "Note",
-  "body": "Use the URL based on your location:\n  * India - in1.api.clevertap.com\n  * Singapore - sg1.api.clevertap.com\n  * U.S - us1.api.clevertap.com"
-}
-[/block]
+
+[https://location.api.clevertap.com/1/delete/profiles.json](https://location.api.clevertap.com/1/delete/profiles.json)
+
+> 📘 Note
+>
+> Use the URL based on your location:
+>
+> * India - in1.api.clevertap.com
+> * Singapore - sg1.api.clevertap.com
+> * U.S - us1.api.clevertap.com
+
 ## HTTP Method
+
 POST
 
 ## Headers
+
 These headers are all required. The X-CleverTap-Account-Id and X-CleverTap-Passcode are used to authenticate the request. Please see the [authentication guide](doc:authentication) to see how to get their values.
-[block:parameters]
-{
-  "data": {
-    "h-0": "Header",
-    "h-1": "Description",
-    "h-2": "Type",
-    "h-3": "Example Value",
-    "0-0": "X-CleverTap-Account-Id",
-    "1-0": "X-CleverTap-Passcode",
-    "2-0": "Content-Type",
-    "0-1": "Your CleverTap Account ID.",
-    "1-1": "Your CleverTap Account Passcode.",
-    "2-1": "Request content-type is always set to application/json.",
-    "0-2": "string",
-    "1-2": "string",
-    "2-2": "string",
-    "0-3": "\"X-CleverTap-Account-Id: ACCOUNT_ID\"",
-    "1-3": "\"X-CleverTap-Passcode: PASSCODE\"",
-    "2-3": "\"Content-Type: application/json\""
-  },
-  "cols": 4,
-  "rows": 3
-}
-[/block]
+
+<Table align={["left","left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Header
+      </th>
+
+      <th>
+        Description
+      </th>
+
+      <th>
+        Type
+      </th>
+
+      <th>
+        Example Value
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        X-CleverTap-Account-Id
+      </td>
+
+      <td>
+        Your CleverTap Account ID.
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        "X-CleverTap-Account-Id: ACCOUNT\_ID"
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        X-CleverTap-Passcode
+      </td>
+
+      <td>
+        Your CleverTap Account Passcode.
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        "X-CleverTap-Passcode: PASSCODE"
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Content-Type
+      </td>
+
+      <td>
+        Request content-type is always set to application/json.
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        "Content-Type: application/json"
+      </td>
+    </tr>
+  </tbody>
+</Table>
+
 ## Body Parameters
+
 The body is uploaded as a JSON payload. 
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Parameter",
-    "h-1": "Description",
-    "h-2": "Required",
-    "h-3": "Type",
-    "h-4": "Example Value",
-    "0-0": "identity",
-    "1-0": "guid",
-    "1-1": "CleverTap ID.",
-    "0-1": "Custom user identity defined by you.",
-    "0-2": "optional",
-    "1-2": "optional",
-    "0-3": "string/array",
-    "1-3": "string/array",
-    "0-4": "[\"client-19827239\", \"abc\"]",
-    "1-4": "[\"ctid123\", \"ctid456\"]"
-  },
-  "cols": 5,
-  "rows": 2
-}
-[/block]
+<Table align={["left","left","left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Parameter
+      </th>
+
+      <th>
+        Description
+      </th>
+
+      <th>
+        Required
+      </th>
+
+      <th>
+        Type
+      </th>
+
+      <th>
+        Example Value
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        identity
+      </td>
+
+      <td>
+        Custom user identity defined by you.
+      </td>
+
+      <td>
+        optional
+      </td>
+
+      <td>
+        string/array
+      </td>
+
+      <td>
+        ["client-19827239", "abc"]
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        guid
+      </td>
+
+      <td>
+        CleverTap ID.
+      </td>
+
+      <td>
+        optional
+      </td>
+
+      <td>
+        string/array
+      </td>
+
+      <td>
+        ["ctid123", "ctid456"]
+      </td>
+    </tr>
+  </tbody>
+</Table>
+
 Below is an example payload.
-[block:code]
+
+```json
 {
-  "codes": [
-    {
-      "code": "{\n\t\"identity\": [\"client-19827239\", \"abc\"]\n}\nOR\n{\n\t\"identity\": \"client-19827239\"\n}\nOR \n{\n\t\"guid\": [\"ctid123\", \"ctid456\"]\n}\nOR\n{\n\t\"guid\": \"clientid123\"\n}",
-      "language": "json"
-    }
-  ]
+	"identity": ["client-19827239", "abc"]
 }
-[/block]
+OR
+{
+	"identity": "client-19827239"
+}
+OR 
+{
+	"guid": ["ctid123", "ctid456"]
+}
+OR
+{
+	"guid": "clientid123"
+}
+```
+
 ## Example Request
-[block:code]
-{
-  "codes": [
-    {
-      "code": "curl -X POST -d '{\"guid\":\"df2e224d90874887b4d61153ef3a2508\"}' \"https://location.api.clevertap.com/1/delete/profiles.json\" \\\n-H \"X-CleverTap-Account-Id: ACCOUNT_ID\" \\\n-H \"X-CleverTap-Passcode: PASSCODE\" \\\n-H \"Content-Type: application/json; charset=utf-8\"",
-      "language": "curl"
-    },
-    {
-      "code": "require 'net/http'\nrequire 'uri'\nrequire 'json'\n\nuri = URI.parse(\"https://location.api.clevertap.com/1/delete/profiles.json\")\nrequest = Net::HTTP::Post.new(uri)\nrequest.content_type = \"application/json; charset=utf-8\"\nrequest[\"X-Clevertap-Account-Id\"] = \"ACCOUNT_ID\"\nrequest[\"X-Clevertap-Passcode\"] = \"PASSCODE\"\nrequest.body = JSON.dump({\n  \"guid\" => \"df2e224d90874887b4d61153ef3a2508\"\n})\n\nreq_options = {\n  use_ssl: uri.scheme == \"https\",\n}\n\nresponse = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|\n  http.request(request)\nend",
-      "language": "ruby"
-    },
-    {
-      "code": "import requests\n\nheaders = {\n    'X-CleverTap-Account-Id': 'ACCOUNT_ID',\n    'X-CleverTap-Passcode': 'PASSCODE',\n    'Content-Type': 'application/json; charset=utf-8',\n}\n\ndata = '{\"guid\":\"df2e224d90874887b4d61153ef3a2508\"}'\n\nresponse = requests.post('https://location.api.clevertap.com/1/delete/profiles.json', headers=headers, data=data)",
-      "language": "python"
-    },
-    {
-      "code": "<?php\ninclude('vendor/rmccue/requests/library/Requests.php');\nRequests::register_autoloader();\n$headers = array(\n    'X-CleverTap-Account-Id' => 'ACCOUNT_ID',\n    'X-CleverTap-Passcode' => 'PASSCODE',\n    'Content-Type' => 'application/json; charset=utf-8'\n);\n$data = '{\"guid\":\"df2e224d90874887b4d61153ef3a2508\"}';\n$response = Requests::post('https://location.api.clevertap.com/1/delete/profiles.json', $headers, $data);",
-      "language": "php"
-    },
-    {
-      "code": "var request = require('request');\n\nvar headers = {\n    'X-CleverTap-Account-Id': 'ACCOUNT_ID',\n    'X-CleverTap-Passcode': 'PASSCODE',\n    'Content-Type': 'application/json; charset=utf-8'\n};\n\nvar dataString = '{\"guid\":\"df2e224d90874887b4d61153ef3a2508\"}';\n\nvar options = {\n    url: 'https://location.api.clevertap.com/1/delete/profiles.json',\n    method: 'POST',\n    headers: headers,\n    body: dataString\n};\n\nfunction callback(error, response, body) {\n    if (!error && response.statusCode == 200) {\n        console.log(body);\n    }\n}\n\nrequest(options, callback);",
-      "language": "javascript",
-      "name": "Node.js"
-    },
-    {
-      "code": "type Payload struct {\n\tGUID string `json:\"guid\"`\n}\n\ndata := Payload{\n// fill struct\n}\npayloadBytes, err := json.Marshal(data)\nif err != nil {\n\t// handle err\n}\nbody := bytes.NewReader(payloadBytes)\n\nreq, err := http.NewRequest(\"POST\", \"https://location.api.clevertap.com/1/delete/profiles.json\", body)\nif err != nil {\n\t// handle err\n}\nreq.Header.Set(\"X-Clevertap-Account-Id\", \"ACCOUNT_ID\")\nreq.Header.Set(\"X-Clevertap-Passcode\", \"PASSCODE\")\nreq.Header.Set(\"Content-Type\", \"application/json; charset=utf-8\")\n\nresp, err := http.DefaultClient.Do(req)\nif err != nil {\n\t// handle err\n}\ndefer resp.Body.Close()",
-      "language": "go"
-    }
-  ]
+
+```curl
+curl -X POST -d '{"guid":"df2e224d90874887b4d61153ef3a2508"}' "https://location.api.clevertap.com/1/delete/profiles.json" \
+-H "X-CleverTap-Account-Id: ACCOUNT_ID" \
+-H "X-CleverTap-Passcode: PASSCODE" \
+-H "Content-Type: application/json; charset=utf-8"
+```
+```ruby
+require 'net/http'
+require 'uri'
+require 'json'
+
+uri = URI.parse("https://location.api.clevertap.com/1/delete/profiles.json")
+request = Net::HTTP::Post.new(uri)
+request.content_type = "application/json; charset=utf-8"
+request["X-Clevertap-Account-Id"] = "ACCOUNT_ID"
+request["X-Clevertap-Passcode"] = "PASSCODE"
+request.body = JSON.dump({
+  "guid" => "df2e224d90874887b4d61153ef3a2508"
+})
+
+req_options = {
+  use_ssl: uri.scheme == "https",
 }
-[/block]
+
+response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
+  http.request(request)
+end
+```
+```python
+import requests
+
+headers = {
+    'X-CleverTap-Account-Id': 'ACCOUNT_ID',
+    'X-CleverTap-Passcode': 'PASSCODE',
+    'Content-Type': 'application/json; charset=utf-8',
+}
+
+data = '{"guid":"df2e224d90874887b4d61153ef3a2508"}'
+
+response = requests.post('https://location.api.clevertap.com/1/delete/profiles.json', headers=headers, data=data)
+```
+```php
+<?php
+include('vendor/rmccue/requests/library/Requests.php');
+Requests::register_autoloader();
+$headers = array(
+    'X-CleverTap-Account-Id' => 'ACCOUNT_ID',
+    'X-CleverTap-Passcode' => 'PASSCODE',
+    'Content-Type' => 'application/json; charset=utf-8'
+);
+$data = '{"guid":"df2e224d90874887b4d61153ef3a2508"}';
+$response = Requests::post('https://location.api.clevertap.com/1/delete/profiles.json', $headers, $data);
+```
+```javascript Node.js
+var request = require('request');
+
+var headers = {
+    'X-CleverTap-Account-Id': 'ACCOUNT_ID',
+    'X-CleverTap-Passcode': 'PASSCODE',
+    'Content-Type': 'application/json; charset=utf-8'
+};
+
+var dataString = '{"guid":"df2e224d90874887b4d61153ef3a2508"}';
+
+var options = {
+    url: 'https://location.api.clevertap.com/1/delete/profiles.json',
+    method: 'POST',
+    headers: headers,
+    body: dataString
+};
+
+function callback(error, response, body) {
+    if (!error && response.statusCode == 200) {
+        console.log(body);
+    }
+}
+
+request(options, callback);
+```
+```go
+type Payload struct {
+	GUID string `json:"guid"`
+}
+
+data := Payload{
+// fill struct
+}
+payloadBytes, err := json.Marshal(data)
+if err != nil {
+	// handle err
+}
+body := bytes.NewReader(payloadBytes)
+
+req, err := http.NewRequest("POST", "https://location.api.clevertap.com/1/delete/profiles.json", body)
+if err != nil {
+	// handle err
+}
+req.Header.Set("X-Clevertap-Account-Id", "ACCOUNT_ID")
+req.Header.Set("X-Clevertap-Passcode", "PASSCODE")
+req.Header.Set("Content-Type", "application/json; charset=utf-8")
+
+resp, err := http.DefaultClient.Do(req)
+if err != nil {
+	// handle err
+}
+defer resp.Body.Close()
+```
+
 ## Example Response
-[block:code]
+
+```json
 {
-  "codes": [
-    {
-      "code": "{\n  \"status\": \"success\"\n}",
-      "language": "json"
-    }
-  ]
+  "status": "success"
 }
-[/block]
+```
