@@ -58,7 +58,7 @@ CleverTap stores the user's demographic data (gender, age, location), app and we
 
 A user profile is automatically created for every user launching your mobile application, whether logged in or not.
 
-At first, the user profile starts as _Anonymous_ which means that the profile does not contain any identifiable information about the user yet. You can choose to enrich the profile with attributes, such as name, age, and customer ID. You can also add custom attributes that you define to extend the CleverTap data model.
+At first, the user profile starts as *Anonymous* which means that the profile does not contain any identifiable information about the user yet. You can choose to enrich the profile with attributes, such as name, age, and customer ID. You can also add custom attributes that you define to extend the CleverTap data model.
 
 Sending user profile information to CleverTap using our Android SDK requires two steps:
 
@@ -210,8 +210,8 @@ clevertapDefaultInstance?.pushProfile(profileUpdate)
 ```
 
 > 📘 Note
-> 
-> You do not require to pass _Age_ as a profile property in the API because it is automatically calculated and stored.
+>
+> You do not require to pass *Age* as a profile property in the API because it is automatically calculated and stored.
 
 CleverTap provides easy ways to enrich the user profile with data from sources, such as Facebook. You can also store custom attributes in a user profile which can be used to segment users later.
 
@@ -220,7 +220,7 @@ CleverTap provides easy ways to enrich the user profile with data from sources, 
 Increment or decrement a user profile property by using the `incrementValue` or `decrementValue` methods for Clevertap Android SDK version 4.2.0 and above.
 
 > 📘 Note
-> 
+>
 > The applicable user properties are of type Integer, Float, or Double. The value can be zero or greater than zero.
 
 ```java
@@ -250,9 +250,9 @@ You can opt-out a user by either phone or email.
 
 You can opt-out a user or a phone number:
 
-- To opt out a specific user when multiple users share the same phone number, you can disable SMS for a specific user. Set the MSG-sms flag to _false_, and the specified user stops receiving SMS; however, all other users sharing the number continue to receive messages if they have not opted out.  
+* To opt out a specific user when multiple users share the same phone number, you can disable SMS for a specific user. Set the MSG-sms flag to *false*, and the specified user stops receiving SMS; however, all other users sharing the number continue to receive messages if they have not opted out.  
 
-- To opt-out a phone number and all the users associated with it, set the MSG-dndPhone flag to _true_.
+* To opt-out a phone number and all the users associated with it, set the MSG-dndPhone flag to *true*.
 
 Refer to [User Profile API Endpoints](doc:user-profile-object) for complete user profile documentation.
 
@@ -260,9 +260,9 @@ Refer to [User Profile API Endpoints](doc:user-profile-object) for complete user
 
 You can opt-out a user or an email address: 
 
-- To opt out a specific user when multiple users share the same email address, you can disable email for a specific user. Set the MSG-email flag to _false_, and the specified user stops receiving messages; however, all other users sharing the email address continue to receive messages if they have not opted out.  
+* To opt out a specific user when multiple users share the same email address, you can disable email for a specific user. Set the MSG-email flag to *false*, and the specified user stops receiving messages; however, all other users sharing the email address continue to receive messages if they have not opted out.  
 
-- To opt-out an email address and all the users associated with it, set the MSG-dndEmail flag to _true_.
+* To opt-out an email address and all the users associated with it, set the MSG-dndEmail flag to *true*.
 
 Refer to [User Profile API Endpoints](doc:user-profile-object) for complete user profile documentation.
 
@@ -270,9 +270,9 @@ Refer to [User Profile API Endpoints](doc:user-profile-object) for complete user
 
 Starting from CleverTap Android SDK v4.0.1, you can enable custom identity management. The `onUserLogin()` method can identify users in advance (only for new app installs) whenever a user logs in to the app. You can use any of the following identifiers or a combination of them:
 
-Phone  
-Email  
-Identity  
+Phone\
+Email\
+Identity\
 This process varies for default(shared) CleverTap instances and additional Instances.
 
 ### Default(shared) CleverTap instance
@@ -280,8 +280,8 @@ This process varies for default(shared) CleverTap instances and additional Insta
 The CleverTap Android SDK provides the default instance to call CleverTap methods. The `getDefaultInstance()` method initializes this instance as follows:
 
 1. Navigate to the app's `AndroidManifest.xml` file in your project navigator.
-2. Create a _CleverTapIdentifiers_ key with the type `Array`.
-3. Add the identifier keys for the user.  
+2. Create a *CleverTapIdentifiers* key with the type `Array`.
+3. Add the identifier keys for the user.\
    The following is an example:
 
 ```groovy
@@ -300,7 +300,7 @@ config.setIdentityKeys(new String[](“Email”,”Phone”));
 ```
 
 > 📘 Additional Notes
-> 
-> - For existing app installs/legacy users, only the current/existing identifiers(Identity/Email) are utilized.
-> 
-> - We strongly recommend not changing the identifiers for new app installs after the identifiers are set (via an instance config). This may result in an error message, and the original identifier keys will be used.
+>
+> * For existing app installs/legacy users, only the current/existing identifiers(Identity/Email) are utilized.
+>
+> * We strongly recommend not changing the identifiers for new app installs after the identifiers are set (via an instance config). This may result in an error message, and the original identifier keys will be used.
