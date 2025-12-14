@@ -12,474 +12,4668 @@ next:
 ---
 The Feature Flag API enables you to create Feature Flag. For example, you want to activate or deactivate the dark mode based on the Feature Flag. 
 
+# Create Feature Flag
 
-# Create Feature Flag 
 Creating Feature Flag requires a POST request with a JSON payload specifying the key name and mapping.  There is no limit on the number of requests to the API, but the batch size for each request must be up to 1000.
 
 ## Base URL
-https://api.clevertap.com/1/featureflag/create
+
+[https://api.clevertap.com/1/featureflag/create](https://api.clevertap.com/1/featureflag/create)
 
 ## HTTP Method
+
 POST
 
 ## Headers
+
 These headers are all required. The X-CleverTap-Account-Id and X-CleverTap-Passcode are used to authenticate the request. Please see the [authentication guide](doc:authentication) to see how to get their values.
-[block:parameters]
-{
-  "data": {
-    "h-0": "Header",
-    "h-1": "Description",
-    "h-2": "Type",
-    "h-3": "Example Value",
-    "0-0": "X-CleverTap-Account-Id",
-    "1-0": "X-CleverTap-Passcode",
-    "2-0": "Content-Type",
-    "0-1": "Your CleverTap Account ID",
-    "1-1": "Your CleverTap Account Passcode",
-    "2-1": "Request content-type is always set to application/json; charset=utf-8.",
-    "0-2": "string",
-    "1-2": "string",
-    "2-2": "string",
-    "0-3": "\"X-CleverTap-Account-Id: ACCOUNT_ID\"",
-    "1-3": "\"X-CleverTap-Passcode: PASSCODE\"",
-    "2-3": "\"Content-Type: application/json; charset=utf-8\""
-  },
-  "cols": 4,
-  "rows": 3
-}
-[/block]
+
+<Table align={["left","left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Header
+      </th>
+
+      <th>
+        Description
+      </th>
+
+      <th>
+        Type
+      </th>
+
+      <th>
+        Example Value
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        X-CleverTap-Account-Id
+      </td>
+
+      <td>
+        Your CleverTap Account ID
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        "X-CleverTap-Account-Id: ACCOUNT\_ID"
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        X-CleverTap-Passcode
+      </td>
+
+      <td>
+        Your CleverTap Account Passcode
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        "X-CleverTap-Passcode: PASSCODE"
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Content-Type
+      </td>
+
+      <td>
+        Request content-type is always set to application/json; charset=utf-8.
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        "Content-Type: application/json; charset=utf-8"
+      </td>
+    </tr>
+  </tbody>
+</Table>
+
 ## Body Parameters
+
 The Feature Flag  and its keys with the relevant segment are uploaded as a JSON payload. 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Parameter",
-    "h-1": "Description",
-    "h-2": "Type",
-    "h-3": "Example Value",
-    "0-0": "name",
-    "4-0": "segmentValue",
-    "0-1": "Name of the feature flag",
-    "4-1": "value for this a segment",
-    "0-2": "string",
-    "4-2": "same as keys data type",
-    "0-3": "dark_mode",
-    "4-3": "true",
-    "1-0": "description",
-    "2-0": "keys",
-    "3-0": "segmentName",
-    "3-2": "string",
-    "2-2": "Object",
-    "1-2": "string",
-    "1-1": "Description of the feature flag",
-    "2-1": "These are the keys that  you have defined and want to be a part of this Feature flag. These keys must be strictly boolean. For more information, see [Keys API](doc:keys-api) ]",
-    "3-1": "name of the segment. You have created this segment via our dashboard.",
-    "1-3": "enables/disables dark mode based on profile custom properties",
-    "2-3": "\"keys\": {\n    \"dark\": [\n      {\n        \"segmentName\": \"New York User\",\n        \"segmentValue\": true\n      }\n    ]\n  },",
-    "3-3": "New York Users",
-    "5-0": "segmentsPriorityList",
-    "5-1": "This list specifies the priority of the segments. In case a profile gets qualified for multiple segment, this list determine which segment value should be send to the users device.",
-    "5-2": "Object",
-    "5-3": "\"segmentsPriorityList\": [\n    {\n      \"segmentName\": \"New York User\",\n      \"percentageRollout\": 80\n    }\n  ]",
-    "6-0": "percentageRollout",
-    "6-1": "Percentage rollout for a particular segment. Use this, if you want to deliver to only a percentage of users qualified for a segment. It helps you to measure the adoption of a feature.",
-    "6-2": "Integer",
-    "6-3": "20"
-  },
-  "cols": 4,
-  "rows": 7
-}
-[/block]
+
+
+<Table align={["left","left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Parameter
+      </th>
+
+      <th>
+        Description
+      </th>
+
+      <th>
+        Type
+      </th>
+
+      <th>
+        Example Value
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        name
+      </td>
+
+      <td>
+        Name of the feature flag
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        dark\_mode
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        description
+      </td>
+
+      <td>
+        Description of the feature flag
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        enables/disables dark mode based on profile custom properties
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        keys
+      </td>
+
+      <td>
+        These are the keys that you have defined and want to be a part of this Feature flag. These keys must be strictly boolean. For more information, see [Keys API](doc:keys-api)
+      </td>
+
+      <td>
+        Object
+      </td>
+
+      <td>
+        "keys": \{\
+            "dark": [  
+              {  
+                "segmentName": "New York User",  
+                "segmentValue": true  
+              }  
+            ]\
+          },
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        segmentName
+      </td>
+
+      <td>
+        name of the segment. You have created this segment via our dashboard.
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        New York Users
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        segmentValue
+      </td>
+
+      <td>
+        value for this a segment
+      </td>
+
+      <td>
+        same as keys data type
+      </td>
+
+      <td>
+        true
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        segmentsPriorityList
+      </td>
+
+      <td>
+        This list specifies the priority of the segments. In case a profile gets qualified for multiple segment, this list determine which segment value should be send to the users device.
+      </td>
+
+      <td>
+        Object
+      </td>
+
+      <td>
+        "segmentsPriorityList": [  
+            {  
+              "segmentName": "New York User",  
+              "percentageRollout": 80  
+            }  
+          ]
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        percentageRollout
+      </td>
+
+      <td>
+        Percentage rollout for a particular segment. Use this, if you want to deliver to only a percentage of users qualified for a segment. It helps you to measure the adoption of a feature.
+      </td>
+
+      <td>
+        Integer
+      </td>
+
+      <td>
+        20
+      </td>
+    </tr>
+  </tbody>
+</Table>
 So considering the parameters given above, let's say, you want to test your dark mode feature on 20% of people staying in New York you can use the payload below. 
 
-
 Here is an example JSON payload for iOS/Android. 
-[block:code]
-{
-  "codes": [
-    {
-      "code": "{\n  \"name\": \"darkMode\",\n  \"description\": \"enables/disables dark mode based on profile custom properties\",\n  \"keys\": {\n    \"dark\": [\n      {\n        \"segmentName\": \"New York User\",\n        \"segmentValue\": true\n      }\n    ]\n  },\n  \"segmentsPriorityList\": [\n    {\n      \"segmentName\": \"New York User\",\n      \"percentageRollout\": 20\n    }\n  ]\n}",
-      "language": "json"
-    }
-  ]
-}
-[/block]
-## Example Request 
-[block:code]
-{
-  "codes": [
-    {
-      "code": "curl --location --request POST 'https://api.clevertap.com/1/featureflag/create' \\\n--header 'X-CleverTap-Account-Id: <ACCOUNT_ID>' \\\n--header 'X-CleverTap-Passcode: <PassCode>' \\\n--header 'Content-Type: application/json' \\\n--header 'Content-Type: text/plain' \\\n--data-raw '{\n  \"name\": \"darkMode\",\n  \"description\": \"enables/disables dark mode based on profile custom properties\",\n  \"keys\": {\n    \"dark\": [\n      {\n        \"segmentName\": \"New York User\",\n        \"segmentValue\": true\n      }\n    ]\n  },\n  \"segmentsPriorityList\": [\n    {\n      \"segmentName\": \"New York User\",\n      \"percentageRollout\": 20\n    }\n  ]\n}'",
-      "language": "curl"
-    },
-    {
-      "code": "require \"uri\"\nrequire \"net/http\"\n\nurl = URI(\"https://api.clevertap.com/1/featureflag/create\")\n\nhttps = Net::HTTP.new(url.host, url.port);\nhttps.use_ssl = true\n\nrequest = Net::HTTP::Post.new(url)\nrequest[\"X-CleverTap-Account-Id\"] = \"<ACCOUNT_ID>\"\nrequest[\"X-CleverTap-Passcode\"] = \"<PassCode>\"\nrequest[\"Content-Type\"] = [\"application/json\", \"text/plain\"]\nrequest.body = \"{\\n  \\\"name\\\": \\\"darkMode\\\",\\n  \\\"description\\\": \\\"enables/disables dark mode based on profile custom properties\\\",\\n  \\\"keys\\\": {\\n    \\\"dark\\\": [\\n      {\\n        \\\"segmentName\\\": \\\"New York User\\\",\\n        \\\"segmentValue\\\": true\\n      }\\n    ]\\n  },\\n  \\\"segmentsPriorityList\\\": [\\n    {\\n      \\\"segmentName\\\": \\\"New York User\\\",\\n      \\\"percentageRollout\\\": 20\\n    }\\n  ]\\n}\"\n\nresponse = https.request(request)\nputs response.read_body\n",
-      "language": "ruby"
-    },
-    {
-      "code": "import requests\n\nurl = \"https://api.clevertap.com/1/featureflag/create\"\n\npayload = \"{\\n  \\\"name\\\": \\\"darkMode\\\",\\n  \\\"description\\\": \\\"enables/disables dark mode based on profile custom properties\\\",\\n  \\\"keys\\\": {\\n    \\\"dark\\\": [\\n      {\\n        \\\"segmentName\\\": \\\"New York User\\\",\\n        \\\"segmentValue\\\": true\\n      }\\n    ]\\n  },\\n  \\\"segmentsPriorityList\\\": [\\n    {\\n      \\\"segmentName\\\": \\\"New York User\\\",\\n      \\\"percentageRollout\\\": 20\\n    }\\n  ]\\n}\"\nheaders = {\n  'X-CleverTap-Account-Id': '<ACCOUNT_ID>',\n  'X-CleverTap-Passcode': '<PassCode>',\n  'Content-Type': 'application/json',\n  'Content-Type': 'text/plain'\n}\n\nresponse = requests.request(\"POST\", url, headers=headers, data = payload)\n\nprint(response.text.encode('utf8'))\n",
-      "language": "python"
-    },
-    {
-      "code": "<?php\nrequire_once 'HTTP/Request2.php';\n$request = new HTTP_Request2();\n$request->setUrl('https://api.clevertap.com/1/featureflag/create');\n$request->setMethod(HTTP_Request2::METHOD_POST);\n$request->setConfig(array(\n  'follow_redirects' => TRUE\n));\n$request->setHeader(array(\n  'X-CleverTap-Account-Id' => '<ACCOUNT_ID>',\n  'X-CleverTap-Passcode' => '<PassCode>',\n  'Content-Type' => 'application/json',\n  'Content-Type' => 'text/plain'\n));\n$request->setBody('{\\n  \"name\": \"darkMode\",\\n  \"description\": \"enables/disables dark mode based on profile custom properties\",\\n  \"keys\": {\\n    \"dark\": [\\n      {\\n        \"segmentName\": \"New York User\",\\n        \"segmentValue\": true\\n      }\\n    ]\\n  },\\n  \"segmentsPriorityList\": [\\n    {\\n      \"segmentName\": \"New York User\",\\n      \"percentageRollout\": 20\\n    }\\n  ]\\n}');\ntry {\n  $response = $request->send();\n  if ($response->getStatus() == 200) {\n    echo $response->getBody();\n  }\n  else {\n    echo 'Unexpected HTTP status: ' . $response->getStatus() . ' ' .\n    $response->getReasonPhrase();\n  }\n}\ncatch(HTTP_Request2_Exception $e) {\n  echo 'Error: ' . $e->getMessage();\n}",
-      "language": "php"
-    },
-    {
-      "code": "var request = require('request');\nvar options = {\n  'method': 'POST',\n  'url': 'https://api.clevertap.com/1/featureflag/create',\n  'headers': {\n    'X-CleverTap-Account-Id': '<ACCOUNT_ID>',\n    'X-CleverTap-Passcode': '<PassCode>',\n    'Content-Type': ['application/json', 'text/plain']\n  },\n  body: \"{\\n  \\\"name\\\": \\\"darkMode\\\",\\n  \\\"description\\\": \\\"enables/disables dark mode based on profile custom properties\\\",\\n  \\\"keys\\\": {\\n    \\\"dark\\\": [\\n      {\\n        \\\"segmentName\\\": \\\"New York User\\\",\\n        \\\"segmentValue\\\": true\\n      }\\n    ]\\n  },\\n  \\\"segmentsPriorityList\\\": [\\n    {\\n      \\\"segmentName\\\": \\\"New York User\\\",\\n      \\\"percentageRollout\\\": 20\\n    }\\n  ]\\n}\"\n\n};\nrequest(options, function (error, response) { \n  if (error) throw new Error(error);\n  console.log(response.body);\n});\n",
-      "language": "javascript",
-      "name": "Node.js"
-    },
-    {
-      "code": "package main\n\nimport (\n  \"fmt\"\n  \"strings\"\n  \"net/http\"\n  \"io/ioutil\"\n)\n\nfunc main() {\n\n  url := \"https://api.clevertap.com/1/featureflag/create\"\n  method := \"POST\"\n\n  payload := strings.NewReader(\"{\\n  \\\"name\\\": \\\"darkMode\\\",\\n  \\\"description\\\": \\\"enables/disables dark mode based on profile custom properties\\\",\\n  \\\"keys\\\": {\\n    \\\"dark\\\": [\\n      {\\n        \\\"segmentName\\\": \\\"New York User\\\",\\n        \\\"segmentValue\\\": true\\n      }\\n    ]\\n  },\\n  \\\"segmentsPriorityList\\\": [\\n    {\\n      \\\"segmentName\\\": \\\"New York User\\\",\\n      \\\"percentageRollout\\\": 20\\n    }\\n  ]\\n}\")\n\n  client := &http.Client {\n  }\n  req, err := http.NewRequest(method, url, payload)\n\n  if err != nil {\n    fmt.Println(err)\n  }\n  req.Header.Add(\"X-CleverTap-Account-Id\", \"<ACCOUNT_ID>\")\n  req.Header.Add(\"X-CleverTap-Passcode\", \"<PassCode>\")\n  req.Header.Add(\"Content-Type\", \"application/json\")\n  req.Header.Add(\"Content-Type\", \"text/plain\")\n\n  res, err := client.Do(req)\n  defer res.Body.Close()\n  body, err := ioutil.ReadAll(res.Body)\n\n  fmt.Println(string(body))\n}",
-      "language": "go"
-    }
-  ]
-}
-[/block]
-## Example Response
-[block:code]
-{
-  "codes": [
-    {
-      "code": "{\n    \"status\": \"success\",\n    \"code\": 200\n}",
-      "language": "json"
-    }
-  ]
-}
-[/block]
 
-# Update Feature Flag 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Example Request
+
+
+```curl
+curl --location --request POST 'https://api.clevertap.com/1/featureflag/create' \
+--header 'X-CleverTap-Account-Id: <ACCOUNT_ID>' \
+--header 'X-CleverTap-Passcode: <PassCode>' \
+--header 'Content-Type: application/json' \
+--header 'Content-Type: text/plain' \
+--data-raw '{
+  "name": "darkMode",
+  "description": "enables/disables dark mode based on profile custom properties",
+  "keys": {
+    "dark": [
+      {
+        "segmentName": "New York User",
+        "segmentValue": true
+      }
+    ]
+  },
+  "segmentsPriorityList": [
+    {
+      "segmentName": "New York User",
+      "percentageRollout": 20
+    }
+  ]
+}'
+```
+```ruby
+require "uri"
+require "net/http"
+
+url = URI("https://api.clevertap.com/1/featureflag/create")
+
+https = Net::HTTP.new(url.host, url.port);
+https.use_ssl = true
+
+request = Net::HTTP::Post.new(url)
+request["X-CleverTap-Account-Id"] = "<ACCOUNT_ID>"
+request["X-CleverTap-Passcode"] = "<PassCode>"
+request["Content-Type"] = ["application/json", "text/plain"]
+request.body = "{\n  \"name\": \"darkMode\",\n  \"description\": \"enables/disables dark mode based on profile custom properties\",\n  \"keys\": {\n    \"dark\": [\n      {\n        \"segmentName\": \"New York User\",\n        \"segmentValue\": true\n      }\n    ]\n  },\n  \"segmentsPriorityList\": [\n    {\n      \"segmentName\": \"New York User\",\n      \"percentageRollout\": 20\n    }\n  ]\n}"
+
+response = https.request(request)
+puts response.read_body
+```
+```python
+import requests
+
+url = "https://api.clevertap.com/1/featureflag/create"
+
+payload = "{\n  \"name\": \"darkMode\",\n  \"description\": \"enables/disables dark mode based on profile custom properties\",\n  \"keys\": {\n    \"dark\": [\n      {\n        \"segmentName\": \"New York User\",\n        \"segmentValue\": true\n      }\n    ]\n  },\n  \"segmentsPriorityList\": [\n    {\n      \"segmentName\": \"New York User\",\n      \"percentageRollout\": 20\n    }\n  ]\n}"
+headers = {
+  'X-CleverTap-Account-Id': '<ACCOUNT_ID>',
+  'X-CleverTap-Passcode': '<PassCode>',
+  'Content-Type': 'application/json',
+  'Content-Type': 'text/plain'
+}
+
+response = requests.request("POST", url, headers=headers, data = payload)
+
+print(response.text.encode('utf8'))
+```
+```php
+<?php
+require_once 'HTTP/Request2.php';
+$request = new HTTP_Request2();
+$request->setUrl('https://api.clevertap.com/1/featureflag/create');
+$request->setMethod(HTTP_Request2::METHOD_POST);
+$request->setConfig(array(
+  'follow_redirects' => TRUE
+));
+$request->setHeader(array(
+  'X-CleverTap-Account-Id' => '<ACCOUNT_ID>',
+  'X-CleverTap-Passcode' => '<PassCode>',
+  'Content-Type' => 'application/json',
+  'Content-Type' => 'text/plain'
+));
+$request->setBody('{\n  "name": "darkMode",\n  "description": "enables/disables dark mode based on profile custom properties",\n  "keys": {\n    "dark": [\n      {\n        "segmentName": "New York User",\n        "segmentValue": true\n      }\n    ]\n  },\n  "segmentsPriorityList": [\n    {\n      "segmentName": "New York User",\n      "percentageRollout": 20\n    }\n  ]\n}');
+try {
+  $response = $request->send();
+  if ($response->getStatus() == 200) {
+    echo $response->getBody();
+  }
+  else {
+    echo 'Unexpected HTTP status: ' . $response->getStatus() . ' ' .
+    $response->getReasonPhrase();
+  }
+}
+catch(HTTP_Request2_Exception $e) {
+  echo 'Error: ' . $e->getMessage();
+}
+```
+```javascript Node.js
+var request = require('request');
+var options = {
+  'method': 'POST',
+  'url': 'https://api.clevertap.com/1/featureflag/create',
+  'headers': {
+    'X-CleverTap-Account-Id': '<ACCOUNT_ID>',
+    'X-CleverTap-Passcode': '<PassCode>',
+    'Content-Type': ['application/json', 'text/plain']
+  },
+  body: "{\n  \"name\": \"darkMode\",\n  \"description\": \"enables/disables dark mode based on profile custom properties\",\n  \"keys\": {\n    \"dark\": [\n      {\n        \"segmentName\": \"New York User\",\n        \"segmentValue\": true\n      }\n    ]\n  },\n  \"segmentsPriorityList\": [\n    {\n      \"segmentName\": \"New York User\",\n      \"percentageRollout\": 20\n    }\n  ]\n}"
+
+};
+request(options, function (error, response) { 
+  if (error) throw new Error(error);
+  console.log(response.body);
+});
+```
+```go
+package main
+
+import (
+  "fmt"
+  "strings"
+  "net/http"
+  "io/ioutil"
+)
+
+func main() {
+
+  url := "https://api.clevertap.com/1/featureflag/create"
+  method := "POST"
+
+  payload := strings.NewReader("{\n  \"name\": \"darkMode\",\n  \"description\": \"enables/disables dark mode based on profile custom properties\",\n  \"keys\": {\n    \"dark\": [\n      {\n        \"segmentName\": \"New York User\",\n        \"segmentValue\": true\n      }\n    ]\n  },\n  \"segmentsPriorityList\": [\n    {\n      \"segmentName\": \"New York User\",\n      \"percentageRollout\": 20\n    }\n  ]\n}")
+
+  client := &http.Client {
+  }
+  req, err := http.NewRequest(method, url, payload)
+
+  if err != nil {
+    fmt.Println(err)
+  }
+  req.Header.Add("X-CleverTap-Account-Id", "<ACCOUNT_ID>")
+  req.Header.Add("X-CleverTap-Passcode", "<PassCode>")
+  req.Header.Add("Content-Type", "application/json")
+  req.Header.Add("Content-Type", "text/plain")
+
+  res, err := client.Do(req)
+  defer res.Body.Close()
+  body, err := ioutil.ReadAll(res.Body)
+
+  fmt.Println(string(body))
+}
+```
+
+
+## Example Response
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Update Feature Flag
+
 Update Feature Flag details for the key mentioned in the mandatory "experiencename" URL parameter. Any update to Feature flag will be **version controlled**. 
 
 ## Base URL
-https://api.clevertap.com/1/featureflag/update?experiencename=<featureFlagName>
+
+[https://api.clevertap.com/1/featureflag/update?experiencename=](https://api.clevertap.com/1/featureflag/update?experiencename=)&lt;featureFlagName&gt;
 
 ## HTTP Method
+
 POST
 
 ## Headers
+
 These headers are all required. The X-CleverTap-Account-Id and X-CleverTap-Passcode are used to authenticate the request. Please see the [authentication guide](doc:authentication) to see how to get their values.
-[block:parameters]
-{
-  "data": {
-    "h-0": "Header",
-    "h-1": "Description",
-    "h-2": "Type",
-    "h-3": "Example Value",
-    "0-0": "X-CleverTap-Account-Id",
-    "1-0": "X-CleverTap-Passcode",
-    "2-0": "Content-Type",
-    "0-1": "Your CleverTap Account ID",
-    "1-1": "Your CleverTap Account Passcode",
-    "2-1": "Request content-type is always set to application/json; charset=utf-8.",
-    "0-2": "string",
-    "1-2": "string",
-    "2-2": "string",
-    "0-3": "\"X-CleverTap-Account-Id: ACCOUNT_ID\"",
-    "1-3": "\"X-CleverTap-Passcode: PASSCODE\"",
-    "2-3": "\"Content-Type: application/json; charset=utf-8\""
-  },
-  "cols": 4,
-  "rows": 3
-}
-[/block]
+
+<Table align={["left","left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Header
+      </th>
+
+      <th>
+        Description
+      </th>
+
+      <th>
+        Type
+      </th>
+
+      <th>
+        Example Value
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        X-CleverTap-Account-Id
+      </td>
+
+      <td>
+        Your CleverTap Account ID
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        "X-CleverTap-Account-Id: ACCOUNT\_ID"
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        X-CleverTap-Passcode
+      </td>
+
+      <td>
+        Your CleverTap Account Passcode
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        "X-CleverTap-Passcode: PASSCODE"
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Content-Type
+      </td>
+
+      <td>
+        Request content-type is always set to application/json; charset=utf-8.
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        "Content-Type: application/json; charset=utf-8"
+      </td>
+    </tr>
+  </tbody>
+</Table>
+
 Continuing from our example above, if you are confident of the dark mode adoption for New York users and want to roll out to a wider set of audience then you can increase the "percentageRollout" key to a higher number.
 
 ## Body Parameters
+
 The Feature Flag and its keys with the relevant segment are uploaded as a JSON payload. 
 
 Here is an example JSON payload for iOS/Android. We have increased the percentage of rollout to 80 percent.
-[block:code]
-{
-  "codes": [
+## Example Request
+
+
+```curl
+curl --location --request POST 'https://api.clevertap.com/1/featureflag/update?experiencename=darkMode' \
+--header 'X-CleverTap-Account-Id: <ACCOUNT_ID>' \
+--header 'X-CleverTap-Passcode: <PassCode>' \
+--header 'Content-Type: application/json' \
+--header 'Content-Type: text/plain' \
+--data-raw '{
+  "name": "darkMode",
+  "description": "enables/disables dark mode based on profile custom properties",
+  "keys": {
+    "dark": [
+      {
+        "segmentName": "New York User",
+        "segmentValue": true
+      }
+    ]
+  },
+  "segmentsPriorityList": [
     {
-      "code": "{\n  \"name\": \"darkMode\",\n  \"description\": \"enables/disables dark mode based on profile custom properties\",\n  \"keys\": {\n    \"dark\": [\n      {\n        \"segmentName\": \"New York User\",\n        \"segmentValue\": true\n      }\n    ]\n  },\n  \"segmentsPriorityList\": [\n    {\n      \"segmentName\": \"New York User\",\n      \"percentageRollout\": 80 //changed this from 20 to 80\n    }\n  ]\n}",
-      "language": "json"
+      "segmentName": "New York User",
+      "percentageRollout": 80
     }
   ]
+}'
+```
+```ruby
+require "uri"
+require "net/http"
+
+url = URI("https://api.clevertap.com/1/featureflag/update?experiencename=darkMode")
+
+https = Net::HTTP.new(url.host, url.port);
+https.use_ssl = true
+
+request = Net::HTTP::Post.new(url)
+request["X-CleverTap-Account-Id"] = "<ACCOUNT_ID>"
+request["X-CleverTap-Passcode"] = "<PassCode>"
+request["Content-Type"] = ["application/json", "text/plain"]
+request.body = "{\n  \"name\": \"darkMode\",\n  \"description\": \"enables/disables dark mode based on profile custom properties\",\n  \"keys\": {\n    \"dark\": [\n      {\n        \"segmentName\": \"New York User\",\n        \"segmentValue\": true\n      }\n    ]\n  },\n  \"segmentsPriorityList\": [\n    {\n      \"segmentName\": \"New York User\",\n      \"percentageRollout\": 80\n    }\n  ]\n}"
+
+response = https.request(request)
+puts response.read_body
+```
+```python
+import requests
+
+url = "https://api.clevertap.com/1/featureflag/update?experiencename=darkMode"
+
+payload = "{\n  \"name\": \"darkMode\",\n  \"description\": \"enables/disables dark mode based on profile custom properties\",\n  \"keys\": {\n    \"dark\": [\n      {\n        \"segmentName\": \"New York User\",\n        \"segmentValue\": true\n      }\n    ]\n  },\n  \"segmentsPriorityList\": [\n    {\n      \"segmentName\": \"New York User\",\n      \"percentageRollout\": 80\n    }\n  ]\n}"
+headers = {
+  'X-CleverTap-Account-Id': '<ACCOUNT_ID>',
+  'X-CleverTap-Passcode': '<PassCode>',
+  'Content-Type': 'application/json',
+  'Content-Type': 'text/plain'
 }
-[/block]
-## Example Request 
-[block:code]
-{
-  "codes": [
-    {
-      "code": "curl --location --request POST 'https://api.clevertap.com/1/featureflag/update?experiencename=darkMode' \\\n--header 'X-CleverTap-Account-Id: <ACCOUNT_ID>' \\\n--header 'X-CleverTap-Passcode: <PassCode>' \\\n--header 'Content-Type: application/json' \\\n--header 'Content-Type: text/plain' \\\n--data-raw '{\n  \"name\": \"darkMode\",\n  \"description\": \"enables/disables dark mode based on profile custom properties\",\n  \"keys\": {\n    \"dark\": [\n      {\n        \"segmentName\": \"New York User\",\n        \"segmentValue\": true\n      }\n    ]\n  },\n  \"segmentsPriorityList\": [\n    {\n      \"segmentName\": \"New York User\",\n      \"percentageRollout\": 80\n    }\n  ]\n}'",
-      "language": "curl"
-    },
-    {
-      "code": "require \"uri\"\nrequire \"net/http\"\n\nurl = URI(\"https://api.clevertap.com/1/featureflag/update?experiencename=darkMode\")\n\nhttps = Net::HTTP.new(url.host, url.port);\nhttps.use_ssl = true\n\nrequest = Net::HTTP::Post.new(url)\nrequest[\"X-CleverTap-Account-Id\"] = \"<ACCOUNT_ID>\"\nrequest[\"X-CleverTap-Passcode\"] = \"<PassCode>\"\nrequest[\"Content-Type\"] = [\"application/json\", \"text/plain\"]\nrequest.body = \"{\\n  \\\"name\\\": \\\"darkMode\\\",\\n  \\\"description\\\": \\\"enables/disables dark mode based on profile custom properties\\\",\\n  \\\"keys\\\": {\\n    \\\"dark\\\": [\\n      {\\n        \\\"segmentName\\\": \\\"New York User\\\",\\n        \\\"segmentValue\\\": true\\n      }\\n    ]\\n  },\\n  \\\"segmentsPriorityList\\\": [\\n    {\\n      \\\"segmentName\\\": \\\"New York User\\\",\\n      \\\"percentageRollout\\\": 80\\n    }\\n  ]\\n}\"\n\nresponse = https.request(request)\nputs response.read_body\n",
-      "language": "ruby"
-    },
-    {
-      "code": "import requests\n\nurl = \"https://api.clevertap.com/1/featureflag/update?experiencename=darkMode\"\n\npayload = \"{\\n  \\\"name\\\": \\\"darkMode\\\",\\n  \\\"description\\\": \\\"enables/disables dark mode based on profile custom properties\\\",\\n  \\\"keys\\\": {\\n    \\\"dark\\\": [\\n      {\\n        \\\"segmentName\\\": \\\"New York User\\\",\\n        \\\"segmentValue\\\": true\\n      }\\n    ]\\n  },\\n  \\\"segmentsPriorityList\\\": [\\n    {\\n      \\\"segmentName\\\": \\\"New York User\\\",\\n      \\\"percentageRollout\\\": 80\\n    }\\n  ]\\n}\"\nheaders = {\n  'X-CleverTap-Account-Id': '<ACCOUNT_ID>',\n  'X-CleverTap-Passcode': '<PassCode>',\n  'Content-Type': 'application/json',\n  'Content-Type': 'text/plain'\n}\n\nresponse = requests.request(\"POST\", url, headers=headers, data = payload)\n\nprint(response.text.encode('utf8'))\n",
-      "language": "python"
-    },
-    {
-      "code": "<?php\nrequire_once 'HTTP/Request2.php';\n$request = new HTTP_Request2();\n$request->setUrl('https://api.clevertap.com/1/featureflag/update?experiencename=darkMode');\n$request->setMethod(HTTP_Request2::METHOD_POST);\n$request->setConfig(array(\n  'follow_redirects' => TRUE\n));\n$request->setHeader(array(\n  'X-CleverTap-Account-Id' => '<ACCOUNT_ID>',\n  'X-CleverTap-Passcode' => '<PassCode>',\n  'Content-Type' => 'application/json',\n  'Content-Type' => 'text/plain'\n));\n$request->setBody('{\\n  \"name\": \"darkMode\",\\n  \"description\": \"enables/disables dark mode based on profile custom properties\",\\n  \"keys\": {\\n    \"dark\": [\\n      {\\n        \"segmentName\": \"New York User\",\\n        \"segmentValue\": true\\n      }\\n    ]\\n  },\\n  \"segmentsPriorityList\": [\\n    {\\n      \"segmentName\": \"New York User\",\\n      \"percentageRollout\": 80\\n    }\\n  ]\\n}');\ntry {\n  $response = $request->send();\n  if ($response->getStatus() == 200) {\n    echo $response->getBody();\n  }\n  else {\n    echo 'Unexpected HTTP status: ' . $response->getStatus() . ' ' .\n    $response->getReasonPhrase();\n  }\n}\ncatch(HTTP_Request2_Exception $e) {\n  echo 'Error: ' . $e->getMessage();\n}",
-      "language": "php"
-    },
-    {
-      "code": "var request = require('request');\nvar options = {\n  'method': 'POST',\n  'url': 'https://api.clevertap.com/1/featureflag/update?experiencename=darkMode',\n  'headers': {\n    'X-CleverTap-Account-Id': '<ACCOUNT_ID>',\n    'X-CleverTap-Passcode': '<PassCode>',\n    'Content-Type': ['application/json', 'text/plain']\n  },\n  body: \"{\\n  \\\"name\\\": \\\"darkMode\\\",\\n  \\\"description\\\": \\\"enables/disables dark mode based on profile custom properties\\\",\\n  \\\"keys\\\": {\\n    \\\"dark\\\": [\\n      {\\n        \\\"segmentName\\\": \\\"New York User\\\",\\n        \\\"segmentValue\\\": true\\n      }\\n    ]\\n  },\\n  \\\"segmentsPriorityList\\\": [\\n    {\\n      \\\"segmentName\\\": \\\"New York User\\\",\\n      \\\"percentageRollout\\\": 80\\n    }\\n  ]\\n}\"\n\n};\nrequest(options, function (error, response) { \n  if (error) throw new Error(error);\n  console.log(response.body);\n});\n",
-      "language": "javascript",
-      "name": "Node.js"
-    },
-    {
-      "code": "package main\n\nimport (\n  \"fmt\"\n  \"strings\"\n  \"net/http\"\n  \"io/ioutil\"\n)\n\nfunc main() {\n\n  url := \"https://api.clevertap.com/1/featureflag/update?experiencename=darkMode\"\n  method := \"POST\"\n\n  payload := strings.NewReader(\"{\\n  \\\"name\\\": \\\"darkMode\\\",\\n  \\\"description\\\": \\\"enables/disables dark mode based on profile custom properties\\\",\\n  \\\"keys\\\": {\\n    \\\"dark\\\": [\\n      {\\n        \\\"segmentName\\\": \\\"New York User\\\",\\n        \\\"segmentValue\\\": true\\n      }\\n    ]\\n  },\\n  \\\"segmentsPriorityList\\\": [\\n    {\\n      \\\"segmentName\\\": \\\"New York User\\\",\\n      \\\"percentageRollout\\\": 80\\n    }\\n  ]\\n}\")\n\n  client := &http.Client {\n  }\n  req, err := http.NewRequest(method, url, payload)\n\n  if err != nil {\n    fmt.Println(err)\n  }\n  req.Header.Add(\"X-CleverTap-Account-Id\", \"<ACCOUNT_ID>\")\n  req.Header.Add(\"X-CleverTap-Passcode\", \"<PassCode>\")\n  req.Header.Add(\"Content-Type\", \"application/json\")\n  req.Header.Add(\"Content-Type\", \"text/plain\")\n\n  res, err := client.Do(req)\n  defer res.Body.Close()\n  body, err := ioutil.ReadAll(res.Body)\n\n  fmt.Println(string(body))\n}",
-      "language": "go"
-    }
-  ]
+
+response = requests.request("POST", url, headers=headers, data = payload)
+
+print(response.text.encode('utf8'))
+```
+```php
+<?php
+require_once 'HTTP/Request2.php';
+$request = new HTTP_Request2();
+$request->setUrl('https://api.clevertap.com/1/featureflag/update?experiencename=darkMode');
+$request->setMethod(HTTP_Request2::METHOD_POST);
+$request->setConfig(array(
+  'follow_redirects' => TRUE
+));
+$request->setHeader(array(
+  'X-CleverTap-Account-Id' => '<ACCOUNT_ID>',
+  'X-CleverTap-Passcode' => '<PassCode>',
+  'Content-Type' => 'application/json',
+  'Content-Type' => 'text/plain'
+));
+$request->setBody('{\n  "name": "darkMode",\n  "description": "enables/disables dark mode based on profile custom properties",\n  "keys": {\n    "dark": [\n      {\n        "segmentName": "New York User",\n        "segmentValue": true\n      }\n    ]\n  },\n  "segmentsPriorityList": [\n    {\n      "segmentName": "New York User",\n      "percentageRollout": 80\n    }\n  ]\n}');
+try {
+  $response = $request->send();
+  if ($response->getStatus() == 200) {
+    echo $response->getBody();
+  }
+  else {
+    echo 'Unexpected HTTP status: ' . $response->getStatus() . ' ' .
+    $response->getReasonPhrase();
+  }
 }
-[/block]
+catch(HTTP_Request2_Exception $e) {
+  echo 'Error: ' . $e->getMessage();
+}
+```
+```javascript Node.js
+var request = require('request');
+var options = {
+  'method': 'POST',
+  'url': 'https://api.clevertap.com/1/featureflag/update?experiencename=darkMode',
+  'headers': {
+    'X-CleverTap-Account-Id': '<ACCOUNT_ID>',
+    'X-CleverTap-Passcode': '<PassCode>',
+    'Content-Type': ['application/json', 'text/plain']
+  },
+  body: "{\n  \"name\": \"darkMode\",\n  \"description\": \"enables/disables dark mode based on profile custom properties\",\n  \"keys\": {\n    \"dark\": [\n      {\n        \"segmentName\": \"New York User\",\n        \"segmentValue\": true\n      }\n    ]\n  },\n  \"segmentsPriorityList\": [\n    {\n      \"segmentName\": \"New York User\",\n      \"percentageRollout\": 80\n    }\n  ]\n}"
+
+};
+request(options, function (error, response) { 
+  if (error) throw new Error(error);
+  console.log(response.body);
+});
+```
+```go
+package main
+
+import (
+  "fmt"
+  "strings"
+  "net/http"
+  "io/ioutil"
+)
+
+func main() {
+
+  url := "https://api.clevertap.com/1/featureflag/update?experiencename=darkMode"
+  method := "POST"
+
+  payload := strings.NewReader("{\n  \"name\": \"darkMode\",\n  \"description\": \"enables/disables dark mode based on profile custom properties\",\n  \"keys\": {\n    \"dark\": [\n      {\n        \"segmentName\": \"New York User\",\n        \"segmentValue\": true\n      }\n    ]\n  },\n  \"segmentsPriorityList\": [\n    {\n      \"segmentName\": \"New York User\",\n      \"percentageRollout\": 80\n    }\n  ]\n}")
+
+  client := &http.Client {
+  }
+  req, err := http.NewRequest(method, url, payload)
+
+  if err != nil {
+    fmt.Println(err)
+  }
+  req.Header.Add("X-CleverTap-Account-Id", "<ACCOUNT_ID>")
+  req.Header.Add("X-CleverTap-Passcode", "<PassCode>")
+  req.Header.Add("Content-Type", "application/json")
+  req.Header.Add("Content-Type", "text/plain")
+
+  res, err := client.Do(req)
+  defer res.Body.Close()
+  body, err := ioutil.ReadAll(res.Body)
+
+  fmt.Println(string(body))
+}
+```
+
+
 ## Example Response
-[block:code]
-{
-  "codes": [
-    {
-      "code": "{\n    \"status\": \"success\",\n    \"code\": 200\n}",
-      "language": "json"
-    }
-  ]
-}
-[/block]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Get Feature Flag
+
 Getting Feature Flag requires a GET request with a JSON payload specifying the name and mapping.  There is no limit on the number of requests to the API, but the batch size for each request must be up to 1000. You can specify the **optional** "experiencename" parameter to get information about a particular Feature Flag object and also specify the **optional** "version" parameter to get information about a particular version of a Feature Flag .
 
 ## Base URL
-https://api.clevertap.com/1/featureflag/get?experiencename=<featureFlagName>&version=<versionNumber>
+
+[https://api.clevertap.com/1/featureflag/get?experiencename=](https://api.clevertap.com/1/featureflag/get?experiencename=)&lt;featureFlagName&gt;\&version=&lt;versionNumber&gt;
 
 ## HTTP Method
+
 GET
 
 ## Headers
+
 These headers are all required. The X-CleverTap-Account-Id and X-CleverTap-Passcode are used to authenticate the request. Please see the [authentication guide](doc:authentication) to see how to get their values.
-[block:parameters]
-{
-  "data": {
-    "h-0": "Header",
-    "h-1": "Description",
-    "h-2": "Type",
-    "h-3": "Example Value",
-    "0-0": "X-CleverTap-Account-Id",
-    "1-0": "X-CleverTap-Passcode",
-    "2-0": "Content-Type",
-    "0-1": "Your CleverTap Account ID",
-    "1-1": "Your CleverTap Account Passcode",
-    "2-1": "Request content-type is always set to application/json; charset=utf-8.",
-    "0-2": "string",
-    "1-2": "string",
-    "2-2": "string",
-    "0-3": "\"X-CleverTap-Account-Id: ACCOUNT_ID\"",
-    "1-3": "\"X-CleverTap-Passcode: PASSCODE\"",
-    "2-3": "\"Content-Type: application/json; charset=utf-8\""
-  },
-  "cols": 4,
-  "rows": 3
+
+<Table align={["left","left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Header
+      </th>
+
+      <th>
+        Description
+      </th>
+
+      <th>
+        Type
+      </th>
+
+      <th>
+        Example Value
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        X-CleverTap-Account-Id
+      </td>
+
+      <td>
+        Your CleverTap Account ID
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        "X-CleverTap-Account-Id: ACCOUNT\_ID"
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        X-CleverTap-Passcode
+      </td>
+
+      <td>
+        Your CleverTap Account Passcode
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        "X-CleverTap-Passcode: PASSCODE"
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Content-Type
+      </td>
+
+      <td>
+        Request content-type is always set to application/json; charset=utf-8.
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        "Content-Type: application/json; charset=utf-8"
+      </td>
+    </tr>
+  </tbody>
+</Table>
+
+## Example Request
+```curl
+curl --location --request POST 'https://api.clevertap.com/1/featureflag/get' \
+--header 'X-CleverTap-Account-Id: <ACCOUNT_ID>' \
+--header 'X-CleverTap-Passcode: <PASSCODE>' \
+--header 'Content-Type: application/json' \
+--data-raw ''
+```
+```ruby
+require "uri"
+require "net/http"
+
+url = URI("https://api.clevertap.com/1/featureflag/get")
+
+https = Net::HTTP.new(url.host, url.port);
+https.use_ssl = true
+
+request = Net::HTTP::Post.new(url)
+request["X-CleverTap-Account-Id"] = "<ACCOUNT_ID>"
+request["X-CleverTap-Passcode"] = "<PASSCODE>"
+request["Content-Type"] = "application/json"
+
+response = https.request(request)
+puts response.read_body
+```
+```python
+import requests
+
+url = "https://api.clevertap.com/1/featureflag/get"
+
+payload  = {}
+headers = {
+  'X-CleverTap-Account-Id': '<ACCOUNT_ID>',
+  'X-CleverTap-Passcode': '<PASSCODE>',
+  'Content-Type': 'application/json'
 }
-[/block]
 
+response = requests.request("POST", url, headers=headers, data = payload)
 
-
-## Example Request 
-[block:code]
-{
-  "codes": [
-    {
-      "code": "curl --location --request POST 'https://api.clevertap.com/1/featureflag/get' \\\n--header 'X-CleverTap-Account-Id: <ACCOUNT_ID>' \\\n--header 'X-CleverTap-Passcode: <PASSCODE>' \\\n--header 'Content-Type: application/json' \\\n--data-raw ''",
-      "language": "curl"
-    },
-    {
-      "code": "require \"uri\"\nrequire \"net/http\"\n\nurl = URI(\"https://api.clevertap.com/1/featureflag/get\")\n\nhttps = Net::HTTP.new(url.host, url.port);\nhttps.use_ssl = true\n\nrequest = Net::HTTP::Post.new(url)\nrequest[\"X-CleverTap-Account-Id\"] = \"<ACCOUNT_ID>\"\nrequest[\"X-CleverTap-Passcode\"] = \"<PASSCODE>\"\nrequest[\"Content-Type\"] = \"application/json\"\n\nresponse = https.request(request)\nputs response.read_body\n",
-      "language": "ruby"
-    },
-    {
-      "code": "import requests\n\nurl = \"https://api.clevertap.com/1/featureflag/get\"\n\npayload  = {}\nheaders = {\n  'X-CleverTap-Account-Id': '<ACCOUNT_ID>',\n  'X-CleverTap-Passcode': '<PASSCODE>',\n  'Content-Type': 'application/json'\n}\n\nresponse = requests.request(\"POST\", url, headers=headers, data = payload)\n\nprint(response.text.encode('utf8'))\n",
-      "language": "python"
-    },
-    {
-      "code": "<?php\nrequire_once 'HTTP/Request2.php';\n$request = new HTTP_Request2();\n$request->setUrl('https://api.clevertap.com/1/featureflag/get');\n$request->setMethod(HTTP_Request2::METHOD_POST);\n$request->setConfig(array(\n  'follow_redirects' => TRUE\n));\n$request->setHeader(array(\n  'X-CleverTap-Account-Id' => '<ACCOUNT_ID>',\n  'X-CleverTap-Passcode' => '<PASSCODE>',\n  'Content-Type' => 'application/json'\n));\n$request->setBody('');\ntry {\n  $response = $request->send();\n  if ($response->getStatus() == 200) {\n    echo $response->getBody();\n  }\n  else {\n    echo 'Unexpected HTTP status: ' . $response->getStatus() . ' ' .\n    $response->getReasonPhrase();\n  }\n}\ncatch(HTTP_Request2_Exception $e) {\n  echo 'Error: ' . $e->getMessage();\n}",
-      "language": "php"
-    },
-    {
-      "code": "var request = require('request');\nvar options = {\n  'method': 'POST',\n  'url': 'https://api.clevertap.com/1/featureflag/get',\n  'headers': {\n    'X-CleverTap-Account-Id': '<ACCOUNT_ID>',\n    'X-CleverTap-Passcode': '<PASSCODE>',\n    'Content-Type': 'application/json'\n  }\n};\nrequest(options, function (error, response) { \n  if (error) throw new Error(error);\n  console.log(response.body);\n});\n",
-      "language": "javascript",
-      "name": "Node.js"
-    },
-    {
-      "code": "package main\n\nimport (\n  \"fmt\"\n  \"strings\"\n  \"net/http\"\n  \"io/ioutil\"\n)\n\nfunc main() {\n\n  url := \"https://api.clevertap.com/1/featureflag/get\"\n  method := \"POST\"\n\n  payload := strings.NewReader(\"\")\n\n  client := &http.Client {\n  }\n  req, err := http.NewRequest(method, url, payload)\n\n  if err != nil {\n    fmt.Println(err)\n  }\n  req.Header.Add(\"X-CleverTap-Account-Id\", \"<ACCOUNT_ID>\")\n  req.Header.Add(\"X-CleverTap-Passcode\", \"<PASSCODE>\")\n  req.Header.Add(\"Content-Type\", \"application/json\")\n\n  res, err := client.Do(req)\n  defer res.Body.Close()\n  body, err := ioutil.ReadAll(res.Body)\n\n  fmt.Println(string(body))\n}",
-      "language": "go"
-    }
-  ]
+print(response.text.encode('utf8'))
+```
+```php
+<?php
+require_once 'HTTP/Request2.php';
+$request = new HTTP_Request2();
+$request->setUrl('https://api.clevertap.com/1/featureflag/get');
+$request->setMethod(HTTP_Request2::METHOD_POST);
+$request->setConfig(array(
+  'follow_redirects' => TRUE
+));
+$request->setHeader(array(
+  'X-CleverTap-Account-Id' => '<ACCOUNT_ID>',
+  'X-CleverTap-Passcode' => '<PASSCODE>',
+  'Content-Type' => 'application/json'
+));
+$request->setBody('');
+try {
+  $response = $request->send();
+  if ($response->getStatus() == 200) {
+    echo $response->getBody();
+  }
+  else {
+    echo 'Unexpected HTTP status: ' . $response->getStatus() . ' ' .
+    $response->getReasonPhrase();
+  }
 }
-[/block]
+catch(HTTP_Request2_Exception $e) {
+  echo 'Error: ' . $e->getMessage();
+}
+```
+```javascript Node.js
+var request = require('request');
+var options = {
+  'method': 'POST',
+  'url': 'https://api.clevertap.com/1/featureflag/get',
+  'headers': {
+    'X-CleverTap-Account-Id': '<ACCOUNT_ID>',
+    'X-CleverTap-Passcode': '<PASSCODE>',
+    'Content-Type': 'application/json'
+  }
+};
+request(options, function (error, response) { 
+  if (error) throw new Error(error);
+  console.log(response.body);
+});
+```
+```go
+package main
+
+import (
+  "fmt"
+  "strings"
+  "net/http"
+  "io/ioutil"
+)
+
+func main() {
+
+  url := "https://api.clevertap.com/1/featureflag/get"
+  method := "POST"
+
+  payload := strings.NewReader("")
+
+  client := &http.Client {
+  }
+  req, err := http.NewRequest(method, url, payload)
+
+  if err != nil {
+    fmt.Println(err)
+  }
+  req.Header.Add("X-CleverTap-Account-Id", "<ACCOUNT_ID>")
+  req.Header.Add("X-CleverTap-Passcode", "<PASSCODE>")
+  req.Header.Add("Content-Type", "application/json")
+
+  res, err := client.Do(req)
+  defer res.Body.Close()
+  body, err := ioutil.ReadAll(res.Body)
+
+  fmt.Println(string(body))
+}
+```
+
+
 ## Example Response
-[block:code]
-{
-  "codes": [
-    {
-      "code": "{\n    \"output\": [\n        {\n            \"name\": \"wishlist button\",\n            \"description\": \"to serve wishlist button to x users\",\n            \"segmentsPriorityList\": [\n                {\n                    \"segmentName\": \"p1did\",\n                    \"percentageRollout\": 60\n                }\n            ],\n            \"keys\": {\n                \"wishlist button\": [\n                    {\n                        \"segmentName\": \"p1did\",\n                        \"segmentValue\": \"true\"\n                    }\n                ]\n            },\n            \"keyIds\": [\n                1591242116\n            ],\n            \"start_time\": 1591242252,\n            \"end_time\": 2147483647,\n            \"status\": \"active\",\n            \"version\": {\n                \"update_mode\": \"create\",\n                \"created_by\": \"foo@bar.com\",\n                \"created_on\": 1591242252,\n                \"updated_by\": \"foo@bar.com\",\n                \"last_updated\": 1591242252,\n                \"versionNumber\": 1\n            },\n            \"id\": 1591242252\n        },\n        {\n            \"name\": \"Testing Flags\",\n            \"description\": \"Testing\",\n            \"segmentsPriorityList\": [\n                {\n                    \"segmentName\": \"p1did\",\n                    \"percentageRollout\": 5\n                },\n                {\n                    \"segmentName\": \"Test segment\",\n                    \"percentageRollout\": 20\n                },\n                {\n                    \"segmentName\": \"p1didnot\",\n                    \"percentageRollout\": 100\n                }\n            ],\n            \"keys\": {\n                \"Feature Flag\": [\n                    {\n                        \"segmentName\": \"p1did\",\n                        \"segmentValue\": \"true\"\n                    },\n                    {\n                        \"segmentName\": \"Test segment\",\n                        \"segmentValue\": \"true\"\n                    },\n                    {\n                        \"segmentName\": \"p1didnot\",\n                        \"segmentValue\": \"false\"\n                    }\n                ]\n            },\n            \"keyIds\": [\n                1588912793\n            ],\n            \"start_time\": 1588912841,\n            \"end_time\": 2147483647,\n            \"status\": \"active\",\n            \"version\": {\n                \"update_mode\": \"create\",\n                \"created_by\": \"foo@bar.com\",\n                \"created_on\": 1588912841,\n                \"updated_by\": \"foo@bar.com\",\n                \"last_updated\": 1588912841,\n                \"versionNumber\": 1,\n                \"status_change_by\": \"foo@bar.com\",\n                \"status_change_ts\": 1590093859\n            },\n            \"id\": 1588912841\n        }\n    ],\n    \"status\": \"success\"\n}",
-      "language": "json"
-    }
-  ]
-}
-[/block]
-#Archive a feature flag
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Archive a feature flag
+
 You can archive a particular feature flag if you wish by using this API and mentioning the **mandatory** "experiencename" in the URL parameter. 
 
 ## Base URL
-https://api.clevertap.com/1/featureflag/archive?experiencename=<featureFlagName>
+
+[https://api.clevertap.com/1/featureflag/archive?experiencename=](https://api.clevertap.com/1/featureflag/archive?experiencename=)&lt;featureFlagName&gt;
 
 ## HTTP Method
+
 GET
 
 ## Headers
+
 These headers are all required. The X-CleverTap-Account-Id and X-CleverTap-Passcode are used to authenticate the request. Please see the [authentication guide](doc:authentication) to see how to get their values.
-[block:parameters]
-{
-  "data": {
-    "h-0": "Header",
-    "h-1": "Description",
-    "h-2": "Type",
-    "h-3": "Example Value",
-    "0-0": "X-CleverTap-Account-Id",
-    "1-0": "X-CleverTap-Passcode",
-    "2-0": "Content-Type",
-    "0-1": "Your CleverTap Account ID",
-    "1-1": "Your CleverTap Account Passcode",
-    "2-1": "Request content-type is always set to application/json; charset=utf-8.",
-    "0-2": "string",
-    "1-2": "string",
-    "2-2": "string",
-    "0-3": "\"X-CleverTap-Account-Id: ACCOUNT_ID\"",
-    "1-3": "\"X-CleverTap-Passcode: PASSCODE\"",
-    "2-3": "\"Content-Type: application/json; charset=utf-8\""
-  },
-  "cols": 4,
-  "rows": 3
-}
-[/block]
+
+<Table align={["left","left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Header
+      </th>
+
+      <th>
+        Description
+      </th>
+
+      <th>
+        Type
+      </th>
+
+      <th>
+        Example Value
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        X-CleverTap-Account-Id
+      </td>
+
+      <td>
+        Your CleverTap Account ID
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        "X-CleverTap-Account-Id: ACCOUNT\_ID"
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        X-CleverTap-Passcode
+      </td>
+
+      <td>
+        Your CleverTap Account Passcode
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        "X-CleverTap-Passcode: PASSCODE"
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Content-Type
+      </td>
+
+      <td>
+        Request content-type is always set to application/json; charset=utf-8.
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        "Content-Type: application/json; charset=utf-8"
+      </td>
+    </tr>
+  </tbody>
+</Table>
+
 For example, you want to archive the featureFlag you created above you can use the following examples
 
-## Example Request 
-[block:code]
-{
-  "codes": [
-    {
-      "code": "curl --location --request POST 'https://api.clevertap.com/1/featureflag/archive?experiencename=darkMode' \\\n--header 'X-CleverTap-Account-Id: <ACCOUNT_ID>' \\\n--header 'X-CleverTap-Passcode: <PASSCODE>' \\\n--header 'Content-Type: application/json' \\\n--data-raw ''",
-      "language": "curl"
-    },
-    {
-      "code": "require \"uri\"\nrequire \"net/http\"\n\nurl = URI(\"https://api.clevertap.com/1/featureflag/archive?experiencename=darkMode\")\n\nhttps = Net::HTTP.new(url.host, url.port);\nhttps.use_ssl = true\n\nrequest = Net::HTTP::Post.new(url)\nrequest[\"X-CleverTap-Account-Id\"] = \"<ACCOUNT_ID>\"\nrequest[\"X-CleverTap-Passcode\"] = \"<PASSCODE>\"\nrequest[\"Content-Type\"] = \"application/json\"\n\nresponse = https.request(request)\nputs response.read_body\n",
-      "language": "ruby"
-    },
-    {
-      "code": "import requests\n\nurl = \"https://api.clevertap.com/1/featureflag/archive?experiencename=darkMode\"\n\npayload  = {}\nheaders = {\n  'X-CleverTap-Account-Id': '<ACCOUNT_ID>',\n  'X-CleverTap-Passcode': '<PASSCODE>',\n  'Content-Type': 'application/json'\n}\n\nresponse = requests.request(\"POST\", url, headers=headers, data = payload)\n\nprint(response.text.encode('utf8'))\n",
-      "language": "python"
-    },
-    {
-      "code": "<?php\nrequire_once 'HTTP/Request2.php';\n$request = new HTTP_Request2();\n$request->setUrl('https://api.clevertap.com/1/featureflag/archive?experiencename=darkMode');\n$request->setMethod(HTTP_Request2::METHOD_POST);\n$request->setConfig(array(\n  'follow_redirects' => TRUE\n));\n$request->setHeader(array(\n  'X-CleverTap-Account-Id' => '<ACCOUNT_ID>',\n  'X-CleverTap-Passcode' => '<PASSCODE>',\n  'Content-Type' => 'application/json'\n));\n$request->setBody('');\ntry {\n  $response = $request->send();\n  if ($response->getStatus() == 200) {\n    echo $response->getBody();\n  }\n  else {\n    echo 'Unexpected HTTP status: ' . $response->getStatus() . ' ' .\n    $response->getReasonPhrase();\n  }\n}\ncatch(HTTP_Request2_Exception $e) {\n  echo 'Error: ' . $e->getMessage();\n}",
-      "language": "php"
-    },
-    {
-      "code": "var request = require('request');\nvar options = {\n  'method': 'POST',\n  'url': 'https://api.clevertap.com/1/featureflag/archive?experiencename=darkMode',\n  'headers': {\n    'X-CleverTap-Account-Id': '<ACCOUNT_ID>',\n    'X-CleverTap-Passcode': '<PASSCODE>',\n    'Content-Type': 'application/json'\n  }\n};\nrequest(options, function (error, response) { \n  if (error) throw new Error(error);\n  console.log(response.body);\n});\n",
-      "language": "javascript",
-      "name": "Node.js"
-    },
-    {
-      "code": "package main\n\nimport (\n  \"fmt\"\n  \"strings\"\n  \"net/http\"\n  \"io/ioutil\"\n)\n\nfunc main() {\n\n  url := \"https://api.clevertap.com/1/featureflag/archive?experiencename=darkMode\"\n  method := \"POST\"\n\n  payload := strings.NewReader(\"\")\n\n  client := &http.Client {\n  }\n  req, err := http.NewRequest(method, url, payload)\n\n  if err != nil {\n    fmt.Println(err)\n  }\n  req.Header.Add(\"X-CleverTap-Account-Id\", \"<ACCOUNT_ID>\")\n  req.Header.Add(\"X-CleverTap-Passcode\", \"<PASSCODE>\")\n  req.Header.Add(\"Content-Type\", \"application/json\")\n\n  res, err := client.Do(req)\n  defer res.Body.Close()\n  body, err := ioutil.ReadAll(res.Body)\n\n  fmt.Println(string(body))\n}",
-      "language": "go"
-    }
-  ]
+## Example Request
+```curl
+curl --location --request POST 'https://api.clevertap.com/1/featureflag/archive?experiencename=darkMode' \
+--header 'X-CleverTap-Account-Id: <ACCOUNT_ID>' \
+--header 'X-CleverTap-Passcode: <PASSCODE>' \
+--header 'Content-Type: application/json' \
+--data-raw ''
+```
+```ruby
+require "uri"
+require "net/http"
+
+url = URI("https://api.clevertap.com/1/featureflag/archive?experiencename=darkMode")
+
+https = Net::HTTP.new(url.host, url.port);
+https.use_ssl = true
+
+request = Net::HTTP::Post.new(url)
+request["X-CleverTap-Account-Id"] = "<ACCOUNT_ID>"
+request["X-CleverTap-Passcode"] = "<PASSCODE>"
+request["Content-Type"] = "application/json"
+
+response = https.request(request)
+puts response.read_body
+```
+```python
+import requests
+
+url = "https://api.clevertap.com/1/featureflag/archive?experiencename=darkMode"
+
+payload  = {}
+headers = {
+  'X-CleverTap-Account-Id': '<ACCOUNT_ID>',
+  'X-CleverTap-Passcode': '<PASSCODE>',
+  'Content-Type': 'application/json'
 }
-[/block]
+
+response = requests.request("POST", url, headers=headers, data = payload)
+
+print(response.text.encode('utf8'))
+```
+```php
+<?php
+require_once 'HTTP/Request2.php';
+$request = new HTTP_Request2();
+$request->setUrl('https://api.clevertap.com/1/featureflag/archive?experiencename=darkMode');
+$request->setMethod(HTTP_Request2::METHOD_POST);
+$request->setConfig(array(
+  'follow_redirects' => TRUE
+));
+$request->setHeader(array(
+  'X-CleverTap-Account-Id' => '<ACCOUNT_ID>',
+  'X-CleverTap-Passcode' => '<PASSCODE>',
+  'Content-Type' => 'application/json'
+));
+$request->setBody('');
+try {
+  $response = $request->send();
+  if ($response->getStatus() == 200) {
+    echo $response->getBody();
+  }
+  else {
+    echo 'Unexpected HTTP status: ' . $response->getStatus() . ' ' .
+    $response->getReasonPhrase();
+  }
+}
+catch(HTTP_Request2_Exception $e) {
+  echo 'Error: ' . $e->getMessage();
+}
+```
+```javascript Node.js
+var request = require('request');
+var options = {
+  'method': 'POST',
+  'url': 'https://api.clevertap.com/1/featureflag/archive?experiencename=darkMode',
+  'headers': {
+    'X-CleverTap-Account-Id': '<ACCOUNT_ID>',
+    'X-CleverTap-Passcode': '<PASSCODE>',
+    'Content-Type': 'application/json'
+  }
+};
+request(options, function (error, response) { 
+  if (error) throw new Error(error);
+  console.log(response.body);
+});
+```
+```go
+package main
+
+import (
+  "fmt"
+  "strings"
+  "net/http"
+  "io/ioutil"
+)
+
+func main() {
+
+  url := "https://api.clevertap.com/1/featureflag/archive?experiencename=darkMode"
+  method := "POST"
+
+  payload := strings.NewReader("")
+
+  client := &http.Client {
+  }
+  req, err := http.NewRequest(method, url, payload)
+
+  if err != nil {
+    fmt.Println(err)
+  }
+  req.Header.Add("X-CleverTap-Account-Id", "<ACCOUNT_ID>")
+  req.Header.Add("X-CleverTap-Passcode", "<PASSCODE>")
+  req.Header.Add("Content-Type", "application/json")
+
+  res, err := client.Do(req)
+  defer res.Body.Close()
+  body, err := ioutil.ReadAll(res.Body)
+
+  fmt.Println(string(body))
+}
+```
+
+
 ## Example Response
-[block:code]
-{
-  "codes": [
-    {
-      "code": "{\n    \"success\": true,\n    \"status\": \"success\",\n    \"error\": \"Experiences successfully deactivated\",\n    \"code\": 200\n}",
-      "language": "json"
-    }
-  ]
-}
-[/block]
-#Activate
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Activate
+
 You can use this API to either activate an archived Feature Flag or activate a particular version of an already active Feature Flag. If you want to just activate an archived Feature Flag you do not need to pass the **version** in the URL. 
 
 ## Base URL
-https://api.clevertap.com/1/featureflag/activate?experienceName=<featureFlag>&version=<versionNumber>
+
+[https://api.clevertap.com/1/featureflag/activate?experienceName=](https://api.clevertap.com/1/featureflag/activate?experienceName=)&lt;featureFlag&gt;\&version=&lt;versionNumber&gt;
 
 ## HTTP Method
+
 GET
 
 ## Headers
+
 These headers are all required. The X-CleverTap-Account-Id and X-CleverTap-Passcode are used to authenticate the request. Please see the [authentication guide](doc:authentication) to see how to get their values.
-[block:parameters]
-{
-  "data": {
-    "h-0": "Header",
-    "h-1": "Description",
-    "h-2": "Type",
-    "h-3": "Example Value",
-    "0-0": "X-CleverTap-Account-Id",
-    "1-0": "X-CleverTap-Passcode",
-    "2-0": "Content-Type",
-    "0-1": "Your CleverTap Account ID",
-    "1-1": "Your CleverTap Account Passcode",
-    "2-1": "Request content-type is always set to application/json; charset=utf-8.",
-    "0-2": "string",
-    "1-2": "string",
-    "2-2": "string",
-    "0-3": "\"X-CleverTap-Account-Id: ACCOUNT_ID\"",
-    "1-3": "\"X-CleverTap-Passcode: PASSCODE\"",
-    "2-3": "\"Content-Type: application/json; charset=utf-8\""
-  },
-  "cols": 4,
-  "rows": 3
-}
-[/block]
+
+<Table align={["left","left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Header
+      </th>
+
+      <th>
+        Description
+      </th>
+
+      <th>
+        Type
+      </th>
+
+      <th>
+        Example Value
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        X-CleverTap-Account-Id
+      </td>
+
+      <td>
+        Your CleverTap Account ID
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        "X-CleverTap-Account-Id: ACCOUNT\_ID"
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        X-CleverTap-Passcode
+      </td>
+
+      <td>
+        Your CleverTap Account Passcode
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        "X-CleverTap-Passcode: PASSCODE"
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Content-Type
+      </td>
+
+      <td>
+        Request content-type is always set to application/json; charset=utf-8.
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        "Content-Type: application/json; charset=utf-8"
+      </td>
+    </tr>
+  </tbody>
+</Table>
+
 For example, if you want to activate a Feature Flag that you archived above you can use the following examples
 
-## Example Request 
-[block:code]
-{
-  "codes": [
-    {
-      "code": "curl --location --request POST 'https://api.clevertap.com/1/featureflag/activate?experiencename=darkMode' \\\n--header 'X-CleverTap-Account-Id: <ACCOUNT_ID>' \\\n--header 'X-CleverTap-Passcode: <PASSCODE>' \\\n--header 'Content-Type: application/json' \\\n--data-raw ''",
-      "language": "curl"
-    },
-    {
-      "code": "require \"uri\"\nrequire \"net/http\"\n\nurl = URI(\"https://api.clevertap.com/1/featureflag/activate?experiencename=darkMode\")\n\nhttps = Net::HTTP.new(url.host, url.port);\nhttps.use_ssl = true\n\nrequest = Net::HTTP::Post.new(url)\nrequest[\"X-CleverTap-Account-Id\"] = \"<ACCOUNT_ID>\"\nrequest[\"X-CleverTap-Passcode\"] = \"<PASSCODE>\"\nrequest[\"Content-Type\"] = \"application/json\"\n\nresponse = https.request(request)\nputs response.read_body\n",
-      "language": "ruby"
-    },
-    {
-      "code": "import requests\n\nurl = \"https://api.clevertap.com/1/featureflag/activate?experiencename=darkMode\"\n\npayload  = {}\nheaders = {\n  'X-CleverTap-Account-Id': '<ACCOUNT_ID>',\n  'X-CleverTap-Passcode': '<PASSCODE>',\n  'Content-Type': 'application/json'\n}\n\nresponse = requests.request(\"POST\", url, headers=headers, data = payload)\n\nprint(response.text.encode('utf8'))\n",
-      "language": "python"
-    },
-    {
-      "code": "<?php\nrequire_once 'HTTP/Request2.php';\n$request = new HTTP_Request2();\n$request->setUrl('https://api.clevertap.com/1/featureflag/activate?experiencename=darkMode');\n$request->setMethod(HTTP_Request2::METHOD_POST);\n$request->setConfig(array(\n  'follow_redirects' => TRUE\n));\n$request->setHeader(array(\n  'X-CleverTap-Account-Id' => '<ACCOUNT_ID>',\n  'X-CleverTap-Passcode' => '<PASSCODE>',\n  'Content-Type' => 'application/json'\n));\n$request->setBody('');\ntry {\n  $response = $request->send();\n  if ($response->getStatus() == 200) {\n    echo $response->getBody();\n  }\n  else {\n    echo 'Unexpected HTTP status: ' . $response->getStatus() . ' ' .\n    $response->getReasonPhrase();\n  }\n}\ncatch(HTTP_Request2_Exception $e) {\n  echo 'Error: ' . $e->getMessage();\n}",
-      "language": "php"
-    },
-    {
-      "code": "var request = require('request');\nvar options = {\n  'method': 'POST',\n  'url': 'https://api.clevertap.com/1/featureflag/activate?experiencename=darkMode',\n  'headers': {\n    'X-CleverTap-Account-Id': '<ACCOUNT_ID>',\n    'X-CleverTap-Passcode': '<PASSCODE>',\n    'Content-Type': 'application/json'\n  }\n};\nrequest(options, function (error, response) { \n  if (error) throw new Error(error);\n  console.log(response.body);\n});\n",
-      "language": "javascript",
-      "name": "Node.js"
-    },
-    {
-      "code": "package main\n\nimport (\n  \"fmt\"\n  \"strings\"\n  \"net/http\"\n  \"io/ioutil\"\n)\n\nfunc main() {\n\n  url := \"https://api.clevertap.com/1/featureflag/activate?experiencename=darkMode\"\n  method := \"POST\"\n\n  payload := strings.NewReader(\"\")\n\n  client := &http.Client {\n  }\n  req, err := http.NewRequest(method, url, payload)\n\n  if err != nil {\n    fmt.Println(err)\n  }\n  req.Header.Add(\"X-CleverTap-Account-Id\", \"<ACCOUNT_ID>\")\n  req.Header.Add(\"X-CleverTap-Passcode\", \"<PASSCODE>\")\n  req.Header.Add(\"Content-Type\", \"application/json\")\n\n  res, err := client.Do(req)\n  defer res.Body.Close()\n  body, err := ioutil.ReadAll(res.Body)\n\n  fmt.Println(string(body))\n}",
-      "language": "go"
-    }
-  ]
+## Example Request
+```curl
+curl --location --request POST 'https://api.clevertap.com/1/featureflag/activate?experiencename=darkMode' \
+--header 'X-CleverTap-Account-Id: <ACCOUNT_ID>' \
+--header 'X-CleverTap-Passcode: <PASSCODE>' \
+--header 'Content-Type: application/json' \
+--data-raw ''
+```
+```ruby
+require "uri"
+require "net/http"
+
+url = URI("https://api.clevertap.com/1/featureflag/activate?experiencename=darkMode")
+
+https = Net::HTTP.new(url.host, url.port);
+https.use_ssl = true
+
+request = Net::HTTP::Post.new(url)
+request["X-CleverTap-Account-Id"] = "<ACCOUNT_ID>"
+request["X-CleverTap-Passcode"] = "<PASSCODE>"
+request["Content-Type"] = "application/json"
+
+response = https.request(request)
+puts response.read_body
+```
+```python
+import requests
+
+url = "https://api.clevertap.com/1/featureflag/activate?experiencename=darkMode"
+
+payload  = {}
+headers = {
+  'X-CleverTap-Account-Id': '<ACCOUNT_ID>',
+  'X-CleverTap-Passcode': '<PASSCODE>',
+  'Content-Type': 'application/json'
 }
-[/block]
+
+response = requests.request("POST", url, headers=headers, data = payload)
+
+print(response.text.encode('utf8'))
+```
+```php
+<?php
+require_once 'HTTP/Request2.php';
+$request = new HTTP_Request2();
+$request->setUrl('https://api.clevertap.com/1/featureflag/activate?experiencename=darkMode');
+$request->setMethod(HTTP_Request2::METHOD_POST);
+$request->setConfig(array(
+  'follow_redirects' => TRUE
+));
+$request->setHeader(array(
+  'X-CleverTap-Account-Id' => '<ACCOUNT_ID>',
+  'X-CleverTap-Passcode' => '<PASSCODE>',
+  'Content-Type' => 'application/json'
+));
+$request->setBody('');
+try {
+  $response = $request->send();
+  if ($response->getStatus() == 200) {
+    echo $response->getBody();
+  }
+  else {
+    echo 'Unexpected HTTP status: ' . $response->getStatus() . ' ' .
+    $response->getReasonPhrase();
+  }
+}
+catch(HTTP_Request2_Exception $e) {
+  echo 'Error: ' . $e->getMessage();
+}
+```
+```javascript Node.js
+var request = require('request');
+var options = {
+  'method': 'POST',
+  'url': 'https://api.clevertap.com/1/featureflag/activate?experiencename=darkMode',
+  'headers': {
+    'X-CleverTap-Account-Id': '<ACCOUNT_ID>',
+    'X-CleverTap-Passcode': '<PASSCODE>',
+    'Content-Type': 'application/json'
+  }
+};
+request(options, function (error, response) { 
+  if (error) throw new Error(error);
+  console.log(response.body);
+});
+```
+```go
+package main
+
+import (
+  "fmt"
+  "strings"
+  "net/http"
+  "io/ioutil"
+)
+
+func main() {
+
+  url := "https://api.clevertap.com/1/featureflag/activate?experiencename=darkMode"
+  method := "POST"
+
+  payload := strings.NewReader("")
+
+  client := &http.Client {
+  }
+  req, err := http.NewRequest(method, url, payload)
+
+  if err != nil {
+    fmt.Println(err)
+  }
+  req.Header.Add("X-CleverTap-Account-Id", "<ACCOUNT_ID>")
+  req.Header.Add("X-CleverTap-Passcode", "<PASSCODE>")
+  req.Header.Add("Content-Type", "application/json")
+
+  res, err := client.Do(req)
+  defer res.Body.Close()
+  body, err := ioutil.ReadAll(res.Body)
+
+  fmt.Println(string(body))
+}
+```
+
+
 ## Example Response
-[block:code]
-{
-  "codes": [
-    {
-      "code": "{\n    \"status\": \"success\"\n}",
-      "language": "json"
-    }
-  ]
-}
-[/block]
