@@ -11,179 +11,126 @@ next:
   description: ''
 ---
 # App Inbox
+
 The CleverTap React Native SDK allows you to create App Inbox notifications for your users. You can use the App Inbox provided by CleverTap or create your own. You can design App Inbox notifications right from the dashboard.
 
 ## JavaScript
-Initializing the Inbox provides a callback to two methods `onCleverTapInboxDidInitialize` and `onCleverTapInboxMessagesDidUpdate`.
-[block:code]
-{
-  "codes": [
-    {
-      "code": "CleverTap.initializeInbox()",
-      "language": "javascript",
-      "name": "JavaScript"
-    }
-  ]
-}
-[/block]
 
-[block:code]
-{
-  "codes": [
-    {
-      "code": "document.addEventListener('onCleverTapInboxDidInitialize', () => {\n            \nCleverTap.showInbox({'tabs': ['Offers', 'Promotions'],\n        'navBarTitle': 'My App Inbox',\n        'navBarTitleColor': '#FF0000',\n        'navBarColor': '#FFFFFF',\n        'inboxBackgroundColor': '#AED6F1',\n        'backButtonColor': '#00FF00',\n        'unselectedTabColor': '#0000FF',\n        'selectedTabColor': '#FF0000',\n        'selectedTabIndicatorColor': '#000000',\n        'noMessageText': 'No message(s)',\n        'noMessageTextColor': '#FF0000'})   \n        }\n    )",
-      "language": "javascript",
-      "name": "JavaScript"
-    }
-  ]
-}
-[/block]
+Initializing the Inbox provides a callback to two methods `onCleverTapInboxDidInitialize` and `onCleverTapInboxMessagesDidUpdate`.
+
+```javascript JavaScript
+CleverTap.initializeInbox()
+```
+
+```javascript JavaScript
+document.addEventListener('onCleverTapInboxDidInitialize', () => {
+            
+CleverTap.showInbox({'tabs': ['Offers', 'Promotions'],
+        'navBarTitle': 'My App Inbox',
+        'navBarTitleColor': '#FF0000',
+        'navBarColor': '#FFFFFF',
+        'inboxBackgroundColor': '#AED6F1',
+        'backButtonColor': '#00FF00',
+        'unselectedTabColor': '#0000FF',
+        'selectedTabColor': '#FF0000',
+        'selectedTabIndicatorColor': '#000000',
+        'noMessageText': 'No message(s)',
+        'noMessageTextColor': '#FF0000'})   
+        }
+    )
+```
+
 When a new inbox message arrives, the SDK provides the `inboxMessagesDidUpdate()` callback.
-[block:code]
-{
-  "codes": [
-    {
-      "code": "document.addEventListener('onCleverTapInboxMessagesDidUpdate', () => {\n            log(\"Inbox updated\")\n        }\n    )",
-      "language": "javascript",
-      "name": "JavaScript"
-    }
-  ]
-}
-[/block]
+
+```javascript JavaScript
+document.addEventListener('onCleverTapInboxMessagesDidUpdate', () => {
+            log("Inbox updated")
+        }
+    )
+```
+
 ### Creating your own App Inbox
+
 You can choose to create your own App Inbox by calling the following APIs:
 
 #### Initialize App Inbox
-[block:code]
-{
-  "codes": [
-    {
-      "code": "CleverTap.initializeInbox()",
-      "language": "javascript",
-      "name": "JavaScript"
-    }
-  ]
-}
-[/block]
+
+```javascript JavaScript
+CleverTap.initializeInbox()
+```
+
 #### Show App Inbox
-[block:code]
-{
-  "codes": [
-    {
-      "code": "CleverTap.showInbox({'tabs': ['Offers', 'Promotions'],\n        'navBarTitle': 'My App Inbox',\n        'navBarTitleColor': '#FF0000',\n        'navBarColor': '#FFFFFF',\n        'inboxBackgroundColor': '#AED6F1',\n        'backButtonColor': '#00FF00',\n        'unselectedTabColor': '#0000FF',\n        'selectedTabColor': '#FF0000',\n        'selectedTabIndicatorColor': '#000000',\n        'noMessageText': 'No message(s)',\n        'noMessageTextColor': '#FF0000'})   \n        }\n    )",
-      "language": "javascript",
-      "name": "JavaScript"
-    }
-  ]
-}
-[/block]
+
+```javascript JavaScript
+CleverTap.showInbox({'tabs': ['Offers', 'Promotions'],
+        'navBarTitle': 'My App Inbox',
+        'navBarTitleColor': '#FF0000',
+        'navBarColor': '#FFFFFF',
+        'inboxBackgroundColor': '#AED6F1',
+        'backButtonColor': '#00FF00',
+        'unselectedTabColor': '#0000FF',
+        'selectedTabColor': '#FF0000',
+        'selectedTabIndicatorColor': '#000000',
+        'noMessageText': 'No message(s)',
+        'noMessageTextColor': '#FF0000'})   
+        }
+    )
+```
+
 #### Get Total Inbox Message Count
-[block:code]
-{
-  "codes": [
-    {
-      "code": "CleverTap.getInboxMessageCount(val => log(\"Inbox read message count\" + val))",
-      "language": "javascript",
-      "name": "JavaScript"
-    }
-  ]
-}
-[/block]
+
+```javascript JavaScript
+CleverTap.getInboxMessageCount(val => log("Inbox read message count" + val))
+```
+
 #### Get Total Inbox Unread Count
-[block:code]
-{
-  "codes": [
-    {
-      "code": "CleverTap.getInboxMessageUnreadCount(val => log(\"Inbox unread message count\" + val))\n",
-      "language": "javascript",
-      "name": "JavaScript"
-    }
-  ]
-}
-[/block]
+
+```javascript JavaScript
+CleverTap.getInboxMessageUnreadCount(val => log("Inbox unread message count" + val))
+```
+
 #### Get All Inbox Messages
-[block:code]
-{
-  "codes": [
-    {
-      "code": "CleverTap.getAllInboxMessages(val => log(\"Inbox messages are \" + val))\n",
-      "language": "javascript",
-      "name": "JavaScript"
-    }
-  ]
-}
-[/block]
+
+```javascript JavaScript
+CleverTap.getAllInboxMessages(val => log("Inbox messages are " + val))
+```
+
 #### Get All Inbox Unread Messages
-[block:code]
-{
-  "codes": [
-    {
-      "code": "CleverTap.getUnreadInboxMessages(val => log(\"Unread Inbox messages are \" + val))",
-      "language": "javascript",
-      "name": "JavaScript"
-    }
-  ]
-}
-[/block]
+
+```javascript JavaScript
+CleverTap.getUnreadInboxMessages(val => log("Unread Inbox messages are " + val))
+```
+
 #### Get Inbox Message for the given message-id
-[block:code]
-{
-  "codes": [
-    {
-      "code": "CleverTap.getInboxMessageForId(\"1642753141_1642755745\", val => log(\"Inbox message is \" + JSON.stringify(val)))",
-      "language": "javascript",
-      "name": "JavaScript"
-    }
-  ]
-}
-[/block]
+
+```javascript JavaScript
+CleverTap.getInboxMessageForId("1642753141_1642755745", val => log("Inbox message is " + JSON.stringify(val)))
+```
+
 #### Delete Message for the given message-id
-[block:code]
-{
-  "codes": [
-    {
-      "code": "CleverTap.deleteInboxMessageForId(\"messageId\")",
-      "language": "javascript",
-      "name": "JavaScript"
-    }
-  ]
-}
-[/block]
+
+```javascript JavaScript
+CleverTap.deleteInboxMessageForId("messageId")
+```
+
 #### Mark Message as Read for the given message-id
-[block:code]
-{
-  "codes": [
-    {
-      "code": "CleverTap.markReadInboxMessageForId(\"messageId\")",
-      "language": "javascript",
-      "name": "JavaScript"
-    }
-  ]
-}
-[/block]
+
+```javascript JavaScript
+CleverTap.markReadInboxMessageForId("messageId")
+```
+
 #### Raise Notification Viewed event for Inbox Message
+
 Message-id must be a String.
-[block:code]
-{
-  "codes": [
-    {
-      "code": "CleverTap.pushInboxNotificationViewedEventForId(\"messageId\")",
-      "language": "javascript",
-      "name": "JavaScript"
-    }
-  ]
-}
-[/block]
+
+```javascript JavaScript
+CleverTap.pushInboxNotificationViewedEventForId("messageId")
+```
+
 #### Raise Notification Clicked event for Inbox Message
+
 Message-id must be a String.
-[block:code]
-{
-  "codes": [
-    {
-      "code": "CleverTap.pushInboxNotificationClickedEventForId(\"messageId\")",
-      "language": "javascript",
-      "name": "JavaScript"
-    }
-  ]
-}
-[/block]
+
+```javascript JavaScript
+CleverTap.pushInboxNotificationClickedEventForId("messageId")
+```
