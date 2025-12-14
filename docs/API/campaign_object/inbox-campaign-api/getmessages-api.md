@@ -5,12 +5,12 @@ excerpt: >-
   getMessagesAPI.
 deprecated: false
 hidden: true
+link:
+  new_tab: false
 metadata:
   title: ''
   description: ''
   robots: index
-next:
-  description: ''
 ---
 # Overview
 
@@ -34,170 +34,6 @@ POST
 
 The following headers are required when you use CleverTap APIs:
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 The `X-CleverTap-Account-Id` and `X-CleverTap-Passcode` authenticate the request.
 
 | Header                 | Description                                                 | Type   | Example Value                         |
@@ -211,390 +47,227 @@ The `X-CleverTap-Account-Id` and `X-CleverTap-Passcode` authenticate the request
 
 The following are the body parameters included in the JSON response payload:
 
-
 <Table align={["left","left","left","left"]}>
   <thead>
     <tr>
       <th>
         Parameter
       </th>
-
       <th>
         Description
       </th>
-
       <th>
         Type
       </th>
-
       <th>
         Example Value
       </th>
     </tr>
   </thead>
-
   <tbody>
     <tr>
       <td>
         status
       </td>
-
       <td>
         Indicates whether the request was successfully processed. This value is either set as success or fail.
       </td>
-
       <td>
         string
       </td>
-
       <td>
         fail
       </td>
     </tr>
-
     <tr>
       <td>
         totalAvailableMessages
       </td>
-
       <td>
         Indicates the number of messages present for the user in CleverTap Inbox.
       </td>
-
       <td>
         numeric
       </td>
-
       <td>
         5
       </td>
     </tr>
-
     <tr>
       <td>
         wzrk\_id
       </td>
-
       <td>
         Indicates the internal key to identify the campaign. The customer must retain this parameter to generate click events.
       </td>
-
       <td>
         string
       </td>
-
       <td>
         12345679\_20240130
       </td>
     </tr>
-
     <tr>
       <td>
         wzrk\_pivot
       </td>
-
       <td>
         Indicates the internal key to identify the campaign variants. The customer must retain this parameter to generate click events.
       </td>
-
       <td>
         string
       </td>
-
       <td>
         wzrk\_default\
         (when the default variant is rolled out to the user)
       </td>
     </tr>
-
     <tr>
       <td>
         messages
       </td>
-
       <td>
         Contains a list of messages for the user. Each message stores message-related data and the message content. If the user has no messages, the list is empty.
       </td>
-
       <td>
         array
       </td>
-
       <td>
-        \[\
-            \{\
-              "wzrk\_id": "1707198495\_20240206",\
-              "wzrk\_pivot": "wzrk\_default",\
-              "isRead": false,\
-              "messageId": 1,\
-              "createdAt": 1707198495,\
-              "msg": \{\
-                "type": "simple",\
-                "content": [  
-                  {  
-                    "key": 8716500285,  
-                    "message": {  
-                      "text": "Message",  
-                      "color": "#434761"  
-                    },  
-                    "title": {  
-                      "text": "Title",  
-                      "color": "#434761"  
-                    },  
-                    "icon": {}  
-                  }  
-                ],\
-                "bg": "#ffffff",\
-                "orientation": "l",\
-                "tags": [  
-                  "Test"  
-                ],\
-                "enableTags": true\
-              }\
-            }\
-          ]
+        Example array with message object containing wzrk\_id, wzrk\_pivot, isRead, messageId, createdAt, and msg fields
       </td>
     </tr>
-
     <tr>
       <td>
         createdAt
       </td>
-
       <td>
         Indicates the timestamp when the message was created for the user.
       </td>
-
       <td>
         timestamp
       </td>
-
       <td>
         1707198495
       </td>
     </tr>
-
     <tr>
       <td>
         isRead
       </td>
-
       <td>
         Indicates if the message is read.
       </td>
-
       <td>
         Boolean
       </td>
-
       <td>
         true
       </td>
     </tr>
-
     <tr>
       <td>
         messageId
       </td>
-
       <td>
         Uniquely identifies the message.
       </td>
-
       <td>
         numeric
       </td>
-
       <td>
         1
       </td>
     </tr>
-
     <tr>
       <td>
         msg
       </td>
-
       <td>
         Stores the message content along with the custom key-value pairs.
       </td>
-
       <td>
         string
       </td>
-
       <td>
-        "msg": \{\
-                "type": "simple",\
-                "content": \[\
-                  \{\
-                    "key": 8716500285,\
-                    "message": \{\
-                      "text": "Message",\
-                      "color": "#434761"\
-                    },\
-                    "title": \{\
-                      "text": "Title",\
-                      "color": "#434761"\
-                    },\
-                    "icon": \{}\
-                  }
+        Object containing type, content array, and other message properties
       </td>
     </tr>
-
     <tr>
       <td>
         type
       </td>
-
       <td>
         Indicates the type of message template selected under *WHAT* section of the Campaign dashboard.
       </td>
-
       <td>
         string
       </td>
-
       <td>
         carousel-image
       </td>
     </tr>
-
     <tr>
       <td>
         custom\_kv
       </td>
-
       <td>
         Stores the Custom KV pairs specified under the *WHAT* section of the campaign.
       </td>
-
       <td>
         object
       </td>
-
       <td>
-        \{\
-                  "android": [  
-                    {  
-                      "key": "all1",  
-                      "value": {  
-                        "text": "vall1"  
-                      }  
-                    },  
-                    {  
-                      "key": "android1",  
-                      "value": {  
-                        "text": "v4"  
-                      }  
-                    }  
-                  ],\
-                  "ios": [  
-                    {  
-                      "key": "all1",  
-                      "value": {  
-                        "text": "vall1"  
-                      }  
-                    },  
-                    {  
-                      "key": "ios1",  
-                      "value": {  
-                        "text": "v4"  
-                      }  
-                    }  
-                  ],\
-                  "web": \[\
-                    \{\
-                      "key": "all1",\
-                      "value": \{\
-                        "text": "vall1"\
-                      }\
-                    }
+        Object containing android, ios, and web platform-specific key-value pairs
       </td>
     </tr>
-
     <tr>
       <td>
         msg.content.message
       </td>
-
       <td>
         Stores the text specified in the message.
       </td>
-
       <td>
         object
       </td>
-
       <td>
-        "message": \{\
-                      "text": "Message1",\
-                      "color": "#434761"\
-                    },
+        Object with text and color properties
       </td>
     </tr>
-
     <tr>
       <td>
         msg.content.title
       </td>
-
       <td>
         Stores the text specified in the title.
       </td>
-
       <td>
         object
       </td>
-
       <td>
-        "title": \{\
-                      "text": "Title1",\
-                      "color": "#434761"\
-                    }
+        Object with text and color properties
       </td>
     </tr>
-
     <tr>
       <td>
         msg.content.action
       </td>
-
       <td>
-        Stores actions specified under the *WHAT* section of the campaign  
-
-        <li> url: Stores the following parts of the WHAT section: Call to Action Url for iOS, Android, and Web. </li> <li> links: </li> <li> media: Stores the media link.</li>Stores the additional links added at the bottom of the message for iOS, Android, and Web.</li>  
-          
-        <br />
+        Stores actions specified under the *WHAT* section of the campaign including URL, links, and media properties for iOS, Android, and Web platforms.
       </td>
-
       <td>
         string
       </td>
-
       <td>
-        "action": \{\
-                      "hasUrl": false,\
-                      "hasLinks": false,\
-                      "url": \{\
-                        "android": \{\
-                          "text": ""\
-                        },\
-                        "ios": \{\
-                          "text": ""\
-                        },\
-                        "web": \{\
-                          "text": ""\
-                        }\
-                      }
+        Object containing hasUrl, hasLinks, url, and links properties
       </td>
     </tr>
   </tbody>
 </Table>
+
 # Example Request
 
 Here is an example cURL request to the getMessages API showing the headers needed to authenticate the request from the account in the India region:
-
 
 ```curl
 curl --location --request POST 'https://in1.api.clevertap.com/1/inbox/getMessages' \
@@ -605,6 +278,7 @@ curl --location --request POST 'https://in1.api.clevertap.com/1/inbox/getMessage
   "userId": "test@stockx.com"
 }'
 ```
+
 ```ruby
 require "uri"
 require "json"
@@ -626,6 +300,7 @@ request.body = JSON.dump({
 response = http.request(request)
 puts response.read_body
 ```
+
 ```python
 import requests
 import json
@@ -647,6 +322,7 @@ response = requests.request("POST", url, headers=headers, data=payload)
 
 print(response.text)
 ```
+
 ```php
 <?php
 
@@ -678,6 +354,7 @@ $response = curl_exec($curl);
 curl_close($curl);
 echo $response;
 ```
+
 ```node
 var request = require('request');
 var options = {
@@ -701,78 +378,37 @@ request(options, function (error, response) {
 });
 ```
 
-
 # Example Response
 
-
-```json Simple Message Template
-{
-  "status": "success",
-  "totalAvailableMessages": 1,
-  "messages": [
+<Tabs>
+  <Tab title="Simple Message Template">
+    ```json
     {
-      "wzrk_id": "1707198495_20240206",
-      "wzrk_pivot": "wzrk_default",
-      "isRead": false,
-      "messageId": 1,
-      "createdAt": 1707198495,
-      "msg": {
-        "type": "simple",
-        "content": [
-          {
-            "key": 8716500285,
-            "message": {
-              "text": "Message",
-              "color": "#434761"
-            },
-            "title": {
-              "text": "Title",
-              "color": "#434761"
-            },
-            "action": {
-              "hasUrl": true,
-              "hasLinks": true,
-              "url": {
-                "android": {
-                  "text": "https://www.androidurl.com"
+      "status": "success",
+      "totalAvailableMessages": 1,
+      "messages": [
+        {
+          "wzrk_id": "1707198495_20240206",
+          "wzrk_pivot": "wzrk_default",
+          "isRead": false,
+          "messageId": 1,
+          "createdAt": 1707198495,
+          "msg": {
+            "type": "simple",
+            "content": [
+              {
+                "key": 8716500285,
+                "message": {
+                  "text": "Message",
+                  "color": "#434761"
                 },
-                "ios": {
-                  "text": "https://www.iosurl.com"
+                "title": {
+                  "text": "Title",
+                  "color": "#434761"
                 },
-                "web": {
-                  "text": "https://www.weburl.com"
-                }
-              },
-              "links": [
-                {
-                  "type": "copy",
-                  "text": "CopyToClipboard",
-                  "color": "#007bff",
-                  "bg": "#ffffff",
-                  "copyText": {
-                    "text": "Copy Text"
-                  },
-                  "url": {
-                    "android": {
-                      "text": ""
-                    },
-                    "ios": {
-                      "text": ""
-                    },
-                    "web": {
-                      "text": ""
-                    }
-                  },
-                  "kv": {}
-                },
-                {
-                  "type": "url",
-                  "text": "OpenUrl",
-                  "color": "#007bff",
-                  "bg": "#ffffff",
-                  "copyText": {
-                    "text": ""
-                  },
+                "action": {
+                  "hasUrl": true,
+                  "hasLinks": true,
                   "url": {
                     "android": {
                       "text": "https://www.androidurl.com"
@@ -784,145 +420,168 @@ request(options, function (error, response) {
                       "text": "https://www.weburl.com"
                     }
                   },
-                  "kv": {}
+                  "links": [
+                    {
+                      "type": "copy",
+                      "text": "CopyToClipboard",
+                      "color": "#007bff",
+                      "bg": "#ffffff",
+                      "copyText": {
+                        "text": "Copy Text"
+                      },
+                      "url": {
+                        "android": {
+                          "text": ""
+                        },
+                        "ios": {
+                          "text": ""
+                        },
+                        "web": {
+                          "text": ""
+                        }
+                      },
+                      "kv": {}
+                    },
+                    {
+                      "type": "url",
+                      "text": "OpenUrl",
+                      "color": "#007bff",
+                      "bg": "#ffffff",
+                      "copyText": {
+                        "text": ""
+                      },
+                      "url": {
+                        "android": {
+                          "text": "https://www.androidurl.com"
+                        },
+                        "ios": {
+                          "text": "https://www.iosurl.com"
+                        },
+                        "web": {
+                          "text": "https://www.weburl.com"
+                        }
+                      },
+                      "kv": {}
+                    },
+                    {
+                      "type": "kv",
+                      "text": "Custom KV",
+                      "color": "#007bff",
+                      "bg": "#ffffff",
+                      "copyText": {
+                        "text": ""
+                      },
+                      "url": {
+                        "android": {
+                          "text": ""
+                        },
+                        "ios": {
+                          "text": ""
+                        }
+                      },
+                      "kv": {
+                        "k1": "v1",
+                        "k2": "v2"
+                      }
+                    }
+                  ]
+                },
+                "media": {
+                  "url": "https://www.resorceurl.com",
+                  "poster": "",
+                  "key": "b20ea1c782944ee094b950248decffd5",
+                  "content_type": "image/jpeg",
+                  "filename": "",
+                  "processing": false
+                },
+                "icon": {}
+              }
+            ],
+            "bg": "#ffffff",
+            "orientation": "l",
+            "tags": [
+              "Test"
+            ],
+            "enableTags": true,
+            "custom_kv": {
+              "android": [
+                {
+                  "key": "all1",
+                  "value": {
+                    "text": "vall1"
+                  }
                 },
                 {
-                  "type": "kv",
-                  "text": "Custom KV",
-                  "color": "#007bff",
-                  "bg": "#ffffff",
-                  "copyText": {
-                    "text": ""
-                  },
-                  "url": {
-                    "android": {
-                      "text": ""
-                    },
-                    "ios": {
-                      "text": ""
-                    }
-                  },
-                  "kv": {
-                    "k1": "v1",
-                    "k2": "v2"
+                  "key": "android1",
+                  "value": {
+                    "text": "v4"
+                  }
+                }
+              ],
+              "ios": [
+                {
+                  "key": "all1",
+                  "value": {
+                    "text": "vall1"
+                  }
+                },
+                {
+                  "key": "ios1",
+                  "value": {
+                    "text": "v4"
+                  }
+                }
+              ],
+              "web": [
+                {
+                  "key": "all1",
+                  "value": {
+                    "text": "vall1"
+                  }
+                },
+                {
+                  "key": "web1",
+                  "value": {
+                    "text": "v4"
                   }
                 }
               ]
-            },
-            "media": {
-              "url": "https://www.resorceurl.com",
-              "poster": "",
-              "key": "b20ea1c782944ee094b950248decffd5",
-              "content_type": "image/jpeg",
-              "filename": "",
-              "processing": false
-            },
-            "icon": {}
+            }
           }
-        ],
-        "bg": "#ffffff",
-        "orientation": "l",
-        "tags": [
-          "Test"
-        ],
-        "enableTags": true,
-        "custom_kv": {
-          "android": [
-            {
-              "key": "all1",
-              "value": {
-                "text": "vall1"
-              }
-            },
-            {
-              "key": "android1",
-              "value": {
-                "text": "v4"
-              }
-            }
-          ],
-          "ios": [
-            {
-              "key": "all1",
-              "value": {
-                "text": "vall1"
-              }
-            },
-            {
-              "key": "ios1",
-              "value": {
-                "text": "v4"
-              }
-            }
-          ],
-          "web": [
-            {
-              "key": "all1",
-              "value": {
-                "text": "vall1"
-              }
-            },
-            {
-              "key": "web1",
-              "value": {
-                "text": "v4"
-              }
-            }
-          ]
         }
-      }
+      ]
     }
-  ]
-}
-```
-```json Message With Icon Template
-{
-  "status": "success",
-  "totalAvailableMessages": 1,
-  "messages": [
+    ```
+  </Tab>
+  <Tab title="Message With Icon Template">
+    ```json
     {
-      "wzrk_id": "1707198495_20240206",
-      "wzrk_pivot": "wzrk_default",
-      "isRead": false,
-      "messageId": 1,
-      "createdAt": 1707198495,
-      "msg": {
-        "bg": "#ffffff",
-        "type": "message-icon",
-        "content": [
-          {
-            "key": 247408732,
-            "message": {
-              "text": "Message",
-              "color": "#434761"
-            },
-            "title": {
-              "text": "Title",
-              "color": "#434761"
-            },
-            "action": {
-              "hasUrl": true,
-              "hasLinks": true,
-              "url": {
-                "android": {
-                  "text": "https://www.androidurl.com"
+      "status": "success",
+      "totalAvailableMessages": 1,
+      "messages": [
+        {
+          "wzrk_id": "1707198495_20240206",
+          "wzrk_pivot": "wzrk_default",
+          "isRead": false,
+          "messageId": 1,
+          "createdAt": 1707198495,
+          "msg": {
+            "bg": "#ffffff",
+            "type": "message-icon",
+            "content": [
+              {
+                "key": 247408732,
+                "message": {
+                  "text": "Message",
+                  "color": "#434761"
                 },
-                "ios": {
-                  "text": "https://www.iosurl.com"
+                "title": {
+                  "text": "Title",
+                  "color": "#434761"
                 },
-                "web": {
-                  "text": "https://www.weburl.com"
-                }
-              },
-              "links": [
-                {
-                  "type": "url",
-                  "text": "Open URL",
-                  "color": "#007bff",
-                  "bg": "#ffffff",
-                  "copyText": {
-                    "text": ""
-                  },
+                "action": {
+                  "hasUrl": true,
+                  "hasLinks": true,
                   "url": {
                     "android": {
                       "text": "https://www.androidurl.com"
@@ -934,360 +593,176 @@ request(options, function (error, response) {
                       "text": "https://www.weburl.com"
                     }
                   },
-                  "kv": {}
-                },
-                {
-                  "type": "kv",
-                  "text": "Custom KV",
-                  "color": "#007bff",
-                  "bg": "#ffffff",
-                  "copyText": {
-                    "text": ""
-                  },
-                  "url": {
-                    "android": {
-                      "text": ""
+                  "links": [
+                    {
+                      "type": "url",
+                      "text": "Open URL",
+                      "color": "#007bff",
+                      "bg": "#ffffff",
+                      "copyText": {
+                        "text": ""
+                      },
+                      "url": {
+                        "android": {
+                          "text": "https://www.androidurl.com"
+                        },
+                        "ios": {
+                          "text": "https://www.iosurl.com"
+                        },
+                        "web": {
+                          "text": "https://www.weburl.com"
+                        }
+                      },
+                      "kv": {}
                     },
-                    "ios": {
-                      "text": ""
+                    {
+                      "type": "kv",
+                      "text": "Custom KV",
+                      "color": "#007bff",
+                      "bg": "#ffffff",
+                      "copyText": {
+                        "text": ""
+                      },
+                      "url": {
+                        "android": {
+                          "text": ""
+                        },
+                        "ios": {
+                          "text": ""
+                        },
+                        "web": {
+                          "text": ""
+                        }
+                      },
+                      "kv": {
+                        "kv1": "v1",
+                        "k2": "v2"
+                      }
                     },
-                    "web": {
-                      "text": ""
+                    {
+                      "type": "copy",
+                      "text": "Copy To Clipboard",
+                      "color": "#007bff",
+                      "bg": "#ffffff",
+                      "copyText": {
+                        "text": "Text"
+                      },
+                      "url": {
+                        "android": {
+                          "text": ""
+                        },
+                        "ios": {
+                          "text": ""
+                        },
+                        "web": {
+                          "text": ""
+                        }
+                      },
+                      "kv": {}
                     }
-                  },
-                  "kv": {
-                    "kv1": "v1",
-                    "k2": "v2"
+                  ]
+                },
+                "media": {
+                  "url": "https://www.resourceurl.com",
+                  "poster": "",
+                  "key": "1373dd6ae2484564bde2a793962b36b6",
+                  "content_type": "image/jpeg",
+                  "filename": "",
+                  "processing": true
+                },
+                "icon": {
+                  "url": "https://www.resourceurl.com",
+                  "poster": "",
+                  "key": "032ff414eb3a4b039a9c82f96b49c27d",
+                  "content_type": "image/jpeg",
+                  "filename": "",
+                  "processing": false
+                }
+              }
+            ],
+            "custom_kv": {
+              "android": [
+                {
+                  "key": "all1",
+                  "value": {
+                    "text": "vall1"
                   }
                 },
                 {
-                  "type": "copy",
-                  "text": "Copy To Clipboard",
-                  "color": "#007bff",
-                  "bg": "#ffffff",
-                  "copyText": {
-                    "text": "Text"
-                  },
-                  "url": {
-                    "android": {
-                      "text": ""
-                    },
-                    "ios": {
-                      "text": ""
-                    },
-                    "web": {
-                      "text": ""
-                    }
-                  },
-                  "kv": {}
+                  "key": "android1",
+                  "value": {
+                    "text": "v4"
+                  }
                 }
-              ]
-            },
-            "media": {
-              "url": "https://www.resourceurl.com",
-              "poster": "",
-              "key": "1373dd6ae2484564bde2a793962b36b6",
-              "content_type": "image/jpeg",
-              "filename": "",
-              "processing": true
-            },
-            "icon": {
-              "url": "https://www.resourceurl.com",
-              "poster": "",
-              "key": "032ff414eb3a4b039a9c82f96b49c27d",
-              "content_type": "image/jpeg",
-              "filename": "",
-              "processing": false
-            }
-          }
-        ],
-        "custom_kv": {
-          "android": [
-            {
-              "key": "all1",
-              "value": {
-                "text": "vall1"
-              }
-            },
-            {
-              "key": "android1",
-              "value": {
-                "text": "v4"
-              }
-            }
-          ],
-          "ios": [
-            {
-              "key": "all1",
-              "value": {
-                "text": "vall1"
-              }
-            },
-            {
-              "key": "ios1",
-              "value": {
-                "text": "v4"
-              }
-            }
-          ],
-          "web": [
-            {
-              "key": "all1",
-              "value": {
-                "text": "vall1"
-              }
-            },
-            {
-              "key": "web1",
-              "value": {
-                "text": "v4"
-              }
-            }
-          ]
-        },
-        "enableTags": false,
-        "orientation": "l",
-        "tags": [
-          "Test"
-        ]
-      }
-    }
-  ]
-}
-```
-```json Carousel Message Template
-{
-  "status": "success",
-  "totalAvailableMessages": 1,
-  "messages": [
-    {
-      "wzrk_id": "1707198495_20240206",
-      "wzrk_pivot": "wzrk_default",
-      "isRead": false,
-      "messageId": 1,
-      "createdAt": 1707198495,
-      "msg": {
-        "type": "carousel",
-        "content": [
-          {
-            "key": 7841707692,
-            "message": {
-              "text": "Message1",
-              "color": "#434761"
-            },
-            "title": {
-              "text": "Title1",
-              "color": "#434761"
-            },
-            "action": {
-              "hasUrl": false,
-              "hasLinks": false,
-              "url": {
-                "android": {
-                  "text": ""
-                },
-                "ios": {
-                  "text": ""
-                },
-                "web": {
-                  "text": ""
-                }
-              },
-              "links": [
+              ],
+              "ios": [
                 {
-                  "type": "copy",
-                  "text": "Link",
-                  "color": "#007bff",
-                  "bg": "#ffffff",
-                  "copyText": {
-                    "text": ""
-                  },
-                  "url": {
-                    "android": {
-                      "text": ""
-                    },
-                    "ios": {
-                      "text": ""
-                    },
-                    "web": {
-                      "text": ""
-                    }
-                  },
-                  "kv": {}
-                }
-              ]
-            },
-            "media": {
-              "url": "https://www.resourceurl.com",
-              "poster": "",
-              "key": "53ac9ce4777c4d99b0ca0b44e750c4fe",
-              "content_type": "image/jpeg",
-              "filename": "",
-              "processing": false
-            },
-            "icon": {}
-          },
-          {
-            "key": 5779755833,
-            "message": {
-              "text": "Message2",
-              "color": "#434761"
-            },
-            "title": {
-              "text": "Title2",
-              "color": "#434761"
-            },
-            "action": {
-              "hasUrl": true,
-              "hasLinks": false,
-              "url": {
-                "android": {
-                  "text": "https://www.androidurl.com"
+                  "key": "all1",
+                  "value": {
+                    "text": "vall1"
+                  }
                 },
-                "ios": {
-                  "text": "https://www.iosurl.com"
-                },
-                "web": {
-                  "text": "https://www.weburl.com"
-                }
-              },
-              "links": [
                 {
-                  "type": "copy",
-                  "text": "Link",
-                  "color": "#007bff",
-                  "bg": "#ffffff",
-                  "copyText": {
-                    "text": ""
-                  },
-                  "url": {
-                    "android": {
-                      "text": ""
-                    },
-                    "ios": {
-                      "text": ""
-                    },
-                    "web": {
-                      "text": ""
-                    }
-                  },
-                  "kv": {}
+                  "key": "ios1",
+                  "value": {
+                    "text": "v4"
+                  }
+                }
+              ],
+              "web": [
+                {
+                  "key": "all1",
+                  "value": {
+                    "text": "vall1"
+                  }
+                },
+                {
+                  "key": "web1",
+                  "value": {
+                    "text": "v4"
+                  }
                 }
               ]
             },
-            "media": {
-              "url": "https://www.resourceurl.com",
-              "poster": "",
-              "key": "6c47ea18aa0545599eaa237cf883d185",
-              "content_type": "image/jpeg",
-              "filename": "",
-              "processing": false
-            },
-            "icon": {}
+            "enableTags": false,
+            "orientation": "l",
+            "tags": [
+              "Test"
+            ]
           }
-        ],
-        "bg": "#ffffff",
-        "orientation": "l",
-        "tags": [
-          "Test"
-        ],
-        "enableTags": true,
-        "custom_kv": {
-          "android": [
-            {
-              "key": "all1",
-              "value": {
-                "text": "vall1"
-              }
-            },
-            {
-              "key": "android1",
-              "value": {
-                "text": "v4"
-              }
-            }
-          ],
-          "ios": [
-            {
-              "key": "all1",
-              "value": {
-                "text": "vall1"
-              }
-            },
-            {
-              "key": "ios1",
-              "value": {
-                "text": "v4"
-              }
-            }
-          ],
-          "web": [
-            {
-              "key": "all1",
-              "value": {
-                "text": "vall1"
-              }
-            },
-            {
-              "key": "web1",
-              "value": {
-                "text": "v4"
-              }
-            }
-          ]
         }
-      }
+      ]
     }
-  ]
-}
-```
-```json Image Only Carousel Template
-{
-  "status": "success",
-  "totalAvailableMessages": 1,
-  "messages": [
+    ```
+  </Tab>
+  <Tab title="Carousel Message Template">
+    ```json
     {
-      "wzrk_id": "1707198495_20240206",
-      "wzrk_pivot": "wzrk_default",
-      "isRead": false,
-      "messageId": 1,
-      "createdAt": 1707198495,
-      "msg": {
-        "type": "carousel-image",
-        "content": [
-          {
-            "key": 1314265955,
-            "message": {
-              "text": "Message",
-              "color": "#434761"
-            },
-            "title": {
-              "text": "Title",
-              "color": "#434761"
-            },
-            "action": {
-              "hasUrl": true,
-              "hasLinks": false,
-              "url": {
-                "android": {
-                  "text": "https://www.androidurl.com"
+      "status": "success",
+      "totalAvailableMessages": 1,
+      "messages": [
+        {
+          "wzrk_id": "1707198495_20240206",
+          "wzrk_pivot": "wzrk_default",
+          "isRead": false,
+          "messageId": 1,
+          "createdAt": 1707198495,
+          "msg": {
+            "type": "carousel",
+            "content": [
+              {
+                "key": 7841707692,
+                "message": {
+                  "text": "Message1",
+                  "color": "#434761"
                 },
-                "ios": {
-                  "text": "https://www.iosurl.com"
+                "title": {
+                  "text": "Title1",
+                  "color": "#434761"
                 },
-                "web": {
-                  "text": "https://www.weburl.com"
-                }
-              },
-              "links": [
-                {
-                  "type": "copy",
-                  "text": "Link",
-                  "color": "#007bff",
-                  "bg": "#ffffff",
-                  "copyText": {
-                    "text": ""
-                  },
+                "action": {
+                  "hasUrl": false,
+                  "hasLinks": false,
                   "url": {
                     "android": {
                       "text": ""
@@ -1299,238 +774,345 @@ request(options, function (error, response) {
                       "text": ""
                     }
                   },
-                  "kv": {}
-                }
-              ]
-            },
-            "media": {
-              "url": "https://www.resourseurl.com",
-              "poster": "",
-              "key": "ca16928737744423912740dadd9f5370",
-              "content_type": "image/jpeg",
-              "filename": "",
-              "processing": false
-            },
-            "icon": {}
-          },
-          {
-            "key": 6785095013,
-            "message": {
-              "text": "Message",
-              "color": "#434761"
-            },
-            "title": {
-              "text": "Title",
-              "color": "#434761"
-            },
-            "action": {
-              "hasUrl": true,
-              "hasLinks": false,
-              "url": {
-                "android": {
-                  "text": "https://www.androidurl.com"
+                  "links": [
+                    {
+                      "type": "copy",
+                      "text": "Link",
+                      "color": "#007bff",
+                      "bg": "#ffffff",
+                      "copyText": {
+                        "text": ""
+                      },
+                      "url": {
+                        "android": {
+                          "text": ""
+                        },
+                        "ios": {
+                          "text": ""
+                        },
+                        "web": {
+                          "text": ""
+                        }
+                      },
+                      "kv": {}
+                    }
+                  ]
                 },
-                "ios": {
-                  "text": "https://www.iosurl.com"
+                "media": {
+                  "url": "https://www.resourceurl.com",
+                  "poster": "",
+                  "key": "53ac9ce4777c4d99b0ca0b44e750c4fe",
+                  "content_type": "image/jpeg",
+                  "filename": "",
+                  "processing": false
                 },
-                "web": {
-                  "text": "https://www.weburl.com"
-                }
+                "icon": {}
               },
-              "links": [
-                {
-                  "type": "copy",
-                  "text": "Link",
-                  "color": "#007bff",
-                  "bg": "#ffffff",
-                  "copyText": {
-                    "text": ""
-                  },
+              {
+                "key": 5779755833,
+                "message": {
+                  "text": "Message2",
+                  "color": "#434761"
+                },
+                "title": {
+                  "text": "Title2",
+                  "color": "#434761"
+                },
+                "action": {
+                  "hasUrl": true,
+                  "hasLinks": false,
                   "url": {
                     "android": {
-                      "text": ""
+                      "text": "https://www.androidurl.com"
                     },
                     "ios": {
-                      "text": ""
+                      "text": "https://www.iosurl.com"
                     },
                     "web": {
-                      "text": ""
+                      "text": "https://www.weburl.com"
                     }
                   },
-                  "kv": {}
+                  "links": [
+                    {
+                      "type": "copy",
+                      "text": "Link",
+                      "color": "#007bff",
+                      "bg": "#ffffff",
+                      "copyText": {
+                        "text": ""
+                      },
+                      "url": {
+                        "android": {
+                          "text": ""
+                        },
+                        "ios": {
+                          "text": ""
+                        },
+                        "web": {
+                          "text": ""
+                        }
+                      },
+                      "kv": {}
+                    }
+                  ]
+                },
+                "media": {
+                  "url": "https://www.resourceurl.com",
+                  "poster": "",
+                  "key": "6c47ea18aa0545599eaa237cf883d185",
+                  "content_type": "image/jpeg",
+                  "filename": "",
+                  "processing": false
+                },
+                "icon": {}
+              }
+            ],
+            "bg": "#ffffff",
+            "orientation": "l",
+            "tags": [
+              "Test"
+            ],
+            "enableTags": true,
+            "custom_kv": {
+              "android": [
+                {
+                  "key": "all1",
+                  "value": {
+                    "text": "vall1"
+                  }
+                },
+                {
+                  "key": "android1",
+                  "value": {
+                    "text": "v4"
+                  }
+                }
+              ],
+              "ios": [
+                {
+                  "key": "all1",
+                  "value": {
+                    "text": "vall1"
+                  }
+                },
+                {
+                  "key": "ios1",
+                  "value": {
+                    "text": "v4"
+                  }
+                }
+              ],
+              "web": [
+                {
+                  "key": "all1",
+                  "value": {
+                    "text": "vall1"
+                  }
+                },
+                {
+                  "key": "web1",
+                  "value": {
+                    "text": "v4"
+                  }
                 }
               ]
-            },
-            "media": {
-              "url": "https://www.resourseurl.com",
-              "poster": "",
-              "key": "aa1eb5301f5143f38f9b8ab8e8c31b29",
-              "content_type": "image/jpeg",
-              "filename": "",
-              "processing": true
-            },
-            "icon": {}
+            }
           }
-        ],
-        "bg": "#ffffff",
-        "orientation": "l",
-        "tags": [
-          "Test"
-        ],
-        "enableTags": true,
-        "custom_kv": {
-          "android": [
-            {
-              "key": "all1",
-              "value": {
-                "text": "vall1"
-              }
-            },
-            {
-              "key": "android1",
-              "value": {
-                "text": "v4"
-              }
-            }
-          ],
-          "ios": [
-            {
-              "key": "all1",
-              "value": {
-                "text": "vall1"
-              }
-            },
-            {
-              "key": "ios1",
-              "value": {
-                "text": "v4"
-              }
-            }
-          ],
-          "web": [
-            {
-              "key": "all1",
-              "value": {
-                "text": "vall1"
-              }
-            },
-            {
-              "key": "web1",
-              "value": {
-                "text": "v4"
-              }
-            }
-          ]
         }
-      }
+      ]
     }
-  ]
-}
-```
-
+    ```
+  </Tab>
+  <Tab title="Image Only Carousel Template">
+    ```json
+    {
+      "status": "success",
+      "totalAvailableMessages": 1,
+      "messages": [
+        {
+          "wzrk_id": "1707198495_20240206",
+          "wzrk_pivot": "wzrk_default",
+          "isRead": false,
+          "messageId": 1,
+          "createdAt": 1707198495,
+          "msg": {
+            "type": "carousel-image",
+            "content": [
+              {
+                "key": 1314265955,
+                "message": {
+                  "text": "Message",
+                  "color": "#434761"
+                },
+                "title": {
+                  "text": "Title",
+                  "color": "#434761"
+                },
+                "action": {
+                  "hasUrl": true,
+                  "hasLinks": false,
+                  "url": {
+                    "android": {
+                      "text": "https://www.androidurl.com"
+                    },
+                    "ios": {
+                      "text": "https://www.iosurl.com"
+                    },
+                    "web": {
+                      "text": "https://www.weburl.com"
+                    }
+                  },
+                  "links": [
+                    {
+                      "type": "copy",
+                      "text": "Link",
+                      "color": "#007bff",
+                      "bg": "#ffffff",
+                      "copyText": {
+                        "text": ""
+                      },
+                      "url": {
+                        "android": {
+                          "text": ""
+                        },
+                        "ios": {
+                          "text": ""
+                        },
+                        "web": {
+                          "text": ""
+                        }
+                      },
+                      "kv": {}
+                    }
+                  ]
+                },
+                "media": {
+                  "url": "https://www.resourseurl.com",
+                  "poster": "",
+                  "key": "ca16928737744423912740dadd9f5370",
+                  "content_type": "image/jpeg",
+                  "filename": "",
+                  "processing": false
+                },
+                "icon": {}
+              },
+              {
+                "key": 6785095013,
+                "message": {
+                  "text": "Message",
+                  "color": "#434761"
+                },
+                "title": {
+                  "text": "Title",
+                  "color": "#434761"
+                },
+                "action": {
+                  "hasUrl": true,
+                  "hasLinks": false,
+                  "url": {
+                    "android": {
+                      "text": "https://www.androidurl.com"
+                    },
+                    "ios": {
+                      "text": "https://www.iosurl.com"
+                    },
+                    "web": {
+                      "text": "https://www.weburl.com"
+                    }
+                  },
+                  "links": [
+                    {
+                      "type": "copy",
+                      "text": "Link",
+                      "color": "#007bff",
+                      "bg": "#ffffff",
+                      "copyText": {
+                        "text": ""
+                      },
+                      "url": {
+                        "android": {
+                          "text": ""
+                        },
+                        "ios": {
+                          "text": ""
+                        },
+                        "web": {
+                          "text": ""
+                        }
+                      },
+                      "kv": {}
+                    }
+                  ]
+                },
+                "media": {
+                  "url": "https://www.resourseurl.com",
+                  "poster": "",
+                  "key": "aa1eb5301f5143f38f9b8ab8e8c31b29",
+                  "content_type": "image/jpeg",
+                  "filename": "",
+                  "processing": true
+                },
+                "icon": {}
+              }
+            ],
+            "bg": "#ffffff",
+            "orientation": "l",
+            "tags": [
+              "Test"
+            ],
+            "enableTags": true,
+            "custom_kv": {
+              "android": [
+                {
+                  "key": "all1",
+                  "value": {
+                    "text": "vall1"
+                  }
+                },
+                {
+                  "key": "android1",
+                  "value": {
+                    "text": "v4"
+                  }
+                }
+              ],
+              "ios": [
+                {
+                  "key": "all1",
+                  "value": {
+                    "text": "vall1"
+                  }
+                },
+                {
+                  "key": "ios1",
+                  "value": {
+                    "text": "v4"
+                  }
+                }
+              ],
+              "web": [
+                {
+                  "key": "all1",
+                  "value": {
+                    "text": "vall1"
+                  }
+                },
+                {
+                  "key": "web1",
+                  "value": {
+                    "text": "v4"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+    ```
+  </Tab>
+</Tabs>
 
 If there is an error in fetching the messages, you receive the following response:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 For more information about different errors you might encounter, refer to [Inbox API Errors](doc:inbox-api-errors).
