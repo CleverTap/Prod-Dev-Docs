@@ -18,39 +18,24 @@ This document provides information about the API that helps import from outside 
 
 The following APIs serve a specific purpose in the template management lifecycle:
 
-- **[Create a Template](doc:email-templates-api#create-a-template)**: Import a new email template with metadata, HTML content, and sender details into CleverTap CMS.
-- **[Get Template](doc:email-templates-api#get-template)**: Retrieve templates (list or single) along with their details and HTML body for review or editing.
-- **[Update Template by ID](doc:email-templates-api#update-template-by-id)**: Modify an email template, including HTML content, metadata, or labels.
-- **[Delete Template](doc:email-templates-api#delete-template-api)**: Remove one or more email templates from CleverTap CMS.
+* **[Create a Template](doc:email-templates-api#create-a-template)**: Import a new email template with metadata, HTML content, and sender details into CleverTap CMS.
+* **[Get Template](doc:email-templates-api#get-template)**: Retrieve templates (list or single) along with their details and HTML body for review or editing.
+* **[Update Template by ID](doc:email-templates-api#update-template-by-id)**: Modify an email template, including HTML content, metadata, or labels.
+* **[Delete Template](doc:email-templates-api#delete-template-api)**: Remove one or more email templates from CleverTap CMS.
 
 # Create a Template
 
 The `email/templates/create` API  creates an email template on the CleverTap dashboard. When the request is made, it sends a payload with template HTML and other template properties.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/05827cb61e68401b28295a9b99eb7e8ba1df9fc972075f7efa51f6f96d21f95f-POST-removebg-preview.png",
-        "",
-        "Create an Email Template Using Template API"
-      ],
-      "align": "center",
-      "sizing": "85% ",
-      "border": true,
-      "caption": "Create Template API Request-Response Flow"
-    }
-  ]
-}
-[/block]
+<Image alt="Create an Email Template Using Template API" align="center" width="85%" border={true} src="https://files.readme.io/05827cb61e68401b28295a9b99eb7e8ba1df9fc972075f7efa51f6f96d21f95f-POST-removebg-preview.png" /> 
 
+Create Template API Request-Response Flow
 
 ## Base URL
 
 Here is an example base URL from the account in the India region:
 
-<https://in1.api.clevertap.com/v1/email/templates/create>
+[https://in1.api.clevertap.com/v1/email/templates/create](https://in1.api.clevertap.com/v1/email/templates/create)
 
 ### Region
 
@@ -67,91 +52,280 @@ For more information about API headers used while processing API requests, refer
 ## Body Parameters
 
 The following are the body parameters included in the JSON request payload:
+<Table align={["left","left","left","left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        **Parameter**
+      </th>
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "**Parameter**",
-    "h-1": "**Sub-Parameter**",
-    "h-2": "**Description**",
-    "h-3": "**Type**",
-    "h-4": "**Sample Value**",
-    "h-5": "**Required / Optional**",
-    "0-0": "`templateName`",
-    "0-1": "—",
-    "0-2": "Unique name that identifies the email template. Must be unique within the CleverTap account.",
-    "0-3": "String",
-    "0-4": "`template-name-01`",
-    "0-5": "Required",
-    "1-0": "`description`",
-    "1-1": "—",
-    "1-2": "A brief description of the template.",
-    "1-3": "String",
-    "1-4": "`description-01`",
-    "1-5": "Optional",
-    "2-0": "`templateData`",
-    "2-1": "",
-    "2-2": "Contains the HTML body, AMP subtype, and sender details of the template.",
-    "2-3": "Object",
-    "2-4": "—",
-    "2-5": "Required",
-    "3-0": "",
-    "3-1": "`subType`",
-    "3-2": "Specifies the email subtype, for example, `amp` for AMP emails.",
-    "3-3": "String",
-    "3-4": "`amp`",
-    "3-5": "Optional",
-    "4-0": "",
-    "4-1": "`body`",
-    "4-2": "The HTML content of the email template.",
-    "4-3": "String",
-    "4-4": "`<html>...</html>`",
-    "4-5": "Required",
-    "5-0": "",
-    "5-1": "`senderDetail`",
-    "5-2": "Object containing sender information: <ul><li>`fromName`: Name of the sender.</li><li>`fromEmail`: Sender’s email address.</li><li>`replyToName`: Display name for reply-to address.</li><li>`replyToEmail`: Reply-to email address.</li><li>`subject`: Email subject line.</li><li>`preheader`: Preheader text of the email.</li><li>`ccEmails`: Array of CC email addresses.</li><li>`bccEmails`: Array of BCC email addresses.</li><li>`annotationMeta`: Gmail annotation metadata in HTML format.</li></ul>",
-    "5-3": "Object",
-    "5-4": "See sample payload",
-    "5-5": "Optional",
-    "6-0": "`partner`",
-    "6-1": "—",
-    "6-2": "Partner identifier (name of the third-party tool importing the template).",
-    "6-3": "String",
-    "6-4": "`taxi-for-email`",
-    "6-5": "Optional (for partners only)",
-    "7-0": "`createdBy`",
-    "7-1": "—",
-    "7-2": "Email address of the template creator (partner user).",
-    "7-3": "String",
-    "7-4": "`email@email.com`",
-    "7-5": "Required",
-    "8-0": "`teamName`",
-    "8-1": "—",
-    "8-2": "Name of the team to which the template belongs. Team names are case-sensitive. Each template can belong to only one team.",
-    "8-3": "String",
-    "8-4": "Growth Marketing",
-    "8-5": "Required"
-  },
-  "cols": 6,
-  "rows": 9,
-  "align": [
-    "left",
-    "left",
-    "left",
-    "left",
-    "left",
-    "left"
-  ]
-}
-[/block]
+      <th>
+        **Sub-Parameter**
+      </th>
+
+      <th>
+        **Description**
+      </th>
+
+      <th>
+        **Type**
+      </th>
+
+      <th>
+        **Sample Value**
+      </th>
+
+      <th>
+        **Required / Optional**
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        `templateName`
+      </td>
+
+      <td>
+        —
+      </td>
+
+      <td>
+        Unique name that identifies the email template. Must be unique within the CleverTap account.
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        `template-name-01`
+      </td>
+
+      <td>
+        Required
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `description`
+      </td>
+
+      <td>
+        —
+      </td>
+
+      <td>
+        A brief description of the template.
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        `description-01`
+      </td>
+
+      <td>
+        Optional
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `templateData`
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+        Contains the HTML body, AMP subtype, and sender details of the template.
+      </td>
+
+      <td>
+        Object
+      </td>
+
+      <td>
+        —
+      </td>
+
+      <td>
+        Required
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+
+      </td>
+
+      <td>
+        `subType`
+      </td>
+
+      <td>
+        Specifies the email subtype, for example, `amp` for AMP emails.
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        `amp`
+      </td>
+
+      <td>
+        Optional
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+
+      </td>
+
+      <td>
+        `body`
+      </td>
+
+      <td>
+        The HTML content of the email template.
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        `<html>...</html>`
+      </td>
+
+      <td>
+        Required
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+
+      </td>
+
+      <td>
+        `senderDetail`
+      </td>
+
+      <td>
+        Object containing sender information: <ul><li>`fromName`: Name of the sender.</li><li>`fromEmail`: Sender’s email address.</li><li>`replyToName`: Display name for reply-to address.</li><li>`replyToEmail`: Reply-to email address.</li><li>`subject`: Email subject line.</li><li>`preheader`: Preheader text of the email.</li><li>`ccEmails`: Array of CC email addresses.</li><li>`bccEmails`: Array of BCC email addresses.</li><li>`annotationMeta`: Gmail annotation metadata in HTML format.</li></ul>
+      </td>
+
+      <td>
+        Object
+      </td>
+
+      <td>
+        See sample payload
+      </td>
+
+      <td>
+        Optional
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `partner`
+      </td>
+
+      <td>
+        —
+      </td>
+
+      <td>
+        Partner identifier (name of the third-party tool importing the template).
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        `taxi-for-email`
+      </td>
+
+      <td>
+        Optional (for partners only)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `createdBy`
+      </td>
+
+      <td>
+        —
+      </td>
+
+      <td>
+        Email address of the template creator (partner user).
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        `email@email.com`
+      </td>
+
+      <td>
+        Required
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `teamName`
+      </td>
+
+      <td>
+        —
+      </td>
+
+      <td>
+        Name of the team to which the template belongs. Team names are case-sensitive. Each template can belong to only one team.
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        Growth Marketing
+      </td>
+
+      <td>
+        Required
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 
 > 📘 Key Points to Remember
-> 
-> - The maximum supported HTML payload size is 1 MB. Email templates are typically lightweight since most content is text-based, while images or media assets are referenced via CDN URLs provided by the template editing tool.
-> - CleverTap supports Liquid syntax for personalizing message content within the `templateData.body` parameter. The properties are derived from the profile schema in the CleverTap account. For more information, refer to [Personalize Message](https://docs.clevertap.com/docs/personalize-message-all).
+>
+> * The maximum supported HTML payload size is 1 MB. Email templates are typically lightweight since most content is text-based, while images or media assets are referenced via CDN URLs provided by the template editing tool.
+> * CleverTap supports Liquid syntax for personalizing message content within the `templateData.body` parameter. The properties are derived from the profile schema in the CleverTap account. For more information, refer to [Personalize Message](https://docs.clevertap.com/docs/personalize-message-all).
 
 ## Example Request
+
 
 ```json Without Personalization
 {
@@ -208,58 +382,257 @@ The following are the body parameters included in the JSON request payload:
 }
 ```
 
+
 ## Example Response
 
-```json JSON
-{
-"templateId": 176050815737031,
-"Name": "Promotional Offer",
-"result": "Template with name Promotional Offer created",
-"status". "success"
-}
-```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Error Codes
 
 If there are errors, you will receive a response in the following format:
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Error Code",
-    "h-1": "Error Message",
-    "h-2": "Description",
-    "0-0": "400",
-    "0-1": "An unexpected error occurred while processing the template. Please try again.",
-    "0-2": "This error occurs when the payload is incorrect.",
-    "1-0": "400",
-    "1-1": "Please check if mandatory properties are present. (templateName/templateData  \n/body/templateId(update)/createdBy/updatedBy)",
-    "1-2": "An error occurs when mandatory properties mentioned in the message are missing from the payload.",
-    "2-0": "401",
-    "2-1": "Invalid Credentials.",
-    "2-2": "Check the Account Credentials",
-    "3-0": "429",
-    "3-1": "Too many requests.",
-    "3-2": "API Request limit exceeded"
-  },
-  "cols": 3,
-  "rows": 4,
-  "align": [
-    "left",
-    "left",
-    "left"
-  ]
-}
-[/block]
+<Table align={["left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Error Code
+      </th>
 
+      <th>
+        Error Message
+      </th>
+
+      <th>
+        Description
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        400
+      </td>
+
+      <td>
+        An unexpected error occurred while processing the template. Please try again.
+      </td>
+
+      <td>
+        This error occurs when the payload is incorrect.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        400
+      </td>
+
+      <td>
+        Please check if mandatory properties are present. (templateName/templateData\
+        /body/templateId(update)/createdBy/updatedBy)
+      </td>
+
+      <td>
+        An error occurs when mandatory properties mentioned in the message are missing from the payload.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        401
+      </td>
+
+      <td>
+        Invalid Credentials.
+      </td>
+
+      <td>
+        Check the Account Credentials
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        429
+      </td>
+
+      <td>
+        Too many requests.
+      </td>
+
+      <td>
+        API Request limit exceeded
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 # Get Template
 
-The Get Template API enables partners to efficiently manage and retrieve email templates stored in CleverTap CMS.  
+The Get Template API enables partners to efficiently manage and retrieve email templates stored in CleverTap CMS.\
 This API serves two primary use cases:
 
-- [Get a List of Templates](doc:email-templates-api#get-a-list-of-templates)
-- [Get a Specific Template](doc:email-templates-api#get-template-by-id)
+* [Get a List of Templates](doc:email-templates-api#get-a-list-of-templates)
+* [Get a Specific Template](doc:email-templates-api#get-template-by-id)
 
 You can either fetch a list of available templates (for browsing or filtering) or retrieve a specific template by the `templateId`.
 
@@ -273,7 +646,8 @@ When the request is made, it sends a payload with all the template properties.
 
 Here is an example base URL from the account in the India region:
 
-<https://in1.api.clevertap.com/v1/email/templates>
+
+[https://in1.api.clevertap.com/v1/email/templates](https://in1.api.clevertap.com/v1/email/templates)
 
 ### Region
 
@@ -289,62 +663,1189 @@ For more information about API headers used while processing API requests, refer
 
 ### Example Request
 
-```curl
-curl -X GET "https://in1.api.clevertap.com/v1/email/templates?pageNumber=1&pageSize=20" \
-  -H "X-CleverTap-Account-Id: <ACCOUNT-ID>" \
-  -H "X-CleverTap-Passcode: <ACCOUNT-PASSCODE>" \
-  -H "Content-Type: application/json"
-```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ### Example Response
 
-```json
-{
-  "templates": [
-    {
-      "templateId": 123,
-      "templateName": "Welcome Email",
-      "type": "HTML",
-      "path": "folder1/folder12/Promotion_Email1.html",
-      "teamId": [
-        101
-      ],
-      "labels": [
-        "label1",
-        "label2"
-      ],
-      "createdBy": "hello@email.com",
-      "createdAt": "2024-02-01T06:29:48.965Z",
-      "updatedBy": "hello@email.com",
-      "updatedAt": "2024-03-01T06:29:48.965Z"
-    },
-    {
-      "templateId": 124,
-      "templateName": "Promotion Email",
-      "type": "HTML",
-      "path": "folder1/folder11/Promotion_Email.html",
-      "teamId": [
-        203
-      ],
-      "labels": [
-        "label2",
-        "label3"
-      ],
-      "createdBy": "hello@email.com",
-      "createdAt": "2024-02-01T06:29:48.965Z",
-      "updatedBy": "hello@email.com",
-      "updatedAt": "2024-03-01T06:29:48.965Z"
-    }
-  ],
-  "total": 25,
-  "pageNumber": 1,
-  "pageSize": 20
-}
-```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ### Response Parameters
 
 The following are the response parameters returned for a template:
+
 
 | **Parameter**              | **Description**                                                                 | **Type**      | **Sample Value**                        |
 | -------------------------- | ------------------------------------------------------------------------------- | ------------- | --------------------------------------- |
@@ -364,17 +1865,153 @@ The following are the response parameters returned for a template:
 | `pageNumber`               | Current page number in the paginated response.                                  | Number        | `1`                                     |
 | `pageSize`                 | Number of records returned in the current page.                                 | Number        | `20`                                    |
 
+
 ### Error Codes
 
 If there are errors, you will receive a response in the following format:
 
-```json
-{
-  "status": "failure",
-  "code": 400,
-  "message": "Invalid request. One or more filter parameters are missing or malformed."
-}
-```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 The following are the possible error codes:
 
@@ -389,7 +2026,7 @@ The following are the possible error codes:
 
 ## Get Template by ID
 
-The Get Template by ID API retrieves the complete details of a specific email template stored in CleverTap CMS.  
+The Get Template by ID API retrieves the complete details of a specific email template stored in CleverTap CMS.\
 By passing the templateId in the request, this API returns all metadata and content fields associated with that template, including HTML, Sender Details, and Labels.
 
 This API is commonly used when a user needs to preview, edit, or reuse a previously created email template for new campaigns.
@@ -398,7 +2035,7 @@ This API is commonly used when a user needs to preview, edit, or reuse a previou
 
 Here is an example base URL from the account in the India region:
 
-[https://in1.api.clevertap.com/v1/email/templates/<templateID>](https://in1.api.clevertap.com/v1/email/templates/<templateID>)
+[https://in1.api.clevertap.com/v1/email/templates/&lt;templateID&gt;](https://in1.api.clevertap.com/v1/email/templates/\<templateID>)
 
 ### Region
 
@@ -421,59 +2058,956 @@ The following parameters must be passed to retrieve a specific email template:
 | `templateId`  | Unique identifier of the email template. | Number   | `123456789`      | **Required**            |
 
 ### Example Request
-
-```curl
-curl -X GET "https://in1.api.clevertap.com/v1/email/templates/123456789" \
-  -H "X-CleverTap-Account-Id: <ACCOUNT-ID>" \
-  -H "X-CleverTap-Passcode: <ACCOUNT-PASSCODE>" \
-  -H "Content-Type: application/json"
-
-```
-
 ### Example Response
 
-```json
-{
-  "templateId": 123456789,
-  "templateName": "string",
-  "type": "drag-and-drop",
-  "description": "description of template",
-  "path": "/folder1/folder11",
-  "teamId": [
-    101
-  ],
-  "templateData": {
-    "subType": "amp",
-    "body": "<body></body>",
-    "senderDetail": {
-      "fromName": "string",
-      "fromEmail": "string",
-      "replyToEmail": "string",
-      "subject": "string",
-      "preheader": "string",
-      "ccEmails": [
-        "string"
-      ],
-      "bccEmails": [
-        "string"
-      ],
-      "annotationMeta": "<div itemscope itemtype=\"http://schema.org/DiscountOffer\"><meta itemprop=\"description\" content=\"200OFF\"><meta itemprop=\"discountCode\" content=\"200OFF\"></div>"
-    }
-  },
-  "labels": [
-    "label1",
-    "label2"
-  ],
-  "createdAt": "2024-02-01T06:29:48.965Z",
-  "createdBy": "someemail@email.com",
-  "updatedAt": "2024-02-01T06:29:48.965Z",
-  "updatedBy": "someemail@email.com"
-}
-```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ### Response Parameters
 
 The following parameters are returned for the template:
+
 
 | Parameter    | Sub-Parameter | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Type   | Sample Value                                |
 | :----------- | :------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----- | :------------------------------------------ |
@@ -481,7 +3015,7 @@ The following parameters are returned for the template:
 | templateName |               | Indicates the template name                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | String | template-01                                 |
 | description  |               | Provides more information about the template you want to create                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | String | template-desc                               |
 | path         |               | Indicates the directory in CMS where the template is located.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | String | f1/f2                                       |
-| teamId       |               | Team ID that the template belongs to. Each Template can belong to only one team.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Number | [101]                                       |
+| teamId       |               | Team ID that the template belongs to. Each Template can belong to only one team.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Number | \[101]                                      |
 | templateData |               |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Object |                                             |
 |              | subType       | Specifies the email subtype, for example, `amp` for AMP emails.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | String | amp or blank                                |
 |              | body          | The HTML content of the email template.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | String | HTML                                        |
@@ -491,17 +3025,144 @@ The following parameters are returned for the template:
 | updatedBy    |               | Indicates the email address of the person who last updated the email template.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | String | [email2@email.com](mailto:email2@email.com) |
 | updatedAt    |               | Indicates the date and time when the email template was last updated in 8086 ISO format.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | String | 2024-02-01T06:29:48.965Z                    |
 
+
 ### Error Codes
 
 If there are errors, you will receive a response in the following format:
 
-```json
-{
-  "status": "failure",
-  "code": 400,
-  "message": "Invalid request. The provided templateId is missing or invalid."
-}
-```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 The following are the possible error codes:
 
@@ -524,7 +3185,8 @@ The payload must include the `templateId`  and `updatedBy` as a mandatory field 
 
 Here is an example base URL from the account in the India region:
 
-<https://in1.api.clevertap.com/v1/email/templates/update>
+
+[https://in1.api.clevertap.com/v1/email/templates/update](https://in1.api.clevertap.com/v1/email/templates/update)
 
 ### Region
 
@@ -542,6 +3204,7 @@ Refer to [Headers](doc:common-api-components#headers) for more details.
 
 Send only the fields you want to update. If updating content, the `templateData.body` parameter must be a JSON-escaped HTML string.
 
+
 | **Parameter**  | Sub-Parameter                 | **Description**                                                                       | **Type**        | **Sample Value**                                                      | **Required / Optional**            |          |
 | -------------- | :---------------------------- | ------------------------------------------------------------------------------------- | --------------- | --------------------------------------------------------------------- | ---------------------------------- | -------- |
 | `templateId`   |                               | Unique identifier of the template to update.                                          | Number          | `123456789`                                                           | **Required**                       |          |
@@ -558,73 +3221,1363 @@ Send only the fields you want to update. If updating content, the `templateData.
 |                | `senderDetail.replyToEmail`   | Reply-to email address.                                                               | String          | `support@clevertap.com`                                               | Optional                           |          |
 |                | `senderDetail.subject`        | Subject of the email.                                                                 | String          | `Your Spring Offers Are Here!`                                        | Optional                           |          |
 |                | `senderDetail.preheader`      | Preheader text of the email.                                                          | String          | `Exclusive savings inside`                                            | Optional                           |          |
-|                | `senderDetail.plainText`      | Plain-text version of the email.                                                      | String          | \`Hello {{ Profile.name                                               | default: "User" }}\`               | Optional |
+|                | `senderDetail.plainText`      | Plain-text version of the email.                                                      | String          | \`Hello \{\{ Profile.name                                             | default: "User" }}\`               | Optional |
 |                | `senderDetail.ccEmails`       | List of CC recipients.                                                                | Array of String | `["team@clevertap.com"]`                                              | Optional                           |          |
 |                | `senderDetail.bccEmails`      | List of BCC recipients.                                                               | Array of String | `["analytics@clevertap.com"]`                                         | Optional                           |          |
 |                | `senderDetail.annotationMeta` | Gmail annotation metadata in HTML format.                                             | String          | `<div itemscope itemtype="http://schema.org/DiscountOffer">...</div>` | Optional                           |          |
 | `partner`      |                               | Identifier for the partner tool updating the template.                                | String          | `taxi-for-email`                                                      | Optional                           |          |
 | `updatedBy`    |                               | Email address of the user performing the update.                                      | String          | `editor@partner.com`                                                  | **Required**                       |          |
 
+
 ## Example Request
 
-```curl
-curl -X POST "https://in1.api.clevertap.com/v1/email/templates/update" \
-  -H "X-CleverTap-Account-Id: <ACCOUNT-ID>" \
-  -H "X-CleverTap-Passcode: <ACCOUNT PASSCODE>" \
-  -H "Content-Type: application/json" \
-  -d '{
-  "templateName": "template-01",
-  "description": "description of template",
-  "templateData": {
-    "subType": "",
-    "body": "<html></html>",
-    "senderDetail": {
-      "fromName": "from-name",
-      "fromEmail": "from@email.com",
-      "replyToName": "reply-name",
-      "replyToEmail": "no-reply@email.com",
-      "subject": "Subject 101",
-      "preheader": "Learn about emails",
-      "ccEmails": [
-        "email1"
-      ],
-      "bccEmails": [
-        "email2"
-      ],
-      "annotationMeta": "<div itemscope itemtype=\"http://schema.org/DiscountOffer\"><meta itemprop=\"description\" content=\"200OFF\"><meta itemprop=\"discountCode\" content=\"200OFF\"></div>"
-    }
-  },
-  "labels": [
-    "label1",
-    "label2"
-  ],
-  "partner": "taxi-for-email",
-  "createdBy": "partneremail@email.com"
-  }'
-```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Example Response
 
-```json
-{
-    "templateId": 176050758737905,
-    "Name": "Promotional Offer",
-    "result": "Template with name Promotional Offer updated",
-    "status": "success"
-}
-```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Error Codes
 
 If there are errors, you will receive a response in the following format:
 
-```json
-{
-  "status": "failure",
-  "code": 400,
-  "message": "Invalid request. The provided templateId is missing or invalid."
-}
-```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 | **HTTP Status** | **Error Message**      | **Description**                                                                                                                             |
 | --------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -634,6 +4587,7 @@ If there are errors, you will receive a response in the following format:
 
 # Delete Template API
 
+
 The Delete Template API enables you to remove expired or obsolete email templates from CleverTap CMS. Once deleted, templates are permanently removed from the CMS section and the Saved Templates section in the Email Campaign on the CleverTap dashboard. If the template ID is unknown, users can first retrieve the list of available templates using the Get Template API, identify the correct template, and then use the ID to delete it.
 
 Campaigns or journeys that already use a deleted template remain unaffected.
@@ -642,7 +4596,7 @@ Campaigns or journeys that already use a deleted template remain unaffected.
 
 Here is an example base URL from the account in the India region:
 
-<https://in1.api.clevertap.com/v1/email/templates/delete>
+[https://in1.api.clevertap.com/v1/email/templates/delete](https://in1.api.clevertap.com/v1/email/templates/delete)
 
 ### Region
 
@@ -664,22 +4618,286 @@ Refer to [Headers](doc:common-api-components#headers) for more details.
 
 ## Example Request
 
-```curl
-curl -X POST "https://in1.api.clevertap.com/v1/email/templates/delete" \
-  -H "X-CleverTap-Account-Id: <ACCOUNT-ID>" \
-  -H "X-CleverTap-Passcode: <ACCOUNT-PASSCODE>" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "_id": [173885007188151, 173885007188152]
-  }'
 
-```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Example Response
-
-```json
-{
-  "message": "Template(s) deleted successfully.",
-  "status": "success"
-}
-```
