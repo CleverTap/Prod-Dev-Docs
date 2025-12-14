@@ -18,9 +18,9 @@ The Promo APIs suite provides the capability of wallets and coupons, offering ma
 
 The Promo APIs suite has two categories:
 
-- [Wallet APIs](doc:wallet-apis)
-- [Coupon APIs](doc:coupon-apis)
-- [Partner Vouchers API](doc:partner-vouchers-api) 
+* [Wallet APIs](doc:wallet-apis)
+* [Coupon APIs](doc:coupon-apis)
+* [Partner Vouchers API](doc:partner-vouchers-api) 
 
 You can find more information about each Promo API here to help implement efficient promotional capabilities. 
 
@@ -48,23 +48,23 @@ You can find more information about each Promo API here to help implement effici
 
 # General Guidelines for Wallet and Coupon APIs
 
-- **Authentication**: All Promo API requests must be authenticated using the Basic Authentication method with the following keys:
-  - **User**: API Key
-  - **Password**: Secret Key
-- **Primary Identifier**: The primary identifier varies based on the type of API. 
-  - **For Wallet APIs**:
-    - The [Wallet Details](doc:get-wallet-details) API uses `identity` as its primary identifier for wallet integration.
-    - The [Wallet Transactions](doc:get-wallet-transactions) and [Debit/Credit Wallet](doc:debitcredit-wallet) API utilize both `identity` and `walletId` as their primary identifiers for wallet integration.
-  - **For Coupon APIs**:
-    - In [Fetch Coupon](doc:fetch-coupon) if the `identity` parameter is provided, the API also returns user-specific coupons linked to the provided `identity` along with the general coupons. Without `identity`, only general coupons are retrieved.
-    - The [Validate Coupon](doc:validate-coupon) and [Redeem/Revert Coupon](doc:redeemrevert-coupon) APIs utilize both `identity` and `couponCode` as their primary identifiers for coupon-related operations.
-- **Response Format**: JSON
-- **Error Codes**:
-  - The standard error cases (e.g., 200 Success, 400 Client Error, or 500 Server Error) align with the existing CleverTap API behavior. To read more about the system API errors applicable across all CleverTap API requests, refer to [Generic API Codes](docs:api-errors#generic-api-codes). 
-  - For custom error codes for specific issues, such as invalid point values, expired coupons, or redemption limits, refer to the following: 
-    - [Wallet API Errors](doc:api-error-cases#wallet-api-errors)
-    - [Coupon API Errors](doc:api-error-cases#coupon-api-errors)
-    - [Partner Voucher API Errors](doc:api-error-cases#partner-voucher-api-errors)
+* **Authentication**: All Promo API requests must be authenticated using the Basic Authentication method with the following keys:
+  * **User**: API Key
+  * **Password**: Secret Key
+* **Primary Identifier**: The primary identifier varies based on the type of API. 
+  * **For Wallet APIs**:
+    * The [Wallet Details](doc:get-wallet-details) API uses `identity` as its primary identifier for wallet integration.
+    * The [Wallet Transactions](doc:get-wallet-transactions) and [Debit/Credit Wallet](doc:debitcredit-wallet) API utilize both `identity` and `walletId` as their primary identifiers for wallet integration.
+  * **For Coupon APIs**:
+    * In [Fetch Coupon](doc:fetch-coupon) if the `identity` parameter is provided, the API also returns user-specific coupons linked to the provided `identity` along with the general coupons. Without `identity`, only general coupons are retrieved.
+    * The [Validate Coupon](doc:validate-coupon) and [Redeem/Revert Coupon](doc:redeemrevert-coupon) APIs utilize both `identity` and `couponCode` as their primary identifiers for coupon-related operations.
+* **Response Format**: JSON
+* **Error Codes**:
+  * The standard error cases (e.g., 200 Success, 400 Client Error, or 500 Server Error) align with the existing CleverTap API behavior. To read more about the system API errors applicable across all CleverTap API requests, refer to [Generic API Codes](docs:api-errors#generic-api-codes). 
+  * For custom error codes for specific issues, such as invalid point values, expired coupons, or redemption limits, refer to the following: 
+    * [Wallet API Errors](doc:api-error-cases#wallet-api-errors)
+    * [Coupon API Errors](doc:api-error-cases#coupon-api-errors)
+    * [Partner Voucher API Errors](doc:api-error-cases#partner-voucher-api-errors)
 
 # Glossary Terms
 
