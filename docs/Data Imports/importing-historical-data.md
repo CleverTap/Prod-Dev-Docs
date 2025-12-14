@@ -24,7 +24,7 @@ Once user profiles have been uploaded into CleverTap, you can add events to thes
 
 # Key Points to Remember
 
-- Always upload a sample data set in your Test Account to ensure that data is consistent. After the information is accepted by your production account, you can never alter or delete it. Your test account, on the other hand, can be reset.
-- Begin by uploading user profiles, followed by uploading events related to those profiles.
-- While uploading events, start with uploading the oldest data first and progress to the recent data.
-- Data with a timestamp is available on the CleverTap Dashboard and can be imported based on the [Data Retention Policy (DRP)](https://docs.clevertap.com/docs/account-and-data-management#data-retention-policy).
+* Always upload a sample data set in your Test Account to ensure that data is consistent. After the information is accepted by your production account, you can never alter or delete it. Your test account, on the other hand, can be reset.
+* Begin by uploading user profiles, followed by uploading events related to those profiles.
+* While uploading events, start with uploading the oldest data first and progress to the recent data.
+* Data with a timestamp is available on the CleverTap Dashboard and can be imported based on the [Data Retention Policy (DRP)](https://docs.clevertap.com/docs/account-and-data-management#data-retention-policy).
