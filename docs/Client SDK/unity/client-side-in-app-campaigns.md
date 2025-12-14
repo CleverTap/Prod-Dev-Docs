@@ -16,9 +16,9 @@ The Client-side in-app triggering mechanic is designed to fetch in-app campaigns
 
 ## OnUserLogin
 
-An _App Launched_ event is recorded when a user logs in using the `OnUserLogin` method. This means that in-apps get automatically fetched for the logged-in user. For example, _User1_ is currently logged in on a device. _User2_ is logged in using OnUserLogin. User2's in-app campaigns get automatically fetched. The same happens if another user logs in or _User1_ logs in again.
+An *App Launched* event is recorded when a user logs in using the `OnUserLogin` method. This means that in-apps get automatically fetched for the logged-in user. For example, *User1* is currently logged in on a device. *User2* is logged in using OnUserLogin. User2's in-app campaigns get automatically fetched. The same happens if another user logs in or *User1* logs in again.
 
-Note that this does not happen on the first login to the app. A user profile is automatically created for every user launching your mobile application. Initially, the user profile starts as _Anonymous_. It indicates that it does not have identifiable information about the user. When users log in using the`OnUserLogin` for the first time, they become identified (non-anonymous). Since this is practically the same user, in-apps are not re-fetched mid-session.
+Note that this does not happen on the first login to the app. A user profile is automatically created for every user launching your mobile application. Initially, the user profile starts as *Anonymous*. It indicates that it does not have identifiable information about the user. When users log in using the`OnUserLogin` for the first time, they become identified (non-anonymous). Since this is practically the same user, in-apps are not re-fetched mid-session.
 
 ## Session Reset
 
@@ -28,11 +28,11 @@ In-app campaigns are automatically fetched once the session expires and a new se
 
 Most use cases can be best handled with the automatic fetching on App Launched.  However, in certain cases, you must update which campaigns a user should receive mid-session. Examples of such use cases include:
 
-- when a user performs a critical event in the app (Event change)
-  - the user completes a game
-  - the user performs their first purchase
-- when a user profile is updated, resulting in user experience change (Profile Property change)
-  - the user upgrades from a silver member to a gold member
+* when a user performs a critical event in the app (Event change)
+  * the user completes a game
+  * the user performs their first purchase
+* when a user profile is updated, resulting in user experience change (Profile Property change)
+  * the user upgrades from a silver member to a gold member
 
 In these cases, you can fetch in-apps from CleverTap mid-session by calling the `CleverTap.fetchInApps` method. This method returns the latest in-apps the user is eligible for.
 
