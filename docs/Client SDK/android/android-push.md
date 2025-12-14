@@ -45,25 +45,25 @@ next:
 
 CleverTap allows you to send push notifications to your applications from our dashboard. The following are the two ways to implement push notifications on an Android device: 
 
-- Default CleverTap Implementation - This is the easiest way to implement push notifications. For more information, refer to [Adding CleverTap's listener service](https://developer.clevertap.com/docs/android-push#section-add-clever-taps-fcm-message-listener-service).
+* Default CleverTap Implementation - This is the easiest way to implement push notifications. For more information, refer to [Adding CleverTap's listener service](https://developer.clevertap.com/docs/android-push#section-add-clever-taps-fcm-message-listener-service).
 
-- Custom Android Push - Use it only if you already have your implementation or use another push provider. For more information, refer to [Custom Android Push Notifications Handling](https://developer.clevertap.com/docs/android-push#custom-android-push-notification-handling).
+* Custom Android Push - Use it only if you already have your implementation or use another push provider. For more information, refer to [Custom Android Push Notifications Handling](https://developer.clevertap.com/docs/android-push#custom-android-push-notification-handling).
 
 # Configure Push Notifications
 
 The following are the steps to configure push notifications for your Android app:
 
 1. [Find FCM Credentials](doc:android-push#find-fcm-credentials).
-2. [Set Up FCM Credentials](doc:android-push#set-up-push-notifications-credentials).  
-   OR  
+2. [Set Up FCM Credentials](doc:android-push#set-up-push-notifications-credentials).\
+   OR\
    [Safeguard Admin Credentials and Upload Credentials File to CleverTap](doc:android-push#safeguard-admin-credentials).
 
 > 📘 FCM Update: Migrate to HTTP v1 API
-> 
+>
 > Firebase will deprecate its legacy APIs starting June 20, 2023, and discontinue them from June 2024. To avoid disruptions in push notifications, you must migrate to the new HTTP v1 API by June 20, 2024. Failure to do so may result in all push notifications not being delivered to users and result in errors instead.
-> 
+>
 > For detailed migration steps, refer to  [Configure Push Notifications](doc:android-push#configure-push-notifications). CleverTap has already completed this migration to ensure uninterrupted service.
-> 
+>
 > To ensure uninterrupted delivery of the push notifications, you must [migrate to the latest FCM APIs](https://firebase.google.com/docs/cloud-messaging/migrate-v1).
 
 ## Find FCM Credentials
@@ -72,26 +72,12 @@ Firebase Cloud Messaging is a service that allows you to send notifications to y
 
 To find the FCM credentials:
 
-1. Log in to the [Firebase Developer Console](https://console.firebase.google.com/) and go to Open _Settings_ > _Service Accounts_.
+1. Log in to the [Firebase Developer Console](https://console.firebase.google.com/) and go to Open *Settings* > *Service Accounts*.
 2. To obtain the FCM Credential File, click **Generate new private key**.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/c15f649-image.png",
-        null,
-        "Generate New Private Key"
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Generate New Private Key"
-    }
-  ]
-}
-[/block]
-
+<Image alt="Generate New Private Key" align="center" border={true} src="https://files.readme.io/c15f649-image.png">
+  Generate New Private Key
+</Image>
 
 3. Confirm your action by clicking **Generate Key**.
 
@@ -99,48 +85,18 @@ To find the FCM credentials:
 
 To ensure your campaigns are delivered, you must set up FCM Credentials on the CleverTap dashboard:
 
-1. Log in to the CleverTap dashboard and go to _Settings_ > _Channels_ > _Mobile Push_.
-2. Click the _FCM credentials_ section and click **Upload FCM Credential File**, as shown in the following image:
+1. Log in to the CleverTap dashboard and go to *Settings* > *Channels* > *Mobile Push*.
+2. Click the *FCM credentials* section and click **Upload FCM Credential File**, as shown in the following image:
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/bc384f2-Upload_FCM_Credential_File_to_CleverTap.png",
-        "",
-        "Upload FCM Credential File"
-      ],
-      "align": "center",
-      "sizing": "85% ",
-      "border": true,
-      "caption": "Upload FCM Credential File"
-    }
-  ]
-}
-[/block]
-
+<Image alt="Upload FCM Credential File" align="center" width="85% " border={true} src="https://files.readme.io/bc384f2-Upload_FCM_Credential_File_to_CleverTap.png">
+  Upload FCM Credential File
+</Image>
 
 3. Click **Save**.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/42a202a-FCM_Credential_File_Uploaded_Succesfully.png",
-        null,
-        "Push Notifications Credentials"
-      ],
-      "align": "center",
-      "sizing": "85% ",
-      "border": true,
-      "caption": "FCM Credentials Saved to CleverTap Dashboard"
-    }
-  ]
-}
-[/block]
-
+<Image alt="Push Notifications Credentials" align="center" width="85% " border={true} src="https://files.readme.io/42a202a-FCM_Credential_File_Uploaded_Succesfully.png">
+  FCM Credentials Saved to CleverTap Dashboard
+</Image>
 
 4. Send a [personalized Push campaign](https://docs.clevertap.com/docs/personalize-messages-push) to internal users to verify if the configuration is successful.
 
@@ -148,107 +104,47 @@ To ensure your campaigns are delivered, you must set up FCM Credentials on the C
 
 If your privacy policy requires safeguarding your admin credentials shared in the JSON file with CleverTap, follow the steps listed below:
 
-1. Open your Firebase project and go to the _Service accounts_ tab.
-2. Click the _service accounts_ list, as shown in the following figure:
+1. Open your Firebase project and go to the *Service accounts* tab.
+2. Click the *service accounts* list, as shown in the following figure:
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/ec87236-Click_Service_Accounts.png",
-        "",
-        "Click Service Accounts List"
-      ],
-      "align": "center",
-      "sizing": "90% ",
-      "border": true,
-      "caption": "Click Service Accounts List"
-    }
-  ]
-}
-[/block]
+<Image alt="Click Service Accounts List" align="center" width="90% " border={true} src="https://files.readme.io/ec87236-Click_Service_Accounts.png">
+  Click Service Accounts List
+</Image>
 
+3. Select your project from the *Service Accounts* page and click **+ CREATE SERVICE ACCOUNT**.
 
-3. Select your project from the _Service Accounts_ page and click **+ CREATE SERVICE ACCOUNT**.
+<Image alt="Create Service Account " align="center" width="90% " border={true} src="https://files.readme.io/10ec3dd-Create_a_Service_Account.png">
+  Create Service Account 
+</Image>
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/10ec3dd-Create_a_Service_Account.png",
-        "",
-        "Create Service Account "
-      ],
-      "align": "center",
-      "sizing": "90% ",
-      "border": true,
-      "caption": "Create Service Account "
-    }
-  ]
-}
-[/block]
+4. Add the Service account name and Grant *Firebase Cloud Messaging API Admin* role to the service account and click **Done**, as shown in the following figure:
 
-
-4. Add the Service account name and Grant _Firebase Cloud Messaging API Admin_ role to the service account and click **Done**, as shown in the following figure:
-
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/9cf29b3-Assign_Role_to_Service_Account.png",
-        "",
-        "Assign Role to Service Account"
-      ],
-      "align": "center",
-      "sizing": "90% ",
-      "border": true,
-      "caption": "Assign Role to Service Account"
-    }
-  ]
-}
-[/block]
-
+<Image alt="Assign Role to Service Account" align="center" width="90% " border={true} src="https://files.readme.io/9cf29b3-Assign_Role_to_Service_Account.png">
+  Assign Role to Service Account
+</Image>
 
 5. Download your Credentials File:
-   1. Navigate to the _Keys_ tab from your service account and click **ADD KEY**.
-   2. Select the Key type as _JSON_ and click **Create**. The credentials file is downloaded.
+   1. Navigate to the *Keys* tab from your service account and click **ADD KEY**.
+   2. Select the Key type as *JSON* and click **Create**. The credentials file is downloaded.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/eb0435d-Download_credentials_file_and_upload_to_CleverTap_dashboard.png",
-        null,
-        "Download Credential File"
-      ],
-      "align": "center",
-      "sizing": "90% ",
-      "border": true,
-      "caption": "Download Credential File"
-    }
-  ]
-}
-[/block]
-
+<Image alt="Download Credential File" align="center" width="90% " border={true} src="https://files.readme.io/eb0435d-Download_credentials_file_and_upload_to_CleverTap_dashboard.png">
+  Download Credential File
+</Image>
 
 6. Use these credentials on a test account. Once you have validated it, you can use the same process for live account key generation and [upload it to the CleverTap dashboard](doc:android-push#set-up-fcm-credentials-on-clevertap).
 
 > 📘 Prerequisite
-> 
+>
 > To enable Firebase Cloud Messaging API, do the following:
-> 
+>
 > 1. Go to [console.cloud.google.com](http://console.cloud.google.com/) and click **API & Services**.
-> 
-> [block:image]{"images":[{"image":["https://files.readme.io/b4d5fd4-image.png",null,""],"align":"center","border":true}]}[/block]
-> 
+>
+> <Image align="center" className="border" border={true} src="https://files.readme.io/b4d5fd4-image.png" />
+>
 > 2. Click **Cloud Messaging API** link from the left menu.
 > 3. Click **ENABLE** if it is not already enabled.
-> 
-> [block:image]{"images":[{"image":["https://files.readme.io/ca7a60d-image.png",null,""],"align":"center","border":true}]}[/block]
+>
+> <Image align="center" className="border" border={true} src="https://files.readme.io/ca7a60d-image.png" />
 
 # HTTP v1 API Rate Limits
 
@@ -261,48 +157,37 @@ To verify the API Limits for your account:
 1. Navigate to the Firebase Cloud Messaging API Management menu:
 
    1. Go to [console.cloud.google.com](http://console.cloud.google.com/) and select your project from the dropdown if not already selected.
-   2. Search and select _Firebase Cloud Messaging API_.
+   2. Search and select *Firebase Cloud Messaging API*.
    3. Click **Manage**.
 
    <br />
 
-   [block:image]{"images":[{"image":["https://files.readme.io/6c74eaa-Naviagte_Firebase_Cloud_Messaging_API_Management_menu.png","","Navigate to Firebase Cloud Messaging API Management Menu"],"align":"center","sizing":"90% ","border":true,"caption":"Navigate to Firebase Cloud Messaging API Management Menu"}]}[/block]
+   <Image alt="Navigate to Firebase Cloud Messaging API Management Menu" align="center" width="90% " border={true} src="https://files.readme.io/6c74eaa-Naviagte_Firebase_Cloud_Messaging_API_Management_menu.png">
+     Navigate to Firebase Cloud Messaging API Management Menu
+   </Image>
 2. Find your Send Requests per Minute Quota:
 
-   1. Navigate to the _Quotas and System Limits_ tab. 
-   2. Check your _Send Requests per Minute_ Quota, as shown in the following image:
+   1. Navigate to the *Quotas and System Limits* tab. 
+   2. Check your *Send Requests per Minute* Quota, as shown in the following image:
 
-   [block:image]{"images":[{"image":["https://files.readme.io/28c4d22-Find_your_Send_Requests_per_Minute_Quota.png","","Find Send Requests per Minute Quota For Your Account"],"align":"center","sizing":"90% ","border":true,"caption":"Find Send Requests per Minute Quota For Your Account"}]}[/block]
+   <Image alt="Find Send Requests per Minute Quota For Your Account" align="center" width="90% " border={true} src="https://files.readme.io/28c4d22-Find_your_Send_Requests_per_Minute_Quota.png">
+     Find Send Requests per Minute Quota For Your Account
+   </Image>
 
 ## API Rate Limit Exceeded
 
-Consider an example where your account is granted a quota of 1000 requests per minute, and your target segment consists of 5000 users. FCM expects the throttle rate to adhere strictly to this limit. Failure to comply with this throttle rate may result in push notifications not being delivered to users and instead resulting in errors. It also triggers a non-compliance email from the FCM support team. However, CleverTap attempts to resend the request up to three times before marking it as a failed delivery and raises the _FCM Rate limit exceeded_ error.
+Consider an example where your account is granted a quota of 1000 requests per minute, and your target segment consists of 5000 users. FCM expects the throttle rate to adhere strictly to this limit. Failure to comply with this throttle rate may result in push notifications not being delivered to users and instead resulting in errors. It also triggers a non-compliance email from the FCM support team. However, CleverTap attempts to resend the request up to three times before marking it as a failed delivery and raises the *FCM Rate limit exceeded* error.
 
-To optimize this, you can use CleverTap's throttle feature under the Campaign Limits section to help you stay within your allocated quota. This limit is set globally and can be configured by navigating to  _Settings_ > _Setup_ >  _Campaign Limits_ and modifying the throttle limit.
+To optimize this, you can use CleverTap's throttle feature under the Campaign Limits section to help you stay within your allocated quota. This limit is set globally and can be configured by navigating to  *Settings* > *Setup* >  *Campaign Limits* and modifying the throttle limit.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/d804aa6-Set_Up_Throttle_Limit.png",
-        "",
-        "Set Up Throttle Limit"
-      ],
-      "align": "center",
-      "sizing": "90% ",
-      "border": true,
-      "caption": "Set Up Throttle Limit"
-    }
-  ]
-}
-[/block]
-
+<Image alt="Set Up Throttle Limit" align="center" width="90% " border={true} src="https://files.readme.io/d804aa6-Set_Up_Throttle_Limit.png">
+  Set Up Throttle Limit
+</Image>
 
 If you encounter any issues, refer to the [frequently asked questions](doc:android-push#faqs)  section.
 
 > 🚧 Campaign Throttle Limit
-> 
+>
 > The FCM quota limit applies only to Android push notifications. However, CleverTap's campaign throttle limit applies at the campaign level. If there are multiple campaigns or if you want to deliver notifications to both Android and iOS devices, or use other FCM services, the campaign throttle limit must be set below the FCM quota limit to ensure efficient delivery.
 
 # Add CleverTap's FcmMessageListenerService
@@ -322,14 +207,14 @@ android:exported="true">
 For CleverTap SDK v3.4.3 and above, the CleverTap SDK supports specifying a custom FCM Sender ID. The SDK will request a token with the specified FCM Sender ID if it is present in the `AndroidManifest.xml`. If the FCM Sender ID is not available in the `AndroidManifest.xml` file, the SDK will request the token in the default manner, which uses the app's `google-services.json` file. To use a custom FCM Sender ID, add the following field in your app's `AndroidManifest.xml`:
 
 > ❗️ Custom FCM Sender ID Feature Discontinued
-> 
+>
 > The Custom FCM Sender ID feature has been discontinued in the versions of the CleverTap Android SDK after v4.3.1. CleverTap Android SDK only fetches the FCM token from the `google-services.json` file.
 
 Opening a notification using CleverTap’s implementation launches your app. If you send a deeplink, the link will be opened.
 
 # Custom Android Push Notification Handling
 
-**Step 1. Using Your Custom Implementation**  
+**Step 1. Using Your Custom Implementation**\
 If you have your custom implementation for managing Android push notifications, you can inform CleverTap about the user’s FCM registration ID.
 
 Follow the instructions below if you are using FCM.
@@ -343,7 +228,7 @@ val fcmRegId = FirebaseInstanceId.getInstance().token
 clevertapDefaultInstance?.pushFcmRegistrationId(fcmRegId, true)
 ```
 
-**Step 2: Using Multiple Android Push Notification Providers**  
+**Step 2: Using Multiple Android Push Notification Providers**\
 CleverTap plays well with other Android push notification providers. You can configure your app to work with multiple push notification providers.
 
 If you are using FCM, please follow these instructions:
@@ -427,11 +312,11 @@ class MyFcmMessageListenerService : FirebaseMessagingService() {
 ```
 
 > 📘 Note
-> 
+>
 > From CleverTap Android SDK v5.1.0 onwards, the following API now runs on the caller's thread.  Ensure to call it in `onMessageReceive()` of messaging service:
-> 
-> - `CTFcmMessageHandler().createNotification(getApplicationContext(), message)`
-> - `CleverTapAPI.createNotification(getApplicationContext(),extras);`
+>
+> * `CTFcmMessageHandler().createNotification(getApplicationContext(), message)`
+> * `CleverTapAPI.createNotification(getApplicationContext(),extras);`
 
 2. Add your service to the `AndroidManifest.xml` in place of the CleverTap `FcmMessageListenerService`.
 
@@ -461,139 +346,267 @@ class MyFcmMessageListenerService : FirebaseMessagingService() {
 
 Here is the structure of the payload with a CleverTap FCM push notification. 
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Key",
-    "h-1": "Type",
-    "h-2": "Description",
-    "0-0": "wzrk_pn",
-    "0-1": "N/A",
-    "0-2": "If present, this notification is sent from CleverTap.",
-    "1-0": "wzrk_id",
-    "1-1": "string",
-    "1-2": "Open rate tracking ID (can be empty or it might not be present).",
-    "2-0": "wzrk_bp",
-    "2-1": "string",
-    "2-2": "If present, the value will be the URL of an image that needs to be displayed in the notification.",
-    "3-0": "wzrk_sound",
-    "3-1": "boolean or string",
-    "3-2": "If present, it signifies that the default or custom Android notification sound must be played.",
-    "4-0": "nt",
-    "4-1": "string",
-    "4-2": "Notification Title, if absent or empty, falls back to the app name.",
-    "5-0": "nm",
-    "5-1": "string",
-    "5-2": "Notification Body, if absent or empty, ignore this notification.",
-    "6-0": "wzrk_dl",
-    "6-1": "string",
-    "6-2": "If present, this is a deeplink that must be followed at the time of notification open.",
-    "7-0": "wzrk_d",
-    "7-1": "N/A",
-    "7-2": "If present, ignore this notification.",
-    "8-0": "ico",
-    "8-1": "string",
-    "8-2": "If present and not empty, it contains the URL of an image that must be used as the small notification icon.",
-    "9-0": "wzrk_pivot",
-    "9-1": "string",
-    "9-2": "If present and not empty, it signifies the type of variant in A/B campaigns.",
-    "10-0": "wzrk_rnv",
-    "10-1": "string",
-    "10-2": "If present and not empty, it will raise the Push Impressions event.",
-    "11-0": "wzrk_nms",
-    "11-1": "string",
-    "11-2": "If present and not empty, it contains the summary text to be displayed along with the image.",
-    "12-0": "wzrk_st",
-    "12-1": "string",
-    "12-2": "If present and not empty, it contains the subtitle text, which is displayed next to the App name.",
-    "13-0": "wzrk_clr",
-    "13-1": "string",
-    "13-2": "If present and not empty, it contains the Hex value of the color to be applied on the small icon (and app name for Android versions below Pie)",
-    "14-0": "wzrk_bpds",
-    "14-1": "string",
-    "14-2": "If present and not empty, indicate the image rendering status in the push notification. Its values indicate the following statuses:  \n-`NO_IMAGE`: The push payload does not include an image.  \n-`SUCCESS`: The push payload contains an image that was downloaded successfully.  \n-`NO_NETWORK`: The push payload includes an image, but the user's device does not have network connectivity.  \n-`DOWNLOAD_FAILED`: The push payload contains an image that could not be downloaded due to an external error."
-  },
-  "cols": 3,
-  "rows": 15,
-  "align": [
-    "left",
-    "left",
-    "left"
-  ]
-}
-[/block]
+<Table align={["left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Key
+      </th>
 
+      <th>
+        Type
+      </th>
 
-If the field nm is empty, ignore the notification. CleverTap sends out a dummy notification with the nm field empty to test for app uninstalls. In addition to the above, attach all keys starting with _wzrk_ to your notification extras (For example, `wzrk_id` is used to track notification opens).
+      <th>
+        Description
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        wzrk\_pn
+      </td>
+
+      <td>
+        N/A
+      </td>
+
+      <td>
+        If present, this notification is sent from CleverTap.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        wzrk\_id
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        Open rate tracking ID (can be empty or it might not be present).
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        wzrk\_bp
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        If present, the value will be the URL of an image that needs to be displayed in the notification.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        wzrk\_sound
+      </td>
+
+      <td>
+        boolean or string
+      </td>
+
+      <td>
+        If present, it signifies that the default or custom Android notification sound must be played.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        nt
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        Notification Title, if absent or empty, falls back to the app name.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        nm
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        Notification Body, if absent or empty, ignore this notification.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        wzrk\_dl
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        If present, this is a deeplink that must be followed at the time of notification open.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        wzrk\_d
+      </td>
+
+      <td>
+        N/A
+      </td>
+
+      <td>
+        If present, ignore this notification.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        ico
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        If present and not empty, it contains the URL of an image that must be used as the small notification icon.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        wzrk\_pivot
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        If present and not empty, it signifies the type of variant in A/B campaigns.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        wzrk\_rnv
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        If present and not empty, it will raise the Push Impressions event.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        wzrk\_nms
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        If present and not empty, it contains the summary text to be displayed along with the image.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        wzrk\_st
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        If present and not empty, it contains the subtitle text, which is displayed next to the App name.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        wzrk\_clr
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        If present and not empty, it contains the Hex value of the color to be applied on the small icon (and app name for Android versions below Pie)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        wzrk\_bpds
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        If present and not empty, indicate the image rendering status in the push notification. Its values indicate the following statuses:\
+        -`NO_IMAGE`: The push payload does not include an image.\
+        -`SUCCESS`: The push payload contains an image that was downloaded successfully.\
+        -`NO_NETWORK`: The push payload includes an image, but the user's device does not have network connectivity.\
+        -`DOWNLOAD_FAILED`: The push payload contains an image that could not be downloaded due to an external error.
+      </td>
+    </tr>
+  </tbody>
+</Table>
+
+If the field nm is empty, ignore the notification. CleverTap sends out a dummy notification with the nm field empty to test for app uninstalls. In addition to the above, attach all keys starting with *wzrk* to your notification extras (For example, `wzrk_id` is used to track notification opens).
 
 # Set the Small Notification Icon
 
 The small icon is a notification bar icon displayed in the push notifications, as shown in the image below:
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/fd3de03-Campaigns_Push_Small_Icon.png",
-        "Set the Small Notification Icon",
-        1080
-      ],
-      "align": "center",
-      "sizing": "40% ",
-      "border": true,
-      "caption": "Set the Small Notification Icon"
-    }
-  ]
-}
-[/block]
-
+<Image title="Set the Small Notification Icon" alt={1080} align="center" width="40% " border={true} src="https://files.readme.io/fd3de03-Campaigns_Push_Small_Icon.png">
+  Set the Small Notification Icon
+</Image>
 
 With the release of Android 5 (Lollipop), the notification icons are rendered differently in the notification bar at the top. By default, our SDK uses the app's icon for both the notification icon and the notification bar icon; however, since Android 5, all non-alpha channels are ignored while drawing the main notification icon. For more information, refer to [Android Notification Guide](https://developer.android.com/design/ui/mobile/guides/home-screen/notifications) in the Android documentation.
 
-The small icon must be an _alpha only_ image, which means it must have only one color and be transparent for the rest. The _alpha only_ icon image combines the colored and transparent regions. 
+The small icon must be an *alpha only* image, which means it must have only one color and be transparent for the rest. The *alpha only* icon image combines the colored and transparent regions. 
 
 In general, the logo displayed on the icon has a single color, and the background is transparent. The alpha channel provides the ability to embed transparency within an image. This can be accomplished with tools such as Adobe Photoshop, Illustrator, and so on. You can also change the colored region of the small icon from the CleverTap dashboard. 
 
 The CleverTap SDK fills the transparent section of the small icon with the selected color:
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/87250b9-13.png",
-        "Set Small App Icon Color",
-        2736
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Set Small App Icon Color"
-    }
-  ]
-}
-[/block]
-
+<Image title="Set Small App Icon Color" alt={2736} align="center" border={true} src="https://files.readme.io/87250b9-13.png">
+  Set Small App Icon Color
+</Image>
 
 Following is a small icon sample:
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/4b90e04-Burger_icon.png",
-        "Example of a Small Icon",
-        "Example of a Small Icon"
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Example of a Small Icon"
-    }
-  ]
-}
-[/block]
-
+<Image title="Example of a Small Icon" alt="Example of a Small Icon" align="center" border={true} src="https://files.readme.io/4b90e04-Burger_icon.png">
+  Example of a Small Icon
+</Image>
 
 After creating an icon with the alpha channel, you can use it for your project in Android Studio. Save the icon file in the Drawable folder of your project. 
 
@@ -606,11 +619,11 @@ To set a custom notification icon (only for the small icon), add the following m
 ```
 
 > ❗️ Warning
-> 
-> Use only the file name. Do not use the path such as _@drawable/ic_stat_red_star _.
+>
+> Use only the file name. Do not use the path such as *@drawable/ic\_stat\_red\_star* .
 
 > 📘 Device and Android Limitation
-> 
+>
 > Push notification icons may be displayed in black and white on OnePlus, Oppo, and Realme devices due to support limitations of these device manufacturers for Android 12 and 13 versions.
 
 # Push Notification Callback
@@ -647,26 +660,12 @@ override fun onNotificationClickedPayloadReceived(payload: HashMap<String, Any>?
 
 You can raise and record push notifications delivered to your users’ Android devices. 
 
-1. Navigate to _Settings_ > _Schema_ > _Events_.
-2. Search for _Push Impressions_, then click on the vertical ellipsis.
+1. Navigate to *Settings* > *Schema* > *Events*.
+2. Search for *Push Impressions*, then click on the vertical ellipsis.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/ebf8ae7-Push_Impression_event_FAQ.png",
-        "Push Impressions",
-        "Push Impressions"
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Push Impressions"
-    }
-  ]
-}
-[/block]
-
+<Image title="Push Impressions" alt="Push Impressions" align="center" border={true} src="https://files.readme.io/ebf8ae7-Push_Impression_event_FAQ.png">
+  Push Impressions
+</Image>
 
 3. Click on **Setup push impressions**. A new window displays.
 4. Click on **Save** to enable the option.
@@ -693,7 +692,7 @@ To allow your app to use CleverTap's Pull Notification via background ping servi
 ```
 
 > 🚧 Custom Handling
-> 
+>
 > Additional integration is required if the app is rendering push notifications and not the CleverTap SDK. For more information, see [custom handling of pull notification](https://developer.clevertap.com/docs/android-push#custom-handling-of-pull-notification).
 
 ## Custom Handling of Pull Notification
@@ -780,8 +779,8 @@ If Firebase is not explicitly initialized in each process where it is accessed, 
 
 For more information, refer to the following resources:
 
-- [Firebase Initialize on Android](https://firebase.blog/posts/2016/12/how-does-firebase-initialize-on-android)
-- [Challenges of Building a Multi-Process Android App](https://medium.com/@elvischidera/challenges-of-building-a-multi-process-android-app-38fe4464da15)
+* [Firebase Initialize on Android](https://firebase.blog/posts/2016/12/how-does-firebase-initialize-on-android)
+* [Challenges of Building a Multi-Process Android App](https://medium.com/@elvischidera/challenges-of-building-a-multi-process-android-app-38fe4464da15)
 
 ### What are the steps to migrate from the Legacy API to the FCM v1 APIs?
 
@@ -793,26 +792,11 @@ Each Firebase project using the HTTP v1 APIs is strictly limited to a specific n
 
 ### How do I resolve the "Wrong FCM API Key" error?
 
-Ensure that you create a new Service Account from the correct Firebase project on the Firebase Console and assign it the _Firebase Cloud Messaging API Admin_ role, not the _Firebase Cloud Messaging Admin_ role. For more information, refer to [Safeguard Admin Credentials](doc:android-push#safeguard-admin-credentials).
+Ensure that you create a new Service Account from the correct Firebase project on the Firebase Console and assign it the *Firebase Cloud Messaging API Admin* role, not the *Firebase Cloud Messaging Admin* role. For more information, refer to [Safeguard Admin Credentials](doc:android-push#safeguard-admin-credentials).
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/0ae33f5-Assign_Role_to_Service_Account.png",
-        "",
-        "Firebase Cloud Messaging API Admin"
-      ],
-      "align": "center",
-      "sizing": "85% ",
-      "border": true,
-      "caption": "Firebase Cloud Messaging API Admin"
-    }
-  ]
-}
-[/block]
-
+<Image alt="Firebase Cloud Messaging API Admin" align="center" width="85% " border={true} src="https://files.readme.io/0ae33f5-Assign_Role_to_Service_Account.png">
+  Firebase Cloud Messaging API Admin
+</Image>
 
 ### Do we need to update the CleverTap SDK to migrate to HTTP v1 API?
 
