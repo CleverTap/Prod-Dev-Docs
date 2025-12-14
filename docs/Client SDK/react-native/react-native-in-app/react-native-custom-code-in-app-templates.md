@@ -16,22 +16,22 @@ next:
 
 With CleverTap React Native SDK 3.1.0 and above, the CleverTap platform supports **Custom Code In-App message presentations**, enabling developers to utilize In-App notifications with tailored configurations and presentation logic. The SDK provides the following two types of customizable components:
 
-- **Templates**
-- **Functions**
+* **Templates**
+* **Functions**
 
 ## Key Differences Between Templates and Functions
 
-- **Templates** can include action arguments, whereas **Functions** cannot.
-- **Functions** can be used as actions; **Templates** cannot.  
+* **Templates** can include action arguments, whereas **Functions** cannot.
+* **Functions** can be used as actions; **Templates** cannot.\
   Functions can be set as either Visual or Non-Visual in the Builder. 
-  - **Visual Functions** can contain UI logic and will be part of the [In-App queue](https://developer.clevertap.com/docs/react-native-custom-code-in-app-templates#in-app-queue). 
-  - **Non-Visual Functions** are triggered directly when invoked without UI logic.
+  * **Visual Functions** can contain UI logic and will be part of the [In-App queue](https://developer.clevertap.com/docs/react-native-custom-code-in-app-templates#in-app-queue). 
+  * **Non-Visual Functions** are triggered directly when invoked without UI logic.
 
 ## Creating Templates and Functions
 
 Templates and Functions are defined in JSON files placed in the appropriate directories. Each template includes a name, type, and set of arguments. Functions additionally specify whether they are visual or non-visual.
 
-The template builders validate the definitions and raise a `CustomTemplateException`if the template is invalid.  
+The template builders validate the definitions and raise a `CustomTemplateException`if the template is invalid.\
 It is generally advised not to handle these exceptions but to fix the definitions instead.
 
 ### JSON Structure for Templates and Functions
@@ -75,8 +75,8 @@ It is generally advised not to handle these exceptions but to fix the definition
 
 The JSON definitions should be placed in one or more files in the following locations:
 
-- **Android**: In `assets` directory
-- **iOS**: In any directory linked to the project
+* **Android**: In `assets` directory
+* **iOS**: In any directory linked to the project
 
 Optionally the `react-native-assets` package can be utilized to keep both files in sync.
 
@@ -84,10 +84,10 @@ Optionally the `react-native-assets` package can be utilized to keep both files 
 
 Arguments are structures that represent the configuration of custom code templates. It consists of a type and a value. The supported argument types are:
 
-- **Primitives**: Boolean, Number, String (with default values).
-- **Object**:  An object where keys are argument names and values are arguments with supported primitive values.
-- **File**: A file that will be downloaded when the template is triggered.
-- **Action**: A built-in action (such as, close, open URL) or a function.
+* **Primitives**: Boolean, Number, String (with default values).
+* **Object**:  An object where keys are argument names and values are arguments with supported primitive values.
+* **File**: A file that will be downloaded when the template is triggered.
+* **Action**: A built-in action (such as, close, open URL) or a function.
 
 ### Hierarchical Arguments
 
@@ -180,7 +180,7 @@ Custom templates must be registered within the native applications.
 
 Register templates in the `Application.onCreate` method using `CleverTapCustomTemplates.registerCustomTemplates`.
 
-- If you are extending `CleverTapApplication`, add the following line before calling `super.onCreate()`:
+* If you are extending `CleverTapApplication`, add the following line before calling `super.onCreate()`:
 
 ```java
 public class MainApplication extends CleverTapApplication {
@@ -192,7 +192,7 @@ public class MainApplication extends CleverTapApplication {
 }
 ```
 
-- If you are not extending `CleverTapApplication`, add the line before calling `CleverTapRnAPI.initReactNativeIntegration(this)`:
+* If you are not extending `CleverTapApplication`, add the line before calling `CleverTapRnAPI.initReactNativeIntegration(this)`:
 
 ```java
 public class MainApplication extends Application {
@@ -223,18 +223,18 @@ Register custom templates by calling `[CleverTapReactCustomTemplates registerCus
 
 ## Sync In-App Templates to Dashboard
 
-The templates must be synced to the CleverTap dashboard to use in campaigns.  
+The templates must be synced to the CleverTap dashboard to use in campaigns.\
 Use the following methods for syncing:
 
-- **Debug Builds**: Call `CleverTap.syncCustomTemplates()` or `CleverTap.syncCustomTemplatesInProd()` when the SDK user is marked as a test user.
-- **Release Builds**: Remove the sync method to prevent unintended changes.
+* **Debug Builds**: Call `CleverTap.syncCustomTemplates()` or `CleverTap.syncCustomTemplatesInProd()` when the SDK user is marked as a test user.
+* **Release Builds**: Remove the sync method to prevent unintended changes.
 
 ## Presenting Custom Templates
 
 When a custom template is triggered, the following events are raised:  
 
-- **`CleverTap.CleverTapCustomTemplatePresent`**  
-- **`CleverTap.CleverTapCustomFunctionPresent`**  
+* **`CleverTap.CleverTapCustomTemplatePresent`**  
+* **`CleverTap.CleverTapCustomFunctionPresent`**  
 
 Applications using custom templates or functions must subscribe to these events using `CleverTap.addListener`. The event data will include the template's name.  
 
@@ -242,20 +242,20 @@ Applications using custom templates or functions must subscribe to these events 
 
 Once the event handler is invoked, the template is considered "active" until `CleverTap.customTemplateSetDismissed(templateName)` is called. While a template is "active," the following functions can be used:  
 
-1. **Obtain Argument Values**  
+1. **Obtain Argument Values**\
    Use `customTemplateGet*Arg(templateName: string, argName: string)` to retrieve argument values.  
 
-2. **Trigger Actions**  
+2. **Trigger Actions**\
    Execute actions by their name with `CleverTap.customTemplateRunAction(templateName: string, argName: string)`.  
 
 3. **Set Template State**  
-   - `CleverTap.customTemplateSetPresented(templateName: string)`: Indicates the template is displayed to the user.  
-   - `CleverTap.customTemplateSetDismissed(templateName: string)`: Indicates the template is no longer displayed.  
+   * `CleverTap.customTemplateSetPresented(templateName: string)`: Indicates the template is displayed to the user.  
+   * `CleverTap.customTemplateSetDismissed(templateName: string)`: Indicates the template is no longer displayed.  
 
 ### Display Rules
 
-- Only **one visual template** or **In-App message** can be displayed simultaneously.  
-- New messages are blocked until the current one is dismissed.  
+* Only **one visual template** or **In-App message** can be displayed simultaneously.  
+* New messages are blocked until the current one is dismissed.  
 
 ### Handling Template Closure
 
@@ -297,5 +297,5 @@ File arguments are downloaded automatically when the template is triggered. If a
 
 **File downloading occurs**
 
-- **Client-Side Templates**: During app launch or just before template presentation.
-- **Server-Side Templates**: Immediately before template presentation.
+* **Client-Side Templates**: During app launch or just before template presentation.
+* **Server-Side Templates**: Immediately before template presentation.
