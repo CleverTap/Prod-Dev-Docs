@@ -28,21 +28,21 @@ During development, we recommend that you set the SDK to DEBUG mode, in order to
 
 Debug level can be one of the following:
 
-- `-1`: Disables all debugging. You can set the `debugLevel` to -1 if you want to disable CleverTap logs for the production environment.
-- `0` : Default, shows minimal SDK integration related logging.
-- `2` : Shows debug output.
-- `3` : Shows verbose output.
+* `-1`: Disables all debugging. You can set the `debugLevel` to -1 if you want to disable CleverTap logs for the production environment.
+* `0` : Default, shows minimal SDK integration related logging.
+* `2` : Shows debug output.
+* `3` : Shows verbose output.
 
 ```javascript Dart
 CleverTapPlugin.setDebugLevel(debugLevel);
 ```
 
 > 🚧 Note
-> 
+>
 > To get the SDK logs in the killed state, add platform-specific debugging. 
-> 
-> - For Android platform, refer to [Android Debugging](doc:android-advanced-features#debugging).
-> - For iOS platform, refer to [iOS Debugging](doc:advanced-options-ios#debugging).
+>
+> * For Android platform, refer to [Android Debugging](doc:android-advanced-features#debugging).
+> * For iOS platform, refer to [iOS Debugging](doc:advanced-options-ios#debugging).
 
 ## Custom Handling for Pull Notifications
 
@@ -101,7 +101,7 @@ CleverTapPlugin.pushDisplayUnitClickedEvent(“unitId”);
 ## Product Config
 
 > 📘 Feature Availability
-> 
+>
 > A new and enhanced version of Product Experiences is coming soon. New customers (CleverTap for Enterprise or CleverTap for Startups) who have not enabled the current functionalities can use this feature only when the new version is released. However, the existing users can continue to use it. The [methods](https://developer.clevertap.com/docs/june-2023#flutter-170) for the Product Experiences feature have been deprecated and will be removed from the code by September 2024.
 
 With Product Experiences, you can change the behavior and appearance of your app remotely without an update. This helps you to deliver an in-app personalization experience to your app users and test their response. You can use product config to modify app behavior and feature flags to add or remove features from your app without performing an app store deployment. 
@@ -121,7 +121,7 @@ void productConfigInitialized() {
 
 ### Fetch and Activate Values
 
-To fetch parameter values from CleverTap, call the fetch() method. Any values you set on the dashboard are fetched and stored in the Product Config object.  
+To fetch parameter values from CleverTap, call the fetch() method. Any values you set on the dashboard are fetched and stored in the Product Config object.\
 To make fetched parameter values available to your app, call the activate() method.
 
 For cases where you want to fetch and activate values in one call, you can use a fetchAndActivate()request to fetch values from CleverTap and make them available to the app:
@@ -291,8 +291,8 @@ PII data is stored across the SDK and could be sensitive information. From `Clev
 
 Currently, two levels of encryption are supported, i.e., None(0) and Medium(1). The encryption level is None by default.
 
-- **None**: All stored data is in plaintext
-- **Medium**: PII data is encrypted completely
+* **None**: All stored data is in plaintext
+* **Medium**: PII data is encrypted completely
 
 ### Android
 
@@ -316,5 +316,5 @@ From CleverTap Android SDK v7.5.0 and iOS SDK v7.3.1 onwards, this feature is su
 
 To learn more, refer to:
 
-- [Encryption in Transit for Android](doc:android-advanced-features#encryption-in-transit)
-- [Encryption in Transit for iOS](doc:advanced-options-ios#encryption-in-transit)
+* [Encryption in Transit for Android](doc:android-advanced-features#encryption-in-transit)
+* [Encryption in Transit for iOS](doc:advanced-options-ios#encryption-in-transit)
