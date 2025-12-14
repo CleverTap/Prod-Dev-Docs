@@ -16,15 +16,15 @@ next:
 
 With Unity Plugin SDK 5.0.0 and above, CleverTap supports the custom display of In-App messages. This feature lets developers customize the configuration and presentation logic for In-App notifications. The SDK supports the following two types of components:
 
-- **Templates**  
-- **Functions**
+* **Templates**  
+* **Functions**
 
 ## Key Differences Between Templates and Functions
 
-- **Templates** can include action arguments, while **Functions** cannot.
-- **Functions** can be used as actions, whereas **Templates** cannot. Functions can be categorized as:
-  - **Visual Functions**: These contain UI logic and are part of the [In-App queue](doc:unity-custom-code-in-app-templates#in-app-queue).
-  - **Non-Visual Functions**: These are triggered directly upon invocation without UI logic.
+* **Templates** can include action arguments, while **Functions** cannot.
+* **Functions** can be used as actions, whereas **Templates** cannot. Functions can be categorized as:
+  * **Visual Functions**: These contain UI logic and are part of the [In-App queue](doc:unity-custom-code-in-app-templates#in-app-queue).
+  * **Non-Visual Functions**: These are triggered directly upon invocation without UI logic.
 
 # Create Templates and Functions
 
@@ -71,18 +71,18 @@ Create templates and functions by defining a name, type, and arguments (and isVi
 
 Place JSON definitions in one or more files under `Assets/CleverTap/CustomTemplates`. These files are copied to exported projects and registered automatically with the SDK.
 
-- **Android**: Definitions are stored in `clevertap-android-wrapper.androidlib/assets/CleverTap/CustomTemplates` and registered via `CleverTapUnityAPI.initialize(Context context)`. If `CleverTapUnityApplication` is used. This process is automatic.
-- **iOS**: Definitions are copied to `CleverTap/CustomTemplates`, added to the `Unity-iPhone` target, and included in the Copy Bundle Resources build phase. Templates are registered via the `CleverTapUnityAppController.mm`.  
+* **Android**: Definitions are stored in `clevertap-android-wrapper.androidlib/assets/CleverTap/CustomTemplates` and registered via `CleverTapUnityAPI.initialize(Context context)`. If `CleverTapUnityApplication` is used. This process is automatic.
+* **iOS**: Definitions are copied to `CleverTap/CustomTemplates`, added to the `Unity-iPhone` target, and included in the Copy Bundle Resources build phase. Templates are registered via the `CleverTapUnityAppController.mm`.\
   For reference, see the working example in `CTExample/Assets/CleverTap/templates.json`.
 
 ## Argument
 
 Arguments are structures that represent the configuration of custom code templates. It consists of a type and a value. The supported argument types are:
 
-- **Primitives**: Boolean, Number, String (with default values).
-- **Object**:  An object where keys are argument names and values are arguments with supported primitive values.
-- **File**: A file that will be downloaded when the template is triggered.
-- **Action**: A built-in action (for example, close, open URL) or a function.
+* **Primitives**: Boolean, Number, String (with default values).
+* **Object**:  An object where keys are argument names and values are arguments with supported primitive values.
+* **File**: A file that will be downloaded when the template is triggered.
+* **Action**: A built-in action (for example, close, open URL) or a function.
 
 ## Hierarchical Arguments
 
@@ -94,7 +94,7 @@ Arguments can be grouped in two ways:
 Both approaches are treated equally.
 
 > 📘 Grouping Restriction:
-> 
+>
 > `file` and `action `arguments cannot be grouped under hierarchical structures. They must be defined separately.
 
 ### Example Using an Object Argument
@@ -136,21 +136,21 @@ Both approaches are treated equally.
 
 Sync templates with the CleverTap dashboard for use in campaigns. This works only in debug builds and requires the SDK user to be a test user. Use the Following Methods for Syncing:
 
-- **Debug Builds**: Call `CleverTap.SyncCustomTemplates()` while developing templates.
-- **Release Builds**: Remove this function to avoid unintended changes.
+* **Debug Builds**: Call `CleverTap.SyncCustomTemplates()` while developing templates.
+* **Release Builds**: Remove this function to avoid unintended changes.
 
 # Presenting Templates
 
 When a custom template is triggered, CleverTap invokes either `CleverTap.OnCustomTemplatePresent` or `CleverTap.OnCustomFunctionPresent`. Applications using custom templates or functions must subscribe to these events.
 
-The event handler receives a `CleverTapTemplateContext`, which interacts with the template. The template remains **active** until `CleverTapTemplateContext.SetDismissed()` is called. While a template is _active_, the following functions can be used:
+The event handler receives a `CleverTapTemplateContext`, which interacts with the template. The template remains **active** until `CleverTapTemplateContext.SetDismissed()` is called. While a template is *active*, the following functions can be used:
 
-- Obtain argument values by using the appropriate `Get*(string argName)` methods.
-- Trigger actions by their name through `TriggerAction(string argName)`.
-- Set the state of the template invocation. `SetPresented()` and `SetDismissed()` notify the SDK of the state of the current template invocation. The _presented_ state means the In-App is displayed to the user, and the _dismissed_ state means the In-App is no longer visible.
+* Obtain argument values by using the appropriate `Get*(string argName)` methods.
+* Trigger actions by their name through `TriggerAction(string argName)`.
+* Set the state of the template invocation. `SetPresented()` and `SetDismissed()` notify the SDK of the state of the current template invocation. The *presented* state means the In-App is displayed to the user, and the *dismissed* state means the In-App is no longer visible.
 
 > 📘 Single Visual Template Limitation
-> 
+>
 > The SDK can only display one visual template or In-App message at a time. New messages cannot be shown until the current message is dismissed.
 
 Applications should also subscribe to the `CleverTap.OnCustomTemplateClose` listener, which will be raised when a template should be closed (For example, when an action of type "close" is triggered). Use this listener to remove the UI associated with the template and call `CleverTapTemplateContext.SetDismissed()` to close it.
@@ -184,6 +184,6 @@ File arguments are downloaded automatically when the template is triggered. If a
 
 ### File downloading occurs
 
-- **Client-Side Templates**: During app launch or just before template presentation. If a file download fails, it will retry at the next app launch.
-- **Server-Side Templates**: Immediately before template presentation. Failed downloads will prevent the template from triggering.
-- If any required file fails to download, the entire template is skipped, and the next In-App message in the queue is shown.
+* **Client-Side Templates**: During app launch or just before template presentation. If a file download fails, it will retry at the next app launch.
+* **Server-Side Templates**: Immediately before template presentation. Failed downloads will prevent the template from triggering.
+* If any required file fails to download, the entire template is skipped, and the next In-App message in the queue is shown.
