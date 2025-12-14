@@ -15,14 +15,14 @@ next:
 CleverTap provides the capability to send In-App messages with images, GIFs, video, and audio. You can also do A/B testing on your In-App.
 
 > 📘 Note
-> 
+>
 > Ensure your activities extend FragmentActivity.
 
 ## Exclude In-App from Android Activity
 
-If your application has a splash screen (for example, logo screen or loading page) displayed on app launch, then the In-App triggered on _App Launch_ would be attempted to be displayed on this screen. As soon as this screen is dismissed, the In-App will be dismissed, too.
+If your application has a splash screen (for example, logo screen or loading page) displayed on app launch, then the In-App triggered on *App Launch* would be attempted to be displayed on this screen. As soon as this screen is dismissed, the In-App will be dismissed, too.
 
-In these types of cases, the splash screen must be excluded. Mention the _Activities_ on which you do not want In-App notifications to show in the android: value of the metadata tag in the AndroidManifest.xml file.
+In these types of cases, the splash screen must be excluded. Mention the *Activities* on which you do not want In-App notifications to show in the android: value of the metadata tag in the AndroidManifest.xml file.
 
 ```xml
 <meta-data
@@ -60,9 +60,9 @@ From CleverTap Android SDK version 7.7.0 and above, you can optionally pass a pa
 
 #### Parameters
 
-- `dismissInAppIfVisible`
-  - If `true`: Immediately dismisses the currently visible In-App notification (if any).
-  - If `false`: Allows the currently visible In-App notification to remain on the screen.
+* `dismissInAppIfVisible`
+  * If `true`: Immediately dismisses the currently visible In-App notification (if any).
+  * If `false`: Allows the currently visible In-App notification to remain on the screen.
 
 ```kotlin
 fun discardInAppNotifications(dismissInAppIfVisible: Boolean) {
@@ -168,43 +168,15 @@ void onDismissed(Map<String, Object> extras, @Nullable Map<String, Object> actio
 
 ## Javascript Support in In-App Notifications
 
-Android SDK v3.5.0 and above supports embedding JavaScript code inside custom In-Apps. To ensure your JavaScript code works on the app while creating the In-App campaign, select the checkbox for _Enabling JavaScript during the In-App campaign_ creation.
+Android SDK v3.5.0 and above supports embedding JavaScript code inside custom In-Apps. To ensure your JavaScript code works on the app while creating the In-App campaign, select the checkbox for *Enabling JavaScript during the In-App campaign* creation.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/185fa3f-image_1.png",
-        "Custom HTML Template in In-App Notifications",
-        "Custom HTML Template in In-App Notifications"
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Custom HTML Template in In-App Notifications"
-    }
-  ]
-}
-[/block]
+<Image title="Custom HTML Template in In-App Notifications" alt="Custom HTML Template in In-App Notifications" align="center" border={true} src="https://files.readme.io/185fa3f-image_1.png">
+  Custom HTML Template in In-App Notifications
+</Image>
 
-
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/3edcde1-image_2.png",
-        "Include JavaScript in In-App Notifications",
-        "Include JavaScript in In-App Notifications"
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Include JavaScript in In-App Notifications"
-    }
-  ]
-}
-[/block]
-
+<Image title="Include JavaScript in In-App Notifications" alt="Include JavaScript in In-App Notifications" align="center" border={true} src="https://files.readme.io/3edcde1-image_2.png">
+  Include JavaScript in In-App Notifications
+</Image>
 
 Consider the following methods explained with examples:
 
@@ -334,10 +306,10 @@ window.CleverTap.triggerInAppAction(actionJson, callToAction, buttonId); // Alwa
 
 ## Android Push Primer
 
-A _Push Primer_ can explain to your users the need for push notifications and help improve your engagement rates. It is an In-App notification that shows your users the details of message types they can expect before requesting notification permission. It helps with the following:
+A *Push Primer* can explain to your users the need for push notifications and help improve your engagement rates. It is an In-App notification that shows your users the details of message types they can expect before requesting notification permission. It helps with the following:
 
-- Educates your users about the purpose of requesting this permission before invoking a system dialog that asks the user to allow/deny this permission.
-- Acts as a precursor to the hard system dialog and thus allows you to ask for permission multiple times if previously denied without making your users search the device settings.
+* Educates your users about the purpose of requesting this permission before invoking a system dialog that asks the user to allow/deny this permission.
+* Acts as a precursor to the hard system dialog and thus allows you to ask for permission multiple times if previously denied without making your users search the device settings.
 
 For more information on push primer, refer to [Push Notification Permission](https://developer.clevertap.com/docs/android-push#push-notification-permission). 
 
@@ -345,24 +317,9 @@ For more information on push primer, refer to [Push Notification Permission](htt
 
 This template can send a customized push primer notification, such as displaying an image and modifying the text, button, and background color.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/1919d3a-push_primer_half_interstitial.png",
-        "Push Primer Using Half-Interstitial InApp",
-        398
-      ],
-      "align": "center",
-      "sizing": "smart",
-      "border": true,
-      "caption": "Push Primer Using Half-Interstitial InApp"
-    }
-  ]
-}
-[/block]
-
+<Image title="Push Primer Using Half-Interstitial InApp" alt={398} align="center" width="smart" border={true} src="https://files.readme.io/1919d3a-push_primer_half_interstitial.png">
+  Push Primer Using Half-Interstitial InApp
+</Image>
 
 Use the following to create your template:
 
@@ -407,24 +364,9 @@ cleverTapAPI.promptPushPrimer(jsonObject);
 
 You can use this template to send a basic push primer notification with a title, message, and two buttons.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/682aa29-Alert_push_primer.png",
-        "Push Primer Using Alert InApp",
-        398
-      ],
-      "align": "center",
-      "sizing": "smart",
-      "border": true,
-      "caption": "Push Primer Using Alert In-App"
-    }
-  ]
-}
-[/block]
-
+<Image title="Push Primer Using Alert InApp" alt={398} align="center" width="smart" border={true} src="https://files.readme.io/682aa29-Alert_push_primer.png">
+  Push Primer Using Alert In-App
+</Image>
 
 Use the following to create your template:
 
@@ -532,7 +474,7 @@ setBtnBorderRadius(String)
 
 ## JavaScript Interface for System Actions in HTML In-App Messages
 
-The CleverTap Android SDK provides a set of JavaScript methods that allow you to trigger predefined actions within _Custom HTML In-App templates_. These methods are accessible only on Android devices, through the following `window.CleverTap` interface:
+The CleverTap Android SDK provides a set of JavaScript methods that allow you to trigger predefined actions within *Custom HTML In-App templates*. These methods are accessible only on Android devices, through the following `window.CleverTap` interface:
 
 ```javascript
 if (window.CleverTap) {
@@ -550,10 +492,10 @@ window.CleverTap.promptPushPermission(shouldShowFallbackSettings);
 
 #### Parameters:
 
-- `shouldShowFallbackSettings` _(Boolean)_:
+* `shouldShowFallbackSettings` *(Boolean)*:
 
-  - `true`: If permission was denied, opens the app’s notification settings screen.
-  - `false`: It does not open settings; it logs the denial silently.
+  * `true`: If permission was denied, opens the app’s notification settings screen.
+  * `false`: It does not open settings; it logs the denial silently.
 
 #### Example:
 
@@ -593,11 +535,11 @@ The CleverTap Android SDK (v7.4.0 and above) supports a set of built-in in-app f
 
 ## Open URL
 
-The _Open URL_ function launches an `Intent` with the `Intent.ACTION_VIEW` action for the specified Android URL. This URL is configured via the CleverTap Dashboard when using a stand-alone in-app template. All query parameters are appended as extras to the `Intent`, which is especially useful when deep linking within the app. This function is commonly used to guide users to product pages, support portals, or feedback forms.
+The *Open URL* function launches an `Intent` with the `Intent.ACTION_VIEW` action for the specified Android URL. This URL is configured via the CleverTap Dashboard when using a stand-alone in-app template. All query parameters are appended as extras to the `Intent`, which is especially useful when deep linking within the app. This function is commonly used to guide users to product pages, support portals, or feedback forms.
 
 ## Push Permission Request
 
-The _Push Permission Request_ function triggers the system prompt to request push notification permissions from users. To listen for the result of the permission request, use:
+The *Push Permission Request* function triggers the system prompt to request push notification permissions from users. To listen for the result of the permission request, use:
 
 ```java
 CleverTapAPI.registerPushPermissionNotificationResponseListener(...)
@@ -605,7 +547,7 @@ CleverTapAPI.registerPushPermissionNotificationResponseListener(...)
 
 ## Request App Rating
 
-The _Request App Rating_ function invokes the native Google Play Store review prompt using the Google Play[ In-App Review API](https://developer.android.com/guide/playcore/in-app-review). It allows users to rate your app without leaving the app experience, typically after a successful purchase or positive interaction.
+The *Request App Rating* function invokes the native Google Play Store review prompt using the Google Play[ In-App Review API](https://developer.android.com/guide/playcore/in-app-review). It allows users to rate your app without leaving the app experience, typically after a successful purchase or positive interaction.
 
 To enable this function, include the following dependency in your application`build.gradle` file:
 
@@ -618,5 +560,5 @@ dependencies {
 ```
 
 > 📘 Note
-> 
+>
 > For more information on testing In-App reviews, refer to  [Testing Google In-App reviews](https://developer.android.com/guide/playcore/in-app-review) . Prompts are rate-limited and not always guaranteed to show.
