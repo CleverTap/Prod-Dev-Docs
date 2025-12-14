@@ -39,15 +39,15 @@ This section lists all the available Smart TV integration guides for various pla
 
 ## iOS
 
-- [Apple TV](doc:apple-tv-integration-with-clevertap-ios-sdk)
+* [Apple TV](doc:apple-tv-integration-with-clevertap-ios-sdk)
 
 ## Android
 
-- [Android TV](doc:android-tv-integration-with-android-sdk)
-- [Fire TV](doc:fire-tv-integration-with-android-sdk)
-- [Jio TV](doc:jio-tv-set-top-boxstb-integration-with-android-sdk)
+* [Android TV](doc:android-tv-integration-with-android-sdk)
+* [Fire TV](doc:fire-tv-integration-with-android-sdk)
+* [Jio TV](doc:jio-tv-set-top-boxstb-integration-with-android-sdk)
 
 ## Web
 
-- [Samsung Tizen TV](doc:samsung-tizen-tv-integration-with-web-sdk)
-- [LG WebOS TV](doc:lg-webos-tv-integration-with-web-sdk)
+* [Samsung Tizen TV](doc:samsung-tizen-tv-integration-with-web-sdk)
+* [LG WebOS TV](doc:lg-webos-tv-integration-with-web-sdk)
