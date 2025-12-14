@@ -13,7 +13,7 @@ next:
 We are excited to share the December SDK changelog for our product!
 
 > 📘 Note
-> 
+>
 > Click each SDK header to view the corresponding GitHub repository for release details.
 
 # December 02
@@ -22,19 +22,19 @@ We are excited to share the December SDK changelog for our product!
 
 ### What’s New
 
-- Adds a public `variants` method to fetch A/B experiment variants for the user. This makes it easier to access experiment data in custom implementations.
+* Adds a public `variants` method to fetch A/B experiment variants for the user. This makes it easier to access experiment data in custom implementations.
 
 ### Bug Fixes
 
-- Fixes prevented gradient backgrounds and other _HTML_ send-test flows from rendering correctly.
+* Fixes prevented gradient backgrounds and other *HTML* send-test flows from rendering correctly.
 
 ## [iOS 7.4.1](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/7.4.1)
 
 ### What's New
 
-- Adds a public `variants` method to fetch A/B experiment variants for the user. This makes it easier to access experiment data in custom implementations.
+* Adds a public `variants` method to fetch A/B experiment variants for the user. This makes it easier to access experiment data in custom implementations.
 
 ### Bug Fixes
 
-- Fixes an issue where the SDK recorded _App Launched_ events when the app was woken up by silent push notifications.
-- Fixes _HTML_ In-App previews that were not rendering gradient colors.
+* Fixes an issue where the SDK recorded *App Launched* events when the app was woken up by silent push notifications.
+* Fixes *HTML* In-App previews that were not rendering gradient colors.
