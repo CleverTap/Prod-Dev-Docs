@@ -232,27 +232,37 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
         "conversion_goal":{'{'}  
         "event_name": "Charged",  
         "filter_type":{'{'}  
-        "event_property":[  
-        {'{'}  
+        "event_property":[
+
+        {'{'}
+
         "property_name":"Items|Book name",  
         "operator":"equals",  
         "property_value":"book name"  
-        {'}'},  
-        {'{'}  
+        {'}'},
+
+        {'{'}
+
         "property_name":"Items|Category",  
         "operator":"equals",  
         "property_value":"category"  
-        {'}'},  
-        {'{'}  
+        {'}'},
+
+        {'{'}
+
         "property_name":"Payment mode",  
         "operator":"equals",  
         "property_value":"UPI"  
-        {'}'},  
-        {'{'}  
+        {'}'},
+
+        {'{'}
+
         "property_name":"Amount",  
         "operator":"between",  
-        "property_value":[100, 500]  
-        {'}'}  
+        "property_value":[100, 500]
+
+        {'}'}
+
         ],  
         "first_time":"yes",  
         "last_time":"yes",  
@@ -338,12 +348,16 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        "event_property":[  
-        {'{'}  
+        "event_property":[
+
+        {'{'}
+
         "property_name":"Items|Book name",  
         "operator":"equals",  
-        "property_value":"book name"  
-        {'}'}  
+        "property_value":"book name"
+
+        {'}'}
+
         ]
       </td>
     </tr>
@@ -616,12 +630,16 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
         "from": 20171001,  
         "to": 20171220,  
         "common_profile_properties": {'{'}  
-        "profile_fields": [  
-        {'{'}  
+        "profile_fields": [
+
+        {'{'}
+
         "name": "Customer Type",  
         "operator":"equals",  
-        "value": "Platinum"  
-        {'}'}  
+        "value": "Platinum"
+
+        {'}'}
+
         ]  
         {'}'}\
 
@@ -714,12 +732,16 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
 
       <td>
         "common_profile_properties": {'{'}  
-        "profile_fields": [  
-        {'{'}  
+        "profile_fields": [
+
+        {'{'}
+
         "name": "Customer Type",  
         "operator":"equals",  
-        "value": "Platinum"  
-        {'}'}  
+        "value": "Platinum"
+
+        {'}'}
+
         ]\
 
         {'}'}
@@ -1345,13 +1367,17 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        "wzrk_acts": [  
-        {'{'}  
+        "wzrk_acts": [
+
+        {'{'}
+
         "l": "Action button 1",  
         "dl": "deep link for action button 1",  
         "id": "action id of the action button 1",  
-        "ico": "Icon resource identifier for action button 1"  
-        {'}'}  
+        "ico": "Icon resource identifier for action button 1"
+
+        {'}'}
+
         ]
       </td>
     </tr>
@@ -1709,7 +1735,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
         "ttl" : {'{'}  
         "ttl_type": "absolute",  
         "value" : 202207200000  
-        {'}'},   
+        {'}'},  
         For Relative TTL -  
         "ttl" : {'{'}  
         "ttl_type": "relative",  
@@ -1769,8 +1795,10 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
         "dnd_timezone":"user",  
         "dnd_info":{'{'}  
         "2": ["21:00","06:00"],  
-        "4": ["23:56","04:34"]  
-        {'}'}  
+        "4": ["23:56","04:34"]
+
+        {'}'}
+
         {'}'},  
         "campaign_cutoff": "14:20"\
 
@@ -2081,8 +2109,10 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       <td>
         "dnd_info":{'{'}  
         "2": ["21:00","06:00"],  
-        "4": ["23:56","04:34"]  
-        {'}'}  
+        "4": ["23:56","04:34"]
+
+        {'}'}
+
         (2 for Tuesday, 4 for Thursday)
       </td>
     </tr>
@@ -2787,7 +2817,9 @@ Example Payloads:
    "when":"now"
 }
 ```
+
 Following is the JSON payload for the iOS Carousel Push template:
+
 ```json
 {
     "name": "My API Campaign",
@@ -2848,6 +2880,7 @@ Following is the JSON payload for the iOS Carousel Push template:
     "when": "now"
 }
 ```
+
 Following is the JSON payload for WhatsApp interactive message templates:
 
 > 📘 Note:
@@ -3160,12 +3193,16 @@ The Generic Sample Campaign API includes configurations for without Key Values, 
         "from": 20171001,  
         "to": 20171220,  
         "common_profile_properties": {'{'}  
-        "profile_fields": [  
-        {'{'}  
+        "profile_fields": [
+
+        {'{'}
+
         "name": "Customer Type",  
         "operator":"equals",  
-        "value": "Platinum"  
-        {'}'}  
+        "value": "Platinum"
+
+        {'}'}
+
         ]  
         {'}'}\
 
@@ -3258,12 +3295,16 @@ The Generic Sample Campaign API includes configurations for without Key Values, 
 
       <td>
         "common_profile_properties": {'{'}  
-        "profile_fields": [  
-        {'{'}  
+        "profile_fields": [
+
+        {'{'}
+
         "name": "Customer Type",  
         "operator":"equals",  
-        "value": "Platinum"  
-        {'}'}  
+        "value": "Platinum"
+
+        {'}'}
+
         ]\
 
         {'}'}
@@ -3572,6 +3613,7 @@ request(options, callback);
 ## Example Response - Target User Events & Properties
 
 A successful response will return information about the created campaign, including a campaign ID and estimated reach.
+
 ```json
 {
   "status": "success",
@@ -3584,6 +3626,7 @@ A successful response will return information about the created campaign, includ
 ## Example Request - Event Occurrence
 
 You can target users based on specific event occurrences within a date range.
+
 ```json
 {
     "advanced_query": {
@@ -3982,19 +4025,25 @@ The to parameter is an object that has the following child properties: FBID, Ema
         "header": {'{'}  
         "type": "image",  
         "media": {'{'}  
-        "url": "[https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo\_1280x720\_5mb.jpg"\](https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo\\_1280x720\\_5mb.jpg"\\)
-        {'}'}  
+        "url": "[[https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg"](https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo\_1280x720\_5mb.jpg"\)](https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg"]\(https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo\\_1280x720\\_5mb.jpg"\\\))
+
+        {'}'}
+
         {'}'},  
         "body": {'{'}  
         "type": "text",  
         "replacements": ["var1","Var2"]  
         {'}'},  
-        "buttons": [  
-        {'{'}  
+        "buttons": [
+
+        {'{'}
+
         "replacements": [  
         "mvi qr payload 5"  
-        ]  
-        {'}'}  
+        ]
+
+        {'}'}
+
         ]\
 
         {'}'}
@@ -4066,9 +4115,12 @@ The to parameter is an object that has the following child properties: FBID, Ema
         "header": {'{'}  
         "type": "image",  
         "media": {'{'}  
-        "url": "[https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo\_1280x720\_5mb.jpg"\](https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo\\_1280x720\\_5mb.jpg"\\)
-        {'}'}  
-        {'}'}  
+        "url": "[[https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg"](https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo\_1280x720\_5mb.jpg"\)](https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg"]\(https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo\\_1280x720\\_5mb.jpg"\\\))
+
+        {'}'}
+
+        {'}'}
+
         For more header types, refer to the examples.
       </td>
     </tr>
@@ -4116,9 +4168,12 @@ The to parameter is an object that has the following child properties: FBID, Ema
         "header": {'{'}  
         "type": "image",  
         "media": {'{'}  
-        "url": "[https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo\_1280x720\_5mb.jpg"\](https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo\\_1280x720\\_5mb.jpg"\\)
-        {'}'}  
-        {'}'}  
+        "url": "[[https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg"](https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo\_1280x720\_5mb.jpg"\)](https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg"]\(https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo\\_1280x720\\_5mb.jpg"\\\))
+
+        {'}'}
+
+        {'}'}
+
         For more header types, refer to the examples.
       </td>
     </tr>
@@ -4243,12 +4298,16 @@ The to parameter is an object that has the following child properties: FBID, Ema
         "replacements": [  
         "quick reply custom payload 1"  
         ]  
-        {'}'},  
-        {'{'}  
+        {'}'},
+
+        {'{'}
+
         "replacements": [  
         "quick reply custom payload 2"  
-        ]  
-        {'}'}  
+        ]
+
+        {'}'}
+
         ]
       </td>
     </tr>
@@ -4431,7 +4490,8 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-        {'{'}  
+        {'{'}
+
         "ios": {'{'}  
         "deep_link": "example.com"  
         {'}'}\
@@ -5305,7 +5365,12 @@ request(options, callback);
 ```
 
 ## Example Response - Target Users by their Identities
-
+```json
+{
+    "status": "success",
+    "message": "Added to queue for processing"
+}
+```
 A successful response implies payload validity and addition to the processing queue. Message delivery is handled by the provider (push or email) and depends on if you provided a valid recipient id.
 
 ## Errors
