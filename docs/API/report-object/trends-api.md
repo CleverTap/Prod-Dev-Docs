@@ -16,8 +16,8 @@ This endpoint is used to retrieve daily, weekly, and monthly event trends in a s
 
 ## Base URL
 
-Here is an example base URL from the account in the India region:  
-<https://in1.api.clevertap.com/1/counts/trends.json>
+Here is an example base URL from the account in the India region:\
+[https://in1.api.clevertap.com/1/counts/trends.json](https://in1.api.clevertap.com/1/counts/trends.json)
 
 ### Region
 
@@ -35,15 +35,15 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
 
 The body is uploaded as a JSON payload. 
 
-| Parameter         | Description                                                                                                                                                                                                                      | Required | Type    | Example Value                                                                                           |
-| :---------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------- | :------ | :------------------------------------------------------------------------------------------------------ |
-| event_name        | The name of the event.                                                                                                                                                                                                           | required | string  | "choseNewFavoriteFood"                                                                                  |
-| from              | Start of date range within which users should have performed the event you specified in event_name. Input values have to be formatted as integers in format YYYYMMDD.                                                            | required | int     | 20150810                                                                                                |
-| to                | End of date range within which users should have performed the event you specified in event_name. Input values have to be formatted as integers in format YYYYMMDD.                                                              | required | int     | 20151025                                                                                                |
-| groups            | Object containing information about trends whose breakdown is required. The endpoint can be used to obtain analysis of multiple trends in one request. Each trend object is referenced by a unique key within the groups object. | required | object  | "groups":{"foo":{"trend_type":"daily"},"bar":{"trend_type":"weekly"},"foobar":{"trend_type":"monthly"}} |
-| groups.trend_type | Can be daily, weekly or monthly. Must be present inside each individual group.                                                                                                                                                   | required | string  | "daily"                                                                                                 |
-| unique            | If set to true, returns trends of profiles instead of events.                                                                                                                                                                    | optional | boolean | true                                                                                                    |
-| sum_event_prop    | This event property can display values based on daily, weekly, or monthly trends. This property can process only Integer data types.                                                                                             | Optional | Integer | "Amount"                                                                                                |
+| Parameter          | Description                                                                                                                                                                                                                      | Required | Type    | Example Value                                                                                                  |
+| :----------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------- | :------ | :------------------------------------------------------------------------------------------------------------- |
+| event\_name        | The name of the event.                                                                                                                                                                                                           | required | string  | "choseNewFavoriteFood"                                                                                         |
+| from               | Start of date range within which users should have performed the event you specified in event\_name. Input values have to be formatted as integers in format YYYYMMDD.                                                           | required | int     | 20150810                                                                                                       |
+| to                 | End of date range within which users should have performed the event you specified in event\_name. Input values have to be formatted as integers in format YYYYMMDD.                                                             | required | int     | 20151025                                                                                                       |
+| groups             | Object containing information about trends whose breakdown is required. The endpoint can be used to obtain analysis of multiple trends in one request. Each trend object is referenced by a unique key within the groups object. | required | object  | "groups":\{"foo":\{"trend\_type":"daily"},"bar":\{"trend\_type":"weekly"},"foobar":\{"trend\_type":"monthly"}} |
+| groups.trend\_type | Can be daily, weekly or monthly. Must be present inside each individual group.                                                                                                                                                   | required | string  | "daily"                                                                                                        |
+| unique             | If set to true, returns trends of profiles instead of events.                                                                                                                                                                    | optional | boolean | true                                                                                                           |
+| sum\_event\_prop   | This event property can display values based on daily, weekly, or monthly trends. This property can process only Integer data types.                                                                                             | Optional | Integer | "Amount"                                                                                                       |
 
 Below is an example payload.
 
@@ -68,11 +68,9 @@ Below is an example payload.
 }
 ```
 
-
-
 ## Example Request
 
-Here is an example cURL request to the _Trends_ API showing the headers needed to authenticate the request from the account in the India region:
+Here is an example cURL request to the *Trends* API showing the headers needed to authenticate the request from the account in the India region:
 
 ```curl
 curl -X POST -d '{"event_name":"Charged","from":20161224,"to":20170103,"unique":false,"sum_event_prop":"Amount","groups":{"foo":{"trend_type":"daily"},"bar":{"trend_type":"weekly"},"foobar":{"trend_type":"monthly"}}}' "https://in1.api.clevertap.com/1/counts/trends.json" \
@@ -169,8 +167,6 @@ function callback(error, response, body) {
 request(options, callback);
 ```
 
-
-
 ## Example Response
 
 ```json
@@ -200,8 +196,6 @@ request(options, callback);
 }
 ```
 
-
-
 Each trend is referenced by the unique key assigned to it while querying.
 
 daily trend keys are in YYYYMMDD format. weekly trend keys are in YYYYWW format, where WW refers to week of year. monthly trend keys are in YYYYMM format.
@@ -212,7 +206,7 @@ The response is a JSON object containing the key status, which might be success,
 
 If the status is success, there will be a count key with an int value of the count for the specified query. If the status is fail, there will be an error key with a string value and a HTTP status code.
 
-If the status is partial, the query has not finished processing in our system. In the response, you will receive a req_id key with a long int value that you will use to poll for the result. After the query is completed, you will either receive a success response with the count if the query was successful, or a fail response with an error string and a HTTP status code.
+If the status is partial, the query has not finished processing in our system. In the response, you will receive a req\_id key with a long int value that you will use to poll for the result. After the query is completed, you will either receive a success response with the count if the query was successful, or a fail response with an error string and a HTTP status code.
 
 Here is an example response for a partial status.
 
@@ -223,14 +217,12 @@ Here is an example response for a partial status.
 }
 ```
 
+After getting the req\_id, you will poll the endpoint below and provide the value of req\_id as a query parameter.
 
-
-After getting the req_id, you will poll the endpoint below and provide the value of req_id as a query parameter.
-
-GET <https://in1.api.clevertap.com/1/counts/trends.json?req_id=>\<your_request_id_here>
+GET [https://in1.api.clevertap.com/1/counts/trends.json?req\_id=](https://in1.api.clevertap.com/1/counts/trends.json?req_id=)\<your\_request\_id\_here>
 
 > 📘 Region
-> 
+>
 > This is an example base URL from the account in the India region. To know the API endpoint for your account, refer to [Region](https://developer.clevertap.com/docs/trends-api#region).
 
 # Next Steps
@@ -239,6 +231,6 @@ Now that you’ve learned how to get a message report from the CleverTap API, le
 
 ## Notes
 
-- Calls to this endpoint are synchronous. We recommend making individual calls, waiting for our response, and then make another request.
-- For more information on request limit, refer to [API Request Limit](doc:api-request-limit).
-- To understand the common queries and concerns related to CleverTap APIs, refer to [API FAQs](doc:api-faqs).
+* Calls to this endpoint are synchronous. We recommend making individual calls, waiting for our response, and then make another request.
+* For more information on request limit, refer to [API Request Limit](doc:api-request-limit).
+* To understand the common queries and concerns related to CleverTap APIs, refer to [API FAQs](doc:api-faqs).
