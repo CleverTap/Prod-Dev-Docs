@@ -16,8 +16,8 @@ Record user behavior in your Unreal Engine app by logging custom and transaction
 
 You can log:
 
-- Custom user actions (for example, product views, level completions)
-- Purchases and checkout transactions
+* Custom user actions (for example, product views, level completions)
+* Purchases and checkout transactions
 
 ## Record Custom User Events
 
