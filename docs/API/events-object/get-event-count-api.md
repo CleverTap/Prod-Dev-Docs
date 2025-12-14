@@ -1,14 +1,16 @@
 ---
 title: Get Event Count
-excerpt: ''
+excerpt: >-
+  Retrieve counts for events in a specified duration using the CleverTap Get
+  Event Count API endpoint.
 deprecated: false
 hidden: false
+link:
+  new_tab: false
 metadata:
   title: ''
   description: ''
   robots: index
-next:
-  description: ''
 ---
 ## Overview
 
@@ -16,7 +18,7 @@ This endpoint is used to retrieve counts for an event in a specified duration. F
 
 ## Base URL
 
-Here is an example base URL from the account in the India region:\
+Here is an example base URL from the account in the India region:
 [https://in1.api.clevertap.com/1/counts/events.json](https://in1.api.clevertap.com/1/counts/events.json)
 
 ### Region
@@ -35,378 +37,28 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
 
 The body is uploaded as a JSON payload. 
 
-<Table align={["left","left","left","left","left"]}>
-  <thead>
-    <tr>
-      <th>
-        Parameter
-      </th>
-
-      <th>
-        Description
-      </th>
-
-      <th>
-        Required
-      </th>
-
-      <th>
-        Type
-      </th>
-
-      <th>
-        Example Value
-      </th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr>
-      <td>
-        event\_name
-      </td>
-
-      <td>
-        The name of the event.
-      </td>
-
-      <td>
-        required
-      </td>
-
-      <td>
-        string
-      </td>
-
-      <td>
-        "choseNewFavoriteFood"
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        event\_properties
-      </td>
-
-      <td>
-        The event properties that you want to filter the results on.
-      </td>
-
-      <td>
-        optional
-      </td>
-
-      <td>
-        string key/value pairs
-      </td>
-
-      <td>
-        "event\_properties": [  
-                {  
-                    "name": "value",  
-                    "operator": "contains",  
-                    "value": "piz"  
-                }  
-            ]
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        from
-      </td>
-
-      <td>
-        Start of date range within which users should have performed the event you specified in event\_name. Input values have to be formatted as integers in format YYYYMMDD.
-      </td>
-
-      <td>
-        required
-      </td>
-
-      <td>
-        int
-      </td>
-
-      <td>
-        20150810
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        to
-      </td>
-
-      <td>
-        End of date range within which users should have performed the event you specified in event\_name. Input values have to be formatted as integers in format YYYYMMDD.
-      </td>
-
-      <td>
-        required
-      </td>
-
-      <td>
-        int
-      </td>
-
-      <td>
-        20151025
-      </td>
-    </tr>
-  </tbody>
-</Table>
-Below is an example payload.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+| Parameter | Description | Required | Type | Example Value |
+|-----------|-------------|----------|------|---------------|
+| event_name | The name of the event. | required | string | "choseNewFavoriteFood" |
+| event_properties | The event properties that you want to filter the results on. | optional | string key/value pairs | See example below |
+| from | Start of date range within which users should have performed the event you specified in event_name. Input values have to be formatted as integers in format YYYYMMDD. | required | int | 20150810 |
+| to | End of date range within which users should have performed the event you specified in event_name. Input values have to be formatted as integers in format YYYYMMDD. | required | int | 20151025 |
+
+### Example event_properties
+
+```json
+"event_properties": [  
+    {  
+        "name": "value",  
+        "operator": "contains",  
+        "value": "piz"  
+    }  
+]
+```
 
 ## Example Request
 
 Here is an example cURL request to the *Get Event Count* API showing the headers needed to authenticate the request from the account in the India region:
-
 
 ```curl
 curl -X POST -d '{"event_name":"choseNewFavoriteFood","event_properties":[{"name":"value","operator":"contains","value":"piz"}],"from":20150810,"to":20151025}' "https://in1.api.clevertap.com/1/counts/events.json" \
@@ -414,6 +66,7 @@ curl -X POST -d '{"event_name":"choseNewFavoriteFood","event_properties":[{"name
 -H "X-CleverTap-Passcode: PASSCODE" \
 -H "Content-Type: application/json"
 ```
+
 ```ruby
 require 'net/http'
 require 'uri'
@@ -445,6 +98,7 @@ response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
   http.request(request)
 end
 ```
+
 ```python
 import requests
 
@@ -458,6 +112,7 @@ data = '{"event_name":"choseNewFavoriteFood","event_properties":[{"name":"value"
 
 response = requests.post('https://in1.api.clevertap.com/1/counts/events.json', headers=headers, data=data)
 ```
+
 ```php
 <?php
 include('vendor/rmccue/requests/library/Requests.php');
@@ -470,7 +125,8 @@ $headers = array(
 $data = '{"event_name":"choseNewFavoriteFood","event_properties":[{"name":"value","operator":"contains","value":"piz"}],"from":20150810,"to":20151025}';
 $response = Requests::post('https://in1.api.clevertap.com/1/counts/events.json', $headers, $data);
 ```
-```javascript Node.js
+
+```javascript
 var request = require('request');
 
 var headers = {
@@ -497,64 +153,34 @@ function callback(error, response, body) {
 request(options, callback);
 ```
 
-
 ## Example Response
 
+### Success Response
 
+```json
+{
+  "status": "success",
+  "count": 1434
+}
+```
 
+### Partial Response
 
+```json
+{
+  "status": "partial",
+  "req_id": 1234567890123456789
+}
+```
 
+### Error Response
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+```json
+{
+  "status": "fail",
+  "error": "Error message"
+}
+```
 
 ## Notes
 
@@ -562,81 +188,11 @@ The response is a JSON object containing the key status, which might be success,
 
 If the status is success, there will be a count key with an int value of the count for the specified query. If the status is fail, there will be an error key with a string value and a HTTP status code.
 
-If the status is partial, the query has not finished processing in our system. In the response, you will receive a req\_id key with a long int value that you will use to poll for the result. After the query is completed, you will either receive a success response with the count if the query was successful, or a fail response with an error string and a HTTP status code. Please wait 30 seconds between polling requests.
+If the status is partial, the query has not finished processing in our system. In the response, you will receive a req_id key with a long int value that you will use to poll for the result. After the query is completed, you will either receive a success response with the count if the query was successful, or a fail response with an error string and a HTTP status code. Please wait 30 seconds between polling requests.
 
-Here is an example response for a partial status.
+After getting the req_id, you will poll the endpoint below and provide the value of req_id as a query parameter:
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-After getting the req\_id, you will poll the endpoint below and provide the value of req\_id as a query parameter.
-
-GET [https://in1.api.clevertap.com/1/counts/events.json?req\_id=](https://in1.api.clevertap.com/1/counts/events.json?req_id=)\<your\_request\_id\_here>
+**GET** `https://in1.api.clevertap.com/1/counts/events.json?req_id={your_request_id_here}`
 
 > 📘 Region
 >
