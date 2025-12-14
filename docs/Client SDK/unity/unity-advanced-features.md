@@ -18,11 +18,11 @@ Access advanced configuration options in the CleverTap Unity SDK to fine-tune lo
 
 This document covers Unity SDK features that help enhance:
 
-- [Debugging](doc:unity-advanced-features#debugging): Diagnose SDK activity during development.
-- [Native Display](doc:unity-advanced-features#native-display): Track and render In-App banners or cards.
-- [App Personalization](doc:unity-advanced-features#app-personalization): Deliver tailored experiences to users.
-- [Install Attribution](doc:unity-advanced-features#install-attribution): Measure campaign effectiveness using UTM data.
-- [GDPR Controls](doc:unity-advanced-features#gdpr-controls): Manage data privacy and opt-out preferences.
+* [Debugging](doc:unity-advanced-features#debugging): Diagnose SDK activity during development.
+* [Native Display](doc:unity-advanced-features#native-display): Track and render In-App banners or cards.
+* [App Personalization](doc:unity-advanced-features#app-personalization): Deliver tailored experiences to users.
+* [Install Attribution](doc:unity-advanced-features#install-attribution): Measure campaign effectiveness using UTM data.
+* [GDPR Controls](doc:unity-advanced-features#gdpr-controls): Manage data privacy and opt-out preferences.
 
 ## Debugging
 
@@ -32,21 +32,21 @@ Enable CleverTap’s DEBUG mode during development to log SDK activity and troub
 
 Set the debug level to control the verbosity of CleverTap logs during development:
 
-- `-1`: Disables all debugging. You can set the `debugLevel` to -1 if you want to disable CleverTap logs for the production environment.
-- `0`: Default, shows minimal SDK integration related logging.
-- `2`: Shows debug output.
-- `3`: Shows verbose output.
+* `-1`: Disables all debugging. You can set the `debugLevel` to -1 if you want to disable CleverTap logs for the production environment.
+* `0`: Default, shows minimal SDK integration related logging.
+* `2`: Shows debug output.
+* `3`: Shows verbose output.
 
 ```csharp
 CleverTap.SetDebugLevel(debugLevel);
 ```
 
 > 🚧 Platform Specific Logs
-> 
+>
 > To view SDK logs when the app is in the killed state, refer to:
-> 
-> - For Android platform, refer to [Android Debugging](doc:android-advanced-features#debugging).
-> - For iOS platform, refer to [iOS Debugging](doc:advanced-options-ios#debugging).
+>
+> * For Android platform, refer to [Android Debugging](doc:android-advanced-features#debugging).
+> * For iOS platform, refer to [iOS Debugging](doc:advanced-options-ios#debugging).
 
 ## Native Display
 
@@ -111,7 +111,7 @@ CleverTap.DisablePersonalization();
 ```
 
 > 📘 Note
-> 
+>
 > Toggle this setting after login, logout, or consent updates.
 
 ## Install Attribution
