@@ -12,55 +12,43 @@ next:
 ---
 CleverTap provides a [Cordova Plugin](https://github.com/CleverTap/clevertap-cordova) that enables app developers to track, segment, and engage their users. 
 
-
 # Supported Versions
 
 Tested on Cordova 10.0.0
 
-- [CleverTap Android SDK version 4.1.1](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/core-v4.1.1)
-- [CleverTap iOS SDK version 3.9.4](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/3.9.4)
+* [CleverTap Android SDK version 4.1.1](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/core-v4.1.1)
+* [CleverTap iOS SDK version 3.9.4](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/3.9.4)
 
 # Installation Steps
 
 To integrate CleverTap for Cordova:
-  * Set up and register for Push notifications, if required.
-  * Integrate your Javascript with the CleverTap Plugin.
+
+* Set up and register for Push notifications, if required.
+* Integrate your Javascript with the CleverTap Plugin.
 
 # Step 1: Install the Plugin
 
 Grab the Account ID and Token values from your CleverTap [Dashboard](https://dashboard.clevertap.com) -> Settings.
 
 ### For Android *Important*
+
 Starting with v2.0.0, the plugin uses FCM rather than GCM.  To configure FCM, add your google-services.json to the root of your Cordova project **before you add the plugin**.  
 
-The plugin uses an `after plugin add` hook script to configure your project for FCM.  
+The plugin uses an `after plugin add` hook script to configure your project for FCM.\
 If the google-services.json file is not present in your project when the script runs, FCM will not be configured properly and will not work. 
 
-### Using Cordova  
+### Using Cordova
 
-[block:code]
-{
-  "codes": [
-    {
-      "code": "cordova plugin add https://github.com/CleverTap/clevertap-cordova.git --variable CLEVERTAP_ACCOUNT_ID=\"YOUR CLEVERTAP ACCOUNT ID\" --variable CLEVERTAP_TOKEN=\"YOUR CLEVERTAP ACCOUNT TOKEN\"\n\n",
-      "language": "text"
-    }
-  ]
-}
-[/block]
-### Using Ionic  
+```text
+cordova plugin add https://github.com/CleverTap/clevertap-cordova.git --variable CLEVERTAP_ACCOUNT_ID="YOUR CLEVERTAP ACCOUNT ID" --variable CLEVERTAP_TOKEN="YOUR CLEVERTAP ACCOUNT TOKEN"
+```
 
+### Using Ionic
 
-[block:code]
-{
-  "codes": [
-    {
-      "code": "ionic plugin add https://github.com/CleverTap/clevertap-cordova.git --variable CLEVERTAP_ACCOUNT_ID=\"YOUR CLEVERTAP ACCOUNT ID\" --variable CLEVERTAP_TOKEN=\"YOUR CELVERTAP ACCOUNT TOKEN\" \n\n",
-      "language": "text"
-    }
-  ]
-}
-[/block]
+```text
+ionic plugin add https://github.com/CleverTap/clevertap-cordova.git --variable CLEVERTAP_ACCOUNT_ID="YOUR CLEVERTAP ACCOUNT ID" --variable CLEVERTAP_TOKEN="YOUR CELVERTAP ACCOUNT TOKEN"
+```
+
 ### Using PhoneGap Build
 
 **Starting with v2.0.0, the plugin drops official support for PhoneGap Build.**
@@ -72,60 +60,46 @@ It might be possible by forking this plugin and replacing the placeholder google
 When using the plugin with PhoneGap Build: 
 
 Add the following to your `www/config.xml` file:
-         
-[block:code]
-{
-  "codes": [
-    {
-      "code": "<preference name=\"android-build-tool\" value=\"gradle\" />\n\n<gap:plugin name=\"clevertap-cordova\" source=\"npm\">\n    <param name=\"CLEVERTAP_ACCOUNT_ID\" value=\"YOUR CLEVERTAP ACCOUNT ID\" />\n    <param name=\"CLEVERTAP_TOKEN\" value=\"YOUR CLEVERTAP ACCOUNT TOKEN\" />\n    <param name=\"GCM_PROJECT_NUMBER\" value=\"YOUR GCM PROJECT NUMBER\" /> // for v1.2.5 and lower of the plugin\n</gap:plugin>\n  \n",
-      "language": "xml"
-    }
-  ]
-}
-[/block]
+
+```xml
+<preference name="android-build-tool" value="gradle" />
+
+<gap:plugin name="clevertap-cordova" source="npm">
+    <param name="CLEVERTAP_ACCOUNT_ID" value="YOUR CLEVERTAP ACCOUNT ID" />
+    <param name="CLEVERTAP_TOKEN" value="YOUR CLEVERTAP ACCOUNT TOKEN" />
+    <param name="GCM_PROJECT_NUMBER" value="YOUR GCM PROJECT NUMBER" /> // for v1.2.5 and lower of the plugin
+</gap:plugin>
+```
+
 **Extremely Important** *For PhoneGap Build Android projects*, add `CleverTap.notifyDeviceReady();` to your onDeviceReady callback in `www/js/index.js`:
-[block:code]
-{
-  "codes": [
-    {
-      "code": "onDeviceReady: function() {\n    app.receivedEvent('deviceready');\n    CleverTap.notifyDeviceReady();\n    ...\n},\n",
-      "language": "javascript"
-    }
-  ]
-}
-[/block]
+
+```javascript
+onDeviceReady: function() {
+    app.receivedEvent('deviceready');
+    CleverTap.notifyDeviceReady();
+    ...
+},
+```
+
 ### iOS
 
 Check your .plist file:
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/7c74e73-19c6c39-image4.png",
-        "19c6c39-image4.png",
-        574,
-        358,
-        "#e5e8ec"
-      ],
-      "border": true
-    }
-  ]
-}
-[/block]
+
+<Image title="19c6c39-image4.png" alt={574} className="border" border={true} src="https://files.readme.io/7c74e73-19c6c39-image4.png" />
+
 ### Android
 
 Check that the following is inside the `<application></application>` tags of your AndroidManifest.xml:  
-[block:code]
-{
-  "codes": [
-    {
-      "code": "    <meta-data  \n        android:name=\"CLEVERTAP_ACCOUNT_ID\"  \n        android:value=\"Your CleverTap Account ID\"/>  \n    <meta-data  \n        android:name=\"CLEVERTAP_TOKEN\"  \n        android:value=\"Your CleverTap Account Token\"/>\n",
-      "language": "xml"
-    }
-  ]
-}
-[/block]
+
+```xml
+<meta-data  
+        android:name="CLEVERTAP_ACCOUNT_ID"  
+        android:value="Your CleverTap Account ID"/>  
+    <meta-data  
+        android:name="CLEVERTAP_TOKEN"  
+        android:value="Your CleverTap Account Token"/>
+```
+
 Replace "Your CleverTap Account ID" and "Your CleverTap Account Token" with actual values from your CleverTap [Dashboard](https://dashboard.clevertap.com) -> Settings.
 
 **Set the Lifecycle Callback** 
@@ -133,47 +107,46 @@ Replace "Your CleverTap Account ID" and "Your CleverTap Account Token" with actu
 IMPORTANT!
 
 Check the `android:name` property of the `<application>` tag of our AndroidManifest.xml:
-[block:code]
-{
-  "codes": [
-    {
-      "code": "    <application\n        android:name=\"com.clevertap.android.sdk.Application\">\n\n",
-      "language": "xml"
-    }
-  ]
-}
-[/block]
+
+```xml
+<application
+        android:name="com.clevertap.android.sdk.Application">
+```
+
 **Note:** The above step is **extremely important** and enables CleverTap to track notification opens, display in-app notifications, track deep links, and other important **user behaviour**.
 
 **Add Permissions**
 
 Please ensure that you're requesting the following permissions for your app:
 
-[block:code]
-{
-  "codes": [
-    {
-      "code": "    <!-- Required to allow the app to send events -->\n    <uses-permission android:name=\"android.permission.INTERNET\"/>\n    <!-- Recommended so that we can be smart about when to send the data -->\n    <uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>\n    <uses-permission android:name=\"android.permission.WAKE_LOCK\" />\n\n",
-      "language": "xml"
-    }
-  ]
-}
-[/block]
+```xml
+<!-- Required to allow the app to send events -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- Recommended so that we can be smart about when to send the data -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+```
+
 [Please see the example AndroidManifest.xml here](https://github.com/CleverTap/clevertap-cordova/blob/master/Samples/Cordova/ExampleProject/platforms/android/app/src/main/AndroidManifest.xml).
 
 **Add Dependencies**
 
 Make sure your build.gradle file includes the play-services and support library dependencies:  
-[block:code]
-{
-  "codes": [
-    {
-      "code": "    dependencies {\n        implementation fileTree(dir: 'libs', include: '*.jar'  )\n        debugimplementation(project(path: \"CordovaLib\", configuration: \"debug\"))\n        releaseimplementation(project(path: \"CordovaLib\", configuration: \"release\"))\n        // SUB-PROJECT DEPENDENCIES START\n        implementation \"com.google.firebase:firebase-core:+\"\n        implementation \"com.google.firebase:firebase-messaging:17.3.3\"\n        implementation \"com.android.support:support-v4:+\"\n         //Mandatory for v2.1.8 and above\n        implementation \"com.android.installreferrer:installreferrer:1.0\"\n        // SUB-PROJECT DEPENDENCIES END ",
-      "language": "java"
-    }
-  ]
-}
-[/block]
+
+```java
+dependencies {
+        implementation fileTree(dir: 'libs', include: '*.jar'  )
+        debugimplementation(project(path: "CordovaLib", configuration: "debug"))
+        releaseimplementation(project(path: "CordovaLib", configuration: "release"))
+        // SUB-PROJECT DEPENDENCIES START
+        implementation "com.google.firebase:firebase-core:+"
+        implementation "com.google.firebase:firebase-messaging:17.3.3"
+        implementation "com.android.support:support-v4:+"
+         //Mandatory for v2.1.8 and above
+        implementation "com.android.installreferrer:installreferrer:1.0"
+        // SUB-PROJECT DEPENDENCIES END
+```
+
 # 2. Set Up and Register for Push Notifications and Deep Links
 
 ### iOS
@@ -183,30 +156,24 @@ Make sure your build.gradle file includes the play-services and support library 
 If you plan on using deep links, [please register your custom URL scheme as described here](https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/Inter-AppCommunication/Inter-AppCommunication.html#//apple_ref/doc/uid/TP40007072-CH6-SW1).
 
 Call the following from your Javascript.
-[block:code]
-{
-  "codes": [
-    {
-      "code": "   CleverTap.registerPush();\n",
-      "language": "javascript"
-    }
-  ]
-}
-[/block]
+
+```javascript
+CleverTap.registerPush();
+```
+
 ### Android
 
 Add your custom URL scheme to the AndroidManifest.xml.
 
-[block:code]
-{
-  "codes": [
-    {
-      "code": "\t <intent-filter android:label=\"@string/app_name\">\n                <action android:name=\"android.intent.action.VIEW\" />\n                <category android:name=\"android.intent.category.DEFAULT\" />\n                <category android:name=\"android.intent.category.BROWSABLE\" />\n                <data android:scheme=\"clevertapstarter\" />\n     </intent-filter>\n",
-      "language": "xml"
-    }
-  ]
-}
-[/block]
+```xml
+<intent-filter android:label="@string/app_name">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="clevertapstarter" />
+     </intent-filter>
+```
+
 See [example AndroidManifest.xml](https://github.com/CleverTap/clevertap-cordova/blob/master/Samples/Cordova/ExampleProject/platforms/android/app/src/main/AndroidManifest.xml).
 
 # 3. Integrate Javascript with the Plugin
@@ -215,18 +182,28 @@ After integrating, all calls to the CleverTap SDK should be made from your Javas
 
 Start by adding the following listeners to your Javascript:
 
-[block:code]
-{
-  "codes": [
-    {
-      "code": "    document.addEventListener('deviceready', this.onDeviceReady, false);\n    document.addEventListener('onCleverTapProfileSync', this.onCleverTapProfileSync, false); // optional: to be notified of CleverTap user profile synchronization updates \n    document.addEventListener('onCleverTapProfileDidInitialize', this.onCleverTapProfileDidInitialize, false); // optional, to be notified when the CleverTap user profile is initialized\n    document.addEventListener('onCleverTapInAppNotificationDismissed', this.onCleverTapInAppNotificationDismissed, false); // optional, to be receive a callback with custom in-app notification click data\n    document.addEventListener('onDeepLink', this.onDeepLink, false); // optional, register to receive deep links.\n    document.addEventListener('onPushNotification', this.onPushNotification, false); // optional, register to receive push notification payloads.\n\n\n    // deep link handling  \n    onDeepLink: function(e) {\n        console.log(e.deeplink);  \n    },  \n\n    // push notification data handling\n    onPushNotification: function(e) {\n        console.log(JSON.stringify(e.notification));\n    }, \n      \n      ",
-      "language": "javascript"
-    }
-  ]
-}
-[/block]
+```javascript
+document.addEventListener('deviceready', this.onDeviceReady, false);
+    document.addEventListener('onCleverTapProfileSync', this.onCleverTapProfileSync, false); // optional: to be notified of CleverTap user profile synchronization updates 
+    document.addEventListener('onCleverTapProfileDidInitialize', this.onCleverTapProfileDidInitialize, false); // optional, to be notified when the CleverTap user profile is initialized
+    document.addEventListener('onCleverTapInAppNotificationDismissed', this.onCleverTapInAppNotificationDismissed, false); // optional, to be receive a callback with custom in-app notification click data
+    document.addEventListener('onDeepLink', this.onDeepLink, false); // optional, register to receive deep links.
+    document.addEventListener('onPushNotification', this.onPushNotification, false); // optional, register to receive push notification payloads.
+
+
+    // deep link handling  
+    onDeepLink: function(e) {
+        console.log(e.deeplink);  
+    },  
+
+    // push notification data handling
+    onPushNotification: function(e) {
+        console.log(JSON.stringify(e.notification));
+    },
+```
+
 # Step 4: Example Projects
 
-To see how to use the CleverTap SDK in your app, please see these example projects:
- [Starter Cordova project](https://github.com/CleverTap/clevertap-cordova/blob/master/Samples/Cordova/ExampleProject/www/js/index.js)
+To see how to use the CleverTap SDK in your app, please see these example projects:\
+ [Starter Cordova project](https://github.com/CleverTap/clevertap-cordova/blob/master/Samples/Cordova/ExampleProject/www/js/index.js)\
 [Starter Ionic project](https://github.com/CleverTap/clevertap-cordova/blob/master/Samples/IonicCordova/IonicAngularProject/src/app/app.component.ts)
