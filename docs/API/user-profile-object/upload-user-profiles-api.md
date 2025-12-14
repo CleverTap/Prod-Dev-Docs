@@ -14,17 +14,19 @@ next:
 
 Use this API to create or update user profiles in CleverTap. With this API, you can update user profile information such as gender, phone, and customer type.
 
-Uploading user profiles to CleverTap requires a POST request with a JSON payload specifying the user profile information. A maximum of 1000 user profile records can be sent per API call. 
+Uploading user profiles to CleverTap requires a POST request with a JSON payload specifying the user profile information. A maximum of 1000 user profile records can be sent per API call.
 
-> 📘 Concurrent Requests
->
-> Concurrent requests to the *Upload User Profiles* API are limited to 15 per account. Requests that exceed the limit will return a 429 HTTP response code.
+<Callout icon="📘" theme="info">
+  **Concurrent Requests**
+
+  Concurrent requests to the _Upload User Profiles_ API are limited to 15 per account. Requests that exceed the limit will return a 429 HTTP response code.
+</Callout>
 
 For more information on request limit, refer to [API Request Limit](doc:api-request-limit).
 
 ## Base URL
 
-Here is an example base URL for an account in the India region:\
+Here is an example base URL for an account in the India region:  
 [https://in1.api.clevertap.com/1/upload](https://in1.api.clevertap.com/1/upload)
 
 ### Region
@@ -33,7 +35,7 @@ Refer [Region](https://developer.clevertap.com/docs/common-api-components#region
 
 ## Account-level Passcode for APIs
 
-You can have multiple account-level passcodes rather than having a single account passcode used across different partners. This offers better security when using CleverTap APIs. 
+You can have multiple account-level passcodes rather than having a single account passcode used across different partners. This offers better security when using CleverTap APIs.
 
 ## HTTP Method
 
@@ -47,7 +49,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
 
 User profile attribute keys are limited to 120 bytes, and their values are limited to 512 bytes. The maximum number of custom user profile keys is 256.
 
-For each user profile, a user identifier is required. This is the key that CleverTap uses to find the user whose profile needs to be updated. You have to set a value for one of these parameters to identify the user: identity, FBID, GPID, or objectId. A new user profile will be created if this identity is not found. 
+For each user profile, a user identifier is required. This is the key that CleverTap uses to find the user whose profile needs to be updated. You have to set a value for one of these parameters to identify the user: identity, FBID, GPID, or objectId. A new user profile will be created if this identity is not found.
 
 <Table align={["left","left","left","left","left"]}>
   <thead>
@@ -103,7 +105,7 @@ For each user profile, a user identifier is required. This is the key that Cleve
       </td>
 
       <td>
-        User profile properties. Passed as key/value pairs.\
+        User profile properties. Passed as key/value pairs.  
         profileData[“Phone”] should be formatted as +[country code][phone number].
       </td>
 
@@ -112,17 +114,17 @@ For each user profile, a user identifier is required. This is the key that Cleve
       </td>
 
       <td>
-        "profileData": \{\
-                "Name": "Jack Montana",\
-                "Email": "[jack@gmail.com](mailto:jack@gmail.com)",\
-                "Phone": "+14155551234",\
-                "Gender": "M",\
-                "Employed": "Y",\
-                "Education": "Graduate",\
-                "Married": "Y",\
-                "MSG-sms": false,\
-                "Customer Type": "Platinum"\
-          }
+        "profileData": \{  
+        "Name": "Jack Montana",  
+        "Email": "[jack@gmail.com](mailto:jack@gmail.com)",  
+        "Phone": "+14155551234",  
+        "Gender": "M",  
+        "Employed": "Y",  
+        "Education": "Graduate",  
+        "Married": "Y",  
+        "MSG-sms": false,  
+        "Customer Type": "Platinum"  
+        }
       </td>
 
       <td>
@@ -136,7 +138,7 @@ For each user profile, a user identifier is required. This is the key that Cleve
       </td>
 
       <td>
-        Identity to recognize a unique user. It can be the user’s email, a phone number, or any other identifier that you are using to tag your users.\
+        Identity to recognize a unique user. It can be the user’s email, a phone number, or any other identifier that you are using to tag your users.  
         You have to set a value for one of these parameters to identify the user: identity, FBID, GPID, or objectId.
       </td>
 
@@ -159,7 +161,7 @@ For each user profile, a user identifier is required. This is the key that Cleve
       </td>
 
       <td>
-        Identify a unique user by Facebook ID.\
+        Identify a unique user by Facebook ID.  
         You have to set a value for one of these parameters to identify the user: identity, FBID, GPID, or objectId.
       </td>
 
@@ -182,7 +184,7 @@ For each user profile, a user identifier is required. This is the key that Cleve
       </td>
 
       <td>
-        Identify a unique user by CleverTap Global Object ID.\
+        Identify a unique user by CleverTap Global Object ID.  
         You have to set a value for one of these parameters to identify the user: identity, FBID, GPID, or objectId.
       </td>
 
@@ -247,7 +249,7 @@ Here is an example JSON payload.
 
 ## Example Request
 
-Here are the sample requests to the *Upload User Profiles* API showing the headers needed to authenticate the request from the account in the India region:
+Here are the sample requests to the _Upload User Profiles_ API showing the headers needed to authenticate the request from the account in the India region:
 
 ```curl
 curl -X POST -d '{"d":[{"objectId":"25b08803c1af4e00839f530264dac6f8","type":"profile","profileData":{"Name": "Jack Test"}}]}' "https://in1.api.clevertap.com/1/upload" \
