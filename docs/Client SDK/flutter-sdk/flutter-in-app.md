@@ -25,9 +25,9 @@ next:
 The CleverTap SDK allows you to show In-App notifications to your users and send In-App messages with images, GIFs, video, and audio. You can design In-App notifications right from the dashboard without writing a single line of code. No code is required for this feature. You can also do A/B testing on your In-App notifications.
 
 > 📘 Header and Footer In-App Notification Template for Android
-> 
+>
 > To use CleverTap's Header and Footer In-App Notification Templates, update the `MainActivity` class to inherit the `FlutterFragmentActivity` class instead of `FlutterActivity`.
-> 
+>
 > ```
 > public class MainActivity extends FlutterFragmentActivity {  
 > //FlutterFragmentActivity supports Header & Footer InApp Notification Templates  
@@ -81,7 +81,7 @@ void inAppNotificationShow(Map<String, dynamic> map) {
 You can suspend, discard, or resume In-App notifications.
 
 > 📘 Note
-> 
+>
 > The CleverTap SDK automatically resumes displaying the In-App notification after every new session.
 
 ## Suspend
@@ -94,7 +94,7 @@ CleverTapPlugin.suspendInAppNotifications();
 
 ## Discard
 
-This method suspends the display of In-App Notifications and discards any new In-App notifications.  
+This method suspends the display of In-App Notifications and discards any new In-App notifications.\
 In-app notifications are discarded until the `resumeInAppNotifications` method is called for the current session.
 
 ```javascript Dart
