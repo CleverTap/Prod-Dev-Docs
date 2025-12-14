@@ -105,15 +105,17 @@ The following are the body parameters included in the JSON response payload:
 
       <td>
         <code>
-        {'{'}
-              "messageId": 1,
-              "wzrk_id": "12345679_20240130",
-              "wzrk_pivot": "wzrk_default"
-            {'}'},{'{'}
-              "messageId": 2,
-              "wzrk_id": "12345679_20240131",
-              "wzrk_pivot": "wzrk_default"
-            {'}'}
+          {'{'}
+
+          "messageId": 1,
+          "wzrk\_id": "12345679\_20240130",
+          "wzrk\_pivot": "wzrk\_default"
+          {'}'},{'{'}
+          "messageId": 2,
+          "wzrk\_id": "12345679\_20240131",
+          "wzrk\_pivot": "wzrk\_default"
+
+          {'}'}
         </code>
       </td>
     </tr>
@@ -200,7 +202,6 @@ curl --location --request POST 'https://in1.api.clevertap.com/1/inbox/markMessag
   ]
 }'
 ```
-
 ```ruby
 require "uri"
 require "json"
@@ -235,7 +236,6 @@ request.body = JSON.dump({
 response = https.request(request)
 puts response.read_body
 ```
-
 ```python
 import requests
 import json
@@ -268,7 +268,6 @@ response = requests.request("POST", url, headers=headers, data=payload)
 
 print(response.text)
 ```
-
 ```php
 <?php
 
@@ -297,7 +296,6 @@ $response = curl_exec($curl);
 curl_close($curl);
 echo $response;
 ```
-
 ```node
 var request = require('request');
 var options = {
