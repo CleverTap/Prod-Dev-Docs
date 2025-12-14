@@ -2226,8 +2226,7 @@ Example Payloads:
 }
 // media & template_type is mandatory
 ```
-
-```json Mobile Push Notification
+```Text Mobile Push Notification
 {
     "name": "My API Campaign",
     "estimate_only": true,
@@ -2326,8 +2325,7 @@ Example Payloads:
   }
 }
 ```
-
-```json Email
+```Text Email
 {
     "name": "My Email API campaign",
     "estimate_only": true,
@@ -2357,8 +2355,7 @@ Example Payloads:
 }
 // media & template_type is mandatory
 ```
-
-```json SMS
+```Text SMS
 {
     "name": "SMS Header,Message Key Values",
     "estimate_only": false,
@@ -2398,8 +2395,7 @@ Example Payloads:
     }
 }
 ```
-
-```json Webhooks
+```Text Webhook
 {
     "name": "My Webhook Campaign",
     "estimate_only": true,
@@ -2420,8 +2416,7 @@ Example Payloads:
     "when": "now"
 }
 ```
-
-```json App Inbox - Simple Message
+```Text App Inbox - Simple Message
 {    
     "name": "api simple test",
     "estimate_only": false,
@@ -2509,8 +2504,7 @@ Example Payloads:
     "when": "now"
 }
 ```
-
-```json App Inbox - Carousel
+```Text App Inbox - Carousel
 {    
     "name": "api simple test",
     "estimate_only": false,
@@ -2600,8 +2594,7 @@ Example Payloads:
     "when": "now"
 }
 ```
-
-```json App Inbox - Carousel Image
+```Text App Inbox - Carousel Image
 {    
     "name": "api simple test",
     "estimate_only": false,
@@ -2686,8 +2679,7 @@ Example Payloads:
     "when": "now"
 }
 ```
-
-```json App Inbox - Message with icon
+```Text App Inbox - Message with Icon
 {    
     "name": "api app inbox icon",
     "estimate_only": false,
@@ -2772,8 +2764,7 @@ Example Payloads:
     "when": "now"
 }
 ```
-
-```json Whatsapp
+```Text WhatsApp
 {
     "name": "Standard Whatsapp campaign",
     "estimate_only": false,
@@ -2915,8 +2906,7 @@ Following is the JSON payload for WhatsApp interactive message templates:
     }
 }
 ```
-
-```json SMS Campaign with Header Key-Value Pairs
+```Text SMS Campaign with Header Key-Value Pairs
 {
     "name": "Sms Campaign API",
     "estimate_only": false,
@@ -2952,8 +2942,7 @@ Following is the JSON payload for WhatsApp interactive message templates:
     }
 }
 ```
-
-```json SMS Campaign with Body Key-Value Pairs
+```Text SMS Campaign with Body Key-Value Pairs
 {
     "name": "Sms Campaign API",
     "estimate_only": false,
@@ -2989,8 +2978,7 @@ Following is the JSON payload for WhatsApp interactive message templates:
     }
 }
 ```
-
-```json SMS Campaign with Template ID & Key-Value Pairs
+```Text SMS Campaign with Template ID & Key-Value Pairs
 {
     "name": "Target Key Value SMS",
     "estimate_only": false,
@@ -3385,8 +3373,7 @@ The Generic Sample Campaign API includes configurations for without Key Values, 
     }
 }
 ```
-
-```json SMS Campaign with Header Key-Value Pairs
+```Text SMS Campaign with Header Key-Value Pair
 {
     "name": "Sms Campaign API",
     "estimate_only": false,
@@ -3422,8 +3409,7 @@ The Generic Sample Campaign API includes configurations for without Key Values, 
     }
 }
 ```
-
-```json SMS Campaign with Body Key-Value Pairs
+```Text SMS Campaign with Body Key-Value Pair
 {
     "name": "Sms Campaign API",
     "estimate_only": false,
@@ -3459,8 +3445,7 @@ The Generic Sample Campaign API includes configurations for without Key Values, 
     }
 }
 ```
-
-```json SMS Campaign with Template ID & Key-Value Pairs
+```Text SMS Campaign with Template ID & Key-Value Pairs
 {
     "name": "Target Key Value SMS",
     "estimate_only": false,
@@ -3511,8 +3496,7 @@ curl -X POST -d ' {"name": "My Sms API campaign","estimate_only": true,"target_m
 -H "X-CleverTap-Passcode: PASSCODE" \
 -H "Content-Type: application/json"
 ```
-
-```ruby
+```ruby Ruby
 require 'net/http'
 require 'uri'
 require 'json'
@@ -3555,8 +3539,7 @@ response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
   http.request(request)
 end
 ```
-
-```python
+```python Python
 import requests
 
 headers = {
@@ -3569,8 +3552,7 @@ data = ' {"name": "My Sms API campaign","estimate_only": true,"target_mode":"sms
 
 response = requests.post('https://in1.api.clevertap.com/1/targets/create.json', headers=headers, data=data)
 ```
-
-```php
+```php PHP
 <?php
 include('vendor/rmccue/requests/library/Requests.php');
 Requests::register_autoloader();
@@ -3582,8 +3564,7 @@ $headers = array(
 $data = ' {"name": "My Sms API campaign","estimate_only": true,"target_mode":"sms", "where":{"event_name":"Charged","from":20171001,"to":20171220,"common_profile_properties":{"profile_fields": [ {"name": "Customer Type","operator":"equals","value": "Platinum"}]}},"respect_frequency_caps": false,"content": { "body": "Sms body"},"when": "now"}';
 $response = Requests::post('https://in1.api.clevertap.com/1/targets/create.json', $headers, $data);
 ```
-
-```javascript Node.js
+```node Node
 var request = require('request');
 
 var headers = {
@@ -4664,8 +4645,9 @@ Below are example payloads for web push, push, email, SMS, and WhatsApp.
     }
 }
 ```
-
-```json Push
+```Text Push
+```
+```Text Email
 {
     "to": {
         "FBID": [
@@ -4713,41 +4695,7 @@ Below are example payloads for web push, push, email, SMS, and WhatsApp.
     }
 }
 ```
-
-```json Email
-{
-    "to": {
-        "FBID": [
-            "102029292929388",
-            "114342342453463"
-        ],
-        "GPID": [
-            "1928288389299292"
-        ],
-        "Email": [
-            "john@doe.com",
-            "jane@doe.com"
-        ],
-        "Identity": [
-            "JohnDoe"
-        ],
-        "objectId": [
-            "_asdnkansdjknaskdjnasjkndja",
-            "-adffajjdfoaiaefiohnefwprjf"
-        ]
-    },
-    "tag_group": "my tag group",
-    "respect_frequency_caps": false,
-    "send_email_to_opted_out_users":true,
-    "content": {
-        "subject": "Welcome",
-        "body": "<div>Your HTML content for the email</div>",
-        "sender_name": "CleverTap"
-    }
-}
-```
-
-```json SMS
+```Text SMS
 {
     "to": {
         "FBID": [
@@ -4776,8 +4724,7 @@ Below are example payloads for web push, push, email, SMS, and WhatsApp.
     }
 }
 ```
-
-```json WhatsApp
+```Text WhatsApp
 {
   "to": {
     "Identity": [
@@ -4859,8 +4806,7 @@ Following is the JSON payload for WhatsApp interactive message templates:
   }
 }
 ```
-
-```json Video Template
+```Text Video Template
 {
     "to": {
         "Identity": [
@@ -4891,8 +4837,7 @@ Following is the JSON payload for WhatsApp interactive message templates:
     }
 }
 ```
-
-```json Document Template
+```Text Document Template
 {
     "to": {
         "Identity": [
@@ -4923,8 +4868,7 @@ Following is the JSON payload for WhatsApp interactive message templates:
     }
 }
 ```
-
-```json Text Header with Quick Reply Button and Custom Button Payload
+```Text Text Header with Quick Reply Button and Custom Button Payload
 {
   "to": {
     "Identity": [
@@ -4966,7 +4910,7 @@ Following is the JSON payload for WhatsApp interactive message templates:
   }
 }
 ```
-```json Location
+```Text Location
 {
     "to": {
         "Identity": [
@@ -5001,8 +4945,7 @@ Following is the JSON payload for WhatsApp interactive message templates:
     }
 }
 ```
-
-```json Media Template With Dynamic CTA buttons
+```Text Media Template With Dynamic CTA buttons
 {
   "to": {
     "Identity": [
@@ -5043,8 +4986,7 @@ Following is the JSON payload for WhatsApp interactive message templates:
   }
 }
 ```
-
-```json Media Templates With Custom Payloads
+```Text Media Template With Custom Payloads
 {
   "to": {
     "Identity": [
@@ -5090,8 +5032,7 @@ Following is the JSON payload for WhatsApp interactive message templates:
   }
 }
 ```
-
-```json Freeform Simple Text Message
+```Text Freeform Simple Text Message
 {
   "to": {
     "Identity": [
@@ -5114,8 +5055,7 @@ Following is the JSON payload for WhatsApp interactive message templates:
   }
 }
 ```
-
-```json Freeform Image Message
+```Text Freeform Image Message
 {
   "to": {
     "Identity": [
@@ -5141,8 +5081,7 @@ Following is the JSON payload for WhatsApp interactive message templates:
   }
 }
 ```
-
-```json Freeform Video Message
+```Text Freeform Video Message
 {
     "to": {
         "Identity": [
@@ -5168,8 +5107,7 @@ Following is the JSON payload for WhatsApp interactive message templates:
     }
 }
 ```
-
-```json Freeform Audio Message
+```Text Freeform Audio Message
 {
     "to": {
         "Identity": [
@@ -5194,8 +5132,7 @@ Following is the JSON payload for WhatsApp interactive message templates:
     }
 }
 ```
-
-```json Freeform Document Message
+```Text Freeform Document Message
 {
     "to": {
         "Identity": [
@@ -5221,8 +5158,7 @@ Following is the JSON payload for WhatsApp interactive message templates:
     }
 }
 ```
-
-```json Location Template
+```Text Location Template
 {
     "to": {
         "Identity": [
@@ -5264,7 +5200,6 @@ curl -X POST -d '{"to":{"FBID":["102029292929388","114342342453463"],"Email":["j
 -H "X-CleverTap-Passcode: PASSCODE" \
 -H "Content-Type: application/json"
 ```
-
 ```ruby
 require 'net/http'
 require 'uri'
@@ -5309,7 +5244,6 @@ response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
   http.request(request)
 end
 ```
-
 ```python
 import requests
 
@@ -5323,7 +5257,6 @@ data = '{"to":{"FBID":["102029292929388","114342342453463"],"Email":["john@doe.c
 
 response = requests.post('https://in1.api.clevertap.com/1/send/sms.json', headers=headers, data=data)
 ```
-
 ```php
 <?php
 include('vendor/rmccue/requests/library/Requests.php');
@@ -5336,8 +5269,7 @@ $headers = array(
 $data = '{"to":{"FBID":["102029292929388","114342342453463"],"Email":["john@doe.com","jane@doe.com"],"Identity":["JohnDoe"],"objectId":["_asdnkansdjknaskdjnasjkndja","-adffajjdfoaiaefiohnefwprjf"]},"tag_group":"mytaggroup","respect_frequency_caps":false,"content":{"body":"Smsbody"}}';
 $response = Requests::post('https://in1.api.clevertap.com/1/send/sms.json', $headers, $data);
 ```
-
-```javascript Node.js
+```node
 var request = require('request');
 
 var headers = {
@@ -5365,24 +5297,13 @@ request(options, callback);
 ```
 
 ## Example Response - Target Users by their Identities
-```json
-{
-    "status": "success",
-    "message": "Added to queue for processing"
-}
-```
+
 A successful response implies payload validity and addition to the processing queue. Message delivery is handled by the provider (push or email) and depends on if you provided a valid recipient id.
 
 ## Errors
 
 If there are errors, you will receive a response in the format below.
-```json
-{
-    "status": "fail",
-    "error": "<error message here>",
-    "code": <error code here>
-}
-```
+
 Following are the possible error codes:
 
 <Table align={["left","left","left"]}>
