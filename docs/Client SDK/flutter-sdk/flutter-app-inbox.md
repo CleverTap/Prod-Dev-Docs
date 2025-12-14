@@ -25,16 +25,16 @@ App Inbox provides the ability to send permanent content directly to your app fr
 
 # App Inbox
 
-- The CleverTap Flutter SDK allows you to create App Inbox notifications for your users. 
-- You can use the App Inbox provided by CleverTap or create your own
-- You can design App Inbox notifications right from the dashboard
+* The CleverTap Flutter SDK allows you to create App Inbox notifications for your users. 
+* You can use the App Inbox provided by CleverTap or create your own
+* You can design App Inbox notifications right from the dashboard
 
 ## Android
 
 On the Android side, add the following inbox dependencies in your app's `build.gradle`:
 
 > 📘 Migrating from ExoPlayer to AndroidX Media3
-> 
+>
 > Starting from CleverTap Flutter SDK v2.5.0, CleverTap now supports [AndroidX Media3](https://developer.android.com/media/media3/exoplayer/migration-guide), replacing the deprecated ExoPlayer libraries. CleverTap continues to support [ExoPlayer](https://github.com/google/ExoPlayer), but for a smoother migration to AndroidX Media3, update the following dependencies:
 
 ```groovy Dependencies with AndroidX Media3
@@ -126,9 +126,9 @@ void inboxMessagesDidUpdate() {
 
 Let's understand the types of buttons that App Inbox supports:
 
-- **URL button**: fires the deeplink with the associated URL.
-- **Copy button**: copies the associated text to the clipboard
-- **KV button**: contains the custom key-value pair for custom handling
+* **URL button**: fires the deeplink with the associated URL.
+* **Copy button**: copies the associated text to the clipboard
+* **KV button**: contains the custom key-value pair for custom handling
 
 The CleverTap Flutter SDK v1.5.2 and above supports `inboxNotificationMessageClicked` callback on the click of an App Inbox item, such as text or media.
 
@@ -169,10 +169,10 @@ void inboxNotificationMessageClicked(
 ```
 
 > 📘 Parameters received in `inboxNotificationMessageClicked` callback
-> 
-> - The `data` parameter represents the entire _App Inbox Item_ object.
-> - The `contentPageIndex` parameter corresponds to the page index of the content, which ranges from 0 to n-1 (where n is the total number of pages for carousel templates). The non-carousel templates always have a value of 0, because they have only one page of content.
-> - The `buttonIndex` parameter corresponds to the App Inbox button (0, 1, or 2), that is clicked. A value of -1 in `buttonIndex` field indicates the entire _App Inbox Item_ is clicked.
+>
+> * The `data` parameter represents the entire *App Inbox Item* object.
+> * The `contentPageIndex` parameter corresponds to the page index of the content, which ranges from 0 to n-1 (where n is the total number of pages for carousel templates). The non-carousel templates always have a value of 0, because they have only one page of content.
+> * The `buttonIndex` parameter corresponds to the App Inbox button (0, 1, or 2), that is clicked. A value of -1 in `buttonIndex` field indicates the entire *App Inbox Item* is clicked.
 
 The CleverTap Flutter SDK v1.1.1 and above supports an exclusive `inboxNotificationButtonClicked` callback on the click of KV type of buttons. It returns a Map of Key-Value pairs. To use this, add a callback for `inboxNotificationButtonClicked` in following way:
 
