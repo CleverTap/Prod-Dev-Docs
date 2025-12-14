@@ -19,102 +19,49 @@ To configure FCM:
 1. Log in to the [Firebase Developer Console](https://console.firebase.google.com/) and go to your Dashboard.
 2. Click the **Gear** icon and access **Project settings**.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/1a609d8-FCM_Project_Settings.png",
-        "FCM_Project_Settings.png",
-        1281
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Navigate to Firebase Project Settings Page"
-    }
-  ]
-}
-[/block]
+<Image title="FCM_Project_Settings.png" alt={1281} align="center" border={true} src="https://files.readme.io/1a609d8-FCM_Project_Settings.png">
+  Navigate to Firebase Project Settings Page
+</Image>
 
-3. Go to the _Cloud Messaging _ tab to copy the _sender ID_ and the _API Key_. 
+3. Go to the *Cloud Messaging* tab to copy the *sender ID* and the *API Key*. 
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/e724e93-FCM_Server_Key.png",
-        "FCM_Server_Key.png",
-        "Firebase Project Settings Page"
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Copy Sender ID and API Key"
-    }
-  ]
-}
-[/block]
+<Image title="FCM_Server_Key.png" alt="Firebase Project Settings Page" align="center" border={true} src="https://files.readme.io/e724e93-FCM_Server_Key.png">
+  Copy Sender ID and API Key
+</Image>
 
-4. Log in to the CleverTap dashboard and navigate to _Settings_ > _Channels_ > _Mobile Push_.
-5. Click **FCM credentials** and enter the  _FCM Sender ID_ and the _Legacy Server API Key_ copied in _step 2_.
+4. Log in to the CleverTap dashboard and navigate to *Settings* > *Channels* > *Mobile Push*.
+5. Click **FCM credentials** and enter the  *FCM Sender ID* and the *Legacy Server API Key* copied in *step 2*.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/940111a-Configure_FCM_for_Mobile_Push_Campaigns.png",
-        null,
-        "Configure FCM for Push Campaigns"
-      ],
-      "align": "center",
-      "sizing": "80% ",
-      "border": true,
-      "caption": "Configure FCM for Push Campaigns"
-    }
-  ]
-}
-[/block]
+<Image alt="Configure FCM for Push Campaigns" align="center" width="80% " border={true} src="https://files.readme.io/940111a-Configure_FCM_for_Mobile_Push_Campaigns.png">
+  Configure FCM for Push Campaigns
+</Image>
 
 # Boost Throughput of Personalized Push Campaigns
 
 > 📘 Optional for Setting up Mobile Push
-> 
+>
 > This is an optional step for setting up Push campaigns. This step becomes mandatory if you want to increase the throughput of your personalized Mobile Push campaigns.
 
 To increase/boost the throughput of personalized Mobile Push campaigns: 
 
-1. Log in to the CleverTap dashboard and navigate to _Settings_ > _Channels_ > _Mobile Push_.
-2. Click **FCM credentials** and enter the _FCM Database URL_. You can obtain the FCM Database URL by navigating to the _Service Accounts_ tab of the _Project Settings_ page of the Firebase dashboard. 
+1. Log in to the CleverTap dashboard and navigate to *Settings* > *Channels* > *Mobile Push*.
+2. Click **FCM credentials** and enter the *FCM Database URL*. You can obtain the FCM Database URL by navigating to the *Service Accounts* tab of the *Project Settings* page of the Firebase dashboard. 
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/9b9075f-Service_Accounts.png",
-        null,
-        "Obtain Database URL"
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Obtain Database URL"
-    }
-  ]
-}
-[/block]
+<Image alt="Obtain Database URL" align="center" border={true} src="https://files.readme.io/9b9075f-Service_Accounts.png">
+  Obtain Database URL
+</Image>
 
-Alternatively, you can also upload the FCM credential field by clicking **Upload FCM Credential File** from the _Settings_ > _Channels_ > _Mobile Push_ page of the CleverTap dashboard. You can obtain this file by clicking Generate new private key from the _Service Accounts_ tab of the _Project Settings_ page of the Firebase dashboard.
+Alternatively, you can also upload the FCM credential field by clicking **Upload FCM Credential File** from the *Settings* > *Channels* > *Mobile Push* page of the CleverTap dashboard. You can obtain this file by clicking Generate new private key from the *Service Accounts* tab of the *Project Settings* page of the Firebase dashboard.
 
 > 📘 Prerequisite
-> 
+>
 > To improve the delivery rate of personalized Push campaigns, ensure that Firebase Cloud Messaging API is enabled. To do so:
-> 
-> 1. Log in to the _ Firebase Developer Console_ and click **API & Services**.
-> 
+>
+> 1. Log in to the *Firebase Developer Console* and click **API & Services**.
+>
 > ![](https://files.readme.io/b4d5fd4-image.png)
-> 
+>
 > 2. Click **Cloud Messaging API** link from the left menu.
 > 3. Click **ENABLE** if it is not already enabled.
-> 
+>
 > ![](https://files.readme.io/ca7a60d-image.png)
