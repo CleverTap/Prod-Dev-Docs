@@ -12,7 +12,7 @@ next:
 ---
 # Overview
 
-CleverTap uses a header-based authentication model to authenticate requests to the API. Every CleverTap API call should include _Account ID_ and _Account Passcode_ as the request headers.   If your CleverTap admin has opted for _User-Passcode_ instead of _Account Passcode_, you must use your _User-Passcode_ in the `X-CleverTap-Passcode` header. The CleverTap API expects these values to be keyed in as `X-CleverTap-Account-Id` and `X-CleverTap-Passcode`. 
+CleverTap uses a header-based authentication model to authenticate requests to the API. Every CleverTap API call should include *Account ID* and *Account Passcode* as the request headers.   If your CleverTap admin has opted for *User-Passcode* instead of *Account Passcode*, you must use your *User-Passcode* in the `X-CleverTap-Passcode` header. The CleverTap API expects these values to be keyed in as `X-CleverTap-Account-Id` and `X-CleverTap-Passcode`. 
 
 # Obtain Your Account Credentials
 
@@ -22,29 +22,15 @@ To obtain your account credentials, refer to [Get CleverTap Account Credentials]
 
 If you are a CleverTap customer trying to connect your partner dashboard to the CleverTap dashboard, you must use `connect` API. This API enables partners to verify customer account credentials, ensuring that customers enter the correct information when connecting to CleverTap via their partner dashboard.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/8ace922f7dea492a90f2b90569882a1ed85cda0a91d84843009931edee9663cf-Authorize_Partner_Credentials_.png",
-        null,
-        "Authorize an Email Template"
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Authorize Customer Account Credentials"
-    }
-  ]
-}
-[/block]
-
+<Image alt="Authorize an Email Template" align="center" border={true} src="https://files.readme.io/8ace922f7dea492a90f2b90569882a1ed85cda0a91d84843009931edee9663cf-Authorize_Partner_Credentials_.png">
+  Authorize Customer Account Credentials
+</Image>
 
 ## Base URL
 
 Here is an example base URL from the account in the India region:
 
-<https://in1.api.clevertap.com/v1/connect?partner=parntername>
+[https://in1.api.clevertap.com/v1/connect?partner=parntername](https://in1.api.clevertap.com/v1/connect?partner=parntername)
 
 ### Region
 
@@ -129,7 +115,7 @@ If you are a CleverTap customer looking to make API requests, you must use this 
 
 ## Example cURL Request
 
-Here is an example cURL request to the _Events_ API showing the headers needed to authenticate the request from the account in the India region.
+Here is an example cURL request to the *Events* API showing the headers needed to authenticate the request from the account in the India region.
 
 ```curl
 curl "https://in1.api.clevertap.com/1/events.json?cursor=CURSOR_VALUE" \
@@ -170,132 +156,105 @@ Account passcodes can be unique to each partner. Only admins or users with write
 
 To create an account passcode:
 
-1. Navigate to _Settings_ > _Passcodes_.
+1. Navigate to *Settings* > *Passcodes*.
 2. Click **+ Passcode**. 
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/ba91ebd-Passcodes_page.png",
-        "Generate New Passcode Page",
-        2722
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Generate Passcode"
-    }
-  ]
-}
-[/block]
+<Image title="Generate New Passcode Page" alt={2722} align="center" border={true} src="https://files.readme.io/ba91ebd-Passcodes_page.png">
+  Generate Passcode
+</Image>
 
+3. The *Generate Passcode* page displays.
 
-3. The _Generate Passcode_ page displays.
-
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/3072783-Generate_Passcode.png",
-        "Add Passcode Details Page",
-        630
-      ],
-      "align": "center",
-      "sizing": "40% ",
-      "border": true,
-      "caption": "Add Passcode Details"
-    }
-  ]
-}
-[/block]
-
+<Image title="Add Passcode Details Page" alt={630} align="center" width="40% " border={true} src="https://files.readme.io/3072783-Generate_Passcode.png">
+  Add Passcode Details
+</Image>
 
 4. Enter the following details:
 
-| <p>Field</p>           | <p>Description</p>                                                                                                                                                                                                   |
-| :--------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <p>Passcode Name</p>   | <p>Enter the name to uniquely identify the passcode.</p>                                                                                                                                                             |
-| <p>Set Expiry Date</p> | <p>Select from the available options:</p><ul><li>Set day(s): Enter the number of days after which the passcode will expire.</li><li>Forever: Select this option if you do not want the passcode to expire.</li></ul> |
+<Table align={["left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        <p>Field</p>
+      </th>
+
+      <th>
+        <p>Description</p>
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        <p>Passcode Name</p>
+      </td>
+
+      <td>
+        <p>Enter the name to uniquely identify the passcode.</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <p>Set Expiry Date</p>
+      </td>
+
+      <td>
+        <p>Select from the available options:</p><ul><li>Set day(s): Enter the number of days after which the passcode will expire.</li><li>Forever: Select this option if you do not want the passcode to expire.</li></ul>
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 5. Click **Create & View**. On clicking, the passcode displays.
 6. Click **API Key** to copy it and then click **Done**. 
 
 > 📘 Save Passcode
-> 
+>
 > For security reasons, the passcode cannot be shown again. Copy the key and save it for later use.
 
-7. The new passcode is now visible under the _Passcodes_ page.
+7. The new passcode is now visible under the *Passcodes* page.
 
 > 📘 Passcode Expiry
-> 
-> - An email notification is sent when the passcode is nearing expiration or has expired. 
-> - The passcode status is displayed as _Expiring soon_ from the 30 days of expiration. 
-> - An error message displays when using the expired passcode to authenticate with CleverTap API.
-> - After the passcode expires, we recommend deleting the passcode.
+>
+> * An email notification is sent when the passcode is nearing expiration or has expired. 
+> * The passcode status is displayed as *Expiring soon* from the 30 days of expiration. 
+> * An error message displays when using the expired passcode to authenticate with CleverTap API.
+> * After the passcode expires, we recommend deleting the passcode.
 
 ### Edit Account Passcode
 
 To edit account passcode:
 
-1. Navigate to _Settings_ > _Passcodes_ and then click ![Edit](https://files.readme.io/dbb52d8-Edit_icon.png) icon for the passcode you want to edit. The _Edit Passcode_ page opens.
+1. Navigate to *Settings* > *Passcodes* and then click ![Edit](https://files.readme.io/dbb52d8-Edit_icon.png) icon for the passcode you want to edit. The *Edit Passcode* page opens.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/389f1ff-Edit_Passcode.png",
-        "Edit Passcode Details Page",
-        578
-      ],
-      "align": "center",
-      "sizing": "300rt",
-      "border": true,
-      "caption": "Edit the Existing Passcode"
-    }
-  ]
-}
-[/block]
-
+<Image title="Edit Passcode Details Page" alt={578} align="center" width="300rt" border={true} src="https://files.readme.io/389f1ff-Edit_Passcode.png">
+  Edit the Existing Passcode
+</Image>
 
 2. Modify the required fields and then click **Update**. 
 
 ### Delete Account Passcode
 
-Navigate to _Settings_ > _Passcodes_ and then click ![Delete](https://files.readme.io/00c078d-Delete_icon.png) icon for the passcode you want to delete. On deleting the passcode, the APIs will stop working.
+Navigate to *Settings* > *Passcodes* and then click ![Delete](https://files.readme.io/00c078d-Delete_icon.png) icon for the passcode you want to delete. On deleting the passcode, the APIs will stop working.
 
 ## User Passcode
 
-For API authentication, you can enforce dashboard users to use _user passcode_ rather than _account passcode_. User passcode offers a better security standard while using CleverTap APIs. 
+For API authentication, you can enforce dashboard users to use *user passcode* rather than *account passcode*. User passcode offers a better security standard while using CleverTap APIs. 
 
 User passcodes are unique to each user and granted by the admin.
 
 ### Enable User Passcode for a User
 
-1. If you are an admin user, go to _Settings_ > _Users_ to enable the user passcode. 
+1. If you are an admin user, go to *Settings* > *Users* to enable the user passcode. 
 2. Select the user from the list and click **Grant**.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/10e7053-35.png",
-        "Grant User Access",
-        2284
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Enable User Passcode"
-    }
-  ]
-}
-[/block]
+<Image title="Grant User Access" alt={2284} align="center" border={true} src="https://files.readme.io/10e7053-35.png">
+  Enable User Passcode
+</Image>
 
-
-When you grant the passcode to a user, you need to specify the period for which the passcode remains valid.  
+When you grant the passcode to a user, you need to specify the period for which the passcode remains valid.\
 You can specify the period from the following options:
 
 | Field    | Description                                                                  |
@@ -303,72 +262,30 @@ You can specify the period from the following options:
 | Finite   | Indicates that the passcode can be valid for a specific period (1-365 days). |
 | Infinite | Indicates that the passcode is valid for up to 10 years.                     |
 
-3. After you grant the user a user passcode, the users can see their user passcode on the _Settings_ page, as shown below:
+3. After you grant the user a user passcode, the users can see their user passcode on the *Settings* page, as shown below:
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/8e864e4-Password_view.png",
-        null,
-        "View User Passcode"
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "View User Passcode"
-    }
-  ]
-}
-[/block]
-
+<Image alt="View User Passcode" align="center" border={true} src="https://files.readme.io/8e864e4-Password_view.png">
+  View User Passcode
+</Image>
 
 ### Reset and Revoke User Passcode
 
-An admin can reset or revoke an existing user passcode by navigating to the _Users_ page and selecting the required action.
+An admin can reset or revoke an existing user passcode by navigating to the *Users* page and selecting the required action.
 
-- _Reset Passcode_ generates a fresh new passcode for the user. Post resetting, the user has to incorporate the new passcode into APIs.
+* *Reset Passcode* generates a fresh new passcode for the user. Post resetting, the user has to incorporate the new passcode into APIs.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/99a5814-38.png",
-        "Reset Passcode",
-        2284
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Reset User Passcode"
-    }
-  ]
-}
-[/block]
+<Image title="Reset Passcode" alt={2284} align="center" border={true} src="https://files.readme.io/99a5814-38.png">
+  Reset User Passcode
+</Image>
 
+* *Revoke Passcode* invalidates the existing passcode for the user, and the user can no longer fire API calls using their passcode.
 
-- _Revoke Passcode_ invalidates the existing passcode for the user, and the user can no longer fire API calls using their passcode.
-
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/9f0237e-37.png",
-        "Revoke User Access",
-        2284
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Revoke User Access to the Passcode"
-    }
-  ]
-}
-[/block]
-
+<Image title="Revoke User Access" alt={2284} align="center" border={true} src="https://files.readme.io/9f0237e-37.png">
+  Revoke User Access to the Passcode
+</Image>
 
 # Next Step
 
 Now that you understand how to authenticate with the CleverTap API, you are ready to make your first API call. 
 
-Start with [Get User Profiles](https://developer.clevertap.com/docs/get-user-profiles-api) API, which shows you how to request _User Profiles_ from CleverTap.
+Start with [Get User Profiles](https://developer.clevertap.com/docs/get-user-profiles-api) API, which shows you how to request *User Profiles* from CleverTap.
