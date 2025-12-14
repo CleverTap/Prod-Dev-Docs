@@ -11,8 +11,9 @@ next:
   description: ''
 ---
 # Sample App
-  * Refer to our [Example Swift Project](https://github.com/CleverTap/clevertap-ios-sdk/tree/master/SwiftStarter).
-  * Refer to our [Example Objective-C Project](https://github.com/CleverTap/clevertap-ios-sdk/tree/master/ObjCStarter).
+
+* Refer to our [Example Swift Project](https://github.com/CleverTap/clevertap-ios-sdk/tree/master/SwiftStarter).
+* Refer to our [Example Objective-C Project](https://github.com/CleverTap/clevertap-ios-sdk/tree/master/ObjCStarter).
 
 # Usage Documentation
 
