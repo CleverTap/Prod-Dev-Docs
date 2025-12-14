@@ -27,70 +27,25 @@ The following are the four major steps to perform this integration:
 
 Ensure you integrate the [Web SDK](doc:web-quickstart-guide#section-step-1-add-the-clever-tap-java-script-library-to-your-website) from the developer docs to all your web pages. One way to achieve this is by creating custom HTML tags. Refer to the example shown in the following figure:
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/013d66b-web_1.png",
-        "Custom HTML Tags",
-        1590
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Custom HTML Tags"
-    }
-  ]
-}
-[/block]
-
-
+<Image title="Custom HTML Tags" alt={1590} align="center" border={true} src="https://files.readme.io/013d66b-web_1.png">
+  Custom HTML Tags
+</Image>
 
 ## Call CleverTap Methods
 
 To implement CleverTap methods such as OnUserLogin(), event.push(), or profile.push(), you can create custom HTML tags with variables and define the appropriate triggers. Refer to the example shown in the following figure:
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/10dce99-web_2.png",
-        "Call CleverTap Methods",
-        1460
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Call CleverTap Methods"
-    }
-  ]
-}
-[/block]
-
-
+<Image title="Call CleverTap Methods" alt={1460} align="center" border={true} src="https://files.readme.io/10dce99-web_2.png">
+  Call CleverTap Methods
+</Image>
 
 ## Create Variables for Passing Parameters
 
 You can use the data layer to pass variables to CleverTap functions. For instance, for the above custom HTML to work, you must create the variables first in your GTM container.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/4fd71dc-WEB_2.png",
-        "User-Defined Variables",
-        1476
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "User-Defined Variables"
-    }
-  ]
-}
-[/block]
-
-
+<Image title="User-Defined Variables" alt={1476} align="center" border={true} src="https://files.readme.io/4fd71dc-WEB_2.png">
+  User-Defined Variables
+</Image>
 
 ## Update Values of Variables before CleverTap Methods are Triggered
 
