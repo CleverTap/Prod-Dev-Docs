@@ -3195,15 +3195,15 @@ The Generic Sample Campaign API includes configurations for without Key Values, 
 
       <td>
         `{
-                                                  "event_name": "Charged",
-                                                  "from": 20251001,
-                                                  "to": 20251220,
-                                                  "common_profile_properties": {
-                                                    "profile_fields": {
-                                                      "field_name": "value"
-                                                    }
-                                                  }
-                                                }`
+                                                          "event_name": "Charged",
+                                                          "from": 20251001,
+                                                          "to": 20251220,
+                                                          "common_profile_properties": {
+                                                            "profile_fields": {
+                                                              "field_name": "value"
+                                                            }
+                                                          }
+                                                        }`
       </td>
     </tr>
 
@@ -3611,8 +3611,6 @@ request(options, callback);
     }
 }
 ```
-
-
 
 # Create Campaign API - Target Users by their Identities
 
@@ -4559,3 +4557,209 @@ The to parameter is an object that has the following child properties: FBID, Ema
     </tr>
   </tbody>
 </Table>
+
+<br />
+
+Below are example payloads for web push, push, email, SMS, and WhatsApp.
+
+```json Web Push
+{
+    "to": {
+        "FBID": [
+            "102029292929388",
+            "114342342453463"
+        ],
+       
+        "Email": [
+            "john@doe.com",
+            "jane@doe.com"
+        ],
+        "Identity": [
+            "JohnDoe"
+        ],
+        "objectId": [
+            "_asdnkansdjknaskdjnasjkndja",
+            "-adffajjdfoaiaefiohnefwprjf"
+        ]
+    },
+    "tag_group": "my tag group",
+		"campaign_id": 1000000043,
+    "respect_frequency_caps": false,
+     "content": {
+        "title": "Hi!",
+        "body": "How are you doing today?",
+       "platform_specific": {
+            "safari": {
+                "deep_link": "https://www.google.com",
+                "ttl":10
+            },
+            "chrome": {
+              "image": "https://www.exampleImage.com",
+              "icon":"https://www.exampleIcon.com",
+              "deep_link": "http://www.example.com",
+              "ttl":10,
+              "require_interaction":true,
+              "cta_title1":"title",
+              "cta_link1":"http://www.example2.com",
+              "cta_iconlink1":"https://www.exampleIcon2.com"
+            },
+            "firefox": {
+            	"icon":"https://www.exampleIcon.com",
+                "deep_link": "https://www.google.com",
+                "ttl":10
+            }
+        }
+    }
+}
+```
+```json Push
+{
+    "to": {
+        "FBID": [
+            "102029292929388",
+            "114342342453463"
+        ],
+        "GPID": [
+            "1928288389299292"
+        ],
+        "Email": [
+            "john@doe.com",
+            "jane@doe.com"
+        ],
+        "Identity": [
+            "JohnDoe"
+        ],
+        "objectId": [
+            "_asdnkansdjknaskdjnasjkndja",
+            "-adffajjdfoaiaefiohnefwprjf"
+        ]
+    },
+    "tag_group": "my tag group",
+    "respect_frequency_caps": false,
+    "content": {
+        "title": "Welcome",
+        "body": "Hello world!",
+        "platform_specific": {
+            "ios": {
+                "deep_link": "example.com",
+                "sound_file": "example.caf",
+                "mutable-content": "true", 
+                "ct_mediaUrl": "https://i.ibb.co/pJ8D5Z7/woman-g40aa99db5-1920.jpg",
+                "category": "notification category",
+                "badge_count": 1,
+                "key": "value_ios"
+            },
+            "android": {
+                "background_image": "http://example.jpg",
+                "default_sound": true,
+                "deep_link": "example.com",
+                "large_icon": "http://example.png",
+                "key": "value_android"
+            }
+        }
+    }
+}
+```
+```json Email
+{
+    "to": {
+        "FBID": [
+            "102029292929388",
+            "114342342453463"
+        ],
+        "GPID": [
+            "1928288389299292"
+        ],
+        "Email": [
+            "john@doe.com",
+            "jane@doe.com"
+        ],
+        "Identity": [
+            "JohnDoe"
+        ],
+        "objectId": [
+            "_asdnkansdjknaskdjnasjkndja",
+            "-adffajjdfoaiaefiohnefwprjf"
+        ]
+    },
+    "tag_group": "my tag group",
+    "respect_frequency_caps": false,
+    "send_email_to_opted_out_users":true,
+    "content": {
+        "subject": "Welcome",
+        "body": "<div>Your HTML content for the email</div>",
+        "sender_name": "CleverTap"
+    }
+}
+```
+```json SMS
+{
+    "to": {
+        "FBID": [
+            "102029292929388",
+            "114342342453463"
+        ],
+        "GPID": [
+            "1928288389299292"
+        ],
+        "Email": [
+            "john@doe.com",
+            "jane@doe.com"
+        ],
+        "Identity": [
+            "JohnDoe"
+        ],
+        "objectId": [
+            "_asdnkansdjknaskdjnasjkndja",
+            "-adffajjdfoaiaefiohnefwprjf"
+        ]
+    },
+    "tag_group": "my tag group",
+    "respect_frequency_caps": false,
+     "content": {
+        "body": "Sms body"
+    }
+}
+```
+```json WhatsApp
+{
+  "to": {
+    "Identity": [
+      "johndoe@mail.com"
+    ]
+  },
+  "tag_group": "Tag Group 1",
+  "provider_nick_name": "Provider_1",
+  "respect_frequency_caps": false,
+  "message_id": "4536tsytr",
+  "respect_communication_preference": true,
+  "content": {
+    "message_type": "template",
+    "template": {
+      "template_name": "video_Template_1",
+      "header": {
+        "type": "video",
+        "media": {
+          "url": "https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.mp4"
+        }
+      },
+      "body": {
+        "type": "text",
+        "replacements": [
+          "var1",
+          "Var2"
+        ]
+      },
+      //dynamic redirection CTA
+      "buttons": [
+        {
+          "replacements": [
+            "CTA_var"
+          ]
+        }
+      ],
+      "language": "en"
+    }
+  }
+}
+
