@@ -20,15 +20,15 @@ Before starting, refer to [React Native Quick Start Guide](doc:react-native-quic
 
 Ensure you have the following prerequisites to integrate CleverTap React Native SDK with your app:
 
-- CleverTap account
-- React Native Integrated Development Environment (IDE) such as VS Code, Atom, WebStorm
-- Android Studio IDE
-- Apple Xcode IDE
+* CleverTap account
+* React Native Integrated Development Environment (IDE) such as VS Code, Atom, WebStorm
+* Android Studio IDE
+* Apple Xcode IDE
 
 # Supported Versions
 
-- For [Android 15](https://developer.android.com/about/versions/15/summary), we recommend using the CleverTap React Native SDK v3.3.0 or higher.
-- For [Android 14](https://developer.android.com/about/versions/14/summary), we recommend using the CleverTap React Native SDK v3.2.0 or below.
+* For [Android 15](https://developer.android.com/about/versions/15/summary), we recommend using the CleverTap React Native SDK v3.3.0 or higher.
+* For [Android 14](https://developer.android.com/about/versions/14/summary), we recommend using the CleverTap React Native SDK v3.2.0 or below.
 
 The following table outlines the minimum React Native versions required and the compatibility of each CleverTap SDK version with the new architecture:
 
@@ -48,6 +48,7 @@ For React Native SDK versions and React Native SDK code size, refer to the follo
 # Integrate the React Native SDK
 
 Refer to our quick start guide to get started with the React Native integration:
+
 
 | Steps      | Procedure                                                                                                                |
 | :--------- | :----------------------------------------------------------------------------------------------------------------------- |
@@ -70,17 +71,49 @@ The following table lists all the React Native SDK resources:
 
 Refer to the following for additional React Native SDK references:
 
-[block:html]
-{
-  "html": "<div class=\"two-col-container\">\n  <div class=\"link-content\">\n    <h4 class=\"custom-heading\">React Native Data Tracking</h4>\n    <p><a class=\"links\" href=\"https://developer.clevertap.com/docs/user-profiles-react-native\" target=\"_blank\" rel=\"noopener noreferrer\">React Native User Profile</a></p>\n    <p><a class=\"links\" href=\"https://developer.clevertap.com/docs/user-events-react-native\" target=\"_blank\" rel=\"noopener noreferrer\">React Native User Events</a></p>\n  </div>\n  <div class=\"link-content\">\n    <h4 class=\"custom-heading\">React Native Push</h4>\n    <p><a class=\"links\" href=\"https://developer.clevertap.com/docs/react-native-push-notification\" target=\"_blank\" rel=\"noopener noreferrer\">React Native Push Notifications\n      </a></p>\n  </div>\n  <div class=\"link-content\">\n    <h4 class=\"custom-heading\">React Native SDK Features</h4>\n    <p><a class=\"links\" href=\"https://developer.clevertap.com/docs/react-native-in-app\" target=\"_blank\" rel=\"noopener noreferrer\">React Native In-App Notification\n      </a></p>\n    <p><a class=\"links\" href=\"https://developer.clevertap.com/docs/react-native-app-inbox\" target=\"_blank\" rel=\"noopener noreferrer\">React Native App Inbox\n      </a></p>\n  </div> \n</div>"
+<HTMLBlock>{`
+`}  
+</HTMLBlock>
+<div class="two-col-container">
+  <div class="link-content">
+    <h4 class="custom-heading">React Native Data Tracking</h4>
+    <p><a class="links" href="https://developer.clevertap.com/docs/user-profiles-react-native" target="_blank" rel="noopener noreferrer">React Native User Profile</a></p>
+    <p><a class="links" href="https://developer.clevertap.com/docs/user-events-react-native" target="_blank" rel="noopener noreferrer">React Native User Events</a></p>
+  </div>
+  <div class="link-content">
+    <h4 class="custom-heading">React Native Push</h4>
+    <p><a class="links" href="https://developer.clevertap.com/docs/react-native-push-notification" target="_blank" rel="noopener noreferrer">React Native Push Notifications</a></p>
+  </div>
+  <div class="link-content">
+    <h4 class="custom-heading">React Native SDK Features</h4>
+    <p><a class="links" href="https://developer.clevertap.com/docs/react-native-in-app" target="_blank" rel="noopener noreferrer">React Native In-App Notification</a></p>
+    <p><a class="links" href="https://developer.clevertap.com/docs/react-native-app-inbox" target="_blank" rel="noopener noreferrer">React Native App Inbox</a></p>
+  </div> 
+</div>`}</HTMLBlock>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<HTMLBlock>{`
+<style>
+  .rm-Guides .content-body, .rm-Guides #content-head .col-xs-9 {
+      max-width: 100%;
+      width: 1000px;
+  }
+  .markdown-body summary {
+  font-size: 20px;
+  font-weight: bold; 
+  text-transform: camelcase;
 }
-[/block]
-
-
-</details>
-
-[block:html]
-{
-  "html": "<style>\n  .rm-Guides .content-body, .rm-Guides #content-head .col-xs-9 {\n      max-width: 100%;\n      width: 1000px;\n  }\n  .markdown-body summary {\n  font-size: 20px;\n  font-weight: bold; \n  text-transform: camelcase;\n}\n</style>"
-}
-[/block]
+</style>
+`}</HTMLBlock>
