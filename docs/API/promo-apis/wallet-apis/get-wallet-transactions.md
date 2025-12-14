@@ -18,16 +18,16 @@ The Get Wallet Transactions API allows you to retrieve wallet transaction detail
 
 This API provides the following information:
 
-- **Transaction History**: Includes a comprehensive log of all wallet transactions, that is, credits, debits, and expirations processed through various sources linked to the user's wallet.
-- **Promised Points Transactions**: Displays points yet to be credited to the user's wallet based on their activation date. This allows users to monitor points scheduled for future credit. For example, if a user earns 100 points for a transaction with a 7-day activation period, these points remain in the _Pending_ bucket until the activation period ends. After 7 days, they move to _Active_ status and become redeemable.
-- **Expiring Points**: Displays points nearing expiration along with their expiry dates, helping users track and redeem them in time to avoid losing benefits.
-- **System Keys and Metadata**: Transactions also include additional system keys such as, `saleChannel`, `locationId`, `saleAmount`, and `orderId`. A metadata object with key–value pairs is also returned, reflecting any data provided when the Debit/Credit transaction was created. If no metadata was associated, the field is returned as null.
+* **Transaction History**: Includes a comprehensive log of all wallet transactions, that is, credits, debits, and expirations processed through various sources linked to the user's wallet.
+* **Promised Points Transactions**: Displays points yet to be credited to the user's wallet based on their activation date. This allows users to monitor points scheduled for future credit. For example, if a user earns 100 points for a transaction with a 7-day activation period, these points remain in the *Pending* bucket until the activation period ends. After 7 days, they move to *Active* status and become redeemable.
+* **Expiring Points**: Displays points nearing expiration along with their expiry dates, helping users track and redeem them in time to avoid losing benefits.
+* **System Keys and Metadata**: Transactions also include additional system keys such as, `saleChannel`, `locationId`, `saleAmount`, and `orderId`. A metadata object with key–value pairs is also returned, reflecting any data provided when the Debit/Credit transaction was created. If no metadata was associated, the field is returned as null.
 
 # Base URL
 
 Here is an example base URL from the account in the India region:
 
-<https://in1.api.clevertap.com/1/promo/transactions>
+[https://in1.api.clevertap.com/1/promo/transactions](https://in1.api.clevertap.com/1/promo/transactions)
 
 ## Region
 
@@ -64,25 +64,11 @@ curl -X GET "https://in1.api.clevertap.com/1/promo/transactions?identity=krishna
 
 ## Find CleverTap Account ID and Passcode
 
-You can find the CleverTap Account ID and Passcode from the CleverTap dashboard by navigating to the _Settings_ > _Project_ page on the CleverTap dashboard.
+You can find the CleverTap Account ID and Passcode from the CleverTap dashboard by navigating to the *Settings* > *Project* page on the CleverTap dashboard.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/739d78a63824aae1ab3162099ad19831000b8f090ce5960502d7fb7497def258-image.png",
-        null,
-        "Find CleverTap Project Details"
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Find CleverTap Project Details"
-    }
-  ]
-}
-[/block]
-
+<Image alt="Find CleverTap Project Details" align="center" border={true} src="https://files.readme.io/739d78a63824aae1ab3162099ad19831000b8f090ce5960502d7fb7497def258-image.png">
+  Find CleverTap Project Details
+</Image>
 
 # Sample Response
 
@@ -153,7 +139,7 @@ The sections below provide a detailed breakdown of the response payload for the 
 
 ## `pointsExpiring` Object
 
-The **`pointsExpiring` object** returns details about reward points nearing expiry. It includes information such as the total points expiring soon, the earliest expiry date, and a detailed list of points with their respective expiry timestamps.
+The **`pointsExpiring`object** returns details about reward points nearing expiry. It includes information such as the total points expiring soon, the earliest expiry date, and a detailed list of points with their respective expiry timestamps.
 
 | Parameter                 | Description                                                                     | Type             | Sample Value             |
 | ------------------------- | ------------------------------------------------------------------------------- | ---------------- | ------------------------ |
@@ -165,84 +151,256 @@ The **`pointsExpiring` object** returns details about reward points nearing expi
 
 ## `allTransactions` Object
 
-The **`allTransactions` object** returns the complete transaction history of the wallet, including credits, debits, expired, and pending transactions. Each transaction entry provides comprehensive details such as the transaction source, type, description, timestamp, and points involved.
+The **`allTransactions`object** returns the complete transaction history of the wallet, including credits, debits, expired, and pending transactions. Each transaction entry provides comprehensive details such as the transaction source, type, description, timestamp, and points involved.
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Response Field",
-    "h-1": "Definition",
-    "h-2": "Type",
-    "h-3": "Sample Value",
-    "0-0": "`txnSource`",
-    "0-1": "Source through which the wallet transaction occurred. The following are the possible sources:<ul><li>**Campaign**: Transaction originated from a promotional campaign.</li><li>**API**: Transaction triggered via API integration.</li><li>**Manual**: Transaction added or updated manually by an administrator.</li><li>**Cashback Coupon**: Transaction that reflects cashback awarded to the user as part of a coupon redemption.</li><li>**System**: Transaction automatically generated by the system, for example, coupon expiration </li></ul>",
-    "0-2": "String",
-    "0-3": "`CAMPAIGN`, `API`, `MANUAL`,`CASHBACKCOUPON`, `SYSTEM`",
-    "1-0": "`description`",
-    "1-1": "Description of the wallet transaction.",
-    "1-2": "String",
-    "1-3": "`Points debited for late payment`",
-    "2-0": "`type`",
-    "2-1": "Wallet transaction type indicating the nature of the transaction. The following are the possible values:<ul><li>**Credit**: Points added to the wallet.</li><li>**Debit**: Points deducted from the wallet.</li><li>**Expired**: Points that have reached their expiry date and are no longer valid.</li><li>**Pending**: Points awaiting activation or clearance.</li></ul>",
-    "2-2": "String",
-    "2-3": "`CREDIT`, `DEBIT`, `EXPIRED`, `PENDING`",
-    "3-0": "`tnxId`",
-    "3-1": "Transaction ID assigned to a respective wallet transaction.",
-    "3-2": "String",
-    "3-3": "`wl_MRCJSqtH9akcvzvK`",
-    "4-0": "`allTransactions`",
-    "4-1": "List of all transactions.",
-    "4-2": "Array of objects",
-    "4-3": "",
-    "5-0": "`points`",
-    "5-1": "Wallet points debited or credited against each transaction.",
-    "5-2": "Numeric",
-    "5-3": "`20`",
-    "6-0": "`txnTimestamp`",
-    "6-1": "Date and Time when the transaction was created.",
-    "6-2": "DateTime",
-    "6-3": "`2024-12-13T12:12:12Z`",
-    "7-0": "`orderId`",
-    "7-1": "References the bill number to associate the transaction with a specific order ID for potential future refunds. This enables tracking transactions for return sales.",
-    "7-2": "String",
-    "7-3": "`ORD12345`",
-    "8-0": "`saleChannel`",
-    "8-1": "The source channel for the transaction (e.g., Mobile, Web, POS). Applies to both credit and debit transactions created via API.",
-    "8-2": "String",
-    "8-3": "`POS`",
-    "9-0": "`locationId`",
-    "9-1": "Identifier for the transaction location (e.g., store code). Applies to both credit and debit transactions created via API.",
-    "9-2": "String",
-    "9-3": "`BAN123`",
-    "10-0": "`saleAmount`",
-    "10-1": "Gross order value tied to the transaction. Applies to both credit and debit transactions.",
-    "10-2": "Numeric",
-    "10-3": "`2499`",
-    "11-0": "`metadata`",
-    "11-1": "The key-value pairs to persist with the transactions. Applies to both credit and debit transactions.",
-    "11-2": "Object",
-    "11-3": "`{ \"cashierId\": \"C42\", \"campaign\": \"FESTIVE25\" }`"
-  },
-  "cols": 4,
-  "rows": 12,
-  "align": [
-    null,
-    null,
-    null,
-    null
-  ]
-}
-[/block]
+<Table>
+  <thead>
+    <tr>
+      <th>
+        Response Field
+      </th>
 
+      <th>
+        Definition
+      </th>
+
+      <th>
+        Type
+      </th>
+
+      <th>
+        Sample Value
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        `txnSource`
+      </td>
+
+      <td>
+        Source through which the wallet transaction occurred. The following are the possible sources:<ul><li>**Campaign**: Transaction originated from a promotional campaign.</li><li>**API**: Transaction triggered via API integration.</li><li>**Manual**: Transaction added or updated manually by an administrator.</li><li>**Cashback Coupon**: Transaction that reflects cashback awarded to the user as part of a coupon redemption.</li><li>**System**: Transaction automatically generated by the system, for example, coupon expiration </li></ul>
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        `CAMPAIGN`, `API`, `MANUAL`,`CASHBACKCOUPON`, `SYSTEM`
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `description`
+      </td>
+
+      <td>
+        Description of the wallet transaction.
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        `Points debited for late payment`
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `type`
+      </td>
+
+      <td>
+        Wallet transaction type indicating the nature of the transaction. The following are the possible values:<ul><li>**Credit**: Points added to the wallet.</li><li>**Debit**: Points deducted from the wallet.</li><li>**Expired**: Points that have reached their expiry date and are no longer valid.</li><li>**Pending**: Points awaiting activation or clearance.</li></ul>
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        `CREDIT`, `DEBIT`, `EXPIRED`, `PENDING`
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `tnxId`
+      </td>
+
+      <td>
+        Transaction ID assigned to a respective wallet transaction.
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        `wl_MRCJSqtH9akcvzvK`
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `allTransactions`
+      </td>
+
+      <td>
+        List of all transactions.
+      </td>
+
+      <td>
+        Array of objects
+      </td>
+
+      <td>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `points`
+      </td>
+
+      <td>
+        Wallet points debited or credited against each transaction.
+      </td>
+
+      <td>
+        Numeric
+      </td>
+
+      <td>
+        `20`
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `txnTimestamp`
+      </td>
+
+      <td>
+        Date and Time when the transaction was created.
+      </td>
+
+      <td>
+        DateTime
+      </td>
+
+      <td>
+        `2024-12-13T12:12:12Z`
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `orderId`
+      </td>
+
+      <td>
+        References the bill number to associate the transaction with a specific order ID for potential future refunds. This enables tracking transactions for return sales.
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        `ORD12345`
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `saleChannel`
+      </td>
+
+      <td>
+        The source channel for the transaction (e.g., Mobile, Web, POS). Applies to both credit and debit transactions created via API.
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        `POS`
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `locationId`
+      </td>
+
+      <td>
+        Identifier for the transaction location (e.g., store code). Applies to both credit and debit transactions created via API.
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        `BAN123`
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `saleAmount`
+      </td>
+
+      <td>
+        Gross order value tied to the transaction. Applies to both credit and debit transactions.
+      </td>
+
+      <td>
+        Numeric
+      </td>
+
+      <td>
+        `2499`
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `metadata`
+      </td>
+
+      <td>
+        The key-value pairs to persist with the transactions. Applies to both credit and debit transactions.
+      </td>
+
+      <td>
+        Object
+      </td>
+
+      <td>
+        `{ "cashierId": "C42", "campaign": "FESTIVE25" }`
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 > 📘 Note
-> 
-> - For transactions created through the Debit/Credit API, the system keys, i.e., `saleChannel`, `locationId`, `saleAmount` and any `metadata` provided will be returned in the response.
-> - For expired or system-generated transactions, these fields may not apply and can appear as empty strings, i.e.,`""`, `0`, or `null`. For example, refer to the [Sample Response](doc:get-wallet-transactions#sample-response).
+>
+> * For transactions created through the Debit/Credit API, the system keys, i.e., `saleChannel`, `locationId`, `saleAmount` and any `metadata` provided will be returned in the response.
+> * For expired or system-generated transactions, these fields may not apply and can appear as empty strings, i.e.,`""`, `0`, or `null`. For example, refer to the [Sample Response](doc:get-wallet-transactions#sample-response).
 
 ## `promisedPoints` Object
 
-The **`promisedPoints` object** returns reward points that have yet to be credited to the wallet. It specifies the activation timestamp for promised points, a breakdown of individual entries, and the total promised points awaiting activation.
+The **`promisedPoints`object** returns reward points that have yet to be credited to the wallet. It specifies the activation timestamp for promised points, a breakdown of individual entries, and the total promised points awaiting activation.
 
 | Key                   | Description                                                                       | Type     | Sample Value           |
 | --------------------- | --------------------------------------------------------------------------------- | -------- | ---------------------- |
