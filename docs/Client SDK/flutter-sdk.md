@@ -20,17 +20,17 @@ Before getting started, refer to [Flutter Quick Start Guide](https://developer.c
 
 Ensure you have the following prerequisites to integrate CleverTap Flutter SDK with your app:
 
-- CleverTap account
-- Flutter Integrated Development Environment (IDE) such as VS Code, Emacs
-- Android Studio IDE
-- Apple Xcode IDE
+* CleverTap account
+* Flutter Integrated Development Environment (IDE) such as VS Code, Emacs
+* Android Studio IDE
+* Apple Xcode IDE
 
 # Supported Versions
 
-- For [Android 15](https://developer.android.com/about/versions/15/summary), we recommend using the CleverTap Flutter SDK v3.2.0 or higher.
-- For [Android 14](https://developer.android.com/about/versions/14/summary), we recommend using the CleverTap Flutter SDK v3.1.0 or below.
-- The supported Dart SDK versions are from 2.12.0 to 4.0.0.
-- The supported Flutter SDK version is 1.17.0 and higher.
+* For [Android 15](https://developer.android.com/about/versions/15/summary), we recommend using the CleverTap Flutter SDK v3.2.0 or higher.
+* For [Android 14](https://developer.android.com/about/versions/14/summary), we recommend using the CleverTap Flutter SDK v3.1.0 or below.
+* The supported Dart SDK versions are from 2.12.0 to 4.0.0.
+* The supported Flutter SDK version is 1.17.0 and higher.
 
 # Flutter SDK Versions and Size
 
@@ -68,8 +68,24 @@ The following table lists all the Flutter SDK resources:
 
 Refer to the following for additional Flutter SDK references:
 
-[block:html]
-{
-  "html": "<div class=\"two-col-container\">\n  <div class=\"link-content\">\n    <h4 class=\"custom-heading\">Flutter Data Tracking</h4>\n    <p><a class=\"links\" href=\"https://developer.clevertap.com/docs/user-profiles-flutter\" target=\"_blank\" rel=\"noopener noreferrer\">Flutter User Profile</a></p>\n    <p><a class=\"links\" href=\"https://developer.clevertap.com/docs/user-events-flutter\" target=\"_blank\" rel=\"noopener noreferrer\">Flutter User Events</a></p>\n  </div>\n  <div class=\"link-content\">\n    <h4 class=\"custom-heading\">Flutter Push</h4>\n    <p><a class=\"links\" href=\"https://developer.clevertap.com/docs/flutter-push-notification\" target=\"_blank\" rel=\"noopener noreferrer\">Flutter Push Notifications\n      </a></p>\n  </div>\n  <div class=\"link-content\">\n    <h4 class=\"custom-heading\">Flutter SDK Features</h4>\n    <p><a class=\"links\" href=\"https://developer.clevertap.com/docs/flutter-in-app\" target=\"_blank\" rel=\"noopener noreferrer\">Flutter In-App Notification\n      </a></p>\n    <p><a class=\"links\" href=\"https://developer.clevertap.com/docs/flutter-app-inbox\" target=\"_blank\" rel=\"noopener noreferrer\">Flutter App Inbox\n      </a></p>\n  </div> \n</div>"
-}
-[/block]
+<HTMLBlock>{`
+<div class="two-col-container">
+  <div class="link-content">
+    <h4 class="custom-heading">Flutter Data Tracking</h4>
+    <p><a class="links" href="https://developer.clevertap.com/docs/user-profiles-flutter" target="_blank" rel="noopener noreferrer">Flutter User Profile</a></p>
+    <p><a class="links" href="https://developer.clevertap.com/docs/user-events-flutter" target="_blank" rel="noopener noreferrer">Flutter User Events</a></p>
+  </div>
+  <div class="link-content">
+    <h4 class="custom-heading">Flutter Push</h4>
+    <p><a class="links" href="https://developer.clevertap.com/docs/flutter-push-notification" target="_blank" rel="noopener noreferrer">Flutter Push Notifications
+      </a></p>
+  </div>
+  <div class="link-content">
+    <h4 class="custom-heading">Flutter SDK Features</h4>
+    <p><a class="links" href="https://developer.clevertap.com/docs/flutter-in-app" target="_blank" rel="noopener noreferrer">Flutter In-App Notification
+      </a></p>
+    <p><a class="links" href="https://developer.clevertap.com/docs/flutter-app-inbox" target="_blank" rel="noopener noreferrer">Flutter App Inbox
+      </a></p>
+  </div> 
+</div>
+`}</HTMLBlock>
