@@ -12,8 +12,8 @@ next:
 ---
 # Overview
 
-A Firebase account must be set up to use CleverTap Push notifications and other services.  
-Google Tag Manager mainly interacts with the _Analytics_ feature of firebase. When your app sends events to Firebase Analytics, those events can automatically trigger cloud functions defined in GTM. These cloud functions can further call some functions defined in your native app's code with the values from the said cloud function.
+A Firebase account must be set up to use CleverTap Push notifications and other services.\
+Google Tag Manager mainly interacts with the *Analytics* feature of firebase. When your app sends events to Firebase Analytics, those events can automatically trigger cloud functions defined in GTM. These cloud functions can further call some functions defined in your native app's code with the values from the said cloud function.
 
 These functions, defined in the client's code, can be used to run CleverTap's SDK APIs.
 
@@ -42,68 +42,23 @@ There is no explicit configuration needed for Firebase to GTM.
 
 To configure the GTM dashboard:
 
-1. Navigate to <https://tagmanager.google.com/> and create a new account.
+1. Navigate to [https://tagmanager.google.com/](https://tagmanager.google.com/) and create a new account.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/0a7a2dd-GTM1.png",
-        "Create New Account on GTM Dashboard",
-        2844
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Create New Account on GTM Dashboard"
-    }
-  ]
-}
-[/block]
+<Image title="Create New Account on GTM Dashboard" alt={2844} align="center" border={true} src="https://files.readme.io/0a7a2dd-GTM1.png">
+  Create New Account on GTM Dashboard
+</Image>
 
+2. Select *Android* as the *Target platform* in the *Container Setup* section.
 
+<Image title="Select Android in Container Setup" alt={2468} align="center" border={true} src="https://files.readme.io/5d31b30-GTM_2.png">
+  Select Android in Container Setup
+</Image>
 
-2. Select _Android_ as the _Target platform_ in the _Container Setup_ section.
+3. Navigate to *Workspace* > *Latest version* and download the container JSON file after account creation.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/5d31b30-GTM_2.png",
-        "Select Android in Container Setup",
-        2468
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Select Android in Container Setup"
-    }
-  ]
-}
-[/block]
-
-
-
-3. Navigate to _Workspace_ > _Latest version_ and download the container JSON file after account creation.
-
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/235fdf0-GTM_3.png",
-        "GTM Dashboard",
-        2584
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "GTM Dashboard"
-    }
-  ]
-}
-[/block]
-
-
+<Image title="GTM Dashboard" alt={2584} align="center" border={true} src="https://files.readme.io/235fdf0-GTM_3.png">
+  GTM Dashboard
+</Image>
 
 4. Add the dependency in your app's `build.gradle` file of your Native Android app:
 
@@ -113,8 +68,6 @@ dependencies {
   compile 'com.google.android.gms:play-services-tagmanager:18.0.1'
 }
 ```
-
-
 
 5. Place the downloaded JSON file from the previous step into the app > src > main assets > containers folder.
 6. Create a class extending Custom Tag Receiver **with access to a static instance of clevertapApi**.
@@ -190,8 +143,6 @@ public final class MyApp extends Application {
 }
 ```
 
-
-
 7. Add some Firebase events as follows:
 
 ```kotlin
@@ -209,56 +160,24 @@ btn.setOnClickListener(it -> {
         });
 ```
 
-
-
 ## Set Up triggers and tags for Firebase Events in GTM
 
-1. Navigate to _Triggers_ and create a new trigger from the GTM dashboard. 
-2. Select _Custom_ from the _Trigger Type_ dropdown.  
-3. Enter the event details under the _Details_ section that you just fired via the code mentioned in the previous step.
+1. Navigate to *Triggers* and create a new trigger from the GTM dashboard. 
+2. Select *Custom* from the *Trigger Type* dropdown.  
+3. Enter the event details under the *Details* section that you just fired via the code mentioned in the previous step.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/6a5f433-GTM_4.png",
-        "Trigger Configuration for Firebase Events in GTM",
-        2368
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Trigger Configuration for Firebase Events in GTM"
-    }
-  ]
-}
-[/block]
+<Image title="Trigger Configuration for Firebase Events in GTM" alt={2368} align="center" border={true} src="https://files.readme.io/6a5f433-GTM_4.png">
+  Trigger Configuration for Firebase Events in GTM
+</Image>
 
-
-
-4. Navigate to _Tags_ and create a new tag. 
-5. Select _Function Call_ as the _Tag Type_ and add the path of the Custom Tag receiver class we previously defined. 
+4. Navigate to *Tags* and create a new tag. 
+5. Select *Function Call* as the *Tag Type* and add the path of the Custom Tag receiver class we previously defined. 
 
 Here you can add information about all the events, parameters, and information you want to pass from the GTM Dashboard to the receiver. Also, under the trigger section, select the name of the previously created trigger 
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/6f15728-gtm_5.png",
-        "Select the Trigger",
-        2038
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Select the Trigger"
-    }
-  ]
-}
-[/block]
-
-
+<Image title="Select the Trigger" alt={2038} align="center" border={true} src="https://files.readme.io/6f15728-gtm_5.png">
+  Select the Trigger
+</Image>
 
 6. Click **Save** and click  **Publish**. 
 
