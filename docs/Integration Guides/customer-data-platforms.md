@@ -13,6 +13,6 @@ next:
 CleverTap integrates with Customer Data Platforms, so you can send your user data to any system.
 
 * [Segment](doc:segment)
- * [Segment - Android Install](doc:segment-android-install)
- * [Segment - iOS Install](doc:segment-ios-install)
+* [Segment - Android Install](doc:segment-android-install)
+* [Segment - iOS Install](doc:segment-ios-install)
 * [mParticle](doc:mparticle)
