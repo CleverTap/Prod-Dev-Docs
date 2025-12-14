@@ -14,10 +14,10 @@ next:
 
 The CleverTap Unreal SDK brings powerful analytics and engagement capabilities to games and applications built using Unreal Engine (UE4/UE5). With this SDK, you can:
 
-- Track in-game user behavior and milestones
-- Enrich user profiles with custom attributes
-- Log transactional data such as purchases
-- Trigger personalized campaigns based on real-time user actions
+* Track in-game user behavior and milestones
+* Enrich user profiles with custom attributes
+* Log transactional data such as purchases
+* Trigger personalized campaigns based on real-time user actions
 
 Designed to be lightweight and developer-friendly, the Unreal SDK allows seamless integration with CleverTap’s platform and your existing Unreal Engine game architecture without affecting game performance.
 
@@ -27,8 +27,8 @@ Before proceeding with the integration, refer to [Unreal SDK Quick Start Guide](
 
 To use the CleverTap Unreal SDK, check that you have:
 
-- A CleverTap account with a valid **Project ID**, **Project Token**, and **Region Code**.
-- An Unreal Engine project written in C++ (UE4 or UE5).
+* A CleverTap account with a valid **Project ID**, **Project Token**, and **Region Code**.
+* An Unreal Engine project written in C++ (UE4 or UE5).
 
 # Unreal SDK Versions and Size
 
@@ -40,8 +40,8 @@ The following table outlines the code size for the current version of the Clever
 
 # Supported Platforms
 
-- [Android](doc:android)
-- [iOS](doc:ios)
+* [Android](doc:android)
+* [iOS](doc:ios)
 
 # CleverTap Unreal SDK Resources
 
@@ -57,7 +57,7 @@ The following table lists resources to support your integration and testing effo
 
 Refer to the following for additional CleverTap Unreal SDK references:
 
-- [CleverTap Developer Docs](https://developer.clevertap.com/docs)
-- [Unreal Engine Plugin Guide (Epic Games)](https://docs.unrealengine.com/5.0/en-US/plugins-in-unreal-engine/)
-- [Region Codes for Integration](doc:idc#enable-clevertap-region)
-- [CleverTap Support](https://support.clevertap.com/)
+* [CleverTap Developer Docs](https://developer.clevertap.com/docs)
+* [Unreal Engine Plugin Guide (Epic Games)](https://docs.unrealengine.com/5.0/en-US/plugins-in-unreal-engine/)
+* [Region Codes for Integration](doc:idc#enable-clevertap-region)
+* [CleverTap Support](https://support.clevertap.com/)
