@@ -108,10 +108,12 @@ The following are the body parameters included in the JSON response payload:
           {'{'}
 
           "messageId": 1,
-          "wzrk\_id": "12345679\_20240130",
+        	"wzrk\_id": 	"12345679\_20240130",
           "wzrk\_pivot": "wzrk\_default"
           {'}'},
-        {'{'}
+
+          {'{'}
+
           "messageId": 2,
           "wzrk\_id": "12345679\_20240131",
           "wzrk\_pivot": "wzrk\_default"
