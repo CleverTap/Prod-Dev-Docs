@@ -27,8 +27,8 @@ The Android SDK for TV Operating System (OS) is similar to the Android SDK for M
 
 This section describes integrating CleverTap SDK FCM service in Gradle and Manifest. 
 
-- [Gradle Files](https://developer.clevertap.com/docs/android-tv-integration-with-android-sdk#gradle-files)
-- [Manifest Files](https://developer.clevertap.com/docs/android-tv-integration-with-android-sdk#manifest-files)
+* [Gradle Files](https://developer.clevertap.com/docs/android-tv-integration-with-android-sdk#gradle-files)
+* [Manifest Files](https://developer.clevertap.com/docs/android-tv-integration-with-android-sdk#manifest-files)
 
 ### Gradle Files
 
@@ -270,7 +270,7 @@ ctCoreApi?.pushEvent("Product viewed", prodViewedAction)
 
 ### Charged Event
 
-To raise a _Charged_ event, use the following code:
+To raise a *Charged* event, use the following code:
 
 ```java
 HashMap<String, Object> chargeDetails = new HashMap<String, Object>();
