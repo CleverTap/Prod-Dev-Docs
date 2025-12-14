@@ -16,43 +16,45 @@ Branch also sends campaign ​and channel​ analytics tags that are attached to
 
 Currently, this integration is not self-serve. You must contact your Branch contact for setup. 
 
-#Step 1: Add CleverTap Credentials to Branch Dashboard
+# Step 1: Add CleverTap Credentials to Branch Dashboard
 
 In your Branch dashboard, navigate to “Account Settings” and save your app ID.
 
 Go to your CleverTap dashboard and navigate to “Settings” and look for your “Account ID”, “Account token”, and “Passcode”. Provide the value of these three fields to your Branch contact.
 
-#Step 2: Integration
+# Step 2: Integration
 
 To complete this integration, you need to add a couple of lines of code to your Android and iOS projects.
 
-**Android**
+**Android**\
 In your Android app, before ​you ​initialize ​in ​your Application ​onCreate() ​or ​Deep ​Link ​Activity’s ​onCreate() add the following code snippet.
-[block:code]
-{
-  "codes": [
-    {
-      "code": "Branch branch = Branch.getInstance();\nbranch.setRequestMetadata(\"$clevertap_attribution_id\",\ncleverTapInstance.getCleverTapAttributionIdentifier());\n...\nBranch.initSession(...);",
-      "language": "java"
-    }
-  ]
-}
-[/block]
-**iOS**
+
+```java
+Branch branch = Branch.getInstance();
+branch.setRequestMetadata("$clevertap_attribution_id",
+cleverTapInstance.getCleverTapAttributionIdentifier());
+...
+Branch.initSession(...);
+```
+
+**iOS**\
 In your iOS app, inside didFinishLaunchingWithOptions add the following code snippet.
-[block:code]
-{
-  "codes": [
-    {
-      "code": "Branch *branch = [Branch getInstance];\n[CleverTap autoIntegrate];\n[[Branch getInstance] setRequestMetadataKey:@\"$clevertap_attribution_id\"\nvalue:[[CleverTap sharedInstance] profileGetCleverTapAttributionIdentifier]];",
-      "language": "objectivec"
-    },
-    {
-      "code": "CleverTap.autoIntegrate()\nif let branch = Branch.getInstance() {\nbranch.setRequestMetadataKey(\"$clevertap_attribution_id\",\nvalue:CleverTap.sharedInstance()?profileGetCleverTapAttributionIdentifier() as\nNSObject!);\n}",
-      "language": "swift"
-    }
-  ]
+
+```objectivec
+Branch *branch = [Branch getInstance];
+[CleverTap autoIntegrate];
+[[Branch getInstance] setRequestMetadataKey:@"$clevertap_attribution_id"
+value:[[CleverTap sharedInstance] profileGetCleverTapAttributionIdentifier]];
+```
+```swift
+CleverTap.autoIntegrate()
+if let branch = Branch.getInstance() {
+branch.setRequestMetadataKey("$clevertap_attribution_id",
+value:CleverTap.sharedInstance()?profileGetCleverTapAttributionIdentifier() as
+NSObject!);
 }
-[/block]
+```
+
 # Step 3: View Data in the CleverTap Dashboard
-After you integrate, Branch will now push data in your CleverTap dashboard. You can view it under event UTM Visited filtered by event property, UTM_source, UTM_medium or UTM_campaign.
+
+After you integrate, Branch will now push data in your CleverTap dashboard. You can view it under event UTM Visited filtered by event property, UTM\_source, UTM\_medium or UTM\_campaign.
