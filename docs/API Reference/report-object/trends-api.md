@@ -15,177 +15,468 @@ next:
 This endpoint is used to retrieve daily, weekly, and monthly event trends in a specified duration.
 
 ## Base URL
-https://location.api.clevertap.com/1/counts/trends.json
 
-[block:callout]
-{
-  "type": "info",
-  "title": "Note",
-  "body": "Use the URL based on your location:\n  * India - in1.api.clevertap.com\n  * Singapore - sg1.api.clevertap.com\n  * U.S - us1.api.clevertap.com"
-}
-[/block]
+[https://location.api.clevertap.com/1/counts/trends.json](https://location.api.clevertap.com/1/counts/trends.json)
+
+> 📘 Note
+>
+> Use the URL based on your location:
+>
+> * India - in1.api.clevertap.com
+> * Singapore - sg1.api.clevertap.com
+> * U.S - us1.api.clevertap.com
+
 ## HTTP Method
+
 POST
 
 ## Headers
+
 These headers are all required. The X-CleverTap-Account-Id and X-CleverTap-Passcode are used to authenticate the request. Please see the [authentication guide](doc:authentication) to see how to get their values.
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Header",
-    "h-1": "Description",
-    "h-2": "Type",
-    "h-3": "Example Value",
-    "0-0": "X-CleverTap-Account-Id",
-    "1-0": "X-CleverTap-Passcode",
-    "2-0": "Content-Type",
-    "0-1": "Your CleverTap Account ID.",
-    "1-1": "Your CleverTap Account Passcode.",
-    "2-1": "Request content-type is always set to application/json.",
-    "0-2": "string",
-    "1-2": "string",
-    "2-2": "string",
-    "0-3": "\"X-CleverTap-Account-Id: ACCOUNT_ID\"",
-    "1-3": "\"X-CleverTap-Passcode: PASSCODE\"",
-    "2-3": "\"Content-Type: application/json\""
-  },
-  "cols": 4,
-  "rows": 3
-}
-[/block]
+<Table align={["left","left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Header
+      </th>
+
+      <th>
+        Description
+      </th>
+
+      <th>
+        Type
+      </th>
+
+      <th>
+        Example Value
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        X-CleverTap-Account-Id
+      </td>
+
+      <td>
+        Your CleverTap Account ID.
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        "X-CleverTap-Account-Id: ACCOUNT\_ID"
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        X-CleverTap-Passcode
+      </td>
+
+      <td>
+        Your CleverTap Account Passcode.
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        "X-CleverTap-Passcode: PASSCODE"
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Content-Type
+      </td>
+
+      <td>
+        Request content-type is always set to application/json.
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        "Content-Type: application/json"
+      </td>
+    </tr>
+  </tbody>
+</Table>
+
 ## Body Parameters
+
 The body is uploaded as a JSON payload. 
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Parameter",
-    "h-1": "Description",
-    "h-2": "Required",
-    "h-3": "Type",
-    "h-4": "Example Value",
-    "0-0": "event_name",
-    "1-0": "from",
-    "2-0": "to",
-    "3-0": "groups",
-    "4-0": "groups.trend_type",
-    "5-0": "unique",
-    "5-1": "If set to true, returns trends of profiles instead of events.",
-    "4-1": "Can be daily, weekly or monthly. Must be present inside each individual group.",
-    "3-1": "Object containing information about trends whose breakdown is required. The endpoint can be used to obtain analysis of multiple trends in one request. Each trend object is referenced by a unique key within the groups object.",
-    "2-1": "End of date range within which users should have performed the event you specified in event_name. Input values have to be formatted as integers in format YYYYMMDD.",
-    "1-1": "Start of date range within which users should have performed the event you specified in event_name. Input values have to be formatted as integers in format YYYYMMDD.",
-    "0-1": "The name of the event.",
-    "0-2": "required",
-    "1-2": "required",
-    "2-2": "required",
-    "3-2": "required",
-    "4-2": "required",
-    "5-2": "optional",
-    "5-3": "boolean",
-    "5-4": "true",
-    "4-3": "string",
-    "4-4": "\"daily\"",
-    "3-3": "object",
-    "3-4": "\"groups\":{\"foo\":{\"trend_type\":\"daily\"},\"bar\":{\"trend_type\":\"weekly\"},\"foobar\":{\"trend_type\":\"monthly\"}}",
-    "1-3": "int",
-    "2-3": "int",
-    "2-4": "20151025",
-    "1-4": "20150810",
-    "0-4": "\"choseNewFavoriteFood\"",
-    "0-3": "string",
-    "6-0": "sum_event_prop",
-    "6-2": "Optional",
-    "6-3": "Integer",
-    "6-1": "This event property can display values based on daily, weekly, or monthly trends. This property can process only Integer data types.",
-    "6-4": "\"Amount\""
-  },
-  "cols": 5,
-  "rows": 7
-}
-[/block]
+<Table align={["left","left","left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Parameter
+      </th>
+
+      <th>
+        Description
+      </th>
+
+      <th>
+        Required
+      </th>
+
+      <th>
+        Type
+      </th>
+
+      <th>
+        Example Value
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        event\_name
+      </td>
+
+      <td>
+        The name of the event.
+      </td>
+
+      <td>
+        required
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        "choseNewFavoriteFood"
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        from
+      </td>
+
+      <td>
+        Start of date range within which users should have performed the event you specified in event\_name. Input values have to be formatted as integers in format YYYYMMDD.
+      </td>
+
+      <td>
+        required
+      </td>
+
+      <td>
+        int
+      </td>
+
+      <td>
+        20150810
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        to
+      </td>
+
+      <td>
+        End of date range within which users should have performed the event you specified in event\_name. Input values have to be formatted as integers in format YYYYMMDD.
+      </td>
+
+      <td>
+        required
+      </td>
+
+      <td>
+        int
+      </td>
+
+      <td>
+        20151025
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        groups
+      </td>
+
+      <td>
+        Object containing information about trends whose breakdown is required. The endpoint can be used to obtain analysis of multiple trends in one request. Each trend object is referenced by a unique key within the groups object.
+      </td>
+
+      <td>
+        required
+      </td>
+
+      <td>
+        object
+      </td>
+
+      <td>
+        "groups":\{"foo":\{"trend\_type":"daily"},"bar":\{"trend\_type":"weekly"},"foobar":\{"trend\_type":"monthly"}}
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        groups.trend\_type
+      </td>
+
+      <td>
+        Can be daily, weekly or monthly. Must be present inside each individual group.
+      </td>
+
+      <td>
+        required
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        "daily"
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        unique
+      </td>
+
+      <td>
+        If set to true, returns trends of profiles instead of events.
+      </td>
+
+      <td>
+        optional
+      </td>
+
+      <td>
+        boolean
+      </td>
+
+      <td>
+        true
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        sum\_event\_prop
+      </td>
+
+      <td>
+        This event property can display values based on daily, weekly, or monthly trends. This property can process only Integer data types.
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Integer
+      </td>
+
+      <td>
+        "Amount"
+      </td>
+    </tr>
+  </tbody>
+</Table>
+
 Below is an example payload.
-[block:code]
+
+```json
 {
-  "codes": [
-    {
-      "code": "{\n\t\"event_name\": \"Charged\",\n\t\"from\": 20161224,\n\t\"to\": 20170103,\n\t\"unique\": false,\n  \"sum_event_prop\": \"Amount\",\n\t\"groups\": {\n\t\t\"foo\": {\n\t\t\t\"trend_type\": \"daily\"\n\t\t},\n\t\t\"bar\": {\n\t\t\t\"trend_type\": \"weekly\"\n\t\t},\n\t\t\"foobar\": {\n\t\t\t\"trend_type\": \"monthly\"\n\t\t}\n\t}\n}",
-      "language": "json"
-    }
-  ]
+	"event_name": "Charged",
+	"from": 20161224,
+	"to": 20170103,
+	"unique": false,
+  "sum_event_prop": "Amount",
+	"groups": {
+		"foo": {
+			"trend_type": "daily"
+		},
+		"bar": {
+			"trend_type": "weekly"
+		},
+		"foobar": {
+			"trend_type": "monthly"
+		}
+	}
 }
-[/block]
+```
+
 ## Example Request
-[block:code]
-{
-  "codes": [
-    {
-      "code": "curl -X POST -d '{\"event_name\":\"Charged\",\"from\":20161224,\"to\":20170103,\"unique\":false,\"sum_event_prop\":\"Amount\",\"groups\":{\"foo\":{\"trend_type\":\"daily\"},\"bar\":{\"trend_type\":\"weekly\"},\"foobar\":{\"trend_type\":\"monthly\"}}}' \"https://location.api.clevertap.com/1/counts/trends.json\" \\\n-H \"X-CleverTap-Account-Id: ACCOUNT_ID\" \\\n-H \"X-CleverTap-Passcode: PASSCODE\" \\\n-H \"Content-Type: application/json\"",
-      "language": "curl"
+
+```curl
+curl -X POST -d '{"event_name":"Charged","from":20161224,"to":20170103,"unique":false,"sum_event_prop":"Amount","groups":{"foo":{"trend_type":"daily"},"bar":{"trend_type":"weekly"},"foobar":{"trend_type":"monthly"}}}' "https://location.api.clevertap.com/1/counts/trends.json" \
+-H "X-CleverTap-Account-Id: ACCOUNT_ID" \
+-H "X-CleverTap-Passcode: PASSCODE" \
+-H "Content-Type: application/json"
+```
+```ruby
+require 'net/http'
+require 'uri'
+require 'json'
+
+uri = URI.parse("https://location.api.clevertap.com/1/counts/trends.json")
+request = Net::HTTP::Post.new(uri)
+request.content_type = "application/json"
+request["X-Clevertap-Account-Id"] = "ACCOUNT_ID"
+request["X-Clevertap-Passcode"] = "PASSCODE"
+request.body = JSON.dump({
+  "event_name" => "Charged",
+  "from" => 20161224,
+  "to" => 20170103,
+  "unique" => false,
+  "sum_event_prop":"Amount",
+  "groups" => {
+    "foo" => {
+      "trend_type" => "daily"
     },
-    {
-      "code": "require 'net/http'\nrequire 'uri'\nrequire 'json'\n\nuri = URI.parse(\"https://location.api.clevertap.com/1/counts/trends.json\")\nrequest = Net::HTTP::Post.new(uri)\nrequest.content_type = \"application/json\"\nrequest[\"X-Clevertap-Account-Id\"] = \"ACCOUNT_ID\"\nrequest[\"X-Clevertap-Passcode\"] = \"PASSCODE\"\nrequest.body = JSON.dump({\n  \"event_name\" => \"Charged\",\n  \"from\" => 20161224,\n  \"to\" => 20170103,\n  \"unique\" => false,\n  \"sum_event_prop\":\"Amount\",\n  \"groups\" => {\n    \"foo\" => {\n      \"trend_type\" => \"daily\"\n    },\n    \"bar\" => {\n      \"trend_type\" => \"weekly\"\n    },\n    \"foobar\" => {\n      \"trend_type\" => \"monthly\"\n    }\n  }\n})\n\nreq_options = {\n  use_ssl: uri.scheme == \"https\",\n}\n\nresponse = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|\n  http.request(request)\nend",
-      "language": "ruby"
+    "bar" => {
+      "trend_type" => "weekly"
     },
-    {
-      "code": "import requests\n\nheaders = {\n    'X-CleverTap-Account-Id': 'ACCOUNT_ID',\n    'X-CleverTap-Passcode': 'PASSCODE',\n    'Content-Type': 'application/json',\n}\n\ndata = '{\"event_name\":\"Charged\",\"from\":20161224,\"to\":20170103,\"unique\":false,\"sum_event_prop\":\"Amount\",\"groups\":{\"foo\":{\"trend_type\":\"daily\"},\"bar\":{\"trend_type\":\"weekly\"},\"foobar\":{\"trend_type\":\"monthly\"}}}'\n\nresponse = requests.post('https://location.api.clevertap.com/1/counts/trends.json', headers=headers, data=data)",
-      "language": "python"
-    },
-    {
-      "code": "<?php\ninclude('vendor/rmccue/requests/library/Requests.php');\nRequests::register_autoloader();\n$headers = array(\n    'X-CleverTap-Account-Id' => 'ACCOUNT_ID',\n    'X-CleverTap-Passcode' => 'PASSCODE',\n    'Content-Type' => 'application/json'\n);\n$data = '{\"event_name\":\"Charged\",\"from\":20161224,\"to\":20170103,\"unique\":false,\"sum_event_prop\":\"Amount\",\"groups\":{\"foo\":{\"trend_type\":\"daily\"},\"bar\":{\"trend_type\":\"weekly\"},\"foobar\":{\"trend_type\":\"monthly\"}}}';\n$response = Requests::post('https://location.api.clevertap.com/1/counts/trends.json', $headers, $data);",
-      "language": "php"
-    },
-    {
-      "code": "var request = require('request');\n\nvar headers = {\n    'X-CleverTap-Account-Id': 'ACCOUNT_ID',\n    'X-CleverTap-Passcode': 'PASSCODE',\n    'Content-Type': 'application/json'\n};\n\nvar dataString = '{\"event_name\":\"Charged\",\"from\":20161224,\"to\":20170103,\"unique\":false,\"sum_event_prop\":\"Amount\",\"groups\":{\"foo\":{\"trend_type\":\"daily\"},\"bar\":{\"trend_type\":\"weekly\"},\"foobar\":{\"trend_type\":\"monthly\"}}}';\n\nvar options = {\n    url: 'https://location.api.clevertap.com/1/counts/trends.json',\n    method: 'POST',\n    headers: headers,\n    body: dataString\n};\n\nfunction callback(error, response, body) {\n    if (!error && response.statusCode == 200) {\n        console.log(body);\n    }\n}\n\nrequest(options, callback);\n",
-      "language": "javascript",
-      "name": "Node.js"
+    "foobar" => {
+      "trend_type" => "monthly"
     }
-  ]
+  }
+})
+
+req_options = {
+  use_ssl: uri.scheme == "https",
 }
-[/block]
+
+response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
+  http.request(request)
+end
+```
+```python
+import requests
+
+headers = {
+    'X-CleverTap-Account-Id': 'ACCOUNT_ID',
+    'X-CleverTap-Passcode': 'PASSCODE',
+    'Content-Type': 'application/json',
+}
+
+data = '{"event_name":"Charged","from":20161224,"to":20170103,"unique":false,"sum_event_prop":"Amount","groups":{"foo":{"trend_type":"daily"},"bar":{"trend_type":"weekly"},"foobar":{"trend_type":"monthly"}}}'
+
+response = requests.post('https://location.api.clevertap.com/1/counts/trends.json', headers=headers, data=data)
+```
+```php
+<?php
+include('vendor/rmccue/requests/library/Requests.php');
+Requests::register_autoloader();
+$headers = array(
+    'X-CleverTap-Account-Id' => 'ACCOUNT_ID',
+    'X-CleverTap-Passcode' => 'PASSCODE',
+    'Content-Type' => 'application/json'
+);
+$data = '{"event_name":"Charged","from":20161224,"to":20170103,"unique":false,"sum_event_prop":"Amount","groups":{"foo":{"trend_type":"daily"},"bar":{"trend_type":"weekly"},"foobar":{"trend_type":"monthly"}}}';
+$response = Requests::post('https://location.api.clevertap.com/1/counts/trends.json', $headers, $data);
+```
+```javascript Node.js
+var request = require('request');
+
+var headers = {
+    'X-CleverTap-Account-Id': 'ACCOUNT_ID',
+    'X-CleverTap-Passcode': 'PASSCODE',
+    'Content-Type': 'application/json'
+};
+
+var dataString = '{"event_name":"Charged","from":20161224,"to":20170103,"unique":false,"sum_event_prop":"Amount","groups":{"foo":{"trend_type":"daily"},"bar":{"trend_type":"weekly"},"foobar":{"trend_type":"monthly"}}}';
+
+var options = {
+    url: 'https://location.api.clevertap.com/1/counts/trends.json',
+    method: 'POST',
+    headers: headers,
+    body: dataString
+};
+
+function callback(error, response, body) {
+    if (!error && response.statusCode == 200) {
+        console.log(body);
+    }
+}
+
+request(options, callback);
+```
+
 ## Example Response
-[block:code]
+
+```json
 {
-  "codes": [
-    {
-      "code": "{\n  \"status\": \"success\",\n  \"foo\": {\n    \"20161224\": 10,\n    \"20161225\": 10,\n    \"20161226\": 10,\n    \"20161227\": 10,\n    \"20161228\": 10,\n    \"20161229\": 10,\n    \"20161230\": 10,\n    \"20161231\": 10,\n    \"20170101\": 10,\n    \"20170102\": 10,\n    \"20170103\": 10\n  },\n  \"bar\": {\n    \"201652\": 80,\n    \"201701\": 30\n  },\n  \"foobar\": {\n    \"201612\": 80,\n    \"201701\": 30\n  }\n}",
-      "language": "json"
-    }
-  ]
+  "status": "success",
+  "foo": {
+    "20161224": 10,
+    "20161225": 10,
+    "20161226": 10,
+    "20161227": 10,
+    "20161228": 10,
+    "20161229": 10,
+    "20161230": 10,
+    "20161231": 10,
+    "20170101": 10,
+    "20170102": 10,
+    "20170103": 10
+  },
+  "bar": {
+    "201652": 80,
+    "201701": 30
+  },
+  "foobar": {
+    "201612": 80,
+    "201701": 30
+  }
 }
-[/block]
+```
+
 Each trend is referenced by the unique key assigned to it while querying.
 
 daily trend keys are in YYYYMMDD format. weekly trend keys are in YYYYWW format, where WW refers to week of year. monthly trend keys are in YYYYMM format.
 
 ## Notes
+
 The response is a JSON object containing the key status, which might be success, partial, or fail.
 
 If the status is success, there will be a count key with an int value of the count for the specified query. If the status is fail, there will be an error key with a string value and a HTTP status code.
 
-If the status is partial, the query has not finished processing in our system. In the response, you will receive a req_id key with a long int value that you will use to poll for the result. After the query is completed, you will either receive a success response with the count if the query was successful, or a fail response with an error string and a HTTP status code.
+If the status is partial, the query has not finished processing in our system. In the response, you will receive a req\_id key with a long int value that you will use to poll for the result. After the query is completed, you will either receive a success response with the count if the query was successful, or a fail response with an error string and a HTTP status code.
 
 Here is an example response for a partial status.
 
-[block:code]
+```json
 {
-  "codes": [
-    {
-      "code": "{\n  \"req_id\": 384649162721759,\n  \"status\": \"partial\"\n}",
-      "language": "json"
-    }
-  ]
+  "req_id": 384649162721759,
+  "status": "partial"
 }
-[/block]
-After getting the req_id, you will poll the endpoint below and provide the value of req_id as a query parameter.
+```
 
-GET https://location.api.clevertap.com/1/counts/trends.json?req_id=<your_request_id_here>
+After getting the req\_id, you will poll the endpoint below and provide the value of req\_id as a query parameter.
+
+GET [https://location.api.clevertap.com/1/counts/trends.json?req\_id=](https://location.api.clevertap.com/1/counts/trends.json?req_id=)\<your\_request\_id\_here>
 
 # Next Steps
 
 Now that you’ve learned how to get a message report from the CleverTap API, learn how to get events using the [Get Events API](doc:get-events-api).
 
 ## Notes
-  * Calls to this endpoint are synchronous. We recommend making individual calls, waiting for our response, and then make another request.
-  * Concurrent requests are limited to 3 per account. Requests that exceed the limit will return a 429 HTTP response code.
+
+* Calls to this endpoint are synchronous. We recommend making individual calls, waiting for our response, and then make another request.
+* Concurrent requests are limited to 3 per account. Requests that exceed the limit will return a 429 HTTP response code.
