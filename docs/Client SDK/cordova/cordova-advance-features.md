@@ -22,10 +22,10 @@ During integration, we recommend that you set the SDK to DEBUG mode, to log warn
 
 Debug level can be one of the following:
 
-- `-1`: Disables all debugging. You can set the `debugLevel` to `-1` if you want to disable CleverTap logs for the production environment.
-- `0`: Default, shows minimal SDK integration-related logging.
-- `2`: Shows debug output.
-- `3`: Shows verbose output.
+* `-1`: Disables all debugging. You can set the `debugLevel` to `-1` if you want to disable CleverTap logs for the production environment.
+* `0`: Default, shows minimal SDK integration-related logging.
+* `2`: Shows debug output.
+* `3`: Shows verbose output.
 
 ```javascript JavaScript
 CleverTap.setDebugLevel(debugLevel);
@@ -36,7 +36,7 @@ CleverTap.setDebugLevel(debugLevel);
 CleverTap's Cordova SDK provides a built-in mechanism for receiving push notifications via FCM. However, if you have your own custom Service for managing push notifications, you can inform CleverTap about the service’s token ID whenever available. The following are the APIs for supported Platforms:
 
 > 📘 Note
-> 
+>
 > FCM Token, HPS Token, and BPS Token should be fetched from respective push providers after user permissions are granted.
 
 ### Registering FCM Token
@@ -101,7 +101,7 @@ CleverTap.pushDisplayUnitClickedEventForID("unitID");
 ## Product Config
 
 > 📘 Feature Availability
-> 
+>
 > A new and enhanced version of Product Experiences is coming soon. New customers (CleverTap for Enterprise or CleverTap for Startups) who have not enabled the current functionalities can use this feature only when the new version is released. However, the existing users can continue to use it. The [methods](https://developer.clevertap.com/docs/august-2023#cordova-270) for the Product Experiences feature have been deprecated and will be removed from the code by September 2024.
 
 ### Set Product Configuration to Default
@@ -264,8 +264,8 @@ PII data is stored across the SDK and could be sensitive information. From `Cord
 
 Currently, two levels of encryption are supported, i.e., None(0) and Medium(1). The encryption level is **None** by default.
 
-- **None**: All stored data is in plaintext
-- **Medium**: PII data is encrypted completely
+* **None**: All stored data is in plaintext
+* **Medium**: PII data is encrypted completely
 
 ### Android
 
@@ -289,5 +289,5 @@ From CleverTap Android SDK v7.5.0 and iOS SDK v7.3.1 onwards, this feature is su
 
 To learn more, refer to:
 
-- [Encryption in Transit for Android](doc:android-advanced-features#encryption-in-transit)
-- [Encryption in Transit for iOS](doc:advanced-options-ios#encryption-in-transit)
+* [Encryption in Transit for Android](doc:android-advanced-features#encryption-in-transit)
+* [Encryption in Transit for iOS](doc:advanced-options-ios#encryption-in-transit)
