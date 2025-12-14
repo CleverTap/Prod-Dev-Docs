@@ -21,7 +21,7 @@ Additionally, Apple introduced new requirements for APIs, necessitating reasons 
 CleverTap recommends you include an approved reason in the app's Privacy Manifest that accurately explains how your app uses the concerned APIs. For more information, refer to the [Apple](https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_use_of_required_reason_api)  documentation.
 
 > 📘 Important
-> 
+>
 > Starting May 1st, 2024, apps incorporating third-party SDKs, used on the App Store must integrate versions of the SDKs that include privacy manifests.
 
 # CleverTap's Compliance with Apple's Privacy Manifest
@@ -34,41 +34,121 @@ The [Privacy Manifest](https://developer.apple.com/documentation/bundleresources
 
 The following data is declared in CleverTap's Privacy Manifest:
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "NSPrivacyCollected  \nDataType",
-    "h-1": " NSPrivacyCollected  \nDataTypePurposes",
-    "h-2": "Modules with NSPrivacyCollected  \nDataTypeLinked",
-    "h-3": "Modules with NSPrivacyCollected  \nDataTypeTracking",
-    "0-0": "`UserID`",
-    "0-1": "Product personalization, App functionality",
-    "0-2": "CleverTap-iOS-SDK",
-    "0-3": "\\- ",
-    "1-0": "`Device ID`",
-    "1-1": "Product personalization, App functionality",
-    "1-2": "CleverTap-iOS-SDK",
-    "1-3": "\\-",
-    "2-0": "`Product interaction`",
-    "2-1": "Analytics, Product personalization",
-    "2-2": "CleverTap-iOS-SDK",
-    "2-3": "\\-",
-    "3-0": "`Precise location`",
-    "3-1": "Analytics, Product personalization, App functionality",
-    "3-2": "CleverTapLocation, clevertap-geofence-ios",
-    "3-3": "\\- "
-  },
-  "cols": 4,
-  "rows": 4,
-  "align": [
-    "left",
-    "left",
-    "left",
-    "left"
-  ]
-}
-[/block]
+<Table align={["left","left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        NSPrivacyCollected
 
+
+
+
+        DataType
+      </th>
+
+      <th>
+         NSPrivacyCollected
+
+
+
+
+        DataTypePurposes
+      </th>
+
+      <th>
+        Modules with NSPrivacyCollected
+
+
+
+
+        DataTypeLinked
+      </th>
+
+      <th>
+        Modules with NSPrivacyCollected
+
+
+
+
+        DataTypeTracking
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        `UserID`
+      </td>
+
+      <td>
+        Product personalization, App functionality
+      </td>
+
+      <td>
+        CleverTap-iOS-SDK
+      </td>
+
+      <td>
+        \- 
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `Device ID`
+      </td>
+
+      <td>
+        Product personalization, App functionality
+      </td>
+
+      <td>
+        CleverTap-iOS-SDK
+      </td>
+
+      <td>
+        \-
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `Product interaction`
+      </td>
+
+      <td>
+        Analytics, Product personalization
+      </td>
+
+      <td>
+        CleverTap-iOS-SDK
+      </td>
+
+      <td>
+        \-
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `Precise location`
+      </td>
+
+      <td>
+        Analytics, Product personalization, App functionality
+      </td>
+
+      <td>
+        CleverTapLocation, clevertap-geofence-ios
+      </td>
+
+      <td>
+        \- 
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 # FAQs
 
@@ -80,16 +160,16 @@ A. First, ensure you are using the latest CleverTap iOS SDK. Then, evaluate whic
 
 A. Apple has initiated warnings for app submissions lacking Privacy Manifests. Although Apple's documentation lacks a specific date, it mentions:
 
-_Starting in spring 2024, if your new app or app update submission adds a third-party SDK that is commonly used in apps on the App Store, you will need to include the privacy manifest for the SDK._
+*Starting in spring 2024, if your new app or app update submission adds a third-party SDK that is commonly used in apps on the App Store, you will need to include the privacy manifest for the SDK.*
 
 ## Q. Which third-party SDKs are affected by this requirement?
 
 A. The following third-party SDKs are affected by this requirement.
 
-- `CleverTap-iOS-SDK`
-- `CTNotificationContent`
-- `CTNotificationService`
-- `CleverTap-Geofence-SDK`
+* `CleverTap-iOS-SDK`
+* `CTNotificationContent`
+* `CTNotificationService`
+* `CleverTap-Geofence-SDK`
 
 We recommend updating these SDKs with app updates uploaded after May 1, 2024, to prevent potential rejections
 
