@@ -93,13 +93,31 @@ The catalog must be in a CSV format. Refer to [Catalogs](https://docs.clevertap.
 
 2. Use the following command to upload the file:
 
+```curl
+$(curl --request PUT --upload-file "<path to catalog file on your local machine>" "<presigned URL>")
+```
+
 ### cURL Example Request
 
 Below is a cURL example request:
 
+```curl
+$(curl --request PUT 
+--upload-file "Users⁩/janedoe/Documents⁩/catalog.csv”
+"<PRE-SIGNED URL")
+```
+
 ### Example Response
 
 A successful response displays the file upload's progress until it is completed.
+
+```
+%	Total %	Received %	 Xferd  Average Speed   Time     Time     Time    Current
+
+                                Dload   Upload  Total    Spent    Left    Speed                               
+
+100    92 0       0  100    92       0     105 --:--:-- --:--:-- --:--:--  105
+```
 
 ## Complete Single Catalog Upload
 
@@ -269,9 +287,33 @@ The following table explains the body parameters:
 #### Example Requests
 
 Below is a JSON example request for a product catalog:
+
+```curl
+curl -X POST \
+  https://in1.api.clevertap.com/upload_catalog_completed \
+  -H 'Cache-Control: no-cache' \
+  -H 'Content-Type: application/json' \
+  -H 'X-CleverTap-Account-Id: ACCOUNT_ID' \
+  -H 'X-CleverTap-Passcode: PASSCODE' \
+  -H 'cache-control: no-cache' \
+  -d '{ "name":"Product_Catalog", "email":"jane@clevertap.com", "creator":"Jane", "url":"<PRE-SIGNED URL>", "replace":false}'
+```
+
+
 For a product location catalog, use the following flag in the request: `"isLocationCatalog": true`.
 
 Below is a JSON example request for a product location catalog:
+
+```curl
+curl -X POST \
+  https://in1.api.clevertap.com/upload_catalog_completed \
+  -H 'Cache-Control: no-cache' \
+  -H 'Content-Type: application/json' \
+  -H 'X-CleverTap-Account-Id: ACCOUNT_ID' \
+  -H 'X-CleverTap-Passcode: PASSCODE' \
+  -H 'cache-control: no-cache' \
+  -d '{ "name":"Product_Catalog", "email":"jane@clevertap.com", "creator":"Jane", "url":"<PRE-SIGNED URL>", "replace":false, "isLocationCatalog": true}'
+```
 
 #### Example Response
 
@@ -279,15 +321,57 @@ The following success response appears if there are no immediate errors in the c
 
 If you upload a catalog with an existing name, then CleverTap replaces the old catalog if the _replace_ flag is set to _true_. If the _replace_ flag is set to _false_, then the new upload is rejected, and the following response displays:
 
+```json
+{
+   "status": "fail",
+   "error": "Duplicate Catalog name"
+}
+```
+
 If the catalog file is not found at the specified URL, the following response displays:
+
+```json
+{
+   "status": "fail",
+   "Error": “Invalid URL”
+}
+```
 
 If you do not specify the mandatory parameters, the following response displays:
 
+```json
+{
+   "status": "fail",
+   "Error": “Catalog name, email ID, catalog creator and pre-signed url are mandatory”
+}
+```
+
 If the email ID is either in the wrong format or is invalid, the following response displays:
 
-If an old URL which was successfully processed previously is re-used with a new catalog name, you will get the following response:
+```json
+{
+   "status": "fail",
+   "Error": “email id is either not in the right format or does not belong to a valid admin”
+}
+```
+
+If an old URL that was successfully processed previously is reused with a new catalog name, you will get the following response:
+
+```json
+{
+   "status": "fail",
+   "Error": “New file referencing a previously used URL. Please change URL”
+}
+```
 
 If you upload more than the specified five-catalog limit, the following response displays:
+
+```json
+{
+   "status": "fail",
+   "Error": “Already 5 catalogs present for the account“
+}
+```
 
 #### Example Response on Email
 
@@ -295,19 +379,47 @@ The following responses are emailed to the owner’s email address mentioned in 
 
 If the catalog is uploaded successfully, the following response displays:
 
+```
+Catalog with name ‘Product_Catalog’ uploaded successfully
+```
+
 If the catalog is re-uploaded successfully, the following response displays:
+
+```
+Catalog with name ‘Product_Catalog’ re-uploaded successfully
+```
 
 If you upload more than the specified five-catalog limit, the following response displays:
 
+```
+Only 5 number of catalogs are allowed
+```
+
 If the number of rows exceeds 5 million, the following response displays:
+
+```
+Your catalog exceeds the maximum allowed limit of 5,000,000 rows
+```
 
 If any of the three mandatory fields (_Name_, _ImageURL_, or _Category_) are missing from the catalog, the following response displays.
 
 For more information on mandatory catalog fields, refer to [Catalogs](https://docs.clevertap.com/docs/catalog#section-mandatory).
 
+```
+Identity, ImageURL, Category, SubCategory, Brand, Price, MaxDiscount, Season, UserRating, PartnerPromotion, Margin, "Missing Name field.Please add the field and upload the catalog again"
+```
+
 If the number of columns in the catalog exceeds 20, the following response displays:
 
+```
+Identity, Name, ImageURL, Col3, Col4, Col5, Col6, Col7, Col8, Col9, Col10, Col11 Col12, Col13, Col14, Col15, Col16, Col17, Col18, Col19, Col20, Col21, "Your catalog exceeds maximum allowed limit of  20 columns"
+```
+
 If some rows in the catalog file do not adhere to the correct format, the following response displays:
+
+```
+CT000003, CleverTap Navy Collar T-Shirt, https://www.images.com/CTNavyCollarT-Shirt.jpg, , Identities with extra fields found in the catalog. Correct the information and upload the catalog again
+```
 
 # Upload Multipart Catalog
 
@@ -341,6 +453,14 @@ The headers in the following table are all required:
 
 Here is an example cURL request to the _Catalog_ API showing the headers needed to authenticate the request from the account in the India region:
 
+```curl
+curl -v --location --request GET
+'https://in1.api.clevertap.com/get_multipart_upload_catalog_url?totalParts=2' \
+--header 'X-CleverTap-Account-Id: XXXXXXXX' \
+--header 'X-CleverTap-Passcode: XXXXXXX' \
+--header 'Content-Type: application/json'
+```
+
 Check that you provide _totalParts=n_in the request, where _n_ is the number of splits to the file.
 
 The response will provide _n_ pre-signed URLs in an array along with the `uploadId`.  Save the `uploadId` because it is necessary for the last step.
@@ -349,13 +469,55 @@ The response will provide _n_ pre-signed URLs in an array along with the `upload
 
 A success response is displayed if the pre-signed URL is generated: `200 OK`. The pre-signed URLs are valid for a maximum of 24 hours from generation.
 
+```json
+{
+    "presignedS3URL": [
+        "<URL_1>",
+        "<URL_2>"
+    ],
+
+    "expiryEpoch": "16 Aug, 06:21 PM",
+    "isMultiPartUpload": true,
+    "uploadId": "<Upload_ID>",
+    "status": "success"
+}
+```
+
 ## Upload catalog part
 
 Upload each file part. Following is an example for the first part. Repeat this command for all the successive parts.
 
+```curl
+curl -v --request PUT 'pre-signed url 1' \
+--upload-file '/Users/abc/Desktop/xaa.csv' \ #First Part of the file
+--header 'Content-Type: application/octet-stream'
+```
+
 ### JSON Example Response
 
 You will receive a corresponding `eTag` after each successful upload. Save this `eTag`. as shown in the exacmple below.
+
+```curl
+> Host: eu1-sharedresources-platformstorages3bucket-np5wb2kjrbki.s3.eu-west-1.amazonaws.com
+> User-Agent: curl/7.64.1
+> Accept: */*
+> Content-Type: application/octet-stream
+> Content-Length: 415466
+> Expect: 100-continue
+>
+< HTTP/1.1 100 Continue
+* We are completely uploaded and fine
+< HTTP/1.1 200 OK
+< x-amz-id-2: E60IXfTU2a+yi9y9fcx0bfOw7Isa20CR5aBjx9eT2sYjPVp8D5nmd/6fhfVyGrr89FvB+PYKUY0=
+< x-amz-request-id: H6V6YND252FK21YS
+< Date: Sun, 15 Aug 2021 12:59:36 GMT
+< ETag: "2ef9ab2f615e999f0fa29660f15d4366"
+< Server: AmazonS3
+< Content-Length: 0
+<
+* Connection #0 to host eu1-sharedresources-platformstorages3bucket-np5wb2kjrbki.s3.eu-west-1.amazonaws.com left intact
+* Closing connection 0
+```
 
 ## Complete Multipart Upload
 
@@ -363,9 +525,36 @@ You must indicate that the upload is complete. Following is an example request.
 
 The `partNumber`, `eTag`, and `uploadId` are required.
 
-> 📘 Process Duration
->
-> All the parts are merged back into a single file. Large files take some time to process.
+```curl
+curl --location --request POST'https://in1.api.clevertap.com/upload_catalog_completed' \
+--header 'X-CleverTap-Account-Id: XXXXX' \
+--header 'X-CleverTap-Passcode: XXXXX' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+ "name": "catalogName",
+ "email": "abc@abc.com",
+ "creator": "creator name",
+ "uploadId":
+"vzxvLNNVhMDj6Cg573eMD7RWhiIw8oDH6sHTWHwB5b9FhjB31Vh6IZktktvXw38cE6B8Yls0o5ZlMiVksGH.PwulNwegDKDK8otnY38xnt3EfJZ4pSxyw5XpuCYWWKn7p4s1Inl3p3tNWaS9c2X5UCeIqFuHrNMpxRnSOMS403g-",
+ "replace": false,
+ "eTags": [
+     {
+         "partNumber": 1,
+         "eTag": "527905dfaef5d252248b0e18d7117d10"
+     },
+     {
+         "partNumber": 2,
+         "eTag": "106f12611174ca77de94fbfb759104cf"
+     }
+ ]
+}'
+```
+
+<Callout icon="📘" theme="info">
+  **Process Duration**
+
+  All the parts are merged back into a single file. Large files take some time to process.
+</Callout>
 
 # Dashboard Statuses
 
