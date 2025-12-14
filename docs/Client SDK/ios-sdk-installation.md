@@ -19,9 +19,10 @@ To get started, sign up [here](https://clevertap.com/live-product-demo/).
 # Requirements
 
 The following are required for using the CleverTap iOS SDK:
-  * iOS 9.0 or later
-  * tvOS 9.0 or later
-  * Xcode 10.0 or later
+
+* iOS 9.0 or later
+* tvOS 9.0 or later
+* Xcode 10.0 or later
 
 # Installation
 
@@ -47,16 +48,18 @@ For more details, refer to our [installation guide](https://developer.clevertap.
 ## Rich Push Notifications
 
 Apart from the title and message, you have the following options to add to your iOS push notification. Note that each of these is optional.
+
 * [CTNotificationService](https://github.com/CleverTap/CTNotificationService)
 * [CTNotificationContent](https://github.com/CleverTap/CTNotificationContent)
 
 For more details, refer to our [Advanced iOS Push Notifications](https://developer.clevertap.com/docs/ios#section-advanced-ios-push-notifications) guide.
 
-## Geofence 
+## Geofence
 
 CleverTap Geofence SDK provides Geofencing capabilities to CleverTap iOS SDK. To find the installation & integration steps for CleverTap Geofence SDK, click [here](https://github.com/CleverTap/clevertap-geofence-ios).
 
 ### Example Usage
+
 * A [demo application](/ObjCStarter) showing the integration of our SDK in Objective-C language.
 * A [demo application](/SwiftStarter) showing the integration of our SDK in Swift language.
 * A [demo application](/SPMStarter) showing the installation of our SDK via Swift Package Manager.
