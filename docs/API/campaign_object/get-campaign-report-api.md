@@ -12,22 +12,24 @@ next:
 ---
 # Overview
 
-The Get Campaign Report API retrieves metrics and metadata for a specific campaign.  
+The Get Campaign Report API retrieves metrics and metadata for a specific campaign.
 
-* Supports **all campaign types** (Push, Email, SMS, In-App, Web, etc.).  
-* You must provide the `id` of the campaign.  
-* If the campaign has not **completed**, the API returns an error indicating its status.  
+* Supports **all campaign types** (Push, Email, SMS, In-App, Web, etc.).
+* You must provide the `id` of the campaign.
+* If the campaign has not **completed**, the API returns an error indicating its status.
 
-> 📘 Use Cases
->
-> * Integrate campaign reports into analytics dashboards.  
-> * Track delivery, click, and conversion metrics.  
-> * Monitor campaign health and optimize performance.  
-> * Automate reporting workflows.
+<Callout icon="📘" theme="info">
+  **Use Cases**
+
+  * Integrate campaign reports into analytics dashboards.
+  * Track delivery, click, and conversion metrics.
+  * Monitor campaign health and optimize performance.
+  * Automate reporting workflows.
+</Callout>
 
 # Base URL
 
-The sample base URL for the India region:\
+The sample base URL for the India region:  
 [https://in1.api.clevertap.com/1/targets/result.json](https://in1.api.clevertap.com/1/targets/result.json)
 
 Refer to [Region](https://developer.clevertap.com/docs/common-api-components#region) for more details.
@@ -46,7 +48,7 @@ Authentication is required using the account ID and passcode headers.
 
 # HTTP Method
 
-POST 
+POST
 
 # Body Parameters
 
@@ -155,7 +157,7 @@ echo $response->body;
 
 # Example Response
 
-The following are the sample response:
+The following are the sample responses:
 
 ```json
 {
@@ -195,12 +197,14 @@ The following are the response parameters:
 | `converted`    | Number of users who completed a conversion event attributed to the campaign. | Integer |
 | `metadata`     | Contains campaign metadata like name, type, and timestamps.                  | Object  |
 
-> 📘 Notes
->
-> * Metrics are integers and cannot be negative.
-> * Reports are **finalized only after campaign completion**.
-> * For recurring campaigns, reports are available **per instance**.
-> * If no data is available, fields may be omitted or set to `null`.
+<Callout icon="📘" theme="info">
+  **Notes**
+
+  * Metrics are integers and cannot be negative.
+  * Reports are **finalized only after campaign completion**.
+  * For recurring campaigns, reports are available **per instance**.
+  * If no data is available, fields may be omitted or set to `null`.
+</Callout>
 
 # Error Codes
 
@@ -222,5 +226,5 @@ The following are the error codes:
 
 * Only one campaign ID can be requested per call.
 * Bulk report retrieval is not supported.
-* Recommended polling interval: **once every 1–5 minutes** per campaign. 
+* Recommended polling interval: **once every 1–5 minutes** per campaign.
 * Reports are updated in near real-time but finalized only after completion.
