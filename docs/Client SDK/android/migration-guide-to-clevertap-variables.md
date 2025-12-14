@@ -15,31 +15,31 @@ next:
 This guide equips you with the necessary information and resources to migrate your Variables to CleverTap. A well-planned and executed migration can lead to more effective utilization of the product. As a result, the CleverTap team is dedicated to supporting you in achieving this objective.
 
 > 📘 Private Beta
-> 
+>
 > The Remote Config feature is released in Private Beta, while A/B Tests functionality is being developed and coming soon.
 
 ### Useful References
 
-- [User guide](https://docs.clevertap.com/docs/remote-config)
-- [Android developer guide](https://developer.clevertap.com/docs/android-remote-config)
-- [iOS developer guide](https://developer.clevertap.com/docs/ios-remote-config)
+* [User guide](https://docs.clevertap.com/docs/remote-config)
+* [Android developer guide](https://developer.clevertap.com/docs/android-remote-config)
+* [iOS developer guide](https://developer.clevertap.com/docs/ios-remote-config)
 
 # New Terminology
 
-As we work towards integrating Leanplum Variables and A/B testing capabilities into CleverTap, we will implement some changes in how these features are named. The functionalities under the Leanplum **Variables** page will now be called **Remote Config** in CleverTap. At the same time, the** A/B test** retains its existing name. Both _Remote Config_ and _A/B Tests_ will now fall under the umbrella term, **Product Experiences**.
+As we work towards integrating Leanplum Variables and A/B testing capabilities into CleverTap, we will implement some changes in how these features are named. The functionalities under the Leanplum **Variables** page will now be called **Remote Config** in CleverTap. At the same time, the **A/B test** retains its existing name. Both *Remote Config* and *A/B Tests* will now fall under the umbrella term, **Product Experiences**.
 
 Lastly, we will continue to use the term variables to refer to the elements in your app that are defined and synced for remote control.
 
 ## Leanplum Structure
 
-- Variables
-- A/B Tests
+* Variables
+* A/B Tests
 
 ## CleverTap structure:
 
-- Product Experiences
-  - Remote Config
-  - A/B Tests
+* Product Experiences
+  * Remote Config
+  * A/B Tests
 
 ## Variable Types
 
@@ -71,9 +71,9 @@ let text = Var(name: "Title.Text", string: "Title 1")
 CleverTap continues to support the existing Dictionary and dot notation definitions to ensure a smooth migration process. However, in the long term, we plan to move away from these structures in the code. With the upcoming versions of Remote Config, we plan to introduce a feature that allows users to create folders in the dashboard and move variables inside them. This will simplify the structure of variables in your code and provides the flexibility to organize and modify them in the dashboard.
 
 > 📘 Note
-> 
+>
 > If you are currently using these existing structures, you may consider switching directly to a flat variable structure within your code as part of the migration process. 
-> 
+>
 > Later, you can take advantage of the Dashboard Folders. We recommend switching to a flat structure only for apps that do not have a lot of folders and nesting currently. For more complex structures, the list with variables may become harder to manage before the dashboard folders are introduced and it is better to continue using the current nested structure.
 
 # Steps to Migrate from Leanplum Variables to CleverTap Remote Config:
@@ -265,9 +265,9 @@ Var<Map<String, Object>> group = cleverTapInstance.defineVariable("group", map);
 ```
 
 > 🚧 Note
-> 
+>
 > While defining your CleverTap variables you should not remove your current Leanplum defined variables as you will be able to use them in parallel during the migration in order to test and validate the new implementаtion.
-> 
+>
 > Now is the time to clean-up unused variables that you may be preserving due to older app versions support. Copy to CleverTap only variables that you are still using. Users on your older app versions with Leanplum SDK will continue to fetch your variables from Leanplum dashboard, so you can safely remove them while transferring to CleverTap variables which will be fetched only in your newest app versions.
 
 ### 3. Sync Variables to CleverTap Dashboard Using New Approach
@@ -288,16 +288,16 @@ cleverTapInstance.syncVariables() });
 
 ```
 
-- [Android Sync Variables](https://developer.clevertap.com/docs/android-remote-config#sync-defined-variables)
-- [iOS Sync Variables](https://developer.clevertap.com/docs/ios-remote-config#sync-defined-variables)
+* [Android Sync Variables](https://developer.clevertap.com/docs/android-remote-config#sync-defined-variables)
+* [iOS Sync Variables](https://developer.clevertap.com/docs/ios-remote-config#sync-defined-variables)
 
 #### 3.1 Implement Callbacks
 
-Next, you need to Implement the CleverTap callbacks in the same places where you are using the Leanplum ones.  
+Next, you need to Implement the CleverTap callbacks in the same places where you are using the Leanplum ones.\
 The callbacks use a CleverTap Instance. Use the Leanplum.addCleverTapInstanceCallback callback to get the instance. Follow the Developer Guides, to check on the available callbacks.
 
-- [iOS Setup Callbacks](https://developer.clevertap.com/docs/ios-remote-config#setup-callbacks)
-- [Android Setup Callbacks](https://developer.clevertap.com/docs/android-remote-config#set-up-callbacks)
+* [iOS Setup Callbacks](https://developer.clevertap.com/docs/ios-remote-config#setup-callbacks)
+* [Android Setup Callbacks](https://developer.clevertap.com/docs/android-remote-config#set-up-callbacks)
 
 #### 3.2 Mid-session fetch
 
@@ -380,13 +380,13 @@ If useLPVars.boolValue() {
 ```
 
 > 🚧 Note
-> 
+>
 > We cannot migrate the already running A/B tests from Leanplum to CleverTap. For a seamless user experience, we recommend completing your already running A/B tests, applying the desired variable overrides to the Variables dashboard, and transferring them to the CleverTap dashboard. If you preserve running A/B tests on Leanplum when migrating all your variables to CleverTap, users that upgrade to your newest app version will stop seeing the variable values from the respective A/B test variant they were in and start receiving the CleverTap payload instead, which will defeat the purpose of the A/B test.
 
 ## Variables Control During Migration Process
 
 | Activity                                                                                                                                                                                                                                                                                                                                                                                   | Variables control                                                                                                                          |
 | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------- |
-| 1. Upgrade to Wrapper SDK                                                                                                                                                                                                                                                                                                                                                                  |  Leanplum dashboard for all app versions                                                                                                   |
+| 1. Upgrade to Wrapper SDK                                                                                                                                                                                                                                                                                                                                                                  | Leanplum dashboard for all app versions                                                                                                    |
 | 2. Copy your variable definitions to CleverTap syntax while preserving your current Leanplum variables 3. Sync your variables to the CleverTap dashboard & test them 4. Introduce a switching mechanism via a variable that determines which variables payload your app should use - Leanplum or CleverTap. 5. Publish and distribute a production version of the app with the Wrapper SDK | - Leanplum dashboard for all live app versions - CleverTap dashboard for the dev build you’re working on                                   |
 | 6. Switch to CleverTap variables payload                                                                                                                                                                                                                                                                                                                                                   | - Leanplum dashboard for users on all older app versions without the Wrapper SDK - CleverTap dashboard for users on the newest app version |
