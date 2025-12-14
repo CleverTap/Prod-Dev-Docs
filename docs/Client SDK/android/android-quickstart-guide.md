@@ -56,16 +56,16 @@ This section shows how to install the CleverTap SDK, track your first user event
 To use the CleverTap Android SDK, you have two options. You can install it automatically using Gradle in Android Studio or manually by including the SDK source code in your Android Studio project. 
 
 > 📘 Note
-> 
+>
 > 1. When minifying is enabled for Gradle wrapper 8.0+ and Android Gradle plugin 8.0.0+, R8 reports missing classes as errors (previously reported as warnings) and the build fails. 
-> 
-> - Upgrade to `com.clevertap.android:clevertap-android-sdk v6.1.1` and `com.clevertap.android:clevertap-hms-sdk v1.3.4` to fix this issue. 
-> - This occurs due to change in behaviour in the Android Gradle Plugin (AGP). When R8 traces the program, it tries to handle all the classes, methods and fields that it finds in the part of the program it considers live. Earlier during this tracing, it returned a warning that allowed building the APK. But these are now converted into errors. 
-> 
+>
+> * Upgrade to `com.clevertap.android:clevertap-android-sdk v6.1.1` and `com.clevertap.android:clevertap-hms-sdk v1.3.4` to fix this issue. 
+> * This occurs due to change in behaviour in the Android Gradle Plugin (AGP). When R8 traces the program, it tries to handle all the classes, methods and fields that it finds in the part of the program it considers live. Earlier during this tracing, it returned a warning that allowed building the APK. But these are now converted into errors. 
+>
 > For more information, refer to the [Android Gradle Plugin 8.0.0](https://developer.android.com/build/releases/past-releases/agp-8-0-0-release-notes) document.
-> 
-> 2. For developers that have BACKGROUND_SYNC ([Android Pull Notification](https://developer.clevertap.com/docs/android-push#pull-notification)) enabled in their older apps and are now upgrading to CleverTap Android SDK v6.1.1, please add the below code snippet to your `AndroidManifest.xml` to avoid `ClassNotFoundException` error.
-> 
+>
+> 2. For developers that have BACKGROUND\_SYNC ([Android Pull Notification](https://developer.clevertap.com/docs/android-push#pull-notification)) enabled in their older apps and are now upgrading to CleverTap Android SDK v6.1.1, please add the below code snippet to your `AndroidManifest.xml` to avoid `ClassNotFoundException` error.
+>
 > ```xml
 > < service
 > 	android: name = "com.clevertap.android.sdk.pushnotification.amp.CTBackgroundJobService"
@@ -92,7 +92,7 @@ dependencies {
 apply plugin: 'com.google.gms.google-services'
 ```
 
-3. Once you have updated your `build.gradle` file, sync your project by clicking on _Sync Project with Gradle Files_ button. 
+3. Once you have updated your `build.gradle` file, sync your project by clicking on *Sync Project with Gradle Files* button. 
 
 ## Option B: Manual Install
 
@@ -119,12 +119,12 @@ To associate your Android app with your CleverTap account, you must add your Cle
 
 1. Navigate to the `AndroidManifest.xml` file in your project navigator. 
 
-2. Add your CleverTap _Account ID_ and _Token_ to `AndroidManifest.xml` within the `<application></application>` tags.
+2. Add your CleverTap *Account ID* and *Token* to `AndroidManifest.xml` within the `<application></application>` tags.
 
 > 🚧 Credentials and Access
-> 
-> The _CleverTap Account ID_ and  _CleverTap Token_ are available as _Project ID_ and _Project Token_, respectively, on the CleverTap dashboard. You can find these details by navigating to Settings > Projects from the dashboard.  
-> Member and Creator roles in the project do not have access to view the _Passcode_ and _Project Token_ of the account on the dashboard.
+>
+> The *CleverTap Account ID* and  *CleverTap Token* are available as *Project ID* and *Project Token*, respectively, on the CleverTap dashboard. You can find these details by navigating to Settings > Projects from the dashboard.\
+> Member and Creator roles in the project do not have access to view the *Passcode* and *Project Token* of the account on the dashboard.
 
 ```xml
 <meta-data
@@ -140,37 +140,22 @@ To associate your Android app with your CleverTap account, you must add your Cle
 ```
 
 > 🚧 Key Points to Remember When Using Google AD ID to Uniquely Identify Users
-> 
-> - GDPR mandates that if you use Google AD ID to identify users uniquely, there should be prominent disclosure in your application that explains this to your end customer. For more information, refer to the [GDPR article](https://clevertap.com/blog/in-preparation-of-gdpr-compliance/). 
-> 
-> - If you still want to use Google AD ID to generate a user's identity to identify users across re-installs, add the meta tag that forces the use of the Google AD ID to generate an identity in CleverTap.
-> 
-> - You must also integrate the Google Ads SDK to ensure that the CleverTap Android SDK picks up the Google Ad ID to generate the user's identity. To integrate the Google Ads SDK, refer to [Mobile Ads SDK Integration](https://developers.google.com/ad-manager/mobile-ads-sdk/android/quick-start)
-> 
-> - Declare the following permission when using Google Ad ID for apps targeting Android 13 and above:
-> 
+>
+> * GDPR mandates that if you use Google AD ID to identify users uniquely, there should be prominent disclosure in your application that explains this to your end customer. For more information, refer to the [GDPR article](https://clevertap.com/blog/in-preparation-of-gdpr-compliance/). 
+>
+> * If you still want to use Google AD ID to generate a user's identity to identify users across re-installs, add the meta tag that forces the use of the Google AD ID to generate an identity in CleverTap.
+>
+> * You must also integrate the Google Ads SDK to ensure that the CleverTap Android SDK picks up the Google Ad ID to generate the user's identity. To integrate the Google Ads SDK, refer to [Mobile Ads SDK Integration](https://developers.google.com/ad-manager/mobile-ads-sdk/android/quick-start)
+>
+> * Declare the following permission when using Google Ad ID for apps targeting Android 13 and above:
+>
 > `<uses-permission android:name="com.google.android.gms.permission.AD_ID"/>`.
 
-3. Insert the Account ID (Project ID) and Account Token values from your CleverTap account. You can obtain this information by navigating to the _Settings_ > _Project_ page from the CleverTap dashboard.
+3. Insert the Account ID (Project ID) and Account Token values from your CleverTap account. You can obtain this information by navigating to the *Settings* > *Project* page from the CleverTap dashboard.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/4a8831c-Android_Project_account_ID.png",
-        "CleverTap Account Credentials",
-        758
-      ],
-      "align": "center",
-      "sizing": "80",
-      "border": true,
-      "caption": "CleverTap Account Credentials"
-    }
-  ]
-}
-[/block]
-
+<Image title="CleverTap Account Credentials" alt={758} align="center" width="80%" border={true} src="https://files.readme.io/4a8831c-Android_Project_account_ID.png">
+  CleverTap Account Credentials
+</Image>
 
 ## Add Region Code
 
@@ -195,23 +180,9 @@ You can add CleverTap's class as your application class to capture system events
     android:name="com.clevertap.android.sdk.Application">
 ```
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/319c1ad-image6.png",
-        "Initialize the CleverTap SDK",
-        796
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Initialize the CleverTap SDK"
-    }
-  ]
-}
-[/block]
-
+<Image title="Initialize the CleverTap SDK" alt={796} align="center" border={true} src="https://files.readme.io/319c1ad-image6.png">
+  Initialize the CleverTap SDK
+</Image>
 
 ## Enable Tracking by Adding Permissions
 
@@ -224,23 +195,9 @@ Add the snippet below in the `AndroidManifest.xml` file so that the CleverTap SD
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 ```
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/310c7af-Screenshot_2022-08-01_at_1.07.23_PM.png",
-        "Enable Tracking by Adding Permissions",
-        2396
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Enable Tracking by Adding Permissions"
-    }
-  ]
-}
-[/block]
-
+<Image title="Enable Tracking by Adding Permissions" alt={2396} align="center" border={true} src="https://files.readme.io/310c7af-Screenshot_2022-08-01_at_1.07.23_PM.png">
+  Enable Tracking by Adding Permissions
+</Image>
 
 # Access CleverTap Instance
 
@@ -258,25 +215,11 @@ cleverTapDefaultInstance = CleverTapAPI.getDefaultInstance(applicationContext)
 
 To check if the integration was performed correctly, you can run the application.  
 
-After the application is launched on the emulator or Android device, navigate to your CleverTap dashboard > _Boards_ > _Mobile App_. You will see a new active user if you successfully integrated the CleverTap SDK.
+After the application is launched on the emulator or Android device, navigate to your CleverTap dashboard > *Boards* > *Mobile App*. You will see a new active user if you successfully integrated the CleverTap SDK.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/9e07e5a-New_mobile_users.png",
-        "View Active Users on the Dashboard",
-        1405
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "View Active Users on the Dashboard"
-    }
-  ]
-}
-[/block]
-
+<Image title="View Active Users on the Dashboard" alt={1405} align="center" border={true} src="https://files.readme.io/9e07e5a-New_mobile_users.png">
+  View Active Users on the Dashboard
+</Image>
 
 # Identify Users
 
@@ -340,46 +283,18 @@ When the `OnUserLogin` method is called, the user profile information will be se
 
 To see how this information displays within the CleverTap dashboard, perform the following:
 
-1. Navigate to _Segments_ > _Find People_.
-2. In the _By Identity_ box, enter the email you set on the user profile record, then click the **Find** button.
+1. Navigate to *Segments* > *Find People*.
+2. In the *By Identity* box, enter the email you set on the user profile record, then click the **Find** button.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/f0467dc-1_By_identity_search_box.png",
-        "Find People on CleverTap Dashboard",
-        1407
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Find People on CleverTap Dashboard"
-    }
-  ]
-}
-[/block]
+<Image title="Find People on CleverTap Dashboard" alt={1407} align="center" border={true} src="https://files.readme.io/f0467dc-1_By_identity_search_box.png">
+  Find People on CleverTap Dashboard
+</Image>
 
+If CleverTap finds a user profile with this email, you will be taken to that user record. On that page, you will see the name and email as pre-defined fields and *Customer type* and *Age* as custom fields.
 
-If CleverTap finds a user profile with this email, you will be taken to that user record. On that page, you will see the name and email as pre-defined fields and _Customer type_ and _Age_ as custom fields.
-
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/c635bdd-2_User_Profile.png",
-        "User Profile",
-        2912
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "User Profile"
-    }
-  ]
-}
-[/block]
-
+<Image title="User Profile" alt={2912} align="center" border={true} src="https://files.readme.io/c635bdd-2_User_Profile.png">
+  User Profile
+</Image>
 
 ## Update the User Profile
 
@@ -387,7 +302,7 @@ The `Onuserlogin` method identifies the individual users on the device. However,
 
 # Track Custom Events
 
-Once you integrate the CleverTap SDK, we automatically track events, such as _App Launch_ and _Notification Viewed_. In addition to the [default (system) events tracked by CleverTap](https://developer.clevertap.com/docs/events#system-events) you can also track custom events.
+Once you integrate the CleverTap SDK, we automatically track events, such as *App Launch* and *Notification Viewed*. In addition to the [default (system) events tracked by CleverTap](https://developer.clevertap.com/docs/events#system-events) you can also track custom events.
 
 To send custom events to CleverTap using our Android SDK, you have to call the `pushEvent` method with the name of the custom event you want to track. 
 
@@ -402,23 +317,9 @@ To view the same user profile in CleverTap from the last section, click on the *
 
 If the custom event was successfully sent from your application to CleverTap, you would see it in this list.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/1a8aecb-3_User_Activities.png",
-        "User Profile Activity",
-        2756
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "User Profile Activity"
-    }
-  ]
-}
-[/block]
-
+<Image title="User Profile Activity" alt={2756} align="center" border={true} src="https://files.readme.io/1a8aecb-3_User_Activities.png">
+  User Profile Activity
+</Image>
 
 ## Debugging
 
