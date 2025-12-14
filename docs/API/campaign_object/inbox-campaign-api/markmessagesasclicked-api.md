@@ -86,7 +86,7 @@ The following are the body parameters included in the JSON response payload:
       </td>
 
       <td>
-        [test@stockx.com](mailto:test@stockx.com)
+        [test@clevertap.com](mailto:test@clevertap.com)
       </td>
     </tr>
 
@@ -108,15 +108,15 @@ The following are the body parameters included in the JSON response payload:
           {'{'}
 
           "messageId": 1,
-        "wzrk\_id": 	"12345679\_20240130",
-        "wzrk\_pivot": "wzrk\_default"
+          "wzrk\_id": 	"12345679\_20240130",
+          "wzrk\_pivot": "wzrk\_default"
           {'}'},
 
           {'{'}
 
           "messageId": 2,
-        "wzrk\_id": "12345679\_20240131",
-        "wzrk\_pivot": "wzrk\_default"
+          "wzrk\_id": "12345679\_20240131",
+          "wzrk\_pivot": "wzrk\_default"
 
           {'}'}
         </code>
@@ -190,7 +190,7 @@ curl --location --request POST 'https://in1.api.clevertap.com/1/inbox/markMessag
 --header 'X-CleverTap-Passcode: YOUR_ACCOUNT_PASSCODE' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-  "userId": "test@stockx.com",
+  "userId": "test@clevertap.com",
   "messages": [
     {
       "messageId": 1,
@@ -221,7 +221,7 @@ request["X-CleverTap-Passcode"] = "YOUR_ACCOUNT_PASSCODE"
 request["X-CleverTap-Token"] = "YOUR_ACCOUNT_TOKEN"
 request["Content-Type"] = "application/json"
 request.body = JSON.dump({
-  "userId": "stockx1@test.com",
+  "userId": "estock1@clevertap.com",
   "messages": [
     {
       "wzrk_id": "1711383026_20240325",
@@ -246,7 +246,7 @@ import json
 url = "https://in1.api.clevertap.com/1/inbox/markMessagesAsClicked"
 
 payload = json.dumps({
-  "userId": "stockx1@test.com",
+  "userId": "estock@clevertap.com",
   "messages": [
     {
       "wzrk_id": "1711383026_20240325",
@@ -285,7 +285,7 @@ curl_setopt_array($curl, array(
   CURLOPT_FOLLOWLOCATION => true,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => 'POST',
-  CURLOPT_POSTFIELDS =>'{"userId": "stockx1@test.com", "messages": [{"wzrk_id":"1711383026_20240325","wzrk_pivot":"wzrk_default", "messageId":8},{"wzrk_id":"1711612209_20240328","wzrk_pivot":"wzrk_default", "messageId":9}]}',
+  CURLOPT_POSTFIELDS =>'{"userId": "estock@clevertap.com", "messages": [{"wzrk_id":"1711383026_20240325","wzrk_pivot":"wzrk_default", "messageId":8},{"wzrk_id":"1711612209_20240328","wzrk_pivot":"wzrk_default", "messageId":9}]}',
   CURLOPT_HTTPHEADER => array(
     'X-CleverTap-Account-Id: YOUR_ACCOUNT_ID',
     'X-CleverTap-Passcode: YOUR_ACCOUNT_PASSCODE',
@@ -311,7 +311,7 @@ var options = {
     'Content-Type': 'application/json'
   },
   body: JSON.stringify({
-    "userId": "stockx1@test.com",
+    "userId": "estock@clevertap.com",
     "messages": [
       {
         "wzrk_id": "1711383026_20240325",
