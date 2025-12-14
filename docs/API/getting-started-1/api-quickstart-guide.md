@@ -16,53 +16,25 @@ This guide shows you how to authenticate with the CleverTap API, create a Clever
 
 # Get CleverTap Account Credentials to Authenticate API Requests
 
-CleverTap uses a header-based authentication model to authenticate requests to the API. Every CleverTap API call should include your _Project ID (Account ID)_ and _Account Passcode_ as the request headers.
+CleverTap uses a header-based authentication model to authenticate requests to the API. Every CleverTap API call should include your *Project ID (Account ID)* and *Account Passcode* as the request headers.
 
 Perform the following steps to get CleverTap Account credentials:
 
-1. Log into your [CleverTap Account](https://eu1.dashboard.clevertap.com/login.html) and click _Settings_ on the dashboard.
+1. Log into your [CleverTap Account](https://eu1.dashboard.clevertap.com/login.html) and click *Settings* on the dashboard.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/6a02f58d6af68e0262192666230518a916a453075802233bd66b4c2635acef47-image.png",
-        null,
-        "CleverTap Dashboard Settings"
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "CleverTap Dashboard Settings"
-    }
-  ]
-}
-[/block]
+<Image alt="CleverTap Dashboard Settings" align="center" border={true} src="https://files.readme.io/6a02f58d6af68e0262192666230518a916a453075802233bd66b4c2635acef47-image.png">
+  CleverTap Dashboard Settings
+</Image>
 
+2. Click *Project* . Save the values of *Project ID* and *Passcode*. We will need this information in the next two steps.
 
-2. Click _Project_ . Save the values of _Project ID_ and _Passcode_. We will need this information in the next two steps.
-
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/d9769fd0761163ea70b573668fb4af1dce6bfdc5e9f8ae84bf4361efe6810bf4-image.png",
-        null,
-        "View Project Credentials"
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "View Project Credentials"
-    }
-  ]
-}
-[/block]
-
+<Image alt="View Project Credentials" align="center" border={true} src="https://files.readme.io/d9769fd0761163ea70b573668fb4af1dce6bfdc5e9f8ae84bf4361efe6810bf4-image.png">
+  View Project Credentials
+</Image>
 
 > 📘 Create Account Passcode
-> 
-> You can also create an account passcode from the _Projects_ page by clicking the **+Passcode** link. On clicking, you are navigated to the _Passcodes_ page. For more information about the steps involved, refer to [Create Account Passcode](doc:authentication_multiple-passcode#create-account-passcode).
+>
+> You can also create an account passcode from the *Projects* page by clicking the **+Passcode** link. On clicking, you are navigated to the *Passcodes* page. For more information about the steps involved, refer to [Create Account Passcode](doc:authentication_multiple-passcode#create-account-passcode).
 
 # Create a CleverTap User Profile with the API
 
@@ -70,48 +42,19 @@ After you integrate our SDK, we will create a user profile for each person who l
 
 A CleverTap user profile has a set of default fields, such as email, phone number, and language.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/1fe744537cd16ea4c3c517b9b3c13daf9181231abc2bc0c917ce8ac436acfce0-image.png",
-        null,
-        "CleverTap User Profile"
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "CleverTap User Profile"
-    }
-  ]
-}
-[/block]
-
+<Image alt="CleverTap User Profile" align="center" border={true} src="https://files.readme.io/1fe744537cd16ea4c3c517b9b3c13daf9181231abc2bc0c917ce8ac436acfce0-image.png">
+  CleverTap User Profile
+</Image>
 
 You can also extend the default user profile by adding custom fields that are specific to your business. For example, if you offer a subscription service in your app, you can create a custom profile field to track what type of plan the user purchased.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/4140a932b3e8a0164270677316d4e39b5273c8ba7a3400dfcbd5e24b6e259aa8-image.png",
-        null,
-        "User Profile Properties"
-      ],
-      "align": "center",
-      "sizing": "50% ",
-      "border": true,
-      "caption": "User Profile Properties"
-    }
-  ]
-}
-[/block]
-
+<Image alt="User Profile Properties" align="center" width="50% " border={true} src="https://files.readme.io/4140a932b3e8a0164270677316d4e39b5273c8ba7a3400dfcbd5e24b6e259aa8-image.png">
+  User Profile Properties
+</Image>
 
 To create a new user profile in CleverTap, make a request to the [Upload User Profile API](doc:upload-user-profiles-api).
 
-For example, we can create a user profile with the email [_george.montana@clevertap.com_](mailto:_george.montana@clevertap.com_), the name _George Montana_, and the customer type _Silver_ using the following steps:
+For example, we can create a user profile with the email [*george.montana@clevertap.com*](mailto:_george.montana@clevertap.com_), the name *George Montana*, and the customer type *Silver* using the following steps:
 
 1. Run the cURL request on your terminal. Here is an example cURL request for the accounts in the India region:
 
@@ -242,7 +185,7 @@ defer resp.Body.Close()
 To know the API endpoint based on the region of your account, refer to [Region](doc:common-api-components#region).
 
 > 📘 Python Version
-> 
+>
 > The recommended version for Python is 2.7 as we do not support the latest version at this time.
 
 2. Replace the values for the headers `X-CleverTap-Account-Id` and `X-CleverTap-Passcode` with your CleverTap account credentials obtained from the second step in [Get CleverTap Account Credentials to Authenticate API Requests](doc:api-quickstart-guide#section-get-clever-tap-account-credentials-to-authenticate-api-requests). 
@@ -260,7 +203,7 @@ To know the API endpoint based on the region of your account, refer to [Region](
 
 You can get a CleverTap user profile with the API. In this example, we will get the CleverTap user profile for the one we created in the previous section.
 
-Make a request to the [Get User Profile API](doc:get-user-profiles-api) for the user identified by the email _george.montana@clevertap_ using the below steps:
+Make a request to the [Get User Profile API](doc:get-user-profiles-api) for the user identified by the email *george.montana\@clevertap* using the below steps:
 
 1. Run the cURL request on your terminal. Here is an example cURL request for the accounts in the India region:
 
