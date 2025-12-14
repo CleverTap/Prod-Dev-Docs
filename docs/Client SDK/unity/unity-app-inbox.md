@@ -18,8 +18,8 @@ App Inbox lets you deliver persistent, rich messages to users directly within yo
 
 With CleverTap’s Unity SDK, you can:
 
-- Use the default App Inbox provided by CleverTap, or build a custom interface.
-- Design and manage App Inbox notifications directly from the dashboard.
+* Use the default App Inbox provided by CleverTap, or build a custom interface.
+* Design and manage App Inbox notifications directly from the dashboard.
 
 ## Android Setup
 
@@ -40,7 +40,7 @@ implementation "com.google.android.exoplayer:exoplayer-ui:2.19.1"
 ```
 
 > 📘 Note
-> 
+>
 > Ensure these dependencies are added to the module-level `build.gradle` file, not the project-level one.
 
 ## Initialize App Inbox
@@ -53,8 +53,8 @@ CleverTap.InitializeInbox();
 
 This triggers the following callback methods:
 
-- `inboxDidInitialize()` – Triggers when the inbox is initialized.
-- `inboxMessagesDidUpdate()` – Triggers when new App Inbox messages are available.
+* `inboxDidInitialize()` – Triggers when the inbox is initialized.
+* `inboxMessagesDidUpdate()` – Triggers when new App Inbox messages are available.
 
 You can use these callbacks to configure styling and display the inbox.
 
@@ -82,7 +82,7 @@ void CleverTapInboxDidInitializeCallback()
 ```
 
 > 📘 Custom Parser Usage
-> 
+>
 > This example uses [Newtonsoft’s JSON parser](https://www.newtonsoft.com/json) to serialize the `Dictionary` object into a string, which is then passed to `ShowAppInbox()`.
 
 When new messages arrive, the SDK invokes:
@@ -195,7 +195,7 @@ CleverTap.DeleteInboxMessageForID("messageId");
 Deletes multiple messages by providing an array of message IDs.
 
 > 📘 iOS-Only Support
-> 
+>
 > This method is available only on iOS.
 
 ```csharp
