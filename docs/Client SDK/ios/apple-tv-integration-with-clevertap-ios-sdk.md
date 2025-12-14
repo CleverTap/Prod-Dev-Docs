@@ -41,12 +41,12 @@ To integrate CleverTap iOS SDK with your Apple TV app:
 
 1. Add your CleverTap account credentials.
 2. Update the `.plist` file:
-   - Create a key called **CleverTapAccountID** with a string value.
-   - Create a key called **CleverTapToken** with a string value.
-   - Insert the values from your CleverTap Dashboard. Go to **CleverTap Dashboard** > **Settings** > **Integration Details**.
+   * Create a key called **CleverTapAccountID** with a string value.
+   * Create a key called **CleverTapToken** with a string value.
+   * Insert the values from your CleverTap Dashboard. Go to **CleverTap Dashboard** > **Settings** > **Integration Details**.
 3. Integrate CleverTap iOS SDK in `AppDelegate.swift` file:
-   - Import CleverTapSDK to the `AppDelegate.swift` file.
-   - Add the following method calls to the `AppDelegate.swift` file.
+   * Import CleverTapSDK to the `AppDelegate.swift` file.
+   * Add the following method calls to the `AppDelegate.swift` file.
      ```swift
      func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
              
@@ -57,8 +57,8 @@ To integrate CleverTap iOS SDK with your Apple TV app:
      ```
 4. Integrate CleverTap iOS SDK in the ViewController file:
 
-   - Import CleverTapSDK in `ViewController` class file.
-   - Call the following methods to identify users and to raise events:
+   * Import CleverTapSDK in `ViewController` class file.
+   * Call the following methods to identify users and to raise events:
 
      ```swift
      // onUserLogin to identify users
