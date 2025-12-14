@@ -24,14 +24,14 @@ Another use case for multiple CleverTap accounts in a single app is using a diff
 
 In [version 3.2.0 of the Android SDK](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.2.0), we released the following new features: 
 
-- Added support for creating additional CleverTap instances to send data to multiple CleverTap accounts from your app.
-- Added APIs for setting the SDK to offline and SSL Pinning.
+* Added support for creating additional CleverTap instances to send data to multiple CleverTap accounts from your app.
+* Added APIs for setting the SDK to offline and SSL Pinning.
 
 We also deprecated the following SDK methods: 
 
-- Deprecated CleverTapException, CleverTapMetaDataNotFoundException, CleverTapPermissionsNotSatisfied, and InvalidEventNameException.
-- Deprecated CleverTapAPI.CHARGED_EVENT.
-- Deprecated CleverTapAPI.getInstance() method. 
+* Deprecated CleverTapException, CleverTapMetaDataNotFoundException, CleverTapPermissionsNotSatisfied, and InvalidEventNameException.
+* Deprecated CleverTapAPI.CHARGED\_EVENT.
+* Deprecated CleverTapAPI.getInstance() method. 
 
 ## Create Additional Instances
 
@@ -53,8 +53,8 @@ clevertapAdditionalInstanceConfig.useGoogleAdId(true); // enables the collection
 clevertapAdditionalInstanceConfig.enablePersonalization(false); //enables personalization, default is true.
 ```
 
-> 🚧 
-> 
+> 🚧
+>
 > All configuration to the CleverTapInstanceConfig object must be done prior to calling CleverTapAPI.instanceWithConfig. Subsequent changes to the CleverTapInstanceConfig object will have no effect on the additional CleverTap instance created.
 
 The third step is to instantiate the additional CleverTap instance by calling CleverTapAPI.instanceWithConfig method with the CleverTapInstanceConfig object you created.
@@ -173,13 +173,13 @@ cleverTapAPI.setOffline(true);
 
 You can perform SSL pinning for the following CleverTap SDKs:
 
-- Android Core SDK v4.5.1 and above.
-- iOS Core SDK v4.1.1 and above.
+* Android Core SDK v4.5.1 and above.
+* iOS Core SDK v4.1.1 and above.
 
 To enable SSL Pinning, please contact [customer support](https://help.clevertap.com/hc/en-us/requests/new).
 
 > ❗️ SSL Pinning Considerations
-> 
+>
 > Implementing SSL pinning may lead to unexpected outcomes. The pinned certificates are shipped with the SDK. If the pinned certificates expire or change, you must update the SDK and roll out an application update to your users. After the certificate expires, your application will be unable to send any data to CleverTap servers until your users upgrade their applications to the latest SDK version and certificate. For more information, refer to [SSL Pinning](https://www.digicert.com/blog/certificate-pinning-what-is-certificate-pinning).
 
 ## Deprecated Methods
@@ -188,11 +188,11 @@ We deprecated the SDK methods listed in the table below. Note that some of the f
 
 | Deprecated Method                  | New Method                          |
 | :--------------------------------- | :---------------------------------- |
-| CleverTapException                 | _Not supported in new SDK versions_ |
-| CleverTapMetaDataNotFoundException | _Not supported in new SDK versions_ |
-| CleverTapPermissionsNotSatisfied   | _Not supported in new SDK versions_ |
-| InvalidEventNameException          | _Not supported in new SDK versions_ |
-| CleverTapAPI.CHARGED_EVENT         | cleverTapAPI.pushChargedEvent()     |
+| CleverTapException                 | *Not supported in new SDK versions* |
+| CleverTapMetaDataNotFoundException | *Not supported in new SDK versions* |
+| CleverTapPermissionsNotSatisfied   | *Not supported in new SDK versions* |
+| InvalidEventNameException          | *Not supported in new SDK versions* |
+| CleverTapAPI.CHARGED\_EVENT        | cleverTapAPI.pushChargedEvent()     |
 | CleverTapAPI.getInstance()         | CleverTapAPI.getDefaultInstance()   |
 
 # iOS
@@ -201,10 +201,10 @@ We deprecated the SDK methods listed in the table below. Note that some of the f
 
 In [version 3.2.0 of the iOS SDK](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/3.2.0), we released the following new features: 
 
-- Added support for creating additional CleverTap instances to send data to multiple CleverTap accounts from your app.
-- Added APIs for setting the SDK to offline and SSL Pinning.
-- Added support for integration via Carthage.
-- Moved from a static to dynamic framework.
+* Added support for creating additional CleverTap instances to send data to multiple CleverTap accounts from your app.
+* Added APIs for setting the SDK to offline and SSL Pinning.
+* Added support for integration via Carthage.
+* Moved from a static to dynamic framework.
 
 ## Create Additional Instances
 
@@ -254,8 +254,8 @@ ctConfig.analyticsOnly = true
 ctConfig.enablePersonalization = false
 ```
 
-> 🚧 
-> 
+> 🚧
+>
 > All configuration to the CleverTapInstanceConfig object must be done prior to calling instanceWithConfig:ctConfig. Subsequent changes to the CleverTapInstanceConfig object will have no effect on the additional CleverTap instance created.
 
 The third step is to instantiate the additional CleverTap instance by calling the instanceWithConfig:ctConfig method with the CleverTapInstanceConfig object you created.
