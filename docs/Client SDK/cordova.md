@@ -18,18 +18,18 @@ Cordova is a leading open-source mobile app development framework. It enables de
 
 Ensure you have the following prerequisites to integrate CleverTap Cordova SDK with your app:
 
-- CleverTap Account
-- Cordova must be installed
-- Cordova Integrated Development Environment (IDE) such as Visual Studio Code
-- Android Studio IDE
-- Apple Xcode IDE
+* CleverTap Account
+* Cordova must be installed
+* Cordova Integrated Development Environment (IDE) such as Visual Studio Code
+* Android Studio IDE
+* Apple Xcode IDE
 
 # Supported Versions
 
 The CleverTap Cordova SDK version 4.3.0 supports the following versions:
 
-- [CleverTap Android SDK version 7.5.2](https://github.com/CleverTap/clevertap-android-sdk/blob/master/docs/CTCORECHANGELOG.md#version-752-september-11-2025)
-- [CleverTap iOS SDK version 7.3.3](https://github.com/CleverTap/clevertap-ios-sdk/blob/master/CHANGELOG.md#version-733-september-11-2025)
+* [CleverTap Android SDK version 7.5.2](https://github.com/CleverTap/clevertap-android-sdk/blob/master/docs/CTCORECHANGELOG.md#version-752-september-11-2025)
+* [CleverTap iOS SDK version 7.3.3](https://github.com/CleverTap/clevertap-ios-sdk/blob/master/CHANGELOG.md#version-733-september-11-2025)
 
 # Cordova SDK Versions and Size
 
@@ -43,29 +43,63 @@ Refer to the following table for Cordova SDK versions and Cordova SDK code size:
 
 Refer to our quick start guide to get started with the Cordova integration:
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Steps",
-    "h-1": "Procedure",
-    "0-0": "**Step 1**",
-    "0-1": "[Cordova Integration](https://developer.clevertap.com/docs/cordova-quick-start-guide#cordova-integration)  \nOR  \n[Ionic/Capacitor Integration](https://developer.clevertap.com/docs/cordova-quick-start-guide#ioniccapacitor-integration)",
-    "1-0": "**Step 2**",
-    "1-1": "[iOS](https://developer.clevertap.com/docs/cordova-quick-start-guide#ios)",
-    "2-0": "**Step 3**",
-    "2-1": "[Android](https://developer.clevertap.com/docs/cordova-quick-start-guide#android)",
-    "3-0": "**Step 4**",
-    "3-1": "[Integrate Javascript with CleverTap's Cordova Plugin](https://developer.clevertap.com/docs/cordova-quick-start-guide#integrate-javascript-with-clevertaps-cordova-plugin)"
-  },
-  "cols": 2,
-  "rows": 4,
-  "align": [
-    "left",
-    "left"
-  ]
-}
-[/block]
+<Table align={["left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Steps
+      </th>
 
+      <th>
+        Procedure
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        **Step 1**
+      </td>
+
+      <td>
+        [Cordova Integration](https://developer.clevertap.com/docs/cordova-quick-start-guide#cordova-integration)\
+        OR\
+        [Ionic/Capacitor Integration](https://developer.clevertap.com/docs/cordova-quick-start-guide#ioniccapacitor-integration)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **Step 2**
+      </td>
+
+      <td>
+        [iOS](https://developer.clevertap.com/docs/cordova-quick-start-guide#ios)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **Step 3**
+      </td>
+
+      <td>
+        [Android](https://developer.clevertap.com/docs/cordova-quick-start-guide#android)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **Step 4**
+      </td>
+
+      <td>
+        [Integrate Javascript with CleverTap's Cordova Plugin](https://developer.clevertap.com/docs/cordova-quick-start-guide#integrate-javascript-with-clevertaps-cordova-plugin)
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 # Cordova SDK Resources
 
@@ -83,8 +117,24 @@ The following table lists all the Cordova SDK resources:
 
 Refer to the following for additional Cordova SDK references:
 
-[block:html]
-{
-  "html": "<div class=\"two-col-container\">\n  <div class=\"link-content\">\n    <h4 class=\"custom-heading\">Cordova Data Tracking</h4>\n    <p><a class=\"links\" href=\"https://developer.clevertap.com/docs/user-profiles\" target=\"_blank\" rel=\"noopener noreferrer\">Cordova User Profile</a></p>\n    <p><a class=\"links\" href=\"https://developer.clevertap.com/docs/cordova-user-events\" target=\"_blank\" rel=\"noopener noreferrer\">Cordova User Events</a></p>\n  </div>\n  <div class=\"link-content\">\n    <h4 class=\"custom-heading\">Cordova Push</h4>\n    <p><a class=\"links\" href=\"https://developer.clevertap.com/docs/cordova-push-notification\" target=\"_blank\" rel=\"noopener noreferrer\">Cordova Push Notifications\n      </a></p>\n  </div>\n  <div class=\"link-content\">\n    <h4 class=\"custom-heading\">Cordova SDK Features</h4>\n    <p><a class=\"links\" href=\"https://developer.clevertap.com/docs/cordova-in-app\" target=\"_blank\" rel=\"noopener noreferrer\">Cordova In-App Notification\n      </a></p>\n    <p><a class=\"links\" href=\"https://developer.clevertap.com/docs/cordova-app-inbox\" target=\"_blank\" rel=\"noopener noreferrer\">Cordova App Inbox\n      </a></p>\n  </div> \n</div>"
-}
-[/block]
+<HTMLBlock>{`
+<div class="two-col-container">
+  <div class="link-content">
+    <h4 class="custom-heading">Cordova Data Tracking</h4>
+    <p><a class="links" href="https://developer.clevertap.com/docs/user-profiles" target="_blank" rel="noopener noreferrer">Cordova User Profile</a></p>
+    <p><a class="links" href="https://developer.clevertap.com/docs/cordova-user-events" target="_blank" rel="noopener noreferrer">Cordova User Events</a></p>
+  </div>
+  <div class="link-content">
+    <h4 class="custom-heading">Cordova Push</h4>
+    <p><a class="links" href="https://developer.clevertap.com/docs/cordova-push-notification" target="_blank" rel="noopener noreferrer">Cordova Push Notifications
+      </a></p>
+  </div>
+  <div class="link-content">
+    <h4 class="custom-heading">Cordova SDK Features</h4>
+    <p><a class="links" href="https://developer.clevertap.com/docs/cordova-in-app" target="_blank" rel="noopener noreferrer">Cordova In-App Notification
+      </a></p>
+    <p><a class="links" href="https://developer.clevertap.com/docs/cordova-app-inbox" target="_blank" rel="noopener noreferrer">Cordova App Inbox
+      </a></p>
+  </div> 
+</div>
+`}</HTMLBlock>
