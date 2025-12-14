@@ -18,9 +18,9 @@ CleverTap provides an iOS SDK that enables app developers to track, segment, and
 
 To use the CleverTap iOS SDK, you have the following options:
 
-- [Install it with CocoaPods](doc:ios-quickstart-guide#install-using-cocoapods-recommended) 
-- [Install it with SPM](doc:ios-quickstart-guide#install-using-swift-package-manager)
-- [Install it manually by including the SDK source code in your Xcode project](doc:ios-quickstart-guide#install-manually) 
+* [Install it with CocoaPods](doc:ios-quickstart-guide#install-using-cocoapods-recommended) 
+* [Install it with SPM](doc:ios-quickstart-guide#install-using-swift-package-manager)
+* [Install it manually by including the SDK source code in your Xcode project](doc:ios-quickstart-guide#install-manually) 
 
 ## Install using CocoaPods (Recommended)
 
@@ -37,45 +37,17 @@ pod "CleverTap-iOS-SDK"
 
 ## Install using Swift Package Manager
 
-1. Open the `cleverTap-ios-sdk` project page on GitHub and copy the clone URL <https://github.com/CleverTap/clevertap-ios-sdk> of the project.
-2. Now integrate CleverTap SDK in your application in Xcode. Go to _File_ > _Add Packages_ to add a new dependency.
+1. Open the `cleverTap-ios-sdk` project page on GitHub and copy the clone URL [https://github.com/CleverTap/clevertap-ios-sdk](https://github.com/CleverTap/clevertap-ios-sdk) of the project.
+2. Now integrate CleverTap SDK in your application in Xcode. Go to *File* > *Add Packages* to add a new dependency.
 3. Specify the clone URL of the cleverTap-ios-sdk library. Keep the default version settings - the library will be updated after the next major release.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/2912bb5-Screenshot_2022-08-01_at_4.14.26_PM.png",
-        "Clone URL of the CleverTap iOS SDK Library",
-        2557
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Clone URL of the CleverTap iOS SDK Library"
-    }
-  ]
-}
-[/block]
+<Image title="Clone URL of the CleverTap iOS SDK Library" alt={2557} align="center" border={true} src="https://files.readme.io/2912bb5-Screenshot_2022-08-01_at_4.14.26_PM.png">
+  Clone URL of the CleverTap iOS SDK Library
+</Image>
 
-
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/195a15b-Screenshot_2022-08-01_at_4.15.11_PM.png",
-        "Add Package",
-        2298
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Add Package"
-    }
-  ]
-}
-[/block]
-
+<Image title="Add Package" alt={2298} align="center" border={true} src="https://files.readme.io/195a15b-Screenshot_2022-08-01_at_4.15.11_PM.png">
+  Add Package
+</Image>
 
 ## Install Manually
 
@@ -85,33 +57,19 @@ To install the SDK manually:
 2. Drag the `CleverTapSDK.xcodeproj` inside your project under the main project file.
 3. Embed the framework.
 4. Select your `app.xcodeproj` file. 
-5. Under _General_, add the CleverTapSDK framework as an embedded binary.
+5. Under *General*, add the CleverTapSDK framework as an embedded binary.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/e01f4c1-Screenshot_2022-08-01_at_4.25.13_PM.png",
-        "Add CleverTap SDK Framework",
-        2665
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Add CleverTap SDK Framework"
-    }
-  ]
-}
-[/block]
-
+<Image title="Add CleverTap SDK Framework" alt={2665} align="center" border={true} src="https://files.readme.io/e01f4c1-Screenshot_2022-08-01_at_4.25.13_PM.png">
+  Add CleverTap SDK Framework
+</Image>
 
 > 📘 Additional `SDWebImage` Library Required for Manual Integration
-> 
+>
 > You must integrate the `SDWebImage` library for supporting images and GIFs in App Inbox and Native In-Apps for manual integration. Follow the steps for integrating SDWebImage:
-> 
+>
 > 1. Navigate to the \_Vendors/SDWebImage \_directory found under the cloned CleverTap iOS SDK repository.
 > 2. Drag and drop `SDWebImage.xcodeproj` into the main project file.
-> 3. Navigate to the project application’s target settings, open _General_, click the _+_ button under the _Frameworks, Libraries, and Embedded Content_, add `SDWebImage.framework` as an embedded binary.
+> 3. Navigate to the project application’s target settings, open *General*, click the *+* button under the *Frameworks, Libraries, and Embedded Content*, add `SDWebImage.framework` as an embedded binary.
 
 6. Add the CleverTapSDK package product to the app target.
 
@@ -121,54 +79,26 @@ To associate your iOS app with your CleverTap account, you need to add your Clev
 
 1. Navigate to the `Info.plist file` from your project navigator.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/19c6c39-image4.png",
-        "Key value Pairs in Info.plist File",
-        574
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Key value Pairs in Info.plist File"
-    }
-  ]
-}
-[/block]
-
+<Image title="Key value Pairs in Info.plist File" alt={574} align="center" border={true} src="https://files.readme.io/19c6c39-image4.png">
+  Key value Pairs in Info.plist File
+</Image>
 
 2. Create a key called `CleverTapAccountID` with a type string. 
 3. Create a key called `CleverTapToken` with a type string.
-4. Insert the _Project ID_ and account _Project Token_ values from your [CleverTap account](https://eu1.dashboard.clevertap.com). These values are available under the _Settings_ page.
+4. Insert the *Project ID* and account *Project Token* values from your [CleverTap account](https://eu1.dashboard.clevertap.com). These values are available under the *Settings* page.
 
 > 🚧 Credentials and Access
-> 
-> The `CleverTapAccountId` and `CleverTapToken` are available as _Project ID_ and _Project Token_ respectively on the CleverTap dashboard.  
-> Member and Creator roles in the project don’t have access to view the _Passcode_ and _Project Token_ of the account on the dashboard.
+>
+> The `CleverTapAccountId` and `CleverTapToken` are available as *Project ID* and *Project Token* respectively on the CleverTap dashboard.\
+> Member and Creator roles in the project don’t have access to view the *Passcode* and *Project Token* of the account on the dashboard.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/9fc6ea4-Screenshot_2022-08-01_at_3.46.42_PM.png",
-        "CleverTap Project Credentials",
-        2708
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "CleverTap Project Credentials"
-    }
-  ]
-}
-[/block]
-
+<Image title="CleverTap Project Credentials" alt={2708} align="center" border={true} src="https://files.readme.io/9fc6ea4-Screenshot_2022-08-01_at_3.46.42_PM.png">
+  CleverTap Project Credentials
+</Image>
 
 > 📘 Disable IDFV Usage
-> 
-> Optionally, starting from CleverTap iOS SDK 3.9.4, you can disable the generation of CleverTap ID basis IDFV value. Add `CleverTapDisableIDFV` with type _Boolean_ and set its value as _1_ in your `Info.plist` file.  
+>
+> Optionally, starting from CleverTap iOS SDK 3.9.4, you can disable the generation of CleverTap ID basis IDFV value. Add `CleverTapDisableIDFV` with type *Boolean* and set its value as *1* in your `Info.plist` file.\
 > This is recommended for apps that send data from different iOS apps to a common CleverTap account.
 
 ## Add Region Code
@@ -183,48 +113,20 @@ To integrate the CleverTap SDK for Objective-C:
 
 1. Import `CleverTap.h` to your `AppDelegate.h` file.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/3050f84-image6.png",
-        "Import CleverTap.h File",
-        988
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Import CleverTap.h File"
-    }
-  ]
-}
-[/block]
+<Image title="Import CleverTap.h File" alt={988} align="center" border={true} src="https://files.readme.io/3050f84-image6.png">
+  Import CleverTap.h File
+</Image>
 
-
-2. Import `CleverTap.h` into every class where you plan to record user events.  
+2. Import `CleverTap.h` into every class where you plan to record user events.\
    For example, in the application below, we record user events in the `ViewController` class by importing `CleverTap.h` in the `ViewController.h` file.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/3f06535-image8.png",
-        "Record User Events in the `ViewController` Class",
-        822
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Record User Events in the `ViewController` Class"
-    }
-  ]
-}
-[/block]
-
+<Image title="Record User Events in the `ViewController` Class" alt={822} align="center" border={true} src="https://files.readme.io/3f06535-image8.png">
+  Record User Events in the `ViewController` Class
+</Image>
 
 ### Autointegrate CleverTap in your Obj-C Application
 
-This creates an instance of the CleverTap class used to track app launches, receive in-app notifications, and enable deep-link tracking.  
+This creates an instance of the CleverTap class used to track app launches, receive in-app notifications, and enable deep-link tracking.\
 In your `AppDelegate.m` file, add [CleverTap autoIntegrate] within the `application:didFinishLaunchingWithOptions:` method. 
 
 ```objectivec
@@ -235,27 +137,13 @@ In your `AppDelegate.m` file, add [CleverTap autoIntegrate] within the `applicat
 }
 ```
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/d69c7d4-Screenshot_2022-09-07_at_9.34.30_PM.png",
-        "Auto Integrate CleverTap in Obj-C Application",
-        1488
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Auto Integrate CleverTap in Obj-C Application"
-    }
-  ]
-}
-[/block]
-
+<Image title="Auto Integrate CleverTap in Obj-C Application" alt={1488} align="center" border={true} src="https://files.readme.io/d69c7d4-Screenshot_2022-09-07_at_9.34.30_PM.png">
+  Auto Integrate CleverTap in Obj-C Application
+</Image>
 
 ### Debug CleverTap SDK in Obj-C application
 
-In your `AppDelegate.m` file, add `[CleverTap setDebugLevel:CleverTapLogDebug];` within the `application:didFinishLaunchingWithOptions:` method. This is an optional step.  
+In your `AppDelegate.m` file, add `[CleverTap setDebugLevel:CleverTapLogDebug];` within the `application:didFinishLaunchingWithOptions:` method. This is an optional step.\
 By default, CleverTap logs are set to CleverTapLogLevel.info. During development, we recommend that you set the SDK to DEBUG mode, in order to log warnings or other important messages to the iOS logging system. This can be done by setting the debug level to CleverTapLogLevel.debug. If you want to disable CleverTap logs for production environment, you can set the debug level to CleverTapLogLevel.off.
 
 ```objectivec
@@ -273,14 +161,14 @@ To integrate CleverTap SDK for Swift:
 1. Import `CleverTapSDK` to your `AppDelegate.swift` file as given in the application below. Similarly import `CleverTapSDK` in every class file where you plan to record user events.
 
 > ❗️ Bridging Headers for CleverTap v3.1.4 and below for Swift installation:
-> 
-> For bridging header on the [CleverTap iOS SDK github](https://github.com/CleverTap/clevertap-ios-sdk/blob/3.1.4/SwiftStarterProject/CleverTapSDK-Bridging-Header.h), refer to the example implementation.  
+>
+> For bridging header on the [CleverTap iOS SDK github](https://github.com/CleverTap/clevertap-ios-sdk/blob/3.1.4/SwiftStarterProject/CleverTapSDK-Bridging-Header.h), refer to the example implementation.\
 > Starting with v3.1.4, the SDK now includes a module map, which allows importing the SDK as a module rather than using a bridging header.
 
 ### Autointegrate CleverTap in your Swift Application
 
-In your `AppDelegate.swift` file, add CleverTap.autoIntegrate() within the  
-`application:didFinishLaunchingWithOptions:` method.  
+In your `AppDelegate.swift` file, add CleverTap.autoIntegrate() within the\
+`application:didFinishLaunchingWithOptions:` method.\
   This creates an instance of the CleverTap class used to track app launches, receive in-app notifications, and enable deep-link tracking.
 
 ```swift
@@ -291,27 +179,13 @@ func application(application: UIApplication, didFinishLaunchingWithOptions launc
 }
 ```
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/a3bf648-Screenshot_2019-04-09_at_3.02.27_PM.png",
-        "Auto Integrate CleverTap in Swift Application",
-        2214
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Auto Integrate CleverTap in Swift Application"
-    }
-  ]
-}
-[/block]
-
+<Image title="Auto Integrate CleverTap in Swift Application" alt={2214} align="center" border={true} src="https://files.readme.io/a3bf648-Screenshot_2019-04-09_at_3.02.27_PM.png">
+  Auto Integrate CleverTap in Swift Application
+</Image>
 
 ### Debug CleverTap SDK in your Swift Application
 
-In your `AppDelegate.swift` file, add `CleverTap.setDebugLevel(CleverTapLogLevel.debug.rawValue)` within the  
+In your `AppDelegate.swift` file, add `CleverTap.setDebugLevel(CleverTapLogLevel.debug.rawValue)` within the\
 `application:didFinishLaunchingWithOptions:` method. This is an optional step. By default, CleverTap logs are set to CleverTapLogLevel.info. During development, we recommend that you set the SDK to DEBUG mode, in order to log warnings or other important messages to the iOS logging system. This can be done by setting the debug level to CleverTapLogLevel.debug. If you want to disable CleverTap logs for production environment, you can set the debug level to CleverTapLogLevel.off.rawValue.
 
 ```swift
@@ -323,23 +197,9 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 }
 ```
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/0fafa44-Screenshot_2022-09-07_at_9.35.52_PM.png",
-        "Debug CleverTap SDK in Swift Application",
-        1544
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Debug CleverTap SDK in Swift Application"
-    }
-  ]
-}
-[/block]
-
+<Image title="Debug CleverTap SDK in Swift Application" alt={1544} align="center" border={true} src="https://files.readme.io/0fafa44-Screenshot_2022-09-07_at_9.35.52_PM.png">
+  Debug CleverTap SDK in Swift Application
+</Image>
 
 ## Get Location Information in Application
 
@@ -349,9 +209,9 @@ Please refer to the [Location doc](https://github.com/CleverTap/clevertap-ios-sd
 
 ### Installation
 
-- Cocoapods
-- Swift Package Manager
-- Manual Installation
+* Cocoapods
+* Swift Package Manager
+* Manual Installation
 
 #### Cocoapods
 
@@ -368,48 +228,34 @@ Then run pod install.
 #### Swift Package Manager
 
 1. Open your project and navigate to the project's settings. Select the tab named Swift Packages and click on the add button (+) at the bottom left.
-2. Enter the URL of CleverTap GitHub repository - <https://github.com/CleverTap/clevertap-ios-sdk.git> and click Next.
+2. Enter the URL of CleverTap GitHub repository - [https://github.com/CleverTap/clevertap-ios-sdk.git](https://github.com/CleverTap/clevertap-ios-sdk.git) and click Next.
 3. On the next screen, select the preferred SDK version and click Next.
 4. Click finish and ensure that the CleverTapLocation has been added to the appropriate target.
 
 #### Manual Installation
 
-- Clone the CleverTap iOS SDK repository recursively:
+* Clone the CleverTap iOS SDK repository recursively:
   ```
    git clone --recursive https://github.com/CleverTap/clevertap-ios-sdk.git
   ```
 
-- Navigate to `CleverTapLocation` folder and add the `CleverTapLocation.xcodeproj` to your Xcode Project, by dragging the `CleverTapLocation.xcodeproj` under the main project file.
+* Navigate to `CleverTapLocation` folder and add the `CleverTapLocation.xcodeproj` to your Xcode Project, by dragging the `CleverTapLocation.xcodeproj` under the main project file.
 
-- Navigate to the project application’s target settings, open "General", click the "+" button under the `Frameworks, Libraries, and Embedded Content`, add `CleverTapLocation.framework` as an embedded binary.
+* Navigate to the project application’s target settings, open "General", click the "+" button under the `Frameworks, Libraries, and Embedded Content`, add `CleverTapLocation.framework` as an embedded binary.
 
 > 🚧 Manual Integration
-> 
+>
 > In a single line of code, the `autoIntegrate` method lets you automatically track app launches, receive in-app notifications, and enable deep-link tracking. 
-> 
+>
 > You can manually turn on different CleverTap SDK features as an alternative to the automatic integration method. For more information on the manual integration steps for setting up push notifications, refer to [iOS Push Notifications](doc:push-notifications-ios).
 
 # Run Your Application
 
 To run your application, navigate to your CleverTap dashboard. If you integrate the CleverTap SDK successfully, you see a new active user on the dashboard.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/135b863-1_New_mobile_users.png",
-        "View Active Users on CleverTap Dashboard",
-        1405
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "View Active Users on CleverTap Dashboard"
-    }
-  ]
-}
-[/block]
-
+<Image title="View Active Users on CleverTap Dashboard" alt={1405} align="center" border={true} src="https://files.readme.io/135b863-1_New_mobile_users.png">
+  View Active Users on CleverTap Dashboard
+</Image>
 
 # Identify Users
 
@@ -454,45 +300,17 @@ When the `Onuserlogin` method is called, the user profile information is sent to
 To see how this information displays within the CleverTap dashboard:
 
 1. Log in to the CleverTap dashboard.
-2. Click **Find People** under the _Segment_ tab. In the _By Identity_ box, enter the email you set on the user profile record and click **Find**.
+2. Click **Find People** under the *Segment* tab. In the *By Identity* box, enter the email you set on the user profile record and click **Find**.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/eac3675-2_By_identity_search_box.png",
-        "Find People on CleverTap Dashboard",
-        1407
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Find People on CleverTap Dashboard"
-    }
-  ]
-}
-[/block]
-
+<Image title="Find People on CleverTap Dashboard" alt={1407} align="center" border={true} src="https://files.readme.io/eac3675-2_By_identity_search_box.png">
+  Find People on CleverTap Dashboard
+</Image>
 
 If CleverTap finds a user profile with this email, the user record is displayed. On that page, you will see name and email as pre-defined fields and any other custom fields.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/7bdfec6-3__User_Profile.png",
-        "User Profile",
-        2912
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "User Profile"
-    }
-  ]
-}
-[/block]
-
+<Image title="User Profile" alt={2912} align="center" border={true} src="https://files.readme.io/7bdfec6-3__User_Profile.png">
+  User Profile
+</Image>
 
 ## Update the User Profile
 
@@ -500,7 +318,7 @@ The `Onuserlogin` method identifies the individual users on the device. However,
 
 # Track Custom Events
 
-After you integrate the CleverTap SDK, we automatically start tracking events, such as _App Launch_ and _Notification Viewed_. In addition to the [default (system) events tracked by CleverTap](https://developer.clevertap.com/docs/events#system-events), you can also track custom events.
+After you integrate the CleverTap SDK, we automatically start tracking events, such as *App Launch* and *Notification Viewed*. In addition to the [default (system) events tracked by CleverTap](https://developer.clevertap.com/docs/events#system-events), you can also track custom events.
 
 To send custom events to CleverTap using our iOS SDK, you will have to call the `recordEvent` method with the name of the custom event you want to track. 
 
@@ -515,23 +333,9 @@ CleverTap.sharedInstance()?.recordEvent("Product viewed")
 
 Now, looking at the same user profile in CleverTap from the previous step, click **Activity** within the user profile record, which shows a list of activities associated with the user profile. If the custom event is successfully sent from your application to CleverTap, you can see it in this list. 
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/ae28962-Screenshot_2022-08-02_at_1.44.51_PM.png",
-        "User Activity",
-        2722
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "User Activity"
-    }
-  ]
-}
-[/block]
-
+<Image title="User Activity" alt={2722} align="center" border={true} src="https://files.readme.io/ae28962-Screenshot_2022-08-02_at_1.44.51_PM.png">
+  User Activity
+</Image>
 
 ## GDPR Compliance
 
