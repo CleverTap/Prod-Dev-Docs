@@ -12,20 +12,20 @@ next:
 ---
 # Overview
 
-Segment Native iOS integration allows you to push your iOS application data to CleverTap through Segment.  
+Segment Native iOS integration allows you to push your iOS application data to CleverTap through Segment.\
 With this integration, you can:
 
-- Push User Profiles
-- Push Events
-- Integrate Push Notifications
+* Push User Profiles
+* Push Events
+* Integrate Push Notifications
 
 # Prerequisites
 
 The following are the prerequisites for performing this integration:
 
-- A CleverTap account
-- A Segment account
-- A functional iOS application
+* A CleverTap account
+* A Segment account
+* A functional iOS application
 
 # Integration
 
@@ -41,40 +41,26 @@ Destinations are the business tools or applications to which Segment forwards yo
 
 To add CleverTap details on the Segment dashboard:
 
-1. Go to _Destinations_ in the Segment application.
-2. Click _Add Destination_ and select _CleverTap_.
-3. In the _Destination Catalog/CleverTap_ page, click _Configure CleverTap_. 
-4. On the CleverTap Dashboard, under _Settings_ page, add CleverTap _Account ID_ and _Account Token_.
-5. From the _Region_ dropdown, select the appropriate region. To identify the region of your CleverTap account, refer to the following table:
+1. Go to *Destinations* in the Segment application.
+2. Click *Add Destination* and select *CleverTap*.
+3. In the *Destination Catalog/CleverTap* page, click *Configure CleverTap*. 
+4. On the CleverTap Dashboard, under *Settings* page, add CleverTap *Account ID* and *Account Token*.
+5. From the *Region* dropdown, select the appropriate region. To identify the region of your CleverTap account, refer to the following table:
 
 | CleverTap Dashboard URL                                                                              | Region            |
 | :--------------------------------------------------------------------------------------------------- | :---------------- |
-| <https://in1.dashboard.clevertap.com/login.html#/>                                                   | IN                |
-| <https://sg1.dashboard.clevertap.com/login.html#/>                                                   | SG                |
-| <https://us1.dashboard.clevertap.com/login.html#/>                                                   | US                |
-| <https://eu1.dashboard.clevertap.com/login.html#/>                                                   | None              |
+| [https://in1.dashboard.clevertap.com/login.html#/](https://in1.dashboard.clevertap.com/login.html#/) | IN                |
+| [https://sg1.dashboard.clevertap.com/login.html#/](https://sg1.dashboard.clevertap.com/login.html#/) | SG                |
+| [https://us1.dashboard.clevertap.com/login.html#/](https://us1.dashboard.clevertap.com/login.html#/) | US                |
+| [https://eu1.dashboard.clevertap.com/login.html#/](https://eu1.dashboard.clevertap.com/login.html#/) | None              |
 | [https://aps3.dashboard.clevertap.com/login.html](https://aps3.dashboard.clevertap.com/login.html#/) | Indonesia         |
 | [https://mec1.dashboard.clevertap.com/login.html](https://mec1.dashboard.clevertap.com/login.html#/) | Middle East (UAE) |
 
-5. To enable the destination, turn on the toggle at the top of the _Settings_ page.
+5. To enable the destination, turn on the toggle at the top of the *Settings* page.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/ecd43e5-2023-01-02_09-57-16.png",
-        "Enable the CleverTap Settings",
-        1658
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Enable the CleverTap Settings"
-    }
-  ]
-}
-[/block]
-
+<Image title="Enable the CleverTap Settings" alt={1658} align="center" border={true} src="https://files.readme.io/ecd43e5-2023-01-02_09-57-16.png">
+  Enable the CleverTap Settings
+</Image>
 
 You can integrate CleverTap from the server-side or mobile destination (iOS or Android). Select mobile destinations to use CleverTap push notifications or In-App notifications.
 
@@ -82,8 +68,8 @@ You can integrate CleverTap from the server-side or mobile destination (iOS or A
 
 Segment-CleverTap integration is available through the following options:
 
-- [CocoaPods](doc:clevertap-segment-ios-integration#cocoapods)
-- [Swift Package Manager](doc:clevertap-segment-ios-integration#swift-package-manager)
+* [CocoaPods](doc:clevertap-segment-ios-integration#cocoapods)
+* [Swift Package Manager](doc:clevertap-segment-ios-integration#swift-package-manager)
 
 ### Cocoapods
 
@@ -97,7 +83,7 @@ pod "Segment-CleverTap"
 
 To install the iOS SDK through Swift Package Manager:
 
-1. Navigate to _File_ > _Swift Package Manager_ > _Add Package Dependency_ in Xcode.
+1. Navigate to *File* > *Swift Package Manager* > *Add Package Dependency* in Xcode.
 2. Choose `https://github.com/CleverTap/clevertap-segment-ios.git` when choosing the package repo and click **Next**. 
 3. Select an SDK version on the next screen(by default, Xcode selects the latest stable version) and click **Next**.
 4. Click **Finish** and ensure that the Segment-CleverTap integration has been added to the appropriate target.
@@ -130,7 +116,7 @@ SEGAnalyticsConfiguration *config = [SEGAnalyticsConfiguration configurationWith
 
 | Parameter             | Description                                                                                                                              |
 | :-------------------- | :--------------------------------------------------------------------------------------------------------------------------------------- |
-| `YOUR_WRITE_KEY_HERE` | From the Segment dashboard, navigate to _Connections_ > _Sources_ > Select the source > _Settings_ > _API Keys_ to get this information. |
+| `YOUR_WRITE_KEY_HERE` | From the Segment dashboard, navigate to *Connections* > *Sources* > Select the source > *Settings* > *API Keys* to get this information. |
 
 This will help to set up the analytics and communication between Segment and CleverTap.
 
@@ -178,14 +164,14 @@ short shortAttribute = (short)2;
 Pushing user information applies only to Segment-CleverTap SDK version v1.1.2 and above.
 
 > 📘 Update User Property to CleverTap
-> 
+>
 > To update any user property to CleverTap, pass the same user identity passed during the user login/sign-up.
 
 For more information, refer to [User Profile Considerations](doc:concepts-user-profiles#user-profile-consideration).
 
 # Push Events
 
-Events track the actions performed by the users in your application.  
+Events track the actions performed by the users in your application.\
 To push the events to the CleverTap dashboard, add the following code:
 
 ```swift
@@ -198,13 +184,13 @@ Analytics.shared().track("cleverTapSegmentTrackEvent", properties: ["eventProper
                                          @"testEvArr": @[@1,@2,@3]}];
 ```
 
-Here, _cleverTapSegmentTrackEvent_ represents the Event Name and Value.
+Here, *cleverTapSegmentTrackEvent* represents the Event Name and Value.
 
 For more details, refer to [Event Considerations](doc:events#event-consideration).
 
 ## Push Charged Events
 
-When an event is tracked using the server-side destination with the name `Order Completed`(as per [e-commerce tracking API](https://segment.com/docs/connections/spec/ecommerce/v2/)), Segment maps that event to CleverTap’s charged event.  
+When an event is tracked using the server-side destination with the name `Order Completed`(as per [e-commerce tracking API](https://segment.com/docs/connections/spec/ecommerce/v2/)), Segment maps that event to CleverTap’s charged event.\
 Add the following code to push the charged events to the CleverTap dashboard:
 
 ```swift
@@ -223,23 +209,9 @@ Analytics.shared().track("Order Completed", properties: ["orderId": "123456",
 
 It then shows up as a charged event on the CleverTap dashboard, as shown in the following graphic:
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/9b493c8-2023-01-12_15-57-27.png",
-        "Charged Event on CleverTap Dashboard",
-        2742
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Charged Event on CleverTap Dashboard"
-    }
-  ]
-}
-[/block]
-
+<Image title="Charged Event on CleverTap Dashboard" alt={2742} align="center" border={true} src="https://files.readme.io/9b493c8-2023-01-12_15-57-27.png">
+  Charged Event on CleverTap Dashboard
+</Image>
 
 # Integrate Push Notifications
 
@@ -280,7 +252,7 @@ func application(_ application: UIApplication, didReceiveRemoteNotification user
 
 # Integrate In-App in iOS
 
-All the required methods are available out of the box in the Segment-CleverTap SDK.  
+All the required methods are available out of the box in the Segment-CleverTap SDK.\
 For more information about integrating In-App in iOS, refer to [iOS In-App Notification](doc:in-app-notification-ios).
 
 # Integrate App Inbox in iOS
