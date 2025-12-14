@@ -24,27 +24,12 @@ To integrate CleverTap Web SDK with LG webOS TV:
 2. Add the extension for [webOS TV](https://marketplace.visualstudio.com/items?itemName=webOSTVSDK.webostv) in Visual Studio Code from the VSCode Extension Marketplace.
 3. Install the LG Simulator. For more information, refer to the [LG Simulator Installation](https://webostv.developer.lge.com/develop/tools/simulator-installation) document. 
 4. Create the sample application as follows: 
-   - Using VSCode: [App Development](https://webostv.developer.lge.com/develop/tools/vsce-dev-guide#app-development)
-   - Using CLI: [App Development ](https://webostv.developer.lge.com/develop/tools/cli-dev-guide)
+   * Using VSCode: [App Development](https://webostv.developer.lge.com/develop/tools/vsce-dev-guide#app-development)
+   * Using CLI: [App Development ](https://webostv.developer.lge.com/develop/tools/cli-dev-guide)
 5. In the sample application, update the `index.html`file as required. Add the CleverTap script in the `index.html` file.
 6. Open the `simulator.app` file inside the **Simulator** folder, as mentioned in Step 2.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/d5be1b0-WebOS.png",
-        "",
-        ""
-      ],
-      "align": "center",
-      "sizing": "90% ",
-      "border": true
-    }
-  ]
-}
-[/block]
+<Image align="center" className="border" width="90% " border={true} src="https://files.readme.io/d5be1b0-WebOS.png" />
 
 7. In **Simulator**, go to **File** > **Launch App** and select the folder of sampleApp, which has `.ipk` file
 
