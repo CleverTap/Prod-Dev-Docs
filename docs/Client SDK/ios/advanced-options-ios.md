@@ -76,7 +76,7 @@ CleverTap.sharedInstance()?.enableDeviceNetworkInfoReporting(false)
 ```
 
 > 📘 Note
-> 
+>
 > Device network information tracking is disabled by default. Enable it only if necessary for your analytics or compliance use cases.
 
 # Send Location Information to CleverTap
@@ -163,25 +163,11 @@ To debug the device in the CleverTap dashboard and check if events and profiles 
 
 1. Copy the CleverTap ID from the logs.
 2. Open the CleverTap dashboard.
-3. Navigate to _Segments_ > _Find People_ > search _By Identity_.
+3. Navigate to *Segments* > *Find People* > search *By Identity*.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/fc78aaf-d46c9c8-Android_search_by__identity.png",
-        "Search By Identity on CleverTap Dashboard",
-        1205
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Search By Identity on CleverTap Dashboard"
-    }
-  ]
-}
-[/block]
-
+<Image title="Search By Identity on CleverTap Dashboard" alt={1205} align="center" border={true} src="https://files.readme.io/fc78aaf-d46c9c8-Android_search_by__identity.png">
+  Search By Identity on CleverTap Dashboard
+</Image>
 
 # Setting Account Credentials
 
@@ -210,7 +196,7 @@ If you have set used this method to set your CleverTap Account ID and Token, ple
 
 If you wish to determine whether a notification originated from CleverTap, call this method:
 
-- (BOOL)isCleverTapNotification:(NSDictionary \*)payload;
+* (BOOL)isCleverTapNotification:(NSDictionary \*)payload;
 
 You must manually call the SDK as follows/add the following CleverTap code to your AppDelegate:
 
@@ -275,12 +261,12 @@ PII data is stored across the SDK and could contain sensitive information. From 
 
 CleverTap supports three encryption levels for PII data:
 
-- **None (0)**: Data is stored in plaintext.
-- **Medium (1)**: Only PII fields are encrypted.
-- **High (2)**: Encrypts all stored data such as profile, variables, inbox and event cache data, not just PII fields. Available from iOS SDK version 7.4.0 and above.
+* **None (0)**: Data is stored in plaintext.
+* **Medium (1)**: Only PII fields are encrypted.
+* **High (2)**: Encrypts all stored data such as profile, variables, inbox and event cache data, not just PII fields. Available from iOS SDK version 7.4.0 and above.
 
 > 📘 Default Encryption Level
-> 
+>
 > By default, the encryption level is set to **None (0)**.
 
 ### Set Encryption Level for the Default Instance
@@ -333,7 +319,7 @@ Encrypting data in transit ensures that sensitive personal data, such as Email, 
 From CleverTap iOS SDK 7.3.1 onwards, this feature is supported natively in the SDK, with encryption and decryption handled automatically.
 
 > 📘 Private Beta
-> 
+>
 > This feature is currently released in Private Beta. To enable it, contact CleverTap Support. Check that it is activated for your account before implementing it in the SDK.
 
 ### Encryption Scope
