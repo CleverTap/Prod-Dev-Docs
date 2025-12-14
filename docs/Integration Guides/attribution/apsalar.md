@@ -21,38 +21,32 @@ If you do not already have an event that is raised on install, we recommend you 
 **Android App**
 
 You will have to raise an event with Apsalar, which would look like the code below.
-[block:code]
-{
-  "codes": [
-    {
-      "code": "String cleverTapId = CleverTapAPI.getInstance(getApplicationContext()).getCleverTapID();\nApsalar.event(\"CleverTapInstallEvent\", \"CleverTapId\", cleverTapId);",
-      "language": "java"
-    }
-  ]
-}
-[/block]
+
+```java
+String cleverTapId = CleverTapAPI.getInstance(getApplicationContext()).getCleverTapID();
+Apsalar.event("CleverTapInstallEvent", "CleverTapId", cleverTapId);
+```
+
 **iOS App**
 
 You will have to raise an event with Apsalar, which would look like the code below.
-[block:code]
-{
-  "codes": [
-    {
-      "code": "NSString *cleverTapId = [[CleverTap sharedInstance] profileGetCleverTapID];\n[Apsalar eventWithArgs:@\"CleverTapInstallEvent\",\n   @\"CleverTapId\", cleverTapId, nil];",
-      "language": "objectivec"
-    }
-  ]
-}
-[/block]
-#Step 2: Contact Apsalar
 
-You will have to reach out to support@apsalar.com with the following details:
-  * The event name you are using to detect installs.
-  * The name of the event attribute (‘CleverTapId’) that contains the CleverTap identity for that user
-  * Your CleverTap Account ID
-  * Your CleverTap Passcode
-  * Your CleverTap Token
- 
-#Step 3: View Data in Dashboard
+```objectivec
+NSString *cleverTapId = [[CleverTap sharedInstance] profileGetCleverTapID];
+[Apsalar eventWithArgs:@"CleverTapInstallEvent",
+   @"CleverTapId", cleverTapId, nil];
+```
 
-After you integrate, CleverTap will now pull in data from Apsalar in your CleverTap dashboard. You can view it under the event UTM Visited filtered by event property, UTM_source, UTM_medium or UTM_campaign.
+# Step 2: Contact Apsalar
+
+You will have to reach out to [support@apsalar.com](mailto:support@apsalar.com) with the following details:
+
+* The event name you are using to detect installs.
+* The name of the event attribute (‘CleverTapId’) that contains the CleverTap identity for that user
+* Your CleverTap Account ID
+* Your CleverTap Passcode
+* Your CleverTap Token
+
+# Step 3: View Data in Dashboard
+
+After you integrate, CleverTap will now pull in data from Apsalar in your CleverTap dashboard. You can view it under the event UTM Visited filtered by event property, UTM\_source, UTM\_medium or UTM\_campaign.
