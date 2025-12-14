@@ -29,14 +29,14 @@ Another use case for multiple CleverTap accounts in a single app is using a diff
 
 In [version 3.2.0 of the Android SDK](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.2.0), we released the following new features: 
 
-- Added support for creating additional CleverTap instances to send data to multiple CleverTap accounts from your app.
-- Added APIs for setting the SDK to offline and SSL Pinning.
+* Added support for creating additional CleverTap instances to send data to multiple CleverTap accounts from your app.
+* Added APIs for setting the SDK to offline and SSL Pinning.
 
 We also deprecated the following SDK methods: 
 
-- Deprecated CleverTapException, CleverTapMetaDataNotFoundException, CleverTapPermissionsNotSatisfied, and InvalidEventNameException.
-- Deprecated CleverTapAPI.CHARGED_EVENT.
-- Deprecated CleverTapAPI.getInstance() method. 
+* Deprecated CleverTapException, CleverTapMetaDataNotFoundException, CleverTapPermissionsNotSatisfied, and InvalidEventNameException.
+* Deprecated CleverTapAPI.CHARGED\_EVENT.
+* Deprecated CleverTapAPI.getInstance() method. 
 
 # Create Additional Instances
 
@@ -58,8 +58,8 @@ clevertapAdditionalInstanceConfig.useGoogleAdId(true); // enables the collection
 clevertapAdditionalInstanceConfig.enablePersonalization(false); //enables personalization, default is true.
 ```
 
-> 🚧 
-> 
+> 🚧
+>
 > All configuration to the CleverTapInstanceConfig object must be done prior to calling CleverTapAPI.instanceWithConfig. Subsequent changes to the CleverTapInstanceConfig object will not affect the additional CleverTap instance created.
 
 The third step is to instantiate the additional CleverTap instance by calling the `CleverTapAPI.instanceWithConfig` method with the `CleverTapInstanceConfig`  object you created.
@@ -180,8 +180,8 @@ PII data is stored across the SDK and could be sensitive information. From Cleve
 
 Currently, two levels of encryption are supported, i.e., None(0) and Medium(1). The encryption level is **None** by default.
 
-- **None**: All stored data is in plaintext
-- **Medium**: PII data is encrypted completely
+* **None**: All stored data is in plaintext
+* **Medium**: PII data is encrypted completely
 
 To set an encryption level for an additional instance:
 
