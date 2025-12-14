@@ -11,7 +11,7 @@ next:
   description: ''
 ---
 > 📘 Feature Availability
-> 
+>
 > It is not recommended to use the Safari APNs configuration as it is deprecated and not available on the dashboard. If you want access to this feature, contact your Account Manager.
 
 # Overview
@@ -37,36 +37,21 @@ If your server key is generated before July 2019, the FCM will continue to work.
 We recommend using the VAPID protocol due to increased security.
 
 > 📘 FCM Update: Migrate to HTTP v1 API
-> 
-> - Firebase will deprecate its legacy APIs starting June 20, 2023, and discontinue them from June 2024.
-> - To avoid disruptions in web push notifications, you must migrate to the new HTTP v1 API by June 20, 2024.
+>
+> * Firebase will deprecate its legacy APIs starting June 20, 2023, and discontinue them from June 2024.
+> * To avoid disruptions in web push notifications, you must migrate to the new HTTP v1 API by June 20, 2024.
 
 After obtaining your server keys, follow the steps below:
 
 #### Chrome
 
-1. In the CleverTap dashboard, navigate to _Settings_ > _Engage_ > _Channels_ > _Web Push_. 
-2. Under the _Chrome Web Push_ section,  upload your FCM Credential File using the _Upload FCM Credential File_ button.  Learn [how to generate your FCM Credential File](https://developer.clevertap.com/docs/android-push#find-fcm-credentials).
+1. In the CleverTap dashboard, navigate to *Settings* > *Engage* > *Channels* > *Web Push*. 
+2. Under the *Chrome Web Push* section,  upload your FCM Credential File using the *Upload FCM Credential File* button.  Learn [how to generate your FCM Credential File](https://developer.clevertap.com/docs/android-push#find-fcm-credentials).
 3. Click **Save**.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/9b3548ba7529efd01a4d74194b3d72b2d2f0933b6443e5763bbc7f0b9aeaba6c-image.png",
-        null,
-        "Web Push Configuration"
-      ],
-      "align": "center",
-      "sizing": "80% ",
-      "border": true,
-      "caption": "Chrome Web Push Configuration"
-    }
-  ]
-}
-[/block]
-
+<Image alt="Web Push Configuration" align="center" width="80% " border={true} src="https://files.readme.io/9b3548ba7529efd01a4d74194b3d72b2d2f0933b6443e5763bbc7f0b9aeaba6c-image.png">
+  Chrome Web Push Configuration
+</Image>
 
 </details>
 
@@ -77,28 +62,14 @@ After obtaining your server keys, follow the steps below:
 
 For Safari, you require an APNS certificate. Follow the steps below:
 
-1. In the CleverTap dashboard, navigate to _Settings_ > _Engage_ > _Channels_ > _Web Push_. 
-2. Under the _Safari Web Push_ section,  upload your APNS Certificate. 
-3. Select **Production** or **Development** from the _APNS push mode_ dropdown.
+1. In the CleverTap dashboard, navigate to *Settings* > *Engage* > *Channels* > *Web Push*. 
+2. Under the *Safari Web Push* section,  upload your APNS Certificate. 
+3. Select **Production** or **Development** from the *APNS push mode* dropdown.
 4. Click **Save**.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/f18fdb3-26.png",
-        "Update Safari Web Push",
-        1448
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Update Safari Web Push"
-    }
-  ]
-}
-[/block]
-
+<Image title="Update Safari Web Push" alt={1448} align="center" border={true} src="https://files.readme.io/f18fdb3-26.png">
+  Update Safari Web Push
+</Image>
 
 </details>
 
@@ -107,8 +78,8 @@ For Safari, you require an APNS certificate. Follow the steps below:
 
 For enabling Safari Web Push, follow the below steps: 
 
-1. In the CleverTap dashboard, navigate to _Settings_ > _Engage_ > _Channels_ > _Web Push_. 
-2. Under the _Safari Web Push_ section, select the toggle _Safari Web Push_.
+1. In the CleverTap dashboard, navigate to *Settings* > *Engage* > *Channels* > *Web Push*. 
+2. Under the *Safari Web Push* section, select the toggle *Safari Web Push*.
 3. Provide your credentials.
 4. Click **Save**.
 
@@ -136,23 +107,9 @@ To setup a Safari web push certificate, follow the steps below:
 
 In OS X v10.9 and later, you can dispatch Safari push notifications from your webserver to OS X users by using the Apple Push Notification service (APNs). This is different from local notifications because push notifications can reach your users even if your website or Safari browser is not open.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/adc9e41-Safari_Push_Workflow.png",
-        "Safari Web Push Certificate Set Up Steps",
-        1352
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Safari Web Push Certificate Set Up Steps"
-    }
-  ]
-}
-[/block]
-
+<Image title="Safari Web Push Certificate Set Up Steps" alt={1352} align="center" border={true} src="https://files.readme.io/adc9e41-Safari_Push_Workflow.png">
+  Safari Web Push Certificate Set Up Steps
+</Image>
 
 To integrate push notifications on your website, you must first present an interface that allows the user to opt-in to receive notifications. If the user consents, Safari requests for its credentials on your website in the form of a file called a push package. The push package also contains notification assets used throughout OS X and data used to communicate to a web service that you must configure. If the push package is valid, you receive a unique identifier also known as device token for the user. The user receives the notification when you send the combination of this device token and your message, or payload to APNs.
 
@@ -164,8 +121,8 @@ The following steps cover how to implement your service:
 
 While not mentioned in Apple’s official documentation, you will need two certificates:
 
-- For registering app with APNs.
-- Establishing a token-based connection to APNs.
+* For registering app with APNs.
+* Establishing a token-based connection to APNs.
 
 2. Configure the [raw push package folder](https://developer.clevertap.com/docs/web#section-create-push-package) and then, use the companion [PHP file](https://developer.apple.com/library/archive/documentation/NetworkingInternet/Conceptual/NotificationProgrammingGuideForWebsites/CompanionFile.zip) to zip up your final push package. We will also check for any issues while creating the push package in the debugging section.
 
@@ -177,173 +134,61 @@ Your push package is a folder of icons and configurations used by each Mac devic
 
 ### Generate Push Certificate
 
-You must register in the [_Certificates, Identifiers & Profiles_](https://developer.apple.com/account/ios/certificate) section of your developer account to send push notifications. You must have an Apple developer license to register. 
+You must register in the [*Certificates, Identifiers & Profiles*](https://developer.apple.com/account/ios/certificate) section of your developer account to send push notifications. You must have an Apple developer license to register. 
 
-- Identifier: This is your unique reverse-domain string, such as _web.com.example.domain_ (the string must start with web). This is also known as the _Website Push ID_.
-- Website push ID description: This is the name used throughout the provisioning portal to refer to your website. Use it for your own benefit to label your website push IDs into a more human-readable format.
+* Identifier: This is your unique reverse-domain string, such as *web.com.example.domain* (the string must start with web). This is also known as the *Website Push ID*.
+* Website push ID description: This is the name used throughout the provisioning portal to refer to your website. Use it for your own benefit to label your website push IDs into a more human-readable format.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/55b7310-Safari_Push_register_an_identifier.png",
-        "Enable WebSite Push IDs",
-        1600
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Enable WebSite Push IDs"
-    }
-  ]
-}
-[/block]
+<Image title="Enable WebSite Push IDs" alt={1600} align="center" border={true} src="https://files.readme.io/55b7310-Safari_Push_register_an_identifier.png">
+  Enable WebSite Push IDs
+</Image>
 
+<Image title="Generate Push Certificate" alt={1600} align="center" border={true} src="https://files.readme.io/99c4bb8-Safari_Push_register_a_website_push_ID.png">
+  Generate Push Certificate
+</Image>
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/99c4bb8-Safari_Push_register_a_website_push_ID.png",
-        "Generate Push Certificate",
-        1600
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Generate Push Certificate"
-    }
-  ]
-}
-[/block]
+After the push ID is registered, create a production certificate of that push ID by clicking **Create Certificate** under *Edit your Identifier Configuration*.
 
-
-After the push ID is registered, create a production certificate of that push ID by clicking **Create Certificate** under _Edit your Identifier Configuration_.
-
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/0905d6f-Safari_Push_Production_Certificate.png",
-        "Create Production Certificate",
-        1387
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Create Production Certificate"
-    }
-  ]
-}
-[/block]
-
+<Image title="Create Production Certificate" alt={1387} align="center" border={true} src="https://files.readme.io/0905d6f-Safari_Push_Production_Certificate.png">
+  Create Production Certificate
+</Image>
 
 If you already have the certificate signing request, then upload the file from your local machine. If not, refer to [Create a certificate signing request](https://help.apple.com/developer-account/#/devbfa00fef7) in the Apple documentation. 
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/5281311-Safari_Push_Signing_Request.png",
-        "Upload a Certificate Signing Request",
-        1600
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Upload a Certificate Signing Request"
-    }
-  ]
-}
-[/block]
-
+<Image title="Upload a Certificate Signing Request" alt={1600} align="center" border={true} src="https://files.readme.io/5281311-Safari_Push_Signing_Request.png">
+  Upload a Certificate Signing Request
+</Image>
 
 You can download the push certificate after the certificate signing request is uploaded:
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/bd3e73d-New-Safari_Push_certificate_download.png",
-        "Download Push Certificate",
-        1600
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Download Push Certificate"
-    }
-  ]
-}
-[/block]
-
+<Image title="Download Push Certificate" alt={1600} align="center" border={true} src="https://files.readme.io/bd3e73d-New-Safari_Push_certificate_download.png">
+  Download Push Certificate
+</Image>
 
 Double-click the downloaded certificate and add it to your keychain:
 
-1. Navigate to your _Keychains_ > _My Certificates_.
+1. Navigate to your *Keychains* > *My Certificates*.
 2. Select your certificate and private key.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/73d77a3-Safari_Push_Keychain_Select.png",
-        "Add Keychain to the Certificate",
-        990
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Add Keychain to the Certificate"
-    }
-  ]
-}
-[/block]
-
+<Image title="Add Keychain to the Certificate" alt={990} align="center" border={true} src="https://files.readme.io/73d77a3-Safari_Push_Keychain_Select.png">
+  Add Keychain to the Certificate
+</Image>
 
 3. Export both as .p12. 
 4. Add a password. This step is very important.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/e0ac566-Safari_Push_Signing_Request_password.png",
-        "Add a Password",
-        824
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Add a Password"
-    }
-  ]
-}
-[/block]
+<Image title="Add a Password" alt={824} align="center" border={true} src="https://files.readme.io/e0ac566-Safari_Push_Signing_Request_password.png">
+  Add a Password
+</Image>
 
-
-You will require one more certificate named _Apple Worldwide Developer Relations Certification Authority_. You can download it from the [Apple Certification Authority](https://developer.apple.com/certificationauthority/AppleWWDRCA.cer).
+You will require one more certificate named *Apple Worldwide Developer Relations Certification Authority*. You can download it from the [Apple Certification Authority](https://developer.apple.com/certificationauthority/AppleWWDRCA.cer).
 
 5. Add the AWDRCA certificate to the keychain and export it as .pem file.
 6. Sign the push package with both the web push certificate and the intermediate certificate.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/8af960b-Safari_add_AWDRCA_certificate_.png",
-        "Add Apple Worldwide Developer Relations Certification Authority (AWDRCA) Certificate",
-        1600
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Add Apple Worldwide Developer Relations Certification Authority (AWDRCA) Certificate"
-    }
-  ]
-}
-[/block]
-
+<Image title="Add Apple Worldwide Developer Relations Certification Authority (AWDRCA) Certificate" alt={1600} align="center" border={true} src="https://files.readme.io/8af960b-Safari_add_AWDRCA_certificate_.png">
+  Add Apple Worldwide Developer Relations Certification Authority (AWDRCA) Certificate
+</Image>
 
 ### Create a Push Package
 
@@ -395,7 +240,7 @@ Following is a sample valid website.json file:
 
 The iconset is a directory called `icon.iconset` that contains PNG images in varying sizes. The images in your iconset populate the icons displayed to the user in the permission prompt, Notification Center, and the notification itself. Since your icon is static, it is unnecessary to include it in every push notification. Instead, your icons are downloaded once from your server and stored on the user’s computer.
 
-The icons should be valid as per the Apple guidelines. Use <https://tinypng.com/> to compress your icons to the required size.
+The icons should be valid as per the Apple guidelines. Use [https://tinypng.com/](https://tinypng.com/) to compress your icons to the required size.
 
 #### Manifest
 
@@ -405,42 +250,42 @@ A manifest is a JSON dictionary named manifest.json that contains an entry for e
 
 The signature is a PKCS #7 detached signature of the manifest file. Sign the manifest file with the private key associated with your web push certificate that you obtained while registering with Apple.
 
-We will use a PHP file named createPushPackage.php to generate the zip file for the pushpackage folder above. The folder to create a push package is present in the solution under the folder named “safari_push_package_creator”.
+We will use a PHP file named createPushPackage.php to generate the zip file for the pushpackage folder above. The folder to create a push package is present in the solution under the folder named “safari\_push\_package\_creator”.
 
 1. Copy and paste the following files in one folder:
 
-- .p12 certificate we created above by registering.
-- PHP file.
-- .pem file created using AWDRCA certificate.
-- Create a tmp folder, then pushPackage inside it.
+* .p12 certificate we created above by registering.
+* PHP file.
+* .pem file created using AWDRCA certificate.
+* Create a tmp folder, then pushPackage inside it.
 
 2. Create one pushpackage.raw folder and paste the following files in it:
 
-- icon.iconset folder and all the icons mentioned above in it.
-- Website.json as per the guidelines mentioned above.
+* icon.iconset folder and all the icons mentioned above in it.
+* Website.json as per the guidelines mentioned above.
 
 3. Open the PHP file and modify it as per the following instructions:
 
-- Change $certificate_path to path of .p12 certificate.
-- Change $certificate_password to password of .p12 certificate.
-- Replace "\<path to .pem>" under create_signature with path to .pem file.
-- Change $package_dir to path to tmp/pushPackage directory.
+* Change $certificate\_path to path of .p12 certificate.
+* Change $certificate\_password to password of .p12 certificate.
+* Replace "\<path to .pem>" under create\_signature with path to .pem file.
+* Change $package\_dir to path to tmp/pushPackage directory.
 
  The AWDRCA.pem file is mandatory after 2014 for security purposes.  
 
-4. After the above steps are done, run the PHP file in the terminal:  
+4. After the above steps are done, run the PHP file in the terminal:\
    php createPushPackage.php
 
 If run successfully under the tmp folder, a pushPackage.zip file will be created. You can place this pushPackage.zip in your web service directory which will send the pushPackage.zip to the client when a request for Safari push notifications will be requested.
 
 > 🚧 Considerations
-> 
+>
 > Some things to consider:
-> 
-> - All the files must be present.
-> - Use the zipping method used in the PHP file attached as the order of the files is important.
-> - Icons must be valid.
-> - Use the valid certificates. If they expire, renew them.
+>
+> * All the files must be present.
+> * Use the zipping method used in the PHP file attached as the order of the files is important.
+> * Icons must be valid.
+> * Use the valid certificates. If they expire, renew them.
 
 ## Code Overview
 
@@ -459,43 +304,43 @@ When Safari requests permission to display push notifications, an HTTPS request 
 
 Configure endpoints in a RESTful https web service on your server to respond:
 
-1. Download your website package.  
+1. Download your website package.\
    This POST request contains the following information:
 
-The URL format is webServiceURL/version/pushPackages/websitePushID  
-For example: <https://yourwebsite.com/v1/pushPackages/web.com.yourwebsite>
+The URL format is webServiceURL/version/pushPackages/websitePushID\
+For example: [https://yourwebsite.com/v1/pushPackages/web.com.yourwebsite](https://yourwebsite.com/v1/pushPackages/web.com.yourwebsite)
 
-2. Register or update the device permission policy.  
+2. Register or update the device permission policy.\
    This POST request contains the following information:
 
-The URL format is webServiceURL/version/devices/deviceToken/registrations/websitePushID  
-For example: <https://yourwebsite.com/v1/devices/deviceToken/registrations/web.com.yourwebsite>
+The URL format is webServiceURL/version/devices/deviceToken/registrations/websitePushID\
+For example: [https://yourwebsite.com/v1/devices/deviceToken/registrations/web.com.yourwebsite](https://yourwebsite.com/v1/devices/deviceToken/registrations/web.com.yourwebsite)
 
-3. Forget the device permission policy.  
+3. Forget the device permission policy.\
    This DELETE request contains the following information:
 
-The URL format is webServiceURL/version/devices/deviceToken/registrations/websitePushID  
-For example: <https://yourwebsite.com/v1/devices/deviceToken/registrations/web.com.yourwebsite>
+The URL format is webServiceURL/version/devices/deviceToken/registrations/websitePushID\
+For example: [https://yourwebsite.com/v1/devices/deviceToken/registrations/web.com.yourwebsite](https://yourwebsite.com/v1/devices/deviceToken/registrations/web.com.yourwebsite)
 
-4. Log errors.  
+4. Log errors.\
    If an error occurs, a POST request is sent to the following URL:
 
-The URL format is webServiceURL/version/log  
-For example: <https://yourwebsite.com/v1/log> 
+The URL format is webServiceURL/version/log\
+For example: [https://yourwebsite.com/v1/log](https://yourwebsite.com/v1/log) 
 
 #### Client Side Code
 
 To request permission to send the user push notifications, call the `window.safari.pushNotification.requestPermission()` method.
 
-Requesting permission is an asynchronous call  
+Requesting permission is an asynchronous call\
 `window.safari.pushNotification.requestPermission(url, websitePushID, userInfo, callback);`
 
 A description of each argument is as follows:
 
-- URL: The URL of the web service which must start with https. The webserver and the website requesting permission can have different domains. 
-- websitePushID: The website push ID as specified in your developer account for the generated certificate. It follows the convention on an Apple account and must start with web. For example, web.yourname.safari is a Safari certificate ID.
-- userInfo: An object required to pass to the server. Include any data in this object that helps you identify the user requesting permission.
-- callback: A callback function which is invoked on completion.
+* URL: The URL of the web service which must start with https. The webserver and the website requesting permission can have different domains. 
+* websitePushID: The website push ID as specified in your developer account for the generated certificate. It follows the convention on an Apple account and must start with web. For example, web.yourname.safari is a Safari certificate ID.
+* userInfo: An object required to pass to the server. Include any data in this object that helps you identify the user requesting permission.
+* callback: A callback function which is invoked on completion.
 
 Following is a sample code:
 
@@ -529,7 +374,7 @@ function requestPermission() {
 
 #### Troubleshooting
 
-If there is an issue with downloading the push package or delivery of push notifications, the logging endpoint on your web service as described in the _Log errors_ (section above) is contacted with an error message and error description. 
+If there is an issue with downloading the push package or delivery of push notifications, the logging endpoint on your web service as described in the *Log errors* (section above) is contacted with an error message and error description. 
 
 The following table lists the possible errors and steps you can take to fix them:
 
