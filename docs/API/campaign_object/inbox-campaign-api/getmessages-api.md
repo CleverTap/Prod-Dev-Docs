@@ -792,7 +792,7 @@ request(options, function (error, response) {
       ]
     }
 ```
-```json
+```json Carousel Message Template
 {
       "status": "success",
       "totalAvailableMessages": 1,
