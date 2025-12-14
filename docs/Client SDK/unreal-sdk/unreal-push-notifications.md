@@ -20,9 +20,9 @@ CleverTap allows you to send push notifications from its dashboard after the use
 
 The following are the prerequisites:
 
-- The CleverTap [Unreal SDK is integrated](doc:unreal-quick-start-guide).
-- For Android, Firebase Cloud Messaging (FCM) is configured. Refer to the [Android Push Setup Guide](https://developer.clevertap.com/docs/android-push).
-- For iOS, Apple Push Notification service (APNs) is configured.
+* The CleverTap [Unreal SDK is integrated](doc:unreal-quick-start-guide).
+* For Android, Firebase Cloud Messaging (FCM) is configured. Refer to the [Android Push Setup Guide](https://developer.clevertap.com/docs/android-push).
+* For iOS, Apple Push Notification service (APNs) is configured.
 
 # Android Setup
 
@@ -63,15 +63,15 @@ AndroidNotificationChannelSlot1=ID="general" | Name="General" | Description="Gen
 AndroidNotificationChannelSlot2=ID="news" | Name="News Updates" | Description="Important news and alerts" | Importance=IMPORTANCE_HIGH | bShowBadge=True | Sound="news_alert.wav"
 ```
 
-You can assign an `Importance` level to each channel to control how prominently notifications appear. Valid values include:  
+You can assign an `Importance` level to each channel to control how prominently notifications appear. Valid values include:\
 `IMPORTANCE_NONE`, `IMPORTANCE_MIN`, `IMPORTANCE_LOW`, `IMPORTANCE_DEFAULT`, `IMPORTANCE_HIGH`, and `IMPORTANCE_MAX`.
 
 The sound files must be added to the APK's `res/raw` directory. Use `AndroidSoundsDir` to configure the path.
 
 > 📘 Note
-> 
-> - The `CleverTap_Android_UPL.xml` reads the `AndroidNotificationChannelSlot` entries to inject the required Java code into `GameApplication.onCreate()`. If the `ini` syntax contains errors, the build will fail during compilation of `GameApplication.java`.
-> - You must configure `AndroidNotificationChannelSlot` settings directly in your project’s `Config/DefaultEngine.ini` file. These settings are not exposed in the Project Settings GUI.
+>
+> * The `CleverTap_Android_UPL.xml` reads the `AndroidNotificationChannelSlot` entries to inject the required Java code into `GameApplication.onCreate()`. If the `ini` syntax contains errors, the build will fail during compilation of `GameApplication.java`.
+> * You must configure `AndroidNotificationChannelSlot` settings directly in your project’s `Config/DefaultEngine.ini` file. These settings are not exposed in the Project Settings GUI.
 
 ### Channel Localization
 
@@ -123,7 +123,7 @@ CleverTap.LocalizeAndroidNotificationChannelGroup(
 
 ### Default Android Notification Channel
 
-You can define a _default notification channel_ that CleverTap will use when the push payload refers to a channel that is _not registered_ in your app. This ensures that push notifications are delivered consistently, even if specific channels are missing.
+You can define a *default notification channel* that CleverTap will use when the push payload refers to a channel that is *not registered* in your app. This ensures that push notifications are delivered consistently, even if specific channels are missing.
 
 If the SDK cannot find the default channel ID specified in the manifest, it will automatically fall back to using a built-in channel called `Miscellaneous`.
 
@@ -135,7 +135,7 @@ AndroidDefaultNotificationChannel=general
 ```
 
 > 📘 Note
-> 
+>
 > Make sure the channel ID you specify (for example, `general`) defined in the `AndroidNotificationChannelSlot` entries in your `DefaultEngine.ini`.
 
 ### Android Small Notification Icon
@@ -150,10 +150,10 @@ AndroidSmallNotificationIconPath=Config/Android/sample_small_notification_icon.p
 ```
 
 > 📘 Note
-> 
+>
 > The base filename must contain only lowercase letters (`a–z`), digits (`0–9`), or underscores (`_`). Avoid capital letters, dashes, or spaces.
 
-For more information about image requirements, refer to the [Android Push Notification- Set the Small Notification Icon](<>).
+For more information about image requirements, refer to the [Android Push Notification- Set the Small Notification Icon]().
 
 ### Android Sound and Image Resources
 
@@ -161,14 +161,14 @@ You can include additional images and custom sound files in your APK for direct 
 
 These resources are not part of Unreal's asset system. Instead, they are copied directly into the APK and must follow Android's resource naming conventions:
 
-- File names must use only lowercase letters `a–z`, digits `0–9`, or underscores `_`.
-- Avoid using capital letters, spaces, or special characters.
+* File names must use only lowercase letters `a–z`, digits `0–9`, or underscores `_`.
+* Avoid using capital letters, spaces, or special characters.
 
 Android supports the following audio formats for custom sounds:
 
-- `.mp3`
-- `.ogg`
-- `.wav`
+* `.mp3`
+* `.ogg`
+* `.wav`
 
 #### Define Resource Directories
 
@@ -221,7 +221,7 @@ For more information, refer to the [Custom Android Push Notification Handling](d
 
 ### Android OpenUrl Configuration
 
-To handle incoming app links such as deep links, enable `bIntegrateOpenUrl` and define up to _four slot-based URL filters_ in your project’s `.ini` file.
+To handle incoming app links such as deep links, enable `bIntegrateOpenUrl` and define up to *four slot-based URL filters* in your project’s `.ini` file.
 
 #### Example Configuration
 
@@ -245,8 +245,8 @@ AndroidIntentFilterSlot3_AutoVerify=True
 ```
 
 > 📘 Note
-> 
-> The `http` and `https` schemes require _digital verification_ using an `assetlinks.json` file hosted on the target domain. For more information, refer to the [Verify Android App Links](https://developer.android.com/training/app-links/verify-android-applinks).
+>
+> The `http` and `https` schemes require *digital verification* using an `assetlinks.json` file hosted on the target domain. For more information, refer to the [Verify Android App Links](https://developer.android.com/training/app-links/verify-android-applinks).
 
 #### Test Deep Link with `adb`
 
@@ -260,9 +260,9 @@ adb shell am start -a android.intent.action.VIEW -d "clevertap-unreal-sample://t
 
 If you need full control over how your app handles deep links:
 
-- Disable the built-in `OpenUrlActivity` integration.
-- Define your activity and intent filters via _custom UPL rules_.
-- If your custom activity forwards the intent to `GameActivity`, the event will still reach the `OnOpenURL` delegate in Unreal.
+* Disable the built-in `OpenUrlActivity` integration.
+* Define your activity and intent filters via *custom UPL rules*.
+* If your custom activity forwards the intent to `GameActivity`, the event will still reach the `OnOpenURL` delegate in Unreal.
 
 # iOS Setup
 
@@ -281,12 +281,12 @@ bEnableRemoteNotificationsSupport=True
 ```
 
 > 📘 Note
-> 
+>
 > The CleverTap Unreal plugin does not support the following iOS features:
-> 
-> - [Push Impressions](https://developer.clevertap.com/docs/push-notifications-ios#push-impressions)
-> - [Push Primers](doc:push-notifications-ios#ios-push-primer)
-> - [Rich Push Notifications](doc:rich-push-notifications)
+>
+> * [Push Impressions](https://developer.clevertap.com/docs/push-notifications-ios#push-impressions)
+> * [Push Primers](doc:push-notifications-ios#ios-push-primer)
+> * [Rich Push Notifications](doc:rich-push-notifications)
 
 ## iOS - Optional Engine Changes for Push Notifications
 
@@ -330,13 +330,13 @@ MobileProvision_CTNotificationService=YourProvisioning.mobileprovision
 Check that the specified `.mobileprovision` file is installed before building.
 
 > 📘 Note
-> 
+>
 > This engine patch adds support for app extensions located in:
-> 
-> - `{ProjectFolder}/Build/IOS/Extensions`
-> - `{ProjectFolder}/Plugins/{PluginName}/Source/ThirdParty/IOS/Extensions`
-> 
-> Currently, this integration only supports _Unreal Engine 4.27_ and has been tested exclusively with the `CTNotificationService` extension provided by CleverTap.
+>
+> * `{ProjectFolder}/Build/IOS/Extensions`
+> * `{ProjectFolder}/Plugins/{PluginName}/Source/ThirdParty/IOS/Extensions`
+>
+> Currently, this integration only supports *Unreal Engine 4.27* and has been tested exclusively with the `CTNotificationService` extension provided by CleverTap.
 
 ### Enabling `OnPushNotificationClicked`
 
@@ -366,7 +366,7 @@ This delegate is triggered when a user taps on a push notification, allowing you
 
 ### 🔗 iOS OpenUrl Configuration
 
-To handle incoming app links on iOS, enable `bIntegrateOpenUrl` and define up to _four slot-based URL scheme filters_ in your `.ini` file.
+To handle incoming app links on iOS, enable `bIntegrateOpenUrl` and define up to *four slot-based URL scheme filters* in your `.ini` file.
 
 #### Example Configuration
 
