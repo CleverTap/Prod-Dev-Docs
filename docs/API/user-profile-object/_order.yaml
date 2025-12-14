@@ -2,3 +2,4 @@
 - upload-user-profiles-api
 - upload-device-tokens-api
 - get-profile-count-api
+- delete-user-profile-api
