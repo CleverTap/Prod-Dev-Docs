@@ -18,7 +18,7 @@ Custom list segments are segments you create from your own list of users. You cr
 2. **Upload your file** to the pre-signed URL.
 3. **Indicate completion** of the upload with a second API call. CleverTap processes the file and displays the segment on the dashboard.
 
-   - If your account has **Teams** enabled, you can allocate the segment to one or more teams in this step.
+   * If your account has **Teams** enabled, you can allocate the segment to one or more teams in this step.
 
 # Step 1: Create a Pre-signed URL
 
@@ -26,8 +26,8 @@ This request generates a pre-signed URL that you use to upload your custom list 
 
 ## Base URL
 
-Here is an example base URL from the India region:  
-<https://in1.api.clevertap.com/get_custom_list_segment_url>  
+Here is an example base URL from the India region:\
+[https://in1.api.clevertap.com/get\_custom\_list\_segment\_url](https://in1.api.clevertap.com/get_custom_list_segment_url)\
 Refer to [Region](https://developer.clevertap.com/docs/common-api-components#region) for region-specific endpoints.
 
 ## HTTP Method
@@ -118,11 +118,11 @@ Once you have the pre-signed URL, upload the user list file.
 
 ## File Format Requirements
 
-- File must be **CSV**.
-- Include a **header row**.
-- Use **UTF-8** encoding.
-- Maximum file size: **5 GB**.
-- Mandatory columns: `identity` (user identifier).
+* File must be **CSV**.
+* Include a **header row**.
+* Use **UTF-8** encoding.
+* Maximum file size: **5 GB**.
+* Mandatory columns: `identity` (user identifier).
 
 ## Example Request
 
@@ -186,13 +186,13 @@ echo $response;
 
 # Step 3: Indicate Completion of File Upload
 
-After you upload the file, call this endpoint to confirm completion. CleverTap processes the file and creates the custom list segment.  
+After you upload the file, call this endpoint to confirm completion. CleverTap processes the file and creates the custom list segment.\
 If your account has **Teams** enabled, include the optional `team_allocations` array to allocate the new segment to team(s).
 
 ## Base URL
 
-Example base URL from the India region:  
-<https://in1.api.clevertap.com/upload_custom_list_segment_completed>
+Example base URL from the India region:\
+[https://in1.api.clevertap.com/upload\_custom\_list\_segment\_completed](https://in1.api.clevertap.com/upload_custom_list_segment_completed)
 
 ## HTTP Method
 
@@ -224,7 +224,7 @@ Provide the following body parameters. Include the Teams parameter only if Teams
 | `replace`          | If `true`, replaces an existing segment with the same name.                                                        | Boolean          | No       | `false`                  |
 | `team_allocations` | **Teams only.** Array that maps the created segment to one or more team names. Omit this field if not using Teams. | Array of objects | No\*     | See “Teams Object” below |
 
-- Required only when allocating segments to teams due to account policy or configuration.
+* Required only when allocating segments to teams due to account policy or configuration.
 
 Each object in `team_allocations` uses the following keys.
 
@@ -425,7 +425,7 @@ Use the following table to troubleshoot common errors. (Teams-specific checks ca
 
 # Notes
 
-- `team_allocations` is optional and only applies to accounts with Teams enabled.
-- Use the exact team names configured in your account for `team_names`. Team names are case-sensitive.
-- When creating a brand-new segment, you can omit `customer_segment_id`.
-- If your account enforces team allocation, omitting `team_allocations` may result in `team_ids_required`.
+* `team_allocations` is optional and only applies to accounts with Teams enabled.
+* Use the exact team names configured in your account for `team_names`. Team names are case-sensitive.
+* When creating a brand-new segment, you can omit `customer_segment_id`.
+* If your account enforces team allocation, omitting `team_allocations` may result in `team_ids_required`.
