@@ -115,69 +115,27 @@ Remove the following Receivers and Services from your `AndroidManifest.xml` and 
 
 While creating a Push Notification campaign on CleverTap, just follow the steps below:
 
-1. On the _WHAT_ section, pass the desired values in the _title_ and _message_ fields.
+1. On the *WHAT* section, pass the desired values in the *title* and *message* fields.
 
 > 📘 Key-value pair
-> 
-> We prioritize title and message provided in the key-value pair - as shown in _step 2_ of Installation.
+>
+> We prioritize title and message provided in the key-value pair - as shown in *step 2* of Installation.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/6faeb0d-basic.png",
-        "Configure What Section",
-        982
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Configure What Section"
-    }
-  ]
-}
-[/block]
-
+<Image title="Configure What Section" alt={982} align="center" border={true} src="https://files.readme.io/6faeb0d-basic.png">
+  Configure What Section
+</Image>
 
 2. Click on **Advanced** and then click on **Add pair** to add the Template Keys.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/f85ab3a-kv.png",
-        "Add Key Value Pairs",
-        2638
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Add Key Value Pairs"
-    }
-  ]
-}
-[/block]
-
+<Image title="Add Key Value Pairs" alt={2638} align="center" border={true} src="https://files.readme.io/f85ab3a-kv.png">
+  Add Key Value Pairs
+</Image>
 
 3. You can also add the above keys into one JSON object and use the `pt_json` key to fill in the values.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/d456b21-json.png",
-        "Add Key into JSON Object",
-        1872
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Add Key into JSON Object"
-    }
-  ]
-}
-[/block]
-
+<Image title="Add Key into JSON Object" alt={1872} align="center" border={true} src="https://files.readme.io/d456b21-json.png">
+  Add Key into JSON Object
+</Image>
 
 4. Send a test push and schedule.
 
@@ -187,124 +145,49 @@ While creating a Push Notification campaign on CleverTap, just follow the steps 
 
 Basic Template is the basic push notification received on apps.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/2db4575-basic_color.png",
-        "Basic Push Notification Template",
-        624
-      ],
-      "align": "center",
-      "sizing": "70% ",
-      "border": true,
-      "caption": "Basic Push Notification Template"
-    }
-  ]
-}
-[/block]
-
+<Image title="Basic Push Notification Template" alt={624} align="center" width="70% " border={true} src="https://files.readme.io/2db4575-basic_color.png">
+  Basic Push Notification Template
+</Image>
 
 ## Auto Carousel Template
 
 Auto carousel is an automatic revolving carousel push notification.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://github.com/CleverTap/clevertap-android-sdk/raw/master/static/autocarouselv0.0.3.gif",
-        "Auto Carousel Template",
-        624
-      ],
-      "align": "center",
-      "sizing": "70% ",
-      "border": true,
-      "caption": "Auto Carousel Template"
-    }
-  ]
-}
-[/block]
-
+<Image title="Auto Carousel Template" alt={624} align="center" width="70% " border={true} src="https://github.com/CleverTap/clevertap-android-sdk/raw/master/static/autocarouselv0.0.3.gif">
+  Auto Carousel Template
+</Image>
 
 ## Manual Carousel Template
 
 This is the manual version of the carousel. The user can navigate to the next image by clicking on the arrows.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://github.com/CleverTap/clevertap-android-sdk/raw/master/static/manual.gif",
-        "Manual Carousel Template",
-        624
-      ],
-      "align": "center",
-      "sizing": "70% ",
-      "border": true,
-      "caption": "Manual Carousel Template"
-    }
-  ]
-}
-[/block]
+<Image title="Manual Carousel Template" alt={624} align="center" width="70% " border={true} src="https://github.com/CleverTap/clevertap-android-sdk/raw/master/static/manual.gif">
+  Manual Carousel Template
+</Image>
 
-
-If only one image can be downloaded, this template falls back to the _Basic Template_.
+If only one image can be downloaded, this template falls back to the *Basic Template*.
 
 ### Filmstrip Variant
 
 The manual carousel has an extra variant called `filmstrip`. This can be used by adding the following key-value:
 
-|            Template Key | Required | Value       |
-| ----------------------: | :------: | :---------- |
-| pt_manual_carousel_type | Optional | `filmstrip` |
+|               Template Key | Required | Value       |
+| -------------------------: | :------: | :---------- |
+| pt\_manual\_carousel\_type | Optional | `filmstrip` |
 
 (Expanded and unexpanded example)
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://github.com/CleverTap/clevertap-android-sdk/raw/master/static/filmstrip.gif",
-        "Filmstrip Variant",
-        624
-      ],
-      "align": "center",
-      "sizing": "70% ",
-      "border": true,
-      "caption": "Filmstrip Variant"
-    }
-  ]
-}
-[/block]
-
+<Image title="Filmstrip Variant" alt={624} align="center" width="70% " border={true} src="https://github.com/CleverTap/clevertap-android-sdk/raw/master/static/filmstrip.gif">
+  Filmstrip Variant
+</Image>
 
 ## Rating Template
 
-Rating template lets your users give you feedback. This feedback is captured in the event _Rating Submitted_ within the property `wzrk_c2a`.
+Rating template lets your users give you feedback. This feedback is captured in the event *Rating Submitted* within the property `wzrk_c2a`.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://github.com/CleverTap/clevertap-android-sdk/raw/master/static/rating.gif",
-        "Rating Template",
-        624
-      ],
-      "align": "center",
-      "sizing": "70% ",
-      "border": true,
-      "caption": "Rating Template"
-    }
-  ]
-}
-[/block]
-
+<Image title="Rating Template" alt={624} align="center" width="70% " border={true} src="https://github.com/CleverTap/clevertap-android-sdk/raw/master/static/rating.gif">
+  Rating Template
+</Image>
 
 ## Product Catalog Template
 
@@ -312,99 +195,41 @@ The product catalog template lets you showcase different product images (or a pr
 
 ### Vertical View
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://github.com/CleverTap/clevertap-android-sdk/raw/master/static/productdisplay.gif",
-        "Product Catalog Template-Vertical View",
-        624
-      ],
-      "align": "center",
-      "sizing": "70% ",
-      "border": true,
-      "caption": "Product Catalog Template-Vertical View"
-    }
-  ]
-}
-[/block]
-
+<Image title="Product Catalog Template-Vertical View" alt={624} align="center" width="70% " border={true} src="https://github.com/CleverTap/clevertap-android-sdk/raw/master/static/productdisplay.gif">
+  Product Catalog Template-Vertical View
+</Image>
 
 ### Linear View
 
 Use the following keys to enable the linear view variant of this template:
 
-|              Template Key | Required | Value  |
-| ------------------------: | :------: | :----- |
-| pt_product_display_linear | Optional | `true` |
+|                 Template Key | Required | Value  |
+| ---------------------------: | :------: | :----- |
+| pt\_product\_display\_linear | Optional | `true` |
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://github.com/CleverTap/clevertap-android-sdk/raw/master/static/proddisplaylinear.gif",
-        "Product Catalog Template-Linear View",
-        624
-      ],
-      "align": "center",
-      "sizing": "70% ",
-      "border": true,
-      "caption": "Product Catalog Template-Linear View"
-    }
-  ]
-}
-[/block]
-
+<Image title="Product Catalog Template-Linear View" alt={624} align="center" width="70% " border={true} src="https://github.com/CleverTap/clevertap-android-sdk/raw/master/static/proddisplaylinear.gif">
+  Product Catalog Template-Linear View
+</Image>
 
 ## Five Icons Template
 
 The Five Icons template presents a push notification without text, featuring only five icons. With a single click, users can conveniently access their preferred functionality. If at least three icons are not retrieved from the source, the library does not render any notification. 
 
-The details of each Call-to-Action (CTA) are captured in the _Notification Clicked_ event within the property _wzrk_c2a_. If the user clicks on any notification area except the five icons, an activity intent is launched by default.
+The details of each Call-to-Action (CTA) are captured in the *Notification Clicked* event within the property *wzrk\_c2a*. If the user clicks on any notification area except the five icons, an activity intent is launched by default.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/37082db6b326b5d73c37c3f6211424ff34c1f9ceef892899ea4876e8a691aec3-Five_Icon.png",
-        "Five Icons Template",
-        "Sample Five Icon Template"
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Five Icons Template"
-    }
-  ]
-}
-[/block]
-
+<Image title="Five Icons Template" alt="Sample Five Icon Template" align="center" border={true} src="https://files.readme.io/37082db6b326b5d73c37c3f6211424ff34c1f9ceef892899ea4876e8a691aec3-Five_Icon.png">
+  Five Icons Template
+</Image>
 
 ## Timer Template
 
 This template features a live countdown timer. You can even choose to show different titles, messages, and background images after the timer expire.
 
-Timer notification is only supported for Android N (7) and above. For OS versions below N, the library falls back to the _Basic Template_.
+Timer notification is only supported for Android N (7) and above. For OS versions below N, the library falls back to the *Basic Template*.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://github.com/CleverTap/clevertap-android-sdk/raw/master/static/timer.gif",
-        "Timer Template",
-        618
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Timer Template"
-    }
-  ]
-}
-[/block]
-
+<Image title="Timer Template" alt={618} align="center" border={true} src="https://github.com/CleverTap/clevertap-android-sdk/raw/master/static/timer.gif">
+  Timer Template
+</Image>
 
 ## Zero Bezel Template
 
@@ -412,23 +237,9 @@ The Zero Bezel template ensures that the background image covers the entire avai
 
 The library will fall back to the Basic Template if the image can't be downloaded.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://github.com/CleverTap/clevertap-android-sdk/raw/master/static/zerobezel.gif",
-        "Zero Bezel Template",
-        618
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Zero Bezel Template"
-    }
-  ]
-}
-[/block]
-
+<Image title="Zero Bezel Template" alt={618} align="center" border={true} src="https://github.com/CleverTap/clevertap-android-sdk/raw/master/static/zerobezel.gif">
+  Zero Bezel Template
+</Image>
 
 ## Input Box Template
 
@@ -440,31 +251,16 @@ The CTA variant of the Input Box Template uses action buttons on the notificatio
 
 To set the CTAs, use the Advanced Options when setting up the campaign on the dashboard.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://github.com/CleverTap/clevertap-android-sdk/raw/master/static/inputctabasicdismiss.gif",
-        "Input Box Template-With CTAs",
-        618
-      ],
-      "align": "center",
-      "sizing": "50% ",
-      "border": true,
-      "caption": "Input Box Template-With CTAs"
-    }
-  ]
-}
-[/block]
+<Image title="Input Box Template-With CTAs" alt={618} align="center" width="50% " border={true} src="https://github.com/CleverTap/clevertap-android-sdk/raw/master/static/inputctabasicdismiss.gif">
+  Input Box Template-With CTAs
+</Image>
 
-
-|        Template Key | Required | Value                                                        |
-| ------------------: | :------: | :----------------------------------------------------------- |
-| pt_dismiss_on_click | Optional | `true` (Dismisses the notification without opening the app). |
+|           Template Key | Required | Value                                                        |
+| ---------------------: | :------: | :----------------------------------------------------------- |
+| pt\_dismiss\_on\_click | Optional | `true` (Dismisses the notification without opening the app). |
 
 > 📘 Display the Notification in the tray (for Android 12 and above)
-> 
+>
 > To keep the notification in the notification tray even after clicking the CTA, set the value for the `pt_dismiss_on_click` payload key as `false` and add the `dismissNotification` function to your code.
 
 Following is a sample code for adding the `dismissNotification` function:
@@ -502,31 +298,16 @@ This variant of the Input Box Template is advantageous if the user wants to be r
 
 Ensure to set one of the CTAs as a Remind Later button. Set the action ID to `remind` from the dashboard.
 
-|                            Template Key | Required | Value                                                                                                                                                                  |
-| --------------------------------------: | :------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                           pt_event_name | Required | For example: `Remind Later`,                                                                                                                                           |
-| pt\_event\_property\_\<property_name_1> | Optional | For example: `<property_value>`,                                                                                                                                       |
-| pt\_event\_property\_\<property_name_2> | Optional | future epoch timestamp. For example: `\$D_1592503813`                                                                                                                  |
-|                     pt_dismiss_on_click | Required | Value should be `true`. It dismisses the notification without opening the app and raises a required event to the user profile, needed to send a reminder notification. |
+|                              Template Key | Required | Value                                                                                                                                                                  |
+| ----------------------------------------: | :------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|                           pt\_event\_name | Required | For example: `Remind Later`,                                                                                                                                           |
+| pt\_event\_property\_\<property\_name\_1> | Optional | For example: `<property_value>`,                                                                                                                                       |
+| pt\_event\_property\_\<property\_name\_2> | Optional | future epoch timestamp. For example: `\$D_1592503813`                                                                                                                  |
+|                    pt\_dismiss\_on\_click | Required | Value should be `true`. It dismisses the notification without opening the app and raises a required event to the user profile, needed to send a reminder notification. |
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://github.com/CleverTap/clevertap-android-sdk/raw/master/static/inputCtaRemind.gif",
-        "Input Box Template-CTAs with Remind Later option",
-        618
-      ],
-      "align": "center",
-      "sizing": "50% ",
-      "border": true,
-      "caption": "Input Box Template-CTAs with Remind Later option"
-    }
-  ]
-}
-[/block]
-
+<Image title="Input Box Template-CTAs with Remind Later option" alt={618} align="center" width="50% " border={true} src="https://github.com/CleverTap/clevertap-android-sdk/raw/master/static/inputCtaRemind.gif">
+  Input Box Template-CTAs with Remind Later option
+</Image>
 
 ### Reply as an Event
 
@@ -534,32 +315,17 @@ This variant raises an event capturing the user's input as an event property. Th
 
 To use this variant, use the following values for the keys.
 
-|                            Template Key | Required | Value                                |
-| --------------------------------------: | :------: | :----------------------------------- |
-|                          pt_input_label | Required | for e.g., `Search`                   |
-|                       pt_input_feedback | Required | for e.g., `Thanks for your feedback` |
-|                          pt\_event_name | Required | for e.g. `Searched`,                 |
-| pt\_event\_property\_\<property_name_2> | Required | fixed value - `pt_input_reply`       |
-| pt\_event\_property\_\<property_name_1> | Optional | for e.g. `<property_value>`,         |
+|                              Template Key | Required | Value                                |
+| ----------------------------------------: | :------: | :----------------------------------- |
+|                          pt\_input\_label | Required | for e.g., `Search`                   |
+|                       pt\_input\_feedback | Required | for e.g., `Thanks for your feedback` |
+|                           pt\_event\_name | Required | for e.g. `Searched`,                 |
+| pt\_event\_property\_\<property\_name\_2> | Required | fixed value - `pt_input_reply`       |
+| pt\_event\_property\_\<property\_name\_1> | Optional | for e.g. `<property_value>`,         |
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://github.com/CleverTap/clevertap-android-sdk/raw/master/static/inputCtaNoOpen.gif",
-        "Input Box Template-Reply as an Event",
-        618
-      ],
-      "align": "center",
-      "sizing": "50% ",
-      "border": true,
-      "caption": "Input Box Template-Reply as an Event"
-    }
-  ]
-}
-[/block]
-
+<Image title="Input Box Template-Reply as an Event" alt={618} align="center" width="50% " border={true} src="https://github.com/CleverTap/clevertap-android-sdk/raw/master/static/inputCtaNoOpen.gif">
+  Input Box Template-Reply as an Event
+</Image>
 
 ### Reply as an Intent
 
@@ -567,255 +333,240 @@ This variant passes the reply to the app as an Intent. The app can then process 
 
 To use this variant, use the following values for the keys.
 
-|       Template Key | Required | Value                                |
-| -----------------: | :------: | :----------------------------------- |
-|     pt_input_label | Required | for e.g., `Search`                   |
-|  pt_input_feedback | Required | for e.g., `Thanks for your feedback` |
-| pt_input_auto_open | Required | fixed value - `true`                 |
+|          Template Key | Required | Value                                |
+| --------------------: | :------: | :----------------------------------- |
+|      pt\_input\_label | Required | for e.g., `Search`                   |
+|   pt\_input\_feedback | Required | for e.g., `Thanks for your feedback` |
+| pt\_input\_auto\_open | Required | fixed value - `true`                 |
 
 To capture the input, the app can get the `pt_input_reply` key from the Intent extras.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://github.com/CleverTap/clevertap-android-sdk/raw/master/static/inputCtaWithOpen.gif",
-        "Input Box Template-Reply as an Intent",
-        618
-      ],
-      "align": "center",
-      "sizing": "50% ",
-      "border": true,
-      "caption": "Input Box Template-Reply as an Intent"
-    }
-  ]
-}
-[/block]
-
+<Image title="Input Box Template-Reply as an Intent" alt={618} align="center" width="50% " border={true} src="https://github.com/CleverTap/clevertap-android-sdk/raw/master/static/inputCtaWithOpen.gif">
+  Input Box Template-Reply as an Intent
+</Image>
 
 # Template Keys
 
 ### Basic Template
 
-| Basic Template Keys | Required | Description                                |
-| ------------------: | :------: | :----------------------------------------- |
-|               pt_id | Required | Value - `pt_basic`                         |
-|            pt_title | Required | Title                                      |
-|              pt_msg | Required | Message                                    |
-|               pt_bg | Required | Background Color in HEX                    |
-|      pt_msg_summary | Required | Message line when Notification is expanded |
-|         pt_subtitle | Optional | Subtitle                                   |
-|          pt_big_img | Optional | Image                                      |
-|              pt_ico | Optional | Large Icon                                 |
-|              pt_dl1 | Optional | One Deep Link (minimum)                    |
-|        pt_title_clr | Optional | Title Color in HEX                         |
-|          pt_msg_clr | Optional | Message Color in HEX                       |
-|   pt_small_icon_clr | Optional | Small Icon Color in HEX                    |
-|             pt_json | Optional | Above keys in JSON format                  |
+|  Basic Template Keys | Required | Description                                |
+| -------------------: | :------: | :----------------------------------------- |
+|               pt\_id | Required | Value - `pt_basic`                         |
+|            pt\_title | Required | Title                                      |
+|              pt\_msg | Required | Message                                    |
+|               pt\_bg | Required | Background Color in HEX                    |
+|     pt\_msg\_summary | Required | Message line when Notification is expanded |
+|         pt\_subtitle | Optional | Subtitle                                   |
+|         pt\_big\_img | Optional | Image                                      |
+|              pt\_ico | Optional | Large Icon                                 |
+|              pt\_dl1 | Optional | One Deep Link (minimum)                    |
+|       pt\_title\_clr | Optional | Title Color in HEX                         |
+|         pt\_msg\_clr | Optional | Message Color in HEX                       |
+| pt\_small\_icon\_clr | Optional | Small Icon Color in HEX                    |
+|             pt\_json | Optional | Above keys in JSON format                  |
 
 ### Auto Carousel Template
 
 | Auto Carousel Template Keys | Required | Description                                |
 | --------------------------: | :------: | :----------------------------------------- |
-|                       pt_id | Required | Value - `pt_carousel`                      |
-|                    pt_title | Required | Title                                      |
-|                      pt_msg | Required | Message                                    |
-|                      pt_dl1 | Required | Deep Link (Max one)                        |
-|                     pt_img1 | Required | Image One                                  |
-|                     pt_img2 | Required | Image Two                                  |
-|                     pt_img3 | Required | Image Three                                |
-|                       pt_bg | Required | Background Color in HEX                    |
-|              pt_msg_summary | Optional | Message line when Notification is expanded |
-|                 pt_subtitle | Optional | Subtitle                                   |
-|                   pt_img`n` | Optional | Image `N`                                  |
-|                      pt_ico | Optional | Large Icon                                 |
-|                pt_title_clr | Optional | Title Color in HEX                         |
-|                  pt_msg_clr | Optional | Message Color in HEX                       |
-|           pt_small_icon_clr | Optional | Small Icon Color in HEX                    |
-|                     pt_json | Optional | Above keys in JSON format                  |
+|                      pt\_id | Required | Value - `pt_carousel`                      |
+|                   pt\_title | Required | Title                                      |
+|                     pt\_msg | Required | Message                                    |
+|                     pt\_dl1 | Required | Deep Link (Max one)                        |
+|                    pt\_img1 | Required | Image One                                  |
+|                    pt\_img2 | Required | Image Two                                  |
+|                    pt\_img3 | Required | Image Three                                |
+|                      pt\_bg | Required | Background Color in HEX                    |
+|            pt\_msg\_summary | Optional | Message line when Notification is expanded |
+|                pt\_subtitle | Optional | Subtitle                                   |
+|                  pt\_img`n` | Optional | Image `N`                                  |
+|                     pt\_ico | Optional | Large Icon                                 |
+|              pt\_title\_clr | Optional | Title Color in HEX                         |
+|                pt\_msg\_clr | Optional | Message Color in HEX                       |
+|        pt\_small\_icon\_clr | Optional | Small Icon Color in HEX                    |
+|                    pt\_json | Optional | Above keys in JSON format                  |
 
 ### Manual Carousel Template
 
 | Manual Carousel Template Keys | Required | Description                                |
 | ----------------------------: | :------: | :----------------------------------------- |
-|                         pt_id | Required | Value - `pt_manual_carousel`               |
-|                      pt_title | Required | Title                                      |
-|                        pt_msg | Required | Message                                    |
-|                        pt_dl1 | Required | Deep Link One                              |
-|                       pt_img1 | Required | Image One                                  |
-|                       pt_img2 | Required | Image Two                                  |
-|                       pt_img3 | Required | Image Three                                |
-|                         pt_bg | Required | Background Color in HEX                    |
-|                pt_msg_summary | Optional | Message line when Notification is expanded |
-|                   pt_subtitle | Optional | Subtitle                                   |
-|                        pt_dl2 | Optional | Deep Link Two                              |
-|                      pt_dl`n` | Optional | Deep Link for the nth image                |
-|                     pt_img`n` | Optional | Image `N`                                  |
-|                        pt_ico | Optional | Large Icon                                 |
-|                  pt_title_clr | Optional | Title Color in HEX                         |
-|                    pt_msg_clr | Optional | Message Color in HEX                       |
-|             pt_small_icon_clr | Optional | Small Icon Color in HEX                    |
-|                       pt_json | Optional | Above keys in JSON format                  |
-|       pt_manual_carousel_type | Optional | `filmstrip`                                |
+|                        pt\_id | Required | Value - `pt_manual_carousel`               |
+|                     pt\_title | Required | Title                                      |
+|                       pt\_msg | Required | Message                                    |
+|                       pt\_dl1 | Required | Deep Link One                              |
+|                      pt\_img1 | Required | Image One                                  |
+|                      pt\_img2 | Required | Image Two                                  |
+|                      pt\_img3 | Required | Image Three                                |
+|                        pt\_bg | Required | Background Color in HEX                    |
+|              pt\_msg\_summary | Optional | Message line when Notification is expanded |
+|                  pt\_subtitle | Optional | Subtitle                                   |
+|                       pt\_dl2 | Optional | Deep Link Two                              |
+|                     pt\_dl`n` | Optional | Deep Link for the nth image                |
+|                    pt\_img`n` | Optional | Image `N`                                  |
+|                       pt\_ico | Optional | Large Icon                                 |
+|                pt\_title\_clr | Optional | Title Color in HEX                         |
+|                  pt\_msg\_clr | Optional | Message Color in HEX                       |
+|          pt\_small\_icon\_clr | Optional | Small Icon Color in HEX                    |
+|                      pt\_json | Optional | Above keys in JSON format                  |
+|    pt\_manual\_carousel\_type | Optional | `filmstrip`                                |
 
 ### Rating Template
 
 | Rating Template Keys | Required | Description                                |
 | -------------------: | :------: | :----------------------------------------- |
-|                pt_id | Required | Value - `pt_rating`                        |
-|             pt_title | Required | Title                                      |
-|               pt_msg | Required | Message                                    |
-|        pt_default_dl | Required | Default Deep Link for Push Notification    |
-|               pt_dl1 | Required | Deep Link for first/all star(s)            |
-|                pt_bg | Required | Background Color in HEX                    |
-|       pt_msg_summary | Optional | Message line when Notification is expanded |
-|          pt_subtitle | Optional | Subtitle                                   |
-|               pt_dl2 | Optional | Deep Link for second star                  |
-|               pt_dl3 | Optional | Deep Link for third star                   |
-|               pt_dl4 | Optional | Deep Link for fourth star                  |
-|               pt_dl5 | Optional | Deep Link for fifth star                   |
-|               pt_ico | Optional | Large Icon                                 |
-|         pt_title_clr | Optional | Title Color in HEX                         |
-|           pt_msg_clr | Optional | Message Color in HEX                       |
-|    pt_small_icon_clr | Optional | Small Icon Color in HEX                    |
-|              pt_json | Optional | Above keys in JSON format                  |
-|           pt_big_img | Optional | Image                                      |
+|               pt\_id | Required | Value - `pt_rating`                        |
+|            pt\_title | Required | Title                                      |
+|              pt\_msg | Required | Message                                    |
+|      pt\_default\_dl | Required | Default Deep Link for Push Notification    |
+|              pt\_dl1 | Required | Deep Link for first/all star(s)            |
+|               pt\_bg | Required | Background Color in HEX                    |
+|     pt\_msg\_summary | Optional | Message line when Notification is expanded |
+|         pt\_subtitle | Optional | Subtitle                                   |
+|              pt\_dl2 | Optional | Deep Link for second star                  |
+|              pt\_dl3 | Optional | Deep Link for third star                   |
+|              pt\_dl4 | Optional | Deep Link for fourth star                  |
+|              pt\_dl5 | Optional | Deep Link for fifth star                   |
+|              pt\_ico | Optional | Large Icon                                 |
+|       pt\_title\_clr | Optional | Title Color in HEX                         |
+|         pt\_msg\_clr | Optional | Message Color in HEX                       |
+| pt\_small\_icon\_clr | Optional | Small Icon Color in HEX                    |
+|             pt\_json | Optional | Above keys in JSON format                  |
+|         pt\_big\_img | Optional | Image                                      |
 
 ### Product Catalog Template
 
-| Product Catalog Template Keys | Required | Description                             |
-| ----------------------------: | :------: | :-------------------------------------- |
-|                         pt_id | Required | Value - `pt_product_display`            |
-|                        pt_msg | Required | Message                                 |
-|                      pt_title | Required | Title                                   |
-|                       pt_img1 | Required | Image One                               |
-|                       pt_img2 | Required | Image Two                               |
-|                       pt_img3 | Required | Image Three                             |
-|                        pt_bt1 | Required | Big text for first image                |
-|                        pt_bt2 | Required | Big text for second image               |
-|                        pt_bt3 | Required | Big text for third image                |
-|                        pt_st2 | Required | Small text for second image             |
-|                        pt_st1 | Required | Small text for first image              |
-|                        pt_st3 | Required | Small text for third image              |
-|                        pt_dl1 | Required | Deep Link for first image               |
-|                        pt_dl2 | Required | Deep Link for second image              |
-|                        pt_dl3 | Required | Deep Link for third image               |
-|                     pt_price1 | Required | Price for first image                   |
-|                     pt_price2 | Required | Price for second image                  |
-|                     pt_price3 | Required | Price for third image                   |
-|                         pt_bg | Required | Background Color in HEX                 |
-|     pt_product_display_action | Required | Action Button Label Text                |
-| pt_product_display_action_clr | Required | Action Button Background Color in HEX   |
-|                   pt_subtitle | Optional | Subtitle                                |
-|     pt_product_display_linear | Optional | Linear Layout Template ("true"/"false") |
-|                  pt_title_clr | Optional | Title Color in HEX                      |
-|                    pt_msg_clr | Optional | Message Color in HEX                    |
-|             pt_small_icon_clr | Optional | Small Icon Color in HEX                 |
-|                       pt_json | Optional | Above keys in JSON format               |
+|     Product Catalog Template Keys | Required | Description                             |
+| --------------------------------: | :------: | :-------------------------------------- |
+|                            pt\_id | Required | Value - `pt_product_display`            |
+|                           pt\_msg | Required | Message                                 |
+|                         pt\_title | Required | Title                                   |
+|                          pt\_img1 | Required | Image One                               |
+|                          pt\_img2 | Required | Image Two                               |
+|                          pt\_img3 | Required | Image Three                             |
+|                           pt\_bt1 | Required | Big text for first image                |
+|                           pt\_bt2 | Required | Big text for second image               |
+|                           pt\_bt3 | Required | Big text for third image                |
+|                           pt\_st2 | Required | Small text for second image             |
+|                           pt\_st1 | Required | Small text for first image              |
+|                           pt\_st3 | Required | Small text for third image              |
+|                           pt\_dl1 | Required | Deep Link for first image               |
+|                           pt\_dl2 | Required | Deep Link for second image              |
+|                           pt\_dl3 | Required | Deep Link for third image               |
+|                        pt\_price1 | Required | Price for first image                   |
+|                        pt\_price2 | Required | Price for second image                  |
+|                        pt\_price3 | Required | Price for third image                   |
+|                            pt\_bg | Required | Background Color in HEX                 |
+|      pt\_product\_display\_action | Required | Action Button Label Text                |
+| pt\_product\_display\_action\_clr | Required | Action Button Background Color in HEX   |
+|                      pt\_subtitle | Optional | Subtitle                                |
+|      pt\_product\_display\_linear | Optional | Linear Layout Template ("true"/"false") |
+|                    pt\_title\_clr | Optional | Title Color in HEX                      |
+|                      pt\_msg\_clr | Optional | Message Color in HEX                    |
+|              pt\_small\_icon\_clr | Optional | Small Icon Color in HEX                 |
+|                          pt\_json | Optional | Above keys in JSON format               |
 
 ### Five Icons Template
 
 | Five Icons Template Keys | Required | Description               |
 | -----------------------: | :------: | :------------------------ |
-|                    pt_id | Required | Value - `pt_five_icons`   |
-|                  pt_img1 | Required | Icon One                  |
-|                  pt_img2 | Required | Icon Two                  |
-|                  pt_img3 | Required | Icon Three                |
-|                   pt_dl1 | Required | Deep Link for first icon  |
-|                   pt_dl2 | Required | Deep Link for second icon |
-|                   pt_dl3 | Required | Deep Link for third icon  |
-|                    pt_bg | Required | Background Color in HEX   |
-|                  pt_img4 | Optional | Icon Four                 |
-|                  pt_img5 | Optional | Icon Five                 |
-|                   pt_dl4 | Optional | Deep Link for fourth icon |
-|                   pt_dl5 | Optional | Deep Link for fifth icon  |
-|        pt_small_icon_clr | Optional | Small Icon Color in HEX   |
-|                  pt_json | Optional | Above keys in JSON format |
+|                   pt\_id | Required | Value - `pt_five_icons`   |
+|                 pt\_img1 | Required | Icon One                  |
+|                 pt\_img2 | Required | Icon Two                  |
+|                 pt\_img3 | Required | Icon Three                |
+|                  pt\_dl1 | Required | Deep Link for first icon  |
+|                  pt\_dl2 | Required | Deep Link for second icon |
+|                  pt\_dl3 | Required | Deep Link for third icon  |
+|                   pt\_bg | Required | Background Color in HEX   |
+|                 pt\_img4 | Optional | Icon Four                 |
+|                 pt\_img5 | Optional | Icon Five                 |
+|                  pt\_dl4 | Optional | Deep Link for fourth icon |
+|                  pt\_dl5 | Optional | Deep Link for fifth icon  |
+|     pt\_small\_icon\_clr | Optional | Small Icon Color in HEX   |
+|                 pt\_json | Optional | Above keys in JSON format |
 
 ### Timer Template
 
-| Timer Template Keys | Required | Description                                                                                                                |
-| ------------------: | :------: | :------------------------------------------------------------------------------------------------------------------------- |
-|               pt_id | Required | Value - `pt_timer`                                                                                                         |
-|            pt_title | Required | Title                                                                                                                      |
-|              pt_msg | Required | Message                                                                                                                    |
-|              pt_dl1 | Required | Deep Link                                                                                                                  |
-|               pt_bg | Required | Background Color in HEX                                                                                                    |
-|  pt_timer_threshold | Required | Timer duration in seconds (minimum 10)                                                                                     |
-|        pt_title_alt | Optional | Title to show after timer expires                                                                                          |
-|          pt_msg_alt | Optional | Message to show after timer expires                                                                                        |
-|         pt_subtitle | Optional | Subtitle                                                                                                                   |
-|      pt_msg_summary | Optional | Message line when Notification is expanded                                                                                 |
-|          pt_big_img | Optional | Image                                                                                                                      |
-|      pt_big_img_alt | Optional | Image to show when timer expires                                                                                           |
-| pt_chrono_title_clr | Optional | Color for timer text in HEX                                                                                                |
-|        pt_timer_end | Optional | Epoch Timestamp to countdown to (for example, $D_1595871380 or 1595871380). Not needed if pt_timer_threshold is specified. |
-|        pt_title_clr | Optional | Title Color in HEX                                                                                                         |
-|          pt_msg_clr | Optional | Message Color in HEX                                                                                                       |
-|   pt_small_icon_clr | Optional | Small Icon Color in HEX                                                                                                    |
-|             pt_json | Optional | Above keys in JSON format                                                                                                  |
+|    Timer Template Keys | Required | Description                                                                                                                   |
+| ---------------------: | :------: | :---------------------------------------------------------------------------------------------------------------------------- |
+|                 pt\_id | Required | Value - `pt_timer`                                                                                                            |
+|              pt\_title | Required | Title                                                                                                                         |
+|                pt\_msg | Required | Message                                                                                                                       |
+|                pt\_dl1 | Required | Deep Link                                                                                                                     |
+|                 pt\_bg | Required | Background Color in HEX                                                                                                       |
+|   pt\_timer\_threshold | Required | Timer duration in seconds (minimum 10)                                                                                        |
+|         pt\_title\_alt | Optional | Title to show after timer expires                                                                                             |
+|           pt\_msg\_alt | Optional | Message to show after timer expires                                                                                           |
+|           pt\_subtitle | Optional | Subtitle                                                                                                                      |
+|       pt\_msg\_summary | Optional | Message line when Notification is expanded                                                                                    |
+|           pt\_big\_img | Optional | Image                                                                                                                         |
+|      pt\_big\_img\_alt | Optional | Image to show when timer expires                                                                                              |
+| pt\_chrono\_title\_clr | Optional | Color for timer text in HEX                                                                                                   |
+|         pt\_timer\_end | Optional | Epoch Timestamp to countdown to (for example, $D\_1595871380 or 1595871380). Not needed if pt\_timer\_threshold is specified. |
+|         pt\_title\_clr | Optional | Title Color in HEX                                                                                                            |
+|           pt\_msg\_clr | Optional | Message Color in HEX                                                                                                          |
+|   pt\_small\_icon\_clr | Optional | Small Icon Color in HEX                                                                                                       |
+|               pt\_json | Optional | Above keys in JSON format                                                                                                     |
 
 ### Zero Bezel Template
 
 | Zero Bezel Template Keys | Required | Description                                      |
 | -----------------------: | :------: | :----------------------------------------------- |
-|                    pt_id | Required | Value - `pt_zero_bezel`                          |
-|                 pt_title | Required | Title                                            |
-|                   pt_msg | Required | Message                                          |
-|               pt_big_img | Required | Image                                            |
-|           pt_msg_summary | Optional | Message line when Notification is expanded       |
-|              pt_subtitle | Optional | Subtitle                                         |
-|            pt_small_view | Optional | Select text-only small view layout (`text_only`) |
-|                   pt_dl1 | Optional | Deep Link                                        |
-|             pt_title_clr | Optional | Title Color in HEX                               |
-|               pt_msg_clr | Optional | Message Color in HEX                             |
-|        pt_small_icon_clr | Optional | Small Icon Color in HEX                          |
-|                   pt_ico | Optional | Large Icon                                       |
-|                  pt_json | Optional | Above keys in JSON format                        |
+|                   pt\_id | Required | Value - `pt_zero_bezel`                          |
+|                pt\_title | Required | Title                                            |
+|                  pt\_msg | Required | Message                                          |
+|             pt\_big\_img | Required | Image                                            |
+|         pt\_msg\_summary | Optional | Message line when Notification is expanded       |
+|             pt\_subtitle | Optional | Subtitle                                         |
+|          pt\_small\_view | Optional | Select text-only small view layout (`text_only`) |
+|                  pt\_dl1 | Optional | Deep Link                                        |
+|           pt\_title\_clr | Optional | Title Color in HEX                               |
+|             pt\_msg\_clr | Optional | Message Color in HEX                             |
+|     pt\_small\_icon\_clr | Optional | Small Icon Color in HEX                          |
+|                  pt\_ico | Optional | Large Icon                                       |
+|                 pt\_json | Optional | Above keys in JSON format                        |
 
 ### Input Box Template
 
-|                 Input Box Template Keys | Required | Description                                   |
-| --------------------------------------: | :------: | :-------------------------------------------- |
-|                                   pt_id | Required | Value - `pt_input`                            |
-|                                pt_title | Required | Title                                         |
-|                                  pt_msg | Required | Message                                       |
-|                              pt_big_img | Required | Image                                         |
-|                          pt_input_label | Required | Label text to be shown on the input           |
-|                       pt_input_feedback | Required | Feedback                                      |
-|                                  pt_dl1 | Required | Deep Link                                     |
-|                          pt_msg_summary | Optional | Message line when Notification is expanded    |
-|                             pt_subtitle | Optional | Subtitle                                      |
-|                          pt_big_img_alt | Optional | Image to be shown after feedback is collected |
-|                           pt_event_name | Optional | Name of Event to be raised                    |
-| pt\_event\_property\_\<property_name_1> | Optional | Value for event property \<property_name_1>   |
-| pt\_event\_property\_\<property_name_2> | Optional | Value for event property \<property_name_2>   |
-| pt\_event\_property\_\<property_name_n> | Optional | Value for event property \<property_name_n>   |
-|                      pt_input_auto_open | Optional | Auto open the app after feedback              |
-|                            pt_title_clr | Optional | Title Color in HEX                            |
-|                              pt_msg_clr | Optional | Message Color in HEX                          |
-|                       pt_small_icon_clr | Optional | Small Icon Color in HEX                       |
-|                                  pt_ico | Optional | Large Icon                                    |
-|                     pt_dismiss_on_click | Optional | Dismiss notification on click                 |
-|                                 pt_json | Optional | Above keys in JSON format                     |
+|                   Input Box Template Keys | Required | Description                                   |
+| ----------------------------------------: | :------: | :-------------------------------------------- |
+|                                    pt\_id | Required | Value - `pt_input`                            |
+|                                 pt\_title | Required | Title                                         |
+|                                   pt\_msg | Required | Message                                       |
+|                              pt\_big\_img | Required | Image                                         |
+|                          pt\_input\_label | Required | Label text to be shown on the input           |
+|                       pt\_input\_feedback | Required | Feedback                                      |
+|                                   pt\_dl1 | Required | Deep Link                                     |
+|                          pt\_msg\_summary | Optional | Message line when Notification is expanded    |
+|                              pt\_subtitle | Optional | Subtitle                                      |
+|                         pt\_big\_img\_alt | Optional | Image to be shown after feedback is collected |
+|                           pt\_event\_name | Optional | Name of Event to be raised                    |
+| pt\_event\_property\_\<property\_name\_1> | Optional | Value for event property \<property\_name\_1> |
+| pt\_event\_property\_\<property\_name\_2> | Optional | Value for event property \<property\_name\_2> |
+| pt\_event\_property\_\<property\_name\_n> | Optional | Value for event property \<property\_name\_n> |
+|                     pt\_input\_auto\_open | Optional | Auto open the app after feedback              |
+|                            pt\_title\_clr | Optional | Title Color in HEX                            |
+|                              pt\_msg\_clr | Optional | Message Color in HEX                          |
+|                      pt\_small\_icon\_clr | Optional | Small Icon Color in HEX                       |
+|                                   pt\_ico | Optional | Large Icon                                    |
+|                    pt\_dismiss\_on\_click | Optional | Dismiss notification on click                 |
+|                                  pt\_json | Optional | Above keys in JSON format                     |
 
 > 📘 Note
-> 
+>
 > `pt_title` and `pt_msg` in all the templates support HTML elements like bold `<b>`, italics `<i>` and underline `<u>`
 
 # Developer Notes
 
-- Using images of 3 MB or lower is recommended for better performance under Android 11.
-- A silent notification channel with importance: `HIGH` is created every time on an interaction with the Rating, Manual Carousel, and Product Catalog templates with a silent sound file. This prevents the notification sound from playing when the notification is re-rendered.
-- The silent notification channel is deleted whenever the notification is dismissed or clicked.
-- For Android 11 and Android 12, please use images that are less than 100kb else notifications will not be rendered as advertised.
-- Due to Android 12 trampoline restrictions, the Input Box template with auto open of deep link feature will fall back to simply raising the event for a reply.
+* Using images of 3 MB or lower is recommended for better performance under Android 11.
+* A silent notification channel with importance: `HIGH` is created every time on an interaction with the Rating, Manual Carousel, and Product Catalog templates with a silent sound file. This prevents the notification sound from playing when the notification is re-rendered.
+* The silent notification channel is deleted whenever the notification is dismissed or clicked.
+* For Android 11 and Android 12, please use images that are less than 100kb else notifications will not be rendered as advertised.
+* Due to Android 12 trampoline restrictions, the Input Box template with auto open of deep link feature will fall back to simply raising the event for a reply.
 
 ## Image Specifications
 
 > 📘 Template Rendering
-> 
+>
 > The templates render differently depending on the device and the version of the operating system.
 
 The following are the image specifications for the Push Templates:
@@ -835,13 +586,13 @@ The following are the image specifications for the Push Templates:
 
 ### Additional Guidelines
 
-- **Auto and Manual Carousel**: Images must not exceed 850x425 pixels for Android 11 and Android 12 devices and must have a 2:1 aspect ratio.
-- **Auto and Manual Carousel**: Images must not exceed 400x200 pixels for Android 13+ devices.
-- **Five Icons**: Images must not exceed 300x300 pixels for Android 13+ devices.
-- **Zero Bezel**: If the image contains text, it must be centered for optimal display on Android 12+ devices.
-- **Product Catalog**: Images must have a 1:1 aspect ratio and a file size of 80 KB or less. Images must not exceed 450x450 pixels for Android 13+ devices.
-- **Recommendation for Android 12+ Devices**: Ensure any text within images is centered for better visibility.
-- **Recommendation for Android 13+ Devices**: Ensure images must not exceed 450x450 px for optimal rendering.
+* **Auto and Manual Carousel**: Images must not exceed 850x425 pixels for Android 11 and Android 12 devices and must have a 2:1 aspect ratio.
+* **Auto and Manual Carousel**: Images must not exceed 400x200 pixels for Android 13+ devices.
+* **Five Icons**: Images must not exceed 300x300 pixels for Android 13+ devices.
+* **Zero Bezel**: If the image contains text, it must be centered for optimal display on Android 12+ devices.
+* **Product Catalog**: Images must have a 1:1 aspect ratio and a file size of 80 KB or less. Images must not exceed 450x450 pixels for Android 13+ devices.
+* **Recommendation for Android 12+ Devices**: Ensure any text within images is centered for better visibility.
+* **Recommendation for Android 13+ Devices**: Ensure images must not exceed 450x450 px for optimal rendering.
 
 ## Android 12 Trampoline restrictions
 
