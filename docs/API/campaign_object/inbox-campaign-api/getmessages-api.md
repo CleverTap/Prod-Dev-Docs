@@ -442,35 +442,74 @@ request(options, function (error, response) {
 
 # Example Response
 
-<Tabs>
-  <Tab title="Simple Message Template">
-    ```json
+```json Simple Message Template
+{
+  "status": "success",
+  "totalAvailableMessages": 1,
+  "messages": [
     {
-      "status": "success",
-      "totalAvailableMessages": 1,
-      "messages": [
-        {
-          "wzrk_id": "1707198495_20240206",
-          "wzrk_pivot": "wzrk_default",
-          "isRead": false,
-          "messageId": 1,
-          "createdAt": 1707198495,
-          "msg": {
-            "type": "simple",
-            "content": [
-              {
-                "key": 8716500285,
-                "message": {
-                  "text": "Message",
-                  "color": "#434761"
+      "wzrk_id": "1707198495_20240206",
+      "wzrk_pivot": "wzrk_default",
+      "isRead": false,
+      "messageId": 1,
+      "createdAt": 1707198495,
+      "msg": {
+        "type": "simple",
+        "content": [
+          {
+            "key": 8716500285,
+            "message": {
+              "text": "Message",
+              "color": "#434761"
+            },
+            "title": {
+              "text": "Title",
+              "color": "#434761"
+            },
+            "action": {
+              "hasUrl": true,
+              "hasLinks": true,
+              "url": {
+                "android": {
+                  "text": "https://www.androidurl.com"
                 },
-                "title": {
-                  "text": "Title",
-                  "color": "#434761"
+                "ios": {
+                  "text": "https://www.iosurl.com"
                 },
-                "action": {
-                  "hasUrl": true,
-                  "hasLinks": true,
+                "web": {
+                  "text": "https://www.weburl.com"
+                }
+              },
+              "links": [
+                {
+                  "type": "copy",
+                  "text": "CopyToClipboard",
+                  "color": "#007bff",
+                  "bg": "#ffffff",
+                  "copyText": {
+                    "text": "Copy Text"
+                  },
+                  "url": {
+                    "android": {
+                      "text": ""
+                    },
+                    "ios": {
+                      "text": ""
+                    },
+                    "web": {
+                      "text": ""
+                    }
+                  },
+                  "kv": {}
+                },
+                {
+                  "type": "url",
+                  "text": "OpenUrl",
+                  "color": "#007bff",
+                  "bg": "#ffffff",
+                  "copyText": {
+                    "text": ""
+                  },
                   "url": {
                     "android": {
                       "text": "https://www.androidurl.com"
@@ -482,143 +521,99 @@ request(options, function (error, response) {
                       "text": "https://www.weburl.com"
                     }
                   },
-                  "links": [
-                    {
-                      "type": "copy",
-                      "text": "CopyToClipboard",
-                      "color": "#007bff",
-                      "bg": "#ffffff",
-                      "copyText": {
-                        "text": "Copy Text"
-                      },
-                      "url": {
-                        "android": {
-                          "text": ""
-                        },
-                        "ios": {
-                          "text": ""
-                        },
-                        "web": {
-                          "text": ""
-                        }
-                      },
-                      "kv": {}
+                  "kv": {}
+                },
+                {
+                  "type": "kv",
+                  "text": "Custom KV",
+                  "color": "#007bff",
+                  "bg": "#ffffff",
+                  "copyText": {
+                    "text": ""
+                  },
+                  "url": {
+                    "android": {
+                      "text": ""
                     },
-                    {
-                      "type": "url",
-                      "text": "OpenUrl",
-                      "color": "#007bff",
-                      "bg": "#ffffff",
-                      "copyText": {
-                        "text": ""
-                      },
-                      "url": {
-                        "android": {
-                          "text": "https://www.androidurl.com"
-                        },
-                        "ios": {
-                          "text": "https://www.iosurl.com"
-                        },
-                        "web": {
-                          "text": "https://www.weburl.com"
-                        }
-                      },
-                      "kv": {}
-                    },
-                    {
-                      "type": "kv",
-                      "text": "Custom KV",
-                      "color": "#007bff",
-                      "bg": "#ffffff",
-                      "copyText": {
-                        "text": ""
-                      },
-                      "url": {
-                        "android": {
-                          "text": ""
-                        },
-                        "ios": {
-                          "text": ""
-                        }
-                      },
-                      "kv": {
-                        "k1": "v1",
-                        "k2": "v2"
-                      }
+                    "ios": {
+                      "text": ""
                     }
-                  ]
-                },
-                "media": {
-                  "url": "https://www.resorceurl.com",
-                  "poster": "",
-                  "key": "b20ea1c782944ee094b950248decffd5",
-                  "content_type": "image/jpeg",
-                  "filename": "",
-                  "processing": false
-                },
-                "icon": {}
-              }
-            ],
-            "bg": "#ffffff",
-            "orientation": "l",
-            "tags": [
-              "Test"
-            ],
-            "enableTags": true,
-            "custom_kv": {
-              "android": [
-                {
-                  "key": "all1",
-                  "value": {
-                    "text": "vall1"
-                  }
-                },
-                {
-                  "key": "android1",
-                  "value": {
-                    "text": "v4"
-                  }
-                }
-              ],
-              "ios": [
-                {
-                  "key": "all1",
-                  "value": {
-                    "text": "vall1"
-                  }
-                },
-                {
-                  "key": "ios1",
-                  "value": {
-                    "text": "v4"
-                  }
-                }
-              ],
-              "web": [
-                {
-                  "key": "all1",
-                  "value": {
-                    "text": "vall1"
-                  }
-                },
-                {
-                  "key": "web1",
-                  "value": {
-                    "text": "v4"
+                  },
+                  "kv": {
+                    "k1": "v1",
+                    "k2": "v2"
                   }
                 }
               ]
-            }
+            },
+            "media": {
+              "url": "https://www.resorceurl.com",
+              "poster": "",
+              "key": "b20ea1c782944ee094b950248decffd5",
+              "content_type": "image/jpeg",
+              "filename": "",
+              "processing": false
+            },
+            "icon": {}
           }
+        ],
+        "bg": "#ffffff",
+        "orientation": "l",
+        "tags": [
+          "Test"
+        ],
+        "enableTags": true,
+        "custom_kv": {
+          "android": [
+            {
+              "key": "all1",
+              "value": {
+                "text": "vall1"
+              }
+            },
+            {
+              "key": "android1",
+              "value": {
+                "text": "v4"
+              }
+            }
+          ],
+          "ios": [
+            {
+              "key": "all1",
+              "value": {
+                "text": "vall1"
+              }
+            },
+            {
+              "key": "ios1",
+              "value": {
+                "text": "v4"
+              }
+            }
+          ],
+          "web": [
+            {
+              "key": "all1",
+              "value": {
+                "text": "vall1"
+              }
+            },
+            {
+              "key": "web1",
+              "value": {
+                "text": "v4"
+              }
+            }
+          ]
         }
-      ]
+      }
     }
-    ```
-  </Tab>
-
-  <Tab title="Message With Icon Template">
-    ```json
-    {
+  ]
+}
+```
+```json Message With Icon Template
+{
       "status": "success",
       "totalAvailableMessages": 1,
       "messages": [
@@ -796,12 +791,9 @@ request(options, function (error, response) {
         }
       ]
     }
-    ```
-  </Tab>
-
-  <Tab title="Carousel Message Template">
-    ```json
-    {
+```
+```json
+{
       "status": "success",
       "totalAvailableMessages": 1,
       "messages": [
@@ -985,12 +977,9 @@ request(options, function (error, response) {
         }
       ]
     }
-    ```
-  </Tab>
-
-  <Tab title="Image Only Carousel Template">
-    ```json
-    {
+```
+```json Image Only Carousel Template
+{
       "status": "success",
       "totalAvailableMessages": 1,
       "messages": [
@@ -1174,9 +1163,7 @@ request(options, function (error, response) {
         }
       ]
     }
-    ```
-  </Tab>
-</Tabs>
+```
 
 If there is an error in fetching the messages, you receive the following response:
 
