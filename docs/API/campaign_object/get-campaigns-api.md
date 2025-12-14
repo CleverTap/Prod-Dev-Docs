@@ -14,20 +14,20 @@ next:
 
 The Get Campaigns API returns a list of campaigns (created via the CleverTap dashboard or API) scheduled within the specified date range.
 
-- Provides campaign IDs, names, scheduled start times, and status.
-- Use the returned `id` with the [Get Campaign Report API](doc:get-campaign-report-api) to fetch detailed metrics.
+* Provides campaign IDs, names, scheduled start times, and status.
+* Use the returned `id` with the [Get Campaign Report API](doc:get-campaign-report-api) to fetch detailed metrics.
 
 > 📘 Use Cases
-> 
-> - Retrieve all campaigns scheduled in a given date range.
-> - Automate reporting pipelines for active campaigns.
-> - Monitor campaign scheduling and delivery readiness.
-> - Integrate with dashboards to track upcoming campaigns.
+>
+> * Retrieve all campaigns scheduled in a given date range.
+> * Automate reporting pipelines for active campaigns.
+> * Monitor campaign scheduling and delivery readiness.
+> * Integrate with dashboards to track upcoming campaigns.
 
 # Base URL
 
-Use the following endpoint for the India region (replace with your region as required):  
-<https://in1.api.clevertap.com/1/targets/list.json>
+Use the following endpoint for the India region (replace with your region as required):\
+[https://in1.api.clevertap.com/1/targets/list.json](https://in1.api.clevertap.com/1/targets/list.json)
 
 Refer to [Region](https://developer.clevertap.com/docs/common-api-components#region) for the full list of endpoints by region.
 
@@ -192,9 +192,9 @@ The following is the list of response parameters:
 | `status`       | Current campaign status. Possible values: `scheduled`, `pending`, `running`, `paused`, `stopped`, `completed`. | String  |
 
 > 📘 Date/Time Formats
-> 
-> - **Request** (`from`, `to`): `YYYYMMDD` (e.g., `20250403`)
-> - **Response** (`scheduled_on`): `YYYYMMDDHHMM` (e.g., `202504031544` -  April 3, 2025, 15:44 local time)
+>
+> * **Request** (`from`, `to`): `YYYYMMDD` (e.g., `20250403`)
+> * **Response** (`scheduled_on`): `YYYYMMDDHHMM` (e.g., `202504031544` -  April 3, 2025, 15:44 local time)
 
 # Error Codes
 
@@ -210,11 +210,11 @@ The following is the list of error codes:
 | **500**     | `internal_error`      | Unexpected error occurred on the server.                                       | `{"status":"fail","error":"Internal server error","code":500}`                                                                                                             |
 
 > 📘 Empty Responses
-> 
+>
 > A valid request may return `"status": "success"` with `"targets": []` if no campaigns are found in the given range.
 
 # Notes
 
-- Query manageable date ranges (≤ 31 days) to optimize performance.
-- Use campaign `id` with **Get Campaign Report API** for detailed metrics.
-- Rate limits apply. For details, see [API Request Limit](doc:api-request-limit).
+* Query manageable date ranges (≤ 31 days) to optimize performance.
+* Use campaign `id` with **Get Campaign Report API** for detailed metrics.
+* Rate limits apply. For details, see [API Request Limit](doc:api-request-limit).
