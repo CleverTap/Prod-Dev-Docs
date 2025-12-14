@@ -39,11 +39,11 @@ npx expo install @clevertap/clevertap-expo-plugin
 ```
 
 > 🚧 Credentials and Access
-> 
+>
 > The **CleverTap Account ID** and **CleverTap Token** appear as **Project ID** and **Project Token** on the CleverTap dashboard.
-> 
-> To view these, go to the CleverTap dashboard, then navigate to _Settings_ > _Project_.
-> 
+>
+> To view these, go to the CleverTap dashboard, then navigate to *Settings* > *Project*.
+>
 > Only users with Admin access can view the Passcode and Project Token. Member and Creator roles do not have permission to access these credentials.
 
 #### Add Region Code
@@ -141,8 +141,8 @@ The CleverTap Expo plugin supports a wide range of configuration options to cust
 
 Configure platform-specific settings to enable features such as push notifications, In-App messaging, and App Inbox.
 
-- [Android Specific Configuration](doc:expo-plugin-quick-start-guide#android-specific-configuration)
-- [iOS Specific Configuration](doc:expo-plugin-quick-start-guide#ios-specific-configuration)
+* [Android Specific Configuration](doc:expo-plugin-quick-start-guide#android-specific-configuration)
+* [iOS Specific Configuration](doc:expo-plugin-quick-start-guide#ios-specific-configuration)
 
 ### Prebuild your application
 
@@ -230,9 +230,9 @@ Add the following permissions to `app.json` to enable CleverTap's core functiona
 
 The following Android permissions are required for CleverTap to function properly in your Expo app:
 
-- `ACCESS_NETWORK_STATE` – Allows CleverTap to check network connectivity before sending data.
-- `INTERNET` – Enables CleverTap to communicate with servers for data exchange.
-- `POST_NOTIFICATIONS` – Required for **Android 13+** devices to display push notifications. 
+* `ACCESS_NETWORK_STATE` – Allows CleverTap to check network connectivity before sending data.
+* `INTERNET` – Enables CleverTap to communicate with servers for data exchange.
+* `POST_NOTIFICATIONS` – Required for **Android 13+** devices to display push notifications. 
 
 ### Additional Android Configuration for Push Notifications (Optional)
 
