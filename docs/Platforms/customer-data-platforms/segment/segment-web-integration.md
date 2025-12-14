@@ -12,19 +12,19 @@ next:
 ---
 # Overview
 
-Segment Web integration allows you to push your website data to CleverTap through Segment.  
+Segment Web integration allows you to push your website data to CleverTap through Segment.\
 With this integration, you can:
 
-- Push User Profiles
-- Push Events
-- Integrate Push Notifications
+* Push User Profiles
+* Push Events
+* Integrate Push Notifications
 
 # Prerequisites
 
 The following are the prerequisites for this integration:
 
-- A CleverTap account
-- A Segment account
+* A CleverTap account
+* A Segment account
 
 # Integration
 
@@ -39,57 +39,31 @@ Destinations are the business tools or applications to which Segment forwards yo
 
 To add CleverTap details in Segment:
 
-1. Go to _Destinations_ from the Segment dashboard.
-2. Click _Add Destination_ and select _CleverTap_.
-3. Click **Configure CleverTap** from the _Destination Catalog/CleverTap_ page.
+1. Go to *Destinations* from the Segment dashboard.
+2. Click *Add Destination* and select *CleverTap*.
+3. Click **Configure CleverTap** from the *Destination Catalog/CleverTap* page.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/8b60c1c-2023-02-01_13-15-02.png",
-        "Configure CleverTap on Segment Dashboard",
-        2306
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Configure CleverTap on Segment Dashboard"
-    }
-  ]
-}
-[/block]
+<Image title="Configure CleverTap on Segment Dashboard" alt={2306} align="center" border={true} src="https://files.readme.io/8b60c1c-2023-02-01_13-15-02.png">
+  Configure CleverTap on Segment Dashboard
+</Image>
 
-4. Add CleverTap _Account ID_ and _Account Token_, which you can find on the CleverTap Dashboard under _Settings_ page.
-5. Select the appropriate region from the _Region_ dropdown. To identify the region of your CleverTap account, refer to the following table:
+4. Add CleverTap *Account ID* and *Account Token*, which you can find on the CleverTap Dashboard under *Settings* page.
+5. Select the appropriate region from the *Region* dropdown. To identify the region of your CleverTap account, refer to the following table:
 
 | CleverTap Dashboard URL                                                                              | Region            |
 | :--------------------------------------------------------------------------------------------------- | :---------------- |
-| <https://in1.dashboard.clevertap.com/login.html#/>                                                   | IN                |
-| <https://sg1.dashboard.clevertap.com/login.html#/>                                                   | SG                |
-| <https://us1.dashboard.clevertap.com/login.html#/>                                                   | US                |
-| <https://eu1.dashboard.clevertap.com/login.html#/>                                                   | None              |
+| [https://in1.dashboard.clevertap.com/login.html#/](https://in1.dashboard.clevertap.com/login.html#/) | IN                |
+| [https://sg1.dashboard.clevertap.com/login.html#/](https://sg1.dashboard.clevertap.com/login.html#/) | SG                |
+| [https://us1.dashboard.clevertap.com/login.html#/](https://us1.dashboard.clevertap.com/login.html#/) | US                |
+| [https://eu1.dashboard.clevertap.com/login.html#/](https://eu1.dashboard.clevertap.com/login.html#/) | None              |
 | [https://aps3.dashboard.clevertap.com/login.html](https://aps3.dashboard.clevertap.com/login.html#/) | Indonesia         |
 | [https://mec1.dashboard.clevertap.com/login.html](https://mec1.dashboard.clevertap.com/login.html#/) | Middle East (UAE) |
 
-6. Turn on the toggle at the top of the _Settings_ page to enable the destination.
+6. Turn on the toggle at the top of the *Settings* page to enable the destination.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/47d0d6d-2023-01-09_13-19-22.png",
-        "Enable Web Settings",
-        2354
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Enable Web Settings"
-    }
-  ]
-}
-[/block]
+<Image title="Enable Web Settings" alt={2354} align="center" border={true} src="https://files.readme.io/47d0d6d-2023-01-09_13-19-22.png">
+  Enable Web Settings
+</Image>
 
 For more information about creating the source in the Segment dashboard, refer to [Create a Source](https://segment.com/docs/connections/sources/catalog/libraries/website/javascript/quickstart/#step-1-create-a-source-in-the-segment-app) under Segment documentation.
 
@@ -220,14 +194,12 @@ To integrate Segment Web SDK, add the following code snippet into the `<head>` t
 </script>
 ```
 
-
-
 | Parameter        | Description                                                                                                                                                      |
 | :--------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `YOUR_WRITE_KEY` | From the Segment dashboard, navigate to _Connections > Sources_. Select the source and then navigate to _Settings_ > _API Keys_ to find the _Write Key_ details. |
+| `YOUR_WRITE_KEY` | From the Segment dashboard, navigate to *Connections > Sources*. Select the source and then navigate to *Settings* > *API Keys* to find the *Write Key* details. |
 
 > 📘 NPM Package
-> 
+>
 > You can add Segment to your project as an [NPM package](https://www.npmjs.com/package/@segment/snippet). For more information, refer to the instructions under [Adding Segment as an NPM Package](https://github.com/segmentio/analytics-next#-using-as-an-npm-package).
 
 # Push User Information
@@ -235,7 +207,7 @@ To integrate Segment Web SDK, add the following code snippet into the `<head>` t
 To learn more about how user information is pushed to the Segment dashboard, refer to [Identify Users](https://segment.com/docs/connections/sources/catalog/libraries/website/javascript/quickstart/#step-3-identify-users) under Segment documentation.
 
 > 📘 Update User Property to CleverTap
-> 
+>
 > To update any user property to CleverTap, pass the same user identity given during the user login/sign-up.
 
 # Push Events
