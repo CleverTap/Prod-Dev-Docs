@@ -18,16 +18,16 @@ App Inbox provides the ability to send permanent content directly to your app fr
 
 # App Inbox
 
-- The CleverTap SDK 3.4.0 and above, allows you to create App Inbox notifications for your users. 
-- You can use the App Inbox provided by CleverTap or create your own
-- You can design App Inbox notifications right from the dashboard
+* The CleverTap SDK 3.4.0 and above, allows you to create App Inbox notifications for your users. 
+* You can use the App Inbox provided by CleverTap or create your own
+* You can design App Inbox notifications right from the dashboard
 
 Note that it is not applicable for tvOS and watchOS apps.
 
 ## Step 1: Integrating the CleverTap App Inbox
 
-- You have to import the CleverTap Inbox Header
-- Initialize the CleverTap App Inbox Method
+* You have to import the CleverTap Inbox Header
+* Initialize the CleverTap App Inbox Method
 
 ```swift Swift
 import CleverTapSDK
@@ -52,8 +52,8 @@ CleverTap.sharedInstance()?.initializeInbox(callback: ({ (success) in
 
 ## Step 2: Configure App Inbox Styling
 
-- By default, App Inbox styling will be CleverTap's default colors and font
-- You can choose to change the styling as shown below
+* By default, App Inbox styling will be CleverTap's default colors and font
+* You can choose to change the styling as shown below
 
 ```swift
 // config the style of App Inbox Controller
@@ -95,7 +95,7 @@ newInboxViewControllerWithConfig:style andDelegate:self];
 
 ## Step 3: Creating your own App Inbox
 
-- You can choose to create your own App Inbox by calling the following APIs:
+* You can choose to create your own App Inbox by calling the following APIs:
 
 ```swift Public APIs: Swift
 //Initialize App Inbox
@@ -229,9 +229,9 @@ func recordInboxNotificationClickedEventForID(messageId: String) {
 
 Let's understand the types of buttons first that App Inbox supports:
 
-- **URL button**: fires the deeplink with the associated URL.
-- **Copy button**: copies the associated text to the clipboard
-- **KV button**: contains the custom kev-value pair for custom handling
+* **URL button**: fires the deeplink with the associated URL.
+* **Copy button**: copies the associated text to the clipboard
+* **KV button**: contains the custom kev-value pair for custom handling
 
 The CleverTap iOS SDK supports `messageDidSelect` callback on the click of an App Inbox item, such as text or media. It also supports the button click besides the item click.
 
@@ -275,9 +275,9 @@ func messageDidSelect(_ message: CleverTapInboxMessage, at index: Int32, withBut
 ```
 
 > 📘 Payload sent via`CleverTap.CleverTapInboxMessageTapped`
-> 
-> The `message` parameter represents the entire App Inbox Item object.  
-> The `contentPageIndex` parameter corresponds to the page index of the content, which ranges from 0 to n-1 (where n is the total number of pages for carousel templates). The non-carousel templates always have a value of 0, because they have only one page of content.  
+>
+> The `message` parameter represents the entire App Inbox Item object.\
+> The `contentPageIndex` parameter corresponds to the page index of the content, which ranges from 0 to n-1 (where n is the total number of pages for carousel templates). The non-carousel templates always have a value of 0, because they have only one page of content.\
 > The `buttonIndex` parameter corresponds to the App Inbox button (0, 1, or 2), that is clicked. A value of -1 in `buttonIndex` field indicates the entire App Inbox Item is clicked.
 
 iOS SDK v3.7.1 and above supports callback on the click of App Inbox Notification Buttons by returning a map of Key-Value pairs. Use the following method:
