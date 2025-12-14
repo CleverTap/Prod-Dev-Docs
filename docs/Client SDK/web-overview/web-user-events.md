@@ -14,14 +14,14 @@ next:
 
 A user event is an action a user takes on your website. CleverTap records the event on the user profile using an event name and optional associated key:value-based event properties. You can then segment users, target, and personalize messaging based on the event name and specific event properties.
 
-An example of recording a _Product Viewed_ user event is shown as follows:
+An example of recording a *Product Viewed* user event is shown as follows:
 
 ```Text web
 // event without properties
 clevertap.event.push("Product viewed");
 ```
 
-To record a list of items viewed, use the Items collection. Along with the product name, you can also add properties like size, color, category etc.  An example of recording a _Product Viewed_ user event with properties is shown as follows:
+To record a list of items viewed, use the Items collection. Along with the product name, you can also add properties like size, color, category etc.  An example of recording a *Product Viewed* user event with properties is shown as follows:
 
 ```Text web
 // event with properties
@@ -94,10 +94,10 @@ You can personalize the message for customers who purchase multiple items in a s
 
 ### Advantages of the Charged Event
 
-- Helps you identify your customers and how they are using your app or website
-- Run campaigns to reward loyal users or get lost customers back
-- Measure customer loyalty via running a cohort analysis on repeat purchases
-- Analyze paid campaign performance by total revenue earned
-- Get revenue insights like – total revenue, number of transactions, count of paying users and much more
+* Helps you identify your customers and how they are using your app or website
+* Run campaigns to reward loyal users or get lost customers back
+* Measure customer loyalty via running a cohort analysis on repeat purchases
+* Analyze paid campaign performance by total revenue earned
+* Get revenue insights like – total revenue, number of transactions, count of paying users and much more
 
 For a complete guide to recording events, refer to [Events](https://developer.clevertap.com/docs/events).
