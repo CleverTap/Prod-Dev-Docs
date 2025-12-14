@@ -1167,4 +1167,14 @@ request(options, function (error, response) {
 
 If there is an error in fetching the messages, you receive the following response:
 
+```
+{
+
+    "status": "fail",
+    "error": "<error description>",
+    "code": "<error code>"
+
+}
+```
+
 For more information about different errors you might encounter, refer to [Inbox API Errors](doc:inbox-api-errors).
