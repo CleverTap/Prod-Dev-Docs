@@ -120,8 +120,8 @@ CleverTapPlugin.setLocation(lat, long);
 
 You can opt-out of a user or a phone number. 
 
-- To opt-out of a specific user when multiple users share the same phone number,  you can disable SMS for a particular user. Set the `MSG-sms` flag to false, and the specified user stops receiving SMS. However, all other users sharing the number continue to receive messages if they have not opted out.   
-- To opt out of a phone number and all the associated users, set the `MSG-dndPhone` flag to true.
+* To opt-out of a specific user when multiple users share the same phone number,  you can disable SMS for a particular user. Set the `MSG-sms` flag to false, and the specified user stops receiving SMS. However, all other users sharing the number continue to receive messages if they have not opted out.   
+* To opt out of a phone number and all the associated users, set the `MSG-dndPhone` flag to true.
 
 Refer to [User Profile API Endpoints](doc:user-profile-object) for complete user profile documentation.
 
@@ -129,7 +129,7 @@ Refer to [User Profile API Endpoints](doc:user-profile-object) for complete user
 
 You can opt out of a user or an email address.  
 
-- To opt-out of a specific user when multiple users share the same email address,  you can disable email for a particular user. Set the `MSG-email` flag to false, and the specified user stops receiving email. However, all other users sharing the email address continue to receive messages if they have not opted out.  
-- To opt-out of an email and all its associated users, set the `MSG-dndEmail` flag to true.
+* To opt-out of a specific user when multiple users share the same email address,  you can disable email for a particular user. Set the `MSG-email` flag to false, and the specified user stops receiving email. However, all other users sharing the email address continue to receive messages if they have not opted out.  
+* To opt-out of an email and all its associated users, set the `MSG-dndEmail` flag to true.
 
 Refer to [User Profile API Endpoints](doc:user-profile-object) for complete user profile documentation.
