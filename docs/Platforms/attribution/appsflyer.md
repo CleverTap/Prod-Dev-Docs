@@ -14,8 +14,8 @@ next:
 
 [Appsflyer](https://www.appsflyer.com/) is a mobile marketing analytics and attribution platform that powers predictable app growth and delivers an exceptional mobile experience. This document provides information about integrating Appsflyer and CleverTap. This integration helps track the following information from Appsflyer: 
 
-- **Install events**: These events can be organic install events and inorganic install events.
-- **Custom events**: These events can include any events (other than install events) that are provided by the attribution partner and tracked in the app. The **in-app events** are tracked for Appsflyer.
+* **Install events**: These events can be organic install events and inorganic install events.
+* **Custom events**: These events can include any events (other than install events) that are provided by the attribution partner and tracked in the app. The **in-app events** are tracked for Appsflyer.
 
 To learn more about these events and their default attribution settings in CleverTap dashboard, refer to [Types of Data](https://docs.clevertap.com/docs/attribution#types-of-data).
 
@@ -31,37 +31,22 @@ To enable Appsflyer integration with the CleverTap dashboard, proceed as follows
 
 To activate integration with CleverTap from the Appsflyer dashboard, follow the steps listed under [CleverTap integration with Appsflyer](https://support.appsflyer.com/hc/en-us/articles/360001299165-CleverTap-integration-with-AppsFlyer) in Appsflyer documentation.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/9bcd108-AppsFlyer_Dashboard.png",
-        "Add CleverTap Credentials to Appsflyer Dashboard",
-        2246
-      ],
-      "align": "center",
-      "sizing": "% ",
-      "border": true,
-      "caption": "Add CleverTap Credentials to Appsflyer Dashboard"
-    }
-  ]
-}
-[/block]
-
+<Image title="Add CleverTap Credentials to Appsflyer Dashboard" alt={2246} align="center" width="% " border={true} src="https://files.readme.io/9bcd108-AppsFlyer_Dashboard.png">
+  Add CleverTap Credentials to Appsflyer Dashboard
+</Image>
 
 > 📘 Region
-> 
+>
 > In the above figure, enter the region of your CleverTap account. The following table helps identify the region of your account:
 
-| Dashboard URL                                      | Region |
-| :------------------------------------------------- | :----- |
-| <https://eu1.dashboard.clevertap.com/login.html#/> | EU1    |
-| <https://in1.dashboard.clevertap.com/login.html#/> | IN1    |
-| <https://us1.dashboard.clevertap.com/login.html#>  | US1    |
-| <https://sg1.dashboard.clevertap.com/login.html#/> | SG1    |
-| <https://aps3.dashboard.clevertap.com/login.html>  | ID     |
-| <https://mec1.dashboard.clevertap.com/login.html>  | mec1   |
+| Dashboard URL                                                                                        | Region |
+| :--------------------------------------------------------------------------------------------------- | :----- |
+| [https://eu1.dashboard.clevertap.com/login.html#/](https://eu1.dashboard.clevertap.com/login.html#/) | EU1    |
+| [https://in1.dashboard.clevertap.com/login.html#/](https://in1.dashboard.clevertap.com/login.html#/) | IN1    |
+| [https://us1.dashboard.clevertap.com/login.html#](https://us1.dashboard.clevertap.com/login.html#)   | US1    |
+| [https://sg1.dashboard.clevertap.com/login.html#/](https://sg1.dashboard.clevertap.com/login.html#/) | SG1    |
+| [https://aps3.dashboard.clevertap.com/login.html](https://aps3.dashboard.clevertap.com/login.html)   | ID     |
+| [https://mec1.dashboard.clevertap.com/login.html](https://mec1.dashboard.clevertap.com/login.html)   | mec1   |
 
 ## Integrate AppsFlyer
 
@@ -72,7 +57,7 @@ The integration steps vary for every app. The steps for every app are listed in 
 1. To track attribution and events data in your Android app, perform the steps listed in [Appsflyer Android SDK Integration Guide](https://dev.appsflyer.com/hc/docs/integrate-android-sdk).
 2. In your Android app code, add the following code.
 
-#### _For SDK version 4.2.0 and Above_
+#### *For SDK version 4.2.0 and Above*
 
 ##### Set the Customer ID
 
@@ -99,7 +84,7 @@ cleverTapInstance?.getCleverTapID {
 Let's say the customer is already using `setCustomerUserId` to send the identity of the user to AppsFlyer. So now, if you want to send the CleverTap ID, you can use the `setAdditionaldata` method instead of the `setCustomerUserId`.
 
 > 📘 Note
-> 
+>
 > The `setAdditionaldata` method always takes priority over `setCustomerUserId`.
 
 ```java
@@ -195,7 +180,7 @@ CleverTapPlugin.getCleverTapID().then((clevertapId) {
 Let's say the customer is already using `setCustomerUserId` to send the identity of the user to AppsFlyer. So now, if you want to send the CleverTap ID, you can use the `setAdditionaldata` method instead of the `setCustomerUserId`.
 
 > 📘 Note
-> 
+>
 > The `setAdditionaldata` method always takes priority over `setCustomerUserId`.
 
 ```c Dart
@@ -213,101 +198,44 @@ To set up delay SDK initialization for `customerUserID` in Android and iOS apps,
 
 After successful integration, Appsflyer starts pushing inorganic install events data to CleverTap. To receive in-app events (custom events) in CleverTap from Appsflyer, proceed as follows: 
 
-1. Navigate to _Settings_ > _Partners_ and scroll down to the _Attribution partners_ section.
+1. Navigate to *Settings* > *Partners* and scroll down to the *Attribution partners* section.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/f56bdb4-Navigate_to_Partners_page.png",
-        "CleverTap Attribution Partners List",
-        2868
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "CleverTap Attribution Partners"
-    }
-  ]
-}
-[/block]
+<Image title="CleverTap Attribution Partners List" alt={2868} align="center" border={true} src="https://files.readme.io/f56bdb4-Navigate_to_Partners_page.png">
+  CleverTap Attribution Partners
+</Image>
 
+2. Click the ![](https://files.readme.io/1e348ca-Edit_icon.png) icon against the *Appsflyer* partner.\
+   On clicking, *Attribution partner - Appsflyer* popup appears on the right side of the screen.
 
-2. Click the ![](https://files.readme.io/1e348ca-Edit_icon.png) icon against the _Appsflyer_ partner.  
-   On clicking, _Attribution partner - Appsflyer_ popup appears on the right side of the screen.
-
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/48681e7-Attribution_partner_-_AppsFlyer.png",
-        "Attribution Partner - AppsFlyer",
-        2384
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Attribution Partner - Appsflyer"
-    }
-  ]
-}
-[/block]
-
+<Image title="Attribution Partner - AppsFlyer" alt={2384} align="center" border={true} src="https://files.readme.io/48681e7-Attribution_partner_-_AppsFlyer.png">
+  Attribution Partner - Appsflyer
+</Image>
 
 3. Select the required option from the options below. Selecting any of these options indicates that the CleverTap accepts event data when shared by the partner.
-   - Custom events
-   - Organic install events
+   * Custom events
+   * Organic install events
 
 > 🚧 Duplication of Events
-> 
-> If you select _Organic install events_ for more than one attribution partner, a warning for duplication of events displays, as shown in the following figure. We strongly recommend tracking the organic install events from only one attribution partner.
+>
+> If you select *Organic install events* for more than one attribution partner, a warning for duplication of events displays, as shown in the following figure. We strongly recommend tracking the organic install events from only one attribution partner.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/72b3f33-Duplication_of_events.png",
-        "Duplication of Events",
-        1122
-      ],
-      "align": "center",
-      "sizing": "70% ",
-      "border": true,
-      "caption": "Duplication of Events"
-    }
-  ]
-}
-[/block]
+<Image title="Duplication of Events" alt={1122} align="center" width="70% " border={true} src="https://files.readme.io/72b3f33-Duplication_of_events.png">
+  Duplication of Events
+</Image>
 
-
-4. Click **Save**. On clicking, the following message displays at the top of the screen: _Changes saved. Admins are notified of this via email_. 
+4. Click **Save**. On clicking, the following message displays at the top of the screen: *Changes saved. Admins are notified of this via email*. 
 
 # Viewing Data in Dashboard
 
 You can now view the event data on the CleverTap dashboard. To do so, proceed as follows:
 
-1. From the CleverTap dashboard, go to _Analytics > Events_.
+1. From the CleverTap dashboard, go to *Analytics > Events*.
 2. Apply the required filters for the selected event. The filters vary depending on the type of event.
 
-- **For Install Events**: All the install events are tracked under the _UTM Visited_ event.
+* **For Install Events**: All the install events are tracked under the *UTM Visited* event.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/9878672-Events_Filters_AF.png",
-        "Install Events Filter",
-        1688
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Install Events Filter"
-    }
-  ]
-}
-[/block]
+<Image title="Install Events Filter" alt={1688} align="center" border={true} src="https://files.readme.io/9878672-Events_Filters_AF.png">
+  Install Events Filter
+</Image>
 
-
-- **For Custom Events**: In-app revenue events received from Appsflyer are prefixed with **AF** in CleverTap.
+* **For Custom Events**: In-app revenue events received from Appsflyer are prefixed with **AF** in CleverTap.
