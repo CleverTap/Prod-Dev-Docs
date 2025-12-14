@@ -3572,10 +3572,34 @@ request(options, callback);
 ## Example Response - Target User Events & Properties
 
 A successful response will return information about the created campaign, including a campaign ID and estimated reach.
+```json
+{
+  "status": "success",
+  "estimates": {
+    "web": 2
+  }
+}
+```
 
 ## Example Request - Event Occurrence
 
 You can target users based on specific event occurrences within a date range.
+```json
+{
+    "advanced_query": {
+        "did_all": [
+            {
+                "event_name": "App Launched",
+                "from": 20200101,
+                "to": 20200218,
+                "operator": "greater_than_equals",
+                "value": 5,
+            }
+        ]
+    }
+}
+
+```
 
 # Create Campaign API - Target Users by their Identities
 
@@ -4868,6 +4892,8 @@ Following is the JSON payload for WhatsApp interactive message templates:
           "1"
         ]
       },
+// No need to mention footers info in API payload
+            // Requirements are required only if you want to send custom payloads in the quick reply button. ds
       "buttons": [
         {
           "replacements": [
@@ -4880,7 +4906,6 @@ Following is the JSON payload for WhatsApp interactive message templates:
   }
 }
 ```
-
 ```json Location
 {
     "to": {
