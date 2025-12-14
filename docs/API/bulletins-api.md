@@ -16,8 +16,8 @@ The Bulletins API enables you to create a bulletin after triggering a business e
 
 # Base URL
 
-Here is an example base URL from the account in the India region:  
-<https://in1.api.clevertap.com/1/targets/trigger.json>
+Here is an example base URL from the account in the India region:\
+[https://in1.api.clevertap.com/1/targets/trigger.json](https://in1.api.clevertap.com/1/targets/trigger.json)
 
 ## Region
 
@@ -54,7 +54,7 @@ Event keys are limited to 120 characters, and property values are limited to 512
 | `when`           | Time of the event. Can be `"now"` or a UNIX timestamp. | string | Yes      | `"now"` or `1724123456`                                                      |
 
 > 🚧 Note
-> 
+>
 > CleverTap only supports **String** data type for mapped property values.
 
 # Example Payload
@@ -77,7 +77,7 @@ The following example shows how to structure the request body when raising a Bul
 
 # Example Request
 
-Here are the example requests to the _Bulletins_ API showing the headers needed to authenticate the request from the account in the India region:
+Here are the example requests to the *Bulletins* API showing the headers needed to authenticate the request from the account in the India region:
 
 ```curl
 curl -X POST \
