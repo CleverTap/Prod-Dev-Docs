@@ -17,15 +17,15 @@ Use this API to create or update user profiles in CleverTap. With this API, you 
 Uploading user profiles to CleverTap requires a POST request with a JSON payload specifying the user profile information. A maximum of 1000 user profile records can be sent per API call. 
 
 > 📘 Concurrent Requests
-> 
-> Concurrent requests to the _Upload User Profiles_ API are limited to 15 per account. Requests that exceed the limit will return a 429 HTTP response code.
+>
+> Concurrent requests to the *Upload User Profiles* API are limited to 15 per account. Requests that exceed the limit will return a 429 HTTP response code.
 
 For more information on request limit, refer to [API Request Limit](doc:api-request-limit).
 
 ## Base URL
 
-Here is an example base URL for an account in the India region:  
-<https://in1.api.clevertap.com/1/upload>
+Here is an example base URL for an account in the India region:\
+[https://in1.api.clevertap.com/1/upload](https://in1.api.clevertap.com/1/upload)
 
 ### Region
 
@@ -49,52 +49,157 @@ User profile attribute keys are limited to 120 bytes, and their values are limit
 
 For each user profile, a user identifier is required. This is the key that CleverTap uses to find the user whose profile needs to be updated. You have to set a value for one of these parameters to identify the user: identity, FBID, GPID, or objectId. A new user profile will be created if this identity is not found. 
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Parameter",
-    "h-1": "Description",
-    "h-2": "Type",
-    "h-3": "Example Value",
-    "h-4": "Required/Optional",
-    "0-0": "type",
-    "0-1": "Set to profile.",
-    "0-2": "string",
-    "0-3": "“profile”",
-    "0-4": "Required",
-    "1-0": "profileData",
-    "1-1": "User profile properties. Passed as key/value pairs.  \nprofileData[“Phone”] should be formatted as +[country code][phone number].",
-    "1-2": "object",
-    "1-3": "\"profileData\": {  \n        \"Name\": \"Jack Montana\",  \n        \"Email\": \"[jack@gmail.com](mailto:jack@gmail.com)\",  \n        \"Phone\": \"+14155551234\",  \n        \"Gender\": \"M\",  \n        \"Employed\": \"Y\",  \n        \"Education\": \"Graduate\",  \n        \"Married\": \"Y\",  \n        \"MSG-sms\": false,  \n        \"Customer Type\": \"Platinum\"  \n  }",
-    "1-4": "Required",
-    "2-0": "identity",
-    "2-1": "Identity to recognize a unique user. It can be the user’s email, a phone number, or any other identifier that you are using to tag your users.  \nYou have to set a value for one of these parameters to identify the user: identity, FBID, GPID, or objectId.",
-    "2-2": "string",
-    "2-3": "“[jack@gmail.com](mailto:jack@gmail.com)”",
-    "2-4": "Optional",
-    "3-0": "FBID",
-    "3-1": "Identify a unique user by Facebook ID.  \nYou have to set a value for one of these parameters to identify the user: identity, FBID, GPID, or objectId.",
-    "3-2": "string",
-    "3-3": "“34322423\"",
-    "3-4": "Optional",
-    "4-0": "objectId",
-    "4-1": "Identify a unique user by CleverTap Global Object ID.  \nYou have to set a value for one of these parameters to identify the user: identity, FBID, GPID, or objectId.",
-    "4-2": "string",
-    "4-3": "“34322425\"",
-    "4-4": "Optional"
-  },
-  "cols": 5,
-  "rows": 5,
-  "align": [
-    "left",
-    "left",
-    "left",
-    "left",
-    "left"
-  ]
-}
-[/block]
+<Table align={["left","left","left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Parameter
+      </th>
 
+      <th>
+        Description
+      </th>
+
+      <th>
+        Type
+      </th>
+
+      <th>
+        Example Value
+      </th>
+
+      <th>
+        Required/Optional
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        type
+      </td>
+
+      <td>
+        Set to profile.
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        “profile”
+      </td>
+
+      <td>
+        Required
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        profileData
+      </td>
+
+      <td>
+        User profile properties. Passed as key/value pairs.\
+        profileData[“Phone”] should be formatted as +[country code][phone number].
+      </td>
+
+      <td>
+        object
+      </td>
+
+      <td>
+        "profileData": \{\
+                "Name": "Jack Montana",\
+                "Email": "[jack@gmail.com](mailto:jack@gmail.com)",\
+                "Phone": "+14155551234",\
+                "Gender": "M",\
+                "Employed": "Y",\
+                "Education": "Graduate",\
+                "Married": "Y",\
+                "MSG-sms": false,\
+                "Customer Type": "Platinum"\
+          }
+      </td>
+
+      <td>
+        Required
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        identity
+      </td>
+
+      <td>
+        Identity to recognize a unique user. It can be the user’s email, a phone number, or any other identifier that you are using to tag your users.\
+        You have to set a value for one of these parameters to identify the user: identity, FBID, GPID, or objectId.
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        “[jack@gmail.com](mailto:jack@gmail.com)”
+      </td>
+
+      <td>
+        Optional
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        FBID
+      </td>
+
+      <td>
+        Identify a unique user by Facebook ID.\
+        You have to set a value for one of these parameters to identify the user: identity, FBID, GPID, or objectId.
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        “34322423"
+      </td>
+
+      <td>
+        Optional
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        objectId
+      </td>
+
+      <td>
+        Identify a unique user by CleverTap Global Object ID.\
+        You have to set a value for one of these parameters to identify the user: identity, FBID, GPID, or objectId.
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        “34322425"
+      </td>
+
+      <td>
+        Optional
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 Here is an example JSON payload.
 
@@ -137,12 +242,12 @@ Here is an example JSON payload.
 ```
 
 > 📘 Note
-> 
+>
 > The property must have an existing value to increment or decrement a numerical user property. If the property does not exist or if the value is NULL, please pass the property key or add the value before using the incr or decr operator.
 
 ## Example Request
 
-Here are the sample requests to the _Upload User Profiles_ API showing the headers needed to authenticate the request from the account in the India region:
+Here are the sample requests to the *Upload User Profiles* API showing the headers needed to authenticate the request from the account in the India region:
 
 ```curl
 curl -X POST -d '{"d":[{"objectId":"25b08803c1af4e00839f530264dac6f8","type":"profile","profileData":{"Name": "Jack Test"}}]}' "https://in1.api.clevertap.com/1/upload" \
