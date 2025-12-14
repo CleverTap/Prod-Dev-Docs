@@ -3,12 +3,12 @@ title: markMessagesAsRead API
 excerpt: Learn how to update the status of an Inbox message using API.
 deprecated: false
 hidden: true
+link:
+  new_tab: false
 metadata:
   title: ''
   description: ''
   robots: index
-next:
-  description: ''
 ---
 # Overview
 
@@ -32,148 +32,6 @@ POST
 
 The API headers are used while processing the API request. The below headers are required when you use CleverTap APIs:
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 The `X-CleverTap-Account-Id` and `X-CleverTap-Passcode` authenticate the request.
 
 | Header                 | Description                                                 | Type   | Example Value                         |
@@ -186,159 +44,18 @@ The `X-CleverTap-Account-Id` and `X-CleverTap-Passcode` authenticate the request
 
 The following are the body parameters included in the JSON response payload:
 
-
-<Table align={["left","left","left","left"]}>
-  <thead>
-    <tr>
-      <th>
-        Parameter
-      </th>
-
-      <th>
-        Description
-      </th>
-
-      <th>
-        Type
-      </th>
-
-      <th>
-        Example Value
-      </th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr>
-      <td>
-        userId
-      </td>
-
-      <td>
-        Uniquely identifies the user.
-      </td>
-
-      <td>
-        string
-      </td>
-
-      <td>
-        [test@stockx.com](mailto:test@stockx.com)
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        message
-      </td>
-
-      <td>
-        Contains a list of messages read by the user. For each user, it consists of the following information: `messageId`, `wzrk_id`, and `wzrk_pivot` values. The maximum number of messages for a user can be 50.
-      </td>
-
-      <td>
-        array
-      </td>
-
-      <td>
-        {"{"}  
-          "userId": "[test@stockx.com](mailto:test@stockx.com) ",  
-          "messages": [  
-            {  
-              "messageId": 2,  
-              "isRead": true,  
-              "wzrk_pivot": "wzrk_default",  
-              "wzrk_id": "1713204790_20240415"  
-            },  
-            {  
-              "messageId": 3,  
-              "isRead": false,  
-              "wzrk_pivot": "wzrk_default",  
-              "wzrk_id": "1713204981_20240415"  
-            }  
-          ]  
-        {"}"}
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        messageID
-      </td>
-
-      <td>
-        Uniquely identifies the message that must be marked as read for the user.
-      </td>
-
-      <td>
-        numeric
-      </td>
-
-      <td>
-        1
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        wzrk\_id
-      </td>
-
-      <td>
-        Indicates the internal key to identify the campaign. This parameter is required to generate click events.
-      </td>
-
-      <td>
-        string
-      </td>
-
-      <td>
-        12345679\_20240130
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        wzrk\_pivot
-      </td>
-
-      <td>
-        Indicates the internal key to identify the campaign variants. This parameter is required to generate click events.
-      </td>
-
-      <td>
-        string
-      </td>
-
-      <td>
-        wzrk\_default\
-        (when the default variant is rolled out to the user)
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        isRead
-      </td>
-
-      <td>
-        Indicates if the message is read.
-      </td>
-
-      <td>
-        string
-      </td>
-
-      <td>
-        true
-      </td>
-    </tr>
-  </tbody>
-</Table>
+| Parameter | Description | Type | Example Value |
+| :-------- | :---------- | :--- | :------------ |
+| userId | Uniquely identifies the user. | string | test@stockx.com |
+| message | Contains a list of messages read by the user. For each user, it consists of the following information: `messageId`, `wzrk_id`, and `wzrk_pivot` values. The maximum number of messages for a user can be 50. | array | See example request below |
+| messageID | Uniquely identifies the message that must be marked as read for the user. | numeric | 1 |
+| wzrk\_id | Indicates the internal key to identify the campaign. This parameter is required to generate click events. | string | 12345679\_20240130 |
+| wzrk\_pivot | Indicates the internal key to identify the campaign variants. This parameter is required to generate click events. | string | wzrk\_default (when the default variant is rolled out to the user) |
+| isRead | Indicates if the message is read. | string | true |
 
 # Example Request
-Here is an example cURL request to the markMessagesAsRead API showing the headers needed to authenticate the request from the account in the India region:
 
+Here is an example cURL request to the markMessagesAsRead API showing the headers needed to authenticate the request from the account in the India region:
 
 ```curl
 curl --location --request POST 'https://in1.api.clevertap.com/1/inbox/markMessagesAsRead' \
@@ -363,6 +80,7 @@ curl --location --request POST 'https://in1.api.clevertap.com/1/inbox/markMessag
   ]
 }'
 ```
+
 ```ruby
 require "uri"
 require "json"
@@ -397,6 +115,7 @@ request.body = JSON.dump({
 response = http.request(request)
 puts response.read_body
 ```
+
 ```python
 import requests
 import json
@@ -431,6 +150,7 @@ response = requests.request("POST", url, headers=headers, data=payload)
 
 print(response.text)
 ```
+
 ```php
 <?php
 
@@ -475,6 +195,7 @@ $response = curl_exec($curl);
 curl_close($curl);
 echo $response;
 ```
+
 ```node
 var request = require('request');
 var options = {
@@ -511,148 +232,23 @@ request(options, function (error, response) {
 });
 ```
 
-
 # Example Response
 
 The following response is received when the request is processed successfully:
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+```json
+{
+  "status": "success"
+}
+```
 
 If there is an error in processing the request, the following response is received:
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+```json
+{
+  "status": "fail",
+  "error": "Error message describing what went wrong"
+}
+```
 
 For more information about different errors you might encounter, refer to [Inbox API Errors](doc:inbox-api-errors).
