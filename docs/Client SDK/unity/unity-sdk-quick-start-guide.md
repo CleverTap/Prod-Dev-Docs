@@ -18,52 +18,24 @@ This section shows how to install the CleverTap SDK, track your first user event
 
 To install the SDK:
 
-1. Import the `CleverTapUnityPlugin.unitypackage` into your Unity Project (_Assets_ >  _Import Package_ > _Custom Package_) or manually copy `Plugin/CleverTapUnity`, `Plugin/PlayServicesResolver` and `Plugin/Plugins/Android` (or copy the files in `Plugin/Plugins/Android` to your existing Assets > Plugins > Android\` directory) into the Assets directory of your Unity Project.
+1. Import the `CleverTapUnityPlugin.unitypackage` into your Unity Project (*Assets* >  *Import Package* > *Custom Package*) or manually copy `Plugin/CleverTapUnity`, `Plugin/PlayServicesResolver` and `Plugin/Plugins/Android` (or copy the files in `Plugin/Plugins/Android` to your existing Assets > Plugins > Android\` directory) into the Assets directory of your Unity Project.
 2. Create an empty game object (GameObject > Create Empty) and rename it as `CleverTapUnity`. Add `Assets/CleverTapUnity/CleverTapUnity-Scripts/CleverTapUnity.cs` as a component of the `CleverTapUnity GameObject`.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/f9829e4-ct-ios-idfv.png",
-        "Sample(CleverTapUnity) Game Object",
-        2880
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Create a Sample(CleverTapUnity) Game Object"
-    }
-  ]
-}
-[/block]
+<Image title="Sample(CleverTapUnity) Game Object" alt={2880} align="center" border={true} src="https://files.readme.io/f9829e4-ct-ios-idfv.png">
+  Create a Sample(CleverTapUnity) Game Object
+</Image>
 
+3. Select the `CleverTapUnity GameObject` that you created in the *Hierarchy* pane and add your CleverTap settings inside the *Inspector* window. You must include your `CleverTap Account ID` and `CleverTap Account Token` from the [*Settings*](https://dashboard.clevertap.com/x/settings.html) page.
 
-3. Select the `CleverTapUnity GameObject` that you created in the _Hierarchy_ pane and add your CleverTap settings inside the _Inspector_ window. You must include your `CleverTap Account ID` and `CleverTap Account Token` from the [_Settings_](https://dashboard.clevertap.com/x/settings.html) page.
-
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/48b3b93-227.png",
-        "Add CleverTap Account and Preferences",
-        1449
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Add CleverTap Account and Preferences"
-    }
-  ]
-}
-[/block]
-
+<Image title="Add CleverTap Account and Preferences" alt={1449} align="center" border={true} src="https://files.readme.io/48b3b93-227.png">
+  Add CleverTap Account and Preferences
+</Image>
 
 4. Edit `Assets/CleverTapUnity/CleverTapUnity-Scripts/CleverTapUnity.cs` to add your calls to the CleverTap SDK.  See usage examples in [example/CleverTapUnity.cs](https://github.com/CleverTap/clevertap-unity-sdk/blob/master/example/CleverTapUnity.cs). For more information, refer to the [Developer Guide](https://developer.clevertap.com/docs).
 
 > 📘 IDFV Usage for CleverTap ID
-> 
-> Starting from CleverTap Unity SDK 2.1.2, you can optionally disable the usage of IDFV for CleverTap ID by selecting CLEVERTAP_DISABLE_IDFV. We recommend this for apps that send data from different iOS apps to a common CleverTap account. By default, the CLEVERTAP_DISABLE_IDFV checkbox is cleared.
+>
+> Starting from CleverTap Unity SDK 2.1.2, you can optionally disable the usage of IDFV for CleverTap ID by selecting CLEVERTAP\_DISABLE\_IDFV. We recommend this for apps that send data from different iOS apps to a common CleverTap account. By default, the CLEVERTAP\_DISABLE\_IDFV checkbox is cleared.
 
 ### Add Region Code
 
@@ -73,43 +45,15 @@ To know how to add region code in Unity SDK, refer to [Region Codes.](doc:idc#un
 
 1. To enable Push Notifications, ensure to add the Push Notifications capability to your Xcode project.  
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/56c0242-unity2.jpg",
-        "Enable Push Notifications",
-        1748
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Enable Push Notifications"
-    }
-  ]
-}
-[/block]
+<Image title="Enable Push Notifications" alt={1748} align="center" border={true} src="https://files.readme.io/56c0242-unity2.jpg">
+  Enable Push Notifications
+</Image>
 
+2. Add a run script to your build phases. In Xcode, go to your *Targets*, under your app’s name, select *Build Phases* after embed frameworks, add a run script phase, and set it to use `/bin/sh` and the [iOS script](https://github.com/CleverTap/clevertap-unity-sdk/blob/master/Plugin/CleverTapUnity/iOS/strip.sh):
 
-2. Add a run script to your build phases. In Xcode, go to your _Targets_, under your app’s name, select _Build Phases_ after embed frameworks, add a run script phase, and set it to use `/bin/sh` and the [iOS script](https://github.com/CleverTap/clevertap-unity-sdk/blob/master/Plugin/CleverTapUnity/iOS/strip.sh):
-
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/ad68118-ct_script_ios.jpg",
-        "Add a Run Script",
-        2554
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Add a Run Script"
-    }
-  ]
-}
-[/block]
-
+<Image title="Add a Run Script" alt={2554} align="center" border={true} src="https://files.readme.io/ad68118-ct_script_ios.jpg">
+  Add a Run Script
+</Image>
 
 The script scans your built application’s `Frameworks` folder and strips the unnecessary simulator architectures from the `CleverTakSDK.framework` prior to archiving/submitting the app store.
 
@@ -118,21 +62,21 @@ The script scans your built application’s `Frameworks` folder and strips the u
 # Android Specific Instructions
 
 > 📘 Steps for Android X Dependencies
-> 
+>
 > Perform these additional steps only if you are using Android X dependencies. 
-> 
-> 1. Go to _File_ > _Build Settings_ >  _Android_ > _Player Settings_ > _Publishing Settings_ > _Build_. 
+>
+> 1. Go to *File* > *Build Settings* >  *Android* > *Player Settings* > *Publishing Settings* > *Build*. 
 > 2. Ensure the `Custom Gradle Template` option is selected.
-> 3. Go to _Assets_ > _Play Services Resolver_ > _Android Resolver_ > _Settings_. 
+> 3. Go to *Assets* > *Play Services Resolver* > *Android Resolver* > *Settings*. 
 > 4. Ensure that `Use Jetifier` and `Patch mainTemplate.gradle` options are selected.
 
 1. To enable Push Notifications, add the Firebase Unity SDK to your app. For more information, refer to [Firebase Unity Setup Docs](https://firebase.google.com/docs/unity/setup).
 
 > 📘 Note
-> 
+>
 > The Firebase Unity SDK may override your `AndroidManifest.xml` file. If that happens, revert to your original manifest file.
 
-2. Run _Assets_ > _Play Services Resolver_ > _Android Resolver_ > _Resolve Client Jars_ from the Unity menu bar to install the required google play services and android support library dependencies.
+2. Run *Assets* > *Play Services Resolver* > *Android Resolver* > *Resolve Client Jars* from the Unity menu bar to install the required google play services and android support library dependencies.
 3. Edit the `AndroidManifest.xml` file in `Assets/Plugins/Android` to add your Bundle Identifier, FCM Sender ID, CleverTap Account Id, CleverTap Token, and Deep Link URL scheme (if applicable):
 
 ```xml
