@@ -10,11 +10,8 @@ metadata:
 next:
   description: ''
 ---
-[block:api-header]
-{
-  "title": "Overview"
-}
-[/block]
+## Overview
+
 Using CleverTap’s [APIs](doc:api-overview) you can import important historical data that you have collected in your own internal systems or from other analytical/engagement tools you might have been using previously.
 
 # Uploading User Profiles
@@ -30,7 +27,8 @@ Once user profiles have been uploaded into CleverTap, you can add events to thes
 Check out our API Documentation on [uploading user events](doc:upload-events-api).
 
 # Tips
-  * Always upload a sample set of data in your Test Account to ensure that data is consistent. Information once accepted by your production account can never be altered or deleted, your test account on the other hand can be reset
-  * First upload profiles and then upload events against those profiles.
-  * While uploading events, ensure you upload them oldest information to the latest information
-  * Only data that comes in with a timestamp that occurred in the last 365 days will show up in the CleverTap Dashboard
+
+* Always upload a sample set of data in your Test Account to ensure that data is consistent. Information once accepted by your production account can never be altered or deleted, your test account on the other hand can be reset
+* First upload profiles and then upload events against those profiles.
+* While uploading events, ensure you upload them oldest information to the latest information
+* Only data that comes in with a timestamp that occurred in the last 365 days will show up in the CleverTap Dashboard
