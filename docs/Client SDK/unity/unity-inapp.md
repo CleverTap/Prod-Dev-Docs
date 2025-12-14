@@ -16,9 +16,9 @@ In-App notifications are contextual pop-ups shown while users are actively using
 
 This section outlines the key implementation areas to help you integrate and control CleverTap In-App notifications effectively:
 
-- [In-App Notification Callback](doc:unity-inapp#in-app-notification-callback)
-- [In-App Notification Controls](doc:unity-inapp#in-app-notification-controls)
-- [Header and Footer for Android](doc:unity-inapp#header-and-footer-in-apps-for-android)
+* [In-App Notification Callback](doc:unity-inapp#in-app-notification-callback)
+* [In-App Notification Controls](doc:unity-inapp#in-app-notification-controls)
+* [Header and Footer for Android](doc:unity-inapp#header-and-footer-in-apps-for-android)
 
 ## In-App Notification Callback
 
@@ -88,26 +88,11 @@ To support these notifications, you can export your Unity project and modify the
 
 To enable header and footer In-Apps in your Unity Android app, follow these steps:
 
-1. In the Unity Editor, go to _File_ >_Build Settings_, select the Android platform, and check the Export Project option. Click **Export**.
+1. In the Unity Editor, go to *File* >*Build Settings*, select the Android platform, and check the Export Project option. Click **Export**.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/f6e5759fd7b42d99f0756d71ac47da3f970bb178f1a2b1050bea83bcc29e031e-image.png",
-        null,
-        "Exporting Unity project for Android Studio"
-      ],
-      "align": "center",
-      "sizing": "75% ",
-      "border": true,
-      "caption": "Exporting Unity project for Android Studio"
-    }
-  ]
-}
-[/block]
-
+<Image alt="Exporting Unity project for Android Studio" align="center" width="75% " border={true} src="https://files.readme.io/f6e5759fd7b42d99f0756d71ac47da3f970bb178f1a2b1050bea83bcc29e031e-image.png">
+  Exporting Unity project for Android Studio
+</Image>
 
 2. Open the exported project in Android Studio and locate the `UnityPlayerActivity.java` file.
 3. Update the class to extend `FragmentActivity` instead of `Activity`, and add the required import:
