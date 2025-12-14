@@ -13,9 +13,10 @@ next:
 CleverTap enables you to integrate app analytics and marketing. 
 
 Our platform helps you increase user engagement in three ways: 
-  * You can track actions users are taking in your app to analyze how people use your product. 
-  * You can segment users based on their actions and run targeted campaigns to these segments. 
-  * You can analyze each of your campaigns to understand their impact on user engagement and your business metrics.
+
+* You can track actions users are taking in your app to analyze how people use your product. 
+* You can segment users based on their actions and run targeted campaigns to these segments. 
+* You can analyze each of your campaigns to understand their impact on user engagement and your business metrics.
 
 # Platform Features
 
@@ -53,8 +54,8 @@ To close this loop, the marketer can measure the impact of that campaign to see 
 
 The best place to get started with CleverTap is our quickstart guides, which will show you how to install our SDK and see a user event in the CleverTap dashboard in less than 10 minutes.
 
-** [iOS Quickstart Guide](doc:ios-quickstart-guide) **
+**[iOS Quickstart Guide](doc:ios-quickstart-guide)**
 
-** [Android Quickstart Guide](doc:android-quickstart-guide)  **
+**[Android Quickstart Guide](doc:android-quickstart-guide)**
 
-** [Web Quickstart Guide](doc:web-quickstart-guide) **
+**[Web Quickstart Guide](doc:web-quickstart-guide)**
