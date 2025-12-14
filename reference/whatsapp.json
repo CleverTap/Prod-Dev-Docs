@@ -1,0 +1,1 @@
+{"openapi":"3.0.0","info":{"title":"Whatsapp","version":"1.0.0"},"servers":[{"url":"https://sk1-staging-3.wzrkt.com"}],"paths":{"/nexmo/response/W8W-897-865Z":{"get":{"tags":["default"],"summary":"whatsapp request","responses":{"200":{"description":"Successful response","content":{"application/json":{}}}}}}},"x-readme":{"explorer-enabled":true,"proxy-enabled":true}}
