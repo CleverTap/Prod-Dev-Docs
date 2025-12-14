@@ -12,23 +12,9 @@ next:
 ---
 Xiaomi Corporation made a significant announcement recently, notifying users about discontinuing the Mi Push service beyond Mainland China due to operational concerns. You might have already received communication regarding this matter. Refer to the following image:
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/216611a-Discontinuation_Message.png",
-        "",
-        "Mi Push Service Discontinuation Notification"
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Xiaomi Push Service Discontinuation Notification"
-    }
-  ]
-}
-[/block]
-
+<Image alt="Mi Push Service Discontinuation Notification" align="center" border={true} src="https://files.readme.io/216611a-Discontinuation_Message.png">
+  Xiaomi Push Service Discontinuation Notification
+</Image>
 
 Read the official announcement from the Xiaomi Corporation [here](https://dev.mi.com/distribute/doc/details?pId=1555).
 
@@ -46,23 +32,9 @@ You can still use the CleverTap Push and Rendermax<sup>TM</sup> to send push not
 
 Starting from Android SDK version v6.1.1, CleverTap will discontinue the support for Mi Push. As a result, CleverTap will remove all the existing credentials and also the provision to set up these credentials from the CleverTap dashboard.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/403a8ce-image.png",
-        null,
-        "Mi Push Settings"
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Mi Push Settings"
-    }
-  ]
-}
-[/block]
-
+<Image alt="Mi Push Settings" align="center" border={true} src="https://files.readme.io/403a8ce-image.png">
+  Mi Push Settings
+</Image>
 
 # When Does CleverTap Plan to Implement the Changes?
 
@@ -84,22 +56,22 @@ Upgrade your app to CleverTap Android SDK v6.1.1 and above and promptly remove t
    ```
 3. Delete the[ Xiaomi Push Library](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/corev5.2.0_hmsv1.3.3_xpsv1.5.3) from the libs folder. 
 
-   [block:image]{"images":[{"image":["https://files.readme.io/9c1ca1a-Screenshot_2024-02-22_at_5.58.40_PM.png","",""],"align":"center"}]}[/block]
+   <Image align="center" src="https://files.readme.io/9c1ca1a-Screenshot_2024-02-22_at_5.58.40_PM.png" />
 4. Remove any obfuscation rules related to Xiaomi from the app’s proguard file. 
 
-   [block:image]{"images":[{"image":["https://files.readme.io/c7ee907-Screenshot_2024-02-22_at_6.00.49_PM.png","",""],"align":"center"}]}[/block]
+   <Image align="center" src="https://files.readme.io/c7ee907-Screenshot_2024-02-22_at_6.00.49_PM.png" />
 5. Remove `CLEVERTAP_XIAOMI_APP_KEY` and `"CLEVERTAP_XIAOMI_APP_ID"` meta data from `AndroidManifest.xml` 
 
-   [block:image]{"images":[{"image":["https://files.readme.io/3e7db0a-Screenshot_2024-02-22_at_6.03.49_PM.png","",""],"align":"center"}]}[/block]
+   <Image align="center" src="https://files.readme.io/3e7db0a-Screenshot_2024-02-22_at_6.03.49_PM.png" />
 6. Remove any usage of Xiaomi related API (now deprecated) from ClevertapAPI.java
-   - `CleverTapAPI.changeXiaomiCredentials(String xiaomiAppID, String xiaomiAppKey)`
-   - `CleverTapAPI.enableXiaomiPushOn(PushConstants.XIAOMI_MIUI_DEVICES);`
-   - `CleverTapAPI.pushXiaomiRegistrationId(String regId,@NonNull String region, boolean register);`
-   - `CleverTapAPI.getEnableXiaomiPushOn();`
+   * `CleverTapAPI.changeXiaomiCredentials(String xiaomiAppID, String xiaomiAppKey)`
+   * `CleverTapAPI.enableXiaomiPushOn(PushConstants.XIAOMI_MIUI_DEVICES);`
+   * `CleverTapAPI.pushXiaomiRegistrationId(String regId,@NonNull String region, boolean register);`
+   * `CleverTapAPI.getEnableXiaomiPushOn();`
 7. Remove Manual Configuration of Xiaomi Push **if added**
 
    1. Remove Xiaomi related services, permissions and receivers from the `AndroidManifest.xml`
    2. Remove Xiaomi related code from `MainActivity`
 
-      [block:image]{"images":[{"image":["https://files.readme.io/08add73-Screenshot_2024-02-22_at_6.14.02_PM.png","",""],"align":"center"}]}[/block]
+      <Image align="center" src="https://files.readme.io/08add73-Screenshot_2024-02-22_at_6.14.02_PM.png" />
    3. Delete the custom Xiaomi BroadcastReceiver that extends `PushMessageReceiver`
