@@ -10,11 +10,8 @@ metadata:
 next:
   description: ''
 ---
-[block:api-header]
-{
-  "title": "Overview"
-}
-[/block]
+## Overview
+
 Protecting customer data is always a priority at CleverTap. Our success as a business relies on the security of customer data stored with us.  As a company, we use the CleverTap platform ourselves for user analytics and engagement. This document mentions steps we take to ensure security, privacy, and confidentiality of customer data.
 
 # Inflight Incoming Data Security
@@ -47,7 +44,7 @@ CleverTap uses battle-tested, open-source software to power some parts of its ap
 
 # Data Center Security
 
-Amazon Web Services is our hosting provider. They maintain data­ centers that are fully compliant with a range of certifications that allow finance, healthcare, and government data to be stored in their data­centers. A full list of compliance and more information along with certification is available at https://aws.amazon.com/compliance/.
+Amazon Web Services is our hosting provider. They maintain data­ centers that are fully compliant with a range of certifications that allow finance, healthcare, and government data to be stored in their data­centers. A full list of compliance and more information along with certification is available at [https://aws.amazon.com/compliance/](https://aws.amazon.com/compliance/).
 
 Shared responsibility with Amazon means we focus on application and data security while physical security is managed by them.
 
@@ -59,13 +56,16 @@ The security and confidentiality of your data is core to our success as a busine
 
 # FAQ
 
-##What is TLS version 1.1 and why is it being deprecated? What are the potential implications for my users?
+## What is TLS version 1.1 and why is it being deprecated? What are the potential implications for my users?
+
 TLS 1.0 and TLS 1.1 are out-of-date protocols that do not support modern cryptographic algorithms and can cause security vulnerabilities that may be exploited by attackers. From August 16, 2021, CleverTap will only support TLS version 1.2 and above as it provides enhanced security and improves handshake performance.
 
 In general, most of the devices and web/application servers have already upgraded to the latest TLS 1.2, and do not support TLS 1.1 and below. As a CleverTap customer, you should have almost no visible impact. Based on our analysis, less than 1% of your users might still be on TLS 1.1 and their incoming data will not be accepted by our servers due to the upgrade.
 
 ## What do I need to do at my end to be compliant with this change?
+
 You need to upgrade to TLS version 1.2 or higher if you have not already done it. It takes anywhere from a few hours to a couple of days to implement these changes.
 
 ## Whom can I contact if I have any questions?
+
 If you notice something unusual in your account, please raise a ticket from the CleverTap dashboard.
