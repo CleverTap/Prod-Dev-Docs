@@ -23,13 +23,14 @@ Following are the five steps that will mark the readiness of your application be
 5. [Review and Optimize](https://developer.clevertap.com/docs/go-live-checklist#section-review-and-optimize)
 
 # Plan
-1. Change CleverTap project ID, project token, and passcode with the production project credentials. Navigate to *Organization > Project * to check that you are using the correct project.
+
+1. Change CleverTap project ID, project token, and passcode with the production project credentials. Navigate to *Organization > Project* to check that you are using the correct project.
 2. Having the right set of people on board is essential. Invite your team members to your CleverTap account dashboard from *Settings > Users > Add User*.
 
 # Define
 
 1. Set up *User Identity Management*. CleverTap allows you to identify your users per your requirement. Configure your user identification under *Settings > User Identity*. 
-2. Assign the correct roles. Different team members invited on the CleverTap dashboard will have different access roles and permissions to read/write access. Check that the proper role is assigned to the users. You can manage roles under* Settings > Roles*.
+2. Assign the correct roles. Different team members invited on the CleverTap dashboard will have different access roles and permissions to read/write access. Check that the proper role is assigned to the users. You can manage roles under *Settings > Roles*.
 
 # Integrate and Test
 
@@ -43,6 +44,7 @@ Following are the five steps that will mark the readiness of your application be
 8. Check that the current [CleverTap IP](https://developer.clevertap.com/docs/clevertap-ip-ranges) ranges are allowed. 
 
 # Launch
+
 1. Publish your app on the Playstore/Appstore.
 2. Verify that the app is approved and live for users.
 
@@ -51,21 +53,24 @@ Following are the five steps that will mark the readiness of your application be
 This section of the checklist is meant for the business team members.
 
 ## Review implementation
-1. Upload the app icon by clicking *Settings > Project > Project Avatar *.
-2. Check that *Uninstall Tracking *is enabled on the CleverTap dashboard under *Settings > Uninstall Tracking*.
+
+1. Upload the app icon by clicking *Settings > Project > Project Avatar* .
+2. Check that *Uninstall Tracking* is enabled on the CleverTap dashboard under *Settings > Uninstall Tracking*.
 
 ## Review results of initial use case
 
-1. Monitor the *Today* dashboard and check the *Activity stream *to observe the event counts. 
+1. Monitor the *Today* dashboard and check the *Activity stream* to observe the event counts. 
 2. Open a few profiles to check if the user properties and events are being passed correctly. 
 3. Set up *Custom Analytics* boards to monitor important business metrics. 
-3. Monitor *Mobile app* dashboard for metrics such as MAU, DAU, WAU.
+4. Monitor *Mobile app* dashboard for metrics such as MAU, DAU, WAU.
 
 ## Review campaign results and launch new campaigns
+
 1. Enable daily and weekly campaign reports under *Settings > Setup > Reports*
 2. Set up Journeys and Campaigns.
 
 ## Review and compare overall KPI metrics
+
 1. Create and save a segment of all users that launched the app in the past 30 days.
 2. Prepare a basic 4 step funnel to monitor conversions and dropoffs. 
 3. Pin this funnel on a custom board.
@@ -73,4 +78,5 @@ This section of the checklist is meant for the business team members.
 5. Navigate to *Events dashboard > Trends and Properties* and pin the trend.
 
 ## Identify other areas of improvement
+
 Check if any other custom changes are required.
