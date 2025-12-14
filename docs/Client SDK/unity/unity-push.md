@@ -18,9 +18,9 @@ Push notifications are a critical channel for real-time user engagement. With th
 
 Before implementing push notifications, ensure:
 
-- You have integrated the [CleverTap Unity SDK](doc:unity-sdk-quick-start-guide-sdk-v300).
-- You have set up Firebase Cloud Messaging (FCM) for Android. Refer to the [Firebase Unity Setup Guide](https://firebase.google.com/docs/unity/setup).
-- You have configured Apple Push Notification service (APNs) for iOS.
+* You have integrated the [CleverTap Unity SDK](doc:unity-sdk-quick-start-guide-sdk-v300).
+* You have set up Firebase Cloud Messaging (FCM) for Android. Refer to the [Firebase Unity Setup Guide](https://firebase.google.com/docs/unity/setup).
+* You have configured Apple Push Notification service (APNs) for iOS.
 
 ## Android Setup
 
@@ -102,66 +102,36 @@ A Push Primer explains the need for push notifications for your users and helps 
 
 Push Primer helps with the following:
 
-- Allows you to educate your users on why you are asking for this permission before invoking a system dialog to seek user permission.
-- Acts as a precursor to the complicated system dialog and thus allows you to seek permission multiple times if previously denied, without making your users search the device settings.
+* Allows you to educate your users on why you are asking for this permission before invoking a system dialog to seek user permission.
+* Acts as a precursor to the complicated system dialog and thus allows you to seek permission multiple times if previously denied, without making your users search the device settings.
 
 CleverTap Unity SDK supports push primer for push notifications starting with the v2.4.0 release.
 
 > 📘 iOS and Android Platform Compatibility for Push Primer
-> 
-> - The minimum supported version for the iOS platform is **10.0**.
-> - The minimum supported version for the Android platform is **Android 13**.
+>
+> * The minimum supported version for the iOS platform is **10.0**.
+> * The minimum supported version for the Android platform is **Android 13**.
 
 The following are the two ways to handle the new push notification changes:
 
-- [Push Primer using Half Interstitial Local In-App](doc:unity-push#push-primer-using-half-interstitial-local-in-app): A rich, customizable in-app card with an image, title, message, and action buttons. Ideal for branded onboarding and higher user engagement.
-- [Push Primer using Alert Local In-App](doc:unity-push#push-primer-using-alert-local-in-app): A lightweight, system-style dialog box with a title, message, and buttons. Best suited for quick, unobtrusive permission requests.
+* [Push Primer using Half Interstitial Local In-App](doc:unity-push#push-primer-using-half-interstitial-local-in-app): A rich, customizable in-app card with an image, title, message, and action buttons. Ideal for branded onboarding and higher user engagement.
+* [Push Primer using Alert Local In-App](doc:unity-push#push-primer-using-alert-local-in-app): A lightweight, system-style dialog box with a title, message, and buttons. Best suited for quick, unobtrusive permission requests.
 
 ### Push Primer using Half Interstitial Local In-App
 
 Use this template when you want a visually rich experience ideal for first-time users or branded onboarding flows. Refer to the following images for Push Primer using Half-Interstitial In-App Template:
 
-- **Android** 
+* **Android** 
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/36ac314-Android_1.png",
-        "Push Primer Using Half-Interstitial InApp Template in Android",
-        398
-      ],
-      "align": "center",
-      "sizing": "40% ",
-      "border": true,
-      "caption": "Push Primer Using Half-Interstitial In-App Template in Android"
-    }
-  ]
-}
-[/block]
+<Image title="Push Primer Using Half-Interstitial InApp Template in Android" alt={398} align="center" width="40% " border={true} src="https://files.readme.io/36ac314-Android_1.png">
+  Push Primer Using Half-Interstitial In-App Template in Android
+</Image>
 
+* **iOS**
 
-- **iOS**
-
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/bcc4383-iOS_1.png",
-        "Push Primer Using Half-Interstitial InApp Template in iOS",
-        948
-      ],
-      "align": "center",
-      "sizing": "45% ",
-      "border": true,
-      "caption": "Push Primer Using Half-Interstitial In-App Template in iOS"
-    }
-  ]
-}
-[/block]
-
+<Image title="Push Primer Using Half-Interstitial InApp Template in iOS" alt={948} align="center" width="45% " border={true} src="https://files.readme.io/bcc4383-iOS_1.png">
+  Push Primer Using Half-Interstitial In-App Template in iOS
+</Image>
 
 Add the following code to your `C#` file to create Push Primer using the Half-Interstitial In-App template:
 
@@ -191,47 +161,17 @@ Using this template, you can create a basic push primer notification with a titl
 
 Refer to the following images for Push Primer using the Alert In-App template:
 
-- **Android**
+* **Android**
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/3b9cd6a-Android_2.png",
-        "Push Primer using Alert InApp Template in Android",
-        398
-      ],
-      "align": "center",
-      "sizing": "40% ",
-      "border": true,
-      "caption": "Push Primer using Alert InApp Template in Android"
-    }
-  ]
-}
-[/block]
+<Image title="Push Primer using Alert InApp Template in Android" alt={398} align="center" width="40% " border={true} src="https://files.readme.io/3b9cd6a-Android_2.png">
+  Push Primer using Alert InApp Template in Android
+</Image>
 
+* **iOS**
 
-- **iOS**
-
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/d52aead-iOS_2.png",
-        "Push Primer using Alert InApp Template in iOS",
-        948
-      ],
-      "align": "center",
-      "sizing": "45% ",
-      "border": true,
-      "caption": "Push Primer using Alert InApp Template in iOS"
-    }
-  ]
-}
-[/block]
-
+<Image title="Push Primer using Alert InApp Template in iOS" alt={948} align="center" width="45% " border={true} src="https://files.readme.io/d52aead-iOS_2.png">
+  Push Primer using Alert InApp Template in iOS
+</Image>
 
 Add the following code to your `C#` file to create a Push Primer using the Alert InApp template:
 
@@ -249,8 +189,8 @@ CleverTap.PromptPushPrimer(item);
 
 You can call the push permission dialogue directly without a Push Primer using the `PromptForPushPermission(boolean)` method. It takes a boolean value as a parameter.
 
-- If the value is set to true and permission is denied, then the user is redirected to the app’s notification settings.
-- If the value is set to false, the callback is sent stating that the permission is denied.
+* If the value is set to true and permission is denied, then the user is redirected to the app’s notification settings.
+* If the value is set to false, the callback is sent stating that the permission is denied.
 
 ```csharp
 CleverTap.PromptForPushPermission(false);
@@ -280,21 +220,21 @@ void CleverTapOnPushPermissionResponseCallback(string message) {
 
 Use the following tips to troubleshoot push notification issues across Android and iOS:
 
-- Verify SDK Initialization: Confirm that the CleverTap Unity SDK is correctly integrated and initialized in your app.
-- Check Permission Status: Use `IsPushPermissionGranted()` to verify if push permission is enabled.
-- Log Push Callbacks: Use `Debug.Log()` to trace callback responses like `CleverTapOnPushPermissionResponseCallback`.
+* Verify SDK Initialization: Confirm that the CleverTap Unity SDK is correctly integrated and initialized in your app.
+* Check Permission Status: Use `IsPushPermissionGranted()` to verify if push permission is enabled.
+* Log Push Callbacks: Use `Debug.Log()` to trace callback responses like `CleverTapOnPushPermissionResponseCallback`.
 
 ### Android
 
-- Ensure `google-services.json` is added correctly.
-- Verify `FcmMessageListenerService` is declared in `AndroidManifest.xml`.
-- Check that `CreateNotificationChannel()` is called after permission is granted (for Android 13+).
-- Use `adb logcat | grep CleverTap` to inspect SDK logs.
+* Ensure `google-services.json` is added correctly.
+* Verify `FcmMessageListenerService` is declared in `AndroidManifest.xml`.
+* Check that `CreateNotificationChannel()` is called after permission is granted (for Android 13+).
+* Use `adb logcat | grep CleverTap` to inspect SDK logs.
 
 ### iOS
 
-- Confirm APNs is configured in your Apple Developer account.
-- Ensure push entitlements are included in your provisioning profile.
-- Use _Xcode_ > _Devices_ > _Console_ to review push logs.
+* Confirm APNs is configured in your Apple Developer account.
+* Ensure push entitlements are included in your provisioning profile.
+* Use *Xcode* > *Devices* > *Console* to review push logs.
 
 For advanced troubleshooting, refer to the [Unity SDK Troubleshooting Guide](doc:unity-troubleshooting-and-faqs)
