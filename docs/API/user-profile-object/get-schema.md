@@ -22,15 +22,15 @@ You can get all the events from the schema. This API will get you all the system
 
 Use the following base URL:
 
-<https://[location].api.clevertap.com/getSchema?type=events>
+[https://\[location\].api.clevertap.com/getSchema?type=events](https://\[location].api.clevertap.com/getSchema?type=events)
 
 > 📘 Location-based URL
-> 
+>
 > Use the URL based on your location:
-> 
-> - India - in1.api.clevertap.com
-> - Singapore - sg1.api.clevertap.com
-> - U.S - us1.api.clevertap.com
+>
+> * India - in1.api.clevertap.com
+> * Singapore - sg1.api.clevertap.com
+> * U.S - us1.api.clevertap.com
 
 ### HTTP Method
 
@@ -42,7 +42,7 @@ These headers are all required. The X-CleverTap-Account-Id and X-CleverTap-Passc
 
 | Header                 | Description                                                            | Type   | Example Value                                   |
 | :--------------------- | :--------------------------------------------------------------------- | :----- | :---------------------------------------------- |
-| X-CleverTap-Account-Id | Your CleverTap Account ID                                              | string | "X-CleverTap-Account-Id: ACCOUNT_ID"            |
+| X-CleverTap-Account-Id | Your CleverTap Account ID                                              | string | "X-CleverTap-Account-Id: ACCOUNT\_ID"           |
 | X-CleverTap-Passcode   | Your CleverTap Account Passcode                                        | string | "X-CleverTap-Passcode: PASSCODE"                |
 | Content-Type           | Request content-type is always set to application/json; charset=utf-8. | string | "Content-Type: application/json; charset=utf-8" |
 
@@ -193,16 +193,16 @@ You can get the schema for all the user properties.
 
 ## Base URL
 
-Use the following base URL:  
-<https://[location].api.clevertap.com/getSchema?type=userproperty>
+Use the following base URL:\
+[https://\[location\].api.clevertap.com/getSchema?type=userproperty](https://\[location].api.clevertap.com/getSchema?type=userproperty)
 
 > 📘 Location-based URL
-> 
+>
 > Use the URL based on your location:
-> 
-> - India - in1.api.clevertap.com
-> - Singapore - sg1.api.clevertap.com
-> - U.S - us1.api.clevertap.com
+>
+> * India - in1.api.clevertap.com
+> * Singapore - sg1.api.clevertap.com
+> * U.S - us1.api.clevertap.com
 
 ### HTTP Method
 
@@ -214,7 +214,7 @@ These headers are all required. The X-CleverTap-Account-Id and X-CleverTap-Passc
 
 | Header                 | Description                                                            | Type   | Example Value                                   |
 | :--------------------- | :--------------------------------------------------------------------- | :----- | :---------------------------------------------- |
-| X-CleverTap-Account-Id | Your CleverTap Account ID                                              | string | "X-CleverTap-Account-Id: ACCOUNT_ID"            |
+| X-CleverTap-Account-Id | Your CleverTap Account ID                                              | string | "X-CleverTap-Account-Id: ACCOUNT\_ID"           |
 | X-CleverTap-Passcode   | Your CleverTap Account Passcode                                        | string | "X-CleverTap-Passcode: PASSCODE"                |
 | Content-Type           | Request content-type is always set to application/json; charset=utf-8. | string | "Content-Type: application/json; charset=utf-8" |
 
