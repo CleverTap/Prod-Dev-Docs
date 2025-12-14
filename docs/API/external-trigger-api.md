@@ -14,9 +14,11 @@ next:
 
 The External Trigger campaign allows you to trigger campaign delivery based on API calls or external events. The API endpoint enables you to send messages to designated users via the External Trigger API.
 
-> 📘 Public Beta
->
-> This feature is released in Public Beta.
+<Callout icon="📘" theme="info">
+  **Public Beta**
+
+  This feature is released in Public Beta.
+</Callout>
 
 # Base URL
 
@@ -58,9 +60,11 @@ The body is uploaded as a JSON payload. A payload is an object keyed with `"Exte
 | `campaign_id`     | Unique ID of the campaign. For sending multiple campaigns, include up to 5 campaign IDs.                                                                                                                                                                                                                                                                    | Yes      | String (single ID) or List of integers (multiple IDs) | `"1709550110"` or `[1709550110,1709550111]`                                                                                                                |
 | `ExternalTrigger` | Key-value map containing the campaign message content. You can include personalized fields such as name, product details, and pricing.                                                                                                                                                                                                                      | Yes      | Map                                                   | `{ "ExternalTrigger": { "Name": "John", "productDetails": [{ "productName": "Apple Watch","productID": "APPL2209","imageURL": "https://example.jpg"}] } }` |
 
-> 🚧 Note
->
-> CleverTap only supports **String** data type for mapped property values.
+<Callout icon="🚧" theme="warn">
+  **Note**
+
+  CleverTap only supports **String** data type for mapped property values.
+</Callout>
 
 # Example Payloads
 
@@ -252,9 +256,9 @@ curl --location 'https://in1.api.clevertap.com/2/send/externaltrigger.json' \
 
 # Example Request
 
-Here is an example cURL request to the *External Trigger* API showing the headers needed to authenticate the request from the account in the India region:
+Here is an example cURL request to the _External Trigger_ API showing the headers needed to authenticate the request from the account in the India region:
 
-* **For Single Campaign ID targeting one or more users** 
+* **For Single Campaign ID targeting one or more users**
 
 ```curl
 curl --location --request POST 'https://in1.api.clevertap.com/1/send/externaltrigger.json' \
