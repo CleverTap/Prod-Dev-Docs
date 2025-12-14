@@ -15,6 +15,7 @@ We provide a REST API that lets you create, read, update, and delete data in Cle
 This page describes our authentication model, API endpoints, webhook feature, server-side SDKs, and error handling.
 
 # Make Your First API Call
+
 The best place to get started with the CleverTap API is the [API Quick Start Guide](doc:api-quickstart-guide).
 
 # API Use Cases
@@ -28,6 +29,7 @@ Here are some use cases with our API:
 * **Creating campaigns in CleverTap based on events in external systems.** For example, you can create a campaign to send a price drop alert as a push notification to users who have viewed a particular product in the past week. Check out our [Create Campaigns](https://developer.clevertap.com/docs/create-campaign-api) API to learn more.
 
 # Authentication
+
 CleverTap uses a basic access authentication model to authenticate requests to the API. Please refer the [authentication page](doc:authentication) for more details.
 
 # API Endpoints
@@ -35,15 +37,21 @@ CleverTap uses a basic access authentication model to authenticate requests to t
 APIs are used to describe how to create, read, update, and delete data in CleverTap. For more information on each APIs, refer [API Reference](https://developer.clevertap.com/docs/api-reference).
 
 # Webhooks
+
 CleverTap webhooks enable developers to monitor specific user events and receive push notifications to their server when those events happen. You can use these notifications to trigger workflows in your backend systems as soon as qualifying events occur. Please see the [webhooks page](doc:webhooks) for more details.
 
 # SDKs
+
 We provide server-side libraries that will help you build more quickly with our API. Please see our [SDKs page](doc:clevertap-sdks) for links to our server-side libraries.
 
 # Postman Collection
+
 Postman is a tool that lets you build and test HTTP requests. We created [a Postman Collection](https://developer.clevertap.com/docs/clevertap-postman-collection) that you can use to test making requests to the CleverTap API. 
 
-#Configure Regions
+# Configure Regions
+
 You must enable the CleverTap Region to enable the usage of CleverTap's regional data center. For more information, see [Configuration Guide for CleverTap Regions](doc:idc).
+
 # API Errors
+
 If your CleverTap API request fails, you will receive an error response including a response code and a message explaining the reason for the error. For more details on error codes, refer [API Errors](doc:api-errors).
