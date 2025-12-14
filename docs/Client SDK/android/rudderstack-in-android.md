@@ -20,94 +20,49 @@ next:
 
 Select source as *Android* and destination as *CleverTap*. 
 
+![2080](https://files.readme.io/643cee7-Rudderstack_source.png "Rudderstack_source.png")
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/643cee7-Rudderstack_source.png",
-        "Rudderstack_source.png",
-        2080,
-        228,
-        "#f5f6f4"
-      ]
-    }
-  ]
-}
-[/block]
 ## CleverTap Configuration settings in RudderStack:
+
 To successfully configure CleverTap as a destination, you will need to configure the following settings:
 
-  * Account ID: Your account ID is a unique ID generated for your account. It can be found in your account in the Settings as your Project ID. 
-  * Passcode: Your account passcode is a unique code generated for your account. It can be found in the Settings as Passcode.
-  * Token: Your account token is a unique code generated for your account. It can be found in the Settings as Token. 
+* Account ID: Your account ID is a unique ID generated for your account. It can be found in your account in the Settings as your Project ID. 
+* Passcode: Your account passcode is a unique code generated for your account. It can be found in the Settings as Passcode.
+* Token: Your account token is a unique code generated for your account. It can be found in the Settings as Token. 
 
+![1836](https://files.readme.io/0261022-Rudderstack_clevertap_account.png "Rudderstack_clevertap_account.png")
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/0261022-Rudderstack_clevertap_account.png",
-        "Rudderstack_clevertap_account.png",
-        1836,
-        1114,
-        "#e7e8ea"
-      ]
-    }
-  ]
-}
-[/block]
 Enable tracking for anonymous users: Enable this option to track anonymous users in CleverTap.
 
-  * Region: Server Only: This is your dedicated CleverTap region. For example, if your CleverTap URL is [CleverTap Dashboard](https://us1.dashboard.clevertap.com/login.html#/) then select *Singapore* as the region. 
-  * Use Native SDK to send Events: Enable this option. 
+* Region: Server Only: This is your dedicated CleverTap region. For example, if your CleverTap URL is [CleverTap Dashboard](https://us1.dashboard.clevertap.com/login.html#/) then select *Singapore* as the region. 
+* Use Native SDK to send Events: Enable this option. 
 
+![1158](https://files.readme.io/e40c338-Rudderstack_native_sdk.png "Rudderstack_native_sdk.png")
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/e40c338-Rudderstack_native_sdk.png",
-        "Rudderstack_native_sdk.png",
-        1158,
-        1456,
-        "#f4f7fa"
-      ]
-    }
-  ]
-}
-[/block]
 For more information, see [RudderStack Documentation](https://docs.rudderstack.com/destinations/marketing/clevertap#getting-started).
 
 # Configuring CleverTap within the app
 
 Add your CleverTap Account ID and Token to your `AndroidManifest.xml` within the `<application></application> ` tags.
-[block:code]
-{
-  "codes": [
-    {
-      "code": "<meta-data\n    android:name=\"CLEVERTAP_ACCOUNT_ID\"\n    android:value=\"Your CleverTap Account ID\"/>\n<meta-data\n    android:name=\"CLEVERTAP_TOKEN\"\n    android:value=\"Your CleverTap Account Token\"/>",
-      "language": "java"
-    }
-  ]
-}
-[/block]
-Add the region tag depending on where your account is hosted. For example, if your CleverTap URL is [CleverTap Dashboard](https://us1.dashboard.clevertap.com/login.html#/) then add the following tag in the AndroidManifest.xml file:
-[block:code]
-{
-  "codes": [
-    {
-      "code": "<meta-data \nandroid:name=\"CLEVERTAP_REGION\" \nandroid:value=\"sg1\"/>",
-      "language": "java"
-    }
-  ]
-}
-[/block]
-For more information, see [Configuration Guide for CleverTap Regions](https://developer.clevertap.com/docs/idc#section-android)
 
+```java
+<meta-data
+    android:name="CLEVERTAP_ACCOUNT_ID"
+    android:value="Your CleverTap Account ID"/>
+<meta-data
+    android:name="CLEVERTAP_TOKEN"
+    android:value="Your CleverTap Account Token"/>
+```
+
+Add the region tag depending on where your account is hosted. For example, if your CleverTap URL is [CleverTap Dashboard](https://us1.dashboard.clevertap.com/login.html#/) then add the following tag in the AndroidManifest.xml file:
+
+```java
+<meta-data 
+android:name="CLEVERTAP_REGION" 
+android:value="sg1"/>
+```
+
+For more information, see [Configuration Guide for CleverTap Regions](https://developer.clevertap.com/docs/idc#section-android)
 
 Register CleverTap’s ActivityLifecycleCallback methods. To do so, you can either set the `android:name` in your `AndroidManifest.xml` tag to `com.clevertap.android.sdk.Application`. Or, if you have a custom Application class, call `ActivityLifecycleCallback.register(this);` before `super.onCreate() `in your Application class.
 
@@ -121,94 +76,70 @@ To add the SDK as a dependency, perform the following steps:
 
 Add these lines to your `app/build.gradle`:
 
+```java
+repositories {
+  mavenCentral()
+}
+```
 
-[block:code]
-{
-  "codes": [
-    {
-      "code": "repositories {\n  mavenCentral()\n}\n",
-      "language": "java"
-    }
-  ]
-}
-[/block]
 Add the following dependencies under dependencies within app/build.gradle:
-[block:code]
-{
-  "codes": [
-    {
-      "code": "implementation 'com.rudderstack.android.sdk:core:1+'\nimplementation 'com.rudderstack.android.integration:clevertap:1+'\n\nimplementation 'com.clevertap.android:clevertap-android-sdk:4.0.0'\nimplementation 'com.google.android.gms:play-services-base:17.4.0'\n\nimplementation 'com.google.android.exoplayer:exoplayer:2.11.5' //Optional for Audio/Video\nimplementation 'com.google.android.exoplayer:exoplayer-hls:2.11.5' //Optional for Audio/Video\nimplementation 'com.google.android.exoplayer:exoplayer-ui:2.11.5' //Optional for Audio/Video\nimplementation 'com.github.bumptech.glide:glide:4.11.0' //Mandatory for App Inbox\nimplementation 'androidx.recyclerview:recyclerview:1.1.0' //Mandatory for App Inbox\nimplementation 'androidx.viewpager:viewpager:1.0.0' //Mandatory for App Inbox\nimplementation 'com.google.android.material:material:1.2.1' //Mandatory for App Inbox\nimplementation 'androidx.appcompat:appcompat:1.2.0' //Mandatory for App Inbox\nimplementation 'androidx.core:core:1.3.0'\nimplementation 'androidx.fragment:fragment:1.1.0' // InApp\n//Mandatory for React Native SDK v0.3.9 and above add the following -\nimplementation 'com.android.installreferrer:installreferrer:2.1'",
-      "language": "java"
-    }
-  ]
-}
-[/block]
+
+```java
+implementation 'com.rudderstack.android.sdk:core:1+'
+implementation 'com.rudderstack.android.integration:clevertap:1+'
+
+implementation 'com.clevertap.android:clevertap-android-sdk:4.0.0'
+implementation 'com.google.android.gms:play-services-base:17.4.0'
+
+implementation 'com.google.android.exoplayer:exoplayer:2.11.5' //Optional for Audio/Video
+implementation 'com.google.android.exoplayer:exoplayer-hls:2.11.5' //Optional for Audio/Video
+implementation 'com.google.android.exoplayer:exoplayer-ui:2.11.5' //Optional for Audio/Video
+implementation 'com.github.bumptech.glide:glide:4.11.0' //Mandatory for App Inbox
+implementation 'androidx.recyclerview:recyclerview:1.1.0' //Mandatory for App Inbox
+implementation 'androidx.viewpager:viewpager:1.0.0' //Mandatory for App Inbox
+implementation 'com.google.android.material:material:1.2.1' //Mandatory for App Inbox
+implementation 'androidx.appcompat:appcompat:1.2.0' //Mandatory for App Inbox
+implementation 'androidx.core:core:1.3.0'
+implementation 'androidx.fragment:fragment:1.1.0' // InApp
+//Mandatory for React Native SDK v0.3.9 and above add the following -
+implementation 'com.android.installreferrer:installreferrer:2.1'
+```
+
 # Initialize RudderStack Client
 
 Import the library on the classes you desire to use `RudderClient` library.
-[block:code]
-{
-  "codes": [
-    {
-      "code": "import com.rudderstack.android.sdk.core.*;\n",
-      "language": "java"
-    }
-  ]
-}
-[/block]
+
+```java
+import com.rudderstack.android.sdk.core.*;
+```
+
 Initialize the CleverTap-RudderStack SDK as follows:
-[block:code]
-{
-  "codes": [
-    {
-      "code": "crudderClient = RudderClient.getInstance(\n                    this,\n                    <YOUR_WRITE_KEY>,\n                    new RudderConfig.Builder()\n                            //.withDataPlaneUrl(<YOUR_DATA_PLANE_URL>)\n                            .withTrackLifecycleEvents(true)\n                            .withLogLevel(RudderLogger.RudderLogLevel.DEBUG) \n                            .withFactory(CleverTapIntegrationFactory.FACTORY)\n                            .build()\n            );\n            ",
-      "language": "java"
-    }
-  ]
-}
-[/block]
-  * `YOUR_DATA_PLANE_URL`: You get this Data plane URL from the RudderStack console > Connections.
 
-  * `YOUR_WRITE_KEY` :You get this from the RudderStack console > Source > WRITE KEY.
+```java
+crudderClient = RudderClient.getInstance(
+                    this,
+                    <YOUR_WRITE_KEY>,
+                    new RudderConfig.Builder()
+                            //.withDataPlaneUrl(<YOUR_DATA_PLANE_URL>)
+                            .withTrackLifecycleEvents(true)
+                            .withLogLevel(RudderLogger.RudderLogLevel.DEBUG) 
+                            .withFactory(CleverTapIntegrationFactory.FACTORY)
+                            .build()
+            );
+```
 
-  * `trackAppLifecycleEvents`: This allows you to track Rudderstack SDK to capture their Lifecycle events.
- 
-  * `logLevel`: This allows you to go through the application log while developing the application.
-  
+* `YOUR_DATA_PLANE_URL`: You get this Data plane URL from the RudderStack console > Connections.
 
+* `YOUR_WRITE_KEY` :You get this from the RudderStack console > Source > WRITE KEY.
 
+* `trackAppLifecycleEvents`: This allows you to track Rudderstack SDK to capture their Lifecycle events.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/c226ca9-Rudderstack_connection_key.png",
-        "Rudderstack_connection_key.png",
-        1854,
-        456,
-        "#b7bbc7"
-      ]
-    }
-  ]
-}
-[/block]
+* `logLevel`: This allows you to go through the application log while developing the application.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/699ad16-Rudderstack_write_key.png",
-        "Rudderstack_write_key.png",
-        1570,
-        386,
-        "#fcfcfb"
-      ]
-    }
-  ]
-}
-[/block]
+![1854](https://files.readme.io/c226ca9-Rudderstack_connection_key.png "Rudderstack_connection_key.png")
+
+![1570](https://files.readme.io/699ad16-Rudderstack_write_key.png "Rudderstack_write_key.png")
+
 # Push User Information
 
 ## When to call this method?
@@ -223,16 +154,24 @@ When a user launches the app for the first time after installation, an “anonym
 
 You can call this method as follows:
 
-[block:code]
-{
-  "codes": [
-    {
-      "code": "RudderTraits traits = new RudderTraits();\n                traits.putBirthday(new Date());\n                traits.putEmail(\"abc@123.com\");\n                traits.putFirstName(\"First\");\n                traits.putLastName(\"Last\");\n                traits.putGender(\"m\");\n                traits.putPhone(\"5555555555\");\n                traits.put(\"boolean\", Boolean.TRUE);\n                traits.put(\"integer\", 50);\n                traits.put(\"float\", 120.4f);\n                traits.put(\"long\", 1234L);\n                traits.put(\"string\", \"hello\");\n                traits.put(\"date\", new Date(System.currentTimeMillis()));\n\n                rudderClient.identify(\"test_user_id1\", traits, null);\n\n\n",
-      "language": "java"
-    }
-  ]
-}
-[/block]
+```java
+RudderTraits traits = new RudderTraits();
+                traits.putBirthday(new Date());
+                traits.putEmail("abc@123.com");
+                traits.putFirstName("First");
+                traits.putLastName("Last");
+                traits.putGender("m");
+                traits.putPhone("5555555555");
+                traits.put("boolean", Boolean.TRUE);
+                traits.put("integer", 50);
+                traits.put("float", 120.4f);
+                traits.put("long", 1234L);
+                traits.put("string", "hello");
+                traits.put("date", new Date(System.currentTimeMillis()));
+
+                rudderClient.identify("test_user_id1", traits, null);
+```
+
 Replace userid with your database User Id (Unique Identifier of the user)
 
 For more information, see [RudderStack Identify](https://docs.rudderstack.com/destinations/marketing/clevertap#identify).
@@ -245,155 +184,219 @@ Whenever you want to capture any user action in your application, call this meth
 
 ## Points to remember
 
-  * Data type - The value of a property can be of type an Integer, a Long, a Double, a Float, a Character, a String, or a Boolean.
- 
-  * For passing Date as a value, pass it as Date() object value only
- 
+* Data type - The value of a property can be of type an Integer, a Long, a Double, a Float, a Character, a String, or a Boolean.
+
+* For passing Date as a value, pass it as Date() object value only
+
 ## How to call this method?
 
 You can call this method as follows:
 
+```java
+rudderClient.track(
+                    "Product Added",
+                    new RudderProperty()
+                    .putValue("product_id", "product_001")
+                );
+```
 
-
-[block:code]
-{
-  "codes": [
-    {
-      "code": "rudderClient.track(\n                    \"Product Added\",\n                    new RudderProperty()\n                    .putValue(\"product_id\", \"product_001\")\n                );\n",
-      "language": "java"
-    }
-  ]
-}
-[/block]
 For more information, see [Rudderstack Track](https://docs.rudderstack.com/destinations/marketing/clevertap#track).
 
 ## Pushing Order Completed (“Charged” Event in CleverTap)
 
 Sample Code:
-[block:code]
-{
-  "codes": [
-    {
-      "code": "rudderClient.track(\"Order Completed\", {\n      checkout_id: \"12345\",\n      order_id: \"1234\",\n      affiliation: \"Apple Store\",\n      'Payment mode': \"Credit Card\",\n      total: 20,\n      revenue: 15.0,\n      shipping: 22,\n      tax: 1,\n      discount: 1.5,\n      coupon: \"Games\",\n      currency: \"USD\",\n      products: [\n        {\n          product_id: \"123\",\n          sku: \"G-32\",\n          name: \"Monopoly\",\n          price: 14,\n          quantity: 1,\n          category: \"Games\",\n          url: \"https://www.website.com/product/path\",\n          image_url: \"https://www.website.com/product/path.jpg\",\n        },\n        {\n          product_id: \"345\",\n          sku: \"F-32\",\n          name: \"UNO\",\n          price: 3.45,\n          quantity: 2,\n          category: \"Games\",\n        },\n        {\n          product_id: \"125\",\n          sku: \"S-32\",\n          name: \"Ludo\",\n          price: 14,\n          quantity: 7,\n          category: \"Games\",\n          brand: \"Ludo King\"\n        },\n      ],\n    });\n    \n    ",
-      "language": "java"
-    }
-  ]
-}
-[/block]
+
+```java
+rudderClient.track("Order Completed", {
+      checkout_id: "12345",
+      order_id: "1234",
+      affiliation: "Apple Store",
+      'Payment mode': "Credit Card",
+      total: 20,
+      revenue: 15.0,
+      shipping: 22,
+      tax: 1,
+      discount: 1.5,
+      coupon: "Games",
+      currency: "USD",
+      products: [
+        {
+          product_id: "123",
+          sku: "G-32",
+          name: "Monopoly",
+          price: 14,
+          quantity: 1,
+          category: "Games",
+          url: "https://www.website.com/product/path",
+          image_url: "https://www.website.com/product/path.jpg",
+        },
+        {
+          product_id: "345",
+          sku: "F-32",
+          name: "UNO",
+          price: 3.45,
+          quantity: 2,
+          category: "Games",
+        },
+        {
+          product_id: "125",
+          sku: "S-32",
+          name: "Ludo",
+          price: 14,
+          quantity: 7,
+          category: "Games",
+          brand: "Ludo King"
+        },
+      ],
+    });
+```
+
 For more information, see [RudderStack Order Completed](https://docs.rudderstack.com/destinations/marketing/clevertap#order-completed).
 
 # Integrate Push Notification in Android
 
 ## Adding Dependency
-  * Get the *google-services.json* file from the Firebase Cloud Messaging console and place it into your project under the *android/app* folder. To get the google-service.json file, follow the instructions from [Setup Firebase Console.](https://firebase.google.com/docs/android/setup#console).
- 
-  * In your root-level (project-level) Gradle file (`build.gradle`), add rules to include the Google Services Gradle plugin. Check that you have Google's Maven repository, as well.
 
-[block:code]
-{
-  "codes": [
-    {
-      "code": "buildscript {\n\n  repositories {\n    // Check that you have the following line (if not, add it):\n    google()  // Google's Maven repository\n  }\n\n  dependencies {\n    // ...\n\n    // Add the following line:\n    classpath 'com.google.gms:google-services:4.3.5'  // Google Services plugin\n  }\n}\n\nallprojects {\n  // ...\n\n  repositories {\n    // Check that you have the following line (if not, add it):\n    google()  // Google's Maven repository\n    // ...\n  }\n}\n",
-      "language": "java"
-    }
-  ]
+* Get the *google-services.json* file from the Firebase Cloud Messaging console and place it into your project under the *android/app* folder. To get the google-service.json file, follow the instructions from [Setup Firebase Console.](https://firebase.google.com/docs/android/setup#console).
+
+* In your root-level (project-level) Gradle file (`build.gradle`), add rules to include the Google Services Gradle plugin. Check that you have Google's Maven repository, as well.
+
+```java
+buildscript {
+
+  repositories {
+    // Check that you have the following line (if not, add it):
+    google()  // Google's Maven repository
+  }
+
+  dependencies {
+    // ...
+
+    // Add the following line:
+    classpath 'com.google.gms:google-services:4.3.5'  // Google Services plugin
+  }
 }
-[/block]
+
+allprojects {
+  // ...
+
+  repositories {
+    // Check that you have the following line (if not, add it):
+    google()  // Google's Maven repository
+    // ...
+  }
+}
+```
+
 Navigate to your `Android/App` folder and add the following dependency to your `app/build.gradle` file:
 
-[block:code]
-{
-  "codes": [
-    {
-      "code": "dependencies {\nimplementation 'com.google.firebase:firebase-messaging:20.2.4'\n}\n\napply plugin: \"com.google.gms.google-services\"\n\n  ",
-      "language": "java"
-    }
-  ]
+```java
+dependencies {
+implementation 'com.google.firebase:firebase-messaging:20.2.4'
 }
-[/block]
+
+apply plugin: "com.google.gms.google-services"
+```
+
 Add the following service in your AndroidManifest.xml file :
-[block:code]
-{
-  "codes": [
-    {
-      "code": "<service\nandroid:name=\"com.clevertap.android.sdk.pushnotification.fcm.FcmMessageListenerService\">\n<intent-filter>\n<action android:name=\"com.google.firebase.MESSAGING_EVENT\"/>\n</intent-filter>\n</service>\n\n",
-      "language": "java"
-    }
-  ]
-}
-[/block]
-Login to your CleverTap Dashboard. Go to *Settings > Channels > Mobile Push > Android*. 
+
+```java
+<service
+android:name="com.clevertap.android.sdk.pushnotification.fcm.FcmMessageListenerService">
+<intent-filter>
+<action android:name="com.google.firebase.MESSAGING_EVENT"/>
+</intent-filter>
+</service>
+```
+
+Login to your CleverTap Dashboard. Go to *Settings > Channels > Mobile Push > Android*.\
 Set-up FCM credentials.
 
 ## Setting up Notification Channel Id
 
 Android has modified the way push notifications can be sent to an app in its Android version Oreo and above. Starting with CleverTap SDK 3.1.7, we support Android Oreo’s latest features like Notification Channels and Notification Badges. To create a Notification Channel Id, use the following Code.
 
-[block:code]
-{
-  "codes": [
-    {
-      "code": " CleverTap.createNotificationChannel(\"CleverTapChannelId\",\"CleverTap\",\"This is a test channel\",5,true);\n",
-      "language": "java"
-    }
-  ]
-}
-[/block]
+```java
+CleverTap.createNotificationChannel("CleverTapChannelId","CleverTap","This is a test channel",5,true);
+```
+
 Here,
 
-  * `CleverTapChannelId` - Replace this with your Notification Channel Id. Marketers will have to use this Channel Id while creating the Push Notification campaigns in CleverTap
- 
-  * `CleverTap` - Replace this with Notification Channel Name, which you want Clients to see on their Device under the *Application Settings > Notifications*.
-  
-  * `This is a test channel` - Replace this with your Notification Channel Description
- 
-  * `5` - It is the Priority for rendering notification on the user device. Note: 5 is the highest priority.
- 
-  * `true` - This is the flag for showing a badge on the user device.
+* `CleverTapChannelId` - Replace this with your Notification Channel Id. Marketers will have to use this Channel Id while creating the Push Notification campaigns in CleverTap
+
+* `CleverTap` - Replace this with Notification Channel Name, which you want Clients to see on their Device under the *Application Settings > Notifications*.
+
+* `This is a test channel` - Replace this with your Notification Channel Description
+
+* `5` - It is the Priority for rendering notification on the user device. Note: 5 is the highest priority.
+
+* `true` - This is the flag for showing a badge on the user device.
 
 For more information, see [Push Notifications for Android O](https://developer.clevertap.com/docs/android#section-push-notifications-for-android-o)
 
 ## custom handling android notification
 
 In case you choose to use your custom FCMMessageListenerService (for eg: MyFcmMessageListenerService) and add the following code within the `MyFcmMessageListenerService.Java` file:
-[block:code]
-{
-  "codes": [
-    {
-      "code": "package com.clevertaprudderstack; //Replace this with your Package Name\n\nimport com.google.firebase.messaging.RemoteMessage;\nimport com.clevertap.android.sdk.CleverTapAPI;\nimport android.os.Bundle; \nimport android.util.Log;\nimport java.util.Map;\nimport com.clevertap.android.sdk.pushnotification.NotificationInfo;\n\npublic class MyFcmMessageListenerService extends FirebaseMessagingService {\n\n    @Override\n    public void onMessageReceived(RemoteMessage message){\n        try {\n            if (message.getData().size() > 0) {\n                Bundle extras = new Bundle();\n                for (Map.Entry<String, String> entry : message.getData().entrySet()) {\n                    extras.putString(entry.getKey(), entry.getValue());\n                }\n\n                NotificationInfo info = CleverTapAPI.getNotificationInfo(extras);\n\n                if (info.fromCleverTap) {\n                    CleverTapAPI.createNotification(getApplicationContext(), extras);\n                } else {\n                    // not from CleverTap handle yourself or pass to another provider\n                }\n            }\n        } catch (Throwable t) {\n           Log.d(\"MYFCMLIST\", \"Error parsing FCM message\", t);\n        }\n    }\n}\n\n",
-      "language": "java"
+
+```java
+package com.clevertaprudderstack; //Replace this with your Package Name
+
+import com.google.firebase.messaging.RemoteMessage;
+import com.clevertap.android.sdk.CleverTapAPI;
+import android.os.Bundle; 
+import android.util.Log;
+import java.util.Map;
+import com.clevertap.android.sdk.pushnotification.NotificationInfo;
+
+public class MyFcmMessageListenerService extends FirebaseMessagingService {
+
+    @Override
+    public void onMessageReceived(RemoteMessage message){
+        try {
+            if (message.getData().size() > 0) {
+                Bundle extras = new Bundle();
+                for (Map.Entry<String, String> entry : message.getData().entrySet()) {
+                    extras.putString(entry.getKey(), entry.getValue());
+                }
+
+                NotificationInfo info = CleverTapAPI.getNotificationInfo(extras);
+
+                if (info.fromCleverTap) {
+                    CleverTapAPI.createNotification(getApplicationContext(), extras);
+                } else {
+                    // not from CleverTap handle yourself or pass to another provider
+                }
+            }
+        } catch (Throwable t) {
+           Log.d("MYFCMLIST", "Error parsing FCM message", t);
+        }
     }
-  ]
 }
-[/block]
+```
+
 Add the following code in your Android Manifest file:
 
-[block:code]
-{
-  "codes": [
-    {
-      "code": "<service android:name=\".MyFirebaseMessagingService\">\n  <intent-filter>\n     <action android:name=\"com.google.firebase.MESSAGING_EVENT\"/>\n  </intent-filter>\n</service>\n       ",
-      "language": "java"
-    }
-  ]
-}
-[/block]
+```java
+<service android:name=".MyFirebaseMessagingService">
+  <intent-filter>
+     <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+  </intent-filter>
+</service>
+```
+
 Additionally, add the code to push the FCM token to CleverTap:
-[block:code]
-{
-  "codes": [
-    {
-      "code": "String fcmRegId = FirebaseInstanceId.getInstance().getToken();\nclevertapDefaultInstance.pushFcmRegistrationId(fcmRegId,true);\n",
-      "language": "java"
-    }
-  ]
-}
-[/block]
+
+```java
+String fcmRegId = FirebaseInstanceId.getInstance().getToken();
+clevertapDefaultInstance.pushFcmRegistrationId(fcmRegId,true);
+```
+
 For more information, see [Handling custom push notifications in Android](https://developer.clevertap.com/docs/android#section-custom-android-push-notifications-handling).
 
 # Debugging
-  * To view CleverTap debug logs, you will require Android Studio.
-  * Enable debug logs by adding the following line of code in your app's build: 
+
+* To view CleverTap debug logs, you will require Android Studio.
+* Enable debug logs by adding the following line of code in your app's build: 
 
 `CleverTapAPI.setDebugLevel(CleverTapAPI.LogLevel.DEBUG);`
 
@@ -403,22 +406,8 @@ For more information, see [Debugging in Android](https://developer.clevertap.com
 
 For reference, sharing a sample screenshot of the Logcat which you will able to see in your Android Studio
 
+![2808](https://files.readme.io/928dfed-Rudderstack_debugging.png "Rudderstack_debugging.png")
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/928dfed-Rudderstack_debugging.png",
-        "Rudderstack_debugging.png",
-        2808,
-        1360,
-        "#e6e5e5"
-      ]
-    }
-  ]
-}
-[/block]
 # Troubleshooting
 
 Getting the following error
@@ -431,13 +420,9 @@ com.android.builder.dexing.DexArchiveMergerException: Error while merging dex ar
 **Explanation**: Android can build only files up to 65K, if it exceeds more than that then you will get this error.
 
 **Solution**: Add the following code in your `android/app/build.gradle` file:
-[block:code]
-{
-  "codes": [
-    {
-      "code": "defaultConfig {\n        multiDexEnabled true\n    }\n    ",
-      "language": "java"
+
+```java
+defaultConfig {
+        multiDexEnabled true
     }
-  ]
-}
-[/block]
+```
