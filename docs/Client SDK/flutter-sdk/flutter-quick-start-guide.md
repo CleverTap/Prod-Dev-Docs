@@ -69,7 +69,7 @@ Add your CleverTap Account ID and Token to your AndroidManifest.xml within the <
 ```
 
 > 🚧 Credentials and Access
-> 
+>
 > The **CleverTap Account ID** and **CleverTap Token** are available as **Project ID** and **Project Token** respectively on the CleverTap dashboard. Member and Creator roles in the project don't have access to view the Passcode and Project Token of the account on the dashboard.
 
 ### Add Region Code
@@ -90,10 +90,10 @@ Add the snippet below in the `AndroidManifest.xml` file so the CleverTap SDK can
 ## Add Dependencies
 
 > 📘 Plugin Domain-Specific Language (DSL)
-> 
-> To build a Flutter app for Android, you must apply Flutter's Gradle plugins. Previously, you would be required to use Gradle's legacy imperative `apply` script method to build a Flutter app for Android.  
+>
+> To build a Flutter app for Android, you must apply Flutter's Gradle plugins. Previously, you would be required to use Gradle's legacy imperative `apply` script method to build a Flutter app for Android.\
 > However, since the release of Flutter 3.16, you can apply these plugins using Gradle's declarative `plugins {} `block which simplifies and standardizes the configuration process, reducing the chances of errors.
-> 
+>
 > For more information, refer to the [official Flutter documentation](https://docs.flutter.dev/release/breaking-changes/flutter-gradle-plugin-apply) and check out the [CleverTap-Flutter sample app](https://github.com/CleverTap/clevertap-flutter/tree/master/example/android) for guidance on migration.
 
 1. Add the following to your `dependencies` section in `project/build.gradle`:
@@ -108,7 +108,7 @@ dependencies {
 2. Add the following to your `dependencies` section in `app/build.gradle`:
 
 > 📘 Migrating from ExoPlayer to AndroidX Media3
-> 
+>
 > Starting from CleverTap Flutter SDK v2.5.0, CleverTap now supports [AndroidX Media3](https://developer.android.com/media/media3/exoplayer/migration-guide), replacing the deprecated ExoPlayer libraries. CleverTap continues to support [ExoPlayer](https://github.com/google/ExoPlayer), but for a smoother migration to AndroidX Media3, update the following dependencies:
 
 ```groovy Dependencies with AndroidX Media3
@@ -201,27 +201,13 @@ Perform the following steps:
 
 1. Navigate to the` Info.plist` file in your project navigator.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/19c6c39-image4.png",
-        "Information Property List in Info.plist File",
-        574
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Information Property List in Info.plist File"
-    }
-  ]
-}
-[/block]
+<Image title="Information Property List in Info.plist File" alt={574} align="center" border={true} src="https://files.readme.io/19c6c39-image4.png">
+  Information Property List in Info.plist File
+</Image>
 
-
-2. Create a key called _CleverTapAccountID_ with the type _string_. 
-3. Create a key called _CleverTapToken_ with the type _string_.
-4. Insert the account ID and account token values from your _CleverTap account_. These values are available on the _Settings_ page on the CleverTap dashboard. 
+2. Create a key called *CleverTapAccountID* with the type *string*. 
+3. Create a key called *CleverTapToken* with the type *string*.
+4. Insert the account ID and account token values from your *CleverTap account*. These values are available on the *Settings* page on the CleverTap dashboard. 
 
 ### Add Region Code
 
@@ -252,7 +238,7 @@ CleverTapPlugin.sharedInstance()?.applicationDidLaunch(options: launchOptions)
 ```
 
 > 🚧 Note
-> 
+>
 > If you want to handle the clicks on the iOS Push notifications manually, remove the `[CleverTap autoIntegrate];` line from your integration.
 
 # Web Integration
@@ -270,9 +256,9 @@ CleverTapPlugin.sharedInstance()?.applicationDidLaunch(options: launchOptions)
 
 Following are the parameter details: 
 
-- **CLEVERTAP_ACCOUNT_ID** (Mandatory): Obtain this value from the Projects page on the CleverTap dashboard.
-- **CLEVERTAP_REGION** (Optional): This should match the region of the CleverTap dashboard. Possible values include **in1**, **us1**, **sg1**, **aps3** and **mec1**.
-- **CLEVERTAP_TARGET_DOMAIN** (Optional): The domain of the proxy server.
+* **CLEVERTAP\_ACCOUNT\_ID** (Mandatory): Obtain this value from the Projects page on the CleverTap dashboard.
+* **CLEVERTAP\_REGION** (Optional): This should match the region of the CleverTap dashboard. Possible values include **in1**, **us1**, **sg1**, **aps3** and **mec1**.
+* **CLEVERTAP\_TARGET\_DOMAIN** (Optional): The domain of the proxy server.
 
 ### Add Region Code
 
@@ -282,23 +268,9 @@ To know how to add region code for Web in Flutter SDK, refer to [Region Codes.](
 
 Run your Flutter application and navigate to your CleverTap dashboard. If you integrate the CleverTap SDK successfully, you will see a new active user on the dashboard.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/f8a92ef-135b863-1_New_mobile_users.png",
-        "View Active User on the Dashboard",
-        1405
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "View Active User on the Dashboard"
-    }
-  ]
-}
-[/block]
-
+<Image title="View Active User on the Dashboard" alt={1405} align="center" border={true} src="https://files.readme.io/f8a92ef-135b863-1_New_mobile_users.png">
+  View Active User on the Dashboard
+</Image>
 
 # Flutter Integration
 
@@ -327,43 +299,15 @@ To see how this information displays within the CleverTap dashboard:
 1. Log in to the CleverTap dashboard.
 2. Click `Find People` under the `Segment` tab. In the By Identity box, enter the email you set on the user profile record and click Find.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/8e785f5-eac3675-2_By_identity_search_box.png",
-        "Find People",
-        1407
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Find People"
-    }
-  ]
-}
-[/block]
-
+<Image title="Find People" alt={1407} align="center" border={true} src="https://files.readme.io/8e785f5-eac3675-2_By_identity_search_box.png">
+  Find People
+</Image>
 
 If CleverTap finds a user profile with this email, the user record is displayed. On that page, you will see name and email as pre-defined fields and any other custom fields.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/ab96437-7bdfec6-3__User_Profile.png",
-        "CleverTap User Profile",
-        2912
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "CleverTap User Profile"
-    }
-  ]
-}
-[/block]
-
+<Image title="CleverTap User Profile" alt={2912} align="center" border={true} src="https://files.readme.io/ab96437-7bdfec6-3__User_Profile.png">
+  CleverTap User Profile
+</Image>
 
 ## Update the User Profile
 
@@ -373,30 +317,16 @@ The `Onuserlogin()` method identifies the individual users on the device. Howeve
 
 After you integrate the CleverTap SDK, we automatically start tracking events, such as App Launch and Notification Viewed. In addition to the [default events tracked](https://developer.clevertap.com/docs/events) by CleverTap, you can also track custom events.
 
-To send custom events to CleverTap using our Flutter SDK, you will have to call the recordEvent method with the name of the custom event you want to track.  
+To send custom events to CleverTap using our Flutter SDK, you will have to call the recordEvent method with the name of the custom event you want to track.\
 Record an event without event data:
 
 ```javascript Dart
 CleverTapPlugin.recordEvent("Product Viewed",{});
 ```
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/8759e00-ae28962-Screenshot_2022-08-02_at_1.44.51_PM.png",
-        "Track User Events",
-        2722
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Track User Events"
-    }
-  ]
-}
-[/block]
-
+<Image title="Track User Events" alt={2722} align="center" border={true} src="https://files.readme.io/8759e00-ae28962-Screenshot_2022-08-02_at_1.44.51_PM.png">
+  Track User Events
+</Image>
 
 Record an event with event data:
 
