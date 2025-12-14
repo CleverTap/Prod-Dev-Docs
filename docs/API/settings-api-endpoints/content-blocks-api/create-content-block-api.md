@@ -12,7 +12,7 @@ next:
 ---
 # Overview
 
-This endpoint enables you to create a new Content Block. You can create either a _Text_ or an _HTML_ Content Block. You have to specify the type, name, and content for your Content Block. For example, you can create a  footer with a content block that contains links to various social media handles. 
+This endpoint enables you to create a new Content Block. You can create either a *Text* or an *HTML* Content Block. You have to specify the type, name, and content for your Content Block. For example, you can create a  footer with a content block that contains links to various social media handles. 
 
 ## Base URL
 
@@ -46,7 +46,7 @@ The body is uploaded as a JSON payload.
 
 ## Example Request
 
-Here is an example cURL request to the _Create Content Blocks_ API.
+Here is an example cURL request to the *Create Content Blocks* API.
 
 ```json
 
