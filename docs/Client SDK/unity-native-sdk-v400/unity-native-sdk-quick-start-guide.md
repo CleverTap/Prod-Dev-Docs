@@ -26,25 +26,10 @@ The installation involves the following major steps:
 
 To import the CleverTap Unity Package into your project:
 
-1. Download the latest CleverTap Unity package from the [GitHub Releases page](https://github.com/CleverTap/clevertap-unity-sdk/releases). Then, in Unity, go to _Assets_ > _Import Package_ > _Custom Package_, and select the downloaded `.unitypackage` file.
+1. Download the latest CleverTap Unity package from the [GitHub Releases page](https://github.com/CleverTap/clevertap-unity-sdk/releases). Then, in Unity, go to *Assets* > *Import Package* > *Custom Package*, and select the downloaded `.unitypackage` file.
 2. Add the **PlayServiceResolver** and the **ExternalDependencyManager** folders in your project. These folders install the **EDM4U** plugin, which automatically adds all the Android and iOS dependencies during the build process.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/3c7ec95-Screenshot_2024-08-09_at_4.07.16_PM.png",
-        "",
-        ""
-      ],
-      "align": "center",
-      "border": true
-    }
-  ]
-}
-[/block]
-
+<Image align="center" className="border" border={true} src="https://files.readme.io/3c7ec95-Screenshot_2024-08-09_at_4.07.16_PM.png" />
 
 3. Check that the `AndroidPostImport` script is added, as it sets up `clevertap-android-wrapper` library for Android.
 
@@ -55,17 +40,17 @@ You can install the CleverTap Unity SDK using the .unitypackage file or as a loc
 To install via UPM:
 
 1. Clone the latest release of the CleverTap Unity SDK.
-2. Open Unity and go to _Window_ > _Package Manager_.
-3. Click the _+ icon_ > _Add package_ from disk.
+2. Open Unity and go to *Window* > *Package Manager*.
+3. Click the *+ icon* > *Add package* from disk.
 4. Select the `package.json` file from the cloned repo folder.
 
 ## Set Up Unity SDK
 
-CleverTap API can be accessed anywhere in your project by calling the static CleverTap class. You need not create a _GameObject_ with the _CleverTapUnity_ name or attach any script. The new architecture handles the following: 
+CleverTap API can be accessed anywhere in your project by calling the static CleverTap class. You need not create a *GameObject* with the *CleverTapUnity* name or attach any script. The new architecture handles the following: 
 
-- Instantiation of platform-specific binding
-- Creation of `GameObject`
-- Script attachment
+* Instantiation of platform-specific binding
+* Creation of `GameObject`
+* Script attachment
 
 ## Initialize CleverTap SDK
 
@@ -80,33 +65,18 @@ The `WebGL` initialization requires [region code](https://developer.clevertap.co
 
 ### Find CleverTap Account ID and Token
 
-You can view your `CleverTap Account ID` and `CleverTap Account Token` from the CleverTap dashboard by navigating to the _Settings_ > _Project_ page on the CleverTap dashboard.
+You can view your `CleverTap Account ID` and `CleverTap Account Token` from the CleverTap dashboard by navigating to the *Settings* > *Project* page on the CleverTap dashboard.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/4e89ad8-Project_Details.png",
-        "Add CleverTap Account and Preferences",
-        1449
-      ],
-      "align": "center",
-      "sizing": "100% ",
-      "border": true,
-      "caption": "Add CleverTap Account and Preferences"
-    }
-  ]
-}
-[/block]
-
+<Image title="Add CleverTap Account and Preferences" alt={1449} align="center" width="100% " border={true} src="https://files.readme.io/4e89ad8-Project_Details.png">
+  Add CleverTap Account and Preferences
+</Image>
 
 > 📘 CORS Credentials Configuration
-> 
+>
 > If you are using **JavaScript Fetch** to call APIs from your client, ensure that requests to **CleverTap domains do not include credentials**. Setting `"credentials": "include"` on such requests may lead to CORS issues.
-> 
+>
 > Use the following snippet to override the default behavior and selectively apply credentials only for non-CleverTap domains:
-> 
+>
 > ```javascript
 > fetch = function (url, data) {
 >     if (url.indexOf('clevertap') == -1) {
@@ -115,7 +85,7 @@ You can view your `CleverTap Account ID` and `CleverTap Account Token` from the 
 >     return originalFetch(url, data);
 > };
 > ```
-> 
+>
 > This ensures that cross-origin calls to CleverTap avoid unnecessary credential sharing and CORS conflicts.
 
 # Callbacks
@@ -155,14 +125,14 @@ CleverTap.OnUserLogin(newProps);
 
 # Track User Events
 
-- Record an event without event data:
+* Record an event without event data:
 
 ```csharp C#
 // record basic event with no properties
 CleverTap.RecordEvent("testEvent");
 ```
 
-- Record an event with event data as follows:
+* Record an event with event data as follows:
 
 ```csharp
 // record event with properties
