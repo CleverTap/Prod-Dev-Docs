@@ -17,15 +17,13 @@ next:
       slug: important-checklist
       title: Important Checklist
 ---
-[block:api-header]
-{
-  "title": "Overview"
-}
-[/block]
+## Overview
+
 CleverTap is a customer retention platform that provides the functionality to integrate app analytics and marketing. The platform helps customers increase user engagement in three ways: 
-  * Tracks actions users are taking and analyzes how people use the product. 
-  * [Segment](doc:segment) users based on their actions and run targeted [campaigns](https://docs.clevertap.com/docs/intro-to-campaigns) to these segments. 
-  * [Analyze](https://docs.clevertap.com/docs/intro-to-reports) each campaign to understand their effect on user engagement and business metrics.
+
+* Tracks actions users are taking and analyzes how people use the product. 
+* [Segment](doc:segment) users based on their actions and run targeted [campaigns](https://docs.clevertap.com/docs/intro-to-campaigns) to these segments. 
+* [Analyze](https://docs.clevertap.com/docs/intro-to-reports) each campaign to understand their effect on user engagement and business metrics.
 
 # Platform Features
 
@@ -47,7 +45,7 @@ Users, events, segments, campaigns, and reports are central to CleverTap, so it 
 * Campaigns: CleverTap [campaigns](https://docs.clevertap.com/docs/intro-to-campaigns) communicate with your users at scale. CleverTap offers 13 different messaging channels to reach your users on the optimal channel.
 * Reports: CleverTap provides the ability to build [reports](https://docs.clevertap.com/docs/intro-to-reports) to understand the effect of campaigns on your users. You can use these reports to analyze your user engagement and guide product decisions.
 
-#Usage Scenario
+# Usage Scenario
 
 The following is an example of how a CleverTap customer in the retail industry is using our platform to increase sales:
 
@@ -63,8 +61,8 @@ To close this loop, the marketer can create a [report](https://docs.clevertap.co
 
 The best place to get started with CleverTap is our quick start guides which cover how to install our SDK and view a user event in the CleverTap dashboard in less than 10 minutes.
 
-  * [iOS Quick Start Guide](doc:ios-quickstart-guide)
-  * [Android Quick Start Guide](doc:android-quickstart-guide) 
-  * [Web Quick Start Guide](doc:web-quickstart-guide)
+* [iOS Quick Start Guide](doc:ios-quickstart-guide)
+* [Android Quick Start Guide](doc:android-quickstart-guide) 
+* [Web Quick Start Guide](doc:web-quickstart-guide)
 
 [![](https://files.readme.io/5931f95-Doc_demo_footer.png)](https://clevertap.com/live-product-demo/)
