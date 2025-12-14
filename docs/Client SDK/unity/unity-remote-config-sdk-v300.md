@@ -22,16 +22,16 @@ You can define variables using the CleverTap Unity SDK. When you define a variab
 
 Currently, CleverTap SDK supports the following variable types:
 
-- `string`
-- `boolean`
-- `byte`
-- `short`
-- `int`
-- `long`
-- `char`
-- `float`
-- `double`
-- `decimal`
+* `string`
+* `boolean`
+* `byte`
+* `short`
+* `int`
+* `long`
+* `char`
+* `float`
+* `double`
+* `decimal`
 
 # Define Variables
 
@@ -46,19 +46,19 @@ Var<string> stringVariable = CleverTap.Define("string_variable", "hello, world")
 ```
 
 > 📘 Note
-> 
+>
 > You can define and sync File Variables in the Unity Editor and other platforms. However, File Variables function only on mobile platforms (iOS and Android).
-> 
+>
 > On unsupported platforms (such as the Unity Editor), File Variable behavior is limited—the variable returns a string representing the file URL, and the file is not downloaded.
 
 # Setup Callbacks
 
 CleverTap Unity SDK provides several callbacks for the developer to receive feedback from the SDK. You can use them as per your requirements. Using all of them is not mandatory. They are as follows:
 
-- [Status of fetch variables request](doc:unity-remote-config-sdk-v300#status-of-variables-fetch-request)
-- [`onVariablesChanged`](doc:unity-remote-config#onvariableschanged)
-- [`onceVariablesChanged`](doc:unity-remote-config#oncevariableschanged)
-- [`onValueChanged`](doc:unity-remote-config#onvaluechanged)
+* [Status of fetch variables request](doc:unity-remote-config-sdk-v300#status-of-variables-fetch-request)
+* [`onVariablesChanged`](doc:unity-remote-config#onvariableschanged)
+* [`onceVariablesChanged`](doc:unity-remote-config#oncevariableschanged)
+* [`onValueChanged`](doc:unity-remote-config#onvaluechanged)
 
 ## Status of Variables Fetch Request
 
@@ -123,11 +123,11 @@ CleverTap.SyncVariables();
 ```
 
 > 📘 Key Points to Remember
-> 
-> - In a scenario where there is already a draft created by another user profile in the dashboard, the sync call will fail to avoid overriding important changes made by someone else. In this case, **Publish** or **Dismiss** the existing draft before you proceed with syncing variables again. However, you can override a draft you created via the sync method previously to optimize the integration experience.
-> - You can receive the following logs from the CleverTap SDK:
->   - Variables synced successfully.
->   - Unauthorized access from a non-test profile. To address this, mark the profile as a test profile from the CleverTap dashboard.
+>
+> * In a scenario where there is already a draft created by another user profile in the dashboard, the sync call will fail to avoid overriding important changes made by someone else. In this case, **Publish** or **Dismiss** the existing draft before you proceed with syncing variables again. However, you can override a draft you created via the sync method previously to optimize the integration experience.
+> * You can receive the following logs from the CleverTap SDK:
+>   * Variables synced successfully.
+>   * Unauthorized access from a non-test profile. To address this, mark the profile as a test profile from the CleverTap dashboard.
 
 # Fetch Variables During a Session
 
@@ -144,8 +144,8 @@ void OnFetchVariablesCallback(bool isSuccess) {
 
 This process involves the following two major steps:
 
-- [Fetch variable values](doc:unity-remote-config#fetch-variable-values)
-- [Access variable values](doc:unity-remote-config#access-variable-values)
+* [Fetch variable values](doc:unity-remote-config#fetch-variable-values)
+* [Access variable values](doc:unity-remote-config#access-variable-values)
 
 ## Fetch Variable Values
 
@@ -190,10 +190,10 @@ void OnFetchVariablesCallback(bool isSuccess) {
 ```
 
 > 📘 Note
-> 
-> - Always call `fetchVariables()` immediately after any user property updates used in Product Experience segments.
-> - The fetch call is asynchronous; use the callback to confirm success.
-> - Existing `VariableCallback` instances are automatically triggered when variables change.
+>
+> * Always call `fetchVariables()` immediately after any user property updates used in Product Experience segments.
+> * The fetch call is asynchronous; use the callback to confirm success.
+> * Existing `VariableCallback` instances are automatically triggered when variables change.
 
 ## Access Variable Values
 
