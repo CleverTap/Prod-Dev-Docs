@@ -21,23 +21,23 @@ The Subscribe API provides the ability to set a phone number or email status as 
 For example, a user opts out of receiving messages. You can pass the phone number or email address and the status as `Unsubscribe` in the Subscribe API.  The user phone number or email is unsubscribed for all users who share the same phone number or email. After the user opts to receive messages again, the phone number or email can be changed back to `Resubscribe`.
 
 > 📘 Note
-> 
+>
 > To set only a specific user state as DND, set the MSG-sms flag for SMS or MSG-email flag for an email to false in the  [Upload User Profiles](https://developer.clevertap.com/docs/upload-user-profiles-api).  If the other users sharing the number or email have not opted out, they will continue to receive messages.
 
 > 📘 Note
-> 
+>
 > From January 13, 2020 onwards, Channel Unsubscribed Event also triggers the Subscribe API.
 
 Passing subscription status for phone numbers or email requires a POST request with a JSON payload specifying the phone number or email and subscription status. There is no limit on the number of requests to the API, but the batch size for each request must be up to 1000.
 
 > 📘 Note
-> 
+>
 > The batch size denotes the maximum number of records that can be fetched in a single call. The response may vary.
 
 ## Base URL
 
-Here is an example base URL from the account in the India region:  
-<https://in1.api.clevertap.com/1/subscribe>
+Here is an example base URL from the account in the India region:\
+[https://in1.api.clevertap.com/1/subscribe](https://in1.api.clevertap.com/1/subscribe)
 
 ### Region
 
@@ -53,41 +53,90 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
 
 ## Body Parameters
 
-- Add the type as email or phone number
-- Add the value of the email or phone number
-- Set the status to `Unsubscribe` or `Resubscribe`. 
+* Add the type as email or phone number
+* Add the value of the email or phone number
+* Set the status to `Unsubscribe` or `Resubscribe`. 
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Parameter",
-    "h-1": "Description",
-    "h-2": "Type",
-    "h-3": "Example Value",
-    "0-0": "type",
-    "0-1": "Set to phone, WhatsApp, or email. Required.",
-    "0-2": "string",
-    "0-3": "“phone”  \n\"email\"  \n\"WhatsApp\"",
-    "1-0": "value",
-    "1-1": "The phone number or email address of the user",
-    "1-2": "string",
-    "1-3": "\"+919213231415\"  \n\"[johndoe@abc.com](mailto:johndoe@abc.com)\"",
-    "2-0": "status",
-    "2-1": "Pass the status of the number or email. The valid values can be `Unsubscribe` or `Resubscribe`.",
-    "2-2": "string",
-    "2-3": "`Unsubscribe` or `Resubscribe`."
-  },
-  "cols": 4,
-  "rows": 3,
-  "align": [
-    "left",
-    "left",
-    "left",
-    "left"
-  ]
-}
-[/block]
+<Table align={["left","left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Parameter
+      </th>
 
+      <th>
+        Description
+      </th>
+
+      <th>
+        Type
+      </th>
+
+      <th>
+        Example Value
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        type
+      </td>
+
+      <td>
+        Set to phone, WhatsApp, or email. Required.
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        “phone”\
+        "email"\
+        "WhatsApp"
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        value
+      </td>
+
+      <td>
+        The phone number or email address of the user
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        "+919213231415"\
+        "[johndoe@abc.com](mailto:johndoe@abc.com)"
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        status
+      </td>
+
+      <td>
+        Pass the status of the number or email. The valid values can be `Unsubscribe` or `Resubscribe`.
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        `Unsubscribe` or `Resubscribe`.
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 The following is an example JSON payload for iOS/Android.
 
@@ -130,7 +179,7 @@ The following is an example JSON payload for iOS/Android.
 
 ## Example Request
 
-Here is an example cURL request to the _Subscribe_ API showing the headers needed to authenticate the request from the account in the India region:
+Here is an example cURL request to the *Subscribe* API showing the headers needed to authenticate the request from the account in the India region:
 
 ```curl
 curl --location --request POST 'https://in1.api.clevertap.com/1/subscribe'
