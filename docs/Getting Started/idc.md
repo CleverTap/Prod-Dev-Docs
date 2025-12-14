@@ -22,11 +22,11 @@ To enable the processing and storage in our regional data center, perform the fo
 
 1. Contact [CleverTap](https://help.clevertap.com/hc/en-us/requests/new) to enable your account's data center region feature.
 2. Complete the configuration steps for each platform you use CleverTap with.
-   - [Android](doc:idc#android)
-   - [iOS](doc:idc#ios)
-   - [KaiOS](doc:idc#kaios)
-   - [Web](doc:idc#web)
-   - [API](doc:idc#api)
+   * [Android](doc:idc#android)
+   * [iOS](doc:idc#ios)
+   * [KaiOS](doc:idc#kaios)
+   * [Web](doc:idc#web)
+   * [API](doc:idc#api)
 
 ## Android
 
@@ -69,23 +69,9 @@ To integrate CleverTap into your iOS application, refer to the [iOS Quick Start 
 
 To enable the CleverTap region, in your `Info.plist` file, add a new `CleverTapRegion` key of type string under the `Information Property List`.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/594c9b1-2023-02-01_10-48-33.png",
-        "Add the CleverTapRegion Key in iOS",
-        1316
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Add the 'CleverTapRegion' Key"
-    }
-  ]
-}
-[/block]
-
+<Image title="Add the CleverTapRegion Key in iOS" alt={1316} align="center" border={true} src="https://files.readme.io/594c9b1-2023-02-01_10-48-33.png">
+  Add the 'CleverTapRegion' Key
+</Image>
 
 Refer the following table for `CleverTapRegion` key values:
 
