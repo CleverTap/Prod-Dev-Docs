@@ -3195,15 +3195,15 @@ The Generic Sample Campaign API includes configurations for without Key Values, 
 
       <td>
         `{
-                                                          "event_name": "Charged",
-                                                          "from": 20251001,
-                                                          "to": 20251220,
-                                                          "common_profile_properties": {
-                                                            "profile_fields": {
-                                                              "field_name": "value"
-                                                            }
-                                                          }
-                                                        }`
+                                                                          "event_name": "Charged",
+                                                                          "from": 20251001,
+                                                                          "to": 20251220,
+                                                                          "common_profile_properties": {
+                                                                            "profile_fields": {
+                                                                              "field_name": "value"
+                                                                            }
+                                                                          }
+                                                                        }`
       </td>
     </tr>
 
@@ -4721,7 +4721,7 @@ Below are example payloads for web push, push, email, SMS, and WhatsApp.
     }
 }
 ```
-```json WhatsApp
+````json WhatsApp
 {
   "to": {
     "Identity": [
@@ -4803,7 +4803,7 @@ Following is the JSON payload for WhatsApp interactive message templates:
   }
 }
 
-```
+````
 ```json Video Template
 {
     "to": {
@@ -5322,7 +5322,7 @@ A successful response implies payload validity and addition to the processing qu
 
 ## Errors
 
-If there are errors, you will receive a response in the format below. 
+If there are errors, you will receive a response in the format below.
 
 ```json
 {
@@ -5333,4 +5333,22 @@ If there are errors, you will receive a response in the format below.
 ```
 
 Following are the possible error codes:
-
+| Error Code | Error Message                                                                                                                                             | Troubleshooting Steps                                                                                                                                                                                                                                                                                               |
+| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 21         | `"to" is a mandatory field"`                                                                                                                              | Check if the *to* field in the payload is missing recipient records.                                                                                                                                                                                                                                                |
+| 73         | respect_frequency_caps                                                                                                                                    | The value must be Boolean.                                                                                                                                                                                                                                                                                          |
+| 76         | `"tag_group" has to be string`                                                                                                                            | Check if the value for tag group is *string*.                                                                                                                                                                                                                                                                       |
+| 76         | `"message_type" has to be string`                                                                                                                         | Check if the value for the Message Type is string.                                                                                                                                                                                                                                                                  |
+| 78         | Invalid payload pls update and try again                                                                                                                  | Invalid JSON payload. Verify the payload.                                                                                                                                                                                                                                                                           |
+| 84         | `"Invalid recipients"`                                                                                                                                    | Recipient information mentioned in the payload does not exist in the CleverTap dashboard.                                                                                                                                                                                                                           |
+| 89         | Unexpected error, please try again                                                                                                                        | The message failed to send due to an unknown error.<br /><br />Try again. If the error persists, open a support ticket from the dashboard.                                                                                                                                                                          |
+| 89         | The WhatsApp provider you've selected is not supported with your current WhatsApp add-on. To use this provider, please enable the WhatsApp Connect add-on | 1. Check that you are not using external providers in the Send Message API.<br />2. Check your organization settings to determine if the WhatsApp Connect Add-on is enabled for your project. If the error persists even if the add-on is enabled, please contact our support.                                      |
+| 89         | The WhatsApp provider you've selected is not supported with your current WhatsApp add-on. To use this provider, please enable the WhatsApp Direct add-on  | 1. Check that you are not using CleverTap BSP in the Send Message API.<br />2. Check your organization settings to determine if the WhatsApp Direct Add-on is enabled for your project. If the error persists even if the add-on is enabled, please contact our support.                                            |
+| 89         | `"provider_nick_name" can't be empty`                                                                                                                     | The provider nick name is mandatory for WhatsApp campaigns. Check if the provider_nick_name is missing or empty.                                                                                                                                                                                                    |
+| 89         | The provider_nick_name used in request does not exist in your account.                                                                                    | Check if the provider used in the message payload exists in the CleverTap dashboard. To check, navigate to Settings > Channel > WhatsApp.                                                                                                                                                                           |
+| 89         | `"message_id" length can't be greater than 8`                                                                                                             | Check if the length of the message ID is greater than 8 characters.                                                                                                                                                                                                                                                 |
+| 89         | `"message_id" can't be empty`                                                                                                                             | Check if the value for the Message ID is missing.                                                                                                                                                                                                                                                                   |
+| 89         | Received invalid message type                                                                                                                             | The only accepted values are `"template"` or `"freeform"`.                                                                                                                                                                                                                                                          |
+| 89         | Template not found for the specified provider                                                                                                             | Check if the template used in the payload exists for the specified provider. Navigate to Settings > Channel > WhatsApp > [provider name] to check the template. To fix this, either use a provider that has the specified template or use the template that is available for the provider mentioned in the payload. |
+| 89         | Template name is mandatory                                                                                                                                | Check if the template name is missing or empty.                                                                                                                                                                                                                                                                     |
+| 89         | Invalid number of body/header/button replacements specified, the body/header/button has [n] replacement(s).                                               | The number of variables and values in the payload must match for body, header, or button.                                                                                                                                                                                                                           |
