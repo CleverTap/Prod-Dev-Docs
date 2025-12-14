@@ -18,16 +18,16 @@ The Update Segment API allows you to manage and update user profiles within Clev
 
 With this API, you can:
 
-- Update multiple user profiles simultaneously, adding or removing them from various segments.
-- Refine segments based on changing user data or actions.
-- Manage and maintain dynamic user segments for better targeting and engagement.
-- Simplify the user segmentation process by using either CleverTap segment IDs that is, `ct_segment_id` or customer-defined segment IDs, that is, `customer_segment_id`.
+* Update multiple user profiles simultaneously, adding or removing them from various segments.
+* Refine segments based on changing user data or actions.
+* Manage and maintain dynamic user segments for better targeting and engagement.
+* Simplify the user segmentation process by using either CleverTap segment IDs that is, `ct_segment_id` or customer-defined segment IDs, that is, `customer_segment_id`.
 
 # Base URL
 
 Here is an example base URL from the account in the India region:
 
-<https://in1.api.clevertap.com/api/updateSegment>
+[https://in1.api.clevertap.com/api/updateSegment](https://in1.api.clevertap.com/api/updateSegment)
 
 ### Region
 
@@ -59,7 +59,7 @@ The request body contains an array of `bulk_profiles`, where each entry consists
 Each `bulk_profiles` entry updates multiple user profiles and assigns them to specified segments using either a CleverTap segment ID (`ct_segment_id`) or a customer-defined segment ID (`customer_segment_id`).
 
 > 📘 Request Payload
-> 
+>
 > If both `ct_segment_id` and `customer_segment_id` are provided in the request payload, they must match.  If they do not match, the segment update request will fail.
 
 ### Sample Request
