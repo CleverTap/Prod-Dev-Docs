@@ -17,7 +17,7 @@ Native Display helps to display content natively within your app without interru
 We support Native Display for CleverTap iOS SDK version 3.7.2 and above. Follow the steps listed in the following sections to integrate Native Display with your App. 
 
 > 📘 Support for Linked Content in Native Display
-> 
+>
 > Starting with iOS SDK version 7.3.0, Native Display units support [Linked Content](https://docs.clevertap.com/docs/linked-content), enabling richer, personalized In-App experiences with dynamic data.
 
 ## Step 1: Register the CleverTap Display Unit
@@ -68,7 +68,7 @@ class ViewController: UIViewController, CleverTapDisplayUnitDelegate  {
 
 ## Step 2: Handle Native Display Data
 
-You receive the list of CleverTapDisplayUnits via the registered callback for all active Native Display campaigns. Implement your logic to create Native Display views using these CleverTapDisplayUnits.  
+You receive the list of CleverTapDisplayUnits via the registered callback for all active Native Display campaigns. Implement your logic to create Native Display views using these CleverTapDisplayUnits.\
 Use the following method:
 
 ```swift
@@ -203,7 +203,7 @@ You can raise the following events for tracking:
 
 ### Notification Viewed Event
 
-You can raise the _Notification Viewed_ event using the `recordDisplayUnitViewedEventForID` method whenever the user sees the Native Display. You must provide the `unitID` of the `CleverTapDisplayUnit` corresponding to the Native Display.
+You can raise the *Notification Viewed* event using the `recordDisplayUnitViewedEventForID` method whenever the user sees the Native Display. You must provide the `unitID` of the `CleverTapDisplayUnit` corresponding to the Native Display.
 
 ```swift
 CleverTap.sharedInstance()?.recordDisplayUnitViewedEvent(forID: displayUnit.unitID)
@@ -215,7 +215,7 @@ CleverTapDisplayUnit *displayUnit;
 
 ### Notification Clicked Event
 
-You can raise the _Notification Clicked_ event using the `recordDisplayUnitClickedEventForID` method whenever the user clicks the Native Display.  You must provide the `unitID` of the `CleverTapDisplayUnit` corresponding to the Native Display.
+You can raise the *Notification Clicked* event using the `recordDisplayUnitClickedEventForID` method whenever the user clicks the Native Display.  You must provide the `unitID` of the `CleverTapDisplayUnit` corresponding to the Native Display.
 
 ```swift
 CleverTap.sharedInstance()?.recordDisplayUnitClickedEvent(forID: displayUnit.unitID)
@@ -226,8 +226,8 @@ CleverTapDisplayUnit *displayUnit;
 ```
 
 > 📘 Custom Handling
-> 
-> The events that you raise are accepted automatically by the CleverTap dashboard.  
+>
+> The events that you raise are accepted automatically by the CleverTap dashboard.\
 > For example, you have implemented the Native Display using RecyclerView, and you raise a Notification Viewed event whenever the Native Display appears on the browser's viewport. If the users scroll through the app multiple times, multiple Notification Viewed events are raised.
 
 # Setting Account Credentials
