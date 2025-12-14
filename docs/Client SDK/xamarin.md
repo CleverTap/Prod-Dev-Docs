@@ -93,12 +93,12 @@ Follow the [Xamarin Demo Project](https://github.com/CleverTap/clevertap-xamarin
 
 1. Install the SDK 
 
-    Use the [DLL](https://github.com/CleverTap/clevertap-xamarin/tree/master/clevertap-component/lib/ios) and add it to the Reference
+   Use the [DLL](https://github.com/CleverTap/clevertap-xamarin/tree/master/clevertap-component/lib/ios) and add it to the Reference
 
 2. Integrating the CleverTap SDK
 
-   - Follow the integration instruction [starting with Step 2 here](https://developer.clevertap.com/docs/ios-quickstart-guide#section-step-2-add-clever-tap-credentials).
-   - Add CleverTap to your AppDelegate.cs in your FinishedLaunching method.
+   * Follow the integration instruction [starting with Step 2 here](https://developer.clevertap.com/docs/ios-quickstart-guide#section-step-2-add-clever-tap-credentials).
+   * Add CleverTap to your AppDelegate.cs in your FinishedLaunching method.
 
 ```csharp
 using CleverTapSDK;
