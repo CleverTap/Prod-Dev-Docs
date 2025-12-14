@@ -46,45 +46,17 @@ CleverTap can send push notifications powered by Huawei Cloud Push, an Android p
 
 The first step to accessing the Huawei cloud push is to register as a Huawei developer on the [Huawei Website](https://id5.cloud.huawei.com/CAS/portal/loginAuth.html).
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/fff209e-Huawei_Sign-up.png",
-        "Register Huawei Developer",
-        1439
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Register Huawei Developer"
-    }
-  ]
-}
-[/block]
-
+<Image title="Register Huawei Developer" alt={1439} align="center" border={true} src="https://files.readme.io/fff209e-Huawei_Sign-up.png">
+  Register Huawei Developer
+</Image>
 
 # Enable the Push Service
 
 In the Huawei console, enable the push kit. Enable other settings as mentioned by Huawei [here](https://developer.huawei.com/consumer/en/codelab/HMSPushKit/index.html#3)
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/c2b2b8c-EnableHuaweiPushKit.png",
-        "Enable the Push Service",
-        1899
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Enable the Push Service"
-    }
-  ]
-}
-[/block]
-
+<Image title="Enable the Push Service" alt={1899} align="center" border={true} src="https://files.readme.io/c2b2b8c-EnableHuaweiPushKit.png">
+  Enable the Push Service
+</Image>
 
 # Get the app's App ID/ App Secret
 
@@ -97,7 +69,7 @@ Integrate the Huawei Mobile Services (HMS) SDK with your Android app to enable p
 Download the `agconnect-services.json` file from the [Huawei Console](https://developer.huawei.com/consumer/en/codelab/HMSPushKit/index.html#4). Move the downloaded `agconnect-services.json` file to the app directory of your Android Studio project.
 
 > 🚧 SDK Compatibility Advisory
-> 
+>
 > CleverTap HMS SDK 1.5.0 and above is compatible with CleverTap Android SDK 7.3.1 and above.
 
 ### Configure the CleverTap Provider in `AndroidManifest.xml` (Mandatory for HMS SDK 1.5.0 and Above)
@@ -110,10 +82,10 @@ Add the following meta-data inside your `AndroidManifest.xml` file:
     android:value="@string/hps_manifest_entry" />
 ```
 
-Huawei push notifications can be integrated in two ways, either use the _CleverTap HMS SDK_ or integrate the Huawei HMS SDK manually.  
+Huawei push notifications can be integrated in two ways, either use the *CleverTap HMS SDK* or integrate the Huawei HMS SDK manually.\
 Refer to the Huawei checklist for [integration preparation](https://developer.huawei.com/consumer/en/codelab/HMSPushKit/index.html#2).
 
-## Method 1 - Configure Gradle files with _CleverTap HMS SDK_
+## Method 1 - Configure Gradle files with *CleverTap HMS SDK*
 
 It is easier to configure the Huawei push with CleverTap HMS SDK. 
 
@@ -230,30 +202,17 @@ override fun onMessageReceived(message: RemoteMessage) {
 ```
 
 > 📘 Important Note for CleverTap SDK v5.1.0+
-> 
-> CleverTap Android SDK 5.1.0 onwards, the following API now runs on the caller’s thread.  
+>
+> CleverTap Android SDK 5.1.0 onwards, the following API now runs on the caller’s thread.\
 > Ensure you call it on a background thread in `onMessageReceived()` of messaging service:
-> 
-> - `CTHmsMessageHandler().createNotification(getApplicationContext(), message)`
-> - `CleverTapAPI.createNotification(getApplicationContext(), extras);`
+>
+> * `CTHmsMessageHandler().createNotification(getApplicationContext(), message)`
+> * `CleverTapAPI.createNotification(getApplicationContext(), extras);`
 
 # Update App ID/App Secret in Settings Dashboard
 
 Enter your Huawei App ID and App Secret in the CleverTap Settings dashboard to enable push notification support for Huawei devices.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/cda5508-Huawei_Credentials.png",
-        "Update App ID/Secret in the Settings Dashboard",
-        730
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Update App ID/Secret in the Settings Dashboard"
-    }
-  ]
-}
-[/block]
+<Image title="Update App ID/Secret in the Settings Dashboard" alt={730} align="center" border={true} src="https://files.readme.io/cda5508-Huawei_Credentials.png">
+  Update App ID/Secret in the Settings Dashboard
+</Image>
