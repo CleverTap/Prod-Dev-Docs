@@ -13,35 +13,30 @@ next:
 ## User Events
 
 ## Record an event with event data
-[block:code]
-{
-  "codes": [
-    {
-      "code": "// event with properties\nvar props = { 'Name': 'XYZ', 'Price': 123 }\nCleverTap.recordEventWithNameAndProps(\"Cordova Event\", props)",
-      "language": "javascript"
-    }
-  ]
-}
-[/block]
+
+```javascript
+// event with properties
+var props = { 'Name': 'XYZ', 'Price': 123 }
+CleverTap.recordEventWithNameAndProps("Cordova Event", props)
+```
+
 ## Record an event without event data
-[block:code]
-{
-  "codes": [
-    {
-      "code": "CleverTap.recordEventWithName(\"Cordova Event\")",
-      "language": "javascript"
-    }
-  ]
-}
-[/block]
+
+```javascript
+CleverTap.recordEventWithName("Cordova Event")
+```
+
 ## Record Charged event
-[block:code]
-{
-  "codes": [
-    {
-      "code": "var chargeDetails = { 'totalValue': 20, \n                      'category': 'books', \n                      'purchase_date': new Date()\n                    }\nvar items = [\n{ 'title': 'book1', 'published_date': new Date('2010-12-12T06:35:31'), 'author': 'ABC' },\n{ 'title': 'book2', 'published_date': new Date('2020-12-12T06:35:31'), 'author': 'DEF') },\n{ 'title': 'book3', 'published_date': new Date('2000-12-12T06:35:31'), 'author': 'XYZ' }]\n\nCleverTap.recordChargedEventWithDetailsAndItems(chargeDetails, items);",
-      "language": "javascript"
-    }
-  ]
-}
-[/block]
+
+```javascript
+var chargeDetails = { 'totalValue': 20, 
+                      'category': 'books', 
+                      'purchase_date': new Date()
+                    }
+var items = [
+{ 'title': 'book1', 'published_date': new Date('2010-12-12T06:35:31'), 'author': 'ABC' },
+{ 'title': 'book2', 'published_date': new Date('2020-12-12T06:35:31'), 'author': 'DEF') },
+{ 'title': 'book3', 'published_date': new Date('2000-12-12T06:35:31'), 'author': 'XYZ' }]
+
+CleverTap.recordChargedEventWithDetailsAndItems(chargeDetails, items);
+```
