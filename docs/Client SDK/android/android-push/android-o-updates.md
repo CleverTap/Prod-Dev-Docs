@@ -50,13 +50,13 @@ CleverTapAPI.createNotificationChannel(getApplicationContext(),"got","Game of Th
 
 The notification channel's importance levels allow you to customize app notifications based on user preferences. The following are the different levels and their usage:
 
-| Notification Channel Importance                                                                                             | Description                                                                                             |
-| :-------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------ |
-| [IMPORTANCE_MIN](https://developer.android.com/reference/android/app/NotificationManager?hl=en#IMPORTANCE_MIN) or 1         | Minimum notification importance. It only shows in the shade, below the fold in the Notification Drawer. |
-| [IMPORTANCE_LOW](https://developer.android.com/reference/android/app/NotificationManager?hl=en#IMPORTANCE_LOW) or 2         | Low notification importance. It shows in the shade and potentially in the status bar.                   |
-| [IMPORTANCE_DEFAULT](https://developer.android.com/reference/android/app/NotificationManager?hl=en#IMPORTANCE_DEFAULT) or 3 | Default notification importance. It shows everywhere and makes noise but does not visually intrude.     |
-| [IMPORTANCE_HIGH](https://developer.android.com/reference/android/app/NotificationManager?hl=en#IMPORTANCE_HIGH) or 4       | Higher notification importance. It shows everywhere, makes noise, and peeks.                            |
-| [IMPORTANCE_MAX](https://developer.android.com/reference/android/app/NotificationManager?hl=en#IMPORTANCE_MAX) or 5         | Deprecated in Android 8.0. Use IMPORTANCE_HIGH or 4                                                     |
+| Notification Channel Importance                                                                                              | Description                                                                                             |
+| :--------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------ |
+| [IMPORTANCE\_MIN](https://developer.android.com/reference/android/app/NotificationManager?hl=en#IMPORTANCE_MIN) or 1         | Minimum notification importance. It only shows in the shade, below the fold in the Notification Drawer. |
+| [IMPORTANCE\_LOW](https://developer.android.com/reference/android/app/NotificationManager?hl=en#IMPORTANCE_LOW) or 2         | Low notification importance. It shows in the shade and potentially in the status bar.                   |
+| [IMPORTANCE\_DEFAULT](https://developer.android.com/reference/android/app/NotificationManager?hl=en#IMPORTANCE_DEFAULT) or 3 | Default notification importance. It shows everywhere and makes noise but does not visually intrude.     |
+| [IMPORTANCE\_HIGH](https://developer.android.com/reference/android/app/NotificationManager?hl=en#IMPORTANCE_HIGH) or 4       | Higher notification importance. It shows everywhere, makes noise, and peeks.                            |
+| [IMPORTANCE\_MAX](https://developer.android.com/reference/android/app/NotificationManager?hl=en#IMPORTANCE_MAX) or 5         | Deprecated in Android 8.0. Use IMPORTANCE\_HIGH or 4                                                    |
 
 # Create Notification Channel Groups
 
@@ -106,52 +106,23 @@ CleverTapAPI.deleteNotificationChannelGroup(getApplicationContext(),"YourGroupId
 
 To send Push Notifications, login to the CleverTap Dashboard and perform the following steps:
 
-1. Go to _Messages_ > _Campaigns_ from the left navigation. 
-2. Click **+ Campaign** and select _Mobile Push_. 
+1. Go to *Messages* > *Campaigns* from the left navigation. 
+2. Click **+ Campaign** and select *Mobile Push*. 
 3. Set up your Push Notification campaign by defining when you want to send out your notification, who you want to send it out to (in this case, it will be Android users), and what kind of push notification you want to send. 
-4. Under the _What_ section, select the _Single Message_ option and then select  _Send Message to Android O_.
+4. Under the *What* section, select the *Single Message* option and then select  *Send Message to Android O*.
 5. Fill in the Channel with the channel ID you used to create the notification channel in your app. This field is mandatory, as Android O requires a valid channel to send notifications. The Badge Icon can be set as the app icon or a small icon to denote push notifications. The default is the app icon. The Badge ID is the number you want to set the Notification Badge with. By default, it auto-increments. Both Badge Icon and Badge ID are optional.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/5d161a5-14.png",
-        "Settings for Android 8.0 and Above",
-        "Settings for Android 8.0 and Above"
-      ],
-      "align": "center",
-      "sizing": "90% ",
-      "border": true,
-      "caption": "Settings for Android 8.0 and Above"
-    }
-  ]
-}
-[/block]
-
+<Image title="Settings for Android 8.0 and Above" alt="Settings for Android 8.0 and Above" align="center" width="90% " border={true} src="https://files.readme.io/5d161a5-14.png">
+  Settings for Android 8.0 and Above
+</Image>
 
 # Save a Channel ID
 
-You can choose a _Notification channel Id_ as optional or mandatory for creating a campaign. Select _Add notification channels for Android 8.0 and above_ option. It is available from _Settings_ > _Channel_ > _Mobile Push_. You can create a selection list of channel IDs for your messages.
+You can choose a *Notification channel Id* as optional or mandatory for creating a campaign. Select *Add notification channels for Android 8.0 and above* option. It is available from *Settings* > *Channel* > *Mobile Push*. You can create a selection list of channel IDs for your messages.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/078c833-15.png",
-        "Save the Notification Settings",
-        "Save the Notification Settings"
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Save the Notification Settings"
-    }
-  ]
-}
-[/block]
-
+<Image title="Save the Notification Settings" alt="Save the Notification Settings" align="center" border={true} src="https://files.readme.io/078c833-15.png">
+  Save the Notification Settings
+</Image>
 
 # Add a Custom Notification Icon
 
@@ -159,16 +130,16 @@ If your app targets devices with Android version Lollipop and above, you can set
 
 # Default Notification Channel
 
-Starting from `core v5.1.0`we have introduced a new feature that allows developers to define a  
-default notification channel for their app. This feature provides flexibility in handling push  
+Starting from `core v5.1.0`we have introduced a new feature that allows developers to define a\
+default notification channel for their app. This feature provides flexibility in handling push\
 notifications. 
 
 > 📘 Note
-> 
-> Please note that this is only supported for CleverTap core notifications. Support for  
+>
+> Please note that this is only supported for CleverTap core notifications. Support for\
 > push templates will be released soon.
 
-To specify the default notification channel ID, you can add the following metadata to your app's  
+To specify the default notification channel ID, you can add the following metadata to your app's\
 manifest file:
 
 ```xml
@@ -177,13 +148,13 @@ manifest file:
     android:value="your_default_channel_id" />
 ```
 
-By including this metadata, you can define a specific notification channel that CleverTap will use  
-if the channel provided in the push payload is not registered by your app. This ensures that push  
+By including this metadata, you can define a specific notification channel that CleverTap will use\
+if the channel provided in the push payload is not registered by your app. This ensures that push\
 notifications are displayed consistently even if the app's notification channels are not set up.
 
-In case the SDK does not find the default channel ID specified in the manifest, it will  
-automatically fall back to using a default channel called _Miscellaneous_. It ensures that push  
+In case the SDK does not find the default channel ID specified in the manifest, it will\
+automatically fall back to using a default channel called *Miscellaneous*. It ensures that push\
 notifications are still delivered, even if no specific default channel is specified in the manifest.
 
-This enhancement provides developers with greater control over the default notification channel used  
+This enhancement provides developers with greater control over the default notification channel used\
 by CleverTap for push notifications, ensuring a seamless and customizable user experience.
