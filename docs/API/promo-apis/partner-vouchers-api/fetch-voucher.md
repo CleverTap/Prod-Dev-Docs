@@ -20,15 +20,15 @@ The **Fetch Voucher API** enables you to retrieve voucher codes assigned to user
 
 Here’s how businesses can implement client-side behaviors when integrating the Fetch Voucher API into their applications. These usage patterns help ensure a seamless and intuitive user experience when displaying assigned vouchers:
 
-- **Logged-in User**: Call the API with their `identity` to show assigned vouchers.
-- **Anonymous User**: Skip the API call, or show an empty tray with a message prompting login.
-- **Voucher Expiry**: Use the `listExpiry` timestamp to filter out expired vouchers on the business's side.
+* **Logged-in User**: Call the API with their `identity` to show assigned vouchers.
+* **Anonymous User**: Skip the API call, or show an empty tray with a message prompting login.
+* **Voucher Expiry**: Use the `listExpiry` timestamp to filter out expired vouchers on the business's side.
 
 # Base URL
 
 Here is an example base URL from the account in the India region:
 
-<https://in1.api.clevertap.com/2/promo/vouchers/assign>
+[https://in1.api.clevertap.com/2/promo/vouchers/assign](https://in1.api.clevertap.com/2/promo/vouchers/assign)
 
 ## Region
 
@@ -61,25 +61,11 @@ curl -X GET "https://in1.api.clevertap.com/2/promo/vouchers/assign?identity=kris
 
 ## Find CleverTap Account ID and Passcode
 
-You can find the CleverTap Account ID and Passcode from the CleverTap dashboard by navigating to the _Settings_ > _Project_ page on the CleverTap dashboard.
+You can find the CleverTap Account ID and Passcode from the CleverTap dashboard by navigating to the *Settings* > *Project* page on the CleverTap dashboard.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/739d78a63824aae1ab3162099ad19831000b8f090ce5960502d7fb7497def258-image.png",
-        null,
-        "Find CleverTap Project Details"
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Find CleverTap Project Details"
-    }
-  ]
-}
-[/block]
-
+<Image alt="Find CleverTap Project Details" align="center" border={true} src="https://files.readme.io/739d78a63824aae1ab3162099ad19831000b8f090ce5960502d7fb7497def258-image.png">
+  Find CleverTap Project Details
+</Image>
 
 # Sample Responses
 
