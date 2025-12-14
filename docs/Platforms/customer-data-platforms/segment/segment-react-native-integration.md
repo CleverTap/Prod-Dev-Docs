@@ -18,17 +18,17 @@ The Segment React Native SDK allows you to track event data from your React Nati
 
 The following are the prerequisites for performing this integration:
 
-- A CleverTap account
-- A Segment account
-- A functional React Native application
+* A CleverTap account
+* A Segment account
+* A functional React Native application
 
 # Integration
 
 For CleverTap Segment React Native integration, the following are the significant steps:
 
-- [Add Destination in Segment Dashboard](doc:segment-react-native-integration#add-destination-in-segment)
-- [Install SDK in React-Native Application](doc:segment-react-native-integration#install-sdk-in-react-native-application)
-- [Initialize the Segment Client](doc:segment-react-native-integration#initialize-the-segment-client)
+* [Add Destination in Segment Dashboard](doc:segment-react-native-integration#add-destination-in-segment)
+* [Install SDK in React-Native Application](doc:segment-react-native-integration#install-sdk-in-react-native-application)
+* [Initialize the Segment Client](doc:segment-react-native-integration#initialize-the-segment-client)
 
 ## Add Destination in Segment
 
@@ -36,37 +36,22 @@ Destinations are the business tools or applications to which Segment forwards yo
 
 To add CleverTap details in Segment:
 
-1. Go to _Destinations_ in the Segment application.
-2. Click on _Add Destination_ and select _CleverTap_.
-3. In the _Destination Catalog/CleverTap_ page, click on _Configure CleverTap_. 
-4. Add CleverTap _Account ID_ and _Account Token_, which you can find on the CleverTap Dashboard under _Settings_ page.
-5. Select the appropriate region from the _Region_ dropdown. To identify the region of your CleverTap account, refer to the following table:
+1. Go to *Destinations* in the Segment application.
+2. Click on *Add Destination* and select *CleverTap*.
+3. In the *Destination Catalog/CleverTap* page, click on *Configure CleverTap*. 
+4. Add CleverTap *Account ID* and *Account Token*, which you can find on the CleverTap Dashboard under *Settings* page.
+5. Select the appropriate region from the *Region* dropdown. To identify the region of your CleverTap account, refer to the following table:
 
-| CleverTap Dashboard URL                            | Region |
-| :------------------------------------------------- | :----- |
-| <https://in1.dashboard.clevertap.com/login.html#/> | IN     |
-| <https://sg1.dashboard.clevertap.com/login.html#/> | SG     |
-| <https://us1.dashboard.clevertap.com/login.html#/> | US     |
-| <https://eu1.dashboard.clevertap.com/login.html#/> | None   |
+| CleverTap Dashboard URL                                                                              | Region |
+| :--------------------------------------------------------------------------------------------------- | :----- |
+| [https://in1.dashboard.clevertap.com/login.html#/](https://in1.dashboard.clevertap.com/login.html#/) | IN     |
+| [https://sg1.dashboard.clevertap.com/login.html#/](https://sg1.dashboard.clevertap.com/login.html#/) | SG     |
+| [https://us1.dashboard.clevertap.com/login.html#/](https://us1.dashboard.clevertap.com/login.html#/) | US     |
+| [https://eu1.dashboard.clevertap.com/login.html#/](https://eu1.dashboard.clevertap.com/login.html#/) | None   |
 
-6. Turn on the toggle at the top of the _Settings_ page to enable the destination.
+6. Turn on the toggle at the top of the *Settings* page to enable the destination.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/a2005fe-2023-01-16_10-32-12.png",
-        "2023-01-16_10-32-12.png",
-        1598
-      ],
-      "align": "center",
-      "border": true
-    }
-  ]
-}
-[/block]
-
+<Image title="2023-01-16_10-32-12.png" alt={1598} align="center" className="border" border={true} src="https://files.readme.io/a2005fe-2023-01-16_10-32-12.png" />
 
 ## Install SDK in React-Native Application
 
@@ -85,11 +70,11 @@ npm install @segment/analytics-react-native-clevertap@1.5.3
 ```
 
 > 🚧 React Native v18 Changes
-> 
+>
 > The latest versions of react native use higher versions of Android Build SDK.  Segment version v1 does not support `Kotlin` beyond 1.4.0 version. Therefore you need to change the `Kotlin` version manually in `build.gradle` files of associated plugins:
-> 
+>
 > 1. in `node_modules/@segment/analytics-react-native/android/build.gradle`, update manually  `ext.defaultKotlinVersion` value from '1.4.0' to '1.7.0'.
-> 
+>
 > 2. in `node_modules/@segment/analytics-react-native-clevertap/android/build.gradle`, update manually `classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.1'` to `classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.0'`.
 
 3. Navigate to your `Android/App` folder and add the following dependency to your `app/build.gradle` file:
@@ -150,13 +135,13 @@ analytics.setup('YOUR_WRITE_KEY', {
 
 | Parameter                 | Description                                                                                                                                                |
 | :------------------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `YOUR_WRITE_KEY`          | In the Segment dashboard, navigate to _Connections_ > _Sources_. Select the source and navigate to _Settings_ > _API Keys_ to get _Write Key_ information. |
+| `YOUR_WRITE_KEY`          | In the Segment dashboard, navigate to *Connections* > *Sources*. Select the source and navigate to *Settings* > *API Keys* to get *Write Key* information. |
 | `trackAppLifecycleEvents` | This allows you to track Segment SDK to capture their Lifecycle events.                                                                                    |
 | `debug`                   | This allows you to go through the application log while developing the application.                                                                        |
 
 # Push User Information
 
-You can call the `analytics.identify()` method for pushing user profiles when a user logs in or registers to your application or when you want to update any user information.  
+You can call the `analytics.identify()` method for pushing user profiles when a user logs in or registers to your application or when you want to update any user information.\
 After installing an application on a device, your user is assigned an "anonymous" profile. The first time when the application identifies the user on the device, the "anonymous" history on the device is associated with the newly identified user. 
 
 You can call this method as follows:
@@ -185,20 +170,20 @@ Replace `userid` with the unique identifier for your application. This identifie
 
 # Push Events
 
-You can call the `analytics.track()` method to capture any user action in your application.  
+You can call the `analytics.track()` method to capture any user action in your application.\
 For example, when a user views any product, and you want to capture this event, then call this method and pass the following parameters:
 
-- Event: Product Viewed
-- Event Properties: Product viewed, Category, and Amount
+* Event: Product Viewed
+* Event Properties: Product viewed, Category, and Amount
 
 > 🚧 Event Property Data Types
-> 
-> - The value of a property can be Integer, Long, Double, Float, Character, String, or Boolean.
-> - The Date value must always be passed as $D_EPOCH value only.
+>
+> * The value of a property can be Integer, Long, Double, Float, Character, String, or Boolean.
+> * The Date value must always be passed as $D\_EPOCH value only.
 
 Calling a push event method may vary based on the type of event as follows:
 
-- All events except the Order Completed event:
+* All events except the Order Completed event:
 
 ```javascript
 analytics.track("Checked Out", {
@@ -208,7 +193,7 @@ analytics.track("Checked Out", {
 });
 ```
 
-- Order Completed (equivalent to the Charged event in CleverTap)
+* Order Completed (equivalent to the Charged event in CleverTap)
 
 ```javascript
 analytics.track("Order Completed", {
@@ -267,26 +252,11 @@ For more information about integrating Push Notification in Android, refer to [i
 
 ## Debugging
 
-You can view the debugging logs in _Android Studio_. After you run the application, navigate to _Android Studio > Logcat_ and search by CleverTap. The printed logs display all information associated with CleverTap. You can use this log to identify your CleverTap ID, check the events and user information that are getting pushed to CleverTap, etc.
+You can view the debugging logs in *Android Studio*. After you run the application, navigate to *Android Studio > Logcat* and search by CleverTap. The printed logs display all information associated with CleverTap. You can use this log to identify your CleverTap ID, check the events and user information that are getting pushed to CleverTap, etc.
 
 The following is an example display of a Logcat in your Android Studio:
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/250538c-2023-01-16_12-09-37.png",
-        "2023-01-16_12-09-37.png",
-        1534
-      ],
-      "align": "center",
-      "border": true
-    }
-  ]
-}
-[/block]
-
+<Image title="2023-01-16_12-09-37.png" alt={1534} align="center" className="border" border={true} src="https://files.readme.io/250538c-2023-01-16_12-09-37.png" />
 
 # Troubleshooting
 
@@ -316,16 +286,16 @@ CleverTap.h file not found
 
 **Solution**: 
 
-1. Open `SEGCleverTapIntegration.m` file from pods directory under _segment-clevertap_ pods.
+1. Open `SEGCleverTapIntegration.m` file from pods directory under *segment-clevertap* pods.
 
-2. Change `#import <CleverTapSDK/CleverTap.h>` to `#import <CleverTap-iOS-SDK/CleverTap.h>` and hit  
+2. Change `#import <CleverTapSDK/CleverTap.h>` to `#import <CleverTap-iOS-SDK/CleverTap.h>` and hit\
    **Unlock** button to edit and save the changes.
 
 3. Run the project again to compile successfully without error.
 
 **OR** (Recommended Approach)
 
-1. Add _use_modular_headers!_ in your PodFile to enable stricter search paths and module map generation for all of your pods.
+1. Add *use\_modular\_headers!* in your PodFile to enable stricter search paths and module map generation for all of your pods.
 
 2. Run pod installs.
 
