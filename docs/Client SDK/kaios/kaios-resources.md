@@ -18,4 +18,4 @@ Refer to our [Sample App - Angular](https://github.com/CleverTap/clevertap-fxos/
 
 # Usage Documentation
 
-Refer to our [CleverTap KaiOS Usage documentation]( https://github.com/CleverTap/clevertap-fxos#usage)
+Refer to our [CleverTap KaiOS Usage documentation](https://github.com/CleverTap/clevertap-fxos#usage)
