@@ -18,16 +18,16 @@ The Segment Analytics-Swift SDK enables you to track events and user traits acro
 
 This integration allows you to:
 
-- Forward events from Analytics-Swift into CleverTap.
-- Record user traits and behaviors using the standard Segment `track`, `identify`, and `screen` APIs.
-- Leverage CleverTap features such as Push Notifications, App Inbox, and In-App Messaging.
+* Forward events from Analytics-Swift into CleverTap.
+* Record user traits and behaviors using the standard Segment `track`, `identify`, and `screen` APIs.
+* Leverage CleverTap features such as Push Notifications, App Inbox, and In-App Messaging.
 
 # Prerequisites for Integration
 
 Before you begin, ensure the following:
 
-- A Segment account
-- A CleverTap account
+* A Segment account
+* A CleverTap account
 
 # Integration
 
@@ -45,41 +45,26 @@ Destinations are the business tools or applications to which Segment forwards yo
 
 To configure CleverTap as a destination in Segment:
 
-1. Go to _Destinations_ in the Segment application.
-2. Click **Add Destination** and select _CleverTap_.
-3. In the _Destination Catalog/CleverTap_ page, click _Configure CleverTap_.
-4. Add your CleverTap _Account ID_ and _Account Token_, which you can find on the CleverTap Dashboard under the _Settings_ page.
-5. Select the appropriate region from the _Region_ list. To identify the region of your CleverTap account, refer to the following table:
+1. Go to *Destinations* in the Segment application.
+2. Click **Add Destination** and select *CleverTap*.
+3. In the *Destination Catalog/CleverTap* page, click *Configure CleverTap*.
+4. Add your CleverTap *Account ID* and *Account Token*, which you can find on the CleverTap Dashboard under the *Settings* page.
+5. Select the appropriate region from the *Region* list. To identify the region of your CleverTap account, refer to the following table:
 
 | CleverTap Dashboard URL                                                                              | Region            |
 | :--------------------------------------------------------------------------------------------------- | :---------------- |
-| <https://in1.dashboard.clevertap.com/login.html#/>                                                   | IN                |
-| <https://sg1.dashboard.clevertap.com/login.html#/>                                                   | SG                |
-| <https://us1.dashboard.clevertap.com/login.html#/>                                                   | US                |
-| <https://eu1.dashboard.clevertap.com/login.html#/>                                                   | None              |
+| [https://in1.dashboard.clevertap.com/login.html#/](https://in1.dashboard.clevertap.com/login.html#/) | IN                |
+| [https://sg1.dashboard.clevertap.com/login.html#/](https://sg1.dashboard.clevertap.com/login.html#/) | SG                |
+| [https://us1.dashboard.clevertap.com/login.html#/](https://us1.dashboard.clevertap.com/login.html#/) | US                |
+| [https://eu1.dashboard.clevertap.com/login.html#/](https://eu1.dashboard.clevertap.com/login.html#/) | None              |
 | [https://aps3.dashboard.clevertap.com/login.html](https://aps3.dashboard.clevertap.com/login.html#/) | Indonesia         |
 | [https://mec1.dashboard.clevertap.com/login.html](https://mec1.dashboard.clevertap.com/login.html#/) | Middle East (UAE) |
 
-6. Turn on the toggle at the top of the _Settings_ page to enable the destination.
+6. Turn on the toggle at the top of the *Settings* page to enable the destination.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/de3fc69-2023-03-15_17-34-07.png",
-        "Enable the CleverTap Settings",
-        "Enable the CleverTap Settings"
-      ],
-      "align": "center",
-      "sizing": "75% ",
-      "border": true,
-      "caption": "Enable the CleverTap Settings"
-    }
-  ]
-}
-[/block]
-
+<Image title="Enable the CleverTap Settings" alt="Enable the CleverTap Settings" align="center" width="75% " border={true} src="https://files.readme.io/de3fc69-2023-03-15_17-34-07.png">
+  Enable the CleverTap Settings
+</Image>
 
 You can integrate CleverTap from the server-side or mobile destination (iOS or Android). Select mobile destinations to use CleverTap push notifications or In-App Notifications.
 
@@ -87,8 +72,8 @@ You can integrate CleverTap from the server-side or mobile destination (iOS or A
 
 Install the Segment Analytics-Swift SDK along with the CleverTap destination plugin to enable integration.
 
-1. In Xcode, go to _File_ > _Swift Package Manager_ > _Add Package Dependency_.
-2. Enter **<https://github.com/CleverTap/clevertap-segment-swift.git>** as the package repository and click **Next**.
+1. In Xcode, go to *File* > *Swift Package Manager* > *Add Package Dependency*.
+2. Enter **[https://github.com/CleverTap/clevertap-segment-swift.git](https://github.com/CleverTap/clevertap-segment-swift.git)** as the package repository and click **Next**.
 3. On the next screen, select an SDK version (by default, Xcode selects the latest stable version) and click **Next**.
 4. Click **Finish** and ensure that `SegmentCleverTap` has been added to the appropriate target.
 
@@ -112,7 +97,7 @@ analytics.add(plugin: CleverTapDestination())
 
 | Parameter             | Description                                                                                                                  |
 | :-------------------- | :--------------------------------------------------------------------------------------------------------------------------- |
-| `YOUR_WRITE_KEY_HERE` | From the Segment dashboard, go to _Connections > Sources > Select the source > Settings > API Keys_ to get this information. |
+| `YOUR_WRITE_KEY_HERE` | From the Segment dashboard, go to *Connections > Sources > Select the source > Settings > API Keys* to get this information. |
 
 This setup initializes Analytics-Swift and enables communication between Segment and CleverTap. Refer to the [Sample App](https://github.com/CleverTap/clevertap-segment-swift/blob/main/ExampleSPM) for more details on implementation.
 
@@ -219,10 +204,10 @@ Beyond event forwarding, CleverTap offers engagement tools such as App Inbox (se
 
 Find answers to the most common integration questions.
 
-**Q: Do I need to call CleverTap APIs directly?**  
+**Q: Do I need to call CleverTap APIs directly?**\
 A: No. Use the Analytics-Swift APIs (`track`, `identify`, `screen`), and the CleverTap Segment plugin will automatically map them to CleverTap.
 
-**Q: Can I mix Segment + CleverTap APIs?**  
+**Q: Can I mix Segment + CleverTap APIs?**\
 A: Yes. Events sent through Segment will flow into CleverTap. If needed, you can also call CleverTap APIs directly in addition to Segment.
 
 # Advanced Features
