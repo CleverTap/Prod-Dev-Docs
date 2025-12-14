@@ -14,9 +14,9 @@ next:
 
 To see how to use the CleverTap SDK in your app, refer to the following example projects:
 
-- [Starter Cordova project](https://github.com/CleverTap/clevertap-cordova/blob/master/Samples/Cordova/ExampleProject/www/js/index.js)
-- [Starter Ionic project](https://github.com/CleverTap/clevertap-cordova/blob/master/Samples/IonicCordova/IonicAngularProject/src/app/app.component.ts)
-- [Starter Ionic Capacitor Angular](https://github.com/CleverTap/clevertap-cordova/blob/master/Samples/IonicCordova/IonicAngularProject/src/app/app.component.ts)
+* [Starter Cordova project](https://github.com/CleverTap/clevertap-cordova/blob/master/Samples/Cordova/ExampleProject/www/js/index.js)
+* [Starter Ionic project](https://github.com/CleverTap/clevertap-cordova/blob/master/Samples/IonicCordova/IonicAngularProject/src/app/app.component.ts)
+* [Starter Ionic Capacitor Angular](https://github.com/CleverTap/clevertap-cordova/blob/master/Samples/IonicCordova/IonicAngularProject/src/app/app.component.ts)
 
 # Changelog
 
