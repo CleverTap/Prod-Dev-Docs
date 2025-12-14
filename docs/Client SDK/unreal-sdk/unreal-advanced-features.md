@@ -18,9 +18,9 @@ For initial setup instructions, plugin installation, and core usage, refer to th
 
 This guide is intended for you if:
 
-- You use multiple third-party plugins that interfere with CleverTap’s default behavior.
-- You require custom Firebase or APNs setups.
-- You want to localize or override CleverTap resources for push or In-App messaging.
+* You use multiple third-party plugins that interfere with CleverTap’s default behavior.
+* You require custom Firebase or APNs setups.
+* You want to localize or override CleverTap resources for push or In-App messaging.
 
 # Advanced Features
 
@@ -41,8 +41,8 @@ You can control how the SDK stores Personally Identifiable Information (PII) usi
 
 Available options:
 
-- `None`: Stores PII as plain text (default).
-- `Medium`: Encrypts PII at rest.
+* `None`: Stores PII as plain text (default).
+* `Medium`: Encrypts PII at rest.
 
 Set this in your Unreal config:
 
@@ -94,8 +94,8 @@ public class UnifiedMessagingService extends SomeOtherPluginMessagingService {
 
 Configure deep linking to ensure CleverTap can handle incoming URLs and route them correctly on both Android and iOS. This is essential for driving in-app navigation from push notifications, emails, or other external sources.
 
-- [Android Deep Linking](doc:unreal-advanced-features#android-deep-linking)
-- [iOS Deep Linking](doc:unreal-advanced-features#ios-deep-linking)
+* [Android Deep Linking](doc:unreal-advanced-features#android-deep-linking)
+* [iOS Deep Linking](doc:unreal-advanced-features#ios-deep-linking)
 
 ### Android Deep Linking
 
@@ -112,9 +112,9 @@ AndroidIntentFilterSlot2_PathPrefix=/sample
 
 This setup ensures:
 
-- CleverTap messages are routed to their handler.
-- Other messages are handled by the plugin you extended.
-- Conflicts are avoided when multiple plugins register Firebase services.
+* CleverTap messages are routed to their handler.
+* Other messages are handled by the plugin you extended.
+* Conflicts are avoided when multiple plugins register Firebase services.
 
 #### Simulate with ADB
 
@@ -136,8 +136,8 @@ AndroidIntentFilterSlot3_AutoVerify=True
 ```
 
 > 🚧 Digital Link Verification Required
-> 
-> HTTP/HTTPS schemes require digital verification via `assetlinks.json` hosted on the target domain.  
+>
+> HTTP/HTTPS schemes require digital verification via `assetlinks.json` hosted on the target domain.\
 > For more information, refer to [Verify Android App Links](https://developer.android.com/training/app-links/verify-android-applinks).
 
 ### iOS Deep Linking
@@ -158,7 +158,7 @@ Use `RegisterCleverTapUrlHandler()` for custom filtering.
 Configure APNs support and foreground delivery behavior for iOS devices.
 
 > 📘 APNs Registration
-> 
+>
 > Before configuring push notifications in Unreal, follow the [CleverTap APNs setup guide](https://developer.clevertap.com/docs/ios-push-notifications) to register your app with Apple Push Notification service (APNs).
 
 ```ini ini
@@ -182,7 +182,7 @@ patch -p1 -u -i /path/to/iOSSavedRemoteNotifications.patch
 ```
 
 > 📘 Patch File Path Instructions
-> 
+>
 > Replace /path/to/ with the actual path to your patch file.
 
 #### Rich Push Support Patch
@@ -226,7 +226,7 @@ AndroidSoundsDir=Config/Android/Sounds
 ```
 
 > 📘 File Naming Rules
-> 
+>
 > Filenames must follow Android naming conventions: lowercase, digits, underscores only.
 
 ### Android Notification Channels and Groups
