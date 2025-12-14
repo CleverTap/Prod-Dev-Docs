@@ -90,11 +90,11 @@ var ctGeofenceSettings = CTGeofenceSettings.Builder()
 ```
 
 > 📘 Note:
-> 
-> - CleverTapAPI needs to be initialized before the CTGeofenceAPI object is created because the object of CleverTapAPI is required to initialize the CleverTap Android Geofence SDK.
-> - Runtime location permissions needed for SDK to work.
-> - CTGeofenceAPI is automatically activated once the init() method has been called.
-> - CleverTap Android Geofence SDK raises the “Geofence Cluster Entered” and “Geofence Cluster Exited” events automatically. The app cannot raise these methods manually.
+>
+> * CleverTapAPI needs to be initialized before the CTGeofenceAPI object is created because the object of CleverTapAPI is required to initialize the CleverTap Android Geofence SDK.
+> * Runtime location permissions needed for SDK to work.
+> * CTGeofenceAPI is automatically activated once the init() method has been called.
+> * CleverTap Android Geofence SDK raises the “Geofence Cluster Entered” and “Geofence Cluster Exited” events automatically. The app cannot raise these methods manually.
 
 ## Setting Parameters
 
