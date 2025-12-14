@@ -27,55 +27,71 @@ Go to your CleverTap dashboard and navigate to “Settings” and look for your 
 To complete this integration, you need to add a couple of lines of code to your Android and iOS projects.
 
 ## **Android**
+
 In your Android app, before ​you ​initialize ​in ​your Application ​`onCreate()` ​or ​Deep ​Link ​Activity’s ​`onCreate()` add the following code snippet.
 
 ### SDK version 4.2.0 and above
 
 The `getCleverTapAttributionIdentifier` method is deprecated for all CleverTap Android SDKs version 4.2.0 and above. Use the new `getCleverTapID` method to get the CleverTap ID on the `OnInitCleverTapIDListener` callback and set the `RequestMetadata` of Branch.
-[block:code]
-{
-  "codes": [
-    {
-      "code": "cleverTapInstance.getCleverTapID(new OnInitCleverTapIDListener() {\n   @Override\n   public void onInitCleverTapID(final String cleverTapID) {\n   // Callback on main thread\n   Branch branch = Branch.getInstance();\n   branch.setRequestMetadata(\"$clevertap_attribution_id\",\n   cleverTapID);\n   ...\n   Branch.initSession(...);\n   }  \n});",
-      "language": "java"
-    },
-    {
-      "code": "cleverTapInstance?.getCleverTapID {\n// Callback on main thread\n      Branch.getInstance()?.setRequestMetadata(\"$clevertap_attribution_id\",\nit)\n...\nBranch.initSession(...)\n\n}\n\n\n",
-      "language": "kotlin"
-    }
-  ]
+
+```java
+cleverTapInstance.getCleverTapID(new OnInitCleverTapIDListener() {
+   @Override
+   public void onInitCleverTapID(final String cleverTapID) {
+   // Callback on main thread
+   Branch branch = Branch.getInstance();
+   branch.setRequestMetadata("$clevertap_attribution_id",
+   cleverTapID);
+   ...
+   Branch.initSession(...);
+   }  
+});
+```
+```kotlin
+cleverTapInstance?.getCleverTapID {
+// Callback on main thread
+      Branch.getInstance()?.setRequestMetadata("$clevertap_attribution_id",
+it)
+...
+Branch.initSession(...)
+
 }
-[/block]
+```
+
 ### SDK version 4.1.1 and below
-[block:code]
-{
-  "codes": [
-    {
-      "code": "Branch branch = Branch.getInstance();\nbranch.setRequestMetadata(\"$clevertap_attribution_id\",\ncleverTapInstance.getCleverTapAttributionIdentifier());\n...\nBranch.initSession(...);\n",
-      "language": "java"
-    },
-    {
-      "code": "Branch.getInstance()?.setRequestMetadata(\"$clevertap_attribution_id\",\ncleverTapInstance?.cleverTapAttributionIdentifier);\n...\nBranch.initSession(...);\n\n",
-      "language": "kotlin"
-    }
-  ]
-}
-[/block]
-**iOS**
+
+```java
+Branch branch = Branch.getInstance();
+branch.setRequestMetadata("$clevertap_attribution_id",
+cleverTapInstance.getCleverTapAttributionIdentifier());
+...
+Branch.initSession(...);
+```
+```kotlin
+Branch.getInstance()?.setRequestMetadata("$clevertap_attribution_id",
+cleverTapInstance?.cleverTapAttributionIdentifier);
+...
+Branch.initSession(...);
+```
+
+**iOS**\
 In your iOS app, inside didFinishLaunchingWithOptions add the following code snippet.
-[block:code]
-{
-  "codes": [
-    {
-      "code": "Branch *branch = [Branch getInstance];\n[CleverTap autoIntegrate];\n[[Branch getInstance] setRequestMetadataKey:@\"$clevertap_attribution_id\"\nvalue:[[CleverTap sharedInstance] profileGetCleverTapAttributionIdentifier]];",
-      "language": "objectivec"
-    },
-    {
-      "code": "CleverTap.autoIntegrate()\nif let branch = Branch.getInstance() {\nbranch.setRequestMetadataKey(\"$clevertap_attribution_id\",\nvalue:CleverTap.sharedInstance()?profileGetCleverTapAttributionIdentifier() as\nNSObject!);\n}",
-      "language": "swift"
-    }
-  ]
+
+```objectivec
+Branch *branch = [Branch getInstance];
+[CleverTap autoIntegrate];
+[[Branch getInstance] setRequestMetadataKey:@"$clevertap_attribution_id"
+value:[[CleverTap sharedInstance] profileGetCleverTapAttributionIdentifier]];
+```
+```swift
+CleverTap.autoIntegrate()
+if let branch = Branch.getInstance() {
+branch.setRequestMetadataKey("$clevertap_attribution_id",
+value:CleverTap.sharedInstance()?profileGetCleverTapAttributionIdentifier() as
+NSObject!);
 }
-[/block]
+```
+
 # Step 3: View Data in the CleverTap Dashboard
-After you integrate, Branch will now push data in your CleverTap dashboard. You can view it under event UTM Visited filtered by event property, UTM_source, UTM_medium or UTM_campaign.
+
+After you integrate, Branch will now push data in your CleverTap dashboard. You can view it under event UTM Visited filtered by event property, UTM\_source, UTM\_medium or UTM\_campaign.
