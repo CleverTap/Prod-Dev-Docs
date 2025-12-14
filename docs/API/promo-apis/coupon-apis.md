@@ -22,6 +22,6 @@ For example, an e-commerce application can leverage Coupon APIs to offer persona
 
 The Coupon APIs suite consists of the following APIs:
 
-- [Fetch Coupon](doc:fetch-coupon)  
-- [Validate Coupon](doc:validate-coupon)  
-- [Redeem/Revert Coupon](doc:redeemrevert-coupon)
+* [Fetch Coupon](doc:fetch-coupon)  
+* [Validate Coupon](doc:validate-coupon)  
+* [Redeem/Revert Coupon](doc:redeemrevert-coupon)
