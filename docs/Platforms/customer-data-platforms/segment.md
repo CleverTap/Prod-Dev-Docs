@@ -14,10 +14,10 @@ next:
 
 This section provides information about the following:
 
-- [Segment Native Android Integration](doc:segment-native-android-integration)
-- [Segment Analytics-Kotlin Integration](doc:segment-analytics-kotlin-integration)
-- [Segment Native iOS Integration](doc:segment-native-ios-integration)
-- [Segment Analytics-Swift Integration](doc:segment-analytics-swift-integration)
-- [Segment Web Integration](doc:segment-web-integration)
-- [Segment React-Native Integration](doc:segment-react-native-integration)
-- [Segment (Action)](doc:build-segment-destination)
+* [Segment Native Android Integration](doc:segment-native-android-integration)
+* [Segment Analytics-Kotlin Integration](doc:segment-analytics-kotlin-integration)
+* [Segment Native iOS Integration](doc:segment-native-ios-integration)
+* [Segment Analytics-Swift Integration](doc:segment-analytics-swift-integration)
+* [Segment Web Integration](doc:segment-web-integration)
+* [Segment React-Native Integration](doc:segment-react-native-integration)
+* [Segment (Action)](doc:build-segment-destination)
