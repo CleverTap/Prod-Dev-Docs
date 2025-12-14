@@ -14,21 +14,21 @@ next:
 
 The Get Campaign Report API retrieves metrics and metadata for a specific campaign.  
 
-- Supports **all campaign types** (Push, Email, SMS, In-App, Web, etc.).  
-- You must provide the `id` of the campaign.  
-- If the campaign has not **completed**, the API returns an error indicating its status.  
+* Supports **all campaign types** (Push, Email, SMS, In-App, Web, etc.).  
+* You must provide the `id` of the campaign.  
+* If the campaign has not **completed**, the API returns an error indicating its status.  
 
 > 📘 Use Cases
-> 
-> - Integrate campaign reports into analytics dashboards.  
-> - Track delivery, click, and conversion metrics.  
-> - Monitor campaign health and optimize performance.  
-> - Automate reporting workflows.
+>
+> * Integrate campaign reports into analytics dashboards.  
+> * Track delivery, click, and conversion metrics.  
+> * Monitor campaign health and optimize performance.  
+> * Automate reporting workflows.
 
 # Base URL
 
-The sample base URL for the India region:  
-<https://in1.api.clevertap.com/1/targets/result.json>
+The sample base URL for the India region:\
+[https://in1.api.clevertap.com/1/targets/result.json](https://in1.api.clevertap.com/1/targets/result.json)
 
 Refer to [Region](https://developer.clevertap.com/docs/common-api-components#region) for more details.
 
@@ -196,11 +196,11 @@ The following are the response parameters:
 | `metadata`     | Contains campaign metadata like name, type, and timestamps.                  | Object  |
 
 > 📘 Notes
-> 
-> - Metrics are integers and cannot be negative.
-> - Reports are **finalized only after campaign completion**.
-> - For recurring campaigns, reports are available **per instance**.
-> - If no data is available, fields may be omitted or set to `null`.
+>
+> * Metrics are integers and cannot be negative.
+> * Reports are **finalized only after campaign completion**.
+> * For recurring campaigns, reports are available **per instance**.
+> * If no data is available, fields may be omitted or set to `null`.
 
 # Error Codes
 
@@ -220,7 +220,7 @@ The following are the error codes:
 
 # Limitations
 
-- Only one campaign ID can be requested per call.
-- Bulk report retrieval is not supported.
-- Recommended polling interval: **once every 1–5 minutes** per campaign. 
-- Reports are updated in near real-time but finalized only after completion.
+* Only one campaign ID can be requested per call.
+* Bulk report retrieval is not supported.
+* Recommended polling interval: **once every 1–5 minutes** per campaign. 
+* Reports are updated in near real-time but finalized only after completion.
