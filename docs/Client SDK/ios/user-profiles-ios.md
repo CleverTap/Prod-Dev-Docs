@@ -178,7 +178,7 @@ CleverTap provides easy ways to enrich the user profile with data from sources, 
 Increment or decrement a user profile property by using the `profileIncrementValue` or `profileDecrementValue` methods for Clevertap iOS SDK 3.10.0 version and above.
 
 > 📘 Data Type of User Properties
-> 
+>
 > The applicable user properties are of type Integer, Float, or Double. The value can be zero or greater than zero.
 
 ```swift
@@ -208,8 +208,8 @@ You can opt out a user by either phone or email.
 
 You can opt-out a user or a phone number:
 
-- To opt out a specific user when multiple users share the same phone number, you can disable SMS for a specific user. Set the MSG-sms flag to false, and the specified user stops receiving SMS; however, all other users sharing the number continue to receive messages if they have not opted out.
-- To opt-out a phone number and all the users associated with it, set the MSG-dndPhone flag to _true_.
+* To opt out a specific user when multiple users share the same phone number, you can disable SMS for a specific user. Set the MSG-sms flag to false, and the specified user stops receiving SMS; however, all other users sharing the number continue to receive messages if they have not opted out.
+* To opt-out a phone number and all the users associated with it, set the MSG-dndPhone flag to *true*.
 
 Refer to [User Profile API Endpoints](doc:user-profile-object) for complete user profile documentation.
 
@@ -217,8 +217,8 @@ Refer to [User Profile API Endpoints](doc:user-profile-object) for complete user
 
 You can opt-out a user or an email address:
 
-- To opt out a specific user when multiple users share the same email address, you can disable email for a specific user. Set the MSG-email flag to false, and the specified user stops receiving messages; however, all other users sharing the email address continue to receive messages if they have not opted out.
-- To opt-out an email address and all the users associated with it, set the MSG-dndEmail flag to _true_.
+* To opt out a specific user when multiple users share the same email address, you can disable email for a specific user. Set the MSG-email flag to false, and the specified user stops receiving messages; however, all other users sharing the email address continue to receive messages if they have not opted out.
+* To opt-out an email address and all the users associated with it, set the MSG-dndEmail flag to *true*.
 
 Refer to [User Profile API Endpoints](doc:user-profile-object) for complete user profile documentation.
 
@@ -226,9 +226,9 @@ Refer to [User Profile API Endpoints](doc:user-profile-object) for complete user
 
 Starting from CleverTap iOS SDK v4.0.1, you can enable custom identity management. The `onUserLogin()` method can identify users in advance (only for new app installs) whenever a user logs in to the app. You can use any of the following identifiers or a combination of them:
 
-- Phone
-- Email
-- Identity  
+* Phone
+* Email
+* Identity\
   This process varies for default(shared) CleverTap instances and additional Instances.
 
 ### Default(shared) CleverTap instance
@@ -236,7 +236,7 @@ Starting from CleverTap iOS SDK v4.0.1, you can enable custom identity managemen
 The CleverTap iOS SDK provides the default instance to call CleverTap methods. The `autoIntegrate()` method initializes this instance as follows:
 
 1. Navigate to the app's `Info.plist` file in your project navigator.
-2. Create a key called _CleverTapIdentifiers_ with the type `Array`.
+2. Create a key called *CleverTapIdentifiers* with the type `Array`.
 3. Add the identifier keys for the user.
 
 ### Additional Instances
@@ -258,7 +258,7 @@ CleverTap *additionalCleverTapInstance = [CleverTap instanceWithConfig:ctConfig]
 ```
 
 > 📘 Additional Notes
-> 
-> - For existing app installs/legacy users, only the current/existing identifiers(Identity/Email) are utilized.
-> 
-> - We strongly recommend not changing the identifiers for new app installs after the identifiers are set (via an instance config). This may result in an error message, and the original identifier keys will be used.
+>
+> * For existing app installs/legacy users, only the current/existing identifiers(Identity/Email) are utilized.
+>
+> * We strongly recommend not changing the identifiers for new app installs after the identifiers are set (via an instance config). This may result in an error message, and the original identifier keys will be used.
