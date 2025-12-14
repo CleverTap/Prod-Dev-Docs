@@ -19,5 +19,5 @@ next:
 ---
 You can import your event and profile data from other platforms to CleverTap. This data can be used in CleverTap to run analytics, segments, campaigns, or journeys. 
 
-  * [Mixpanel - Import Data](doc:mixpanel-import-data) 
-  * [Amplitude - Import Data](doc:amplitude-import-data)
+* [Mixpanel - Import Data](doc:mixpanel-import-data) 
+* [Amplitude - Import Data](doc:amplitude-import-data)
