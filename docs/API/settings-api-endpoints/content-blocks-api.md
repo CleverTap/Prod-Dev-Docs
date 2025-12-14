@@ -16,11 +16,11 @@ APIs can be used to create or retrieve content blocks at scale. A maximum of 3 c
 
 Here are the API endpoints available to interact with the Content Block object:
 
-- [Get Content Block List](doc:get-content-block-list-api)  
-  The _Get Message Content Block List_ API gives you a list of all the available content blocks specified by the date range. 
-- [Get Specific Content Block](doc:get-specific-content-block-api)  
+* [Get Content Block List](doc:get-content-block-list-api)\
+  The *Get Message Content Block List* API gives you a list of all the available content blocks specified by the date range. 
+* [Get Specific Content Block](doc:get-specific-content-block-api)\
   The Get Specific Content Block API enables you to get only a specific Content Block by their ID.
-- [Create Content Block](doc:create-content-block-api)  
+* [Create Content Block](doc:create-content-block-api)\
   The Create Content Block API allows you to create a content block with the specific content and the type of the Content Block, that is, HTML or Text.
-- [Update Content Block](doc:update-content-block-api)  
+* [Update Content Block](doc:update-content-block-api)\
   The Update Content Block API allows you to update existing content in a Content Block. For example, you can update the raw HTML in a content block using this API.
