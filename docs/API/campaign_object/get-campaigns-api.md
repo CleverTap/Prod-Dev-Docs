@@ -26,14 +26,14 @@ The Get Campaigns API returns a list of campaigns (created via the CleverTap das
 
 # Base URL
 
-Use the following endpoint for the India region (replace with your region as required):\
+Use the following endpoint for the India region (replace with your region as required):  
 [https://in1.api.clevertap.com/1/targets/list.json](https://in1.api.clevertap.com/1/targets/list.json)
 
 Refer to [Region](https://developer.clevertap.com/docs/common-api-components#region) for the full list of endpoints by region.
 
 # HTTP Method
 
-POST 
+POST
 
 # Headers
 
@@ -209,9 +209,11 @@ The following is the list of error codes:
 | **429**     | `rate_limit_exceeded` | Too many requests in a short period.                                           | `{"status":"fail","error":"Rate limit exceeded","code":429}`. For more information, refer to [API Request Limit](https://developer.clevertap.com/docs/api-request-limit) . |
 | **500**     | `internal_error`      | Unexpected error occurred on the server.                                       | `{"status":"fail","error":"Internal server error","code":500}`                                                                                                             |
 
-> 📘 Empty Responses
->
-> A valid request may return `"status": "success"` with `"targets": []` if no campaigns are found in the given range.
+<Callout icon="📘" theme="info">
+  **Empty Responses**
+
+  A valid request may return `"status": "success"` with `"targets": []` if no campaigns are found in the given range.
+</Callout>
 
 # Notes
 
