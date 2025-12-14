@@ -20,7 +20,7 @@ The Fetch Coupon API enables you to create a coupon tray within your application
 
 Here is an example base URL from the account in the India region:
 
-<https://in1.api.clevertap.com/1/promo/coupons>
+[https://in1.api.clevertap.com/1/promo/coupons](https://in1.api.clevertap.com/1/promo/coupons)
 
 ## Region
 
@@ -47,8 +47,8 @@ The query parameters are optional, and coupons are fetched based on metadata (fo
 
 In the query parameters, you can pass multiple values as comma-separated entries. The system interprets the query parameters as follows:
 
-- **OR Condition**: If multiple values are passed for a single key, the system treats it as an OR condition. For example, `metadata_key=category&expected_value=Jeans,Shirts`. This returns coupons applicable for the `category` as either `Jeans` or `Shirts`.
-- **AND Condition**: If multiple keys are passed, the system treats it as an AND condition. For example, `metadata_key=category=Shirt;brand=Levis`. This returns coupons applicable for the `category` as `Jeans` _and_ the `brand` as `Nike`.
+* **OR Condition**: If multiple values are passed for a single key, the system treats it as an OR condition. For example, `metadata_key=category&expected_value=Jeans,Shirts`. This returns coupons applicable for the `category` as either `Jeans` or `Shirts`.
+* **AND Condition**: If multiple keys are passed, the system treats it as an AND condition. For example, `metadata_key=category=Shirt;brand=Levis`. This returns coupons applicable for the `category` as `Jeans` *and* the `brand` as `Nike`.
 
 # Body Parameters
 
@@ -99,11 +99,11 @@ The `metadata` object allows you to include additional custom key-value pairs fo
 The `metadata` key-value pairs enhance the coupon validation logic by allowing custom attributes to be considered during the validation process. For example, a coupon could be applicable only for items of a specific color (Red) or size (Large) or a specific supplier (Supplier A). By including such metadata, the system validates the coupon based on these additional criteria, ensuring accurate coupon applicability.
 
 > 📘 Key Points to Remember for `metadata` Object
-> 
-> - CleverTap recommends passing the `order` and `items` object details when calling the Fetch Coupon API on the checkout page. This displays the right coupons to the users in the coupon tray.
-> - The following are the specific scenarios and their corresponding expected outcomes when validating `metadata` object for the API response:
->   - If the `metadata` object is not passed, the API returns `applicability` as `true`, bypassing all validations.
->   - If the `metadata` object is passed, the API validates metadata key properties set in the coupon and returns `applicability` as `true`/`false` along with validation messages.
+>
+> * CleverTap recommends passing the `order` and `items` object details when calling the Fetch Coupon API on the checkout page. This displays the right coupons to the users in the coupon tray.
+> * The following are the specific scenarios and their corresponding expected outcomes when validating `metadata` object for the API response:
+>   * If the `metadata` object is not passed, the API returns `applicability` as `true`, bypassing all validations.
+>   * If the `metadata` object is passed, the API validates metadata key properties set in the coupon and returns `applicability` as `true`/`false` along with validation messages.
 
 # Sample Request
 
@@ -162,25 +162,11 @@ curl POST "https://in1.api.clevertap.com/1/promo/coupons?identity=BDF0V2" \
 
 ## Find CleverTap Account ID and Passcode
 
-You can find the CleverTap Account ID and Passcode from the CleverTap dashboard by navigating to the _Settings_ > _Project_ page on the CleverTap dashboard.
+You can find the CleverTap Account ID and Passcode from the CleverTap dashboard by navigating to the *Settings* > *Project* page on the CleverTap dashboard.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/739d78a63824aae1ab3162099ad19831000b8f090ce5960502d7fb7497def258-image.png",
-        null,
-        "Find CleverTap Project Details"
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Find CleverTap Project Details"
-    }
-  ]
-}
-[/block]
-
+<Image alt="Find CleverTap Project Details" align="center" border={true} src="https://files.readme.io/739d78a63824aae1ab3162099ad19831000b8f090ce5960502d7fb7497def258-image.png">
+  Find CleverTap Project Details
+</Image>
 
 # Sample Response
 
@@ -435,68 +421,145 @@ On a successful API call, the API returns detailed information about each coupon
 | `grossMRP`           | Gross MRP of the total items added being ordered. Calculated as `MRP` \* Quantity of respective items.          | Numeric | `400`        |
 
 > 📘 `order` and `item` Object Validation
-> 
+>
 > The following are the specific scenarios and their corresponding expected outcomes when validating `order` and `item` objects for the API response:
-> 
-> - If the `order` and `item` objects are not provided, the API returns `applicability` as `true`, bypassing all validations.
-> - If the `order` and `item` objects exist, but all keys have empty values, the API returns `applicability` as `true`, bypassing all validations.
-> - If the `order` and `item` objects are passed with key values, the API validates coupons based on discount rules referencing order and item details and returns coupons with their `applicability` status.
+>
+> * If the `order` and `item` objects are not provided, the API returns `applicability` as `true`, bypassing all validations.
+> * If the `order` and `item` objects exist, but all keys have empty values, the API returns `applicability` as `true`, bypassing all validations.
+> * If the `order` and `item` objects are passed with key values, the API validates coupons based on discount rules referencing order and item details and returns coupons with their `applicability` status.
 
 ## `coupon` Object Keys
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Key",
-    "h-1": "Definition",
-    "h-2": "Type",
-    "h-3": "Sample Value",
-    "0-0": "`discountEffect`",
-    "0-1": "Details of the discount applied.",
-    "0-2": "Object",
-    "0-3": "`{ \"discountValue\": \"percentage\", \"discountRate\": 50, \"discountType\": \"entireOrder\", \"discountAppliedOn\": \"saleAmount\" }`",
-    "1-0": "`discountValue`",
-    "1-1": "Type of discount applied, for example, percentage or absolute.",
-    "1-2": "String",
-    "1-3": "`percentage,\n absolute`",
-    "2-0": "`discountRate`",
-    "2-1": "Discount percentage, for example, 50 for a flat 50% discount.",
-    "2-2": "Numeric",
-    "2-3": "`50`",
-    "3-0": "`discountType`",
-    "3-1": "Type of coupon determining how the discount is applied. The following are the possible values:<li>`entireOrder`: Applies the discount to the total cart value.</li><li>`cartExcluding`: Excludes specific items from the discount calculation.</li><li>`specificProducts`: Applies the discount to specific items only.</li><li>`customProperty`: Discounts are determined by custom-defined properties such as cart metadata.</li>",
-    "3-2": "String",
-    "3-3": "`entireOrder`",
-    "4-0": "`discountAppliedOn`",
-    "4-1": "Property on which the discount is applied, for example, `saleAmount`, `itemsSaleAmount`, `orderShipping`, or a custom property key.",
-    "4-2": "String",
-    "4-3": "`saleAmount`"
-  },
-  "cols": 4,
-  "rows": 5,
-  "align": [
-    null,
-    null,
-    null,
-    null
-  ]
-}
-[/block]
+<Table>
+  <thead>
+    <tr>
+      <th>
+        Key
+      </th>
 
+      <th>
+        Definition
+      </th>
+
+      <th>
+        Type
+      </th>
+
+      <th>
+        Sample Value
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        `discountEffect`
+      </td>
+
+      <td>
+        Details of the discount applied.
+      </td>
+
+      <td>
+        Object
+      </td>
+
+      <td>
+        `{ "discountValue": "percentage", "discountRate": 50, "discountType": "entireOrder", "discountAppliedOn": "saleAmount" }`
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `discountValue`
+      </td>
+
+      <td>
+        Type of discount applied, for example, percentage or absolute.
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        ```
+        percentage,
+         absolute
+        ```
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `discountRate`
+      </td>
+
+      <td>
+        Discount percentage, for example, 50 for a flat 50% discount.
+      </td>
+
+      <td>
+        Numeric
+      </td>
+
+      <td>
+        `50`
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `discountType`
+      </td>
+
+      <td>
+        Type of coupon determining how the discount is applied. The following are the possible values:<li>`entireOrder`: Applies the discount to the total cart value.</li><li>`cartExcluding`: Excludes specific items from the discount calculation.</li><li>`specificProducts`: Applies the discount to specific items only.</li><li>`customProperty`: Discounts are determined by custom-defined properties such as cart metadata.</li>
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        `entireOrder`
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `discountAppliedOn`
+      </td>
+
+      <td>
+        Property on which the discount is applied, for example, `saleAmount`, `itemsSaleAmount`, `orderShipping`, or a custom property key.
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        `saleAmount`
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 ## `couponTimeframe` Object
 
 The `couponTimeframe` object defines the coupon redemption time slots for either all days or specific custom-selected days.
 
-- If a _Custom schedule_ is not set, the coupon is valid for 24 hours on all days.
-- If a _Custom schedule_ is set, the API returns specific days and their corresponding time slots.
+* If a *Custom schedule* is not set, the coupon is valid for 24 hours on all days.
+* If a *Custom schedule* is set, the API returns specific days and their corresponding time slots.
 
 | Key               | Description                                                                                                                                                                                                                                                                                                                     | Type            | Sample Value      |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | ----------------- |
-| **validationDay** | The days when the coupon is valid. If the _Custom schedule_ is not set, the API returns `All`, meaning the coupon is valid every day. If the _Custom schedule_ is set, the API returns specific day names. For example, `MONDAY`, `TUESDAY`).                                                                                   | String          | `ALL` or `MONDAY` |
-| **timeSlot**      | Defines the time slots when the coupon can be used. If the _Custom schedule_ is set, this array includes `startTime`, and `endTime` for each selected day. If the _Custom schedule_ is not set, it includes a single `startTime`, `endTime`, and `validationDay = All` (indicating the coupon is valid 24 hours on all 7 days). | Object          |                   |
-| **startTime**     | The start time of the valid time slot for each day in `HH:MM:SS` format. If the _Custom schedule_ is set, it contains different values per day. If the _Custom schedule_ is not set, the values default to `00:00:00 AM`.                                                                                                       | Timestamp       | `06:00:00 AMPM`   |
-| **endTime**       | The end time of the valid time slot for each day in `HH:MM:SS` format. If the _Custom schedule_ is set, it contains different values per day. If the _Custom schedule_ is not set, the values default to `23:59:59 PM`.                                                                                                         | Timestamp       | `20:00:00 `       |
+| **validationDay** | The days when the coupon is valid. If the *Custom schedule* is not set, the API returns `All`, meaning the coupon is valid every day. If the *Custom schedule* is set, the API returns specific day names. For example, `MONDAY`, `TUESDAY`).                                                                                   | String          | `ALL` or `MONDAY` |
+| **timeSlot**      | Defines the time slots when the coupon can be used. If the *Custom schedule* is set, this array includes `startTime`, and `endTime` for each selected day. If the *Custom schedule* is not set, it includes a single `startTime`, `endTime`, and `validationDay = All` (indicating the coupon is valid 24 hours on all 7 days). | Object          |                   |
+| **startTime**     | The start time of the valid time slot for each day in `HH:MM:SS` format. If the *Custom schedule* is set, it contains different values per day. If the *Custom schedule* is not set, the values default to `00:00:00 AM`.                                                                                                       | Timestamp       | `06:00:00 AMPM`   |
+| **endTime**       | The end time of the valid time slot for each day in `HH:MM:SS` format. If the *Custom schedule* is set, it contains different values per day. If the *Custom schedule* is not set, the values default to `23:59:59 PM`.                                                                                                         | Timestamp       | `20:00:00 `       |
 | **couponExpiry**  | The overall expiration timestamp after which the coupon can no longer be used.                                                                                                                                                                                                                                                  | Epoch Timestamp | `1740829235`      |
 
 ### Sample Value When Custom Schedule is Not Set (Valid 24/7)
