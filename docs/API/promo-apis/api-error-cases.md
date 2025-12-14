@@ -25,7 +25,7 @@ The following are the custom API errors that you may receive upon failure reques
 | 500        | Incorrect data type for `points`                           | The `points` field must be numeric.                                                                 | Debit/Credit Wallet API |
 | 777        | Negative points passed in the request                      | `points` must always be a positive value.                                                           | Debit/Credit Wallet API |
 | 777        | Debit points exceed the active points in the user's wallet | The points to be debited cannot exceed the available balance in the user's wallet.                  | Debit/Credit Wallet API |
-| 777        | Metadata is provided, but is an empty object ({})          | The metadata key value can not be empty                                                             | Debit/Credit Wallet API |
+| 777        | Metadata is provided, but is an empty object (\{})         | The metadata key value can not be empty                                                             | Debit/Credit Wallet API |
 
 # Coupon API Errors
 
