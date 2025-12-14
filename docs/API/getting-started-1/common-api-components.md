@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-CleverTap APIs contain several common components in their design and usage.  
+CleverTap APIs contain several common components in their design and usage.\
 This page details the common components available in CleverTap APIs.
 
 # Region
@@ -32,10 +32,10 @@ The API headers are used while processing the API request. The below headers are
 
 The `X-CleverTap-Account-Id` and `X-CleverTap-Passcode` authenticate the request.
 
-| Header                 | Description                                             | Type   | Example Value                        |
-| :--------------------- | :------------------------------------------------------ | :----- | :----------------------------------- |
-| X-CleverTap-Account-Id | Your CleverTap Account ID.                              | string | "X-CleverTap-Account-Id: ACCOUNT_ID" |
-| X-CleverTap-Passcode   | Your CleverTap Account Passcode.                        | string | "X-CleverTap-Passcode: PASSCODE"     |
-| Content-Type           | Request content-type is always set to application/json. | string | "Content-Type: application/json"     |
+| Header                 | Description                                             | Type   | Example Value                         |
+| :--------------------- | :------------------------------------------------------ | :----- | :------------------------------------ |
+| X-CleverTap-Account-Id | Your CleverTap Account ID.                              | string | "X-CleverTap-Account-Id: ACCOUNT\_ID" |
+| X-CleverTap-Passcode   | Your CleverTap Account Passcode.                        | string | "X-CleverTap-Passcode: PASSCODE"      |
+| Content-Type           | Request content-type is always set to application/json. | string | "Content-Type: application/json"      |
 
 Refer to the [API Authentication](doc:authentication) to obtain the header values. To understand the common queries and concerns related to CleverTap APIs, refer to [API FAQs](doc:api-faqs).
