@@ -118,6 +118,6 @@ CleverTapInstance.Profile.GetProperty("Customer Type");
 ```
 
 > 📘 SDK Personalisation
-> 
-> For Web SDKs, CleverTap only supports user properties that have been set in the current session.  
+>
+> For Web SDKs, CleverTap only supports user properties that have been set in the current session.\
 > For example, properties set via the API will not be available for personalization in Mobile and Web SDKs.
