@@ -3,12 +3,12 @@ title: React Native
 excerpt: Learn how to install and integrate your app with React Native SDK.
 deprecated: false
 hidden: false
+link:
+  new_tab: false
 metadata:
   title: ''
   description: ''
   robots: index
-next:
-  description: ''
 ---
 # Overview
 
@@ -72,8 +72,6 @@ The following table lists all the React Native SDK resources:
 Refer to the following for additional React Native SDK references:
 
 <HTMLBlock>{`
-`}  
-</HTMLBlock>
 <div class="two-col-container">
   <div class="link-content">
     <h4 class="custom-heading">React Native Data Tracking</h4>
@@ -89,20 +87,8 @@ Refer to the following for additional React Native SDK references:
     <p><a class="links" href="https://developer.clevertap.com/docs/react-native-in-app" target="_blank" rel="noopener noreferrer">React Native In-App Notification</a></p>
     <p><a class="links" href="https://developer.clevertap.com/docs/react-native-app-inbox" target="_blank" rel="noopener noreferrer">React Native App Inbox</a></p>
   </div> 
-</div>`}</HTMLBlock>
-
-
-
-
-
-
-
-
-
-
-
-
-
+</div>
+`}</HTMLBlock>
 
 <HTMLBlock>{`
 <style>
