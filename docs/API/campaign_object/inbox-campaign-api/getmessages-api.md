@@ -20,7 +20,7 @@ The `getMessages API` lets you retrieve the messages from the CleverTap Inbox ch
 
 Here is an example base URL from the account in the India region:
 
-<https://in1.api.clevertap.com/1/inbox/getMessages>
+[https://in1.api.clevertap.com/1/inbox/getMessages](https://in1.api.clevertap.com/1/inbox/getMessages)
 
 ### Region
 
@@ -34,105 +34,567 @@ POST
 
 The following headers are required when you use CleverTap APIs:
 
-```json
-X-CleverTap-Account-Id:<encoded-account-id>
-X-CleverTap-Passcode:<account-passcode>
-Content-Type:application/json; charset=utf-8
-Accept-Encoding: gzip
-```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 The `X-CleverTap-Account-Id` and `X-CleverTap-Passcode` authenticate the request.
 
-| Header                 | Description                                                 | Type   | Example Value                        |
-| :--------------------- | :---------------------------------------------------------- | :----- | :----------------------------------- |
-| X-CleverTap-Account-Id | Your CleverTap Account ID.                                  | string | "X-CleverTap-Account-Id: ACCOUNT_ID" |
-| X-CleverTap-Passcode   | Your CleverTap Account Passcode.                            | string | "X-CleverTap-Passcode: PASSCODE"     |
-| Content-Type           | The request content-type is always set to application/json. | string | "Content-Type: application/json"     |
-| Accept-Encoding        | The type of encoding used when fetching the messages.       | string | gzip                                 |
+| Header                 | Description                                                 | Type   | Example Value                         |
+| :--------------------- | :---------------------------------------------------------- | :----- | :------------------------------------ |
+| X-CleverTap-Account-Id | Your CleverTap Account ID.                                  | string | "X-CleverTap-Account-Id: ACCOUNT\_ID" |
+| X-CleverTap-Passcode   | Your CleverTap Account Passcode.                            | string | "X-CleverTap-Passcode: PASSCODE"      |
+| Content-Type           | The request content-type is always set to application/json. | string | "Content-Type: application/json"      |
+| Accept-Encoding        | The type of encoding used when fetching the messages.       | string | gzip                                  |
 
 # Body Parameters
 
 The following are the body parameters included in the JSON response payload:
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Parameter",
-    "h-1": "Description",
-    "h-2": "Type",
-    "h-3": "Example Value",
-    "0-0": "status",
-    "0-1": "Indicates whether the request was successfully processed. This value is either set as success or fail.",
-    "0-2": "string",
-    "0-3": "fail",
-    "1-0": "totalAvailableMessages",
-    "1-1": "Indicates the number of messages present for the user in CleverTap Inbox.",
-    "1-2": "numeric",
-    "1-3": "5",
-    "2-0": "wzrk_id",
-    "2-1": "Indicates the internal key to identify the campaign. The customer must retain this parameter to generate click events.",
-    "2-2": "string",
-    "2-3": "12345679_20240130",
-    "3-0": "wzrk_pivot",
-    "3-1": "Indicates the internal key to identify the campaign variants. The customer must retain this parameter to generate click events.",
-    "3-2": "string",
-    "3-3": "wzrk_default  \n(when the default variant is rolled out to the user)",
-    "4-0": "messages",
-    "4-1": "Contains a list of messages for the user. Each message stores message-related data and the message content. If the user has no messages, the list is empty.",
-    "4-2": "array",
-    "4-3": "\\[  \n    {  \n      \"wzrk_id\": \"1707198495_20240206\",  \n      \"wzrk_pivot\": \"wzrk_default\",  \n      \"isRead\": false,  \n      \"messageId\": 1,  \n      \"createdAt\": 1707198495,  \n      \"msg\": {  \n        \"type\": \"simple\",  \n        \"content\": [  \n          {  \n            \"key\": 8716500285,  \n            \"message\": {  \n              \"text\": \"Message\",  \n              \"color\": \"#434761\"  \n            },  \n            \"title\": {  \n              \"text\": \"Title\",  \n              \"color\": \"#434761\"  \n            },  \n            \"icon\": {}  \n          }  \n        ],  \n        \"bg\": \"#ffffff\",  \n        \"orientation\": \"l\",  \n        \"tags\": [  \n          \"Test\"  \n        ],  \n        \"enableTags\": true  \n      }  \n    }  \n  ]",
-    "5-0": "createdAt",
-    "5-1": "Indicates the timestamp when the message was created for the user.",
-    "5-2": "timestamp",
-    "5-3": "1707198495",
-    "6-0": "isRead",
-    "6-1": "Indicates if the message is read.",
-    "6-2": "Boolean",
-    "6-3": "true",
-    "7-0": "messageId",
-    "7-1": "Uniquely identifies the message.",
-    "7-2": "numeric",
-    "7-3": "1",
-    "8-0": "msg",
-    "8-1": "Stores the message content along with the custom key-value pairs.",
-    "8-2": "string",
-    "8-3": "\"msg\": {  \n        \"type\": \"simple\",  \n        \"content\": \\[  \n          {  \n            \"key\": 8716500285,  \n            \"message\": {  \n              \"text\": \"Message\",  \n              \"color\": \"#434761\"  \n            },  \n            \"title\": {  \n              \"text\": \"Title\",  \n              \"color\": \"#434761\"  \n            },  \n            \"icon\": {}  \n          }",
-    "9-0": "type",
-    "9-1": "Indicates the type of message template selected under _WHAT_ section of the Campaign dashboard.",
-    "9-2": "string",
-    "9-3": "carousel-image",
-    "10-0": "custom_kv",
-    "10-1": "Stores the Custom KV pairs specified under the _WHAT_ section of the campaign.",
-    "10-2": "object",
-    "10-3": "{  \n          \"android\": [  \n            {  \n              \"key\": \"all1\",  \n              \"value\": {  \n                \"text\": \"vall1\"  \n              }  \n            },  \n            {  \n              \"key\": \"android1\",  \n              \"value\": {  \n                \"text\": \"v4\"  \n              }  \n            }  \n          ],  \n          \"ios\": [  \n            {  \n              \"key\": \"all1\",  \n              \"value\": {  \n                \"text\": \"vall1\"  \n              }  \n            },  \n            {  \n              \"key\": \"ios1\",  \n              \"value\": {  \n                \"text\": \"v4\"  \n              }  \n            }  \n          ],  \n          \"web\": \\[  \n            {  \n              \"key\": \"all1\",  \n              \"value\": {  \n                \"text\": \"vall1\"  \n              }  \n            }",
-    "11-0": "msg.content.message",
-    "11-1": "Stores the text specified in the message.",
-    "11-2": "object",
-    "11-3": "\"message\": {  \n              \"text\": \"Message1\",  \n              \"color\": \"#434761\"  \n            },",
-    "12-0": "msg.content.title",
-    "12-1": "Stores the text specified in the title.",
-    "12-2": "object",
-    "12-3": "\"title\": {  \n              \"text\": \"Title1\",  \n              \"color\": \"#434761\"  \n            }",
-    "13-0": "msg.content.action",
-    "13-1": "Stores actions specified under the _WHAT_ section of the campaign  \n  \n<li> url: Stores the following parts of the WHAT section: Call to Action Url for iOS, Android, and Web. </li> <li> links: </li> <li> media: Stores the media link.</li>Stores the additional links added at the bottom of the message for iOS, Android, and Web.</li>  \n  \n<br />",
-    "13-2": "string",
-    "13-3": "\"action\": {  \n              \"hasUrl\": false,  \n              \"hasLinks\": false,  \n              \"url\": {  \n                \"android\": {  \n                  \"text\": \"\"  \n                },  \n                \"ios\": {  \n                  \"text\": \"\"  \n                },  \n                \"web\": {  \n                  \"text\": \"\"  \n                }  \n              }"
-  },
-  "cols": 4,
-  "rows": 14,
-  "align": [
-    "left",
-    "left",
-    "left",
-    "left"
-  ]
-}
-[/block]
 
+<Table align={["left","left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Parameter
+      </th>
 
+      <th>
+        Description
+      </th>
+
+      <th>
+        Type
+      </th>
+
+      <th>
+        Example Value
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        status
+      </td>
+
+      <td>
+        Indicates whether the request was successfully processed. This value is either set as success or fail.
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        fail
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        totalAvailableMessages
+      </td>
+
+      <td>
+        Indicates the number of messages present for the user in CleverTap Inbox.
+      </td>
+
+      <td>
+        numeric
+      </td>
+
+      <td>
+        5
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        wzrk\_id
+      </td>
+
+      <td>
+        Indicates the internal key to identify the campaign. The customer must retain this parameter to generate click events.
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        12345679\_20240130
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        wzrk\_pivot
+      </td>
+
+      <td>
+        Indicates the internal key to identify the campaign variants. The customer must retain this parameter to generate click events.
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        wzrk\_default\
+        (when the default variant is rolled out to the user)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        messages
+      </td>
+
+      <td>
+        Contains a list of messages for the user. Each message stores message-related data and the message content. If the user has no messages, the list is empty.
+      </td>
+
+      <td>
+        array
+      </td>
+
+      <td>
+        \[\
+            \{\
+              "wzrk\_id": "1707198495\_20240206",\
+              "wzrk\_pivot": "wzrk\_default",\
+              "isRead": false,\
+              "messageId": 1,\
+              "createdAt": 1707198495,\
+              "msg": \{\
+                "type": "simple",\
+                "content": [  
+                  {  
+                    "key": 8716500285,  
+                    "message": {  
+                      "text": "Message",  
+                      "color": "#434761"  
+                    },  
+                    "title": {  
+                      "text": "Title",  
+                      "color": "#434761"  
+                    },  
+                    "icon": {}  
+                  }  
+                ],\
+                "bg": "#ffffff",\
+                "orientation": "l",\
+                "tags": [  
+                  "Test"  
+                ],\
+                "enableTags": true\
+              }\
+            }\
+          ]
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        createdAt
+      </td>
+
+      <td>
+        Indicates the timestamp when the message was created for the user.
+      </td>
+
+      <td>
+        timestamp
+      </td>
+
+      <td>
+        1707198495
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        isRead
+      </td>
+
+      <td>
+        Indicates if the message is read.
+      </td>
+
+      <td>
+        Boolean
+      </td>
+
+      <td>
+        true
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        messageId
+      </td>
+
+      <td>
+        Uniquely identifies the message.
+      </td>
+
+      <td>
+        numeric
+      </td>
+
+      <td>
+        1
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        msg
+      </td>
+
+      <td>
+        Stores the message content along with the custom key-value pairs.
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        "msg": \{\
+                "type": "simple",\
+                "content": \[\
+                  \{\
+                    "key": 8716500285,\
+                    "message": \{\
+                      "text": "Message",\
+                      "color": "#434761"\
+                    },\
+                    "title": \{\
+                      "text": "Title",\
+                      "color": "#434761"\
+                    },\
+                    "icon": \{}\
+                  }
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        type
+      </td>
+
+      <td>
+        Indicates the type of message template selected under *WHAT* section of the Campaign dashboard.
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        carousel-image
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        custom\_kv
+      </td>
+
+      <td>
+        Stores the Custom KV pairs specified under the *WHAT* section of the campaign.
+      </td>
+
+      <td>
+        object
+      </td>
+
+      <td>
+        \{\
+                  "android": [  
+                    {  
+                      "key": "all1",  
+                      "value": {  
+                        "text": "vall1"  
+                      }  
+                    },  
+                    {  
+                      "key": "android1",  
+                      "value": {  
+                        "text": "v4"  
+                      }  
+                    }  
+                  ],\
+                  "ios": [  
+                    {  
+                      "key": "all1",  
+                      "value": {  
+                        "text": "vall1"  
+                      }  
+                    },  
+                    {  
+                      "key": "ios1",  
+                      "value": {  
+                        "text": "v4"  
+                      }  
+                    }  
+                  ],\
+                  "web": \[\
+                    \{\
+                      "key": "all1",\
+                      "value": \{\
+                        "text": "vall1"\
+                      }\
+                    }
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        msg.content.message
+      </td>
+
+      <td>
+        Stores the text specified in the message.
+      </td>
+
+      <td>
+        object
+      </td>
+
+      <td>
+        "message": \{\
+                      "text": "Message1",\
+                      "color": "#434761"\
+                    },
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        msg.content.title
+      </td>
+
+      <td>
+        Stores the text specified in the title.
+      </td>
+
+      <td>
+        object
+      </td>
+
+      <td>
+        "title": \{\
+                      "text": "Title1",\
+                      "color": "#434761"\
+                    }
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        msg.content.action
+      </td>
+
+      <td>
+        Stores actions specified under the *WHAT* section of the campaign  
+
+        <li> url: Stores the following parts of the WHAT section: Call to Action Url for iOS, Android, and Web. </li> <li> links: </li> <li> media: Stores the media link.</li>Stores the additional links added at the bottom of the message for iOS, Android, and Web.</li>  
+          
+        <br />
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        "action": \{\
+                      "hasUrl": false,\
+                      "hasLinks": false,\
+                      "url": \{\
+                        "android": \{\
+                          "text": ""\
+                        },\
+                        "ios": \{\
+                          "text": ""\
+                        },\
+                        "web": \{\
+                          "text": ""\
+                        }\
+                      }
+      </td>
+    </tr>
+  </tbody>
+</Table>
 # Example Request
 
 Here is an example cURL request to the getMessages API showing the headers needed to authenticate the request from the account in the India region:
+
 
 ```curl
 curl --location --request POST 'https://in1.api.clevertap.com/1/inbox/getMessages' \
@@ -239,7 +701,9 @@ request(options, function (error, response) {
 });
 ```
 
+
 # Example Response
+
 
 ```json Simple Message Template
 {
@@ -964,14 +1428,109 @@ request(options, function (error, response) {
 }
 ```
 
+
 If there is an error in fetching the messages, you receive the following response:
 
-```json
-{
-    "status": "fail",
-    "error": "<error description>",
-    "code": "<error code>"
-}
-```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 For more information about different errors you might encounter, refer to [Inbox API Errors](doc:inbox-api-errors).
