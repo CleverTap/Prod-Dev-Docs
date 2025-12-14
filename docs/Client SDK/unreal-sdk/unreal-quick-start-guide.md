@@ -54,7 +54,7 @@ Use one of the following options based on how CleverTap is used in your module:
    ```
 
 > 📘 Public vs Private Dependencies
-> 
+>
 > Use `PublicDependencyModuleNames` only if CleverTap types (such as `UCleverTapManager`) are included in public headers exposed to other modules.
 
 ## Configure Credentials
@@ -64,7 +64,7 @@ Add your CleverTap project credentials to the `Config/DefaultEngine.ini`:
 You can find the CleverTap Account ID, CleverTap Account token, and CleverTap Region on the [Settings](https://dashboard.clevertap.com/x/settings.html) page of the CleverTap dashboard.
 
 > 🚧 Credentials and Access
-> 
+>
 > The **CleverTap Account ID** and **CleverTap Token** are available as **Project ID** and **Project Token** respectively on the CleverTap dashboard. Member and Creator roles in the project do not have access to view the account Passcode and Project Token on the CleverTap dashboard.
 
 To know how to add a region code, refer to [Region Codes](doc:idc#enable-clevertap-region).
@@ -92,7 +92,7 @@ bAutoInitializeSharedInstance=true
 When `bAutoInitializeSharedInstance` is set to `true`, the `UCleverTapSubsystem` initializes the CleverTap SDK and the default shared instance using the credentials configured in the INI file.
 
 > 🚧 Platform Limitation
-> 
+>
 > Auto-initialization is required on Android. Deferred initialization is supported only on iOS.
 
 ### iOS: Defer Initialization (Optional)
@@ -122,7 +122,7 @@ GEngine->GetEngineSubsystem<UCleverTapSubsystem>()->InitializeSharedInstance(Con
 ```
 
 > 📘 Set Log Level for Debugging
-> 
+>
 > Use `ECleverTapLogLevel` to control log verbosity (`Off`, `Info`, `Debug`, `Verbose`).
 
 ## Configure Push Notifications
@@ -182,7 +182,7 @@ public class UnifiedMessagingService extends SomeOtherPluginMessagingService {
 ```
 
 > 📘 Compatibility with Other FCM Plugins
-> 
+>
 > Using this setup allows CleverTap to work alongside your existing FCM integration without causing service conflicts..
 
 For more details, refer to [Custom Android Push Notification Handling](https://developer.clevertap.com/docs/android-push#custom-android-push-notification-handling).
