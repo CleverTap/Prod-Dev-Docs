@@ -17,11 +17,11 @@ next:
 This document will help you transition templates and functions from Leanplum to CleverTap. It includes creating and managing templates, highlighting differences between the two platforms, and outlining the steps for a successful migration. This document enables users to fully leverage CleverTap's features.
 
 > 📘 Note
-> 
+>
 > For detailed steps on how to implement the Custom Code Templates in CleverTap, refer to the following docs:
-> 
-> - [Custom In-App Templates in iOS](doc:ios-custom-code-in-app-templates)
-> - [Custom In-App Templates in Android](doc:android-custom-code-in-app-templates)
+>
+> * [Custom In-App Templates in iOS](doc:ios-custom-code-in-app-templates)
+> * [Custom In-App Templates in Android](doc:android-custom-code-in-app-templates)
 
 # Naming Convention
 
@@ -36,11 +36,75 @@ The following table maps the Leanplum naming convention with the CleverTap namin
 
 This section highlights the key differences between Custom Code Templates in LeanPlum and CleverTap, providing a clear comparison of their functionalities.
 
-| Key Differences | Leanplum Logic                                                                                                                                                            | CleverTap Logic                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| :-------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Template types  | Messages, Actions, or both.                                                                                                                                               | <li> You can define Custom Code templates as either Templates or App Functions.  </li> <li> Templates can have action arguments, which can be selected on the CleverTap dashboard. </li>                                                                                                                                                                                                                                                                                                                                                                                                               |
-| Definitions     | Leanplum defines templates and actions using the `defineAction method (name, kind, args, present, dismiss)` or by implementing the `MessageTemplate` (android) interface. | CleverTap defines templates and app functions using separate builders.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| Builders        | <ul>   <li>Template name is passed as argument to the `defineAction`.</li>   <li>The arguments are passed to `defineAction` as an array.</li> </ul>                       | <ul>     <li>Builders must set both a name and a presenter.</li>     <li>The presenter serves as the interface, similar to Leanplum’s present and dismiss handlers.</li>     <li>Template or app function arguments are defined using the builders. Template builders validate the correctness of template definitions. If an invalid template is created, the following exception is thrown: NSException on iOS and CustomTemplateException on Android.</li> . <li>It is generally advised not to handle these exceptions; template definitions must be valid to be triggered correctly.</li>   </ul> |
+<Table align={["left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Key Differences
+      </th>
+
+      <th>
+        Leanplum Logic
+      </th>
+
+      <th>
+        CleverTap Logic
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        Template types
+      </td>
+
+      <td>
+        Messages, Actions, or both.
+      </td>
+
+      <td>
+        <li> You can define Custom Code templates as either Templates or App Functions.  </li> <li> Templates can have action arguments, which can be selected on the CleverTap dashboard. </li>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Definitions
+      </td>
+
+      <td>
+        Leanplum defines templates and actions using the 
+
+        `defineAction method (name, kind, args, present, dismiss)`
+
+         or by implementing the 
+
+        `MessageTemplate`
+
+         (android) interface.
+      </td>
+
+      <td>
+        CleverTap defines templates and app functions using separate builders.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Builders
+      </td>
+
+      <td>
+        <ul>   <li>Template name is passed as argument to the `defineAction`.</li>   <li>The arguments are passed to `defineAction` as an array.</li> </ul>
+      </td>
+
+      <td>
+        <ul>     <li>Builders must set both a name and a presenter.</li>     <li>The presenter serves as the interface, similar to Leanplum’s present and dismiss handlers.</li>     <li>Template or app function arguments are defined using the builders. Template builders validate the correctness of template definitions. If an invalid template is created, the following exception is thrown: NSException on iOS and CustomTemplateException on Android.</li> . <li>It is generally advised not to handle these exceptions; template definitions must be valid to be triggered correctly.</li>   </ul>
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 Let’s now understand how template actions are implemented in Leanplum and CleverTap.
 
@@ -130,16 +194,16 @@ This process can be divided into the following three main steps:
 1. Invoke the Presenter
    1. When a custom template is triggered, its presenter is activated.
    2. Presenters must extend either `TemplatePresenter` or `FunctionPresenter` (`CTTemplatePresenter` on iOS) and implement the `onPresent()` method to handle custom UI logic.
-2. Handle Template Closure  
+2. Handle Template Closure\
    Implement `onClose()` in `TemplatePresenter` to manage the template’s closure. This method should remove the UI and call TemplateContext.setDismissed. This method will remove the UI associated with the template and call `TemplateContext.setDismissed`.
 3. Use `CustomTemplateContext` (provided by all presenter methods) to:
 
-- Get argument values using the appropriate `get*(String name)` methods.
-- Trigger actions by their name through `CustomTemplateContext.triggerActionArgument`.
-- Set the state of the template invocation. Use the `CustomTemplateContext.setPresented` and `CustomTemplateContext.setDismissed` methods to inform the SDK about the current state of the template invocation.
-  - The presented state means the In-App is visible to the user.
-  - The dismissed state means the In-App is no longer visible.
-  - Only one visual template or In-App message can be displayed at a time. New messages can only be shown after the current one is dismissed.
+* Get argument values using the appropriate `get*(String name)` methods.
+* Trigger actions by their name through `CustomTemplateContext.triggerActionArgument`.
+* Set the state of the template invocation. Use the `CustomTemplateContext.setPresented` and `CustomTemplateContext.setDismissed` methods to inform the SDK about the current state of the template invocation.
+  * The presented state means the In-App is visible to the user.
+  * The dismissed state means the In-App is no longer visible.
+  * Only one visual template or In-App message can be displayed at a time. New messages can only be shown after the current one is dismissed.
 
 When custom templates are triggered, both Leanplum and CleverTap provide ways to present them to the user. However, the implementation details and available features differ between the two platforms:
 
@@ -206,7 +270,7 @@ The Templates and functions must be tested if they are working correctly in Clev
 Release a new app version that supports Custom Templates and Functions for Leanplum and CleverTap. This will allow you to create new campaigns in CleverTap while keeping the active campaigns in Leanplum. 
 
 > 📘 Note
-> 
+>
 > Do not remove your Leanplum Custom Templates from the code if any active campaigns in Leanplum are still using them.
 
 ## Migrate Leanplum Campaigns
