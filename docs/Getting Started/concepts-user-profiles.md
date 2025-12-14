@@ -14,69 +14,41 @@ next:
 
 After you integrate our SDK, CleverTap creates a user profile for each person who launches your app or visits your website.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/7ddbb47-7.png",
-        "User Profile View on CleverTap Dashboard",
-        2880
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "User Profile Details"
-    }
-  ]
-}
-[/block]
-
+<Image title="User Profile View on CleverTap Dashboard" alt={2880} align="center" border={true} src="https://files.readme.io/7ddbb47-7.png">
+  User Profile Details
+</Image>
 
 A CleverTap user profile has a set of default fields, such as email, phone number, and language. You can also enrich the default user profile by adding custom fields specific to your business. 
 
 For example, if you offer a subscription service in your app, you can create a custom profile field to track the type of plan the user purchased. 
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/218e3dd-8.png",
-        "User Profile Properties",
-        1298
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "User Profile Properties"
-    }
-  ]
-}
-[/block]
-
+<Image title="User Profile Properties" alt={1298} align="center" border={true} src="https://files.readme.io/218e3dd-8.png">
+  User Profile Properties
+</Image>
 
 Adding more information to a CleverTap user profile provides the following benefits:
 
-- Create a user segment for people with a specific profile property you define and then build a campaign to engage with that segment. 
-- Personalize your campaign messaging with information. 
-- [Personalize your app](doc:app-personalization) based on information from that person's CleverTap user profile.
+* Create a user segment for people with a specific profile property you define and then build a campaign to engage with that segment. 
+* Personalize your campaign messaging with information. 
+* [Personalize your app](doc:app-personalization) based on information from that person's CleverTap user profile.
 
 # User Profile Data Model
 
 A CleverTap user profile consists of three things:
 
-- Identifiers: Each user profile is given a unique CleverTap ID. You can also add other identifiers to recognize the user, including email, phone number, Facebook ID, or your custom identifier.
-- Properties: Information stored about the user. For example, this might include age, gender, device, and location. You can also enrich the default user profile by adding custom fields specific to your business. 
-- Events: This is a log of actions taken by a user in your app. For example, this might include a product viewed, a video watched, or an item added to the cart.
+* Identifiers: Each user profile is given a unique CleverTap ID. You can also add other identifiers to recognize the user, including email, phone number, Facebook ID, or your custom identifier.
+* Properties: Information stored about the user. For example, this might include age, gender, device, and location. You can also enrich the default user profile by adding custom fields specific to your business. 
+* Events: This is a log of actions taken by a user in your app. For example, this might include a product viewed, a video watched, or an item added to the cart.
 
 ## User Profile Types
 
 The CleverTap user profile type changes automatically depending on the information set in them. A user profile can only belong to one type.
 
-- **Anonymous**: The user profile is termed Anonymous when the user launches any application or visits any website but has not logged in or registered yet. Here, the profile does not contain uniquely-identifiable information such as email/user ID. However, when the user launches the CleverTap-integrated app or website for the first time, CleverTap assigns a unique ID called CleverTap ID to help identify and track anonymous users.
+* **Anonymous**: The user profile is termed Anonymous when the user launches any application or visits any website but has not logged in or registered yet. Here, the profile does not contain uniquely-identifiable information such as email/user ID. However, when the user launches the CleverTap-integrated app or website for the first time, CleverTap assigns a unique ID called CleverTap ID to help identify and track anonymous users.
 
-- **Addressable**: User profiles are reachable via email or push notifications.
+* **Addressable**: User profiles are reachable via email or push notifications.
 
-- **Customer**: The user will be marked as a Customer when you record a purchase via the Charged event.
+* **Customer**: The user will be marked as a Customer when you record a purchase via the Charged event.
 
 # Unified User Profiles
 
@@ -86,7 +58,7 @@ This also helps you get a more accurate user count, as it avoids double-counting
 
 # Maintaining Multiple User Profiles on the Same Device
 
-If multiple users on the same device use your app, you can use the `onUserLogin` method to assign them a unique profile to track them separately. When initially installed on a device, your app is assigned an _anonymous_ profile. You can use the `profile.push` method to add more user properties to the identified profiles. The first time you identify a user on the device (whether via `onUserLogin` or `profilepush`/`profilePush`), the device's anonymous history will be associated with the newly identified user.
+If multiple users on the same device use your app, you can use the `onUserLogin` method to assign them a unique profile to track them separately. When initially installed on a device, your app is assigned an *anonymous* profile. You can use the `profile.push` method to add more user properties to the identified profiles. The first time you identify a user on the device (whether via `onUserLogin` or `profilepush`/`profilePush`), the device's anonymous history will be associated with the newly identified user.
 
 If you want to maintain a separate profile for each user, you can use `onUserLogin` to switch between subsequent separate identified users of your app on the same device. A good time to do this is immediately after a different user has logged into your app and you have access to identifying information about that user.
 
@@ -226,15 +198,15 @@ CleverTapPlugin.onUserLogin(props);
 ```
 
 > 🚧 Using onUserLogin For Android
-> 
-> Do not call `onUserLogin` in the `onCreate()` Android LifeCycle method. Switching from one identified user to another is a costly operation.  
+>
+> Do not call `onUserLogin` in the `onCreate()` Android LifeCycle method. Switching from one identified user to another is a costly operation.\
 > In that operation:
-> 
-> - The current session for the previous user is automatically closed.
-> - Data relating to the old user is removed.
-> - A new session is started for the new user.
-> - The data for that user is refreshed via a network call to CleverTap.
-> 
+>
+> * The current session for the previous user is automatically closed.
+> * Data relating to the old user is removed.
+> * A new session is started for the new user.
+> * The data for that user is refreshed via a network call to CleverTap.
+>
 > In addition, any global frequency caps are reset as part of the switch, along with the device token transfer.
 
 # Updating the User Profile
@@ -245,21 +217,21 @@ The `Onuserlogin` method identifies the individual users on the device. However,
 
 CleverTap predefines specific profile property names that are common to most businesses. It is **strongly recommended** to use these standard property names. A list of all predefined property names is mentioned below:
 
-- Name
-- Email
-- Identity
-- Phone
-- Gender
-- DOB
-- Age
-- Timezone
-- MSG-email
-- MSG-push
-- MSG-sms 
-- MSG-whatsapp 
+* Name
+* Email
+* Identity
+* Phone
+* Gender
+* DOB
+* Age
+* Timezone
+* MSG-email
+* MSG-push
+* MSG-sms 
+* MSG-whatsapp 
 
 > 📘 Note
-> 
+>
 > User profile properties are not case-sensitive.
 
 User Profile Property Name is used for personalizing communication (push messages, email, sms) with the user.
@@ -269,8 +241,8 @@ User Profile Property Identity is used to identify a user. In-depth information 
 User Profile Properties such as Gender, Employed, Education, Married, DOB, and Age form the user's demographic profile (aka attributes). This data can be used to understand users performing certain events' demographic break-ups. It can also be used along with location and Events to segment and message users.
 
 > 📘 DOB Record
-> 
-> In the user interface, a DOB record appears under the user profile property _Birthday_.
+>
+> In the user interface, a DOB record appears under the user profile property *Birthday*.
 
 Profile properties such as `MSG-email`, `MSG-push`, `MSG-sms`, and `MSG-whatsapp` are utilized to configure the Do-Not-Disturb status for users. By default, the DND status is disabled for `MSG-email`, `MSG-push`, and `MSG-sms` as their values are set to TRUE. However, `MSG-whatsapp` has a default value of FALSE, indicating that the DND status is initially enabled for WhatsApp notifications. To disable the DND status for `MSG-whatsapp` update its property value to TRUE.
 
@@ -278,27 +250,27 @@ Example: To disable push notifications for a user, set MSG-push to false.
 
 The communication preferences can be visible under a user’s profile and are analyzed using the following flags:
 
-- MSG-push: This is the application-level flag for push notifications that work in combination with the device-level flag i.e., DDND Flag. This device-level flag is updated whenever the user navigates to the Settings of their phone to subscribe or unsubscribe from the push notifications. Consider the following example to understand how DDND works in combination with the MSG-push flag:
+* MSG-push: This is the application-level flag for push notifications that work in combination with the device-level flag i.e., DDND Flag. This device-level flag is updated whenever the user navigates to the Settings of their phone to subscribe or unsubscribe from the push notifications. Consider the following example to understand how DDND works in combination with the MSG-push flag:
 
   | Scenario | MSG-push | DDND  | Push Campaign Delivered |
   | :------- | :------- | :---- | :---------------------- |
   | 1        | True     | False | Yes                     |
   | 2        | True     | True  | No                      |
 
-  - **Scenario 1**  
-    MSG-push = True: Indicates that the user has subscribed for push notifications from the application.  
-    DDND = False: Indicates that the user has not disabled Push Notification for the application at the device level.  
+  * **Scenario 1**\
+    MSG-push = True: Indicates that the user has subscribed for push notifications from the application.\
+    DDND = False: Indicates that the user has not disabled Push Notification for the application at the device level.\
     Therefore, the push notification is delivered to the user. If the user now unsubscribes from the settings, then the Channel Unsubscribe event is raised on the user’s profile and will now not receive push notifications.
-  - **Scenario 2**  
-    MSG-PUSH = True: Indicates that the user has subscribed for push notifications from the application.  
-    DDND = True: Indicates that the user has disabled Push Notification for the application at the device level.  
+  * **Scenario 2**\
+    MSG-PUSH = True: Indicates that the user has subscribed for push notifications from the application.\
+    DDND = True: Indicates that the user has disabled Push Notification for the application at the device level.\
     Therefore, the push notification is not delivered to the user. If the user now subscribes from the settings, then the Channel Subscribe event is raised on the user’s profile and will start receiving push notifications.
-- MSG-sms: When set to true, it indicates that the user has subscribed to SMS notifications. When set to false, it indicates that the user does not want to receive SMS notifications.
-- MSG-email: When set to true, it indicates that the user has subscribed to Email notifications. When set to false, it indicates that the user does not want to receive email notifications.
-- MSG-whatsapp: When set to true, it indicates that the user has subscribed to WhatsApp notifications. When set to false, it indicates that the user does not want to receive WhatsApp notifications.
+* MSG-sms: When set to true, it indicates that the user has subscribed to SMS notifications. When set to false, it indicates that the user does not want to receive SMS notifications.
+* MSG-email: When set to true, it indicates that the user has subscribed to Email notifications. When set to false, it indicates that the user does not want to receive email notifications.
+* MSG-whatsapp: When set to true, it indicates that the user has subscribed to WhatsApp notifications. When set to false, it indicates that the user does not want to receive WhatsApp notifications.
 
 > 📘 MSG-email Exception
-> 
+>
 > All flags are on the device level except for MSG-email.
 
 Any or all properties can be updated as shown in the code example below.
@@ -542,10 +514,10 @@ CleverTapPlugin.profileSet(props);
 
 ## Manually Updating Multi-Value User Profile Properties
 
-CleverTap supports arbitrary multi-value profile properties to be set against the User Profile, as shown below. The updated value appears on the _Find People_ page under the ‘User properties’ section on the CleverTap dashboard.
+CleverTap supports arbitrary multi-value profile properties to be set against the User Profile, as shown below. The updated value appears on the *Find People* page under the ‘User properties’ section on the CleverTap dashboard.
 
 > 🚧 Note
-> 
+>
 > Only the first property value of a multi-value user property is available when personalizing notification content for a campaign.
 
 ```java Android
@@ -660,7 +632,7 @@ CleverTap.profileRemoveValueForKey("My Stuff");
 ## Increment or Decrement the User Profile Property
 
 > 📘 Note
-> 
+>
 > The applicable user properties are of type Integer, Float, or Double. The value can be zero or greater than zero.
 
 CleverTap provides you with the following increment or decrement operations for user profile property:
@@ -742,34 +714,34 @@ clevertap.handleDecrementValue('price', 10)
 
 # User Profile Consideration
 
-After you integrate CleverTap SDK, CleverTap creates a user profile for each person who launches your application or visits your website.  
+After you integrate CleverTap SDK, CleverTap creates a user profile for each person who launches your application or visits your website.\
 The following are the essential CleverTap User Profile considerations:
 
-- You can set a maximum number of 256 custom attribute keys. 
+* You can set a maximum number of 256 custom attribute keys. 
 
-- Attribute keys must be of type _String_ and attribute values can be scalar values, that is, String, Boolean, Integer, Float, or a Date object, or [multi-values](https://developer.clevertap.com/docs/concepts-user-profiles#multi-value-property-constraints) (returned as a JSONArray or NSArray/Array).
+* Attribute keys must be of type *String* and attribute values can be scalar values, that is, String, Boolean, Integer, Float, or a Date object, or [multi-values](https://developer.clevertap.com/docs/concepts-user-profiles#multi-value-property-constraints) (returned as a JSONArray or NSArray/Array).
 
-- Attribute key names are limited to 120 characters in length.
+* Attribute key names are limited to 120 characters in length.
 
-- Scalar attribute values are limited to 512 characters in length.
+* Scalar attribute values are limited to 512 characters in length.
 
 ## Multi-value Property Constraints
 
 The multi-value property has the following constraints:
 
-- Values must be unique for that attribute key.
+* Values must be unique for that attribute key.
 
-- Values must be Strings and are limited to 100 items. The excess items are removed on a FIFO (first-in, first-out) basis.
+* Values must be Strings and are limited to 100 items. The excess items are removed on a FIFO (first-in, first-out) basis.
 
-- Values are limited to 512 characters in length.
+* Values are limited to 512 characters in length.
 
-- When setting a multi-value property, any existing value is overwritten. 
-  - If the multi-value property does not exist, it will be created when adding items to a multi-value property.  
-  - If the attribute key currently contains a scalar value, the key will be promoted to a multi-value property, with the current value and the new values added. 
+* When setting a multi-value property, any existing value is overwritten. 
+  * If the multi-value property does not exist, it will be created when adding items to a multi-value property.  
+  * If the attribute key currently contains a scalar value, the key will be promoted to a multi-value property, with the current value and the new values added. 
 
-- When removing the items from a multi-value property: 
-  - If the attribute key has a scalar value, then the key will be promoted to a multi-value property with the current scalar value before the remove operation. 
-  - If the attribute key does not have any scalar value, the key will not be promoted to a multi-value property and will be removed after the removal operation.
+* When removing the items from a multi-value property: 
+  * If the attribute key has a scalar value, then the key will be promoted to a multi-value property with the current scalar value before the remove operation. 
+  * If the attribute key does not have any scalar value, the key will not be promoted to a multi-value property and will be removed after the removal operation.
 
 # Identifying a User
 
@@ -777,7 +749,7 @@ Use the Identity field of a User Profile to set it to your customer ID, email, o
 
 Specifying the same Identity attribute on different devices for the same user will then automatically associate the user’s events on those devices with the consolidated CleverTap User Profile for that user.
 
-You can pass identity via Profile Push or On-User Login on your mobile app or web browser.  
+You can pass identity via Profile Push or On-User Login on your mobile app or web browser.\
 Using one of the above methods, you can link one or more Identity values (Identity, Email, FBID) to a specific user profile.
 
 ## Accessing the CleverTap ID in Your App
