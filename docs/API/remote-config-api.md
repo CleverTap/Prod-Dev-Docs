@@ -14,6 +14,6 @@ CleverTap's Remote Config feature enables you to modify your application's funct
 
 Here are the API endpoints to manage your Variables through APIs for Remote Config.
 
-- [Create/Define Variables](https://developer.clevertap.com/docs/create-variables-api)
-- [Delete Variables](https://developer.clevertap.com/docs/delete-variables-api)
-- [Get Variables](https://developer.clevertap.com/docs/get-variables-api)
+* [Create/Define Variables](https://developer.clevertap.com/docs/create-variables-api)
+* [Delete Variables](https://developer.clevertap.com/docs/delete-variables-api)
+* [Get Variables](https://developer.clevertap.com/docs/get-variables-api)
