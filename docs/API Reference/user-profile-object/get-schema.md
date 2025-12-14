@@ -12,184 +12,484 @@ next:
 ---
 The GET schema APIs allow you to get the latest schema via API so that you have the latest changes.  You can GET the schema for events or user profiles.
 
-
-#Get Events Schema API
+# Get Events Schema API
 
 ## Overview
+
 You can GET all the events from the schema. This API will get you all the system events and custom events along with their meta and properties.
 
 ### Base URL
 
-https://[location].api.clevertap.com/getSchema?type=events
-[block:callout]
-{
-  "type": "info",
-  "title": "Note",
-  "body": "Use the URL based on your location:\n  * India - in1.api.clevertap.com\n  * Singapore - sg1.api.clevertap.com\n  * U.S - us1.api.clevertap.com"
-}
-[/block]
+https\://\[location].api.clevertap.com/getSchema?type=events
+
+> 📘 Note
+>
+> Use the URL based on your location:
+>
+> * India - in1.api.clevertap.com
+> * Singapore - sg1.api.clevertap.com
+> * U.S - us1.api.clevertap.com
+
 ### HTTP Method
+
 GET
 
 ### Headers
+
 These headers are all required. The X-CleverTap-Account-Id and X-CleverTap-Passcode are used to authenticate the request. Please see the [authentication guide](doc:authentication) to see how to get their values.
-[block:parameters]
-{
-  "data": {
-    "h-0": "Header",
-    "h-1": "Description",
-    "h-2": "Type",
-    "h-3": "Example Value",
-    "0-0": "X-CleverTap-Account-Id",
-    "1-0": "X-CleverTap-Passcode",
-    "2-0": "Content-Type",
-    "0-1": "Your CleverTap Account ID",
-    "1-1": "Your CleverTap Account Passcode",
-    "2-1": "Request content-type is always set to application/json; charset=utf-8.",
-    "0-2": "string",
-    "1-2": "string",
-    "2-2": "string",
-    "0-3": "\"X-CleverTap-Account-Id: ACCOUNT_ID\"",
-    "1-3": "\"X-CleverTap-Passcode: PASSCODE\"",
-    "2-3": "\"Content-Type: application/json; charset=utf-8\""
-  },
-  "cols": 4,
-  "rows": 3
-}
-[/block]
+
+<Table align={["left","left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Header
+      </th>
+
+      <th>
+        Description
+      </th>
+
+      <th>
+        Type
+      </th>
+
+      <th>
+        Example Value
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        X-CleverTap-Account-Id
+      </td>
+
+      <td>
+        Your CleverTap Account ID
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        "X-CleverTap-Account-Id: ACCOUNT\_ID"
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        X-CleverTap-Passcode
+      </td>
+
+      <td>
+        Your CleverTap Account Passcode
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        "X-CleverTap-Passcode: PASSCODE"
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Content-Type
+      </td>
+
+      <td>
+        Request content-type is always set to application/json; charset=utf-8.
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        "Content-Type: application/json; charset=utf-8"
+      </td>
+    </tr>
+  </tbody>
+</Table>
+
 ### Body Parameters
+
 You do not need to provide body parameters. 
 
-### Example Request  
-[block:code]
-{
-  "codes": [
-    {
-      "code": "curl --location --request POST 'https://[location].api.clevertap.com/getSchema?type=events\n--header 'X-CleverTap-Account-Id: RRP-XXT-CCWY' \\\n--header 'X-CleverTap-Passcode: 1c10a905d0fa4c168a8c9d818acf0a90'",
-      "language": "curl"
-    },
-    {
-      "code": "require \"uri\"\nrequire \"net/http\"\nurl = URI(\"https://[location].api.clevertap.com/getschema?type=events/\")\nhttp = Net::HTTP.new(url.host, url.port);\nrequest = Net::HTTP::Post.new(url)\nrequest[\"Content-Type\"] = \"application/json\"\nrequest[\"X-CleverTap-Account-Id\"] = \"WWW-WWW-WWRZ\"\nrequest[\"X-CleverTap-Passcode\"] = \"ICW-QKE-YSGL\"\nresponse = http.request(request)\nputs response.read_body",
-      "language": "ruby"
-    },
-    {
-      "code": "import requests\nurl = \"https://[location].api.clevertap.com/getschema?type=events\"\nheaders = {\n  'Content-Type': 'application/json',\n  'X-CleverTap-Account-Id': 'WWW-WWW-WWRZ',\n  'X-CleverTap-Passcode': 'ICW-QKE-YSGL'\n}\nresponse = requests.request(\"POST\", url, headers=headers)\nprint(response.text.encode('utf8'))\n",
-      "language": "python"
-    },
-    {
-      "code": "<?php\nrequire_once 'HTTP/Request2.php';\n$request = new HTTP_Request2();\n$request->setUrl('https://[location].api.clevertap.com/getschema?type=events');\n$request->setMethod(HTTP_Request2::METHOD_POST);\n$request->setConfig(array(\n  'follow_redirects' => TRUE\n));\n$request->setHeader(array(\n  'Content-Type' => 'application/json',\n  'X-CleverTap-Account-Id' => 'WWW-WWW-WWRZ',\n  'X-CleverTap-Passcode' => 'ICW-QKE-YSGL'\n));\n\ntry {\n  $response = $request->send();\n  if ($response->getStatus() == 200) {\n    echo $response->getBody();\n  }\n  else {\n    echo 'Unexpected HTTP status: ' . $response->getStatus() . ' ' .\n    $response->getReasonPhrase();\n  }\n}\ncatch(HTTP_Request2_Exception $e) {\n  echo 'Error: ' . $e->getMessage();\n}",
-      "language": "php"
-    },
-    {
-      "code": "var request = require('request');\nvar options = {\n  'method': 'POST',\n  'url': 'https://[location].api.clevertap.com/getschema?type=events',\n  'headers': {\n    'Content-Type': 'application/json',\n    'X-CleverTap-Account-Id': 'WWW-WWW-WWRZ',\n    'X-CleverTap-Passcode': 'ICW-QKE-YSGL'\n  };\n\nrequest(options, function (error, response) { \n  if (error) throw new Error(error);\n  console.log(response.body);\n});\n",
-      "language": "javascript",
-      "name": "Node.js"
-    },
-    {
-      "code": "package main\nimport (\n  \"fmt\"\n  \"strings\"\n  \"net/http\"\n  \"io/ioutil\"\n)\nfunc main() {\n  url := \"https://[location].api.clevertap.com/getschema?type=events\"\n  method := \"POST\"\n  \n  client := &http.Client {\n  }\n  req, err := http.NewRequest(method, url, payload)\n  if err != nil {\n    fmt.Println(err)\n  }\n  req.Header.Add(\"Content-Type\", \"application/json\")\n  req.Header.Add(\"X-CleverTap-Account-Id\", \"WWW-WWW-WWRZ\")\n  req.Header.Add(\"X-CleverTap-Passcode\", \"ICW-QKE-YSGL\")\n  res, err := client.Do(req)\n  defer res.Body.Close()\n  body, err := ioutil.ReadAll(res.Body)\n  fmt.Println(string(body))\n}",
-      "language": "go"
-    }
-  ]
+### Example Request
+
+```curl
+curl --location --request POST 'https://[location].api.clevertap.com/getSchema?type=events
+--header 'X-CleverTap-Account-Id: RRP-XXT-CCWY' \
+--header 'X-CleverTap-Passcode: 1c10a905d0fa4c168a8c9d818acf0a90'
+```
+```ruby
+require "uri"
+require "net/http"
+url = URI("https://[location].api.clevertap.com/getschema?type=events/")
+http = Net::HTTP.new(url.host, url.port);
+request = Net::HTTP::Post.new(url)
+request["Content-Type"] = "application/json"
+request["X-CleverTap-Account-Id"] = "WWW-WWW-WWRZ"
+request["X-CleverTap-Passcode"] = "ICW-QKE-YSGL"
+response = http.request(request)
+puts response.read_body
+```
+```python
+import requests
+url = "https://[location].api.clevertap.com/getschema?type=events"
+headers = {
+  'Content-Type': 'application/json',
+  'X-CleverTap-Account-Id': 'WWW-WWW-WWRZ',
+  'X-CleverTap-Passcode': 'ICW-QKE-YSGL'
 }
-[/block]
-##Example Response
-[block:code]
-{
-  "codes": [
-    {
-      "code": "{\n    \"status\": \"success\",\n    \"events\": [\n        {\n            \"name\": \"Product Viewed\",\n            \"type\": \"Defined\",\n            \"status\": \"Active\",\n            \"createdOn\": 1528867959,\n            \"drp\": 1116,\n            \"eventCount\": {\n                \"currentMonth\": 6,\n                \"previousMonth\": 16\n            },\n            \"dataPoints\": 266,\n            \"properties\": [\n                {\n                    \"name\": \"product_price\",\n                    \"type\": \"Defined\",\n                    \"status\": \"Active\",\n                    \"required\": false,\n                    \"dataType\": \"Mixed\",\n                    \"dataTypeFallback\": \"Allow property\",\n                    \"dataPoints\": 0\n                }\n             \n              ]\n        }\n      ]\n}\n",
-      "language": "json"
-    }
-  ]
+response = requests.request("POST", url, headers=headers)
+print(response.text.encode('utf8'))
+```
+```php
+<?php
+require_once 'HTTP/Request2.php';
+$request = new HTTP_Request2();
+$request->setUrl('https://[location].api.clevertap.com/getschema?type=events');
+$request->setMethod(HTTP_Request2::METHOD_POST);
+$request->setConfig(array(
+  'follow_redirects' => TRUE
+));
+$request->setHeader(array(
+  'Content-Type' => 'application/json',
+  'X-CleverTap-Account-Id' => 'WWW-WWW-WWRZ',
+  'X-CleverTap-Passcode' => 'ICW-QKE-YSGL'
+));
+
+try {
+  $response = $request->send();
+  if ($response->getStatus() == 200) {
+    echo $response->getBody();
+  }
+  else {
+    echo 'Unexpected HTTP status: ' . $response->getStatus() . ' ' .
+    $response->getReasonPhrase();
+  }
 }
-[/block]
-#GET User Properties Schema API 
+catch(HTTP_Request2_Exception $e) {
+  echo 'Error: ' . $e->getMessage();
+}
+```
+```javascript Node.js
+var request = require('request');
+var options = {
+  'method': 'POST',
+  'url': 'https://[location].api.clevertap.com/getschema?type=events',
+  'headers': {
+    'Content-Type': 'application/json',
+    'X-CleverTap-Account-Id': 'WWW-WWW-WWRZ',
+    'X-CleverTap-Passcode': 'ICW-QKE-YSGL'
+  };
+
+request(options, function (error, response) { 
+  if (error) throw new Error(error);
+  console.log(response.body);
+});
+```
+```go
+package main
+import (
+  "fmt"
+  "strings"
+  "net/http"
+  "io/ioutil"
+)
+func main() {
+  url := "https://[location].api.clevertap.com/getschema?type=events"
+  method := "POST"
+  
+  client := &http.Client {
+  }
+  req, err := http.NewRequest(method, url, payload)
+  if err != nil {
+    fmt.Println(err)
+  }
+  req.Header.Add("Content-Type", "application/json")
+  req.Header.Add("X-CleverTap-Account-Id", "WWW-WWW-WWRZ")
+  req.Header.Add("X-CleverTap-Passcode", "ICW-QKE-YSGL")
+  res, err := client.Do(req)
+  defer res.Body.Close()
+  body, err := ioutil.ReadAll(res.Body)
+  fmt.Println(string(body))
+}
+```
+
+## Example Response
+
+```json
+{
+    "status": "success",
+    "events": [
+        {
+            "name": "Product Viewed",
+            "type": "Defined",
+            "status": "Active",
+            "createdOn": 1528867959,
+            "drp": 1116,
+            "eventCount": {
+                "currentMonth": 6,
+                "previousMonth": 16
+            },
+            "dataPoints": 266,
+            "properties": [
+                {
+                    "name": "product_price",
+                    "type": "Defined",
+                    "status": "Active",
+                    "required": false,
+                    "dataType": "Mixed",
+                    "dataTypeFallback": "Allow property",
+                    "dataPoints": 0
+                }
+             
+              ]
+        }
+      ]
+}
+```
+
+# GET User Properties Schema API 
 
 ## Overview
+
 You can GET the schema for all the user properties. 
 
 ### Base URL
 
-https://[location].api.clevertap.com/getSchema?type=userproperty
-[block:callout]
-{
-  "type": "info",
-  "title": "Note",
-  "body": "Use the URL based on your location:\n  * India - in1.api.clevertap.com\n  * Singapore - sg1.api.clevertap.com\n  * U.S - us1.api.clevertap.com"
-}
-[/block]
+https\://\[location].api.clevertap.com/getSchema?type=userproperty
+
+> 📘 Note
+>
+> Use the URL based on your location:
+>
+> * India - in1.api.clevertap.com
+> * Singapore - sg1.api.clevertap.com
+> * U.S - us1.api.clevertap.com
+
 ### HTTP Method
+
 POST
 
 ### Headers
+
 These headers are all required. The X-CleverTap-Account-Id and X-CleverTap-Passcode are used to authenticate the request. Please see the [authentication guide](doc:authentication) to see how to get their values.
-[block:parameters]
-{
-  "data": {
-    "h-0": "Header",
-    "h-1": "Description",
-    "h-2": "Type",
-    "h-3": "Example Value",
-    "0-0": "X-CleverTap-Account-Id",
-    "1-0": "X-CleverTap-Passcode",
-    "2-0": "Content-Type",
-    "0-1": "Your CleverTap Account ID",
-    "1-1": "Your CleverTap Account Passcode",
-    "2-1": "Request content-type is always set to application/json; charset=utf-8.",
-    "0-2": "string",
-    "1-2": "string",
-    "2-2": "string",
-    "0-3": "\"X-CleverTap-Account-Id: ACCOUNT_ID\"",
-    "1-3": "\"X-CleverTap-Passcode: PASSCODE\"",
-    "2-3": "\"Content-Type: application/json; charset=utf-8\""
-  },
-  "cols": 4,
-  "rows": 3
-}
-[/block]
+
+<Table align={["left","left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Header
+      </th>
+
+      <th>
+        Description
+      </th>
+
+      <th>
+        Type
+      </th>
+
+      <th>
+        Example Value
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        X-CleverTap-Account-Id
+      </td>
+
+      <td>
+        Your CleverTap Account ID
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        "X-CleverTap-Account-Id: ACCOUNT\_ID"
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        X-CleverTap-Passcode
+      </td>
+
+      <td>
+        Your CleverTap Account Passcode
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        "X-CleverTap-Passcode: PASSCODE"
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Content-Type
+      </td>
+
+      <td>
+        Request content-type is always set to application/json; charset=utf-8.
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        "Content-Type: application/json; charset=utf-8"
+      </td>
+    </tr>
+  </tbody>
+</Table>
+
 ### Body Parameters
+
 You do not need to provide body parameters. 
 
 ### Example Request
-[block:code]
-{
-  "codes": [
-    {
-      "code": "curl --location --request GET 'https://[location]/getSchema?type=userProperties' \\\n--header 'X-CleverTap-Account-Id: XRR-EEE-RRP' \\\n--header 'X-CleverTap-Passcode: 1c10a905d0fa4c168a8c9d818acf0a90'",
-      "language": "curl"
-    },
-    {
-      "code": "require \"uri\"\nrequire \"net/http\"\nurl = URI(\"https://[location]/getSchema?type=userProperties\")\nhttp = Net::HTTP.new(url.host, url.port);\nrequest = Net::HTTP::Post.new(url)\nrequest[\"Content-Type\"] = \"application/json\"\nrequest[\"X-CleverTap-Account-Id\"] = \"WWW-WWW-WWRZ\"\nrequest[\"X-CleverTap-Passcode\"] = \"ICW-QKE-YSGL\"\nresponse = http.request(request)\nputs response.read_body",
-      "language": "ruby"
-    },
-    {
-      "code": "import requests\nurl = \"https://[location]/getSchema?type=userProperties\"\nheaders = {\n  'Content-Type': 'application/json',\n  'X-CleverTap-Account-Id': 'WWW-WWW-WWRZ',\n  'X-CleverTap-Passcode': 'ICW-QKE-YSGL'\n}\nresponse = requests.request(\"POST\", url, headers=headers)\nprint(response.text.encode('utf8'))\n",
-      "language": "python"
-    },
-    {
-      "code": "<?php\nrequire_once 'HTTP/Request2.php';\n$request = new HTTP_Request2();\n$request->setUrl('https://[location]/getSchema?type=userProperties');\n$request->setMethod(HTTP_Request2::METHOD_POST);\n$request->setConfig(array(\n  'follow_redirects' => TRUE\n));\n$request->setHeader(array(\n  'Content-Type' => 'application/json',\n  'X-CleverTap-Account-Id' => 'WWW-WWW-WWRZ',\n  'X-CleverTap-Passcode' => 'ICW-QKE-YSGL'\n));\n\ntry {\n  $response = $request->send();\n  if ($response->getStatus() == 200) {\n    echo $response->getBody();\n  }\n  else {\n    echo 'Unexpected HTTP status: ' . $response->getStatus() . ' ' .\n    $response->getReasonPhrase();\n  }\n}\ncatch(HTTP_Request2_Exception $e) {\n  echo 'Error: ' . $e->getMessage();\n}",
-      "language": "php"
-    },
-    {
-      "code": "var request = require('request');\nvar options = {\n  'method': 'POST',\n  'url': 'https://[location]/getSchema?type=userProperties',\n  'headers': {\n    'Content-Type': 'application/json',\n    'X-CleverTap-Account-Id': 'WWW-WWW-WWRZ',\n    'X-CleverTap-Passcode': 'ICW-QKE-YSGL'\n  };\n\nrequest(options, function (error, response) { \n  if (error) throw new Error(error);\n  console.log(response.body);\n});\n",
-      "language": "javascript",
-      "name": "Node.js"
-    },
-    {
-      "code": "package main\nimport (\n  \"fmt\"\n  \"strings\"\n  \"net/http\"\n  \"io/ioutil\"\n)\nfunc main() {\n  url := \"https://[location]/getSchema?type=userProperties\"\n  method := \"POST\"\n  \n  client := &http.Client {\n  }\n  req, err := http.NewRequest(method, url, payload)\n  if err != nil {\n    fmt.Println(err)\n  }\n  req.Header.Add(\"Content-Type\", \"application/json\")\n  req.Header.Add(\"X-CleverTap-Account-Id\", \"WWW-WWW-WWRZ\")\n  req.Header.Add(\"X-CleverTap-Passcode\", \"ICW-QKE-YSGL\")\n  res, err := client.Do(req)\n  defer res.Body.Close()\n  body, err := ioutil.ReadAll(res.Body)\n  fmt.Println(string(body))\n}",
-      "language": "go"
-    }
-  ]
+
+```curl
+curl --location --request GET 'https://[location]/getSchema?type=userProperties' \
+--header 'X-CleverTap-Account-Id: XRR-EEE-RRP' \
+--header 'X-CleverTap-Passcode: 1c10a905d0fa4c168a8c9d818acf0a90'
+```
+```ruby
+require "uri"
+require "net/http"
+url = URI("https://[location]/getSchema?type=userProperties")
+http = Net::HTTP.new(url.host, url.port);
+request = Net::HTTP::Post.new(url)
+request["Content-Type"] = "application/json"
+request["X-CleverTap-Account-Id"] = "WWW-WWW-WWRZ"
+request["X-CleverTap-Passcode"] = "ICW-QKE-YSGL"
+response = http.request(request)
+puts response.read_body
+```
+```python
+import requests
+url = "https://[location]/getSchema?type=userProperties"
+headers = {
+  'Content-Type': 'application/json',
+  'X-CleverTap-Account-Id': 'WWW-WWW-WWRZ',
+  'X-CleverTap-Passcode': 'ICW-QKE-YSGL'
 }
-[/block]
-### Example Response 
-[block:code]
-{
-  "codes": [
-    {
-      "code": " {\n    \"status\": \"success\",\n    \"userProperties\": [\n        {\n            \"name\": \"testkey3\",\n            \"type\": \"Defined\",\n            \"status\": \"Discarded\",\n            \"dataType\": \"Mixed\",\n            \"dataTypeFallback\": \"Allow property\",\n            \"createdOn\": 1528878023\n        },\n        {\n            \"name\": \"keywords4\",\n            \"type\": \"Defined\",\n            \"status\": \"Discarded\",\n            \"dataType\": \"Mixed\",\n            \"dataTypeFallback\": \"Allow property\",\n            \"createdOn\": 1528878023\n        }\n      ]\n }\n",
-      "language": "json"
-    }
-  ]
+response = requests.request("POST", url, headers=headers)
+print(response.text.encode('utf8'))
+```
+```php
+<?php
+require_once 'HTTP/Request2.php';
+$request = new HTTP_Request2();
+$request->setUrl('https://[location]/getSchema?type=userProperties');
+$request->setMethod(HTTP_Request2::METHOD_POST);
+$request->setConfig(array(
+  'follow_redirects' => TRUE
+));
+$request->setHeader(array(
+  'Content-Type' => 'application/json',
+  'X-CleverTap-Account-Id' => 'WWW-WWW-WWRZ',
+  'X-CleverTap-Passcode' => 'ICW-QKE-YSGL'
+));
+
+try {
+  $response = $request->send();
+  if ($response->getStatus() == 200) {
+    echo $response->getBody();
+  }
+  else {
+    echo 'Unexpected HTTP status: ' . $response->getStatus() . ' ' .
+    $response->getReasonPhrase();
+  }
 }
-[/block]
+catch(HTTP_Request2_Exception $e) {
+  echo 'Error: ' . $e->getMessage();
+}
+```
+```javascript Node.js
+var request = require('request');
+var options = {
+  'method': 'POST',
+  'url': 'https://[location]/getSchema?type=userProperties',
+  'headers': {
+    'Content-Type': 'application/json',
+    'X-CleverTap-Account-Id': 'WWW-WWW-WWRZ',
+    'X-CleverTap-Passcode': 'ICW-QKE-YSGL'
+  };
+
+request(options, function (error, response) { 
+  if (error) throw new Error(error);
+  console.log(response.body);
+});
+```
+```go
+package main
+import (
+  "fmt"
+  "strings"
+  "net/http"
+  "io/ioutil"
+)
+func main() {
+  url := "https://[location]/getSchema?type=userProperties"
+  method := "POST"
+  
+  client := &http.Client {
+  }
+  req, err := http.NewRequest(method, url, payload)
+  if err != nil {
+    fmt.Println(err)
+  }
+  req.Header.Add("Content-Type", "application/json")
+  req.Header.Add("X-CleverTap-Account-Id", "WWW-WWW-WWRZ")
+  req.Header.Add("X-CleverTap-Passcode", "ICW-QKE-YSGL")
+  res, err := client.Do(req)
+  defer res.Body.Close()
+  body, err := ioutil.ReadAll(res.Body)
+  fmt.Println(string(body))
+}
+```
+
+### Example Response
+
+```json
+{
+    "status": "success",
+    "userProperties": [
+        {
+            "name": "testkey3",
+            "type": "Defined",
+            "status": "Discarded",
+            "dataType": "Mixed",
+            "dataTypeFallback": "Allow property",
+            "createdOn": 1528878023
+        },
+        {
+            "name": "keywords4",
+            "type": "Defined",
+            "status": "Discarded",
+            "dataType": "Mixed",
+            "dataTypeFallback": "Allow property",
+            "createdOn": 1528878023
+        }
+      ]
+ }
+```
