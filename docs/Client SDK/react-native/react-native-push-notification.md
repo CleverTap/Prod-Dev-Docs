@@ -45,13 +45,13 @@ To use CleverTap's default Push Notifications service, add the following entries
 ```
 
 > 📘 📘 Notification Trampolines in Android 12 and Above
-> 
+>
 > Android has changed the handling of push notifications for version 12 and above to improve performance. An app can no longer start an activity within a service or broadcast receiver. For more information, refer to [Android 12 Push Changes](doc:android-push#android-12-changes).
 
 ### Create Notification Channel
 
 > 📘 Note
-> 
+>
 > You must register at least one notification channel for the Default Push notification Service to work.
 
 Add the following to your Javascript file to create a notification channel:
@@ -88,8 +88,8 @@ CleverTap.addListener(CleverTap.CleverTapPushNotificationClicked, (e)=>{/*consum
 
 Additional handling to get the notification click callback in the following scenarios:
 
-- Notification Trampoline Handling in Android 12 and Above
-- Notification Trampoline Handling when the App is Terminated or Killed
+* Notification Trampoline Handling in Android 12 and Above
+* Notification Trampoline Handling when the App is Terminated or Killed
 
 #### Handle Notification Trampolines in Android 12 and Above to get the Notification Click Callback
 
@@ -139,14 +139,14 @@ Starting from CleverTap React Native SDK version 1.2.0, the RenderMax Push SDK f
 > ❗️ Please remove the integrated RenderMax SDK before you upgrade to CleverTap React Native SDK v1.2.0.
 
 > ❗️ Custom Rendering with RenderMax Push SDK
-> 
+>
 > If the app is custom rendering the push notification and not passing the payload to CleverTap SDK, add the following code before you render the notification:
-> 
+>
 > `CleverTapAPI.processPushNotification(getApplicationContext(),extras);`
 
 ### Set Up a Custom Push Notification Icon
 
-By default, CleverTap SDK uses the app's icon for both the notification icon and the notification bar icon. However, You can provide a custom app icon by adding the icon in your app's android resources and registering it with CleverTap in your `AndroidManifest.xml`  
+By default, CleverTap SDK uses the app's icon for both the notification icon and the notification bar icon. However, You can provide a custom app icon by adding the icon in your app's android resources and registering it with CleverTap in your `AndroidManifest.xml`\
 For more details, refer to [Android Push](https://developer.clevertap.com/docs/android-push#set-the-small-notification-icon) document.
 
 ### Delete a Group Notification Channel
@@ -163,35 +163,21 @@ If you have your custom implementation for managing Android push notifications, 
 
 ### Deeplink or External URL (Android)
 
-To use external URLs, whitelist the IPs or prefix the URL with  _http_ or _https_. For more information, refer to [Deeplinking](doc:android-push#deeplinkexternal-url).
+To use external URLs, whitelist the IPs or prefix the URL with  *http* or *https*. For more information, refer to [Deeplinking](doc:android-push#deeplinkexternal-url).
 
 ## iOS
 
 Perform the following steps to send push notifications on the iOS platform from your React Native application:
 
-1. Refer to [iOS Push Notifications setup](doc:push-notifications-ios) and follow steps _1_ through _4_ listed in the document.
+1. Refer to [iOS Push Notifications setup](doc:push-notifications-ios) and follow steps *1* through *4* listed in the document.
 
-2. In your Xcode project settings, perform the following steps to enable the push notification capability:  
-   a. Select _Targets_ and then  select the _Signing & Capabilities_ tab.  
-   b. Click **+ Capability** and enter **push** in the filter field and select _Push Notifications_. 
+2. In your Xcode project settings, perform the following steps to enable the push notification capability:\
+   a. Select *Targets* and then  select the *Signing & Capabilities* tab.\
+   b. Click **+ Capability** and enter **push** in the filter field and select *Push Notifications*. 
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/a99cd41-2023-01-25_14-37-31.png",
-        "Enable Push Notification Capability",
-        1168
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Enable Push Notification Capability"
-    }
-  ]
-}
-[/block]
-
+<Image title="Enable Push Notification Capability" alt={1168} align="center" border={true} src="https://files.readme.io/a99cd41-2023-01-25_14-37-31.png">
+  Enable Push Notification Capability
+</Image>
 
 3. Call the following from your Javascript file:
 
@@ -228,7 +214,7 @@ CleverTap.addListener(CleverTap.CleverTapPushNotificationClicked, (e)=>{/*consum
 
 ### Deeplink or External URL (iOS)
 
-A deeplink helps you open a particular activity in your app after a click on the notification. If left empty, the notification on click opens the launcher activity of the app. Deep links allow you to land users on a particular part of your app. Your app's OpenURL method is called with the deep link specified here. To use external URLs, you must whitelist the IPs or add _http_/_https_ before the URL so that the SDK can appropriately handle them. For more information, refer to [Deeplinking](https://developer.apple.com/documentation/xcode/supporting-universal-links-in-your-app?language=objc). 
+A deeplink helps you open a particular activity in your app after a click on the notification. If left empty, the notification on click opens the launcher activity of the app. Deep links allow you to land users on a particular part of your app. Your app's OpenURL method is called with the deep link specified here. To use external URLs, you must whitelist the IPs or add *http*/*https* before the URL so that the SDK can appropriately handle them. For more information, refer to [Deeplinking](https://developer.apple.com/documentation/xcode/supporting-universal-links-in-your-app?language=objc). 
 
 With CleverTap React Native SDK, you can implement custom handling for URLs of in-app notification CTAs, push notifications, and app Inbox messages. 
 
@@ -276,67 +262,37 @@ A Push Primer explains the need for push notifications to your users and helps t
 
 Push Primer helps with the following:
 
-- Allows you to educate your users on why you are asking for this permission before invoking a system dialog to seek user permission.
-- Acts as a precursor to the hard system dialog and thus allows you to seek permission multiple times if previously denied without making your users search the device settings.
+* Allows you to educate your users on why you are asking for this permission before invoking a system dialog to seek user permission.
+* Acts as a precursor to the hard system dialog and thus allows you to seek permission multiple times if previously denied without making your users search the device settings.
 
 CleverTap React Native supports push primer for push notifications starting with the v0.9.5 release.
 
 > 📘 iOS and Android Versions for Push Primer
-> 
-> - The minimum supported version for the iOS platform is **10.0**. 
-> - The minimum supported version for the Android platform is **Android 13**.
+>
+> * The minimum supported version for the iOS platform is **10.0**. 
+> * The minimum supported version for the Android platform is **Android 13**.
 
 The following are the two ways to handle the new push notification changes:
 
-- [Push Primer Using Half-Interstitial InApp Notification Template](doc:react-native-push-notification#push-primer-using-half-interstitial-inapp-template)
-- [Push Primer Using In-App Alert Template](doc:react-native-push-notification#push-primer-using-alert-inapp-template)
+* [Push Primer Using Half-Interstitial InApp Notification Template](doc:react-native-push-notification#push-primer-using-half-interstitial-inapp-template)
+* [Push Primer Using In-App Alert Template](doc:react-native-push-notification#push-primer-using-alert-inapp-template)
 
 ### Push Primer Using Half-Interstitial InApp Template
 
-Using this template, you can send a customized push primer notification with an image, text, and button. You can also modify the notification's text, button, and background color.  
+Using this template, you can send a customized push primer notification with an image, text, and button. You can also modify the notification's text, button, and background color.\
 Refer to the following images for Push Primer using Half-Interstitial InApp Template:
 
-- **In Android** 
+* **In Android** 
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/36ac314-Android_1.png",
-        "Push Primer Using Half-Interstitial InApp Template in Android",
-        398
-      ],
-      "align": "center",
-      "sizing": "sma% ",
-      "border": true,
-      "caption": "Push Primer Using Half-Interstitial InApp Template in Android"
-    }
-  ]
-}
-[/block]
+<Image title="Push Primer Using Half-Interstitial InApp Template in Android" alt={398} align="center" width="sma% " border={true} src="https://files.readme.io/36ac314-Android_1.png">
+  Push Primer Using Half-Interstitial InApp Template in Android
+</Image>
 
+* **In iOS** 
 
-- **In iOS** 
-
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/bcc4383-iOS_1.png",
-        "Push Primer Using Half-Interstitial InApp Template in iOS",
-        948
-      ],
-      "align": "center",
-      "sizing": "70% ",
-      "border": true,
-      "caption": "Push Primer Using Half-Interstitial InApp Template in iOS"
-    }
-  ]
-}
-[/block]
-
+<Image title="Push Primer Using Half-Interstitial InApp Template in iOS" alt={948} align="center" width="70% " border={true} src="https://files.readme.io/bcc4383-iOS_1.png">
+  Push Primer Using Half-Interstitial InApp Template in iOS
+</Image>
 
 Add the following code to your Javascript file to create Push Primer using the Half-Interstitial InApp template:
 
@@ -369,50 +325,20 @@ CleverTap.promptPushPrimer(localInApp);
 
 ### Push Primer using Alert InApp Template
 
-Using this template, you can create a basic push primer notification with a title, message, and two buttons.  
+Using this template, you can create a basic push primer notification with a title, message, and two buttons.\
 Refer to the following images for Push Primer using the Alert InApp template:
 
-- **In Android**
+* **In Android**
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/3b9cd6a-Android_2.png",
-        "Push Primer using Alert InApp Template in Android",
-        398
-      ],
-      "align": "center",
-      "sizing": "50% ",
-      "border": true,
-      "caption": "Push Primer using Alert InApp Template in Android"
-    }
-  ]
-}
-[/block]
+<Image title="Push Primer using Alert InApp Template in Android" alt={398} align="center" width="50% " border={true} src="https://files.readme.io/3b9cd6a-Android_2.png">
+  Push Primer using Alert InApp Template in Android
+</Image>
 
+* **In iOS** 
 
-- **In iOS** 
-
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/d52aead-iOS_2.png",
-        "Push Primer using Alert InApp Template in iOS",
-        948
-      ],
-      "align": "center",
-      "sizing": "60% ",
-      "border": true,
-      "caption": "Push Primer using Alert InApp Template in iOS"
-    }
-  ]
-}
-[/block]
-
+<Image title="Push Primer using Alert InApp Template in iOS" alt={948} align="center" width="60% " border={true} src="https://files.readme.io/d52aead-iOS_2.png">
+  Push Primer using Alert InApp Template in iOS
+</Image>
 
 Add the following code to your Javascript file to create a Push Primer using the Alert InApp template:
 
@@ -434,32 +360,342 @@ CleverTap.promptPushPrimer(localInApp);
 
 The following table describes all the keys used to create In-App templates:
 
-| <p>Key Name</p>                             | <p>Parameters</p>                     | <p>Description</p>                                                                                                                                                                                                                                                     | <p>Required</p> |
-| :------------------------------------------ | :------------------------------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------- |
-| <p><code>inAppType</code></p>               | <p>"half-interstitial" or "alert"</p> | <ul><li>Accepts only the following values: half-interstitial and alert type. </li><li>Used to display the local in-app notification.</li></ul>                                                                                                                         | <p>Required</p> |
-| <p><code>titleText</code></p>               | <p>String</p>                         | <p>Sets the title of the local in-app notification.</p>                                                                                                                                                                                                                | <p>Required</p> |
-| <p><code>messageText</code></p>             | <p>String</p>                         | <p>Sets the subtitle of the local in-app notification.</p>                                                                                                                                                                                                             | <p>Required</p> |
-| <p><code>followDeviceOrientation</code></p> | <p>true or false</p>                  | <ul><li>If the key is set to true, then the local InApp notification is displayed in the same orientation (Landscape or Portrait) as that set on your device.</li><li>If the key is false, then the local InApp notification only displays in portrait mode.</li></ul> | <p>Required</p> |
-| <p><code>positiveBtnText</code></p>         | <p>String</p>                         | <ul><li>Sets the text of the button which performs the positive action (for example, Allow, OK,..etc). </li><li>This button continues the push primer flow.</li></ul>                                                                                                  | <p>Required</p> |
-| <p><code>negativeBtnText</code></p>         | <p>String</p>                         | <ul><li>Sets the button's text, which performs the negative action (Example: Deny, Cancel,..etc.). </li><li>This button aborts the push primer flow.</li></ul>                                                                                                         | <p>Required</p> |
-| <p><code>fallbackToSettings</code></p>      | <p>true or false</p>                  | <ul><li>If the value is set to true and permission is denied, then the user is redirected to the app’s notification settings.  </li><li>If the value is set to false, the callback is sent stating that the permission is denied.</li></ul>                            | <p>Optional</p> |
-| <p><code>backgroundColor</code></p>         | <p>Hex color as String</p>            | <p>Sets the background color of the local in-app notification.</p>                                                                                                                                                                                                     | <p>Optional</p> |
-| <p><code>btnBorderColor</code></p>          | <p>Hex color as String</p>            | <p>Sets the border color of both positive and negative buttons.</p>                                                                                                                                                                                                    | <p>Optional</p> |
-| <p><code>titleTextColor</code></p>          | <p>Hex color as String</p>            | <p>Sets the title text color of the local in-app notification.</p>                                                                                                                                                                                                     | <p>Optional</p> |
-| <p><code>messageTextColor</code></p>        | <p>Hex color as String</p>            | <p>Sets the sub-title text color of the local in-app notification.</p>                                                                                                                                                                                                 | <p>Optional</p> |
-| <p><code>btnTextColor</code></p>            | <p>Hex color as String</p>            | <p>Sets the color of text for both positive/negative buttons.</p>                                                                                                                                                                                                      | <p>Optional</p> |
-| <p><code>btnBackgroundColor</code></p>      | <p>Hex color as String</p>            | <p>Sets the background color for both positive/negative buttons.</p>                                                                                                                                                                                                   | <p>Optional</p> |
-| <p><code>btnBorderRadius</code></p>         | <p>String</p>                         | <ul><li>Sets the radius for both positive/negative buttons. </li><li>If not set, the default radius is <strong>2</strong>.</li></ul>                                                                                                                                   | <p>Optional</p> |
-| <p><code>fallbackToSettings</code></p>      | <p>true or false</p>                  | <ul><li>If the value is set to true and permission is denied, then the user is redirected to the app’s notification settings. </li><li>If the value is set to false, the callback is sent stating that the permission is denied.</li></ul>                             | Optional        |
-| <p><code>imageUrl</code></p>                | <p>String (URL)</p>                   | <p>Sets the image to be shown in the local in-app notification. Must be a valid URL pointing to an image resource.</p>                                                                                                                                                 | <p>Optional</p> |
-| <p><code>altText</code></p>                 | <p>String</p>                         | <p>Alternate text shown if the image cannot be loaded. Improves accessibility and provides fallback context.</p>                                                                                                                                                       | <p>Optional</p> |
+<Table align={["left","left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        <p>Key Name</p>
+      </th>
+
+      <th>
+        <p>Parameters</p>
+      </th>
+
+      <th>
+        <p>Description</p>
+      </th>
+
+      <th>
+        <p>Required</p>
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        <p><code>inAppType</code></p>
+      </td>
+
+      <td>
+        <p>"half-interstitial" or "alert"</p>
+      </td>
+
+      <td>
+        <ul><li>Accepts only the following values: half-interstitial and alert type. </li><li>Used to display the local in-app notification.</li></ul>
+      </td>
+
+      <td>
+        <p>Required</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <p><code>titleText</code></p>
+      </td>
+
+      <td>
+        <p>String</p>
+      </td>
+
+      <td>
+        <p>Sets the title of the local in-app notification.</p>
+      </td>
+
+      <td>
+        <p>Required</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <p><code>messageText</code></p>
+      </td>
+
+      <td>
+        <p>String</p>
+      </td>
+
+      <td>
+        <p>Sets the subtitle of the local in-app notification.</p>
+      </td>
+
+      <td>
+        <p>Required</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <p><code>followDeviceOrientation</code></p>
+      </td>
+
+      <td>
+        <p>true or false</p>
+      </td>
+
+      <td>
+        <ul><li>If the key is set to true, then the local InApp notification is displayed in the same orientation (Landscape or Portrait) as that set on your device.</li><li>If the key is false, then the local InApp notification only displays in portrait mode.</li></ul>
+      </td>
+
+      <td>
+        <p>Required</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <p><code>positiveBtnText</code></p>
+      </td>
+
+      <td>
+        <p>String</p>
+      </td>
+
+      <td>
+        <ul><li>Sets the text of the button which performs the positive action (for example, Allow, OK,..etc). </li><li>This button continues the push primer flow.</li></ul>
+      </td>
+
+      <td>
+        <p>Required</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <p><code>negativeBtnText</code></p>
+      </td>
+
+      <td>
+        <p>String</p>
+      </td>
+
+      <td>
+        <ul><li>Sets the button's text, which performs the negative action (Example: Deny, Cancel,..etc.). </li><li>This button aborts the push primer flow.</li></ul>
+      </td>
+
+      <td>
+        <p>Required</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <p><code>fallbackToSettings</code></p>
+      </td>
+
+      <td>
+        <p>true or false</p>
+      </td>
+
+      <td>
+        <ul><li>If the value is set to true and permission is denied, then the user is redirected to the app’s notification settings.  </li><li>If the value is set to false, the callback is sent stating that the permission is denied.</li></ul>
+      </td>
+
+      <td>
+        <p>Optional</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <p><code>backgroundColor</code></p>
+      </td>
+
+      <td>
+        <p>Hex color as String</p>
+      </td>
+
+      <td>
+        <p>Sets the background color of the local in-app notification.</p>
+      </td>
+
+      <td>
+        <p>Optional</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <p><code>btnBorderColor</code></p>
+      </td>
+
+      <td>
+        <p>Hex color as String</p>
+      </td>
+
+      <td>
+        <p>Sets the border color of both positive and negative buttons.</p>
+      </td>
+
+      <td>
+        <p>Optional</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <p><code>titleTextColor</code></p>
+      </td>
+
+      <td>
+        <p>Hex color as String</p>
+      </td>
+
+      <td>
+        <p>Sets the title text color of the local in-app notification.</p>
+      </td>
+
+      <td>
+        <p>Optional</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <p><code>messageTextColor</code></p>
+      </td>
+
+      <td>
+        <p>Hex color as String</p>
+      </td>
+
+      <td>
+        <p>Sets the sub-title text color of the local in-app notification.</p>
+      </td>
+
+      <td>
+        <p>Optional</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <p><code>btnTextColor</code></p>
+      </td>
+
+      <td>
+        <p>Hex color as String</p>
+      </td>
+
+      <td>
+        <p>Sets the color of text for both positive/negative buttons.</p>
+      </td>
+
+      <td>
+        <p>Optional</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <p><code>btnBackgroundColor</code></p>
+      </td>
+
+      <td>
+        <p>Hex color as String</p>
+      </td>
+
+      <td>
+        <p>Sets the background color for both positive/negative buttons.</p>
+      </td>
+
+      <td>
+        <p>Optional</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <p><code>btnBorderRadius</code></p>
+      </td>
+
+      <td>
+        <p>String</p>
+      </td>
+
+      <td>
+        <ul><li>Sets the radius for both positive/negative buttons. </li><li>If not set, the default radius is <strong>2</strong>.</li></ul>
+      </td>
+
+      <td>
+        <p>Optional</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <p><code>fallbackToSettings</code></p>
+      </td>
+
+      <td>
+        <p>true or false</p>
+      </td>
+
+      <td>
+        <ul><li>If the value is set to true and permission is denied, then the user is redirected to the app’s notification settings. </li><li>If the value is set to false, the callback is sent stating that the permission is denied.</li></ul>
+      </td>
+
+      <td>
+        Optional
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <p><code>imageUrl</code></p>
+      </td>
+
+      <td>
+        <p>String (URL)</p>
+      </td>
+
+      <td>
+        <p>Sets the image to be shown in the local in-app notification. Must be a valid URL pointing to an image resource.</p>
+      </td>
+
+      <td>
+        <p>Optional</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <p><code>altText</code></p>
+      </td>
+
+      <td>
+        <p>String</p>
+      </td>
+
+      <td>
+        <p>Alternate text shown if the image cannot be loaded. Improves accessibility and provides fallback context.</p>
+      </td>
+
+      <td>
+        <p>Optional</p>
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 ### Invoke Notification Permission Dialog without Push Primer
 
 You can call the push permission dialogue directly without a Push Primer using the `promptForPushPermission(boolean)` method. It takes a boolean value as a parameter. 
 
-- If the value is set to true and permission is denied, then the user is redirected to the app’s notification settings. 
-- If the value is set to false, the callback is sent stating that the permission is denied.
+* If the value is set to true and permission is denied, then the user is redirected to the app’s notification settings. 
+* If the value is set to false, the callback is sent stating that the permission is denied.
 
 ```javascript
 CleverTap.promptForPushPermission(true);
