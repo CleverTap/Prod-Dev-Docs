@@ -68,6 +68,6 @@ items.Add(item2);
 CleverTap.RecordChargedEventWithDetailsAndItems(chargeDetails, items);
 ```
 
-You can view recorded events in the CleverTap dashboard. Navigate to _Analytics_ > _Events_ to inspect event names, properties, and user counts.
+You can view recorded events in the CleverTap dashboard. Navigate to *Analytics* > *Events* to inspect event names, properties, and user counts.
 
 For a complete implementation guide, refer to [Events](doc:events).
