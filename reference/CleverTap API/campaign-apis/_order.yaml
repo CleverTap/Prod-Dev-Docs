@@ -5,3 +5,4 @@
 - post_1-targets-create-json
 - post_1-send-email-json
 - post_1-send-sms-json
+- post_1-send-push-json
