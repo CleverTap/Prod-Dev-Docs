@@ -40,7 +40,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
 
 ## Example Request
 
-Here is an example cURL request to the _Content Blocks_ API.
+Here is an example cURL request to the *Content Blocks* API.
 
 ```curl
 
