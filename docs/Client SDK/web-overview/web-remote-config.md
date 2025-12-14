@@ -17,16 +17,16 @@ CleverTap's Remote Config feature allows you to modify your website's functional
 To define variables, developers can use the platform-specific call within CleverTap Web SDK. After defining the variables in the code, you must sync the variables to the dashboard through the provided SDK method.
 
 > 📘 Prerequisite
-> 
+>
 > To use the Remote Config feature, ensure that you are using Web SDK v1.7.0 or higher.
 
 # Supported Variable Types
 
 Currently, CleverTap Web SDK supports the following variable types:
 
-- Number
-- String
-- Boolean
+* Number
+* String
+* Boolean
 
 # Update to CleverTap Initialize Method
 
@@ -76,9 +76,9 @@ const var2 = clevertap.defineVariable("var_boolean", true)
 
 CleverTap SDK provides several callbacks for the developer to receive feedback from the SDK. The following are a few instances where developers can set up callbacks:
 
-- [Status of Fetch Variables request](https://staging.docs.dev.clevertap.net/docs/web-remote-config#status-of-fetch-variables-request)
-- [Change of individual variable value](https://staging.docs.dev.clevertap.net/docs/web-remote-config#change-in-individual-variable-value)
-- [Initialize all variables or change variables](https://staging.docs.dev.clevertap.net/docs/web-remote-config#initialize-all-variables-or-change-all-variable-values)
+* [Status of Fetch Variables request](https://staging.docs.dev.clevertap.net/docs/web-remote-config#status-of-fetch-variables-request)
+* [Change of individual variable value](https://staging.docs.dev.clevertap.net/docs/web-remote-config#change-in-individual-variable-value)
+* [Initialize all variables or change variables](https://staging.docs.dev.clevertap.net/docs/web-remote-config#initialize-all-variables-or-change-all-variable-values)
 
 ## Status of Fetch Variables Request
 
@@ -92,7 +92,7 @@ clevertap.fetchVariables(
 ```
 
 > 📘 Retrieving Variables
-> 
+>
 > The retrieval of variables is limited to only one callback, meaning that any subsequent calls to the method overrides the existing callback. As a result, only the most recent callback is triggered when the variables are retrieved.
 
 ## Change in Individual Variable Value
@@ -146,12 +146,12 @@ clevertap.syncVariables(
 ```
 
 > 📘 Key Points
-> 
+>
 > In case, if another user profile has already created a draft in the dashboard, syncing variables will fail to prevent overriding their changes. Before syncing variables again, either publish or dismiss the existing draft. However, if you have created a draft previously, you can override it using the sync method to optimize the integration experience.
 
 # Fetch Variables During a Session
 
-During a session, you can fetch the updated values for your CleverTap variables from the server. The fetched data goes into local storage under the **WZRK_PE** key. 
+During a session, you can fetch the updated values for your CleverTap variables from the server. The fetched data goes into local storage under the **WZRK\_PE** key. 
 
 The `fetchVariable()` method is triggered once when the page count is 1. 
 
