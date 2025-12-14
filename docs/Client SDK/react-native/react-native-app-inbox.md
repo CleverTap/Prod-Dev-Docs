@@ -26,7 +26,7 @@ The CleverTap React Native SDK allows you to create App Inbox notifications for 
 On the Android side, add the following inbox dependencies in your app's `build.gradle` file:
 
 > 📘 Migrating from ExoPlayer to AndroidX Media3
-> 
+>
 > Starting from CleverTap React Native SDK v3.0.0, CleverTap now supports [AndroidX Media3](https://developer.android.com/media/media3/exoplayer/migration-guide), replacing the deprecated ExoPlayer libraries. CleverTap continues to support [ExoPlayer](https://github.com/google/ExoPlayer), but for a smoother migration to AndroidX Media3, update the following dependencies:
 
 ```groovy Dependencies with AndroidX Media3 Libraries
@@ -112,9 +112,9 @@ function _handleCleverTapInbox(eventName, event) {
 
 Let's understand the types of buttons first that App Inbox supports:
 
-- **URL button**: fires the deep link with the associated URL.
-- **Copy button**: copies the associated text to the clipboard.
-- **KV button**: contains the custom kev-value pair for custom handling.
+* **URL button**: fires the deep link with the associated URL.
+* **Copy button**: copies the associated text to the clipboard.
+* **KV button**: contains the custom kev-value pair for custom handling.
 
 The CleverTap React Native SDK v0.9.2 and above supports `CleverTap.CleverTapInboxMessageTapped` callback on the click of an App Inbox item, such as text or media.
 
@@ -156,10 +156,10 @@ CleverTap.addListener(CleverTap.CleverTapInboxMessageTapped, (event) => {
 ```
 
 > 📘 Payload sent via`CleverTap.CleverTapInboxMessageTapped`
-> 
-> - The `data` field represents the entire App Inbox item object that is clicked.
-> - The `contentPageIndex` field corresponds to the page index of the content, which ranges from 0 to n-1 (where n is the total number of pages for carousel templates). The non-carousel templates always have a value of 0, as they only have one page of content.
-> - The `buttonIndex` field corresponds to the App Inbox button clicked (0, 1, or 2). A value of -1 in `buttonIndex` field indicates the App Inbox item is clicked.
+>
+> * The `data` field represents the entire App Inbox item object that is clicked.
+> * The `contentPageIndex` field corresponds to the page index of the content, which ranges from 0 to n-1 (where n is the total number of pages for carousel templates). The non-carousel templates always have a value of 0, as they only have one page of content.
+> * The `buttonIndex` field corresponds to the App Inbox button clicked (0, 1, or 2). A value of -1 in `buttonIndex` field indicates the App Inbox item is clicked.
 
 The CleverTap React Native SDK v0.3.0 and above supports an exclusive `CleverTap.CleverTapInboxMessageButtonTapped` callback on the click of **KV** type of buttons. It returns a Map of Key-Value pairs. To use this, add a callback for `CleverTap.CleverTapInboxMessageButtonTapped` in following way:
 
@@ -209,9 +209,9 @@ CleverTap.showInbox({
 
 The above parameters allow you to configure the Inbox appearance, such as:
 
-- Tabs for categorizing messages (for example, Offers, Promotions)
-- Navigation bar customization (title, colors)
-- Inbox background and message display settings
+* Tabs for categorizing messages (for example, Offers, Promotions)
+* Navigation bar customization (title, colors)
+* Inbox background and message display settings
 
 #### Get Total Inbox Message Count
 
@@ -336,7 +336,7 @@ The following table describes the key attributes of an App Inbox message:
 | `actionUrl`   | `String`     | URL associated with the message action (for example, opening a webpage or deep link).                         |
 | `bgColor`     | `String`     | Background color of the message, allowing customization to match app themes.                                  |
 | `isRead`      | `boolean`    | A flag indicating whether the user has read the message.                                                      |
-| `date`        | `long`       | The timestamp when the message was created, in milliseconds. ($D_EPOCH format).                               |
+| `date`        | `long`       | The timestamp when the message was created, in milliseconds. ($D\_EPOCH format).                              |
 | `expires`     | `long`       | The timestamp when the message will expire and no longer be visible.                                          |
 | `tags`        | `JSONArray`  | Tags used to categorize or filter messages.                                                                   |
 | `orientation` | `String`     | Orientation of the message layout (for example, `portrait` or `landscape`).                                   |
