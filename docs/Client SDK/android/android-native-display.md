@@ -17,7 +17,7 @@ Native Display helps to display content natively within your app without interru
 We support Native Display for CleverTap Android SDK version 3.6.2 and above. Follow the steps to integrate Native Display with your App.
 
 > 📘 Support for Linked Content in Native Display
-> 
+>
 > Starting with Android SDK version 7.5.0 and above, Native Display units support [Linked Content](https://docs.clevertap.com/docs/linked-content), enabling richer, personalized In-App experiences with dynamic data.
 
 ## Register the Native Display Listener
@@ -338,10 +338,10 @@ CleverTapAPI.getDefaultInstance(this).pushDisplayUnitClickedEventForID(adUnit.ge
 ```
 
 > 📘 Custom Handling
-> 
-> The events that you raise are accepted automatically by the CleverTap dashboard.  
+>
+> The events that you raise are accepted automatically by the CleverTap dashboard.\
 > For example, you have implemented the Native Display using RecyclerView, and you raise a Notification Viewed event whenever the Native Display appears on the browser's viewport. If the users scroll through the app multiple times, multiple Notification Viewed events are raised. 
-> 
+>
 > In this case, you might not want to raise multiple events. You can handle this scenario using the android framework callbacks.
 
 ## Get Native Display Units using Send Test
