@@ -18,8 +18,8 @@ You can use this API to get the list of all subscription groups created on the d
 
 ### Base Method
 
-Here is an example base URL from the account in the India region:  
-<https://in1.api.clevertap.com/category-groups>
+Here is an example base URL from the account in the India region:\
+[https://in1.api.clevertap.com/category-groups](https://in1.api.clevertap.com/category-groups)
 
 ### Region
 
