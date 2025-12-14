@@ -11,7 +11,7 @@ next:
   description: ''
 ---
 > 📘 Note:
-> 
+>
 > The WebView feature is supported only for native Android and iOS SDKs. It is not supported for React Native, Flutter, Cordova, and Unity.
 
 ## Android
@@ -23,8 +23,8 @@ webView.addJavascriptInterface(new CTWebInterface(CleverTapAPI.getDefaultInstanc
 ```
 
 > 🚧 Note
-> 
-> Ensure you use a unique identifier for _<<your_variable_name_here>>_ to avoid interfering with other apps leading to namespace issues. It should be a unique variable that the JS Engine can recognize. We recommend using your app's package name because two applications cannot have the same package name. This will ensure that it is unique. For example, _com_my_sampleapp_ if your app package name is com.my.sampleapp.
+>
+> Ensure you use a unique identifier for *{user.your_variable_name_here}* to avoid interfering with other apps leading to namespace issues. It should be a unique variable that the JS Engine can recognize. We recommend using your app's package name because two applications cannot have the same package name. This will ensure that it is unique. For example, *com\_my\_sampleapp* if your app package name is com.my.sampleapp.
 
 The following methods can be used to raise events and update user properties in the webview -
 
@@ -140,8 +140,8 @@ The CleverTapJSInterface is a bridge to communicate between Webviews and CleverT
 
 **Integrating the CleverTapJSInterface -**
 
-- Import the CleverTap JS Interface Header
-- Initialize the Webview and add the CleverTapJSInterface as a script message handler
+* Import the CleverTap JS Interface Header
+* Initialize the Webview and add the CleverTapJSInterface as a script message handler
 
 ```objectivec
 #import <CleverTapSDK/CleverTapJSInterface.h>
@@ -159,8 +159,8 @@ self.webView.configuration.userContentController.add(ctInterface, name: "<your_v
 ```
 
 > 🚧 Note
-> 
-> Ensure you use a unique identifier for _<<your_variable_name_here>>_ to avoid interfering with other apps leading to namespace issues. It should be a unique variable that the JS Engine can recognize. We recommend using your app's package name because two applications cannot have the same package name. This will ensure that it is unique. For example, _com_my_sampleapp_ if your app package name is com.my.sampleapp .
+>
+> Ensure you use a unique identifier for *{user.your_variable_name_here}* to avoid interfering with other apps leading to namespace issues. It should be a unique variable that the JS Engine can recognize. We recommend using your app's package name because two applications cannot have the same package name. This will ensure that it is unique. For example, *com\_my\_sampleapp* if your app package name is com.my.sampleapp .
 
 The following methods can be used to raise events and update user properties in the webview -
 
