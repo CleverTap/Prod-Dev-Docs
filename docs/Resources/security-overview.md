@@ -44,7 +44,7 @@ CleverTap uses battle tested open source software to power some parts of its app
 
 # Data Center Security
 
-Amazon Web Services is our hosting provider. They maintain data­centers that are fully compliant with a range of certifications which allow finance, healthcare and government data to be stored in their data­centers. A full list of compliance and more information along with certification is available at https://aws.amazon.com/compliance/.
+Amazon Web Services is our hosting provider. They maintain data­centers that are fully compliant with a range of certifications which allow finance, healthcare and government data to be stored in their data­centers. A full list of compliance and more information along with certification is available at [https://aws.amazon.com/compliance/](https://aws.amazon.com/compliance/).
 
 Shared responsibility with Amazon means we focus on application and data security while physical security is managed by them.
 
