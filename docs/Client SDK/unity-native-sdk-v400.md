@@ -18,9 +18,9 @@ CleverTap provides a [Unity Plugin](https://github.com/CleverTap/clevertap-unity
 
 Use the following guides to get started with integrating the CleverTap Unity Native SDK in your gaming application:
 
-- [Unity Native SDK Quick Start Guide](doc:unity-native-sdk-quick-start-guide)
-- [Unity User Profiles](doc:unity-user-profiles)
-- [Unity User Events](doc:unity-user-events)
-- [Unity Advanced Features](doc:unity-advanced-features)
-- [Unity Product Experiences](doc:unity-remote-config-sdk-v300)
-- [Unity Troubleshooting and FAQs](doc:unity-troubleshooting-and-faqs)
+* [Unity Native SDK Quick Start Guide](doc:unity-native-sdk-quick-start-guide)
+* [Unity User Profiles](doc:unity-user-profiles)
+* [Unity User Events](doc:unity-user-events)
+* [Unity Advanced Features](doc:unity-advanced-features)
+* [Unity Product Experiences](doc:unity-remote-config-sdk-v300)
+* [Unity Troubleshooting and FAQs](doc:unity-troubleshooting-and-faqs)
