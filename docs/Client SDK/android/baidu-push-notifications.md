@@ -49,68 +49,40 @@ The first step to accessing the Baidu cloud push is to register as a developer.
 
 Log in to the Baidu account that has been registered as a developer on the homepage, and then click **Get Started** or **My Console** in the upper right corner to enter the [push console](http://push.baidu.com/console/app).
 
-Entering the push console will open the application list page. The application list page shows all the applications that you have created in the _Baidu Developer Center_. If you have configured applications in the old management console, the new management console can be used directly. For newly created or never-configured applications, you must perform an application configuration before you can send messages and other operations.
+Entering the push console will open the application list page. The application list page shows all the applications that you have created in the *Baidu Developer Center*. If you have configured applications in the old management console, the new management console can be used directly. For newly created or never-configured applications, you must perform an application configuration before you can send messages and other operations.
 
 To create a new application, click the **Create Application** button on the application list page and then name your app.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/e1f2b63-Baidu_Push_Create_Application_button.png",
-        "Create Application Button",
-        135
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Create Application Button"
-    }
-  ]
-}
-[/block]
+<Image title="Create Application Button" alt={135} align="center" border={true} src="https://files.readme.io/e1f2b63-Baidu_Push_Create_Application_button.png">
+  Create Application Button
+</Image>
 
-
- The application name can be a combination of Chinese, numbers, or English letters, with a maximum of 32 characters. Check that the application name complies with the relevant laws and regulations and complies with the _cloud push_ [developer service agreement](http://push.baidu.com/doc/guide/licence).  
+ The application name can be a combination of Chinese, numbers, or English letters, with a maximum of 32 characters. Check that the application name complies with the relevant laws and regulations and complies with the *cloud push* [developer service agreement](http://push.baidu.com/doc/guide/licence).\
 After successful creation, you can configure the application immediately, or you can enter it later through the link in the application list.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/124a0d2-Baidu_Push_name_the_app.png",
-        "Configure the Application",
-        623
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Configure the Application"
-    }
-  ]
-}
-[/block]
-
+<Image title="Configure the Application" alt={623} align="center" border={true} src="https://files.readme.io/124a0d2-Baidu_Push_name_the_app.png">
+  Configure the Application
+</Image>
 
 # Application configuration - Android
 
 If you are configuring an application for the first time, select the application platform (Android). 
 
 > ❗️ Application Platform
-> 
+>
 > The application platform cannot be changed after saving the configuration. Proceed with caution.
 
 Android applications require the package name of the application. The package name requirements are as follows
 
-- Can only contain uppercase letters (A to Z), lowercase letters (a to z), numbers and underscores, Chinese, and can be separated by periods.
-- Each logo must start with a letter, underscore, or Chinese.
-- Contains at least two identifiers or at least one period.
-- Cannot contain Java reserved words.
-- There can be only one period between two identifiers.
+* Can only contain uppercase letters (A to Z), lowercase letters (a to z), numbers and underscores, Chinese, and can be separated by periods.
+* Each logo must start with a letter, underscore, or Chinese.
+* Contains at least two identifiers or at least one period.
+* Cannot contain Java reserved words.
+* There can be only one period between two identifiers.
 
 # Get the app's ApiKey / SecretKey
 
-ApiKey is the application identifier. During the SDK invocation process, an application is uniquely identified. SecretKey is the _Token_ when calling the API. It is used to verify the validity of the request. Always keep it confidential. ApiKey / SecretKey can be found on the application details page after the application is created.
+ApiKey is the application identifier. During the SDK invocation process, an application is uniquely identified. SecretKey is the *Token* when calling the API. It is used to verify the validity of the request. Always keep it confidential. ApiKey / SecretKey can be found on the application details page after the application is created.
 
 # Integrate Baidu Push SDK
 
@@ -118,25 +90,11 @@ Download the latest Android SDK archive and unpack, increase Baidu cloud push fu
 
 ## Import cloud push jar package and .SO file
 
-Copy all files in the unzipped libs folder to the libs folder of your project. If there are no other .so files in your project, it is recommended to copy only the _armeabi_ folder. If other _.so_ files are used in your project, only  copy the _.so_ files in the corresponding directory. If your Android development environment is Android Studio, create a new directory named _jniLibs_ in the _src / main \_directory of the project, and copy the files in the libs folder to the \_jniLibs_ directory. As shown in the following image:
+Copy all files in the unzipped libs folder to the libs folder of your project. If there are no other .so files in your project, it is recommended to copy only the *armeabi* folder. If other *.so* files are used in your project, only  copy the *.so* files in the corresponding directory. If your Android development environment is Android Studio, create a new directory named *jniLibs* in the *src / main\_directory of the project, and copy the files in the libs folder to the \_jniLibs* directory. As shown in the following image:
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/a113f33-Baidu_Push_Jar_Package_and_SO_file.png",
-        "Import Push Jar Package",
-        364
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Import Push Jar Package"
-    }
-  ]
-}
-[/block]
-
+<Image title="Import Push Jar Package" alt={364} align="center" border={true} src="https://files.readme.io/a113f33-Baidu_Push_Jar_Package_and_SO_file.png">
+  Import Push Jar Package
+</Image>
 
 ## Configure the AndroidManifest file
 
@@ -247,45 +205,17 @@ PushManager.startWork(getApplicationContext(), PushConstants.LOGIN_TYPE_API_KEY,
 
 ## Custom callback class
 
-Create a new class in the current project, right-click and select _new_ > _Class_. Fill in the class name of the class that receives cloud push callback information and push notification arrival information, and click **Finish** to create the class file (in this example, `PushTestReceiver` is used).
+Create a new class in the current project, right-click and select *new* > *Class*. Fill in the class name of the class that receives cloud push callback information and push notification arrival information, and click **Finish** to create the class file (in this example, `PushTestReceiver` is used).
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/66a9e55-Baidu_Push_custom_callback_class.png",
-        "Custom Call Back Class",
-        303
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Custom Call Back Class"
-    }
-  ]
-}
-[/block]
-
+<Image title="Custom Call Back Class" alt={303} align="center" border={true} src="https://files.readme.io/66a9e55-Baidu_Push_custom_callback_class.png">
+  Custom Call Back Class
+</Image>
 
 Open the newly created class and inherit `PushMessageReceiver`. The class name becomes red. Move to the class name, click \_Add unimplemented \_methods, reload all callback functions, and print the corresponding information, as shown in the image:
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/f074d90-Baidu_Push_custom_callback_class_open.png",
-        "Inherit `PushMessageReceiver` Class",
-        862
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Inherit `PushMessageReceiver` Class"
-    }
-  ]
-}
-[/block]
-
+<Image title="Inherit `PushMessageReceiver` Class" alt={862} align="center" border={true} src="https://files.readme.io/f074d90-Baidu_Push_custom_callback_class_open.png">
+  Inherit `PushMessageReceiver` Class
+</Image>
 
 In the AndroidManifest.xml file of the current project, add custom receiver information as follows:
 
@@ -412,7 +342,7 @@ class BaiduPushReceiver : PushMessageReceiver() {
 
 ## Receive Push Notifications from CleverTap
 
-In the `onMessageReceived` method, write the following code for CleverTap to render Push Notification and raise_ Notification Viewed_ event.
+In the `onMessageReceived` method, write the following code for CleverTap to render Push Notification and raise *Notification Viewed* event.
 
 ```coffeescript JAVA
 /**
@@ -477,19 +407,6 @@ If you are using ProGuard, R8, or a similar tool, add these rules to prevent cod
 
 # Update API Key / Secret Key in Settings Dashboard
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/4bc639c-16.png",
-        "Update API Key / Secret Key in Settings Dashboard",
-        1454
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Update API Key / Secret Key in Settings Dashboard"
-    }
-  ]
-}
-[/block]
+<Image title="Update API Key / Secret Key in Settings Dashboard" alt={1454} align="center" border={true} src="https://files.readme.io/4bc639c-16.png">
+  Update API Key / Secret Key in Settings Dashboard
+</Image>
