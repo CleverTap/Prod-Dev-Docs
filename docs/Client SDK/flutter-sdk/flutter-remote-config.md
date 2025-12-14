@@ -17,20 +17,20 @@ With the CleverTap Flutter SDK, you can create variables on your app that take o
 You can define variables using the CleverTap Flutter SDK. When you define a variable in your code, you can sync it to the CleverTap Dashboard via the provided SDK methods.
 
 > 📘 SDK Prerequisite
-> 
+>
 > Before you proceed, check that you are using Flutter SDK v1.7.0 or higher to use the Flutter Product Experiences feature.
 
 # Supported Variable Types
 
 Currently, CleverTap SDK supports the following variable types:
 
-- String
-- boolean
-- Map Object
-- Number
-- int
-- float
-- double
+* String
+* boolean
+* Map Object
+* Number
+* int
+* float
+* double
 
 Web platform only supports primitive data types: String, Number, and Boolean
 
@@ -69,9 +69,9 @@ CleverTap Flutter SDK provides several callbacks for the developer to receive fe
 
 The CleverTap Flutter SDK 3.0.0 and lower supports the following callbacks:
 
-- Status of fetch variables request
-- `onVariablesChanged`
-- `onValueChanged`
+* Status of fetch variables request
+* `onVariablesChanged`
+* `onValueChanged`
 
 ## Status of Variables Fetch Request
 
@@ -108,10 +108,10 @@ CleverTapPlugin.onValueChanged('flutter_var_string', (variable) {
 
 The following callbacks are supported for the Flutter SDK version 3.3.0 and above:
 
-- `onOneTimeVariablesChanged`
-- `onVariablesChangedAndNoDownloadsPending`
-- `onceVariablesChangedAndNoDownloadsPending`
-- `onFileValueChanged`
+* `onOneTimeVariablesChanged`
+* `onVariablesChangedAndNoDownloadsPending`
+* `onceVariablesChangedAndNoDownloadsPending`
+* `onFileValueChanged`
 
 ### `onOneTimeVariablesChanged`
 
@@ -169,11 +169,11 @@ CleverTapPlugin.syncVariables();
 ```
 
 > 📘 Key Points to Remember
-> 
-> - In a scenario where there is already a draft created by another user profile in the dashboard, the sync call will fail to avoid overriding important changes made by someone else. In this case, Publish or Dismiss the existing draft before you proceed with syncing variables again. However, you can override a draft you created via the sync method previously to optimize the integration experience.
-> - You can receive the following Logcat logs from the CleverTap SDK:
->   - Variables synced successfully.
->   - Unauthorized access from a non-test profile. To address this, mark the profile as a test profile from the CleverTap dashboard.
+>
+> * In a scenario where there is already a draft created by another user profile in the dashboard, the sync call will fail to avoid overriding important changes made by someone else. In this case, Publish or Dismiss the existing draft before you proceed with syncing variables again. However, you can override a draft you created via the sync method previously to optimize the integration experience.
+> * You can receive the following Logcat logs from the CleverTap SDK:
+>   * Variables synced successfully.
+>   * Unauthorized access from a non-test profile. To address this, mark the profile as a test profile from the CleverTap dashboard.
 
 # Fetch Variables During a Session
 
@@ -232,10 +232,10 @@ CleverTapPlugin.fetchVariables().then((success) => {
 ```
 
 > 📘 Note
-> 
-> - Always call `fetchVariables()` immediately after any user property updates used in Product Experience segments.
-> - The fetch call is asynchronous; use the callback to confirm success.
-> - Existing `VariableCallback` instances are automatically triggered when variables change.
+>
+> * Always call `fetchVariables()` immediately after any user property updates used in Product Experience segments.
+> * The fetch call is asynchronous; use the callback to confirm success.
+> * Existing `VariableCallback` instances are automatically triggered when variables change.
 
 ## Access Variable Values
 
