@@ -10,408 +10,1743 @@ metadata:
 next:
   description: ''
 ---
-[block:api-header]
-{
-  "title": "Overview"
-}
-[/block]
+## Overview
+
 We regularly update the CleverTap API and SDKs with new features, bug fixes, and performance improvements. The following changelog illustrates the updates.
 
-#2021
-[block:parameters]
-{
-  "data": {
-    "h-0": "Date",
-    "h-1": "SDK",
-    "h-2": "Version Number",
-    "h-3": "Updates",
-    "4-0": "March 3",
-    "4-1": "Android",
-    "4-2": "[4.0.4](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/core-v4.0.4)",
-    "4-3": "Fixes a bug with Custom FCM Sender ID implementation. If you are using Custom FCM Sender ID with SDK versions 4.0.0 to 4.0.3 then we recommend upgrading to [v4.0.4](https://github.com/CleverTap/clevertap-android-sdk/blob/master/docs/CTCORECHANGELOG.md).",
-    "5-0": "February 22",
-    "5-1": "Android",
-    "5-2": "[4.0.3](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/core-v4.0.3)",
-    "5-3": "* [CleverTap Android SDK v4.0.3](https://github.com/CleverTap/clevertap-android-sdk/blob/master/docs/CTCORECHANGELOG.md)",
-    "2-0": "April 13",
-    "2-1": "Android",
-    "2-2": "[4.1.0](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/core-v4.1.0)",
-    "2-3": "* [CleverTap Android SDK v4.1.0](https://github.com/CleverTap/clevertap-android-sdk/blob/master/docs/CTCORECHANGELOG.md)\n* [CleverTap Geofence SDK v1.0.2](https://github.com/CleverTap/clevertap-android-sdk/blob/master/docs/CTGEOFENCECHANGELOG.md)\n* [CleverTap Xiaomi Push SDK v1.0.1](https://github.com/CleverTap/clevertap-android-sdk/blob/master/docs/CTXIAOMIPUSHCHANGELOG.md)\n* [CleverTap Huawei Push SDK v1.0.1](https://github.com/CleverTap/clevertap-android-sdk/blob/master/docs/CTHUAWEIPUSHCHANGELOG.md)",
-    "6-0": "February 5",
-    "6-1": "iOS",
-    "6-2": "[3.9.2](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/3.9.2)",
-    "6-3": "[CleverTap iOS SDK v3.9.2](https://github.com/CleverTap/clevertap-ios-sdk/blob/master/CHANGELOG.md#version-392-february-5-2021)",
-    "3-0": "April 12",
-    "3-1": "iOS",
-    "3-2": "[3.9.3](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/3.9.3)",
-    "3-3": "[CleverTap iOS SDK v3.9.3](https://github.com/CleverTap/clevertap-ios-sdk/blob/master/CHANGELOG.md#version-393-april-12-2021)",
-    "1-0": "May 4",
-    "1-1": "Android",
-    "1-3": "* [CleverTap Android SDK v4.1.1](https://github.com/CleverTap/clevertap-android-sdk/blob/master/docs/CTCORECHANGELOG.md)\n* [CleverTap Xiaomi Push SDK v1.0.2](https://github.com/CleverTap/clevertap-android-sdk/blob/master/docs/CTXIAOMIPUSHCHANGELOG.md)",
-    "1-2": "[4.1.1](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/core-v4.1.1)",
-    "0-0": "July 15",
-    "0-1": "Android",
-    "0-2": "[4.2.0](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/core-v4.2.0)",
-    "0-3": "* [CleverTap Android SDK v4.2.0](https://github.com/CleverTap/clevertap-android-sdk/blob/master/docs/CTCORECHANGELOG.md)\n* [CleverTap Huawei Push SDK v1.0.2](https://github.com/CleverTap/clevertap-android-sdk/blob/master/docs/CTHUAWEIPUSHCHANGELOG.md)"
-  },
-  "cols": 4,
-  "rows": 7
-}
-[/block]
+# 2021
+
+<Table align={["left","left","left","left"]}>
+  <thead>
+    <tr>
+      <th style={{ textAlign: "left" }}>
+        Date
+      </th>
+
+      <th style={{ textAlign: "left" }}>
+        SDK
+      </th>
+
+      <th style={{ textAlign: "left" }}>
+        Version Number
+      </th>
+
+      <th style={{ textAlign: "left" }}>
+        Updates
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        July 15
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Android
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        [4.2.0](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/core-v4.2.0)
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        * [CleverTap Android SDK v4.2.0](https://github.com/CleverTap/clevertap-android-sdk/blob/master/docs/CTCORECHANGELOG.md)
+        * [CleverTap Huawei Push SDK v1.0.2](https://github.com/CleverTap/clevertap-android-sdk/blob/master/docs/CTHUAWEIPUSHCHANGELOG.md)
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        May 4
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Android
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        [4.1.1](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/core-v4.1.1)
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        * [CleverTap Android SDK v4.1.1](https://github.com/CleverTap/clevertap-android-sdk/blob/master/docs/CTCORECHANGELOG.md)
+        * [CleverTap Xiaomi Push SDK v1.0.2](https://github.com/CleverTap/clevertap-android-sdk/blob/master/docs/CTXIAOMIPUSHCHANGELOG.md)
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        April 13
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Android
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        [4.1.0](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/core-v4.1.0)
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        * [CleverTap Android SDK v4.1.0](https://github.com/CleverTap/clevertap-android-sdk/blob/master/docs/CTCORECHANGELOG.md)
+        * [CleverTap Geofence SDK v1.0.2](https://github.com/CleverTap/clevertap-android-sdk/blob/master/docs/CTGEOFENCECHANGELOG.md)
+        * [CleverTap Xiaomi Push SDK v1.0.1](https://github.com/CleverTap/clevertap-android-sdk/blob/master/docs/CTXIAOMIPUSHCHANGELOG.md)
+        * [CleverTap Huawei Push SDK v1.0.1](https://github.com/CleverTap/clevertap-android-sdk/blob/master/docs/CTHUAWEIPUSHCHANGELOG.md)
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        April 12
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        iOS
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        [3.9.3](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/3.9.3)
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        [CleverTap iOS SDK v3.9.3](https://github.com/CleverTap/clevertap-ios-sdk/blob/master/CHANGELOG.md#version-393-april-12-2021)
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        March 3
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Android
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        [4.0.4](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/core-v4.0.4)
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Fixes a bug with Custom FCM Sender ID implementation. If you are using Custom FCM Sender ID with SDK versions 4.0.0 to 4.0.3 then we recommend upgrading to [v4.0.4](https://github.com/CleverTap/clevertap-android-sdk/blob/master/docs/CTCORECHANGELOG.md).
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        February 22
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Android
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        [4.0.3](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/core-v4.0.3)
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        * [CleverTap Android SDK v4.0.3](https://github.com/CleverTap/clevertap-android-sdk/blob/master/docs/CTCORECHANGELOG.md)
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        February 5
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        iOS
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        [3.9.2](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/3.9.2)
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        [CleverTap iOS SDK v3.9.2](https://github.com/CleverTap/clevertap-ios-sdk/blob/master/CHANGELOG.md#version-392-february-5-2021)
+      </td>
+    </tr>
+  </tbody>
+</Table>
+
 # 2020
-[block:parameters]
-{
-  "data": {
-    "h-0": "Date",
-    "h-1": "SDK",
-    "h-2": "Version Number",
-    "h-3": "Updates",
-    "9-0": "May 06",
-    "9-1": "Android",
-    "9-2": "[3.8.0](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.8.0)",
-    "9-3": "* Use v3.8.2\n* Adds support for Product Config and Feature Flag as a part of Product Experiences feature\n* Fixed InApp center alignment issue for tablets\n* Adds support for custom handling payload when using Push Amplification.\n* Other bug fixes",
-    "8-0": "May 11",
-    "8-1": "iOS",
-    "8-2": "[3.8.0](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/3.8.0)",
-    "8-3": "* Adds support for Product Config and Feature Flag as a part of Product Experiences feature\n* Performance improvements",
-    "10-0": "March 27",
-    "10-1": "Android",
-    "10-2": "[3.7.2](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.7.2)",
-    "10-3": "* Use v3.8.2\n* Adds fix for a crash caused when InApp with Frequency Caps was shown on first App Launched",
-    "11-0": "March 19",
-    "12-0": "March 11",
-    "13-0": "February 26",
-    "14-0": "January 13",
-    "12-1": "Android",
-    "13-1": "Android",
-    "14-1": "Android",
-    "11-2": "[3.7.1](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.7.1)",
-    "12-2": "[3.7.0](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.7.0)",
-    "13-2": "[3.6.4](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.6.4)",
-    "14-2": "[3.6.3](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.6.3)",
-    "11-3": "* Use v3.8.2\n* Adds fix for a crash caused when CleverTap instance was created from background",
-    "12-3": "* Use v3.8.2\n* Adds support for Xiaomi & Baidu Push Notification Services\n* Adds public APIs for raising Notification Clicked and Viewed events for App Inbox\n* Adds public APIs for marking inbox message as read and deleting inbox message per message ID\n* Fixes center alignment issue of Native InApps on Mobile devices\n* Performance improvements",
-    "13-3": "* Reverting Google Play Install Library to v1.0\n* Bug Fixes",
-    "14-3": "* Adds support for capturing Install Referrer via Google Play Install Referrer Library\n* Deprecation warning for `InstallReferrerBroadcastReceiver`\n* Changes retry mechanism in case CleverTap back end doesn't respond\n* Bug fixes and performance improvements",
-    "7-0": "July 2",
-    "7-1": "iOS",
-    "7-2": "[3.8.1](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/3.8.1)",
-    "7-3": "* Adds public API to raise Notification Clicked event for Push Notifications\n* Adds a callback to provide Push Notifications custom key-value pairs\n* Performance improvements",
-    "6-3": "* Use v3.8.2\n* Adds a callback to provide Push Notifications custom key-value pairs\n* Removed `pushGooglePlusPerson` API as Google Plus sign-in is deprecated\n* Other bug fixes",
-    "6-2": "[3.8.1](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.8.1)",
-    "6-1": "Android",
-    "6-0": "July 8",
-    "5-0": "July 25",
-    "5-1": "Android",
-    "5-2": "[3.8.2](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.8.2)",
-    "5-3": "* Stable release\n* Fixes a bug where ARP was not being sent back to servers",
-    "4-0": "August 31",
-    "4-1": "Android",
-    "4-2": "[3.9.0](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.9.0)",
-    "4-3": "* Adds support for CleverTap Geofence SDK\n* Fixed all InApp related bugs and crashes\n* Fixed the Product Experiences AB Testing crash on few Samsung devices",
-    "3-0": "September 17",
-    "3-1": "Android",
-    "3-2": "[3.9.1](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.9.1)",
-    "3-3": "* Handled Security Exception on `getNetworkType` for Android 11 devices",
-    "2-0": "October 1",
-    "2-1": "Android",
-    "2-2": "[4.0.0](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/core-v4.0.0)",
-    "2-3": "* [CleverTap Android SDK v4.0.0](https://github.com/CleverTap/clevertap-android-sdk/blob/master/docs/CTCORECHANGELOG.md)",
-    "1-0": "November 30",
-    "1-1": "Android",
-    "1-2": "[4.0.1](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/core-v4.0.1)",
-    "1-3": "* [CleverTap Android SDK v4.0.1](https://github.com/CleverTap/clevertap-android-sdk/blob/master/docs/CTCORECHANGELOG.md)",
-    "0-0": "December 28",
-    "0-1": "Android",
-    "0-2": "[4.0.2](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/core-v4.0.2)",
-    "0-3": "* [CleverTap Android SDK v4.0.2](https://github.com/CleverTap/clevertap-android-sdk/blob/master/docs/CTCORECHANGELOG.md)"
-  },
-  "cols": 4,
-  "rows": 15
-}
-[/block]
+
+<Table align={["left","left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Date
+      </th>
+
+      <th>
+        SDK
+      </th>
+
+      <th>
+        Version Number
+      </th>
+
+      <th>
+        Updates
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        December 28
+      </td>
+
+      <td>
+        Android
+      </td>
+
+      <td>
+        [4.0.2](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/core-v4.0.2)
+      </td>
+
+      <td>
+        * [CleverTap Android SDK v4.0.2](https://github.com/CleverTap/clevertap-android-sdk/blob/master/docs/CTCORECHANGELOG.md)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        November 30
+      </td>
+
+      <td>
+        Android
+      </td>
+
+      <td>
+        [4.0.1](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/core-v4.0.1)
+      </td>
+
+      <td>
+        * [CleverTap Android SDK v4.0.1](https://github.com/CleverTap/clevertap-android-sdk/blob/master/docs/CTCORECHANGELOG.md)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        October 1
+      </td>
+
+      <td>
+        Android
+      </td>
+
+      <td>
+        [4.0.0](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/core-v4.0.0)
+      </td>
+
+      <td>
+        * [CleverTap Android SDK v4.0.0](https://github.com/CleverTap/clevertap-android-sdk/blob/master/docs/CTCORECHANGELOG.md)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        September 17
+      </td>
+
+      <td>
+        Android
+      </td>
+
+      <td>
+        [3.9.1](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.9.1)
+      </td>
+
+      <td>
+        * Handled Security Exception on `getNetworkType` for Android 11 devices
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        August 31
+      </td>
+
+      <td>
+        Android
+      </td>
+
+      <td>
+        [3.9.0](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.9.0)
+      </td>
+
+      <td>
+        * Adds support for CleverTap Geofence SDK
+        * Fixed all InApp related bugs and crashes
+        * Fixed the Product Experiences AB Testing crash on few Samsung devices
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        July 25
+      </td>
+
+      <td>
+        Android
+      </td>
+
+      <td>
+        [3.8.2](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.8.2)
+      </td>
+
+      <td>
+        * Stable release
+        * Fixes a bug where ARP was not being sent back to servers
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        July 8
+      </td>
+
+      <td>
+        Android
+      </td>
+
+      <td>
+        [3.8.1](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.8.1)
+      </td>
+
+      <td>
+        * Use v3.8.2
+        * Adds a callback to provide Push Notifications custom key-value pairs
+        * Removed `pushGooglePlusPerson` API as Google Plus sign-in is deprecated
+        * Other bug fixes
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        July 2
+      </td>
+
+      <td>
+        iOS
+      </td>
+
+      <td>
+        [3.8.1](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/3.8.1)
+      </td>
+
+      <td>
+        * Adds public API to raise Notification Clicked event for Push Notifications
+        * Adds a callback to provide Push Notifications custom key-value pairs
+        * Performance improvements
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        May 11
+      </td>
+
+      <td>
+        iOS
+      </td>
+
+      <td>
+        [3.8.0](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/3.8.0)
+      </td>
+
+      <td>
+        * Adds support for Product Config and Feature Flag as a part of Product Experiences feature
+        * Performance improvements
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        May 06
+      </td>
+
+      <td>
+        Android
+      </td>
+
+      <td>
+        [3.8.0](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.8.0)
+      </td>
+
+      <td>
+        * Use v3.8.2
+        * Adds support for Product Config and Feature Flag as a part of Product Experiences feature
+        * Fixed InApp center alignment issue for tablets
+        * Adds support for custom handling payload when using Push Amplification.
+        * Other bug fixes
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        March 27
+      </td>
+
+      <td>
+        Android
+      </td>
+
+      <td>
+        [3.7.2](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.7.2)
+      </td>
+
+      <td>
+        * Use v3.8.2
+        * Adds fix for a crash caused when InApp with Frequency Caps was shown on first App Launched
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        March 19
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+        [3.7.1](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.7.1)
+      </td>
+
+      <td>
+        * Use v3.8.2
+        * Adds fix for a crash caused when CleverTap instance was created from background
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        March 11
+      </td>
+
+      <td>
+        Android
+      </td>
+
+      <td>
+        [3.7.0](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.7.0)
+      </td>
+
+      <td>
+        * Use v3.8.2
+        * Adds support for Xiaomi & Baidu Push Notification Services
+        * Adds public APIs for raising Notification Clicked and Viewed events for App Inbox
+        * Adds public APIs for marking inbox message as read and deleting inbox message per message ID
+        * Fixes center alignment issue of Native InApps on Mobile devices
+        * Performance improvements
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        February 26
+      </td>
+
+      <td>
+        Android
+      </td>
+
+      <td>
+        [3.6.4](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.6.4)
+      </td>
+
+      <td>
+        * Reverting Google Play Install Library to v1.0
+        * Bug Fixes
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        January 13
+      </td>
+
+      <td>
+        Android
+      </td>
+
+      <td>
+        [3.6.3](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.6.3)
+      </td>
+
+      <td>
+        * Adds support for capturing Install Referrer via Google Play Install Referrer Library
+        * Deprecation warning for `InstallReferrerBroadcastReceiver`
+        * Changes retry mechanism in case CleverTap back end doesn't respond
+        * Bug fixes and performance improvements
+      </td>
+    </tr>
+  </tbody>
+</Table>
+
 # 2019
-[block:parameters]
-{
-  "data": {
-    "h-0": "Date",
-    "h-1": "SDK",
-    "h-2": "Version Number",
-    "h-3": "Updates",
-    "14-0": "January 14",
-    "14-1": "iOS",
-    "14-2": "[3.4.0](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/3.4.0)",
-    "14-3": "* Adds support for App  Inbox",
-    "15-0": "January 14",
-    "15-1": "Android",
-    "15-2": "[3.4.0](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.4.0)",
-    "15-3": "* Adds support for App Inbox\n* Adds support for Push Amplification\n* Workaround for Android O orientation bug\n* Fixes a bug which led to ANR on 2G network",
-    "12-0": "February 5",
-    "12-1": "iOS",
-    "12-2": "[3.4.1](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/3.4.1)",
-    "12-3": "* Added support for Landscape mode in custom HTML InApps and App Inbox\n* Performance improvements for App Inbox",
-    "13-0": "February 5",
-    "13-1": "Android",
-    "13-2": "[3.4.1](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.4.1)",
-    "13-3": "* Added support for Landscape mode in custom HTML InApps and App Inbox\n* Performance improvements for App Inbox",
-    "11-0": "February 6",
-    "11-1": "Android",
-    "11-2": "[3.4.2](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.4.2)",
-    "11-3": "* Improved callback support for App Inbox\n* Fixed Carousel dots rendering issue",
-    "10-0": "April 4",
-    "10-1": "Android",
-    "10-2": "[3.4.3](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.4.3)",
-    "10-3": "* Adds support for specifying custom FCM Sender ID to request token",
-    "9-0": "May 17",
-    "9-1": "iOS",
-    "9-2": "[3.5.0](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/3.5.0)",
-    "9-3": "* Support for SDWebImage 4.x\n* Adds the ability to set a custom Device ID (CleverTap ID)\n* Adds the ability to record Notification Viewed event for Push Notifications\n* Adds support to record events in a WebView\n* Enables Javascript in Custom HTML In-Apps\n* In-Apps and App Inbox Landscape layout improvements\n* Fixes setting Facebook as the referrer from a Facebook login deeplink",
-    "8-0": "May 17",
-    "8-1": "Android",
-    "8-2": "[3.5.0](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.5.0)",
-    "8-3": "* Adds the ability to set a custom Device ID (CleverTap ID)\n* Adds support to record events in a WebView\n* Enables Javascript in Custom HTML In-Apps\n* Bug fixes and improvements",
-    "7-0": "May 24",
-    "7-1": "Android",
-    "7-2": "[3.5.1](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.5.1)",
-    "7-3": "* Adds the ability to record Notification Viewed event for Push Notifications\n* In-Apps and App Inbox Landscape layout improvements",
-    "4-0": "September 25",
-    "4-1": "Android",
-    "4-2": "[3.6.0](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.6.0)",
-    "4-3": "* Adds support for AB Tests. (in closed Beta)\n* Adds support for deep link query parameters in InApps.\n* Deprecated GCM.\n* Deprecated EventHandler, SessionHandler and DataHandler classes.\n* Workaround for below Oreo Android OS bug causing ANRs while using Push Amplification.\n* Bug fixes and performance improvements",
-    "5-0": "September 25",
-    "5-1": "iOS",
-    "5-2": "[3.7.0](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/3.7.0)",
-    "5-3": "* Adds support for AB Tests. (in closed Beta)\n* Adds support for SDWebImage version 5.1\n* Disable Location API calls unless the CLEVERTAP_LOCATION macro is set\n* Bug fixes and performance improvements",
-    "6-0": "May 30",
-    "6-1": "iOS",
-    "6-3": "Adds support for SDWebImage version 5.0",
-    "6-2": "[3.6.0](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/3.6.0)",
-    "3-0": "October 16",
-    "3-1": "Android",
-    "3-2": "[3.6.1](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.6.1)",
-    "3-3": "* Bug fixes and performance improvements",
-    "2-3": "* Bug fixes and performance improvements",
-    "2-2": "[3.7.1](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/3.7.1)",
-    "2-1": "iOS",
-    "2-0": "October 17",
-    "1-0": "December 11",
-    "1-1": "iOS",
-    "1-2": "[3.7.2](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/3.7.2)",
-    "1-3": "* Adds support for Native Display\n* Bug fixes and performance improvements",
-    "0-0": "December 11",
-    "0-1": "Android",
-    "0-2": "[3.6.2](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.6.2)",
-    "0-3": "* Adds support for Native Display.\n* Bug fixes and performance improvements"
-  },
-  "cols": 4,
-  "rows": 16
-}
-[/block]
+
+<Table align={["left","left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Date
+      </th>
+
+      <th>
+        SDK
+      </th>
+
+      <th>
+        Version Number
+      </th>
+
+      <th>
+        Updates
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        December 11
+      </td>
+
+      <td>
+        Android
+      </td>
+
+      <td>
+        [3.6.2](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.6.2)
+      </td>
+
+      <td>
+        * Adds support for Native Display.
+        * Bug fixes and performance improvements
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        December 11
+      </td>
+
+      <td>
+        iOS
+      </td>
+
+      <td>
+        [3.7.2](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/3.7.2)
+      </td>
+
+      <td>
+        * Adds support for Native Display
+        * Bug fixes and performance improvements
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        October 17
+      </td>
+
+      <td>
+        iOS
+      </td>
+
+      <td>
+        [3.7.1](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/3.7.1)
+      </td>
+
+      <td>
+        * Bug fixes and performance improvements
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        October 16
+      </td>
+
+      <td>
+        Android
+      </td>
+
+      <td>
+        [3.6.1](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.6.1)
+      </td>
+
+      <td>
+        * Bug fixes and performance improvements
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        September 25
+      </td>
+
+      <td>
+        Android
+      </td>
+
+      <td>
+        [3.6.0](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.6.0)
+      </td>
+
+      <td>
+        * Adds support for AB Tests. (in closed Beta)
+        * Adds support for deep link query parameters in InApps.
+        * Deprecated GCM.
+        * Deprecated EventHandler, SessionHandler and DataHandler classes.
+        * Workaround for below Oreo Android OS bug causing ANRs while using Push Amplification.
+        * Bug fixes and performance improvements
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        September 25
+      </td>
+
+      <td>
+        iOS
+      </td>
+
+      <td>
+        [3.7.0](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/3.7.0)
+      </td>
+
+      <td>
+        * Adds support for AB Tests. (in closed Beta)
+        * Adds support for SDWebImage version 5.1
+        * Disable Location API calls unless the CLEVERTAP\_LOCATION macro is set
+        * Bug fixes and performance improvements
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        May 30
+      </td>
+
+      <td>
+        iOS
+      </td>
+
+      <td>
+        [3.6.0](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/3.6.0)
+      </td>
+
+      <td>
+        Adds support for SDWebImage version 5.0
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        May 24
+      </td>
+
+      <td>
+        Android
+      </td>
+
+      <td>
+        [3.5.1](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.5.1)
+      </td>
+
+      <td>
+        * Adds the ability to record Notification Viewed event for Push Notifications
+        * In-Apps and App Inbox Landscape layout improvements
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        May 17
+      </td>
+
+      <td>
+        Android
+      </td>
+
+      <td>
+        [3.5.0](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.5.0)
+      </td>
+
+      <td>
+        * Adds the ability to set a custom Device ID (CleverTap ID)
+        * Adds support to record events in a WebView
+        * Enables Javascript in Custom HTML In-Apps
+        * Bug fixes and improvements
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        May 17
+      </td>
+
+      <td>
+        iOS
+      </td>
+
+      <td>
+        [3.5.0](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/3.5.0)
+      </td>
+
+      <td>
+        * Support for SDWebImage 4.x
+        * Adds the ability to set a custom Device ID (CleverTap ID)
+        * Adds the ability to record Notification Viewed event for Push Notifications
+        * Adds support to record events in a WebView
+        * Enables Javascript in Custom HTML In-Apps
+        * In-Apps and App Inbox Landscape layout improvements
+        * Fixes setting Facebook as the referrer from a Facebook login deeplink
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        April 4
+      </td>
+
+      <td>
+        Android
+      </td>
+
+      <td>
+        [3.4.3](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.4.3)
+      </td>
+
+      <td>
+        * Adds support for specifying custom FCM Sender ID to request token
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        February 6
+      </td>
+
+      <td>
+        Android
+      </td>
+
+      <td>
+        [3.4.2](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.4.2)
+      </td>
+
+      <td>
+        * Improved callback support for App Inbox
+        * Fixed Carousel dots rendering issue
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        February 5
+      </td>
+
+      <td>
+        iOS
+      </td>
+
+      <td>
+        [3.4.1](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/3.4.1)
+      </td>
+
+      <td>
+        * Added support for Landscape mode in custom HTML InApps and App Inbox
+        * Performance improvements for App Inbox
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        February 5
+      </td>
+
+      <td>
+        Android
+      </td>
+
+      <td>
+        [3.4.1](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.4.1)
+      </td>
+
+      <td>
+        * Added support for Landscape mode in custom HTML InApps and App Inbox
+        * Performance improvements for App Inbox
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        January 14
+      </td>
+
+      <td>
+        iOS
+      </td>
+
+      <td>
+        [3.4.0](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/3.4.0)
+      </td>
+
+      <td>
+        * Adds support for App  Inbox
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        January 14
+      </td>
+
+      <td>
+        Android
+      </td>
+
+      <td>
+        [3.4.0](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.4.0)
+      </td>
+
+      <td>
+        * Adds support for App Inbox
+        * Adds support for Push Amplification
+        * Workaround for Android O orientation bug
+        * Fixes a bug which led to ANR on 2G network
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 # 2018
-[block:parameters]
-{
-  "data": {
-    "h-0": "Date",
-    "h-1": "SDK",
-    "h-2": "Version Number",
-    "h-3": "Updates",
-    "4-0": "May 18",
-    "6-0": "May 2",
-    "5-0": "May 2",
-    "4-1": "Android",
-    "5-1": "Android",
-    "6-1": "iOS",
-    "4-2": "[3.1.10](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.1.10)",
-    "5-2": "[3.1.9](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.1.9)",
-    "6-3": "* Methods for [GDPR compliance](https://developer.clevertap.com/docs/sdk-changes-for-gdpr-compliance).\n* Various performance improvements.\n<br>",
-    "5-3": "* Methods for [GDPR compliance](https://developer.clevertap.com/docs/sdk-changes-for-gdpr-compliance).\n* New API for screen tracking.\n* New API for Android O channels with custom sound.\n* Various performance improvements.\n<br>",
-    "6-2": "[3.1.7](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/3.1.7)",
-    "4-3": "* Bug fixes.\n<br>",
-    "3-2": "[3.2.0](\nhttps://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.2.0)",
-    "3-3": "* Adds support to create multiple instances of CleverTap Android SDK.\n* Deprecated CleverTapException, CleverTapMetaDataNotFoundException, CleverTapPermissionsNotSatisfied and InvalidEventNameException.\n* Deprecated CleverTapAPI.CHARGED_EVENT use cleverTapAPI.pushChargedEvent().\n* Deprecated event, profile, session and data methods, use respective CleverTapAPI methods.\n* Deprecated CleverTapAPI.getInstance() method. Use CleverTapAPI.getDefaultInstance() instead.\n* Added APIs for setting the SDK to offline and SSL Pinning.\n<br>",
-    "3-1": "Android",
-    "3-0": "September 3",
-    "2-0": "September 4",
-    "2-1": "iOS",
-    "2-2": "[3.2.0](\nhttps://github.com/CleverTap/clevertap-ios-sdk/releases/tag/3.2.0)",
-    "2-3": "* Adds support to create multiple instances.\n* Adds support for SSL-pinning.\n* Adds ability to go offline (disable sending logged events to the server).\n* Added support for integration via Carthage.\n* Moved from static to dynamic framework.\n* Various performance enhancements.\n<br>",
-    "1-0": "October 26",
-    "1-1": "Android",
-    "1-2": "[3.3.0](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.3.0)",
-    "1-3": "* Adds support for Native InApp Notifications\n* Bug fixes and performance improvements",
-    "0-0": "October 26",
-    "0-1": "iOS",
-    "0-2": "[3.3.0](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/3.3.0)",
-    "0-3": "* Adds support for Native InApp Notifications"
-  },
-  "cols": 4,
-  "rows": 8
-}
-[/block]
+
+<Table align={["left","left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Date
+      </th>
+
+      <th>
+        SDK
+      </th>
+
+      <th>
+        Version Number
+      </th>
+
+      <th>
+        Updates
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        October 26
+      </td>
+
+      <td>
+        iOS
+      </td>
+
+      <td>
+        [3.3.0](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/3.3.0)
+      </td>
+
+      <td>
+        * Adds support for Native InApp Notifications
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        October 26
+      </td>
+
+      <td>
+        Android
+      </td>
+
+      <td>
+        [3.3.0](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.3.0)
+      </td>
+
+      <td>
+        * Adds support for Native InApp Notifications
+        * Bug fixes and performance improvements
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        September 4
+      </td>
+
+      <td>
+        iOS
+      </td>
+
+      <td>
+        [3.2.0](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/3.2.0)
+      </td>
+
+      <td>
+        * Adds support to create multiple instances.
+        * Adds support for SSL-pinning.
+        * Adds ability to go offline (disable sending logged events to the server).
+        * Added support for integration via Carthage.
+        * Moved from static to dynamic framework.
+        * Various performance enhancements.\ <br />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        September 3
+      </td>
+
+      <td>
+        Android
+      </td>
+
+      <td>
+        [3.2.0](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.2.0)
+      </td>
+
+      <td>
+        * Adds support to create multiple instances of CleverTap Android SDK.
+        * Deprecated CleverTapException, CleverTapMetaDataNotFoundException, CleverTapPermissionsNotSatisfied and InvalidEventNameException.
+        * Deprecated CleverTapAPI.CHARGED\_EVENT use cleverTapAPI.pushChargedEvent().
+        * Deprecated event, profile, session and data methods, use respective CleverTapAPI methods.
+        * Deprecated CleverTapAPI.getInstance() method. Use CleverTapAPI.getDefaultInstance() instead.
+        * Added APIs for setting the SDK to offline and SSL Pinning.\ <br />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        May 18
+      </td>
+
+      <td>
+        Android
+      </td>
+
+      <td>
+        [3.1.10](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.1.10)
+      </td>
+
+      <td>
+        * Bug fixes.\ <br />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        May 2
+      </td>
+
+      <td>
+        Android
+      </td>
+
+      <td>
+        [3.1.9](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.1.9)
+      </td>
+
+      <td>
+        * Methods for [GDPR compliance](https://developer.clevertap.com/docs/sdk-changes-for-gdpr-compliance).
+        * New API for screen tracking.
+        * New API for Android O channels with custom sound.
+        * Various performance improvements.\ <br />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        May 2
+      </td>
+
+      <td>
+        iOS
+      </td>
+
+      <td>
+        [3.1.7](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/3.1.7)
+      </td>
+
+      <td>
+        * Methods for [GDPR compliance](https://developer.clevertap.com/docs/sdk-changes-for-gdpr-compliance).
+        * Various performance improvements.\ <br />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+
+      </td>
+    </tr>
+  </tbody>
+</Table>
+
 # 2017
-[block:parameters]
-{
-  "data": {
-    "0-0": "Dec 21",
-    "h-0": "Date",
-    "h-1": "SDK",
-    "h-2": "Version Number",
-    "h-3": "Updates",
-    "0-1": "Android",
-    "0-2": "[3.1.8](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.1.8)",
-    "0-3": "* Bug fixes and performance improvements.\n<br>",
-    "1-0": "Oct 13",
-    "1-1": "iOS",
-    "1-3": "* Fixed App Extension deployment target.\n<br>",
-    "2-0": "Oct 7",
-    "2-1": "Android",
-    "2-3": "* Fixed deep link handling issue for devices\nbelow Android N.\n<br>",
-    "1-2": "[3.1.6](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/3.1.6)",
-    "2-2": "[3.1.7](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.1.7)",
-    "3-0": "Sep 20",
-    "3-1": "Android",
-    "3-2": "[3.1.6](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.1.6)",
-    "3-3": "* Added Android O support for push notifications. \n* Improved debugging mechanism. \n* Added various performance enhancements.\n<br>",
-    "4-0": "Sep 19",
-    "4-1": "iOS",
-    "4-3": "* Added support for iOS 11 and Xcode 9. \n* Updated debugging mechanism. \n* Added support for handling\nforeground notifications.\n<br>",
-    "4-2": "[3.1.5](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/3.1.5)",
-    "5-0": "Jun 30",
-    "5-1": "Android",
-    "5-2": "[3.1.4](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.1.4)",
-    "5-3": "* Added ability to play custom sounds, display\ncall-to-action buttons, and set priority for push\nnotifications.\n<br>",
-    "6-0": "Jun 29",
-    "6-3": "* Added API to record screen views, tvOS\nsupport, and modulemap for Swift import.\n<br>",
-    "6-1": "iOS",
-    "6-2": "[3.1.4](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/3.1.4)",
-    "7-0": "Jan 30",
-    "7-2": "[3.1.2](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/3.1.2)",
-    "7-1": "iOS",
-    "7-3": "* Various performance enhancements.\n<br>",
-    "8-0": "Jan 30",
-    "8-1": "Android",
-    "8-2": "[3.1.2](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.1.2)",
-    "8-3": "* Various performance enhancements."
-  },
-  "cols": 4,
-  "rows": 9
-}
-[/block]
-#2016
-[block:parameters]
-{
-  "data": {
-    "h-0": "Date",
-    "h-1": "SDK",
-    "h-2": "Version Number",
-    "h-3": "Updates",
-    "4-0": "Sep 23",
-    "4-1": "iOS",
-    "4-3": "* Added support for iOS 10 and Xcode 8 support. \n* Added support for rich push notifications, App\nExtensions and watchOS apps.\n<br>",
-    "0-0": "Dec 14",
-    "0-1": "iOS",
-    "0-2": "[3.1.1](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/3.1.1)",
-    "0-3": "* Various performance enhancements.\n<br>",
-    "2-0": "Oct 20",
-    "2-1": "iOS",
-    "2-2": "[3.1.0](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/3.1.0)",
-    "2-3": "* Various performance enhancements.\n<br>",
-    "4-2": "[3.0.0](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/3.0.0)",
-    "5-0": "Aug 31",
-    "5-1": "Android",
-    "6-0": "Aug 17",
-    "6-1": "iOS",
-    "6-3": "* Fixed Xcode 8 to Xcode 7 archiving issue.\n<br>",
-    "6-2": "[2.2.2](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/2.2.2)",
-    "5-3": "* Added FCM support. \n* Updated GCM handling.\n<br>",
-    "7-0": "Jul 20",
-    "7-1": "iOS",
-    "7-2": "[2.2.1](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/2.2.1)",
-    "7-3": "* Patched NSDate handling in the onUserLogin\nmethod.\n<br>",
-    "1-0": "Dec 14",
-    "1-1": "Android",
-    "1-2": "[3.1.1](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.1.1)",
-    "1-3": "* Various performance enhancements.\n<br>",
-    "3-0": "Oct 20",
-    "3-1": "Android",
-    "3-2": "[3.1.0](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.1.0)",
-    "3-3": "* Various performance enhancements.\n<br>",
-    "5-2": "[3.0.0](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.0.0)",
-    "8-0": "Jul 19",
-    "8-1": "Android",
-    "8-2": "[2.2.0](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/2.2.0)",
-    "8-3": "* Added getLocation API, which lets your app get\na user’s location. \n* Added onUserLogin API, which lets your app\nsupport multiple user profiles per device.\n<br>",
-    "9-0": "Jul 19",
-    "9-1": "iOS",
-    "9-2": "[2.2.0](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/2.2.0)",
-    "9-3": "* Added getLocation API, which lets your app get\na user’s location. \n* Added onUserLogin API, which lets your app\nsupport multiple user profiles per device.\n<br>",
-    "10-0": "Jun 28",
-    "10-1": "iOS",
-    "10-2": "[2.1.2](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/2.1.2)",
-    "10-3": "* Fixed issue with handling of deep links\nembedded in push notifications on app launch.\n<br>",
-    "11-0": "Jun 23",
-    "11-1": "iOS",
-    "11-2": "[2.1.1](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/2.1.1)",
-    "11-3": "* Fixed an issue that caused failed push\nnotifications when sending non-primitive values\nfor profile or event properties.\n<br>",
-    "15-0": "May 8",
-    "15-1": "iOS",
-    "15-2": "[2.1.0](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/2.1.0)",
-    "15-3": "* Added dashboard analytics support for in-app\nnotification button clicks.\n<br>",
-    "19-0": "Apr 5",
-    "19-1": "iOS",
-    "19-2": "[2.0.10](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/2.0.10)",
-    "19-3": "* Added support for Segment bundled integration. \n* Removed support for Segment webhook\nintegration. \n* Fixed thread deadlock issue.\n<br>",
-    "20-0": "Mar 14",
-    "20-1": "iOS",
-    "20-2": "[2.0.9](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/2.0.9)",
-    "21-0": "Mar 14",
-    "21-1": "Android",
-    "21-3": "* Added support for migrating from Parse push\nnotifications.\n* Added multi-value user profile properties. To\nsupport multi-value user profile properties for\nAndroid, CleverTap.profile.getProperty(key) now\nreturns an object instead of a string.\n* Added frequency capping for in-app notification\ndisplays.\n<br>",
-    "20-3": "* Added support for migrating from Parse push \nnotifications.\n* Added multi-value user profile properties. To\nsupport multi-value user profile properties for\nAndroid, CleverTap.profile.getProperty(key) now\nreturns an object instead of a string.\n* Added frequency capping for in-app notification\ndisplays.\n<br>",
-    "22-0": "Feb 8",
-    "22-1": "iOS",
-    "22-2": "[2.0.7](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/2.0.7)",
-    "22-3": "* Fixed UIViewController exception issue.\n* Fixed CTTelephonyNetworkInfo issue.\n<br>",
-    "23-0": "Feb 2",
-    "23-1": "iOS",
-    "23-2": "[2.0.6](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/2.0.6)",
-    "23-3": "* Fixed extremely rare issue relating to\nCTTelephonyNetworkInfo.\n<br>",
-    "24-0": "Jan 8",
-    "24-1": "iOS",
-    "24-2": "[2.0.5](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/2.0.5)",
-    "24-3": "* Added an updateLocation method for Android and a\nsetLocation method for iOS, which let your app send\nuser’s geo data to CleverTap for segmentation. \n* Added support for Segment webhook integration.\n<br>",
-    "25-0": "Jan 8",
-    "25-1": "Android",
-    "25-3": "* Added an updateLocation method for Android and a\nsetLocation method for iOS, which let your app send\nuser’s geo data to CleverTap for segmentation. \n* Added support for Segment webhook integration.",
-    "12-0": "Jun 23",
-    "12-1": "Android",
-    "12-2": "[2.1.3](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/2.1.3)",
-    "12-3": "* Fixed an issue that caused failed push\nnotifications when sending non-primitive values\nfor profile or event properties.\n<br>",
-    "13-0": "Jun 15",
-    "13-1": "Android",
-    "13-2": "[2.1.2](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/2.1.2)",
-    "13-3": "* Updated to support the new Google Play privacy \npolicies.\n<br>",
-    "14-0": "Jun 6",
-    "14-1": "Android",
-    "14-2": "[2.1.1](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/2.1.1)",
-    "14-3": "* Fixed an in-app notification blacklist bug.\n<br>",
-    "16-0": "May 8",
-    "16-1": "Android",
-    "16-2": "[2.1.0](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/2.1.0)",
-    "16-3": "* Added dashboard analytics support for in-app\nnotification button clicks.\n<br>",
-    "17-0": "Apr 20",
-    "17-1": "Android",
-    "17-2": "[2.0.11](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/2.0.11)",
-    "17-3": "* Added multi-value profile property handling\nimprovements.\n<br>",
-    "18-0": "Apr 6",
-    "18-1": "Android",
-    "18-2": "[2.0.10](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/2.0.10)",
-    "18-3": "* Improved uninstall tracking support.\n<br>",
-    "21-2": "[2.0.9](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/2.0.9)",
-    "25-2": "[2.0.5](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/2.0.5)"
-  },
-  "cols": 4,
-  "rows": 26
-}
-[/block]
+
+<Table align={["left","left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Date
+      </th>
+
+      <th>
+        SDK
+      </th>
+
+      <th>
+        Version Number
+      </th>
+
+      <th>
+        Updates
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        Dec 21
+      </td>
+
+      <td>
+        Android
+      </td>
+
+      <td>
+        [3.1.8](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.1.8)
+      </td>
+
+      <td>
+        * Bug fixes and performance improvements.\ <br />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Oct 13
+      </td>
+
+      <td>
+        iOS
+      </td>
+
+      <td>
+        [3.1.6](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/3.1.6)
+      </td>
+
+      <td>
+        * Fixed App Extension deployment target.\ <br />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Oct 7
+      </td>
+
+      <td>
+        Android
+      </td>
+
+      <td>
+        [3.1.7](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.1.7)
+      </td>
+
+      <td>
+        * Fixed deep link handling issue for devices\
+          below Android N.\ <br />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Sep 20
+      </td>
+
+      <td>
+        Android
+      </td>
+
+      <td>
+        [3.1.6](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.1.6)
+      </td>
+
+      <td>
+        * Added Android O support for push notifications. 
+        * Improved debugging mechanism. 
+        * Added various performance enhancements.\ <br />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Sep 19
+      </td>
+
+      <td>
+        iOS
+      </td>
+
+      <td>
+        [3.1.5](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/3.1.5)
+      </td>
+
+      <td>
+        * Added support for iOS 11 and Xcode 9. 
+        * Updated debugging mechanism. 
+        * Added support for handling\
+          foreground notifications.\ <br />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Jun 30
+      </td>
+
+      <td>
+        Android
+      </td>
+
+      <td>
+        [3.1.4](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.1.4)
+      </td>
+
+      <td>
+        * Added ability to play custom sounds, display\
+          call-to-action buttons, and set priority for push\
+          notifications.\ <br />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Jun 29
+      </td>
+
+      <td>
+        iOS
+      </td>
+
+      <td>
+        [3.1.4](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/3.1.4)
+      </td>
+
+      <td>
+        * Added API to record screen views, tvOS\
+          support, and modulemap for Swift import.\ <br />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Jan 30
+      </td>
+
+      <td>
+        iOS
+      </td>
+
+      <td>
+        [3.1.2](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/3.1.2)
+      </td>
+
+      <td>
+        * Various performance enhancements.\ <br />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Jan 30
+      </td>
+
+      <td>
+        Android
+      </td>
+
+      <td>
+        [3.1.2](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.1.2)
+      </td>
+
+      <td>
+        * Various performance enhancements.
+      </td>
+    </tr>
+  </tbody>
+</Table>
+
+# 2016
+
+<Table align={["left","left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Date
+      </th>
+
+      <th>
+        SDK
+      </th>
+
+      <th>
+        Version Number
+      </th>
+
+      <th>
+        Updates
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        Dec 14
+      </td>
+
+      <td>
+        iOS
+      </td>
+
+      <td>
+        [3.1.1](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/3.1.1)
+      </td>
+
+      <td>
+        * Various performance enhancements.\ <br />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Dec 14
+      </td>
+
+      <td>
+        Android
+      </td>
+
+      <td>
+        [3.1.1](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.1.1)
+      </td>
+
+      <td>
+        * Various performance enhancements.\ <br />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Oct 20
+      </td>
+
+      <td>
+        iOS
+      </td>
+
+      <td>
+        [3.1.0](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/3.1.0)
+      </td>
+
+      <td>
+        * Various performance enhancements.\ <br />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Oct 20
+      </td>
+
+      <td>
+        Android
+      </td>
+
+      <td>
+        [3.1.0](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.1.0)
+      </td>
+
+      <td>
+        * Various performance enhancements.\ <br />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Sep 23
+      </td>
+
+      <td>
+        iOS
+      </td>
+
+      <td>
+        [3.0.0](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/3.0.0)
+      </td>
+
+      <td>
+        * Added support for iOS 10 and Xcode 8 support. 
+        * Added support for rich push notifications, App\
+          Extensions and watchOS apps.\ <br />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Aug 31
+      </td>
+
+      <td>
+        Android
+      </td>
+
+      <td>
+        [3.0.0](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.0.0)
+      </td>
+
+      <td>
+        * Added FCM support. 
+        * Updated GCM handling.\ <br />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Aug 17
+      </td>
+
+      <td>
+        iOS
+      </td>
+
+      <td>
+        [2.2.2](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/2.2.2)
+      </td>
+
+      <td>
+        * Fixed Xcode 8 to Xcode 7 archiving issue.\ <br />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Jul 20
+      </td>
+
+      <td>
+        iOS
+      </td>
+
+      <td>
+        [2.2.1](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/2.2.1)
+      </td>
+
+      <td>
+        * Patched NSDate handling in the onUserLogin\
+          method.\ <br />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Jul 19
+      </td>
+
+      <td>
+        Android
+      </td>
+
+      <td>
+        [2.2.0](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/2.2.0)
+      </td>
+
+      <td>
+        * Added getLocation API, which lets your app get\
+          a user’s location. 
+        * Added onUserLogin API, which lets your app\
+          support multiple user profiles per device.\ <br />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Jul 19
+      </td>
+
+      <td>
+        iOS
+      </td>
+
+      <td>
+        [2.2.0](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/2.2.0)
+      </td>
+
+      <td>
+        * Added getLocation API, which lets your app get\
+          a user’s location. 
+        * Added onUserLogin API, which lets your app\
+          support multiple user profiles per device.\ <br />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Jun 28
+      </td>
+
+      <td>
+        iOS
+      </td>
+
+      <td>
+        [2.1.2](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/2.1.2)
+      </td>
+
+      <td>
+        * Fixed issue with handling of deep links\
+          embedded in push notifications on app launch.\ <br />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Jun 23
+      </td>
+
+      <td>
+        iOS
+      </td>
+
+      <td>
+        [2.1.1](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/2.1.1)
+      </td>
+
+      <td>
+        * Fixed an issue that caused failed push\
+          notifications when sending non-primitive values\
+          for profile or event properties.\ <br />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Jun 23
+      </td>
+
+      <td>
+        Android
+      </td>
+
+      <td>
+        [2.1.3](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/2.1.3)
+      </td>
+
+      <td>
+        * Fixed an issue that caused failed push\
+          notifications when sending non-primitive values\
+          for profile or event properties.\ <br />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Jun 15
+      </td>
+
+      <td>
+        Android
+      </td>
+
+      <td>
+        [2.1.2](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/2.1.2)
+      </td>
+
+      <td>
+        * Updated to support the new Google Play privacy\
+          policies.\ <br />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Jun 6
+      </td>
+
+      <td>
+        Android
+      </td>
+
+      <td>
+        [2.1.1](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/2.1.1)
+      </td>
+
+      <td>
+        * Fixed an in-app notification blacklist bug.\ <br />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        May 8
+      </td>
+
+      <td>
+        iOS
+      </td>
+
+      <td>
+        [2.1.0](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/2.1.0)
+      </td>
+
+      <td>
+        * Added dashboard analytics support for in-app\
+          notification button clicks.\ <br />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        May 8
+      </td>
+
+      <td>
+        Android
+      </td>
+
+      <td>
+        [2.1.0](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/2.1.0)
+      </td>
+
+      <td>
+        * Added dashboard analytics support for in-app\
+          notification button clicks.\ <br />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Apr 20
+      </td>
+
+      <td>
+        Android
+      </td>
+
+      <td>
+        [2.0.11](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/2.0.11)
+      </td>
+
+      <td>
+        * Added multi-value profile property handling\
+          improvements.\ <br />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Apr 6
+      </td>
+
+      <td>
+        Android
+      </td>
+
+      <td>
+        [2.0.10](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/2.0.10)
+      </td>
+
+      <td>
+        * Improved uninstall tracking support.\ <br />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Apr 5
+      </td>
+
+      <td>
+        iOS
+      </td>
+
+      <td>
+        [2.0.10](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/2.0.10)
+      </td>
+
+      <td>
+        * Added support for Segment bundled integration. 
+        * Removed support for Segment webhook\
+          integration. 
+        * Fixed thread deadlock issue.\ <br />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Mar 14
+      </td>
+
+      <td>
+        iOS
+      </td>
+
+      <td>
+        [2.0.9](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/2.0.9)
+      </td>
+
+      <td>
+        * Added support for migrating from Parse push\
+          notifications.
+        * Added multi-value user profile properties. To\
+          support multi-value user profile properties for\
+          Android, CleverTap.profile.getProperty(key) now\
+          returns an object instead of a string.
+        * Added frequency capping for in-app notification\
+          displays.\ <br />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Mar 14
+      </td>
+
+      <td>
+        Android
+      </td>
+
+      <td>
+        [2.0.9](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/2.0.9)
+      </td>
+
+      <td>
+        * Added support for migrating from Parse push\
+          notifications.
+        * Added multi-value user profile properties. To\
+          support multi-value user profile properties for\
+          Android, CleverTap.profile.getProperty(key) now\
+          returns an object instead of a string.
+        * Added frequency capping for in-app notification\
+          displays.\ <br />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Feb 8
+      </td>
+
+      <td>
+        iOS
+      </td>
+
+      <td>
+        [2.0.7](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/2.0.7)
+      </td>
+
+      <td>
+        * Fixed UIViewController exception issue.
+        * Fixed CTTelephonyNetworkInfo issue.\ <br />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Feb 2
+      </td>
+
+      <td>
+        iOS
+      </td>
+
+      <td>
+        [2.0.6](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/2.0.6)
+      </td>
+
+      <td>
+        * Fixed extremely rare issue relating to\
+          CTTelephonyNetworkInfo.\ <br />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Jan 8
+      </td>
+
+      <td>
+        iOS
+      </td>
+
+      <td>
+        [2.0.5](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/2.0.5)
+      </td>
+
+      <td>
+        * Added an updateLocation method for Android and a\
+          setLocation method for iOS, which let your app send\
+          user’s geo data to CleverTap for segmentation. 
+        * Added support for Segment webhook integration.\ <br />
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Jan 8
+      </td>
+
+      <td>
+        Android
+      </td>
+
+      <td>
+        [2.0.5](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/2.0.5)
+      </td>
+
+      <td>
+        * Added an updateLocation method for Android and a\
+          setLocation method for iOS, which let your app send\
+          user’s geo data to CleverTap for segmentation. 
+        * Added support for Segment webhook integration.
+      </td>
+    </tr>
+  </tbody>
+</Table>
