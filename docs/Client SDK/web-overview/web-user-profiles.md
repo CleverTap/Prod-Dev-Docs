@@ -16,11 +16,11 @@ CleverTap stores the user's demographic data (gender, age, location), app and we
 
 A user profile is automatically created for every user launching your web application, whether logged in or not.
 
-At first, the user profile starts as _Anonymous_ which means that the profile does not contain any identifiable information about the user yet. 
+At first, the user profile starts as *Anonymous* which means that the profile does not contain any identifiable information about the user yet. 
 
 CleverTap automatically creates a user profile for each person visiting your website. At first, the user profile starts out as anonymous, which means the user profile does not contain any identifiable information.
 
-Enrich the user profile with information, such as the user’s name or email, by calling `clevertap.onUserlogin`.  
+Enrich the user profile with information, such as the user’s name or email, by calling `clevertap.onUserlogin`.\
 Here is an example showing how to add a name and an email to a user’s profile:
 
 ```javascript
@@ -73,8 +73,8 @@ clevertap.profile.push({
 ```
 
 > 📘 Note
-> 
-> You do not require to pass _Age_ as a profile property in the API because it is automatically calculated and stored.
+>
+> You do not require to pass *Age* as a profile property in the API because it is automatically calculated and stored.
 
 CleverTap provides easy ways to enrich the user profile with data from sources such as Facebook. You can also store custom attributes in a user profile, which can be used to segment users later.
 
@@ -95,9 +95,9 @@ clevertap.getLocation(lat, lng)
 
 ### Behavior
 
-- If you provide `lat` and `lng`, the values are validated and used to update the user's location. It sets `$ct.location` and calls `#sendLocationData`.
-- If you do not provide values, the method will attempt to use the browser's [Geolocation API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API) to automatically fetch the user's location with  `navigator.geolocation`.
-- Errors are logged in case of validation or geolocation failure.
+* If you provide `lat` and `lng`, the values are validated and used to update the user's location. It sets `$ct.location` and calls `#sendLocationData`.
+* If you do not provide values, the method will attempt to use the browser's [Geolocation API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API) to automatically fetch the user's location with  `navigator.geolocation`.
+* Errors are logged in case of validation or geolocation failure.
 
 ### Example Usage
 
@@ -110,7 +110,7 @@ clevertap.getLocation();
 ```
 
 > 📘 Note
-> 
+>
 > If the browser blocks access to geolocation or the user denies permission, automatic location detection will fail silently.
 
 ## Increment/Decrement Operator in Web
@@ -118,7 +118,7 @@ clevertap.getLocation();
 Increment or decrement a user profile property by using the `handleIncrementValue(propName, propValue)` or `handleDecrementValue(propName, propValue)` methods for Clevertap Web SDK 1.3.0 version and above.
 
 > 📘 Note
-> 
+>
 > The applicable user properties are of type Integer, Float, or Double. The value can be zero or greater than zero.
 
 ```javascript
