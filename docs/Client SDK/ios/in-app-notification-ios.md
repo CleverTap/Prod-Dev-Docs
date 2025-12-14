@@ -17,26 +17,26 @@ next:
 The CleverTap iOS SDK allows you to show In-App notifications to your users, and it provides the capability to send In-App messages with images, GIFs, video, and audio. You can design In-App notifications directly from the dashboard, without writing a single line of code. You can also run A/B tests on your In-Apps.
 
 > 📘 Platform Limitation
-> 
+>
 > In-App Notifications are not supported inside App Extensions, tvOS and watchOS apps.
 
 # In-App Notification Callbacks
 
-You can track user interactions with In-App Notifications using delegate methods provided by the CleverTap iOS SDK.  
+You can track user interactions with In-App Notifications using delegate methods provided by the CleverTap iOS SDK.\
 These callbacks notify your app when a user **views**, **dismisses**, or **taps** an In-App Notification.
 
 To use callbacks, implement the `CleverTapInAppNotificationDelegate` protocol in your class and define the following methods:
 
-- [`shouldShowInAppNotificationWithExtras`](doc:in-app-notification-ios#shouldshowinappnotificationwithextras-callback)
-- [`inAppNotificationDidShow`](doc:in-app-notification-ios#inappnotificationdidshow-callback)
-- [`inAppNotificationDismissedWithExtras`](doc:in-app-notification-ios#inappnotificationdismissedwithextras-callback)
-- [`inAppNotificationButtonTappedWithCustomExtras`](doc:in-app-notification-ios#inappnotificationbuttontappedwithcustomextras-callback)
+* [`shouldShowInAppNotificationWithExtras`](doc:in-app-notification-ios#shouldshowinappnotificationwithextras-callback)
+* [`inAppNotificationDidShow`](doc:in-app-notification-ios#inappnotificationdidshow-callback)
+* [`inAppNotificationDismissedWithExtras`](doc:in-app-notification-ios#inappnotificationdismissedwithextras-callback)
+* [`inAppNotificationButtonTappedWithCustomExtras`](doc:in-app-notification-ios#inappnotificationbuttontappedwithcustomextras-callback)
 
 Implementing these callbacks allows you to control when notifications appear and capture user interactions for analytics or personalization.
 
 ### `shouldShowInAppNotificationWithExtras` Callback
 
-This callback is triggered _before_ an In-App Notification is displayed. Use it to decide whether a notification should be shown.
+This callback is triggered *before* an In-App Notification is displayed. Use it to decide whether a notification should be shown.
 
 Return `false` to suppress a notification if specific app conditions are not met (for example, if the user is already on the target screen).
 
@@ -64,7 +64,7 @@ func shouldShowInAppNotification(withExtras extras: [AnyHashable : Any]!) -> Boo
 
 ### `inAppNotificationDidShow` Callback
 
-This callback is triggered _after_ an In-App Notification is displayed to the user. Use this callback to log impression data or trigger custom analytics events.
+This callback is triggered *after* an In-App Notification is displayed to the user. Use this callback to log impression data or trigger custom analytics events.
 
 ```swift
 // Called when an In-App Notification is displayed.
@@ -81,7 +81,7 @@ func inAppNotificationDidShow(_ notification: [AnyHashable : Any]!) {
 
 ### `inAppNotificationDismissedWithExtras` Callback
 
-This callback is triggered _after_ a notification is dismissed by the user or automatically after a timeout. Use this callback to perform cleanup tasks or record dismissal events.
+This callback is triggered *after* a notification is dismissed by the user or automatically after a timeout. Use this callback to perform cleanup tasks or record dismissal events.
 
 ```swift
 // Called when an In-App Notification is dismissed.
@@ -179,7 +179,7 @@ class MyViewController: UIViewController, CleverTapInAppNotificationDelegate {
 ```
 
 > ❗️ Warning
-> 
+>
 > Always register the delegate **before** an In-App Notification is triggered. Otherwise, callbacks may not be received.
 
 ### Troubleshooting
@@ -195,7 +195,7 @@ class MyViewController: UIViewController, CleverTapInAppNotificationDelegate {
 For CleverTap iOS SDK 3.10.0 and above, you can suspend, discard, or resume in-app notifications. 
 
 > 📘 Note
-> 
+>
 > The CleverTap SDK automatically resumes displaying the in-app notification after every new session.
 
 You can control the in-app notifications in the following ways:
@@ -228,9 +228,9 @@ From CleverTap iOS SDK version 7.4.0 and above, you can optionally pass a parame
 
 #### Parameters
 
-- `inAppNotifications`
-  - If `true`: Immediately dismisses the currently visible In-App notification (if any).
-  - If `false`: Allows the currently visible In-App notification to remain on the screen.
+* `inAppNotifications`
+  * If `true`: Immediately dismisses the currently visible In-App notification (if any).
+  * If `false`: Allows the currently visible In-App notification to remain on the screen.
 
 ```swift
 CleverTap.sharedInstance()?.discard(inAppNotifications: true)
@@ -241,7 +241,7 @@ CleverTap.sharedInstance()?.discard(inAppNotifications: true)
 
 ### Resume
 
-The `resumeInAppNotifications` method resumes displaying in-app notifications.  
+The `resumeInAppNotifications` method resumes displaying in-app notifications.\
 If you call this method after the `discardInAppNotifications()` method, it resumes the in-app notifications for events raised after the call is performed.
 
 However, if you call the resumeInAppNotifications method after the suspendInAppNotifications() method, then it displays all queued in-app notifications and also resumes in-app notifications for events raised after the call is performed.
@@ -255,7 +255,7 @@ CleverTap.sharedInstance()?.resumeInAppNotifications()
 ```
 
 > 📘 Note
-> 
+>
 > The `showInAppNotificationIfAny` method will be deprecated soon.  Use the `resumeInAppNotifications` method to manually display the pending in-app notifications.
 
 # Custom Handling Deeplink
@@ -292,41 +292,13 @@ public func shouldHandleCleverTap(_ url: URL?, for channel: CleverTapChannel) ->
 
 CleverTap iOS SDK v3.5.0 and above supports embedding Javascript code inside Custom In-Apps. To make sure your Javascript code works on the app, while creating the InApp campaign, select the checkbox for Enabling javascript during the In-App campaign creation
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/d45b488-185fa3f-image_1.png",
-        "Custom HTML Templates in In-App Notification",
-        2870
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Custom HTML Templates in In-App Notification"
-    }
-  ]
-}
-[/block]
+<Image title="Custom HTML Templates in In-App Notification" alt={2870} align="center" border={true} src="https://files.readme.io/d45b488-185fa3f-image_1.png">
+  Custom HTML Templates in In-App Notification
+</Image>
 
-
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/61ffc95-small-iOS_CustomHTML_inApp.png",
-        null,
-        "Include JavaScript in In-App Notifications"
-      ],
-      "align": "center",
-      "border": true,
-      "caption": "Include JavaScript in In-App Notifications"
-    }
-  ]
-}
-[/block]
-
+<Image alt="Include JavaScript in In-App Notifications" align="center" border={true} src="https://files.readme.io/61ffc95-small-iOS_CustomHTML_inApp.png">
+  Include JavaScript in In-App Notifications
+</Image>
 
 All methods are explained with examples below:
 
@@ -417,7 +389,7 @@ if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandl
 ```
 
 > 📘 Inline Media
-> 
+>
 > To add inline media support in custom HTML for in-app notifications, add the key playsinline with value as 1 or true as a query parameter in your media URL. For example, watch this [YouTube video](https://www.youtube.com/watch?v=RUvrypIAPbg?playsinline=1). This functionality is available for CleverTap iOS SDK 3.7.2 and above.
 
 # Dismissing JS-Enabled Custom In-App Notifications
@@ -438,7 +410,7 @@ The CleverTap iOS SDK (v7.2.0 and above) supports a set of built-in system in-ap
 
 ## Open URL
 
-The Open URL function opens a specific URL or deep link on iOS, configured via the CleverTap Dashboard when using a stand-alone in-app template. It is typically used to redirect users to destinations such as product pages, help centers, or feedback forms, seamlessly within the app experience. When a valid URL is launched, the system automatically raises the _Notification Viewed_ event.
+The Open URL function opens a specific URL or deep link on iOS, configured via the CleverTap Dashboard when using a stand-alone in-app template. It is typically used to redirect users to destinations such as product pages, help centers, or feedback forms, seamlessly within the app experience. When a valid URL is launched, the system automatically raises the *Notification Viewed* event.
 
 ## Push Permission
 
@@ -446,9 +418,9 @@ The [Push Permission function ](https://github.com/CleverTap/clevertap-ios-sdk/b
 
 ## App Rating
 
-The App Rating function invokes the native iOS app rating prompt. It helps gather user feedback within the app experience by prompting users at contextually relevant moments, such as after a successful transaction or a positive interaction. When displayed, it automatically records the _Notification Viewed_ event to measure user engagement with the prompt.
+The App Rating function invokes the native iOS app rating prompt. It helps gather user feedback within the app experience by prompting users at contextually relevant moments, such as after a successful transaction or a positive interaction. When displayed, it automatically records the *Notification Viewed* event to measure user engagement with the prompt.
 
 > 📘 Apple Rating Prompt Limits
-> 
-> Apple limits rating prompts to three per user per year. Avoid prompting immediately on app launch.  
+>
+> Apple limits rating prompts to three per user per year. Avoid prompting immediately on app launch.\
 > For more information, refer to [Apple’s App Review documentation](https://developer.apple.com/documentation/storekit/requesting-app-store-reviews#Overview).
