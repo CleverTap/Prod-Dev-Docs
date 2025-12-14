@@ -5320,3 +5320,17 @@ request(options, callback);
 
 A successful response implies payload validity and addition to the processing queue. Message delivery is handled by the provider (push or email) and depends on if you provided a valid recipient id.
 
+## Errors
+
+If there are errors, you will receive a response in the format below. 
+
+```json
+{
+    "status": "fail",
+    "error": "<error message here>",
+    "code": <error code here>
+}
+```
+
+Following are the possible error codes:
+
