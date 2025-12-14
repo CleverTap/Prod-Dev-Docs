@@ -14,10 +14,10 @@ next:
 
 This document describes how messaging providers can integrate with CleverTap to send Rich Communication Services (RCS) messages. The API supports the following message types:
 
-- [Text messages](https://docs.clevertap.com/docs/rcs-message-templates#text)
-- [Template Messages](https://docs.clevertap.com/docs/rcs-message-templates)
-- [Rich media cards](https://docs.clevertap.com/docs/rcs-message-templates#rich-card-template)
-- [Carousels](https://docs.clevertap.com/docs/rcs-message-templates#carousel)
+* [Text messages](https://docs.clevertap.com/docs/rcs-message-templates#text)
+* [Template Messages](https://docs.clevertap.com/docs/rcs-message-templates)
+* [Rich media cards](https://docs.clevertap.com/docs/rcs-message-templates#rich-card-template)
+* [Carousels](https://docs.clevertap.com/docs/rcs-message-templates#carousel)
 
 SMS fallback is supported for all message types if the recipient is unreachable via RCS.
 
@@ -43,11 +43,11 @@ CleverTap supports four RCS message formats, each with optional SMS fallback.
 
 ### Text Message
 
-Used for sending simple messages with optional interactive buttons such as quick replies, links, or dialers.  
+Used for sending simple messages with optional interactive buttons such as quick replies, links, or dialers.\
 **Supports:**
 
-- Suggestions: `REPLY`, `DIAL_PHONE`, `OPEN_URL`
-- SMS fallback
+* Suggestions: `REPLY`, `DIAL_PHONE`, `OPEN_URL`
+* SMS fallback
 
 **Example Payload:**
 
@@ -107,11 +107,11 @@ Used for sending simple messages with optional interactive buttons such as quick
 
 ### TEMPLATE Message
 
-Used for sending structured, pre-approved messages with dynamic fields populated using parameters.  
+Used for sending structured, pre-approved messages with dynamic fields populated using parameters.\
 **Supports:**
 
-- Template IDs and personalization parameters
-- SMS fallback
+* Template IDs and personalization parameters
+* SMS fallback
 
 **Example Payload:**
 
@@ -173,16 +173,16 @@ Used for sending structured, pre-approved messages with dynamic fields populated
 
 Used for sending rich media with one card, including:
 
-- Title and description
-- Media Types 
-  - `IMAGE`: Static image content (JPG, PNG, GIF)
-  - `VIDEO`: Video content (MP4, MOV, AVI)
-- Up to 10 suggestions
-  - Supports: `REPLY`, `DIAL_PHONE`, `OPEN_URL`
-- Orientation: `HORIZONTAL`, `VERTICAL`
-- Alignment: `LEFT`, `RIGHT`
-- Media height settings: `SHORT`, `MEDIUM`, `TALL`
-- SMS fallback
+* Title and description
+* Media Types 
+  * `IMAGE`: Static image content (JPG, PNG, GIF)
+  * `VIDEO`: Video content (MP4, MOV, AVI)
+* Up to 10 suggestions
+  * Supports: `REPLY`, `DIAL_PHONE`, `OPEN_URL`
+* Orientation: `HORIZONTAL`, `VERTICAL`
+* Alignment: `LEFT`, `RIGHT`
+* Media height settings: `SHORT`, `MEDIUM`, `TALL`
+* SMS fallback
 
 **Example Payload:**
 
@@ -254,18 +254,18 @@ Used for sending rich media with one card, including:
 
 ### CAROUSEL Message
 
-Used for showcasing multiple cards in a horizontally scrollable format.  
+Used for showcasing multiple cards in a horizontally scrollable format.\
 **Each card can include:**
 
-- Title and description
-- Media Types 
-  - `IMAGE`: Static image content (JPG, PNG, GIF)
-  - `VIDEO`: Video content (MP4, MOV, AVI)
-- Up to 10 suggestions
-  - Supports: `REPLY`, `DIAL_PHONE`, `OPEN_URL`
-- Card width: `SMALL`, `MEDIUM`
-- Media height settings: `SHORT`, `MEDIUM`, `TALL`
-- SMS fallback
+* Title and description
+* Media Types 
+  * `IMAGE`: Static image content (JPG, PNG, GIF)
+  * `VIDEO`: Video content (MP4, MOV, AVI)
+* Up to 10 suggestions
+  * Supports: `REPLY`, `DIAL_PHONE`, `OPEN_URL`
+* Card width: `SMALL`, `MEDIUM`
+* Media height settings: `SHORT`, `MEDIUM`, `TALL`
+* SMS fallback
 
 **Example Payload:**
 
@@ -441,19 +441,19 @@ CleverTap supports metadata insertion using custom key-value pairs at two levels
 
 Applied to all messages sent through the provider:
 
-- Tracking identifiers
-- Provider-specific metadata
-- Default campaign attributes
+* Tracking identifiers
+* Provider-specific metadata
+* Default campaign attributes
 
 ### Campaign Creation (Campaign-Specific Parameters)
 
 Set in the CleverTap dashboard for specific campaigns:
 
-- Campaign tracking codes
-- Customer segments
-- UTM parameters
-- A/B test identifiers
-- Business-specific metadata
+* Campaign tracking codes
+* Customer segments
+* UTM parameters
+* A/B test identifiers
+* Business-specific metadata
 
 ### Common Use Cases
 
