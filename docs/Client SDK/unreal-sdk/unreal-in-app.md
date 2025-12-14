@@ -14,9 +14,9 @@ next:
 
 In-App notifications are contextual messages that are shown while users are actively using your app. They are perfect for:
 
-- Promoting offers
-- Nudging user actions
-- Delivering real-time updates without disrupting the experience
+* Promoting offers
+* Nudging user actions
+* Delivering real-time updates without disrupting the experience
 
 CleverTap Unreal SDK fully supports In-App notifications, with [In-App Notification Control](doc:unreal-in-app#in-app-notification-callback) and [In-App Notification Callbacks](doc:unreal-in-app#in-app-notification-controls) for display, interaction, and dismissal.
 
@@ -49,7 +49,7 @@ Payload[FString{TEXT("a.b")}] == FCleverTapPropertyValue{3.14};
 ```
 
 > 📘 Note
-> 
+>
 > This structure simplifies accessing deeply nested parameters within your notification payload.
 
 # In-App Notification Callback
@@ -101,7 +101,7 @@ CleverTap.OnInAppNotificationDismissed.AddLambda([](const FCleverTapProperties& 
 
 # In-App Notification Controls
 
-In-app notifications are _suspended by default_ when the app is initialized. You can control their behavior using the following methods:
+In-app notifications are *suspended by default* when the app is initialized. You can control their behavior using the following methods:
 
 ## Discard Queued Notifications
 
@@ -130,5 +130,5 @@ ICleverTapInstance::SuspendInAppNotifications();
 ```
 
 > 📘 Minimize User Disruption
-> 
+>
 > Suspending notifications is useful in scenarios such as onboarding flows or payment screens, where interruptions should be minimized.
