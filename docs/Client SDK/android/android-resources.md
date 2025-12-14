@@ -16,7 +16,7 @@ Refer to our [example Android project](https://github.com/CleverTap/clevertap-an
 
 # Usage Documentation
 
-Refer to our [CleverTap Android Usage documentation]( https://github.com/CleverTap/clevertap-android-sdk)
+Refer to our [CleverTap Android Usage documentation](https://github.com/CleverTap/clevertap-android-sdk)
 
 # Changelog
 
