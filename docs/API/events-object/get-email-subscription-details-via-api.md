@@ -10,18 +10,20 @@ metadata:
 next:
   description: ''
 ---
-The Get Events API lets you download user events from CleverTap. For example, you can use this API to get a list of App Launch or Purchase events. 
+The Get Events API lets you download user events from CleverTap. For example, you can use this API to get a list of App Launch or Purchase events.
 
 # Overview
 
 Getting a list of user events requires two steps:
 
-* With your first API call you will specify the event name, date range, and batch size needed. This request will return a cursor, which you will use to get the list of event records in step 2. 
+* With your first API call you will specify the event name, date range, and batch size needed. This request will return a cursor, which you will use to get the list of event records in step 2.
 * You will make second API call using the cursor from step 1. This call will return the first batch of events and and another cursor to get the second batch of events. You will repeat this process until the cursor is not returned in the response, which means there are no more events.
 
-> 📘 Note
->
-> The batch size denotes the maximum number of records that can be fetched in a single call. The response may vary.
+<Callout icon="📘" theme="info">
+  **Note**
+
+  The batch size denotes the maximum number of records that can be fetched in a single call. The response may vary.
+</Callout>
 
 # Step 1: Get Cursor by Specifying Events Needed
 
@@ -29,7 +31,7 @@ In this request, you will specify the event name, date range, and batch size nee
 
 ## Base URL
 
-Here is an example base URL from the account in the India region:\
+Here is an example base URL from the account in the India region:  
 [https://in1.api.clevertap.com/1/events.json](https://in1.api.clevertap.com/1/events.json)
 
 ### Region
@@ -46,24 +48,24 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
 
 ## URL Parameter
 
-| Parameter   | Description                                                                                                                                                                      | Type    | Example Value |
-| :---------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------ | :------------ |
-| batch\_size | The number of results to return in each API call. The maximum is 5000.                                                                                                           | int     | 50            |
-| app         | Optional parameter. Set to true to receive app fields in the response This will return the OS version, device make, device model, app version within the profile object.         | boolean | true          |
-| events      | Optional parameter. Includes the event summary fields in the response. The default value is true. Set to false to exclude event summary fields in the response.                  | boolean | true          |
-| profile     | Optional parameter. Includes the custom profile properties in the response. The default value is true. Set to false to exclude custom profile properties fields in the response. | boolean | true          |
+| Parameter  | Description                                                                                                                                                                      | Type    | Example Value |
+| :--------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------ | :------------ |
+| batch_size | The number of results to return in each API call. The maximum is 5000.                                                                                                           | int     | 50            |
+| app        | Optional parameter. Set to true to receive app fields in the response This will return the OS version, device make, device model, app version within the profile object.         | boolean | true          |
+| events     | Optional parameter. Includes the event summary fields in the response. The default value is true. Set to false to exclude event summary fields in the response.                  | boolean | true          |
+| profile    | Optional parameter. Includes the custom profile properties in the response. The default value is true. Set to false to exclude custom profile properties fields in the response. | boolean | true          |
 
 ## Body Parameters
 
-| Parameter   | Description                                                                                                                                                                                                                     | Type   | Example Value  |
-| :---------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :----- | :------------- |
-| event\_name | The event type needed. You can get both standard and custom events from this endpoint. The standard events include App Launched, App Installed, App Uninstalled, Charged, Notification Viewed, Product Viewed, and UTM Visited. | string | “App Launched” |
-| from        | Start of date range for events needed. Value specified in format YYYYMMDD.                                                                                                                                                      | int    | 20171201       |
-| to          | End of date range for events needed. Value specified in format YYYYMMDD.                                                                                                                                                        | int    | 20171225       |
+| Parameter  | Description                                                                                                                                                                                                                     | Type   | Example Value  |
+| :--------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :----- | :------------- |
+| event_name | The event type needed. You can get both standard and custom events from this endpoint. The standard events include App Launched, App Installed, App Uninstalled, Charged, Notification Viewed, Product Viewed, and UTM Visited. | string | “App Launched” |
+| from       | Start of date range for events needed. Value specified in format YYYYMMDD.                                                                                                                                                      | int    | 20171201       |
+| to         | End of date range for events needed. Value specified in format YYYYMMDD.                                                                                                                                                        | int    | 20171225       |
 
 ## Example Request
 
-Here is an example cURL request to the *Get Events* API showing the headers needed to authenticate the request from the account in the India region:
+Here is an example cURL request to the _Get Events_ API showing the headers needed to authenticate the request from the account in the India region:
 
 ```curl
 curl -X POST -d '{"event_name":"App Launched","from":20171201,"to":20171225}' "https://in1.api.clevertap.com/1/events.json?batch_size=50" \
@@ -195,7 +197,7 @@ defer resp.Body.Close()
 > * Notification Bounce
 > * Notification Control Group
 > * Notification Rendered
-> * Notification System Control Group 
+> * Notification System Control Group
 >
 > To export these events we have multiple other ways such as [S3 Export](https://docs.clevertap.com/docs/data-export-to-aws-s3) or [GCP Export](https://docs.clevertap.com/docs/data-export-to-gcp).
 
@@ -205,7 +207,7 @@ Using the cursor from step 1, you will now make an API call that will return the
 
 ## Base URL
 
-Here is an example base URL from the account in the India region:\
+Here is an example base URL from the account in the India region:  
 [https://in1.api.clevertap.com/1/events.json](https://in1.api.clevertap.com/1/events.json)
 
 To know the API endpoint for your account, refer to [Region](https://developer.clevertap.com/docs/get-events-api#region).
@@ -218,11 +220,11 @@ GET
 
 The headers described below are all required. The X-CleverTap-Account-Id and X-CleverTap-Passcode are used to authenticate the request. Please see the [authentication guide](doc:authentication) to see how to get their values.
 
-| Header                 | Description                                             | Type   | Example Value                         |
-| :--------------------- | :------------------------------------------------------ | :----- | :------------------------------------ |
-| X-CleverTap-Account-Id | Your CleverTap Account ID.                              | string | "X-CleverTap-Account-Id: ACCOUNT\_ID" |
-| X-CleverTap-Passcode   | Your CleverTap Account Passcode.                        | string | "X-CleverTap-Passcode: PASSCODE"      |
-| Content-Type           | Request content-type is always set to application/json. | string | "Content-Type: application/json"      |
+| Header                 | Description                                             | Type   | Example Value                        |
+| :--------------------- | :------------------------------------------------------ | :----- | :----------------------------------- |
+| X-CleverTap-Account-Id | Your CleverTap Account ID.                              | string | "X-CleverTap-Account-Id: ACCOUNT_ID" |
+| X-CleverTap-Passcode   | Your CleverTap Account Passcode.                        | string | "X-CleverTap-Passcode: PASSCODE"     |
+| Content-Type           | Request content-type is always set to application/json. | string | "Content-Type: application/json"     |
 
 ## URL Parameters
 
@@ -232,7 +234,7 @@ The headers described below are all required. The X-CleverTap-Account-Id and X-C
 
 ## Example Request
 
-Here is an example cURL request to the *Get Events Using Cursor* API showing the headers needed to authenticate the request from the account in the India region:
+Here is an example cURL request to the _Get Events Using Cursor_ API showing the headers needed to authenticate the request from the account in the India region:
 
 ```curl
 curl "https://in1.api.clevertap.com/1/events.json?cursor=CURSOR" \
@@ -305,7 +307,7 @@ request(options, callback);
 
 ## Example Response
 
-If there are more events available, next\_cursor will be returned. The value for next\_cursor is used to get the next batch of events. 
+If there are more events available, next_cursor will be returned. The value for next_cursor is used to get the next batch of events.
 
 Events will be returned in a records object. The schema for the Event object is provided in the next section.
 
@@ -400,7 +402,7 @@ Events will be returned in a records object. The schema for the Event object is 
 }
 ```
 
-If there are no more events available, next\_cursor will not be returned and a success response will be returned.
+If there are no more events available, next_cursor will not be returned and a success response will be returned.
 
 ```json
 { "status" : "success"}
@@ -420,15 +422,15 @@ If the data for the cursor is not ready, you'll get the following response :
 
 Here is the schema for the Events object.
 
-| Key             | Description                                                                                                                                                                                                                                                      |
-| :-------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| objectId        | CleverTap ID of the user.                                                                                                                                                                                                                                        |
-| profileData     | All custom profile properties of the user.                                                                                                                                                                                                                       |
-| identity        | Custom user identity provided by you.                                                                                                                                                                                                                            |
-| ts              | Event timestamp in yyyyMMddHHmmSS format.                                                                                                                                                                                                                        |
-| event\_props    | All event properties and their values.                                                                                                                                                                                                                           |
-| session\_props  | Possible values are utm\_source, utm\_medium, utm\_campaign, session\_source, and session\_referrer for the event. These are only provided if they were set.                                                                                                     |
-| session\_source | Possible values are Direct, Search, Social, Email, and Batch. These are only provided if they were set. If unset, the source is Unavailable, and Others if there is a custom referrer (session\_referrer field contains the referrer value if source is Others). |
+| Key            | Description                                                                                                                                                                                                                                                     |
+| :------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| objectId       | CleverTap ID of the user.                                                                                                                                                                                                                                       |
+| profileData    | All custom profile properties of the user.                                                                                                                                                                                                                      |
+| identity       | Custom user identity provided by you.                                                                                                                                                                                                                           |
+| ts             | Event timestamp in yyyyMMddHHmmSS format.                                                                                                                                                                                                                       |
+| event_props    | All event properties and their values.                                                                                                                                                                                                                          |
+| session_props  | Possible values are utm_source, utm_medium, utm_campaign, session_source, and session_referrer for the event. These are only provided if they were set.                                                                                                         |
+| session_source | Possible values are Direct, Search, Social, Email, and Batch. These are only provided if they were set. If unset, the source is Unavailable, and Others if there is a custom referrer (session_referrer field contains the referrer value if source is Others). |
 
 # Notes
 
