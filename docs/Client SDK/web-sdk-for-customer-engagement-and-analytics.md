@@ -10,25 +10,23 @@ metadata:
 next:
   description: ''
 ---
-[block:api-header]
-{
-  "title": "Overview"
-}
-[/block]
+## Overview
+
 CleverTap's Web SDK brings together real-time user insights, an advanced segmentation engine, and easy-to-use marketing tools in one mobile marketing platform — giving your team the power to create amazing experiences that deepen customer relationships. Our intelligent mobile marketing platform provides the insights you need to keep users engaged and drive long-term retention and growth. 
 
 CleverTap's Web SDK prevents ad blocker blocked requests, supports Angular and ReactJS frameworks via NPM, as well as single page application (SPA) support. Before following the steps in this section, be sure to complete the [Web SDK Quick Start Guide](doc:web-quickstart-guide), which shows how to setup CleverTap’s JavaScript library on your website, track events, create user profiles, and engage users by showing them a notification.
 
 # Installation
+
 CleverTap Web SDK is available as an *npm package* or as a script to add to your website manually.
 
 ## Use a Package Manager
 
-```npm install clevertap-web-sdk --save```
+`npm install clevertap-web-sdk --save`
 
 or
 
-```yarn add clevertap-web-sdk```
+`yarn add clevertap-web-sdk`
 
 ## Add the Script Manually
 
@@ -55,18 +53,21 @@ clevertap.privacy.push({useIP: false}); //set the flag to true, if the user agre
 ## Add your CleverTap account credentials
 
 Perform the following only in case you are using a package manager.
+
 ```javascript
 import clevertap from 'clevertap-web-sdk'
 clevertap.privacy.push({optOut: false}) // Set the flag to true, if the user of the device opts out of sharing their data
 clevertap.privacy.push({useIP: false})  // Set the flag to true, if the user agrees to share their IP data
 clevertap.init('ACCOUNT_ID', 'REGION', 'TARGET_DOMAIN') // Replace with values applicable to you. 
 ```
-Values: 
-```ACCOUNT_ID``` (mandatory): You can get this value from the Projects page on the CleverTap dashboard.
-```REGION``` (optional): This will be the same as the region of the CleverTap dashboard. Possible values: (in1/us1/sg1).
-```TARGET_DOMAIN``` (optional): domain of the proxy server.
+
+Values:\
+`ACCOUNT_ID` (mandatory): You can get this value from the Projects page on the CleverTap dashboard.\
+`REGION` (optional): This will be the same as the region of the CleverTap dashboard. Possible values: (in1/us1/sg1).\
+`TARGET_DOMAIN` (optional): domain of the proxy server.
 
 For SPAs, you need to also set the following:
+
 ```javascript
 clevertap.spa = true
 ```
@@ -118,9 +119,9 @@ clevertap.profile.push({
 
 This section is applicable for all browsers such as Chrome, Firefox, and Safari. Error messages and warnings are logged to the JS console of the browser.
 
-For verbose logging, enable verbose logging of all communication with the CleverTap servers by setting the ```WZRK_D``` variable in sessionStorage. In the developer console of your browser type, ```sessionStorage['WZRK_D'] = '';```
+For verbose logging, enable verbose logging of all communication with the CleverTap servers by setting the `WZRK_D` variable in sessionStorage. In the developer console of your browser type, `sessionStorage['WZRK_D'] = '';`
 
-Alternatively, you can also set the log levels after calling ```clevertap.init()``` in the following way:
+Alternatively, you can also set the log levels after calling `clevertap.init()` in the following way:
 
 ```javascript
 clevertap.setLogLevel(LOG_LEVEL)
@@ -132,6 +133,7 @@ clevertap.setLogLevel(LOG_LEVEL)
 ```
 
 ## Example Usage
+
 * A [react application](https://github.com/CleverTap/clevertap-web-sdk/tree/master/example-apps/react) showing the integration of our SDK in a create react app project.
 * An [angular application](https://github.com/CleverTap/clevertap-web-sdk/tree/master/example-apps/angular) showing the integration of our SDK in an Angular CLI generated project.
 
