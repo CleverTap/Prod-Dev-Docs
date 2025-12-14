@@ -34,24 +34,24 @@ The API headers are used while processing the API request. The below headers are
 
 The `X-CleverTap-Account-Id` and `X-CleverTap-Passcode` authenticate the request.
 
-| Header                 | Description                                                 | Type   | Example Value                         |
-| :--------------------- | :---------------------------------------------------------- | :----- | :------------------------------------ |
-| X-CleverTap-Account-Id | Your CleverTap Account ID.                                  | string | "X-CleverTap-Account-Id: ACCOUNT\_ID" |
-| X-CleverTap-Passcode   | Your CleverTap Account Passcode.                            | string | "X-CleverTap-Passcode: PASSCODE"      |
-| Content-Type           | The request content-type is always set to application/json. | string | "Content-Type: application/json"      |
+| Header                 | Description                                                 | Type   | Example Value                        |
+| :--------------------- | :---------------------------------------------------------- | :----- | :----------------------------------- |
+| X-CleverTap-Account-Id | Your CleverTap Account ID.                                  | string | "X-CleverTap-Account-Id: ACCOUNT_ID" |
+| X-CleverTap-Passcode   | Your CleverTap Account Passcode.                            | string | "X-CleverTap-Passcode: PASSCODE"     |
+| Content-Type           | The request content-type is always set to application/json. | string | "Content-Type: application/json"     |
 
 # Body Parameters
 
 The following are the body parameters included in the JSON response payload:
 
-| Parameter | Description | Type | Example Value |
-| :-------- | :---------- | :--- | :------------ |
-| userId | Uniquely identifies the user. | string | test@stockx.com |
-| message | Contains a list of messages read by the user. For each user, it consists of the following information: `messageId`, `wzrk_id`, and `wzrk_pivot` values. The maximum number of messages for a user can be 50. | array | See example request below |
-| messageID | Uniquely identifies the message that must be marked as read for the user. | numeric | 1 |
-| wzrk\_id | Indicates the internal key to identify the campaign. This parameter is required to generate click events. | string | 12345679\_20240130 |
-| wzrk\_pivot | Indicates the internal key to identify the campaign variants. This parameter is required to generate click events. | string | wzrk\_default (when the default variant is rolled out to the user) |
-| isRead | Indicates if the message is read. | string | true |
+| Parameter  | Description                                                                                                                                                                                                  | Type    | Example Value                                                     |
+| :--------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------ | :---------------------------------------------------------------- |
+| userId     | Uniquely identifies the user.                                                                                                                                                                                | string  | [test@stockx.com](mailto:test@stockx.com)                         |
+| message    | Contains a list of messages read by the user. For each user, it consists of the following information: `messageId`, `wzrk_id`, and `wzrk_pivot` values. The maximum number of messages for a user can be 50. | array   | See example request below                                         |
+| messageID  | Uniquely identifies the message that must be marked as read for the user.                                                                                                                                    | numeric | 1                                                                 |
+| wzrk_id    | Indicates the internal key to identify the campaign. This parameter is required to generate click events.                                                                                                    | string  | 12345679_20240130                                                 |
+| wzrk_pivot | Indicates the internal key to identify the campaign variants. This parameter is required to generate click events.                                                                                           | string  | wzrk_default (when the default variant is rolled out to the user) |
+| isRead     | Indicates if the message is read.                                                                                                                                                                            | string  | true                                                              |
 
 # Example Request
 
@@ -80,7 +80,6 @@ curl --location --request POST 'https://in1.api.clevertap.com/1/inbox/markMessag
   ]
 }'
 ```
-
 ```ruby
 require "uri"
 require "json"
@@ -115,7 +114,6 @@ request.body = JSON.dump({
 response = http.request(request)
 puts response.read_body
 ```
-
 ```python
 import requests
 import json
@@ -150,7 +148,6 @@ response = requests.request("POST", url, headers=headers, data=payload)
 
 print(response.text)
 ```
-
 ```php
 <?php
 
@@ -195,7 +192,6 @@ $response = curl_exec($curl);
 curl_close($curl);
 echo $response;
 ```
-
 ```node
 var request = require('request');
 var options = {
