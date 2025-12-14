@@ -34,18 +34,18 @@ For more information about API headers used while processing API requests, refer
 
 # Body Parameters
 
-| Parameter      | Type   | Description                                                                                                                   | Sample Value                                                                 | Required |
-| -------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | -------- |
-| `pid`          | Number | Unique identifier for the parent content block.                                                                               | 123456789012345                                                              | Yes      |
-| `locale`       | String | Language/locale code for the content. This tells your Localize solution to translate the content into the specified language. | "spanish"                                                                    | Yes      |
-| `replacements` | String | Display the content and any personalization that you may have added.                                                          | "This is your personalized content {{Profile.Location \| default= "spain"}}" | Yes      |
-| `name`         | String | Name of the parent content block.                                                                                             | "Localized_Block"                                                            | No       |
-| `type`         | String | Type of content. Supported: "HTML", "Text".                                                                                   | "HTML"                                                                       | No       |
-| `createdBy`    | String | Email or identifier of the creator.                                                                                           | [creator@example.com](mailto:creator@example.com)                            | No       |
+| Parameter      | Type   | Description                                                                                                                   | Sample Value                                                                    | Required |
+| -------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | -------- |
+| `pid`          | Number | Unique identifier for the parent content block.                                                                               | 123456789012345                                                                 | Yes      |
+| `locale`       | String | Language/locale code for the content. This tells your Localize solution to translate the content into the specified language. | "spanish"                                                                       | Yes      |
+| `replacements` | String | Display the content and any personalization that you may have added.                                                          | "This is your personalized content \{\{Profile.Location \\| default= "spain"}}" | Yes      |
+| `name`         | String | Name of the parent content block.                                                                                             | "Localized\_Block"                                                              | No       |
+| `type`         | String | Type of content. Supported: "HTML", "Text".                                                                                   | "HTML"                                                                          | No       |
+| `createdBy`    | String | Email or identifier of the creator.                                                                                           | [creator@example.com](mailto:creator@example.com)                               | No       |
 
 # Create a Localized Content Block
 
-Provide the required details to send content to [Lokalise](https://docs.lokalise.com/en/articles/1400427-what-is-lokalise). This content is then translated to the specified language (based on the locale) and imported back into the CleverTap dashboard as a new content block. The name of this new block is appended with an underscore and locale name, for example, _CyberMonday_spanish_.
+Provide the required details to send content to [Lokalise](https://docs.lokalise.com/en/articles/1400427-what-is-lokalise). This content is then translated to the specified language (based on the locale) and imported back into the CleverTap dashboard as a new content block. The name of this new block is appended with an underscore and locale name, for example, *CyberMonday\_spanish*.
 
 ## Sample Request
 
