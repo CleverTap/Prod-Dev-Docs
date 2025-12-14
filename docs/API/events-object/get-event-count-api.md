@@ -14,7 +14,7 @@ metadata:
 ---
 ## Overview
 
-This endpoint is used to retrieve counts for an event in a specified duration. For example, you can get the total number of charge events in the past day. 
+This endpoint is used to retrieve counts for an event in a specified duration. For example, you can get the total number of charge events in the past day.
 
 ## Base URL
 
@@ -35,30 +35,35 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
 
 ## Body Parameters
 
-The body is uploaded as a JSON payload. 
+The body is uploaded as a JSON payload.
 
-| Parameter | Description | Required | Type | Example Value |
-|-----------|-------------|----------|------|---------------|
-| event_name | The name of the event. | required | string | "choseNewFavoriteFood" |
-| event_properties | The event properties that you want to filter the results on. | optional | string key/value pairs | See example below |
-| from | Start of date range within which users should have performed the event you specified in event_name. Input values have to be formatted as integers in format YYYYMMDD. | required | int | 20150810 |
-| to | End of date range within which users should have performed the event you specified in event_name. Input values have to be formatted as integers in format YYYYMMDD. | required | int | 20151025 |
+| Parameter        | Description                                                                                                                                                           | Required | Type                   | Example Value          |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ---------------------- | ---------------------- |
+| event_name       | The name of the event.                                                                                                                                                | required | string                 | "choseNewFavoriteFood" |
+| event_properties | The event properties that you want to filter the results on.                                                                                                          | optional | string key/value pairs | See example below      |
+| from             | Start of date range within which users should have performed the event you specified in event_name. Input values have to be formatted as integers in format YYYYMMDD. | required | int                    | 20150810               |
+| to               | End of date range within which users should have performed the event you specified in event_name. Input values have to be formatted as integers in format YYYYMMDD.   | required | int                    | 20151025               |
 
 ### Example event_properties
 
 ```json
-"event_properties": [  
-    {  
-        "name": "value",  
-        "operator": "contains",  
-        "value": "piz"  
-    }  
-]
+{
+    "event_name": "choseNewFavoriteFood",
+    "event_properties": [
+        {
+            "name": "value",
+            "operator": "contains",
+            "value": "piz"
+        }
+    ],
+    "from": 20150810,
+    "to": 20151025
+}
 ```
 
 ## Example Request
 
-Here is an example cURL request to the *Get Event Count* API showing the headers needed to authenticate the request from the account in the India region:
+Here is an example cURL request to the _Get Event Count_ API showing the headers needed to authenticate the request from the account in the India region:
 
 ```curl
 curl -X POST -d '{"event_name":"choseNewFavoriteFood","event_properties":[{"name":"value","operator":"contains","value":"piz"}],"from":20150810,"to":20151025}' "https://in1.api.clevertap.com/1/counts/events.json" \
@@ -66,7 +71,6 @@ curl -X POST -d '{"event_name":"choseNewFavoriteFood","event_properties":[{"name
 -H "X-CleverTap-Passcode: PASSCODE" \
 -H "Content-Type: application/json"
 ```
-
 ```ruby
 require 'net/http'
 require 'uri'
@@ -98,7 +102,6 @@ response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
   http.request(request)
 end
 ```
-
 ```python
 import requests
 
@@ -112,7 +115,6 @@ data = '{"event_name":"choseNewFavoriteFood","event_properties":[{"name":"value"
 
 response = requests.post('https://in1.api.clevertap.com/1/counts/events.json', headers=headers, data=data)
 ```
-
 ```php
 <?php
 include('vendor/rmccue/requests/library/Requests.php');
@@ -125,7 +127,6 @@ $headers = array(
 $data = '{"event_name":"choseNewFavoriteFood","event_properties":[{"name":"value","operator":"contains","value":"piz"}],"from":20150810,"to":20151025}';
 $response = Requests::post('https://in1.api.clevertap.com/1/counts/events.json', $headers, $data);
 ```
-
 ```javascript
 var request = require('request');
 
@@ -160,7 +161,7 @@ request(options, callback);
 ```json
 {
   "status": "success",
-  "count": 1434
+  "count": 7138
 }
 ```
 
@@ -194,8 +195,10 @@ After getting the req_id, you will poll the endpoint below and provide the value
 
 **GET** `https://in1.api.clevertap.com/1/counts/events.json?req_id={your_request_id_here}`
 
-> 📘 Region
->
-> This is an example base URL from the account in the India region. To know the API endpoint for your account, refer to [Region](https://developer.clevertap.com/docs/get-event-count-api#region).
+<Callout icon="📘" theme="info">
+  **Region**
+
+  This is an example base URL from the account in the India region. To know the API endpoint for your account, refer to [Region](https://developer.clevertap.com/docs/get-event-count-api#region).
+</Callout>
 
 For more information on request limit, refer to [API Request Limit](doc:api-request-limit). To understand the common queries and concerns related to CleverTap APIs, refer to [API FAQs](doc:api-faqs).
