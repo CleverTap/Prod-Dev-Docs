@@ -3193,15 +3193,15 @@ The Generic Sample Campaign API includes configurations for without Key Values, 
 
       <td>
         `{
-                                                                                  "event_name": "Charged",
-                                                                                  "from": 20251001,
-                                                                                  "to": 20251220,
-                                                                                  "common_profile_properties": {
-                                                                                    "profile_fields": {
-                                                                                      "field_name": "value"
-                                                                                    }
-                                                                                  }
-                                                                                }`
+                                                                                          "event_name": "Charged",
+                                                                                          "from": 20251001,
+                                                                                          "to": 20251220,
+                                                                                          "common_profile_properties": {
+                                                                                            "profile_fields": {
+                                                                                              "field_name": "value"
+                                                                                            }
+                                                                                          }
+                                                                                        }`
       </td>
     </tr>
 
@@ -5330,7 +5330,7 @@ If there are errors, you will receive a response in the format below.
 
 Following are the possible error codes:
 
-<Table>
+<Table align={["left","left","left"]}>
   <thead>
     <tr>
       <th>
@@ -5588,8 +5588,6 @@ Following are the possible error codes:
   </tbody>
 </Table>
 
-<br />
-
 ## View Campaigns Created Through APIs
 
 To view campaigns created through APIs:
@@ -5599,13 +5597,7 @@ To view campaigns created through APIs:
 3. Click **Apply**. All the related campaigns are displayed.
 4. Click any of the campaigns to view details and stats.
 
-<Image
-  src="https://files.readme.io/ee5427a-small-Filter_campaigns_by_API.png"
-  alt="Filter API Campaigns"
-  title="Filter API Campaigns"
-  align="center"
-  border={true}
-/>
+<Image align="center" alt="Filter API Campaigns" border={true} src="https://files.readme.io/ee5427a-small-Filter_campaigns_by_API.png" title="Filter API Campaigns" className="border" />
 
 # Unsubscribe Link for Emails
 
