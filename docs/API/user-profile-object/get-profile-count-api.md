@@ -16,7 +16,7 @@ This endpoint enables you to get the total number of profiles that match an even
 
 ## Base URL
 
-Here is an example base URL from the account in the India region:\
+Here is an example base URL from the account in the India region:  
 [https://in1.api.clevertap.com/1/counts/profiles.json](https://in1.api.clevertap.com/1/counts/profiles.json)
 
 ### Region
@@ -33,7 +33,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
 
 ## Body Parameters
 
-The body is uploaded as a JSON payload. 
+The body is uploaded as a JSON payload.
 
 <Table align={["left","left","left","left","left"]}>
   <thead>
@@ -63,7 +63,7 @@ The body is uploaded as a JSON payload.
   <tbody>
     <tr>
       <td>
-        event\_name
+        event_name
       </td>
 
       <td>
@@ -85,7 +85,7 @@ The body is uploaded as a JSON payload.
 
     <tr>
       <td>
-        event\_properties
+        event_properties
       </td>
 
       <td>
@@ -119,7 +119,7 @@ The body is uploaded as a JSON payload.
       </td>
 
       <td>
-        Start of date range within which users should have performed the event you specified in event\_name. Input values have to be formatted as integers in format YYYYMMDD.
+        Start of date range within which users should have performed the event you specified in event_name. Input values have to be formatted as integers in format YYYYMMDD.
       </td>
 
       <td>
@@ -141,7 +141,7 @@ The body is uploaded as a JSON payload.
       </td>
 
       <td>
-        End of date range within which users should have performed the event you specified in event\_name. Input values have to be formatted as integers in format YYYYMMDD.
+        End of date range within which users should have performed the event you specified in event_name. Input values have to be formatted as integers in format YYYYMMDD.
       </td>
 
       <td>
@@ -160,10 +160,25 @@ The body is uploaded as a JSON payload.
 </Table>
 
 Below is an example payload.
+
+```json
+{
+    "event_name": "choseNewFavoriteFood",
+    "event_properties": [
+        {
+            "name": "value",
+            "operator": "contains",
+            "value": "piz"
+        }
+    ],
+    "from": 20150810,
+    "to": 20151025
+}
+```
+
 ## Example Request
 
-Here is an example cURL request to the *Get Profile Count* API showing the headers needed to authenticate the request from the account in the India region:
-
+Here is an example cURL request to the _Get Profile Count_ API showing the headers needed to authenticate the request from the account in the India region:
 
 ```curl
 curl -X POST -d '{"event_name":"choseNewFavoriteFood","event_properties":[{"name":"value","operator":"contains","value":"piz"}],"from":20150810,"to":20151025}' "https://in1.api.clevertap.com/1/counts/profiles.json" \
@@ -289,64 +304,14 @@ if err != nil {
 defer resp.Body.Close()
 ```
 
-
 ## Example Response
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+```json
+{
+  "status": "success",
+  "count": 7138
+}
+```
 
 ## Note
 
@@ -354,84 +319,25 @@ The response is a JSON object containing the key status, which might be success,
 
 If the status is success, there will be a count key with an int value of the count for the specified query. If the status is fail, there will be an error key with a string value and a HTTP status code.
 
-If the status is partial, the query has not finished processing in our system. In the response, you will receive a req\_id key with a long int value that you will use to poll for the result. After the query is completed, you will either receive a success response with the count if the query was successful, or a fail response with an error string and a HTTP status code. Please wait 30 seconds between polling requests.
+If the status is partial, the query has not finished processing in our system. In the response, you will receive a req_id key with a long int value that you will use to poll for the result. After the query is completed, you will either receive a success response with the count if the query was successful, or a fail response with an error string and a HTTP status code. Please wait 30 seconds between polling requests.
 
 Here is an example response for a partial status.
 
+```
+{
+  "req_id": 384649162721759,
+  "status": "partial"
+}
+```
 
+After getting the req_id, you will poll the endpoint below and provide the value of req_id as a query parameter.
 
+GET [https://api.clevertap.com/1/counts/profiles.json?req_id=](https://api.clevertap.com/1/counts/profiles.json?req_id=)\<your_request_id_here>
 
+<Callout icon="📘" theme="info">
+  **Region**
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-After getting the req\_id, you will poll the endpoint below and provide the value of req\_id as a query parameter.
-
-GET [https://api.clevertap.com/1/counts/profiles.json?req\_id=](https://api.clevertap.com/1/counts/profiles.json?req_id=)\<your\_request\_id\_here>
-
-> 📘 Region
->
-> This is an example base URL from the account in the India region. To know the API endpoint for your account, refer to [Region](https://developer.clevertap.com/docs/get-event-count-api#region).
+  This is an example base URL from the account in the India region. To know the API endpoint for your account, refer to [Region](https://developer.clevertap.com/docs/get-event-count-api#region).
+</Callout>
 
 For more information on request limit, refer to [API Request Limit](doc:api-request-limit). To understand the common queries and concerns related to CleverTap APIs, refer to [API FAQs](doc:api-faqs).
