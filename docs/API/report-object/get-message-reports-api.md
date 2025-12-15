@@ -10,9 +10,9 @@ metadata:
 next:
   description: ''
 ---
-The Get Message Reports API lets you download a list of messages sent by CleverTap. 
+The Get Message Reports API lets you download a list of messages sent by CleverTap.
 
-For example, you can this API to get a report of how many in-app messages and push notifications were sent to users in the past week. 
+For example, you can this API to get a report of how many in-app messages and push notifications were sent to users in the past week.
 
 # Overview
 
@@ -20,7 +20,7 @@ To get a message report, you submit a request with the date range needed. You ca
 
 ## Base URL
 
-Here is an example base URL from the account in the India region:\
+Here is an example base URL from the account in the India region:  
 [https://in1.api.clevertap.com/1/message/report.json](https://in1.api.clevertap.com/1/message/report.json)
 
 ### Region
@@ -39,16 +39,16 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
 
 The body is uploaded as a JSON payload. from & to are required parameters. All the optional parameters, except daily, let input multiple values by separating them with commas.
 
-| Parameter     | Description                                                                                                                                                                                                                                                                                                                                                                | Type             | Example Value            |
-| :------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------- | :----------------------- |
-| from          | Start of date range for events needed. Value specified in format YYYYMMDD. Required.                                                                                                                                                                                                                                                                                       | string           | “20171201”               |
-| to            | End of date range for events needed. Value specified in format YYYYMMDD. Required.                                                                                                                                                                                                                                                                                         | string           | “20171225”               |
-| channel       | The channels of communication needed. Supported values include push (mobile push messages), email, sms, browser (browser push messages), audiences (Facebook messages), inapp (in-app messages), webhooks (webhooks), web\_pop\_up (Web pop-ups), web\_exit\_intent (web exit intent pop-ups), web\_native\_display (Web native display), web\_inbox (Web inbox).Optional. | array of strings | \[“push”,”email”]        |
-| delivery      | Delivery type of communications for which you want a report. Supported input values are one\_time, inaction, action, recurring, property\_time, and api. Optional.                                                                                                                                                                                                         | array of strings | \[“inaction”,”action”]   |
-| daily         | Determines if the report should be a day-wise split, or an aggregate report. Supported values are true or false. Unless specified otherwise, the value of daily is set to false. Optional.                                                                                                                                                                                 | boolean          | false                    |
-| status        | Determines the status of messages for which you want a report. Supported values include scheduled, running, stopped, and completed. Optional.                                                                                                                                                                                                                              | array of strings | \[“completed”,”running”] |
-| message\_type | Determines the type of messages for which you want a report. Supported values include single, ab, message\_on\_user\_property. Optional.                                                                                                                                                                                                                                   | array of strings | \[“single”, “ab”]        |
-| label         | Result will include a report only for messages that have the labels specified in your query. Optional.                                                                                                                                                                                                                                                                     | array of strings | [“Onboarding”]           |
+| Parameter    | Description                                                                                                                                                                                                                                                                                                                                                         | Type             | Example Value           |
+| :----------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :--------------- | :---------------------- |
+| from         | Start of date range for events needed. Value specified in format YYYYMMDD. Required.                                                                                                                                                                                                                                                                                | string           | “20171201”              |
+| to           | End of date range for events needed. Value specified in format YYYYMMDD. Required.                                                                                                                                                                                                                                                                                  | string           | “20171225”              |
+| channel      | The channels of communication needed. Supported values include push (mobile push messages), email, sms, browser (browser push messages), audiences (Facebook messages), inapp (in-app messages), webhooks (webhooks), web_pop_up (Web pop-ups), web_exit_intent (web exit intent pop-ups), web_native_display (Web native display), web_inbox (Web inbox).Optional. | array of strings | [“push”,”email”]        |
+| delivery     | Delivery type of communications for which you want a report. Supported input values are one_time, inaction, action, recurring, property_time, and api. Optional.                                                                                                                                                                                                    | array of strings | [“inaction”,”action”]   |
+| daily        | Determines if the report should be a day-wise split, or an aggregate report. Supported values are true or false. Unless specified otherwise, the value of daily is set to false. Optional.                                                                                                                                                                          | boolean          | false                   |
+| status       | Determines the status of messages for which you want a report. Supported values include scheduled, running, stopped, and completed. Optional.                                                                                                                                                                                                                       | array of strings | [“completed”,”running”] |
+| message_type | Determines the type of messages for which you want a report. Supported values include single, ab, message_on_user_property. Optional.                                                                                                                                                                                                                               | array of strings | [“single”, “ab”]        |
+| label        | Result will include a report only for messages that have the labels specified in your query. Optional.                                                                                                                                                                                                                                                              | array of strings | [“Onboarding”]          |
 
 Below is an example payload.
 
@@ -76,7 +76,7 @@ Below is an example payload.
 
 ## Example Request
 
-Here is an example cURL request to the *Get Message Reports* API showing the headers needed to authenticate the request from the account in the India region:
+Here is an example cURL request to the _Get Message Reports_ API showing the headers needed to authenticate the request from the account in the India region:
 
 ```curl
 curl -X POST -d '{"from":"20171101","to":"20171225"}' "https://in1.api.clevertap.com/1/message/report.json" \
@@ -196,21 +196,23 @@ request(options, callback);
 
 For more information on request limit, refer to [API Request Limit](doc:api-request-limit). To understand the common queries and concerns related to CleverTap APIs, refer to [API FAQs](doc:api-faqs).
 
-> 📘 API Behavior
->
-> The Get Message Reports API fetches campaigns based on their start dates. Therefore, the campaigns that begin before the specified date range but are still active are not included in the API results.
->
-> For example, you have two email campaigns as follows:
->
-> * **Campaign A:** Started on June 1, 2023, and is still active, sending emails daily.
-> * **Campaign B:** Started on June 7, 2023, and ended on June 10, 2023.
->
-> Now, you want to retrieve campaign data for the period from June 5, 2023, to June 8, 2023, using the Get Message Reports API.
->
-> In that case, this API retrieves the campaign data as follows:
->
-> **Campaign A:** Although it is active during the specified date range (June 5 to June 8), but it started before this range (on June 1). Therefore, it is not included in the API results.
->
-> **Campaign B:** It falls entirely within the specified date range (June 7 to June 8). Therefore, it is included in the API results.
->
-> So, when you query the API for this date range, it retrieves data only for Campaign B, and Campaign A is excluded due to its earlier start date.
+<Callout icon="📘" theme="info">
+  **API Behavior**
+
+  The Get Message Reports API fetches campaigns based on their start dates. Therefore, the campaigns that begin before the specified date range but are still active are not included in the API results.
+
+  For example, you have two email campaigns as follows:
+
+  * **Campaign A:** Started on June 1, 2023, and is still active, sending emails daily.
+  * **Campaign B:** Started on June 7, 2023, and ended on June 10, 2023.
+
+  Now, you want to retrieve campaign data for the period from June 5, 2023, to June 8, 2023, using the Get Message Reports API.
+
+  In that case, this API retrieves the campaign data as follows:
+
+  **Campaign A:** Although it is active during the specified date range (June 5 to June 8), but it started before this range (on June 1). Therefore, it is not included in the API results.
+
+  **Campaign B:** It falls entirely within the specified date range (June 7 to June 8). Therefore, it is included in the API results.
+
+  So, when you query the API for this date range, it retrieves data only for Campaign B, and Campaign A is excluded due to its earlier start date.
+</Callout>
