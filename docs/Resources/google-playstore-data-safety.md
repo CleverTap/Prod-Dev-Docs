@@ -10,16 +10,16 @@ metadata:
 next:
   description: ''
 ---
-## Overview
+# Overview
 
-Developers will now have a transparent way to show users if and how they collect, share, and protect user data before installing an app.\
-Google has introduced a new *Data safety* section in the Play Console. Any data shared with a third party must be declared on the  [Google Play Console](https://play.google.com/console/u/0/developers/app/app-content/summary) using the newly-introduced data safety section. 
+Developers will now have a transparent way to show users if and how they collect, share, and protect user data before installing an app.  
+Google has introduced a new _Data safety_ section in the Play Console. Any data shared with a third party must be declared on the  [Google Play Console](https://play.google.com/console/u/0/developers/app/app-content/summary) using the newly-introduced data safety section.
 
-This data will be displayed on the Google Play Store by late April 2022 and help the users make a more informed choice before installing an application. 
+This data will be displayed on the Google Play Store by late April 2022 and help the users make a more informed choice before installing an application.
 
-<Image title="Data_Play_Safety_Example.png" alt={3058} className="border" border={true} src="https://files.readme.io/27ea0fd-Data_Play_Safety_Example.png" />
+<Image alt={3058} border={true} src="https://files.readme.io/27ea0fd-Data_Play_Safety_Example.png" title="Data_Play_Safety_Example.png" className="border" />
 
-For more information about the new declaration required in the *Data safety* section of the Play Console, refer to [Google Play's Data safety help](https://support.google.com/googleplay/android-developer/answer/10787469).
+For more information about the new declaration required in the _Data safety_ section of the Play Console, refer to [Google Play's Data safety help](https://support.google.com/googleplay/android-developer/answer/10787469).
 
 > 📘 Note
 >
@@ -27,61 +27,21 @@ For more information about the new declaration required in the *Data safety* sec
 
 # Data Safety
 
-A user data type is any sensitive or personal information that can identify a user. Google will require app owners to display information about all the user data types collected in the app. You can pass the data types to CleverTap as either [User Profile](doc:concepts-user-profiles) properties or [Events](https://developer.clevertap.com/docs/concepts-events). 
+A user data type is any sensitive or personal information that can identify a user. Google will require app owners to display information about all the user data types collected in the app. You can pass the data types to CleverTap as either [User Profile](doc:concepts-user-profiles) properties or [Events](https://developer.clevertap.com/docs/concepts-events).
 
-After you log in to [Google Play Console](https://play.google.com/console/u/0/developers/app/app-content/summary), go to *App Content* > *Data Safety* and answer questions about your data sharing. These questions are categorized into three sub-sections as follows:
+After you log in to [Google Play Console](https://play.google.com/console/u/0/developers/app/app-content/summary), go to _App Content_ > _Data Safety_ and answer questions about your data sharing. These questions are categorized into three sub-sections as follows:
 
 ## Data Collection and Security
 
-This section contains questions about data collection, security, and handling practices. 
+This section contains questions about data collection, security, and handling practices.
 
-<Image title="google_data_play_three_questions.png" alt={1129} className="border" border={true} src="https://files.readme.io/4c157c1-google_data_play_three_questions.png" />
+<Image alt={1129} border={true} src="https://files.readme.io/4c157c1-google_data_play_three_questions.png" title="google_data_play_three_questions.png" className="border" />
 
-<Table align={["left","left"]}>
-  <thead>
-    <tr>
-      <th>
-        <p>Question</p>
-      </th>
-
-      <th>
-        <p>Developer Response</p>
-      </th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr>
-      <td>
-        <p>Does your app collect or share any of the required user data types?</p>
-      </td>
-
-      <td>
-        <ul><li>Yes - Answer <em>Yes</em> if you collect or share any <a href="https://developer.clevertap.com/docs/google-playstore-app-privacy#data-type">data types</a>.</li><li>No - Answer <em>No</em> if your app does not collect or share any user data types.</li></ul>
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        <p>Is all of the user data collected by your app encrypted in transit?</p>
-      </td>
-
-      <td>
-        <ul><li>Yes - Answer <em>Yes</em> if you encrypt all the data sent to your servers and other third parties. CleverTap SDK encrypts all data in transit.	</li><li>No -  Answer <em>No</em> if your app or a third party does not encrypt the collected user data.</li></ul>
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        <p>Do you provide a way for users to request that their data is deleted?</p>
-      </td>
-
-      <td>
-        <ul><li>Yes - Answer <em>Yes</em> if your app allows users to request the deletion of their data. CleverTap provides a way to request the deletion of data. Refer to <a href="https://developer.clevertap.com/docs/delete-user-profile-api">Delete User API</a></li><li>No - Answer <em>No</em> if you do not provide your users with an option to delete their data.</li></ul>
-      </td>
-    </tr>
-  </tbody>
-</Table>
+| <p>Question</p>                                                              | <p>Developer Response</p>                                                                                                                                                                                                                                                                                                                                                       |
+| :--------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| <p>Does your app collect or share any of the required user data types?</p>   | <ul><li>Yes - Answer <em>Yes</em> if you collect or share any <a href="https://developer.clevertap.com/docs/google-playstore-app-privacy#data-type">data types</a>.</li><li>No - Answer <em>No</em> if your app does not collect or share any user data types.</li></ul>                                                                                                        |
+| <p>Is all of the user data collected by your app encrypted in transit?</p>   | <ul><li>Yes - Answer <em>Yes</em> if you encrypt all the data sent to your servers and other third parties. CleverTap SDK encrypts all data in transit.	</li><li>No -  Answer <em>No</em> if your app or a third party does not encrypt the collected user data.</li></ul>                                                                                                      |
+| <p>Do you provide a way for users to request that their data is deleted?</p> | <ul><li>Yes - Answer <em>Yes</em> if your app allows users to request the deletion of their data. CleverTap provides a way to request the deletion of data. Refer to <a href="https://developer.clevertap.com/docs/delete-user-profile-api">Delete User API</a></li><li>No - Answer <em>No</em> if you do not provide your users with an option to delete their data.</li></ul> |
 
 > 📘 Third-party Data Share
 >
@@ -89,15 +49,15 @@ This section contains questions about data collection, security, and handling pr
 
 ## Data Types
 
-Through this section, the app owner can declare all the data types collected by the app. 
+Through this section, the app owner can declare all the data types collected by the app.
 
-<Image title="data_safety_data_types.png" alt={1136} className="border" border={true} src="https://files.readme.io/bff9559-data_safety_data_types.png" />
+<Image alt={1136} border={true} src="https://files.readme.io/bff9559-data_safety_data_types.png" title="data_safety_data_types.png" className="border" />
 
 > 📘 Data Shared with CleverTap
 >
 > CleverTap does not collect any of the data types by default. However, you can configure your app to share data types with CleverTap.
 
-The following table will help you with privacy declaration for data types:  
+The following table will help you with privacy declaration for data types:
 
 <Table align={["left","left","left","left","left"]}>
   <thead>
@@ -127,7 +87,7 @@ The following table will help you with privacy declaration for data types:
   <tbody>
     <tr>
       <td>
-        **Location** 
+        **Location**
       </td>
 
       <td>
@@ -135,7 +95,7 @@ The following table will help you with privacy declaration for data types:
       </td>
 
       <td>
-        User or device physical location accurate to within an area greater than or equal to three square kilometers, such as the city a user is in, or location provided by Android’s ACCESS\_COARSE\_LOCATION permission.
+        User or device physical location accurate to within an area greater than or equal to three square kilometers, such as the city a user is in, or location provided by Android’s ACCESS_COARSE_LOCATION permission.
       </td>
 
       <td>
@@ -143,8 +103,8 @@ The following table will help you with privacy declaration for data types:
       </td>
 
       <td>
-        * \*Yes\*\*.\
-          If you have configured to transmit this data type, respond accordingly. CleverTap Android SDK starting v3.1.9 and above (released in May 2018) has stopped tracking approximate location by default. Approximate location is captured only if the *Device Network Information Reporting* is enabled.
+        * *Yes**.  
+          If you have configured to transmit this data type, respond accordingly. CleverTap Android SDK starting v3.1.9 and above (released in May 2018) has stopped tracking approximate location by default. Approximate location is captured only if the _Device Network Information Reporting_ is enabled.
       </td>
     </tr>
 
@@ -158,7 +118,7 @@ The following table will help you with privacy declaration for data types:
       </td>
 
       <td>
-        User or device physical location accurate to within an area less than three square kilometers, such as location provided by Android’s ACCESS\_FINE\_LOCATION permission.
+        User or device physical location accurate to within an area less than three square kilometers, such as location provided by Android’s ACCESS_FINE_LOCATION permission.
       </td>
 
       <td>
@@ -166,13 +126,13 @@ The following table will help you with privacy declaration for data types:
       </td>
 
       <td>
-        * \*Yes\*\*.Precise Location is captured only if the user integrates the CleverTap GeoFencing SDK.
+        * *Yes**.Precise Location is captured only if the user integrates the CleverTap GeoFencing SDK.
       </td>
     </tr>
 
     <tr>
       <td>
-        **Personal info** 
+        **Personal info**
       </td>
 
       <td>
@@ -188,7 +148,7 @@ The following table will help you with privacy declaration for data types:
       </td>
 
       <td>
-        * \*Yes\*\*.\
+        * *Yes**.  
           If you have configured to transmit this data to CleverTap, respond accordingly.
       </td>
     </tr>
@@ -211,7 +171,7 @@ The following table will help you with privacy declaration for data types:
       </td>
 
       <td>
-        * \*Yes\*\*.\
+        * *Yes**.  
           If you have configured to transmit this data to CleverTap, respond accordingly.
       </td>
     </tr>
@@ -234,7 +194,7 @@ The following table will help you with privacy declaration for data types:
       </td>
 
       <td>
-        * \*Yes\*\*.\
+        * *Yes**.  
           If you have configured to transmit this data to CleverTap, respond accordingly.
       </td>
     </tr>
@@ -257,7 +217,7 @@ The following table will help you with privacy declaration for data types:
       </td>
 
       <td>
-        * \*Yes\*\*.\
+        * *Yes**.  
           If you have configured to transmit this data to CleverTap, respond accordingly.
       </td>
     </tr>
@@ -280,7 +240,7 @@ The following table will help you with privacy declaration for data types:
       </td>
 
       <td>
-        * \*Yes\*\*.\
+        * *Yes**.  
           If you have configured to transmit this data to CleverTap, respond accordingly.
       </td>
     </tr>
@@ -303,7 +263,7 @@ The following table will help you with privacy declaration for data types:
       </td>
 
       <td>
-        * \*Yes\*\*.\
+        * *Yes**.  
           If you have configured to transmit this data to CleverTap, respond accordingly.
       </td>
     </tr>
@@ -326,7 +286,7 @@ The following table will help you with privacy declaration for data types:
       </td>
 
       <td>
-        * \*Yes\*\*.\
+        * *Yes**.  
           If you have configured to transmit this data to CleverTap, respond accordingly.
       </td>
     </tr>
@@ -349,7 +309,7 @@ The following table will help you with privacy declaration for data types:
       </td>
 
       <td>
-        * \*Yes\*\*.\
+        * *Yes**.  
           If you have configured to transmit this data to CleverTap, respond accordingly.
       </td>
     </tr>
@@ -372,14 +332,14 @@ The following table will help you with privacy declaration for data types:
       </td>
 
       <td>
-        * \*Yes\*\*.\
+        * *Yes**.  
           If you have configured to transmit this data to CleverTap, respond accordingly.
       </td>
     </tr>
 
     <tr>
       <td>
-        **Financial info** 
+        **Financial info**
       </td>
 
       <td>
@@ -395,7 +355,7 @@ The following table will help you with privacy declaration for data types:
       </td>
 
       <td>
-        * \*Yes\*\*.\
+        * *Yes**.  
           If you have configured to transmit this data to CleverTap, respond accordingly.
       </td>
     </tr>
@@ -418,7 +378,7 @@ The following table will help you with privacy declaration for data types:
       </td>
 
       <td>
-        * \*Yes\*\*.If you have configured to transmit this data to CleverTap, respond accordingly.
+        * *Yes**.If you have configured to transmit this data to CleverTap, respond accordingly.
       </td>
     </tr>
 
@@ -440,7 +400,7 @@ The following table will help you with privacy declaration for data types:
       </td>
 
       <td>
-        * \*Yes\*\*.\
+        * *Yes**.  
           If you have configured to transmit this data to CleverTap, respond accordingly.
       </td>
     </tr>
@@ -463,14 +423,14 @@ The following table will help you with privacy declaration for data types:
       </td>
 
       <td>
-        * \*Yes\*\*.\
+        * *Yes**.  
           If you have configured to transmit this data to CleverTap, respond accordingly.
       </td>
     </tr>
 
     <tr>
       <td>
-        **Health and fitness** 
+        **Health and fitness**
       </td>
 
       <td>
@@ -486,7 +446,7 @@ The following table will help you with privacy declaration for data types:
       </td>
 
       <td>
-        * \*Yes\*\*.\
+        * *Yes**.  
           If you have configured to transmit this data to CleverTap, respond accordingly.
       </td>
     </tr>
@@ -509,14 +469,14 @@ The following table will help you with privacy declaration for data types:
       </td>
 
       <td>
-        * \*Yes\*\*.\
+        * *Yes**.  
           If you have configured to transmit this data to CleverTap, respond accordingly.
       </td>
     </tr>
 
     <tr>
       <td>
-        **Messages** 
+        **Messages**
       </td>
 
       <td>
@@ -532,7 +492,7 @@ The following table will help you with privacy declaration for data types:
       </td>
 
       <td>
-        * \*Yes\*\*.\
+        * *Yes**.  
           If you have configured to transmit this data to CleverTap, respond accordingly.
       </td>
     </tr>
@@ -555,7 +515,7 @@ The following table will help you with privacy declaration for data types:
       </td>
 
       <td>
-        * \*Yes\*\*.\
+        * *Yes**.  
           If you have configured to transmit this data to CleverTap, respond accordingly.
       </td>
     </tr>
@@ -578,14 +538,14 @@ The following table will help you with privacy declaration for data types:
       </td>
 
       <td>
-        * \*Yes\*\*.\
+        * *Yes**.  
           If you have configured to transmit this data to CleverTap, respond accordingly.
       </td>
     </tr>
 
     <tr>
       <td>
-        **Photos or videos** 
+        **Photos or videos**
       </td>
 
       <td>
@@ -601,7 +561,7 @@ The following table will help you with privacy declaration for data types:
       </td>
 
       <td>
-        * \*No\*\*.
+        * *No**.
       </td>
     </tr>
 
@@ -623,13 +583,13 @@ The following table will help you with privacy declaration for data types:
       </td>
 
       <td>
-        * \*No\*\*.
+        * *No**.
       </td>
     </tr>
 
     <tr>
       <td>
-        **Audio files** 
+        **Audio files**
       </td>
 
       <td>
@@ -645,7 +605,7 @@ The following table will help you with privacy declaration for data types:
       </td>
 
       <td>
-        * \*No\*\*.
+        * *No**.
       </td>
     </tr>
 
@@ -667,7 +627,7 @@ The following table will help you with privacy declaration for data types:
       </td>
 
       <td>
-        * \*No\*\*.
+        * *No**.
       </td>
     </tr>
 
@@ -689,13 +649,13 @@ The following table will help you with privacy declaration for data types:
       </td>
 
       <td>
-        * \*No\*\*.
+        * *No**.
       </td>
     </tr>
 
     <tr>
       <td>
-        **Files and docs** 
+        **Files and docs**
       </td>
 
       <td>
@@ -711,14 +671,14 @@ The following table will help you with privacy declaration for data types:
       </td>
 
       <td>
-        * \*Yes\*\*.\
+        * *Yes**.  
           If you have configured to transmit this data to CleverTap, respond accordingly.
       </td>
     </tr>
 
     <tr>
       <td>
-        **Calendar** 
+        **Calendar**
       </td>
 
       <td>
@@ -734,14 +694,14 @@ The following table will help you with privacy declaration for data types:
       </td>
 
       <td>
-        * \*Yes\*\*.\
+        * *Yes**.  
           If you have configured to transmit this data to CleverTap, respond accordingly.
       </td>
     </tr>
 
     <tr>
       <td>
-        **Contacts** 
+        **Contacts**
       </td>
 
       <td>
@@ -757,14 +717,14 @@ The following table will help you with privacy declaration for data types:
       </td>
 
       <td>
-        * \*Yes\*\*.\
+        * *Yes**.  
           If you have configured to transmit this data to CleverTap, respond accordingly.
       </td>
     </tr>
 
     <tr>
       <td>
-        **App activity** 
+        **App activity**
       </td>
 
       <td>
@@ -780,7 +740,7 @@ The following table will help you with privacy declaration for data types:
       </td>
 
       <td>
-        * \*Yes\*\*.\
+        * *Yes**.  
           If you have configured to transmit this data to CleverTap, respond accordingly.
       </td>
     </tr>
@@ -803,7 +763,7 @@ The following table will help you with privacy declaration for data types:
       </td>
 
       <td>
-        * \*Yes\*\*.\
+        * *Yes**.  
           If you have configured to transmit this data to CleverTap, respond accordingly.
       </td>
     </tr>
@@ -826,7 +786,7 @@ The following table will help you with privacy declaration for data types:
       </td>
 
       <td>
-        * \*Yes\*\*.\
+        * *Yes**.  
           If you have configured to transmit this data to CleverTap, respond accordingly.
       </td>
     </tr>
@@ -849,7 +809,7 @@ The following table will help you with privacy declaration for data types:
       </td>
 
       <td>
-        * \*Yes\*\*.\
+        * *Yes**.  
           If you have configured to transmit this data to CleverTap, respond accordingly.
       </td>
     </tr>
@@ -872,14 +832,14 @@ The following table will help you with privacy declaration for data types:
       </td>
 
       <td>
-        * \*Yes\*\*.\
+        * *Yes**.  
           If you have configured to transmit this data to CleverTap, respond accordingly.
       </td>
     </tr>
 
     <tr>
       <td>
-        **Web browsing** 
+        **Web browsing**
       </td>
 
       <td>
@@ -895,7 +855,7 @@ The following table will help you with privacy declaration for data types:
       </td>
 
       <td>
-        * \*Yes\*\*.\
+        * *Yes**.  
           If you have configured to transmit this data to CleverTap, respond accordingly.
       </td>
     </tr>
@@ -918,7 +878,7 @@ The following table will help you with privacy declaration for data types:
       </td>
 
       <td>
-        * \*Yes\*\*.\
+        * *Yes**.  
           If you have configured to transmit this data to CleverTap, respond accordingly.
       </td>
     </tr>
@@ -941,7 +901,7 @@ The following table will help you with privacy declaration for data types:
       </td>
 
       <td>
-        * \*Yes\*\*.\
+        * *Yes**.  
           If you have configured to transmit this data to CleverTap, respond accordingly.
       </td>
     </tr>
@@ -964,14 +924,14 @@ The following table will help you with privacy declaration for data types:
       </td>
 
       <td>
-        * \*Yes\*\*.\
+        * *Yes**.  
           If you have configured to transmit this data to CleverTap, respond accordingly.
       </td>
     </tr>
 
     <tr>
       <td>
-        **Device or other IDs** 
+        **Device or other IDs**
       </td>
 
       <td>
@@ -979,7 +939,7 @@ The following table will help you with privacy declaration for data types:
       </td>
 
       <td>
-        Identifiers that relate to an individual device, browser,\
+        Identifiers that relate to an individual device, browser,  
         or an app. For example, an IMEI number, MAC address, Widevine Device ID, Firebase installation ID, or advertising identifier.
       </td>
 
@@ -988,7 +948,7 @@ The following table will help you with privacy declaration for data types:
       </td>
 
       <td>
-        * \*Yes\*\*.\
+        * *Yes**.  
           If you have configured to transmit this data to CleverTap, respond accordingly.
       </td>
     </tr>
@@ -999,35 +959,29 @@ The following table will help you with privacy declaration for data types:
 
 Data types collected by an application may or may not be shared. Any data transmitted to CleverTap or any other third party by the app will be considered shared data. For example, if a user adds a phone number to the app and records this information, this is collected data. However, if the app shares the phone number with CleverTap or any other third party, then the phone number is considered collected and shared data.
 
-<Image title="data_safety_data_usage_handling.png" alt={1143} className="border" border={true} src="https://files.readme.io/59fc505-data_safety_data_usage_handling.png" />
+<Image alt={1143} border={true} src="https://files.readme.io/59fc505-data_safety_data_usage_handling.png" title="data_safety_data_usage_handling.png" className="border" />
 
-For every selected data type, declare if it is collected, shared, or both. 
+For every selected data type, declare if it is collected, shared, or both.
 
 If your app collects data, declare the following:
 
-* Purpose of collecting the data type  - Select the appropriate reasons for collecting this data, such as *App functionality, Analytics, Developer Communications*, and so on.
+* Purpose of collecting the data type  - Select the appropriate reasons for collecting this data, such as _App functionality, Analytics, Developer Communications_, and so on.
 * Is the collected data type ephemeral - Is the data processed temporarily, or if it resides in the app permanently?
 * User Permission - If the user can allow or disallow data collection.
 
-<Image title="data_safety_data_usage_handling_Collected.png" alt={1061} border={true} src="https://files.readme.io/c647b08-data_safety_data_usage_handling_Collected.png">
-  Data Collection
-</Image>
+<Image alt={1061} border={true} caption="Data Collection" title="data_safety_data_usage_handling_Collected.png" src="https://files.readme.io/c647b08-data_safety_data_usage_handling_Collected.png" />
 
 If your app shares data with a third party, declare the purpose of sharing this data. Select the appropriate reasons for sharing this data.
 
-<Image title="data_safety_data_usage_handling_Shared.png" alt={1016} border={true} src="https://files.readme.io/ef76e51-data_safety_data_usage_handling_Shared.png">
-  Data Shared
-</Image>
+<Image alt={1016} border={true} caption="Data Shared" title="data_safety_data_usage_handling_Shared.png" src="https://files.readme.io/ef76e51-data_safety_data_usage_handling_Shared.png" />
 
-If your app collects data and also shares data with a third party, declare the purpose of collecting and sharing this data. 
+If your app collects data and also shares data with a third party, declare the purpose of collecting and sharing this data.
 
-<Image title="data_safety_data_usage_handling_Collected_and_Shared.png" alt={1193} border={true} src="https://files.readme.io/1df295c-data_safety_data_usage_handling_Collected_and_Shared.png">
-  Data Collected and Shared
-</Image>
+<Image alt={1193} border={true} caption="Data Collected and Shared" title="data_safety_data_usage_handling_Collected_and_Shared.png" src="https://files.readme.io/1df295c-data_safety_data_usage_handling_Collected_and_Shared.png" />
 
 # After completion
 
-Until July 20, 2022, you can temporarily publish app updates regardless of whether Google finds issues with the information you have disclosed. If there are no issues, your app will be approved, and you need not do anything. If there are issues, revert your Data safety form's status to *Draft* in Play Console to publish your app update. Google will also send the developer account owner an email and an inbox message in Play Console and show this information on the *Policy status* (*Policy* > *Policy status*) page.
+Until July 20, 2022, you can temporarily publish app updates regardless of whether Google finds issues with the information you have disclosed. If there are no issues, your app will be approved, and you need not do anything. If there are issues, revert your Data safety form's status to _Draft_ in Play Console to publish your app update. Google will also send the developer account owner an email and an inbox message in Play Console and show this information on the _Policy status_ (_Policy_ > _Policy status_) page.
 
 After July 20, 2022, all apps will be required to have completed the Data safety form accurately to disclose their data collection and sharing practices (including apps that do not collect any user data).
 
@@ -1039,7 +993,7 @@ For more information about privacy links, refer to [CleverTap's Privacy Policy](
 
 ## FAQs
 
-Q. What information does CleverTap Android SDK collect automatically? 
+Q. What information does CleverTap Android SDK collect automatically?
 
 CleverTap tracks the following information:
 
