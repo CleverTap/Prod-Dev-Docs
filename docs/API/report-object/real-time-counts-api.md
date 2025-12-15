@@ -12,11 +12,11 @@ next:
 ---
 # Overview
 
-This endpoint enables you to get a real-time count of active users in the past five minutes in your app. The results can be spliced by user\_type, session\_source, browser, os, and device for active and new users.
+This endpoint enables you to get a real-time count of active users in the past five minutes in your app. The results can be spliced by user_type, session_source, browser, os, and device for active and new users.
 
 ## Base URL
 
-Here is an example base URL from the account in the India region:\
+Here is an example base URL from the account in the India region:  
 [https://in1.api.clevertap.com/1/now.json](https://in1.api.clevertap.com/1/now.json)
 
 ### Region
@@ -33,11 +33,11 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
 
 ## Body Parameters
 
-The body is uploaded as a JSON payload. An empty payload \{} will return a real-time count of active users.
+The body is uploaded as a JSON payload. An empty payload {} will return a real-time count of active users.
 
-| Parameter  | Description                                             | Required | Type    | Example Value |
-| :--------- | :------------------------------------------------------ | :------- | :------ | :------------ |
-| user\_type | If set to true, will return the split of users by type. | optional | boolean | true          |
+| Parameter | Description                                             | Required | Type    | Example Value |
+| :-------- | :------------------------------------------------------ | :------- | :------ | :------------ |
+| user_type | If set to true, will return the split of users by type. | optional | boolean | true          |
 
 Below is an example payload.
 
@@ -49,7 +49,7 @@ Below is an example payload.
 
 ## Example Request
 
-Here is an example cURL request to the *Real-Time Counts* API showing the headers needed to authenticate the request from the account in the India region:
+Here is an example cURL request to the _Real-Time Counts_ API showing the headers needed to authenticate the request from the account in the India region:
 
 ```curl
 curl -X POST -d '{"user_type":true}' "https://in1.api.clevertap.com/1/now.json" \
@@ -141,7 +141,7 @@ request(options, callback);
 }
 ```
 
-Here is an example response if you set user\_type parameter to true.
+Here is an example response if you set user_type parameter to true.
 
 ```json
 {
