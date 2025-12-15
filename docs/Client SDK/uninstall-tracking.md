@@ -12,7 +12,7 @@ next:
 ---
 # Overview
 
-There may be multiple reasons why a user might uninstall an application, such as poor user experience, technical faults, or app performance. Tracking app uninstalls can provide powerful insights into user churn and help devise ways to increase retention. 
+There may be multiple reasons why a user might uninstall an application, such as poor user experience, technical faults, or app performance. Tracking app uninstalls can provide powerful insights into user churn and help devise ways to increase retention.
 
 # Track Uninstalls
 
@@ -28,9 +28,9 @@ CleverTap tracks app uninstalls in three ways:
 
 ## Silent Push Notifications (iOS & Android)
 
- A silent notification is a simple yet effective mechanism to check token validity. An invalid token usually indicates that the app has been uninstalled. CleverTap uses silent push notifications to track application uninstalls for both, *Android* and *iOS* applications. A silent push notification contains an empty message that is sent to the user's device via the Firebase Cloud Messaging (FCM) server for Android devices or Apple Push Notification service (APNs) for iOS devices. 
+A silent notification is a simple yet effective mechanism to check token validity. An invalid token usually indicates that the app has been uninstalled. CleverTap uses silent push notifications to track application uninstalls for both, _Android_ and _iOS_ applications. A silent push notification contains an empty message that is sent to the user's device via the Firebase Cloud Messaging (FCM) server for Android devices or Apple Push Notification service (APNs) for iOS devices.
 
-The [Uninstall](https://docs.clevertap.com/docs/uninstalls-view) board helps you monitor your app uninstalls and take timely action. 
+The [Uninstall](https://docs.clevertap.com/docs/uninstalls-view) board helps you monitor your app uninstalls and take timely action.
 
 > 🚧 Change in App Uninstall Tracking For Android Devices
 >
@@ -52,22 +52,20 @@ The [Uninstall](https://docs.clevertap.com/docs/uninstalls-view) board helps you
 
 Enable Silent Push notifications in CleverTap by performing the following steps:
 
-1. From the CleverTap dashboard, select *Settings* > *Uninstall Tracking*.
-2. Toggle to enable *Silent token-based push notification*.
+1. From the CleverTap dashboard, select _Settings_ > _Uninstall Tracking_.
+2. Toggle to enable _Silent token-based push notification_.
 
-<Image title="Enable Silent Push Notifications" alt={800} align="center" border={true} src="https://files.readme.io/1f8a490-uninstall_tracking_silent_push.png">
-  Enable Silent Push Notifications
-</Image>
+<Image align="center" alt="Enable Silent Push Notifications" border={true} caption="Enable Silent Push Notifications" title="Enable Silent Push Notifications" src="https://files.readme.io/1f8a490-uninstall_tracking_silent_push.png" />
 
 ## Real-Time Uninstall Tracking (Android)
 
-Check that the Android app is integrated with *Firebase Analytics* for real-time uninstall tracking. Add Firebase Analytics dependency in the app SDK. For more information, refer to[ Get Started with Google Analytics](https://firebase.google.com/docs/analytics/get-started?platform=android).
+Check that the Android app is integrated with _Firebase Analytics_ for real-time uninstall tracking. Add Firebase Analytics dependency in the app SDK. For more information, refer to[ Get Started with Google Analytics](https://firebase.google.com/docs/analytics/get-started?platform=android).
 
 When a user uninstalls an app from their Android device, a Firebase event called  `app_remove`   tracks this app uninstall. You can push this event to CleverTap using the Firebase cloud functions.
 
 ## Implement Real-Time Uninstall Tracking
 
-Real-time uninstall tracking is a four-step process :
+Real-time uninstall tracking is a four-step process:
 
 1. [Set up a common identifier in your app](https://developer.clevertap.com/docs/uninstall-tracking#section-set-up-a-common-identifier)
 2. [Set the `app_remove` event as a conversion event in Firebase](https://developer.clevertap.com/docs/uninstall-tracking#section-set-up-conversion-event-using-firebase)
@@ -97,7 +95,7 @@ Discover the video tutorial for implementing Real-Time Uninstall Tracking in Cle
 
 ## Set Up a Common Identifier
 
-Add the following code to your app to set up a common identifier between Firebase and CleverTap. 
+Add the following code to your app to set up a common identifier between Firebase and CleverTap.
 
 ```java
 private FirebaseAnalytics mFirebaseAnalytics;
@@ -116,42 +114,40 @@ defaultInstance?.let { ins ->
 
 ## Set Up Conversion Event Using Firebase
 
-To set up real-time uninstall, check that a conversion event is set up on the Firebase dashboard.\
+To set up real-time uninstall, check that a conversion event is set up on the Firebase dashboard.  
 Firebase analytics track an event called `app_remove`, which is one of the automatically collected Firebase events. The `app_remove` event is an Android-only event that is tracked when an application package is removed or uninstalled from the device, irrespective of the installation source.
 
 > 🚧 Firebase Blaze plan Account Required
 >
-> To allow Firebase cloud functions to call a third-party HTTP endpoint (CleverTap API upload endpoint), a Firebase account with a Blaze plan is required. 
+> To allow Firebase cloud functions to call a third-party HTTP endpoint (CleverTap API upload endpoint), a Firebase account with a Blaze plan is required.
 >
 > See [Firebase Pricing](https://firebase.google.com/pricing) for more information on pricing plans. Also, check that the [API region](https://developer.clevertap.com/docs/idc#section-configuration-steps-to-enable-clever-tap-region) is configured correctly.
 
 To set up conversion, perform the following steps:
 
 1. Select the Firebase project that is integrated with the Android app.
-2. From the Firebase dashboard, select *Analytics* > *Events*.
-3. Enable the *Mark as conversion* toggle for *app\_remove*.
+2. From the Firebase dashboard, select _Analytics_ > _Events_.
+3. Enable the _Mark as conversion_ toggle for _app_remove_.
 
-<Image title="Enable the _Mark as conversion_ Toggle" alt={1143} align="center" border={true} src="https://files.readme.io/1ef2441-2020-09-28_14-58-47_app_remove.png">
-  Enable the *Mark as conversion* Toggle
-</Image>
+<Image align="center" alt={1143} border={true} caption="Enable the _Mark as conversion_ Toggle" title="Enable the _Mark as conversion_ Toggle" src="https://files.readme.io/1ef2441-2020-09-28_14-58-47_app_remove.png" />
 
 ## Create a Cloud Function
 
-After the conversion is set up, use the [Cloud Function for Firebase](https://firebase.google.com/docs/functions/get-started) to create a function and send the `app_remove` data to CleverTap. 
+After the conversion is set up, use the [Cloud Function for Firebase](https://firebase.google.com/docs/functions/get-started) to create a function and send the `app_remove` data to CleverTap.
 
 To create and publish a cloud function using Node JS, perform the following steps:
 
 1. Open a terminal.
-2. Set up Node.js and the Firebase CLI. 
+2. Set up Node.js and the Firebase CLI.
 3. Run `npm install -g firebase-tools`.
 4. To initialize Firebase SDK for Cloud Functions, run `firebase login`.
 5. From your Firebase project directory, run `firebase init functions`.
-6. Select the option to use an existing project. 
+6. Select the option to use an existing project.
 7. Open `index.js` and add the following code:
 
 > 📘 Note
 >
-> Check that the region of your CleverTap account is included as a prefix in the Cloud Function URL. For example, if your acount is in the *in1* region, the endpoint must be `https://in1.api.clevertap.com/firebase/upload`. For more information, refer to our [Configuration Guide for CleverTap Regions](https://developer.clevertap.com/docs/idc).
+> Check that the region of your CleverTap account is included as a prefix in the Cloud Function URL. For example, if your acount is in the _in1_ region, the endpoint must be `https://in1.api.clevertap.com/firebase/upload`. For more information, refer to our [Configuration Guide for CleverTap Regions](https://developer.clevertap.com/docs/idc).
 
 ```javascript
 'use strict';
@@ -266,26 +262,22 @@ exports.sendAndroidUninstallToCleverTap = functions.analytics.event('app_remove'
 
 After you have configured the conversion set up and created the cloud function, enable real-time uninstall tracking in CleverTap by performing the following steps:
 
-1. From the CleverTap dashboard, select *Settings* > *Uninstall Tracking*.
-2. Select the toggle for *Android (Real-time tracking)*.
+1. From the CleverTap dashboard, select _Settings_ > _Uninstall Tracking_.
+2. Select the toggle for _Android (Real-time tracking)_.
 
-<Image title="Select Android (Real-time tracking)" alt={1486} align="center" border={true} src="https://files.readme.io/b919669-2020-09-28_15-35-19_inabling_tracking_in_CT.png">
-  Select Android (Real-time tracking)
-</Image>
+<Image align="center" alt={1486} border={true} caption="Select Android (Real-time tracking)" title="Select Android (Real-time tracking)" src="https://files.readme.io/b919669-2020-09-28_15-35-19_inabling_tracking_in_CT.png" />
 
 # FAQs and Troubleshooting
 
 ### Q1. Can I run triggered campaigns on the App uninstalled event?
 
-Yes. You can set up live triggered campaigns for the *App Uninstalled* event. Only those users who are tracked via the real-time uninstall will qualify for the campaign. 
+Yes. You can set up live triggered campaigns for the _App Uninstalled_ event. Only those users who are tracked via the real-time uninstall will qualify for the campaign.
 
 ### Q2. How do I target users who have uninstalled the app in a campaign?
 
-Real-time uninstalls can be targeted in a campaign by using the event property filter *source = REALTIME\_FIREBASE*.
+Real-time uninstalls can be targeted in a campaign by using the event property filter _source = REALTIME_FIREBASE_.
 
-<Image title="App Uninstalled Event" alt={1752} align="center" src="https://files.readme.io/db9dacb-Screenshot_2021-06-10_at_12.18.48_PM.png">
-  App Uninstalled Event
-</Image>
+<Image align="center" alt={1752} border={false} caption="App Uninstalled Event" title="App Uninstalled Event" src="https://files.readme.io/db9dacb-Screenshot_2021-06-10_at_12.18.48_PM.png" />
 
 ### Q3. Can I turn off uninstall tracking for push notification sent via a Campaign or a Journey?
 
