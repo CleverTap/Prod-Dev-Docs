@@ -14,29 +14,33 @@ next:
       slug: upload-user-profiles-api
       title: Upload User Profiles API
 ---
-The disassociate API enables you to disconnect a phone number from a user profile. There may be a case when users change their phone numbers and then the numbers are assigned to other users after the cooling-off period. 
+The disassociate API enables you to disconnect a phone number from a user profile. There may be a case when users change their phone numbers and then the numbers are assigned to other users after the cooling-off period.
 
 If the user is identified by the phone number then the data of the previous user may be merged with the new user assigned to the phone number.  To avoid this scenario, run the disassociate API and disassociate the phone number assigned to the previous user.
 
-For example, a user discontinues a phone number. The phone number is then assigned to a new user. You can pass the phone number in the Disassociate API. The phone number is disconnected from the previous user profile. 
+For example, a user discontinues a phone number. The phone number is then assigned to a new user. You can pass the phone number in the Disassociate API. The phone number is disconnected from the previous user profile.
 
 If you want to assign this phone number to a new user, you can use the [Upload User Profiles API](doc:upload-user-profiles-api). A new user is created for the specified phone number. This process must be repeated every time the phone number changes hands.
 
-> 📘 Note
->
-> You can disassociate a phone number only when it is used as an identity.
+<Callout icon="📘" theme="info">
+  **Note**
+
+  You can disassociate a phone number only when it is used as an identity.
+</Callout>
 
 # Overview
 
 Passing the phone numbers requires a POST request with a JSON payload specifying the phone number. There is no limit on the number of requests to the API, but the batch size for each request must be up to 1000.
 
-> 📘 Note
->
-> The batch size denotes the maximum number of records that can be fetched in a single call. The response may vary.
+<Callout icon="📘" theme="info">
+  **Note**
+
+  The batch size denotes the maximum number of records that can be fetched in a single call. The response may vary.
+</Callout>
 
 ## Base URL
 
-Here is an example base URL from the account in the India region:\
+Here is an example base URL from the account in the India region:  
 [https://in1.api.clevertap.com/1/disassociate](https://in1.api.clevertap.com/1/disassociate)
 
 ### Region
@@ -57,10 +61,10 @@ Phone numbers are uploaded as a JSON payload. A payload is an object keyed with 
 
 For each phone number,  type is required. The phone number is CleverTap’s user identifier, which we will use to find the user and dissociate the profile.
 
-| Parameter | Description                  | Type   | Example Value   |
-| :-------- | :--------------------------- | :----- | :-------------- |
-| type      | Set to phone. Required.      | string | “phone”         |
-| value     | The phone number of the user | string | \+9119244142334 |
+| Parameter | Description                  | Type   | Example Value  |
+| :-------- | :--------------------------- | :----- | :------------- |
+| type      | Set to phone. Required.      | string | “phone”        |
+| value     | The phone number of the user | string | +9119244142334 |
 
 Here is an example JSON payload for iOS/Android.
 
@@ -81,7 +85,7 @@ Here is an example JSON payload for iOS/Android.
 
 ## Example Request
 
-Here is an example cURL request to the *Disassociate* API showing the headers needed to authenticate the request from the account in the India region:
+Here is an example cURL request to the _Disassociate_ API showing the headers needed to authenticate the request from the account in the India region:
 
 ```curl
 curl --location --request POST 'https://in1.api.clevertap.com/1/disassociate/' \
@@ -213,10 +217,12 @@ Requests with processing errors will be returned in the API call response as sho
 
 To test if your data will be submitted without errors, you can add the parameter dryRun=1 to the URL. This will validate the input without submitting the data to CleverTap.
 
-> 📘 Note
->
-> If a user is identified by the phone number, then the GUID can be used to identify the profile after disassociation. All the event and profile updates to the user are made using the GUID till a new phone number is passed to the user.
->
-> [Handling subscriptions](https://docs.clevertap.com/docs/handling-unsubscribes) will automatically trigger the [subscribe](https://developer.clevertap.com/docs/subscribe-api) and [disassociate](https://developer.clevertap.com/docs/disassociate-api) APIs leading to Email-level subscription instead of User-level subscription.
+<Callout icon="📘" theme="info">
+  **Note**
+
+  If a user is identified by the phone number, then the GUID can be used to identify the profile after disassociation. All the event and profile updates to the user are made using the GUID till a new phone number is passed to the user.
+
+  [Handling subscriptions](https://docs.clevertap.com/docs/handling-unsubscribes) will automatically trigger the [subscribe](https://developer.clevertap.com/docs/subscribe-api) and [disassociate](https://developer.clevertap.com/docs/disassociate-api) APIs leading to Email-level subscription instead of User-level subscription.
+</Callout>
 
 To understand the common queries and concerns related to CleverTap APIs, refer to [API FAQs](doc:api-faqs).
