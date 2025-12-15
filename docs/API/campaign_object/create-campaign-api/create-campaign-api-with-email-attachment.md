@@ -19,7 +19,7 @@ For example, you can use this API to send a price drop alert as a [push notifica
 For more information on API request limit, refer to [API Request Limit](doc:api-request-limit).
 
 <Callout icon="📘" theme="info">
-  ****
+  **Note**
 
   Currently, AMP Email campaigns cannot be created using Create Campaign API.
 </Callout>
