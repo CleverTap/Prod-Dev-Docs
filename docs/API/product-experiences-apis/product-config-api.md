@@ -183,14 +183,7 @@ The Product Config and its keys with the relevant segment are uploaded as a JSON
       </td>
 
       <td>
-        "keys": \{\
-            "ballSpeed": [  
-              {  
-                "segmentName": "New Users",  
-                "segmentValue": 10  
-              }  
-            ]\
-          },
+        `"keys": {` `"ballSpeed": [` `{` `"segmentName": "New Users",` `"segmentValue": 10` `}` `]` `},`
       </td>
     </tr>
 
@@ -244,11 +237,7 @@ The Product Config and its keys with the relevant segment are uploaded as a JSON
       </td>
 
       <td>
-        "segmentsPriorityList": [  
-            {  
-              "segmentName": "Champion Users"  
-            }  
-          ]
+        `"segmentsPriorityList": [` `{` `"segmentName": "Champion Users"` `}` `]`
       </td>
     </tr>
   </tbody>
