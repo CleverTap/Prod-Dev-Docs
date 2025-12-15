@@ -12,13 +12,13 @@ next:
 ---
 # Overview
 
-This endpoint is used to retrieve counts for the most and least frequently occurring properties for a particular event in a specified duration. 
+This endpoint is used to retrieve counts for the most and least frequently occurring properties for a particular event in a specified duration.
 
-For example, let’s you have an ecommerce app and you are tracking purchase events and storing the product purchased as a property on the event. You can use this endpoint to find out what products are the most frequently purchased. 
+For example, let’s you have an ecommerce app and you are tracking purchase events and storing the product purchased as a property on the event. You can use this endpoint to find out what products are the most frequently purchased.
 
 ## Base URL
 
-Here is an example base URL from the account in the India region:\
+Here is an example base URL from the account in the India region:  
 [https://in1.api.clevertap.com/1/counts/top.json](https://in1.api.clevertap.com/1/counts/top.json)
 
 ### Region
@@ -35,7 +35,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
 
 ## Body Parameters
 
-The body is uploaded as a JSON payload. 
+The body is uploaded as a JSON payload.
 
 <Table align={["left","left","left","left","left"]}>
   <thead>
@@ -65,7 +65,7 @@ The body is uploaded as a JSON payload.
   <tbody>
     <tr>
       <td>
-        event\_name
+        event_name
       </td>
 
       <td>
@@ -91,7 +91,7 @@ The body is uploaded as a JSON payload.
       </td>
 
       <td>
-        Start of date range within which users should have performed the event you specified in event\_name. Input values have to be formatted as integers in format YYYYMMDD.
+        Start of date range within which users should have performed the event you specified in event_name. Input values have to be formatted as integers in format YYYYMMDD.
       </td>
 
       <td>
@@ -113,7 +113,7 @@ The body is uploaded as a JSON payload.
       </td>
 
       <td>
-        End of date range within which users should have performed the event you specified in event\_name. Input values have to be formatted as integers in format YYYYMMDD.
+        End of date range within which users should have performed the event you specified in event_name. Input values have to be formatted as integers in format YYYYMMDD.
       </td>
 
       <td>
@@ -147,28 +147,28 @@ The body is uploaded as a JSON payload.
       </td>
 
       <td>
-        "groups": \{\
-        &#x9;	"foo": \{\
-        &#x9;		"property\_type": "event\_properties",\
-        &#x9;		"name": "Amount"\
-        &#x9;	},\
-        &#x9;	"bar": \{\
-        &#x9;		"property\_type": "profile\_fields",\
-        &#x9;		"name": "Customer Type",\
-        &#x9;		"top\_n": 2,\
-        &#x9;		"order": "asc"\
-        &#x9;	}\
-        &#x9;}
+        "groups": \{  
+        		"foo": \{  
+        			"property_type": "event_properties",  
+        			"name": "Amount"  
+        		},  
+        		"bar": \{  
+        			"property_type": "profile_fields",  
+        			"name": "Customer Type",  
+        			"top_n": 2,  
+        			"order": "asc"  
+        		}  
+        	}
       </td>
     </tr>
 
     <tr>
       <td>
-        groups.property\_type
+        groups.property_type
       </td>
 
       <td>
-        Type of property for which top breakdown is required. Can be event\_properties, session\_properties, profile\_fields, app\_fields, demographics, technographics, reachability or geo\_fields. Must be present inside each individual group.
+        Type of property for which top breakdown is required. Can be event_properties, session_properties, profile_fields, app_fields, demographics, technographics, reachability or geo_fields. Must be present inside each individual group.
       </td>
 
       <td>
@@ -180,7 +180,7 @@ The body is uploaded as a JSON payload.
       </td>
 
       <td>
-        "event\_properties"
+        "event_properties"
       </td>
     </tr>
 
@@ -190,7 +190,7 @@ The body is uploaded as a JSON payload.
       </td>
 
       <td>
-        Name of the property for which top breakdown is required. Must be present along with property\_type.
+        Name of the property for which top breakdown is required. Must be present along with property_type.
       </td>
 
       <td>
@@ -208,11 +208,11 @@ The body is uploaded as a JSON payload.
 
     <tr>
       <td>
-        top\_n
+        top_n
       </td>
 
       <td>
-        Number of top values required for a given property. Can be specified along with property\_type and name. Defaults to 10 if absent.
+        Number of top values required for a given property. Can be specified along with property_type and name. Defaults to 10 if absent.
       </td>
 
       <td>
@@ -252,18 +252,18 @@ The body is uploaded as a JSON payload.
   </tbody>
 </Table>
 
-The property\_type parameter enables you to specify the type of property you need metrics for. Here are the descriptions for the potential parameter values. 
+The property_type parameter enables you to specify the type of property you need metrics for. Here are the descriptions for the potential parameter values.
 
-| property\_type      | Description                                                                                                                 |
-| :------------------ | :-------------------------------------------------------------------------------------------------------------------------- |
-| event\_properties   | All event properties for the specified event\_name.                                                                         |
-| profile\_fields     | All custom profile fields for the account.                                                                                  |
-| session\_properties | utm\_source, utm\_medium, utm\_campaign, session\_referrer, session\_source, time\_of\_day (granularity up to hour of day). |
-| app\_fields         | All the app fields.                                                                                                         |
-| demographics        | All the demographics fields.                                                                                                |
-| technographics      | All the technographics fields.                                                                                              |
-| reachability        | All the reachability fields.                                                                                                |
-| geo\_fields         | Country, region, city.                                                                                                      |
+| property_type      | Description                                                                                                          |
+| :----------------- | :------------------------------------------------------------------------------------------------------------------- |
+| event_properties   | All event properties for the specified event_name.                                                                   |
+| profile_fields     | All custom profile fields for the account.                                                                           |
+| session_properties | utm_source, utm_medium, utm_campaign, session_referrer, session_source, time_of_day (granularity up to hour of day). |
+| app_fields         | All the app fields.                                                                                                  |
+| demographics       | All the demographics fields.                                                                                         |
+| technographics     | All the technographics fields.                                                                                       |
+| reachability       | All the reachability fields.                                                                                         |
+| geo_fields         | Country, region, city.                                                                                               |
 
 Below is an example payload.
 
@@ -289,7 +289,7 @@ Below is an example payload.
 
 ## Example Request
 
-Here is an example cURL request to the *Top Property Counts* API showing the headers needed to authenticate the request from the account in the India region:
+Here is an example cURL request to the _Top Property Counts_ API showing the headers needed to authenticate the request from the account in the India region:
 
 ```curl
 curl -X POST -d '{"event_name":"Charged","from":20161229,"to":20170129,"groups":{"foo":{"property_type":"event_properties","name":"Amount"},"bar":{"property_type":"profile_fields","name":"CustomerType","top_n":2,"order":"asc"}}}' "https://in1.api.clevertap.com/1/counts/top.json" \
@@ -413,7 +413,7 @@ request(options, callback);
 }
 ```
 
-This API checks the top item count in each memory bucket on the basis of the event property. if the *top\_n\_value is 20, it will check the top 20 values in all the 23 memory buckets. If the \_top\_n* value is 1, it gives the highest value in each bucket based on availability.
+This API checks the top item count in each memory bucket on the basis of the event property. if the _top_n_value is 20, it will check the top 20 values in all the 23 memory buckets. If the _top_n_ value is 1, it gives the highest value in each bucket based on availability.
 
 Each property breakdown is referenced by the unique key assigned to it while querying. Within each property breakdown, there are separate objects specifying the data type for the property’s values that have been provided.
 
@@ -425,7 +425,7 @@ The response is a JSON object containing the key status, which might be success,
 
 If the status is success, there will be a count key with an int value of the count for the specified query. If the status is fail, there will be an error key with a string value and a HTTP status code.
 
-If the status is partial, the query has not finished processing in our system. In the response, you will receive a req\_id key with a long int value that you will use to poll for the result. After the query is completed, you will either receive a success response with the count if the query was successful, or a fail response with an error string and a HTTP status code. Please wait 30 seconds between polling requests.
+If the status is partial, the query has not finished processing in our system. In the response, you will receive a req_id key with a long int value that you will use to poll for the result. After the query is completed, you will either receive a success response with the count if the query was successful, or a fail response with an error string and a HTTP status code. Please wait 30 seconds between polling requests.
 
 Here is an example response for a partial status.
 
@@ -436,12 +436,14 @@ Here is an example response for a partial status.
 }
 ```
 
-After getting the req\_id, you will poll the endpoint below and provide the value of req\_id as a query parameter.
+After getting the req_id, you will poll the endpoint below and provide the value of req_id as a query parameter.
 
-GET [https://in1.api.clevertap.com/1/counts/top.json?req\_id=](https://in1.api.clevertap.com/1/counts/top.json?req_id=)\<your\_request\_id\_here>
+GET [https://in1.api.clevertap.com/1/counts/top.json?req_id=](https://in1.api.clevertap.com/1/counts/top.json?req_id=)\<your_request_id_here>
 
-> 📘 Region
->
-> This is an example base URL from the account in the India region. To know the API endpoint for your account, refer to [Region](https://developer.clevertap.com/docs/top-property-counts-api#region).
+<Callout icon="📘" theme="info">
+  **Region**
+
+  This is an example base URL from the account in the India region. To know the API endpoint for your account, refer to [Region](https://developer.clevertap.com/docs/top-property-counts-api#region).
+</Callout>
 
 For more information on request limit, refer to [API Request Limit](doc:api-request-limit). To understand the common queries and concerns related to CleverTap APIs, refer to [API FAQs](doc:api-faqs).
