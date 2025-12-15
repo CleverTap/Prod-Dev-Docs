@@ -192,32 +192,32 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
         "property\_name":"Items|Book name",\
         "operator":"equals",\
         "property\_value":"book name"\
-        },\
+        \},\
         \{\
         "property\_name":"Items|Category",\
         "operator":"equals",\
         "property\_value":"category"\
-        },\
+        \},\
         \{\
         "property\_name":"Payment mode",\
         "operator":"equals",\
         "property\_value":"UPI"\
-        },\
+        \},\
         \{\
         "property\_name":"Amount",\
         "operator":"between",\
         "property\_value":TestSMSProv\
-        },\
+        \},\
         ],\
         "first\_time":"yes",\
         "last\_time":"yes",\
         "time\_of\_day":\[   "4-0": "\*\*conv],\
         "day\_of\_week":conve,\
         "day\_of\_month":cks the end\
-        },\
+        \},\
         "conversion\_time":"3D",\
         "revenue\_property": "Amount"\
-        },
+        \},
       </td>
     </tr>
 
@@ -274,7 +274,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
             "0-3,\
         "day\_of\_week":ring",\
         "day\_of\_month": Campaign”"\
-        },
+        \},
       </td>
     </tr>
 
@@ -583,7 +583,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        Allows you to filter target base on the user events and profile properties. Send an empty object (\{}) to target your entire user base.
+        Allows you to filter target base on the user events and profile properties. Send an empty object (\{\}) to target your entire user base.
       </td>
 
       <td>
@@ -607,8 +607,8 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
             "0-1": "The name of your campaign shown in the CleverTap dashboard.",\
             "0-2": "Required",  
 
-        }\
-        }
+        \}\
+        \}
       </td>
     </tr>
 
@@ -702,7 +702,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
             "h-2": "Required/Optional",\
             "h-3": "Type",  
 
-        }
+        \}
       </td>
     </tr>
 
@@ -793,7 +793,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
         "control\_group": \{\
         "type": "custom"\
         "name": "name of control group"\
-        }
+        \}
       </td>
     </tr>
 
@@ -818,7 +818,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
         "control\_group": \{\
         "type": "campaign"\
         "percentage": 5\
-        }
+        \}
       </td>
     </tr>
 
@@ -1004,7 +1004,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
         Your HTML content for the email\
         ",\
         "sender\_name": "CleverTap"\
-        }
+        \}
       </td>
     </tr>
 
@@ -1140,7 +1140,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
         "1" : ,\
         "2" : ,\
         "3" :\
-        }
+        \}
       </td>
     </tr>
 
@@ -1324,12 +1324,12 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
 
       <td>
         "wzrk\_acts": [  
-            {  
+            \{  
               "l": "Action button 1",  
               "dl": "deep link for action button 1",  
               "id": "action id of the action button 1",  
               "ico": "Icon resource identifier for action button 1"  
-            }  
+            \}  
           ]
       </td>
     </tr>
@@ -1583,11 +1583,11 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
         "platform\_specific": \{\
         "ios": \{\
         "Key": "Value\_ios"\
-        },\
+        \},\
         "android": \{\
         "Key": "Value\_android",\
-        }\
-        }
+        \}\
+        \}
       </td>
     </tr>
 
@@ -1687,12 +1687,12 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
         "ttl" : \{\
         "ttl\_type": "absolute",\
         "value" : 202207200000\
-        },\
+        \},\
         For Relative TTL -\
         "ttl" : \{\
         "ttl\_type": "relative",\
         "value" : 2880\
-        },
+        \},
       </td>
     </tr>
 
@@ -1748,10 +1748,10 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
         "dnd\_info":\{\
         "2": 0-1": "The name o",\
         "4": 0-2": "Required",\
-        }\
-        },\
+        \}\
+        \},\
         "campaign\_cutoff": "14:20"\
-        }
+        \}
       </td>
     </tr>
 
@@ -2006,8 +2006,8 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
         "dnd\_info":\{\
         "2": h-1": "Description",\
         "4": h-2": "Required/O"\
-        }\
-        },
+        \}\
+        \},
       </td>
     </tr>
 
@@ -2064,7 +2064,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
             "h-0,\
         "4": ta": \{\
             "h-0":\
-        }\
+        \}\
         (2 for monday)
       </td>
     </tr>
@@ -5160,7 +5160,7 @@ The Generic Sample Campaign API includes configurations for without Key Values, 
       </td>
 
       <td>
-        Allows you to filter target base on the user events and profile properties. Send an empty object (\{}) to target your entire user base.
+        Allows you to filter target base on the user events and profile properties. Send an empty object (\{\}) to target your entire user base.
       </td>
 
       <td>
@@ -5184,8 +5184,8 @@ The Generic Sample Campaign API includes configurations for without Key Values, 
             "0-1": "The name of your campaign shown in the CleverTap dashboard.",\
             "0-2": "Required",  
 
-        }\
-        }
+        \}\
+        \}
       </td>
     </tr>
 
@@ -5279,7 +5279,7 @@ The Generic Sample Campaign API includes configurations for without Key Values, 
             "h-2": "Required/Optional",\
             "h-3": "Type",  
 
-        }
+        \}
       </td>
     </tr>
 
@@ -6095,7 +6095,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
         "to": \{\
                 "FBID":   "h-0": "Parameter",\
             "h-1"\
-        }
+        \}
       </td>
     </tr>
 
@@ -6122,7 +6122,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
                 "Email": h-0": "Parameter",\
             "h-1": "Description",\
             "h-2"\
-        }
+        \}
       </td>
     </tr>
 
@@ -6148,7 +6148,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
             "to": \{\
               "Identity": -0": "Parameter",\
             "h-1"\
-        }
+        \}
       </td>
     </tr>
 
@@ -6174,7 +6174,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
             "to": \{\
                 "objectId": ": "Parameter",\
             "h-1"\
-        }
+        \}
       </td>
     </tr>
 
@@ -6222,7 +6222,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
                 "subject": "Welcome",\
                 "body": "<div>Your HTML content for the email</div>",\
                 "sender\_name": "CleverTap"\
-            }
+            \}
       </td>
     </tr>
 
@@ -6360,12 +6360,12 @@ The to parameter is an object that has the following child properties: FBID, Ema
                         "type": "image",\
                         "media": \{\
                             "url": "[https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo\_1280x720\_5mb.jpg"](https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg")\
-                        }\
-                    },\
+                        \}\
+                    \},\
                     "body": \{\
                         "type": "text",\
                         "replacements": ["var1","Var2"]\
-                    },  
+                    \},  
 
         ```
                 "buttons": \[
@@ -6450,8 +6450,8 @@ The to parameter is an object that has the following child properties: FBID, Ema
                         "type": "image",\
                         "media": \{\
                             "url": "[https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo\_1280x720\_5mb.jpg"](https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg")\
-                        }\
-                    },\
+                        \}\
+                    \},\
         For more header types, refer to the examples. 
       </td>
     </tr>
@@ -6500,8 +6500,8 @@ The to parameter is an object that has the following child properties: FBID, Ema
                         "type": "image",\
                         "media": \{\
                             "url": "[https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo\_1280x720\_5mb.jpg"](https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg")\
-                        }\
-                    },\
+                        \}\
+                    \},\
         For more header types, refer to the examples.
       </td>
     </tr>
@@ -6528,7 +6528,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
                         "type": "text",\
                         "replacements": [ "header var 1"   ]  
 
-        `        },`
+        `        \},`
       </td>
     </tr>
 
@@ -6555,7 +6555,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
                         "replacements": [  
                             "Var 1", "Var 2"  
                         ]\
-                    }
+                    \}
       </td>
     </tr>
 
@@ -6626,12 +6626,12 @@ The to parameter is an object that has the following child properties: FBID, Ema
                             "replacements": [  
                                 "quick reply custom payload 1"  
                             ]\
-                        },\
+                        \},\
                         \{\
                             "replacements": [  
                                 "quick reply custom payload 2"  
                             ]\
-                        }\
+                        \}\
                     ]
       </td>
     </tr>
@@ -8161,7 +8161,7 @@ To view campaigns created through APIs:
 1. Navigate to the *Campaigns* section from the CleverTap dashboard. The list of campaign displays.
 2. Click the Filter icon > *Created by* filter and select the *serverapi&lt;channel name&gt;* option.
 
-<Image alt="Filter API Campaigns" align="center" border={true} src="https://files.readme.io/ee5427a-small-Filter_campaigns_by_API.png">  Filter API Campaigns
+<Image alt="Filter API Campaigns" align="center" border={true} src="https://files.readme.io/ee5427a-small-Filter_campaigns_by_API.png" />  Filter API Campaigns
 
 
 
