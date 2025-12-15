@@ -37,9 +37,11 @@ Include the following headers in every GetToken API request.
 | Content-Type  | Yes      | Must be `application/json`.                                                                          |
 | Authorization | Yes      | Use `Authorization: Bearer YOUR_ACCESS_TOKEN`, where `YOUR_ACCESS_TOKEN` is your Vault access token. |
 
-> 📘 **Note**
->
-> To use this API, first authenticate and retrieve an access token. To get your access token, refer to [Get Access Token](doc:get-access-token).
+<Callout icon="📘" theme="info">
+  **Note**
+
+  To use this API, first authenticate and retrieve an access token. To get your access token, refer to [Get Access Token](doc:get-access-token).
+</Callout>
 
 # Request Parameters
 
@@ -48,11 +50,11 @@ Send a JSON object in the request body. The following table describes the reques
 | Field    | Type   | Required | Description                                                                                                                                                                                                                                                                                                                                                 |
 | :------- | :----- | :------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | value    | String | Yes      | The PII value to tokenize. Common examples include email addresses, phone numbers, customer IDs, and other sensitive identifiers. Use normalized formats when possible, such as lowercase email addresses and phone numbers in E.164 format. The value must be a UTF-8 string. As a safe baseline, keep values under a few kilobytes and avoid binary data. |
-| metadata | Object | No       | Optional, free-form JSON object that contains non-sensitive metadata about the value, for example `{"source": "mobile_app", "timestamp": "2025-09-24T12:34:56Z"}`. Metadata is not returned by this API. It is stored for operational and audit use cases and may be available in Vault logs or related APIs, depending on your configuration.              |
+| metadata | Object | No       | Optional, free-form JSON object that contains non-sensitive metadata about the value, for example, `{"source": "mobile_app", "timestamp": "2025-09-24T12:34:56Z"}`. This API does not return metadata. It is stored for operational and audit use cases and may be available in Vault logs or related APIs, depending on your configuration.                |
 
 # Example Request for Single Value
 
-The following is the sample request for getting token for a single value:
+The following is the sample request for getting a token for a single value:
 
 ```curl
 curl -X POST https://vault-endpoint/ct-vault/api/tokenization/getToken \
@@ -215,7 +217,7 @@ This section describes the fields in a successful response.
 
 # Example Response for a Single Value
 
-The following is the sample for getting token for a single value:
+The following is the sample for getting a token for a single value:
 
 Sample response when the token already exists (HTTP 200 OK):
 
@@ -335,13 +337,13 @@ All error responses use `Content-Type: application/json`.
 
 ## Error Response
 
-This section describes the fields in a error response.
+This section describes the fields in an error response.
 
-| Field       | Type   | Description                                                |
-| ----------- | ------ | ---------------------------------------------------------- |
-| error       | String | Machine readable error code.                               |
-| message     | String | Human readable description of the error and how to fix it. |
-| request\_id | String | Optional correlation ID for support and debugging.         |
+| Field      | Type   | Description                                                |
+| ---------- | ------ | ---------------------------------------------------------- |
+| error      | String | Machine-readable error code.                               |
+| message    | String | Human-readable description of the error and how to fix it. |
+| request_id | String | Optional correlation ID for support and debugging.         |
 
 The following is the sample error response:
 
@@ -355,15 +357,15 @@ The following is the sample error response:
 
 ## Error Codes
 
-This table shows the list of error codes for the GetToken API.
+This table lists the error codes for the GetToken API.
 
-| HTTP status | error                | Description                                                                                                                                     |
-| :---------- | :------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------- |
-| 400         | invalid\_input       | The request payload is missing required fields or contains malformed data. For example, `value` is absent or does not meet format requirements. |
-| 401         | unauthorized         | The request does not include valid credentials. The access token is missing, invalid, or expired.                                               |
-| 403         | forbidden            | The caller is authenticated but does not have permission to use the Vault or perform tokenization.                                              |
-| 500         | server\_error        | The service encountered an unexpected error. You can retry after a short delay or contact support with the `request_id`.                        |
-| 503         | service\_unavailable | The service is temporarily unavailable. Implement retries with exponential backoff.                                                             |
+| HTTP status | error               | Description                                                                                                                                     |
+| :---------- | :------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------- |
+| 400         | invalid_input       | The request payload is missing required fields or contains malformed data. For example, `value` is absent or does not meet format requirements. |
+| 401         | unauthorized        | The request does not include valid credentials. The access token is missing, invalid, or expired.                                               |
+| 403         | forbidden           | The caller is authenticated but does not have permission to use the Vault or perform tokenization.                                              |
+| 500         | server_error        | The service encountered an unexpected error. You can retry after a short delay or contact support with the `request_id`.                        |
+| 503         | service_unavailable | The service is temporarily unavailable. Implement retries with exponential backoff.                                                             |
 
 # Related API
 
