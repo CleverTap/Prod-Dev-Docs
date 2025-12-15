@@ -14,13 +14,15 @@ next:
 
 This endpoint enables you to demerge a user profile.
 
-> 📘 Event Data Loss
->
-> There might be instances when you may lose the event data associated with the user profile after demerging.
+<Callout icon="📘" theme="info">
+  **Event Data Loss**
+
+  There might be instances when you may lose the event data associated with the user profile after demerging.
+</Callout>
 
 ## Base URL
 
-Here is an example base URL from the account in the India region:\
+Here is an example base URL from the account in the India region:  
 [https://in1.api.clevertap.com/1/demerge/profiles.json](https://in1.api.clevertap.com/1/demerge/profiles.json)
 
 ### Region
@@ -37,11 +39,11 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
 
 ## Body Parameters
 
-The body is uploaded as a JSON payload. 
+The body is uploaded as a JSON payload.
 
-| Parameter  | Description                                                                                  | Required | Type         | Example Value                       |
-| :--------- | :------------------------------------------------------------------------------------------- | :------- | :----------- | :---------------------------------- |
-| identities | Custom user identity defined by you. A maximum of 100 identities are allowed in one request. | optional | string/array | \[“client-19827239”, “abc\@ct.com”] |
+| Parameter  | Description                                                                                  | Required | Type         | Example Value                                          |
+| :--------- | :------------------------------------------------------------------------------------------- | :------- | :----------- | :----------------------------------------------------- |
+| identities | Custom user identity defined by you. A maximum of 100 identities are allowed in one request. | optional | string/array | [“client-19827239”, “[abc@ct.com](mailto:abc@ct.com)”] |
 
 Below is an example payload.
 
@@ -53,7 +55,7 @@ Below is an example payload.
 
 ## Example Request
 
-Here is an example cURL request to the *Demerge User Profile* API showing the headers needed to authenticate the request from the account in the India region:
+Here is an example cURL request to the _Demerge User Profile_ API showing the headers needed to authenticate the request from the account in the India region:
 
 ```curl
 curl -X POST -d '{"identities":["client-19827239", "abc@ct.com"]}'
@@ -172,6 +174,6 @@ defer resp.Body.Close()
 }
 ```
 
-For more information on request limit, refer to [API Request Limit](doc:api-request-limit). 
+For more information on request limit, refer to [API Request Limit](doc:api-request-limit).
 
 To understand the common queries and concerns related to CleverTap APIs, refer to [API FAQs](doc:api-faqs).
