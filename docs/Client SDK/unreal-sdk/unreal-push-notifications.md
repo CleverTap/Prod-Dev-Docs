@@ -63,7 +63,7 @@ AndroidNotificationChannelSlot1=ID="general" | Name="General" | Description="Gen
 AndroidNotificationChannelSlot2=ID="news" | Name="News Updates" | Description="Important news and alerts" | Importance=IMPORTANCE_HIGH | bShowBadge=True | Sound="news_alert.wav"
 ```
 
-You can assign an `Importance` level to each channel to control how prominently notifications appear. Valid values include:\
+You can assign an `Importance` level to each channel to control how prominently notifications appear. Valid values include:  
 `IMPORTANCE_NONE`, `IMPORTANCE_MIN`, `IMPORTANCE_LOW`, `IMPORTANCE_DEFAULT`, `IMPORTANCE_HIGH`, and `IMPORTANCE_MAX`.
 
 The sound files must be added to the APK's `res/raw` directory. Use `AndroidSoundsDir` to configure the path.
@@ -123,7 +123,7 @@ CleverTap.LocalizeAndroidNotificationChannelGroup(
 
 ### Default Android Notification Channel
 
-You can define a *default notification channel* that CleverTap will use when the push payload refers to a channel that is *not registered* in your app. This ensures that push notifications are delivered consistently, even if specific channels are missing.
+You can define a _default notification channel_ that CleverTap will use when the push payload refers to a channel that is _not registered_ in your app. This ensures that push notifications are delivered consistently, even if specific channels are missing.
 
 If the SDK cannot find the default channel ID specified in the manifest, it will automatically fall back to using a built-in channel called `Miscellaneous`.
 
@@ -221,7 +221,7 @@ For more information, refer to the [Custom Android Push Notification Handling](d
 
 ### Android OpenUrl Configuration
 
-To handle incoming app links such as deep links, enable `bIntegrateOpenUrl` and define up to *four slot-based URL filters* in your project’s `.ini` file.
+To handle incoming app links such as deep links, enable `bIntegrateOpenUrl` and define up to _four slot-based URL filters_ in your project’s `.ini` file.
 
 #### Example Configuration
 
@@ -246,7 +246,7 @@ AndroidIntentFilterSlot3_AutoVerify=True
 
 > 📘 Note
 >
-> The `http` and `https` schemes require *digital verification* using an `assetlinks.json` file hosted on the target domain. For more information, refer to the [Verify Android App Links](https://developer.android.com/training/app-links/verify-android-applinks).
+> The `http` and `https` schemes require _digital verification_ using an `assetlinks.json` file hosted on the target domain. For more information, refer to the [Verify Android App Links](https://developer.android.com/training/app-links/verify-android-applinks).
 
 #### Test Deep Link with `adb`
 
@@ -261,7 +261,7 @@ adb shell am start -a android.intent.action.VIEW -d "clevertap-unreal-sample://t
 If you need full control over how your app handles deep links:
 
 * Disable the built-in `OpenUrlActivity` integration.
-* Define your activity and intent filters via *custom UPL rules*.
+* Define your activity and intent filters via _custom UPL rules_.
 * If your custom activity forwards the intent to `GameActivity`, the event will still reach the `OnOpenURL` delegate in Unreal.
 
 # iOS Setup
@@ -336,7 +336,7 @@ Check that the specified `.mobileprovision` file is installed before building.
 > * `{ProjectFolder}/Build/IOS/Extensions`
 > * `{ProjectFolder}/Plugins/{PluginName}/Source/ThirdParty/IOS/Extensions`
 >
-> Currently, this integration only supports *Unreal Engine 4.27* and has been tested exclusively with the `CTNotificationService` extension provided by CleverTap.
+> Currently, this integration only supports _Unreal Engine 4.27_ and has been tested exclusively with the `CTNotificationService` extension provided by CleverTap.
 
 ### Enabling `OnPushNotificationClicked`
 
@@ -364,9 +364,9 @@ CleverTap.EnableOnPushNotificationClicked();
 
 This delegate is triggered when a user taps on a push notification, allowing you to dynamically handle deep links, In-App events, or other logic.
 
-### 🔗 iOS OpenUrl Configuration
+### iOS OpenUrl Configuration
 
-To handle incoming app links on iOS, enable `bIntegrateOpenUrl` and define up to *four slot-based URL scheme filters* in your `.ini` file.
+To handle incoming app links on iOS, enable `bIntegrateOpenUrl` and define up to _four slot-based URL scheme filters_ in your `.ini` file.
 
 #### Example Configuration
 
