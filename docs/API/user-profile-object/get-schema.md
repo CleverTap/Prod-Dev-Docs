@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-## Overview
+# Overview
 
 The GET schema APIs provide the capability to get the latest schema via API so that you have the latest changes.
 
@@ -354,3 +354,5 @@ func main() {
       ]
  }
 ```
+
+<br />
