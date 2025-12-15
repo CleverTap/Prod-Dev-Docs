@@ -2868,6 +2868,58 @@ Example Payloads :
 
 Following is the JSON payload for the iOS Carousel Push template:
 
+```json
+{
+  "name": "My API Campaign",
+  "estimate_only": false,
+  "target_mode": "push",
+  "where": {
+    "event_name": "App Launched",
+    "from": 20250606,
+    "to": 20250609
+  },
+  "respect_frequency_caps": false,
+  "content": {
+    "title": "TEST!",
+    "body": "How are you doing today?",
+    "platform_specific": {
+      "ios": {
+        "mutable-content": "true",
+        "deep_link": "example.com",
+        "sound_file": "example.caf",
+        "category": "CTNotification",
+        "badge_count": 1,
+        "ct_ContentSlider": {
+          "orientation": "landscape",
+          "showsPaging": 1,
+          "autoPlay": 1,
+          "autoDismiss": 1,
+          "items": [
+            {
+              "caption": "caption one",
+              "subcaption": "subcaption one",
+              "imageUrl": "<https://s3.amazonaws.com/ct-demo-images/landscape-1.jpg>",
+              "actionUrl": "<com.clevertap.ctcontent.example://item/one>"
+            },
+            {
+              "caption": "caption two",
+              "subcaption": "subcaption two",
+              "imageUrl": "<https://s3.amazonaws.com/ct-demo-images/landscape-2.jpg>",
+              "actionUrl": "<com.clevertap.ctcontent.example://item/two>"
+            }
+          ],
+          "type": "carousalImg"
+        },
+        "ct_mediaType": "image",
+        "ct_mediaUrl": "<https://s3.amazonaws.com/ct-demo-images/landscape-1.jpg>"
+      }
+    }
+  },
+  "devices": ["ios"],
+  "when": "now"
+}
+```
+
 Following is the JSON payload for WhatsApp interactive message templates:
 
 <Callout icon="📘" theme="info">
@@ -3136,7 +3188,45 @@ Following is the JSON payload for WhatsApp interactive message templates:
 
 You can associate one or more labels with a campaign when creating it. Labels make it easier to organize, search, and filter campaigns in the CleverTap dashboard.
 
+### Parameters
+
+| **Parameter** | **Description**                                                                                                             | **Required/Optional** | **Type**         | **Example Value**    |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------- | ---------------- | -------------------- |
+| labels        | A list of labels to attach to the campaign. These labels will be visible in the CleverTap dashboard under campaign details. | Optional              | Array of strings | `["news", "sports"]` |
+
 ### Example Payload with Labels
+
+```json
+{
+  "name": "Test Labels",
+  "estimate_only": false,
+  "target_mode": "push",
+  "labels": [
+    "news",
+    "sports"
+  ],
+  "where": {
+    "event_name": "App Launched",
+    "from": 20250901,
+    "to": 20250931,
+    "common_profile_properties": {
+      "profile_fields": [
+        {
+          "name": "Customer Type",
+          "operator": "equals",
+          "value": "Platinum"
+        }
+      ]
+    }
+  },
+  "respect_frequency_caps": false,
+  "content": {
+    "title": "Hi!",
+    "body": "How are you doing today?"
+  },
+  "when": "now"
+}
+```
 
 # SMS
 
@@ -3697,7 +3787,32 @@ request(options, callback);
 
 ## Example Response - Target User Events & Properties
 
+```json
+{
+  "status": "success",
+  "estimates": {
+    "web": 2
+  }
+}
+```
+
 ## Example Request - Event Occurrence
+
+```json
+{
+    "advanced_query": {
+        "did_all": [
+            {
+                "event_name": "App Launched",
+                "from": 20200101,
+                "to": 20200218,
+                "operator": "greater_than_equals",
+                "value": 5,
+            }
+        ]
+    }
+}
+```
 
 # Create Campaign API - Target Users by their Identities
 
@@ -4936,9 +5051,11 @@ Below are example payloads for Web Push, Push Notification, Email, SMS, and What
 
 Following is the JSON payload for WhatsApp interactive message templates:
 
-> 📘 Note:
->
-> Currently, Create Campaign APIs for WhatsApp do not support Carousel templates, Limited Time Offer (LTO) templates, Custom key-value pairs, and templates with copy code button.
+<Callout icon="📘" theme="info">
+  **Note**
+
+  Currently, Create Campaign APIs for WhatsApp do not support Carousel templates, Limited Time Offer (LTO) templates, Custom key-value pairs, and templates with copy code button.
+</Callout>
 
 ```json Image Template
 {
