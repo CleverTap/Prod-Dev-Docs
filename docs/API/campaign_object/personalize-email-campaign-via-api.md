@@ -218,32 +218,32 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
                 "property\_name": "Items|Book name",\
                 "operator": "equals",\
                 "property\_value": "book name"\
-              },\
+              \},\
               \{\
                 "property\_name": "Items|Category",\
                 "operator": "equals",\
                 "property\_value": "category"\
-              },\
+              \},\
               \{\
                 "property\_name": "Payment mode",\
                 "operator": "equals",\
                 "property\_value": "UPI"\
-              },\
+              \},\
               \{\
                 "property\_name": "Amount",\
                 "operator": "between",\
                 "property\_value": [3456, 4567]\
-              }\
+              \}\
             ],\
             "first\_time": "yes",\
             "last\_time": "yes",\
             "time\_of\_day": \[["21:00", "23:00"]],\
             "day\_of\_week": [1, 3],\
             "day\_of\_month": [1, 3, 16, 31]\
-          },\
+          \},\
           "conversion\_time": "3D",\
           "revenue\_property": "Amount"\
-        }
+        \}
       </td>
     </tr>
 
@@ -290,18 +290,18 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       <td>
         "filter\_type": \{\
           "event\_property": [  
-            {  
+            \{  
               "property_name": "Items|Book name",  
               "operator": "equals",  
               "property_value": "book name"  
-            }  
+            \}  
           ],\
           "first\_time": "yes",\
           "last\_time": "yes",\
           "time\_of\_day": ["21:00", "23:00"],\
           "day\_of\_week": [1, 3],\
           "day\_of\_month": [1, 3, 16, 31]\
-        }
+        \}
       </td>
     </tr>
 
@@ -329,22 +329,22 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
             "property\_name": "Items|Book name",\
             "operator": "equals",\
             "property\_value": "book name"\
-          },\
+          \},\
           \{\
             "property\_name": "Items|Category",\
             "operator": "equals",\
             "property\_value": "category"\
-          },\
+          \},\
           \{\
             "property\_name": "Payment mode",\
             "operator": "equals",\
             "property\_value": "UPI"\
-          },\
+          \},\
           \{\
             "property\_name": "Amount",\
             "operator": "between",\
             "property\_value": [3456, 4567]\
-          }\
+          \}\
         ]
       </td>
     </tr>
@@ -592,32 +592,32 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
                 "property\_name": "Items|Book name",\
                 "operator": "equals",\
                 "property\_value": "book name"\
-              },\
+              \},\
               \{\
                 "property\_name": "Items|Category",\
                 "operator": "equals",\
                 "property\_value": "category"\
-              },\
+              \},\
               \{\
                 "property\_name": "Payment mode",\
                 "operator": "equals",\
                 "property\_value": "UPI"\
-              },\
+              \},\
               \{\
                 "property\_name": "Amount",\
                 "operator": "between",\
                 "property\_value": [3456, 4567]\
-              }\
+              \}\
             ],\
             "first\_time": "yes",\
             "last\_time": "yes",\
             "time\_of\_day": \[["21:00", "23:00"]],\
             "day\_of\_week": [1, 3],\
             "day\_of\_month": [1, 3, 16, 31]\
-          },\
+          \},\
           "conversion\_time": "3D",\
           "revenue\_property": "Amount"\
-        }
+        \}
       </td>
     </tr>
 
@@ -649,7 +649,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        Allows you to filter target base on the user events and profile properties. Send an empty object (\{}) to target your entire user base.
+        Allows you to filter target base on the user events and profile properties. Send an empty object (\{\}) to target your entire user base.
       </td>
 
       <td>
@@ -667,14 +667,14 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
           "to": 20251220,\
           "common\_profile\_properties": \{\
             "profile\_fields": [  
-              {  
+              \{  
                 "name": "Customer Type",  
                 "operator": "equals",  
                 "value": "Platinum"  
-              }  
+              \}  
             ]\
-          }\
-        }
+          \}\
+        \}
       </td>
     </tr>
 
@@ -764,13 +764,13 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       <td>
         "common\_profile\_properties": \{\
           "profile\_fields": [  
-            {  
+            \{  
               "name": "Customer Type",  
               "operator": "equals",  
               "value": "Platinum"  
-            }  
+            \}  
           ]\
-        }
+        \}
       </td>
     </tr>
 
@@ -861,7 +861,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
         "control\_group": \{\
         "type": "custom"\
         "name": "name of control group"\
-        }
+        \}
       </td>
     </tr>
 
@@ -886,7 +886,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
         "control\_group": \{\
         "type": "campaign"\
         "percentage": 5\
-        }
+        \}
       </td>
     </tr>
 
@@ -1094,7 +1094,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
         Your HTML content for the email\
         ",\
         "sender\_name": "CleverTap"\
-        }
+        \}
       </td>
     </tr>
 
@@ -1230,7 +1230,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
         "1" : ,\
         "2" : ,\
         "3" :\
-        }
+        \}
       </td>
     </tr>
 
@@ -1414,12 +1414,12 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
 
       <td>
         "wzrk\_acts": [  
-            {  
+            \{  
               "l": "Action button 1",  
               "dl": "deep link for action button 1",  
               "id": "action id of the action button 1",  
               "ico": "Icon resource identifier for action button 1"  
-            }  
+            \}  
           ]
       </td>
     </tr>
@@ -1673,11 +1673,11 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
         "platform\_specific": \{\
           "ios": \{\
             "Key": "Value\_ios"\
-          },\
+          \},\
           "android": \{\
             "Key": "Value\_android"\
-          }\
-        }
+          \}\
+        \}
       </td>
     </tr>
 
@@ -1777,12 +1777,12 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
         "ttl" : \{\
         "ttl\_type": "absolute",\
         "value" : 202207200000\
-        },\
+        \},\
         For Relative TTL -\
         "ttl" : \{\
         "ttl\_type": "relative",\
         "value" : 2880\
-        },
+        \},
       </td>
     </tr>
 
@@ -1837,10 +1837,10 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
             "dnd\_info": \{\
               "2": ["21:00", "06:00"],\
               "4": ["23:56", "04:34"]\
-            }\
-          },\
+            \}\
+          \},\
           "campaign\_cutoff": "14:20"\
-        }
+        \}
       </td>
     </tr>
 
@@ -2094,8 +2094,8 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
           "dnd\_info": \{\
             "2": ["21:00", "06:00"],\
             "4": ["23:56", "04:34"]\
-          }\
-        }
+          \}\
+        \}
       </td>
     </tr>
 
@@ -2148,7 +2148,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
         "dnd\_info": \{\
           "2": ["21:00", "06:00"],\
           "4": ["23:56", "04:34"]\
-        }
+        \}
       </td>
     </tr>
 
@@ -2847,7 +2847,6 @@ Example Payloads :
         }
      ],
     "time_to_live":50,    
-   
     "devices": [
         "ios",
         "android"
@@ -2864,7 +2863,6 @@ Example Payloads :
     "target_mode": "whatsapp",
     "provider_nick_name": "provider_name",
     "where": {
-        
         "common_profile_properties": {
             "profile_fields": [
                 {
@@ -4855,7 +4853,6 @@ Following is the JSON payload for WhatsApp interactive message templates:
         }
     },
     "respect_frequency_caps": false,
-    
     "system_control_group_include": false,
     "content": {
         "template_name": "662da022_5583_406d_9c71_428d5e3164bb:ticket_update",
@@ -4895,7 +4892,6 @@ Following is the JSON payload for WhatsApp interactive message templates:
         }
     },
     "respect_frequency_caps": false,
-    
     "system_control_group_include": false,
     "content": {
         "template_name": "662da022_5583_406d_9c71_428d5e3164bb:ticket_update",
@@ -4907,7 +4903,6 @@ Following is the JSON payload for WhatsApp interactive message templates:
         "body": {
             "replacements": ["dummy"]
         }
-       
       },
     "when": "now"
 }
@@ -4934,7 +4929,6 @@ Following is the JSON payload for WhatsApp interactive message templates:
         }
     },
     "respect_frequency_caps": false,
-    
     "system_control_group_include": false,
     "content": {
         "template_name": "662da022_5583_406d_9c71_428d5e3164bb:ticket_update",
@@ -4974,7 +4968,6 @@ Following is the JSON payload for WhatsApp interactive message templates:
         }
     },
     "respect_frequency_caps": false,
-    
     "system_control_group_include": false,
     "content": {
         "template_name": "662da022_5583_406d_9c71_428d5e3164bb:ticket_update",
@@ -5015,7 +5008,6 @@ Following is the JSON payload for WhatsApp interactive message templates:
         }
     },
     "respect_frequency_caps": false,
-    
     "system_control_group_include": false,
     "content": {
         "template_name": "662da022_5583_406d_9c71_428d5e3164bb:ticket_update",
@@ -5803,7 +5795,7 @@ The Generic Sample Campaign API includes configurations for without Key Values, 
       </td>
 
       <td>
-        Allows you to filter target base on the user events and profile properties. Send an empty object (\{}) to target your entire user base.
+        Allows you to filter target base on the user events and profile properties. Send an empty object (\{\}) to target your entire user base.
       </td>
 
       <td>
@@ -5827,8 +5819,8 @@ The Generic Sample Campaign API includes configurations for without Key Values, 
             "0-1": "The name of your campaign shown in the CleverTap dashboard.",\
             "0-2": "Required",  
 
-        }\
-        }
+        \}\
+        \}
       </td>
     </tr>
 
@@ -5922,7 +5914,7 @@ The Generic Sample Campaign API includes configurations for without Key Values, 
             "h-2": "Required/Optional",\
             "h-3": "Type",  
 
-        }
+        \}
       </td>
     </tr>
 
@@ -6738,7 +6730,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
         "to": \{\
                 "FBID":   "h-0": "Parameter",\
             "h-1"\
-        }
+        \}
       </td>
     </tr>
 
@@ -6765,7 +6757,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
                 "Email": h-0": "Parameter",\
             "h-1": "Description",\
             "h-2"\
-        }
+        \}
       </td>
     </tr>
 
@@ -6791,7 +6783,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
             "to": \{\
               "Identity": -0": "Parameter",\
             "h-1"\
-        }
+        \}
       </td>
     </tr>
 
@@ -6817,7 +6809,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
             "to": \{\
                 "objectId": ": "Parameter",\
             "h-1"\
-        }
+        \}
       </td>
     </tr>
 
@@ -6827,12 +6819,13 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
+        <ul>
         <li>Each message can be tagged into a tag group.</li>
         <li>Metrics, such as sent and viewed, will be shown against each tag group in the CleverTap dashboard.</li>
-        <li>You can create a maximum of 500 tag groups.</li>
-        If not specified, the metrics are shown against the “Not Tagged” tag.</li>
+        <li>You can create a maximum of 500 tag groups. If not specified, the metrics are shown against the “Not Tagged” tag..</li>
         <li>The _Stats_ page shows the tag group for the selected campaign.</li>
         <li>For campaigns created via the Target Users by Identity API with tag groups, CleverTap strongly recommends setting up individual subscriptions. This approach ensures that even if a campaign contains many tag groups, it does not affect row allocation for other campaigns.</li>
+        </ul>
       </td>
 
       <td>
@@ -6870,7 +6863,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
                 "subject": "Welcome",\
                 "body": "<div>Your HTML content for the email</div>",\
                 "sender\_name": "CleverTap"\
-            }
+            \}
       </td>
     </tr>
 
@@ -7008,12 +7001,12 @@ The to parameter is an object that has the following child properties: FBID, Ema
                         "type": "image",\
                         "media": \{\
                             "url": "[https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo\_1280x720\_5mb.jpg"](https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg")\
-                        }\
-                    },\
+                        \}\
+                    \},\
                     "body": \{\
                         "type": "text",\
                         "replacements": ["var1","Var2"]\
-                    },  
+                    \},  
 
         ```
                 "buttons": \[
@@ -7028,7 +7021,8 @@ The to parameter is an object that has the following child properties: FBID, Ema
                         ]
                     }
                 ]
-        ```}
+        ```
+        \}
       </td>
     </tr>
 
@@ -7098,8 +7092,8 @@ The to parameter is an object that has the following child properties: FBID, Ema
                         "type": "image",\
                         "media": \{\
                             "url": "[https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo\_1280x720\_5mb.jpg"](https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg")\
-                        }\
-                    },\
+                        \}\
+                    \},\
         For more header types, refer to the examples. 
       </td>
     </tr>
@@ -7148,8 +7142,8 @@ The to parameter is an object that has the following child properties: FBID, Ema
                         "type": "image",\
                         "media": \{\
                             "url": "[https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo\_1280x720\_5mb.jpg"](https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg")\
-                        }\
-                    },\
+                        \}\
+                    \},\
         For more header types, refer to the examples.
       </td>
     </tr>
@@ -7176,7 +7170,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
                         "type": "text",\
                         "replacements": [ "header var 1"   ]  
 
-        `        },`
+        `        \},`
       </td>
     </tr>
 
@@ -7203,7 +7197,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
                         "replacements": [  
                             "Var 1", "Var 2"  
                         ]\
-                    }
+                    \}
       </td>
     </tr>
 
@@ -7274,12 +7268,12 @@ The to parameter is an object that has the following child properties: FBID, Ema
                             "replacements": [  
                                 "quick reply custom payload 1"  
                             ]\
-                        },\
+                        \},\
                         \{\
                             "replacements": [  
                                 "quick reply custom payload 2"  
                             ]\
-                        }\
+                        \}\
                     ]
       </td>
     </tr>
@@ -7587,7 +7581,6 @@ Below are example payloads for web push, push, email, SMS, and WhatsApp.
             "102029292929388",
             "114342342453463"
         ],
-       
         "Email": [
             "john@doe.com",
             "jane@doe.com"
@@ -7852,8 +7845,6 @@ Following is the JSON payload for WhatsApp interactive message templates:
                 "type": "text",
                 "replacements": ["var1","Var2"]
             }
-          
-           
         }
     }
 }
@@ -7887,8 +7878,6 @@ Following is the JSON payload for WhatsApp interactive message templates:
                 "type": "text",
                 "replacements": ["var1","Var2"]
             }
-          
-           
         }
     }
 }
@@ -7968,8 +7957,6 @@ Following is the JSON payload for WhatsApp interactive message templates:
                 "type": "text",
                 "replacements": ["var1","Var2"]
             }
-          
-           
         }
     }
 }
@@ -8252,7 +8239,6 @@ request.body = JSON.dump({
       "102029292929388",
       "114342342453463"
     ],
-   
     "Email" => [
       "john@doe.com",
       "jane@doe.com"
@@ -8823,7 +8809,7 @@ To view campaigns created through APIs:
 1. Navigate to the *Campaigns* section from the CleverTap dashboard. The list of campaign displays.
 2. Click the Filter icon > *Created by* filter and select the *serverapi&lt;channel name&gt;* option.
 
-<Image alt="Filter API Campaigns" align="center" border={true} src="https://files.readme.io/ee5427a-small-Filter_campaigns_by_API.png">  Filter API Campaigns
+<Image alt="Filter API Campaigns" align="center" border={true} src="https://files.readme.io/ee5427a-small-Filter_campaigns_by_API.png" />
 
 
 
