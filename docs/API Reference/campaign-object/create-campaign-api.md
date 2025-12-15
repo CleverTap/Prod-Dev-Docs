@@ -212,7 +212,7 @@ The body is uploaded as a JSON payload. name, when, title, body, subject, sender
                 "subject": "Welcome",\
                 "body": "<div>Your HTML content for the email</div>",\
                 "sender\_name": "CleverTap"\
-            }
+            \}
       </td>
     </tr>
 
@@ -354,7 +354,7 @@ The body is uploaded as a JSON payload. name, when, title, body, subject, sender
       </td>
 
       <td>
-        Allows you to filter of target base by user events and profile properties. Send an empty object (\{}) to target your entire user base.
+        Allows you to filter of target base by user events and profile properties. Send an empty object (\{\}) to target your entire user base.
       </td>
 
       <td>
@@ -372,14 +372,14 @@ The body is uploaded as a JSON payload. name, when, title, body, subject, sender
                 "to": 20171220,\
               "common\_profile\_properties": \{\
                     "profile\_fields": [  
-                        {  
+                        \{  
                             "name": "Customer Type",  
                             "operator":"equals",  
                             "value": "Platinum"  
-                        }  
+                        \}  
                     ]\
-                }\
-            }
+                \}\
+            \}
       </td>
     </tr>
 
@@ -469,13 +469,13 @@ The body is uploaded as a JSON payload. name, when, title, body, subject, sender
       <td>
         "common\_profile\_properties": \{\
                     "profile\_fields": [  
-                        {  
+                        \{  
                             "name": "Customer Type",  
                             "operator":"equals",  
                             "value": "Platinum"  
-                        }  
+                        \}  
                     ]\
-                }
+                \}
       </td>
     </tr>
 
@@ -1492,7 +1492,7 @@ The to parameter is an object that has the following child properties: FBID, GPI
                     "_asdnkansdjknaskdjnasjkndja",  
                     "-adffajjdfoaiaefiohnefwprjf"  
                 ]\
-            }
+            \}
       </td>
     </tr>
 
@@ -1519,7 +1519,7 @@ The to parameter is an object that has the following child properties: FBID, GPI
                     "102029292929388",  
                     "114342342453463"  
                 ]\
-        }
+        \}
       </td>
     </tr>
 
@@ -1547,7 +1547,7 @@ The to parameter is an object that has the following child properties: FBID, GPI
                     "102029292929388",  
                     "114342342453463"  
                 ]\
-        }
+        \}
       </td>
     </tr>
 
@@ -1575,7 +1575,7 @@ The to parameter is an object that has the following child properties: FBID, GPI
                     "john@doe.com",  
                     "jan@doe.com"  
                 ]\
-        }
+        \}
       </td>
     </tr>
 
@@ -1602,7 +1602,7 @@ The to parameter is an object that has the following child properties: FBID, GPI
               "Identity": [  
                     "JohnDoe"  
                 ]\
-        }
+        \}
       </td>
     </tr>
 
@@ -1629,7 +1629,7 @@ The to parameter is an object that has the following child properties: FBID, GPI
                 "objectId": [  
          "sdnkansdjknaskdjnasjkndja",     "dffajjdfoaiaefiohnefwprjf"  
                 ]\
-        }
+        \}
       </td>
     </tr>
 
@@ -1699,7 +1699,7 @@ The to parameter is an object that has the following child properties: FBID, GPI
                 "subject": "Welcome",\
                 "body": "<div>Your HTML content for the email</div>",\
                 "sender\_name": "CleverTap"\
-            }
+            \}
       </td>
     </tr>
 
