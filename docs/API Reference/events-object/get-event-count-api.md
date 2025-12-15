@@ -176,11 +176,11 @@ The body is uploaded as a JSON payload.
 
       <td>
         "event\_properties": [  
-                {  
+                \{  
                     "name": "value",  
                     "operator": "contains",  
                     "value": "piz"  
-                }  
+                \}  
             ]
       </td>
     </tr>
