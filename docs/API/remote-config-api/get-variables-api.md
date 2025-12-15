@@ -16,7 +16,7 @@ The Get API endpoint retrieves Variables and their values for the current user o
 
 # Endpoint
 
-Here is a base sample endpoint from the account in the India region:\
+Here is a base sample endpoint from the account in the India region:  
 [https://in1.api.clevertap.com/1/getVars](https://in1.api.clevertap.com/1/getVars)
 
 # Authentication
@@ -81,7 +81,7 @@ Refer to [Regions](https://developer.clevertap.com/docs/common-api-components#re
       </td>
 
       <td>
-        Required  
+        Required
 
         (Either `identity` or `guid` is required)
       </td>
@@ -105,7 +105,7 @@ Refer to [Regions](https://developer.clevertap.com/docs/common-api-components#re
       </td>
 
       <td>
-        Optional\
+        Optional  
         (Either `identity` or `clevertapId` is required)
       </td>
     </tr>
@@ -134,9 +134,11 @@ Refer to [Regions](https://developer.clevertap.com/docs/common-api-components#re
   </tbody>
 </Table>
 
-> 📘 Note
->
-> In case the identity or clevertapId does not exist, the API returns all defined Variables default values. New user profiles are not created.
+<Callout icon="📘" theme="info">
+  **Note**
+
+  In case the identity or clevertapId does not exist, the API returns all defined Variables default values. New user profiles are not created.
+</Callout>
 
 ## Sample Request
 
