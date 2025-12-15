@@ -30,9 +30,11 @@ The following validations apply when setting a custom CleverTap ID:
 
 * The device identifier should be a maximum of 64 characters and a minimum of 1 character.
 * Characters should be alphanumeric (a-z, 0-9) and case insensitive.
-* Allowed characters are (any character apart from the below mentioned will be treated as an invalid ID)\
-  **A-Z\&#xA;** a-z\
-  **0-9\&#xA;** ( ) ! : @ $ \_ -
+* Allowed characters are (any character apart from the below mentioned will be treated as an invalid ID)    
+  * A-Z
+  * a-z  
+  * 0-9
+  * `( )` `!` `:` `@` `$` `_` `-`
 
 For storing this ID in CleverTap, we will add prefix to the custom CleverTap ID as per the following rules:
 
@@ -68,7 +70,7 @@ For storing this ID in CleverTap, we will add prefix to the custom CleverTap ID 
       </td>
 
       <td>
-        <p>\_ \_g</p>
+        <p>_ _g</p>
       </td>
 
       <td>
@@ -76,11 +78,11 @@ For storing this ID in CleverTap, we will add prefix to the custom CleverTap ID 
       </td>
 
       <td>
-        <p>\_ \_</p>
+        <p>_ _</p>
       </td>
 
       <td>
-        <p>\_ \_h</p>
+        <p>_ _h</p>
       </td>
     </tr>
 
@@ -98,11 +100,11 @@ For storing this ID in CleverTap, we will add prefix to the custom CleverTap ID 
       </td>
 
       <td>
-        \- <br />
+        * <br />
       </td>
 
       <td>
-        \-
+        -
 
         h
       </td>
@@ -116,7 +118,7 @@ To search any particular profile by ID, use custom ID along with the prefix in t
 
 # Android
 
-In order to send a custom ID, client must set the flag CLEVERTAP\_USE\_CUSTOM\_ID to 1 in the AndroidManifest file. The flag can be set to 1 at AndroidManifest.xml.
+In order to send a custom ID, client must set the flag CLEVERTAP_USE_CUSTOM_ID to 1 in the AndroidManifest file. The flag can be set to 1 at AndroidManifest.xml.
 
 ```xml
 <meta-data
@@ -215,12 +217,10 @@ CleverTapAPI.getInstance(applicationContext)
 
 # iOS
 
-* In order to send a custom ID, client must set the flag CleverTapUseCustomId to TRUE in the Plist file. 
+* In order to send a custom ID, client must set the flag CleverTapUseCustomId to TRUE in the Plist file.
 * Navigate to the Info.plist file in your project navigator, and then create a key called `CleverTapUseCustomId` with type Boolean and set the value to YES.
 
-<Image title="Add a Custom Key" alt={1792} align="center" border={true} src="https://files.readme.io/6f3cdef-Screenshot_2019-05-17_at_5.36.59_PM.png">
-  Add a Custom Key
-</Image>
+<Image align="center" alt={1792} border={true} caption="Add a Custom Key" title="Add a Custom Key" src="https://files.readme.io/6f3cdef-Screenshot_2019-05-17_at_5.36.59_PM.png" />
 
 Additionally, you must call any of the following methods to pass the Custom CleverTap ID.
 
@@ -305,8 +305,8 @@ CleverTap.sharedInstance()?.onUserLogin(profile, withCleverTapID: "CUSTOM-CLEVER
 >
 > * In case of invalid ID or ID not set, CleverTap will NOT create a profile from the device.
 > * No events will be logged against these profiles.
-> * All such errors will be logged with a profile created with the prefix \_ \_i.
-> * These profiles will be visible under the error stream under the *account/stream.html* page on the dashboard.
+> * All such errors will be logged with a profile created with the prefix _ _i.
+> * These profiles will be visible under the error stream under the _account/stream.html_ page on the dashboard.
 
 # Web
 
