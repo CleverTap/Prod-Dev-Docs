@@ -10,15 +10,15 @@ metadata:
 next:
   description: ''
 ---
-## Overview
+# Overview
 
-In version 3.3.0 and above, of our [Android](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.3.0) and [iOS](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/3.3.0) SDKs, we released a major update that enables you to use our **new and improved In-app** Notifications. 
+In version 3.3.0 and above, of our [Android](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.3.0) and [iOS](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/3.3.0) SDKs, we released a major update that enables you to use our **new and improved In-app** Notifications.
 
 These now support GIF, Audio & Video in certain templates, cleaner and crisp views and A/B testing.
 
 ## Android
 
-In version 3.3.0 of our [Android](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.3.0) SDK, we released a major update that enables you to use our new and improved InApp Notifications. These now support GIF, Audio & Video in certain templates along with cleaner and crisp views. 
+In version 3.3.0 of our [Android](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/3.3.0) SDK, we released a major update that enables you to use our new and improved InApp Notifications. These now support GIF, Audio & Video in certain templates along with cleaner and crisp views.
 
 To support Audio & Video in In-app templates, our SDK uses [ExoPlayer](https://github.com/google/ExoPlayer)
 
@@ -36,5 +36,5 @@ implementation "com.google.android.exoplayer:exoplayer:2.15.1"
 
 > ❗️ Android Issue: Oreo Landscape
 >
-> Due to an [Android Oreo bug](https://issuetracker.google.com/issues/68454482), the new InApp notifications will change their orientation when the phone's orientation is changed from portrait to landscape.\
+> Due to an [Android Oreo bug](https://issuetracker.google.com/issues/68454482), the new InApp notifications will change their orientation when the phone's orientation is changed from portrait to landscape.  
 > Hence, if your app is targeting to Android API 26, you will face this issue when our SDK renders the InApp notifications. It is hereby suggested that you target your app to Android API level 27 or above.
