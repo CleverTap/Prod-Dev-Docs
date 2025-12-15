@@ -14,12 +14,14 @@ next:
 
 The Token Vault provides a secure mapping between raw PII values and tokens.
 
-* [*Get Token API*](https://developer.clevertap.com/docs/get-token-api): Converts PII into a secure token
-* [*Get Value API*](https://developer.clevertap.com/docs/get-value-api): Resolves a token back to the original PII
+* [_Get Token API_](https://developer.clevertap.com/docs/get-token-api): Converts PII into a secure token
+* [_Get Value API_](https://developer.clevertap.com/docs/get-value-api): Resolves a token back to the original PII
 
-> 📘 **Security Tip**
->
-> Never send PII to CleverTap directly. You can use your customer-hosted Vault and the Vault SDK.
+<Callout icon="📘" theme="info">
+  **Security Tip**
+
+  Never send PII to CleverTap directly. You can use your customer-hosted Vault and the Vault SDK.
+</Callout>
 
 # Authentication
 
