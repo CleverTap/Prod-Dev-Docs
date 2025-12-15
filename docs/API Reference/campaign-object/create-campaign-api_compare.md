@@ -366,20 +366,7 @@ The body is uploaded as a JSON payload. name, when, title, body, subject, sender
       </td>
 
       <td>
-        "where": \{\
-                "event\_name": "Charged",\
-                "from": 20171001,\
-                "to": 20171220,\
-              "common\_profile\_properties": \{\
-                    "profile\_fields": [  
-                        {  
-                            "name": "Customer Type",  
-                            "operator":"equals",  
-                            "value": "Platinum"  
-                        }  
-                    ]\
-                }\
-            }
+        <code>{`"where": { "event_name": "Charged", "from": 20171001, "to": 20171220, "common_profile_properties": { "profile_fields": [{ "name": "Customer Type", "operator": "equals", "value": "Platinum" }] } }`}</code>
       </td>
     </tr>
 
@@ -467,15 +454,7 @@ The body is uploaded as a JSON payload. name, when, title, body, subject, sender
       </td>
 
       <td>
-        "common\_profile\_properties": \{\
-                    "profile\_fields": [  
-                        {  
-                            "name": "Customer Type",  
-                            "operator":"equals",  
-                            "value": "Platinum"  
-                        }  
-                    ]\
-                }
+        <code>{`"common_profile_properties": { "profile_fields": [{ "name": "Customer Type", "operator": "equals", "value": "Platinum" }] }`}</code>
       </td>
     </tr>
 
@@ -735,9 +714,7 @@ The body is uploaded as a JSON payload. name, when, title, body, subject, sender
 
     <tr>
       <td>
-        wzrk\_acts: "[{"l":"Action-1","dl":"","id":"01","ico":""},  
-        {"l":"Action-2","dl":"","id":"02","ico":""},  
-        {"l":"Action-3","dl":"","id":"03","ico":""}]
+        <code>{`wzrk_acts: "[{\"l\":\"Action-1\",\"dl\":\"\",\"id\":\"01\",\"ico\":\"\"},{"l":"Action-2","dl":"","id":"02","ico":""},{"l":"Action-3","dl":"","id":"03","ico":""}]"`}</code>
       </td>
 
       <td>
@@ -1686,26 +1663,7 @@ The to parameter is an object that has the following child properties: FBID, GPI
       </td>
 
       <td>
-        "to": \{\
-                "FBID": [  
-                    "102029292929388",  
-                    "114342342453463"  
-                ],\
-                "GPID": [  
-                    "1928288389299292"  
-                ],\
-                "Email": [  
-                    "john@doe.com",  
-                    "jane@doe.com"  
-                ],\
-                "Identity": [  
-                    "JohnDoe"  
-                ],\
-                "objectId": [  
-                    "_asdnkansdjknaskdjnasjkndja",  
-                    "-adffajjdfoaiaefiohnefwprjf"  
-                ]\
-            }
+        <code>{`"to": { "FBID": ["102029292929388", "114342342453463"], "GPID": ["1928288389299292"], "Email": ["john@doe.com", "jane@doe.com"], "Identity": ["JohnDoe"], "objectId": ["_asdnkansdjknaskdjnasjkndja", "-adffajjdfoaiaefiohnefwprjf"] }`}</code>
       </td>
     </tr>
 
