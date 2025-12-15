@@ -174,24 +174,25 @@ For each device token, objectId is required. objectId is CleverTap’s user iden
       </td>
 
       <td>
-        {`{`}
-            "d": [  
-                        {  
-                    "type": "token",  
-                    "tokenData": {  
-                        "id": "dYfuuBmHLGI:APA91bEfAq1b6NAmz0uhUbVxwSLqgKF25zDb7vhgajzS-bOAEUKekH_jbzO5oU1Qip-ZLvDpwKccxAxVNjC3rUUJnFTKDUiBcF9AtuG03_PRfjoUxLKHMR9qykK22SiubrLirNzQtNnO",  
-                        "type": "fcm"  
-                    },  
-                    "objectId": "__gc4grg4053N1eYkW6OBH71jhFev7b1iP"  
-                },  
-                {  
-                    "type": "token",  
-                    "tokenData": {  
-                        "id": "frfsgvrwe:APfdsafsgdfsgghfgfgjkhfsfgdhjhbvcvnetry767456fxsasdf",  
-                        "type": "gcm"  
-                    }  
-            ]\
-        {`}`}
+        <pre>{`{
+  "d": [
+    {
+      "type": "token",
+      "tokenData": {
+        "id": "dYfuuBmHLGI:APA91bEfAq1b6NAmz0uhUbVxwSLqgKF25zDb7vhgajzS-bOAEUKekH_jbzO5oU1Qip-ZLvDpwKccxAxVNjC3rUUJnFTKDUiBcF9AtuG03_PRfjoUxLKHMR9qykK22SiubrLirNzQtNnO",
+        "type": "fcm"
+      },
+      "objectId": "__gc4grg4053N1eYkW6OBH71jhFev7b1iP"
+    },
+    {
+      "type": "token",
+      "tokenData": {
+        "id": "frfsgvrwe:APfdsafsgdfsgghfgfgjkhfsfgdhjhbvcvnetry767456fxsasdf",
+        "type": "gcm"
+      }
+    }
+  ]
+}`}</pre>
       </td>
     </tr>
 
