@@ -199,7 +199,7 @@ By default, all marketing channels will be available for communication with the 
 
 ## Data Suppress
 
-* This will ensure that the data from the device will not reach CleverTap's servers. 
+* This will ensure that the data from the device will not reach CleverTap's servers.
 * By default, the optOut is set to False.
 * If a device needs to be opted out, at the JS SDK end, the flag needs to be set.
 
@@ -223,9 +223,9 @@ CleverTap sets first-party cookies and they are used to anonymously identify the
 
 | Cookie Name | Description                                                                                 | Expiry                                                                                                |
 | :---------- | :------------------------------------------------------------------------------------------ | :---------------------------------------------------------------------------------------------------- |
-| WZRK\_G     | This cookie stores the guid/anonymous identifier of the user                                | Expires 10 years from the time it is set.                                                             |
-| WZRK\_S     | This cookie stores the session details like last session timestamp, number of sessions etc. | Expires 20 mins from the time it is set.                                                              |
-| WZRK\_P     | This cookie tracks the web page url.                                                        | Expires as soon as it is set. This is not used and will be deprecated in the next version of the SDK. |
+| WZRK_G      | This cookie stores the guid/anonymous identifier of the user                                | Expires 10 years from the time it is set.                                                             |
+| WZRK_S      | This cookie stores the session details like last session timestamp, number of sessions etc. | Expires 20 mins from the time it is set.                                                              |
+| WZRK_P      | This cookie tracks the web page url.                                                        | Expires as soon as it is set. This is not used and will be deprecated in the next version of the SDK. |
 
 ### Parameters for Local Storage
 
@@ -245,7 +245,7 @@ CleverTap sets first-party cookies and they are used to anonymously identify the
   <tbody>
     <tr>
       <td>
-        WZRK\_FPU
+        WZRK_FPU
       </td>
 
       <td>
@@ -255,7 +255,7 @@ CleverTap sets first-party cookies and they are used to anonymously identify the
 
     <tr>
       <td>
-        WZRK\_K
+        WZRK_K
       </td>
 
       <td>
@@ -265,19 +265,19 @@ CleverTap sets first-party cookies and they are used to anonymously identify the
 
     <tr>
       <td>
-        WZRK\_X
+        WZRK_X
       </td>
 
       <td>
-        Stores the GUID of all the users who have loggedIn till date against their unique identifiers. It is\
-        used when we want to use the same GUID for the user who had previously loggedIn > logs in again.\
+        Stores the GUID of all the users who have loggedIn till date against their unique identifiers. It is  
+        used when we want to use the same GUID for the user who had previously loggedIn > logs in again.  
         Unique identifier could be an email.
       </td>
     </tr>
 
     <tr>
       <td>
-        WZRK\_META
+        WZRK_META
       </td>
 
       <td>
@@ -287,7 +287,7 @@ CleverTap sets first-party cookies and they are used to anonymously identify the
 
     <tr>
       <td>
-        WZRK\_PSD
+        WZRK_PSD
       </td>
 
       <td>
@@ -297,7 +297,7 @@ CleverTap sets first-party cookies and they are used to anonymously identify the
 
     <tr>
       <td>
-        WZRK\_L
+        WZRK_L
       </td>
 
       <td>
@@ -309,5 +309,5 @@ CleverTap sets first-party cookies and they are used to anonymously identify the
 
 ### FAQ
 
-1. Can this cookie data collection be blocked through configuration?\
+1. Can this cookie data collection be blocked through configuration?  
    No. The cookie can not be blocked without blocking all cookies of the customer's domain.
