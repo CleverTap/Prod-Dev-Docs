@@ -2636,7 +2636,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
 
 // template_type is mandatory
 ```
-```json Whatsapp
+```json WhatsApp
 {
     "name": "Standard Whatsapp campaign",
     "estimate_only": false,
@@ -4567,3 +4567,5 @@ The to parameter is an object that has the following child properties: FBID, Ema
     </tr>
   </tbody>
 </Table>
+
+<br />
