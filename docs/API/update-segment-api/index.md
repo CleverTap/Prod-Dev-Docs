@@ -58,9 +58,11 @@ The request body contains an array of `bulk_profiles`, where each entry consists
 
 Each `bulk_profiles` entry updates multiple user profiles and assigns them to specified segments using either a CleverTap segment ID (`ct_segment_id`) or a customer-defined segment ID (`customer_segment_id`).
 
-> 📘 Request Payload
->
-> If both `ct_segment_id` and `customer_segment_id` are provided in the request payload, they must match.  If they do not match, the segment update request will fail.
+<Callout icon="📘" theme="info">
+  **Request Payload**
+
+  If both `ct_segment_id` and `customer_segment_id` are provided in the request payload, they must match.  If they do not match, the segment update request will fail.
+</Callout>
 
 ### Sample Request
 
