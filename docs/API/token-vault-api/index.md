@@ -1,5 +1,5 @@
 ---
-title: Token Vault API
+title: Token Vault APIs
 excerpt: ''
 deprecated: false
 hidden: false
