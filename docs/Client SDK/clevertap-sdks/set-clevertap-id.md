@@ -30,9 +30,9 @@ The following validations apply when setting a custom CleverTap ID:
 
 * The device identifier should be a maximum of 64 characters and a minimum of 1 character.
 * Characters should be alphanumeric (a-z, 0-9) and case insensitive.
-* Allowed characters are (any character apart from the below mentioned will be treated as an invalid ID)    
+* Allowed characters are (any character apart from the below mentioned will be treated as an invalid ID)
   * A-Z
-  * a-z  
+  * a-z
   * 0-9
   * `( )` `!` `:` `@` `$` `_` `-`
 
@@ -100,11 +100,11 @@ For storing this ID in CleverTap, we will add prefix to the custom CleverTap ID 
       </td>
 
       <td>
-        * <br />
+        `-`
       </td>
 
       <td>
-        -
+        `-`
 
         h
       </td>
