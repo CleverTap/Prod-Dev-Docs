@@ -151,8 +151,8 @@ The table below outlines how CleverTap handles message delivery based on differe
       </td>
 
       <td>
-        <li>Sends an email to the email ID mentioned in the `recipient` field.</li>
-        <li>Used when the recipient profile does not exist on the dashboard. The message is still sent, but delivery or engagement metrics are not tracked for such profiles.</li>
+        <ul><li>Sends an email to the email ID mentioned in the `recipient` field.</li>
+        <li>Used when the recipient profile does not exist on the dashboard. The message is still sent, but delivery or engagement metrics are not tracked for such profiles.</li></ul>
       </td>
 
       <td>
