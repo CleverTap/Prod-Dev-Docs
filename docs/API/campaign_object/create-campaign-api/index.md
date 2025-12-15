@@ -18,11 +18,9 @@ For example, you can use this API to send a price drop alert as a [push notifica
 
 For more information on API request limit, refer to [API Request Limit](doc:api-request-limit).
 
-<Callout icon="📘" theme="info">
-  **Note**
-
-  Currently, AMP Email campaigns cannot be created using Create Campaign API.
-</Callout>
+> 📘 Note
+>
+> Currently, AMP Email campaigns cannot be created using Create Campaign API.
 
 # Create Campaign API - Target User Events & Properties
 
@@ -47,19 +45,15 @@ POST
 
 Refer [Headers](https://developer.clevertap.com/docs/common-api-components#headers) for more details.
 
-<Callout icon="📘" theme="info">
-  **Note**
-
-  CleverTap supports Liquid personalization for Push Campaigns sent via Create Campaign API. For more information refer [Liquid Personalization in Campaign APIs](https://docs.clevertap.com/docs/personalize-messages-push#liquid-personalization-in-campaign-apis).
-</Callout>
+> 📘 Note
+>
+> CleverTap supports Liquid personalization for Push Campaigns sent via Create Campaign API. For more information refer [Liquid Personalization in Campaign APIs](https://docs.clevertap.com/docs/personalize-messages-push#liquid-personalization-in-campaign-apis).
 
 ## Body Parameters - Target User Events & Properties
 
-<Callout icon="📘" theme="info">
-  **Mobile Push Notification Parameters**
-
-  The parameters in bold and marked with * provide additional functionality for creating a push campaign.
-</Callout>
+> 📘 Mobile Push Notification Parameters
+>
+> The parameters in bold and marked with * provide additional functionality for creating a push campaign.
 
 <Table align={["left","left","left","left","left"]}>
   <thead>
@@ -2636,7 +2630,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
 
 // template_type is mandatory
 ```
-```json WhatsApp
+```json Whatsapp
 {
     "name": "Standard Whatsapp campaign",
     "estimate_only": false,
@@ -2736,11 +2730,9 @@ Following is the JSON payload for the iOS Carousel Push template
 
 Following is the JSON payload for WhatsApp interactive message templates:
 
-<Callout icon="📘" theme="info">
-  **Note**
-
-  Currently, Create Campaign APIs for WhatsApp do not support Carousel templates, Limited Time Offer (LTO) templates, Custom key-value pairs,, and templates with copy code button.
-</Callout>
+> 📘 Note
+>
+> Currently, Create Campaign APIs for WhatsApp do not support Carousel templates, Limited Time Offer (LTO) templates, Custom key-value pairs,, and templates with copy code button.
 
 ```json Image Template
 {
@@ -3201,15 +3193,15 @@ The Generic Sample Campaign API includes configurations for without Key Values, 
 
       <td>
         `{
-                                                                  "event_name": "Charged",
-                                                                  "from": 20251001,
-                                                                  "to": 20251220,
-                                                                  "common_profile_properties": {
-                                                                    "profile_fields": {
-                                                                      "field_name": "value"
-                                                                    }
-                                                                  }
-                                                                }`
+                                                                                  "event_name": "Charged",
+                                                                                  "from": 20251001,
+                                                                                  "to": 20251220,
+                                                                                  "common_profile_properties": {
+                                                                                    "profile_fields": {
+                                                                                      "field_name": "value"
+                                                                                    }
+                                                                                  }
+                                                                                }`
       </td>
     </tr>
 
@@ -3636,11 +3628,9 @@ Following are some example base URLs from the account in the India region:
 **Push**  
 [https://in1.api.clevertap.com/1/send/push.json](https://in1.api.clevertap.com/1/send/push.json)
 
-<Callout icon="❗️" theme="error">
-  **Note**
-
-  The push.json API currently does not support Pull Notifications.
-</Callout>
+> ❗️ Note:
+>
+> The push.json API currently does not support Pull Notifications.
 
 **Web Push**  
 [https://in1.api.clevertap.com/1/send/webpush.json](https://in1.api.clevertap.com/1/send/webpush.json)
@@ -3648,11 +3638,9 @@ Following are some example base URLs from the account in the India region:
 **Email**  
 [https://in1.api.clevertap.com/1/send/email.json](https://in1.api.clevertap.com/1/send/email.json)
 
-<Callout icon="📘" theme="info">
-  **Region**
-
-  These are some example base URLs from the account in the India region. To know the API endpoint for your account, refer to [Region](https://developer.clevertap.com/docs/create-campaign-api#region).
-</Callout>
+> 📘 Region
+>
+> These are some example base URLs from the account in the India region. To know the API endpoint for your account, refer to [Region](https://developer.clevertap.com/docs/create-campaign-api#region).
 
 **WhatsApp**  
 [https://in1.api.clevertap.com/1/send/whatsapp.json](https://in1.api.clevertap.com/1/send/whatsapp.json)
@@ -4568,6 +4556,1061 @@ The to parameter is an object that has the following child properties: FBID, Ema
   </tbody>
 </Table>
 
-<br />
+Below are example payloads for web push, push, email, SMS, and WhatsApp.
+
+```json Web Push
+{
+    "to": {
+        "FBID": [
+            "102029292929388",
+            "114342342453463"
+        ],
+       
+        "Email": [
+            "john@doe.com",
+            "jane@doe.com"
+        ],
+        "Identity": [
+            "JohnDoe"
+        ],
+        "objectId": [
+            "_asdnkansdjknaskdjnasjkndja",
+            "-adffajjdfoaiaefiohnefwprjf"
+        ]
+    },
+    "tag_group": "my tag group",
+		"campaign_id": 1000000043,
+    "respect_frequency_caps": false,
+     "content": {
+        "title": "Hi!",
+        "body": "How are you doing today?",
+       "platform_specific": {
+            "safari": {
+                "deep_link": "https://www.google.com",
+                "ttl":10
+            },
+            "chrome": {
+              "image": "https://www.exampleImage.com",
+              "icon":"https://www.exampleIcon.com",
+              "deep_link": "http://www.example.com",
+              "ttl":10,
+              "require_interaction":true,
+              "cta_title1":"title",
+              "cta_link1":"http://www.example2.com",
+              "cta_iconlink1":"https://www.exampleIcon2.com"
+            },
+            "firefox": {
+            	"icon":"https://www.exampleIcon.com",
+                "deep_link": "https://www.google.com",
+                "ttl":10
+            }
+        }
+    }
+}
+```
+```json Push
+{
+    "to": {
+        "FBID": [
+            "102029292929388",
+            "114342342453463"
+        ],
+        "GPID": [
+            "1928288389299292"
+        ],
+        "Email": [
+            "john@doe.com",
+            "jane@doe.com"
+        ],
+        "Identity": [
+            "JohnDoe"
+        ],
+        "objectId": [
+            "_asdnkansdjknaskdjnasjkndja",
+            "-adffajjdfoaiaefiohnefwprjf"
+        ]
+    },
+    "tag_group": "my tag group",
+    "respect_frequency_caps": false,
+    "content": {
+        "title": "Welcome",
+        "body": "Hello world!",
+        "platform_specific": {
+            "ios": {
+                "deep_link": "example.com",
+                "sound_file": "example.caf",
+                "mutable-content": "true", 
+                "ct_mediaUrl": "https://i.ibb.co/pJ8D5Z7/woman-g40aa99db5-1920.jpg",
+                "category": "notification category",
+                "badge_count": 1,
+                "key": "value_ios"
+            },
+            "android": {
+                "background_image": "http://example.jpg",
+                "default_sound": true,
+                "deep_link": "example.com",
+                "large_icon": "http://example.png",
+                "key": "value_android"
+            }
+        }
+    }
+}
+```
+```json Email
+{
+    "to": {
+        "FBID": [
+            "102029292929388",
+            "114342342453463"
+        ],
+        "GPID": [
+            "1928288389299292"
+        ],
+        "Email": [
+            "john@doe.com",
+            "jane@doe.com"
+        ],
+        "Identity": [
+            "JohnDoe"
+        ],
+        "objectId": [
+            "_asdnkansdjknaskdjnasjkndja",
+            "-adffajjdfoaiaefiohnefwprjf"
+        ]
+    },
+    "tag_group": "my tag group",
+    "respect_frequency_caps": false,
+    "send_email_to_opted_out_users":true,
+    "content": {
+        "subject": "Welcome",
+        "body": "<div>Your HTML content for the email</div>",
+        "sender_name": "CleverTap"
+    }
+}
+```
+```json SMS
+{
+    "to": {
+        "FBID": [
+            "102029292929388",
+            "114342342453463"
+        ],
+        "GPID": [
+            "1928288389299292"
+        ],
+        "Email": [
+            "john@doe.com",
+            "jane@doe.com"
+        ],
+        "Identity": [
+            "JohnDoe"
+        ],
+        "objectId": [
+            "_asdnkansdjknaskdjnasjkndja",
+            "-adffajjdfoaiaefiohnefwprjf"
+        ]
+    },
+    "tag_group": "my tag group",
+    "respect_frequency_caps": false,
+     "content": {
+        "body": "Sms body"
+    }
+}
+```
+````json WhatsApp
+{
+  "to": {
+    "Identity": [
+      "johndoe@mail.com"
+    ]
+  },
+  "tag_group": "Tag Group 1",
+  "provider_nick_name": "Provider_1",
+  "respect_frequency_caps": false,
+  "message_id": "4536tsytr",
+  "respect_communication_preference": true,
+  "content": {
+    "message_type": "template",
+    "template": {
+      "template_name": "video_Template_1",
+      "header": {
+        "type": "video",
+        "media": {
+          "url": "https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.mp4"
+        }
+      },
+      "body": {
+        "type": "text",
+        "replacements": [
+          "var1",
+          "Var2"
+        ]
+      },
+      //dynamic redirection CTA
+      "buttons": [
+        {
+          "replacements": [
+            "CTA_var"
+          ]
+        }
+      ],
+      "language": "en"
+    }
+  }
+}
+
+Following is the JSON payload for WhatsApp interactive message templates:
+
+> 📘 Note:
+> 
+> Currently, Create Campaign APIs for WhatsApp do not support Carousel templates, Limited Time Offer (LTO) templates, Custom key-value pairs, and templates with copy code button.
+
+```json Image Template
+{
+  "to": {
+    "Identity": [
+      "johndoe@mail.com"
+    ]
+  },
+  "tag_group": "Tag Group 1",
+  "provider_nick_name": "Provider_1",
+  "respect_frequency_caps": false,
+  "message_id": "4536tsytr",
+  "respect_communication_preference": true,
+  "content": {
+    "message_type": "template",
+    "template": {
+      "template_name": "Image_Template_1",
+      "header": {
+        "type": "image",
+        "media": {
+          "url": "https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg"
+        }
+      },
+      "body": {
+        "type": "text",
+        "replacements": [
+          "var1",
+          "Var2"
+        ]
+      },
+      "language": "en"
+    }
+  }
+}
+
+````
+```json Video Template
+{
+    "to": {
+        "Identity": [
+            "johndoe@mail.com"
+        ]
+    },
+     "tag_group": "Tag Group 1",
+    "provider_nick_name": "Provider_1",
+    "respect_frequency_caps":false,
+    "message_id": "4536tsytr",
+    "respect_communication_preference":true,
+    "content": {
+        "message_type": "template",
+        "template": {
+            "template_name": "video_Template_1",
+            "language": "en",
+              "header": {
+                "type": "video",
+                "media": {
+                    "url": "https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.mp4"
+                }
+            },
+            "body": {
+                "type": "text",
+                "replacements": ["var1","Var2"]
+            }
+          
+           
+        }
+    }
+}
+
+
+```
+```json Document Template
+{
+    "to": {
+        "Identity": [
+            "johndoe@mail.com"
+        ]
+    },
+     "tag_group": "Tag Group 1",
+    "provider_nick_name": "Provider_1",
+    "respect_frequency_caps":false,
+    "message_id": "4536tsytr",
+    "respect_communication_preference":true,
+    "content": {
+        "message_type": "template",
+        "template": {
+            "template_name": "document_Template_1",
+            "language": "en",
+              "header": {
+                "type": "document",
+                "media": {
+                    "url": "http://www.ecommercecompany/allproducts/pdf/productcatalog.pdf"
+                }
+            },
+            "body": {
+                "type": "text",
+                "replacements": ["var1","Var2"]
+            }
+          
+           
+        }
+    }
+}
+
+
+```
+```json Text Header with Quick Reply Button and Custom Button Payload
+{
+  "to": {
+    "Identity": [
+      "john@clevertap.com"
+    ]
+  },
+  "tag_group": "Tag1",
+  "provider_nick_name": "WhatsApp Provider",
+  "message_id": "4764387",
+  "respect_frequency_caps": false,
+  "content": {
+    "message_type": "template",
+    "template": {
+      "template_name": "shipping_order",
+      "header": {
+        "type": "text",
+        "replacements": [
+          "header var 1",
+          "header var 2"
+        ]
+      },
+      "body": {
+        "type": "text",
+        "replacements": [
+          "1"
+        ]
+      },
+                   // No need to mention footers info in API payload
+            // Requirements are required only if you want to send custom payloads in the quick reply button. ds
+      "buttons": [
+        {
+          "replacements": [
+            "jack"
+          ]
+        }
+      ],
+      "language": "en_US"
+    }
+  }
+}
+```
+```json Location
+{
+    "to": {
+        "Identity": [
+            "johndoe@mail.com"
+        ]
+    },
+     "tag_group": "Tag Group 1",
+    "provider_nick_name": "Provider_1",
+    "respect_frequency_caps":false,
+    "message_id": "4536tsytr",
+    "respect_communication_preference":true,
+    "content": {
+        "message_type": "template",
+        "template": {
+            "template_name": "location_Template_1",
+            "language": "en",
+              "header": {
+                "type": "location",
+                "media": {
+                    "longitude": 80.82947469999999,
+                    "latitude": 16.0174248,
+                    "name": "johnhouse",
+                    "address": "johnhouse, New York, 522265, India",
+                    "url": "https://maps.google.com/?q=Repalle,+New+York+522265,+America&ftid=0x3a49f59a2391c549:0xfe237504b0eca607"
+                }
+            },
+            "body": {
+                "type": "text",
+                "replacements": ["var1","Var2"]
+            }
+          
+           
+        }
+    }
+}
+
+```
+```json Media Template With Dynamic CTA buttons
+{
+  "to": {
+    "Identity": [
+      "johndoe@mail.com"
+    ]
+  },
+  "tag_group": "Tag Group 1",
+  "provider_nick_name": "Provider_1",
+  "respect_frequency_caps": false,
+  "message_id": "4536tsytr",
+  "respect_communication_preference": true,
+  "content": {
+    "message_type": "template",
+    "language": "en",
+    "template": {
+      "template_name": "Image_Template_1",
+      "header": {
+        "type": "image",
+        "media": {
+          "url": "https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg"
+        }
+      },
+      "body": {
+        "type": "text",
+        "replacements": [
+          "var1",
+          "Var2"
+        ]
+      },
+          //example CTA URL: www.example.com/{{1}}
+      "buttons": [
+        {
+          "replacements": [
+            "CTA"
+          ]
+        }
+      ]
+    }
+  }
+}
+```
+```json Media Templates With Custom Payloads
+{
+  "to": {
+    "Identity": [
+      "johndoe@mail.com"
+    ]
+  },
+  "tag_group": "Tag Group 1",
+  "provider_nick_name": "Provider_1",
+  "respect_frequency_caps": false,
+  "message_id": "4536tsytr",
+  "respect_communication_preference": true,
+  "content": {
+    "message_type": "template",
+    "language": "en",
+    "template": {
+      "template_name": "Image_Template_1",
+      "header": {
+        "type": "image",
+        "media": {
+          "url": "https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg"
+        }
+      },
+      "body": {
+        "type": "text",
+        "replacements": [
+          "var1",
+          "Var2"
+        ]
+      },
+      "buttons": [
+        {
+          "replacements": [
+            "mvi qr payload 5"
+          ]
+        },
+        {
+          "replacements": [
+            "mvi qr payload 7"
+          ]
+        }
+      ]
+    }
+  }
+}
+```
+```json Freeform Simple Text Message
+{
+  "to": {
+    "Identity": [
+      "johndoe@mail.com"
+    ]
+  },
+  "tag_group": "whatsapp initial tag group",
+  "provider_nick_name": "provider_1",
+  "respect_frequency_caps": false,
+  "message_id": "4536tsytr",
+  "respect_communication_preference": true,
+  "content": {
+    "message_type": "freeform",
+    "freeform": {
+      "body": {
+        "type": "text",
+        "text": "Hi, How can we help you"
+      }
+    }
+  }
+}
+```
+```json Freeform Image Message
+{
+  "to": {
+    "Identity": [
+      "johndoe@mail.com"
+    ]
+  },
+  "tag_group": "whatsapp initial tag group",
+  "provider_nick_name": "provider_1",
+  "respect_frequency_caps": false,
+  "message_id": "4536tsytr",
+  "respect_communication_preference": true,
+  "content": {
+    "message_type": "freeform",
+    "freeform": {
+      "body": {
+        "type": "image",
+        "media": {
+          "url": "https://d2h5ndkimzo5f0.cloudfront.net/dist/1655455488/i/d024319ee2bf46cdbafbbe0d02afdb00.jpeg?v=1686580980",
+          "caption": "example caption"
+        }
+      }
+    }
+  }
+}
+```
+```json Freeform Video Message
+{
+    "to": {
+        "Identity": [
+           "johndoe@mail.com"
+        ]
+    },
+    "tag_group": "whatsapp initial tag group",
+    "provider_nick_name": "provider_1",
+    "respect_frequency_caps": false,
+    "message_id": "4536tsytr",
+    "respect_communication_preference":true,
+    "content": {
+        "message_type": "freeform",
+        "freeform": {
+            "body": {
+                "type": "video",
+                "media": {
+                    "url": "https://d2h5ndkimzo5f0.cloudfront.net/dist/1655455488/i/d024319ee2bf46cdbafbbe0d02afdb00.mp4?v=1686580980",
+                    "caption": "example caption"
+                }
+            }
+        }
+    }
+}
+
+```
+```json Freeform Audio Message
+{
+    "to": {
+        "Identity": [
+           "johndoe@mail.com"
+        ]
+    },
+    "tag_group": "whatsapp initial tag group",
+    "provider_nick_name": "provider_1",
+    "respect_frequency_caps": false,
+    "message_id": "4536tsytr",
+    "respect_communication_preference":true,
+    "content": {
+        "message_type": "freeform",
+        "freeform": {
+            "body": {
+                "type": "audio",
+                "media": {
+                    "url": "https://d2h5ndkimzo5f0.cloudfront.net/dist/1655455488/i/d024319ee2bf46cdbafbbe0d02afdb00.mp3?v=1686580980",
+                }
+            }
+        }
+    }
+}
+
+```
+```json Freeform Document Message
+{
+    "to": {
+        "Identity": [
+           "johndoe@mail.com"
+        ]
+    },
+    "tag_group": "whatsapp initial tag group",
+    "provider_nick_name": "provider_1",
+    "respect_frequency_caps": false,
+    "message_id": "4536tsytr",
+    "respect_communication_preference":true,
+    "content": {
+        "message_type": "freeform",
+        "freeform": {
+            "body": {
+                "type": "document",
+                "media": {
+                    "url": "https://d2h5ndkimzo5f0.cloudfront.net/dist/1655455488/i/31f19b65c9df40a2acc72034e5231922.pdf?v=1686589587",
+                    "filename": "example.pdf"
+                }
+            }
+        }
+    }
+}
+
+```
+```json Location Template
+{
+    "to": {
+        "Identity": [
+           "johndoe@mail.com"
+        ]
+    },
+    "tag_group": "whatsapp initial tag group",
+    "provider_nick_name": "provider_1",
+    "respect_frequency_caps": false,
+    "message_id": "4536tsytr",
+    "respect_communication_preference":true,
+    "content": {
+        "message_id": "1234589",
+        "message_type": "freeform",
+        "freeform": {
+            "body": {
+                "type": "location",
+                "media": {
+                    "longitude": 80.82947469999999,
+                    "latitude": 16.0174248,
+                    "name": "johnhouse",
+                    "address": "Johnhouse, New York, 522265, India",
+                    "url": "https://maps.google.com/?q=Repalle,+New+York+522265,+America&ftid=0x3a49f59a2391c549:0xfe237504b0eca607"
+                }
+            }
+        }
+    }
+}
+```
+
+## Example Request - Target Users by their Identities
+
+Here is an example cURL request to the _Create Campaign_ API showing the headers needed to authenticate the request from the account in the India region:
+
+```curl
+curl -X POST -d '{"to":{"FBID":["102029292929388","114342342453463"],"Email":["john@doe.com","jane@doe.com"],"Identity":["JohnDoe"],"objectId":["_asdnkansdjknaskdjnasjkndja","-adffajjdfoaiaefiohnefwprjf"]},"campaign_id":1000000043,"tag_group":"mytaggroup","respect_frequency_caps":false,"content":{"body":"Smsbody"}}' \
+"https://in1.api.clevertap.com/1/send/sms.json" \
+-H "X-CleverTap-Account-Id: ACCOUNT_ID" \
+-H "X-CleverTap-Passcode: PASSCODE" \
+-H "Content-Type: application/json"
+```
+```ruby
+require 'net/http'
+require 'uri'
+require 'json'
+
+uri = URI.parse("https://in1.api.clevertap.com/1/send/sms.json")
+request = Net::HTTP::Post.new(uri)
+request.content_type = "application/json"
+request["X-CleverTap-Account-Id"] = "ACCOUNT_ID"
+request["X-CleverTap-Passcode"] = "PASSCODE"
+request.body = JSON.dump({
+  "to" => {
+    "FBID" => [
+      "102029292929388",
+      "114342342453463"
+    ],
+   
+    "Email" => [
+      "john@doe.com",
+      "jane@doe.com"
+    ],
+    "Identity" => [
+      "JohnDoe"
+    ],
+    "objectId" => [
+      "_asdnkansdjknaskdjnasjkndja",
+      "-adffajjdfoaiaefiohnefwprjf"
+    ]
+  },
+  "tag_group" => "mytaggroup",
+  "respect_frequency_caps" => false,
+  "content" => {
+    "body" => "Smsbody"
+  }
+})
+
+req_options = {
+  use_ssl: uri.scheme == "https",
+}
+
+response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
+  http.request(request)
+end
+```
+```python
+import requests
+
+headers = {
+    'X-CleverTap-Account-Id': 'ACCOUNT_ID',
+    'X-CleverTap-Passcode': 'PASSCODE',
+    'Content-Type': 'application/json',
+}
+
+data = '{"to":{"FBID":["102029292929388","114342342453463"],"Email":["john@doe.com","jane@doe.com"],"Identity":["JohnDoe"],"objectId":["_asdnkansdjknaskdjnasjkndja","-adffajjdfoaiaefiohnefwprjf"]},"tag_group":"mytaggroup","respect_frequency_caps":false,"content":{"body":"Smsbody"}}'
+
+response = requests.post('https://in1.api.clevertap.com/1/send/sms.json', headers=headers, data=data)
+```
+```php
+<?php
+include('vendor/rmccue/requests/library/Requests.php');
+Requests::register_autoloader();
+$headers = array(
+    'X-CleverTap-Account-Id' => 'ACCOUNT_ID',
+    'X-CleverTap-Passcode' => 'PASSCODE',
+    'Content-Type' => 'application/json'
+);
+$data = '{"to":{"FBID":["102029292929388","114342342453463"],"Email":["john@doe.com","jane@doe.com"],"Identity":["JohnDoe"],"objectId":["_asdnkansdjknaskdjnasjkndja","-adffajjdfoaiaefiohnefwprjf"]},"tag_group":"mytaggroup","respect_frequency_caps":false,"content":{"body":"Smsbody"}}';
+$response = Requests::post('https://in1.api.clevertap.com/1/send/sms.json', $headers, $data);
+```
+```javascript Node.js
+var request = require('request');
+
+var headers = {
+    'X-CleverTap-Account-Id': 'ACCOUNT_ID',
+    'X-CleverTap-Passcode': 'PASSCODE',
+    'Content-Type': 'application/json'
+};
+
+var dataString = '{"to":{"FBID":["102029292929388","114342342453463"],"GPID":["1928288389299292"],"Email":["john@doe.com","jane@doe.com"],"Identity":["JohnDoe"],"objectId":["_asdnkansdjknaskdjnasjkndja","-adffajjdfoaiaefiohnefwprjf"]},"tag_group":"mytaggroup","respect_frequency_caps":false,"content":{"body":"Smsbody"}}';
+
+var options = {
+    url: 'https://in1.api.clevertap.com/1/send/sms.json',
+    method: 'POST',
+    headers: headers,
+    body: dataString
+};
+
+function callback(error, response, body) {
+    if (!error && response.statusCode == 200) {
+        console.log(body);
+    }
+}
+
+request(options, callback);
+```
+
+## Example Response - Target Users by their Identities
+
+```json
+{
+    "status": "success",
+    "message": "Added to queue for processing"
+}
+```
+
+A successful response implies payload validity and addition to the processing queue. Message delivery is handled by the provider (push or email) and depends on if you provided a valid recipient id.
+
+## Errors
+
+If there are errors, you will receive a response in the format below.
+
+```json
+{
+    "status": "fail",
+    "error": "<error message here>",
+    "code": <error code here>
+}
+```
+
+Following are the possible error codes:
+
+<Table>
+  <thead>
+    <tr>
+      <th>
+        Error Code
+      </th>
+
+      <th>
+        Error Message
+      </th>
+
+      <th>
+        Troubleshooting Steps
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        21
+      </td>
+
+      <td>
+        `"to" is a mandatory field"`
+      </td>
+
+      <td>
+        Check if the _to_ field in the payload is missing recipient records.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        73
+      </td>
+
+      <td>
+        respect_frequency_caps
+      </td>
+
+      <td>
+        The value must be Boolean.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        76
+      </td>
+
+      <td>
+        `"tag_group" has to be string`
+      </td>
+
+      <td>
+        Check if the value for tag group is _string_.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        76
+      </td>
+
+      <td>
+        `"message_type" has to be string`
+      </td>
+
+      <td>
+        Check if the value for the Message Type is string.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        78
+      </td>
+
+      <td>
+        Invalid payload pls update and try again
+      </td>
+
+      <td>
+        Invalid JSON payload. Verify the payload.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        84
+      </td>
+
+      <td>
+        `"Invalid recipients"`
+      </td>
+
+      <td>
+        Recipient information mentioned in the payload does not exist in the CleverTap dashboard.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        89
+      </td>
+
+      <td>
+        Unexpected error, please try again
+      </td>
+
+      <td>
+        The message failed to send due to an unknown error.<br /><br />Try again. If the error persists, open a support ticket from the dashboard.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        89
+      </td>
+
+      <td>
+        The WhatsApp provider you've selected is not supported with your current WhatsApp add-on. To use this provider, please enable the WhatsApp Connect add-on
+      </td>
+
+      <td>
+        1. Check that you are not using external providers in the Send Message API.<br />2. Check your organization settings to determine if the WhatsApp Connect Add-on is enabled for your project. If the error persists even if the add-on is enabled, please contact our support.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        89
+      </td>
+
+      <td>
+        The WhatsApp provider you've selected is not supported with your current WhatsApp add-on. To use this provider, please enable the WhatsApp Direct add-on
+      </td>
+
+      <td>
+        1. Check that you are not using CleverTap BSP in the Send Message API.<br />2. Check your organization settings to determine if the WhatsApp Direct Add-on is enabled for your project. If the error persists even if the add-on is enabled, please contact our support.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        89
+      </td>
+
+      <td>
+        `"provider_nick_name" can't be empty`
+      </td>
+
+      <td>
+        The provider nick name is mandatory for WhatsApp campaigns. Check if the provider_nick_name is missing or empty.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        89
+      </td>
+
+      <td>
+        The provider_nick_name used in request does not exist in your account.
+      </td>
+
+      <td>
+        Check if the provider used in the message payload exists in the CleverTap dashboard. To check, navigate to Settings > Channel > WhatsApp.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        89
+      </td>
+
+      <td>
+        `"message_id" length can't be greater than 8`
+      </td>
+
+      <td>
+        Check if the length of the message ID is greater than 8 characters.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        89
+      </td>
+
+      <td>
+        `"message_id" can't be empty`
+      </td>
+
+      <td>
+        Check if the value for the Message ID is missing.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        89
+      </td>
+
+      <td>
+        Received invalid message type
+      </td>
+
+      <td>
+        The only accepted values are `"template"` or `"freeform"`.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        89
+      </td>
+
+      <td>
+        Template not found for the specified provider
+      </td>
+
+      <td>
+        Check if the template used in the payload exists for the specified provider. Navigate to Settings > Channel > WhatsApp > [provider name] to check the template. To fix this, either use a provider that has the specified template or use the template that is available for the provider mentioned in the payload.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        89
+      </td>
+
+      <td>
+        Template name is mandatory
+      </td>
+
+      <td>
+        Check if the template name is missing or empty.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        89
+      </td>
+
+      <td>
+        Invalid number of body/header/button replacements specified, the body/header/button has [n] replacement(s).
+      </td>
+
+      <td>
+        The number of variables and values in the payload must match for body, header, or button.
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 <br />
+
+## View Campaigns Created Through APIs
+
+To view campaigns created through APIs:
+
+1. Navigate to the _Campaigns_ section from the CleverTap dashboard. The list of campaigns displays.
+2. Click the Filter icon, then under _Created by_, select the `serverapi<channel name>` option.
+3. Click **Apply**. All the related campaigns are displayed.
+4. Click any of the campaigns to view details and stats.
+
+<Image
+  src="https://files.readme.io/ee5427a-small-Filter_campaigns_by_API.png"
+  alt="Filter API Campaigns"
+  title="Filter API Campaigns"
+  align="center"
+  border={true}
+/>
+
+# Unsubscribe Link for Emails
+
+If you’re using Amazon SES or your own SMTP gateway, you can follow the steps [listed on this page](https://docs.clevertap.com/docs/handling-unsubscribes) to enable your users to unsubscribe from your email notifications.
+
+# FAQs
+
+To understand the common queries and concerns related to CleverTap APIs, refer to [API FAQs](doc:api-faqs).
