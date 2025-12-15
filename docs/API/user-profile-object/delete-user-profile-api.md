@@ -14,15 +14,17 @@ next:
 
 This endpoint enables you to delete a user profile.
 
-> 📘 GUIDs Limit
->
-> You can pass a maximum of 100 IDs or globally unique identifiers (GUIDs) per request.
+<Callout icon="📘" theme="info">
+  **GUIDs Limit**
+
+  You can pass a maximum of 100 IDs or globally unique identifiers (GUIDs) per request.
+</Callout>
 
 For more information on request limit, refer to [API Request Limit](doc:api-request-limit).
 
 ## Base URL
 
-Here is an example base URL from the account in the India region:\
+Here is an example base URL from the account in the India region:  
 [https://in1.api.clevertap.com/1/delete/profiles.json](https://in1.api.clevertap.com/1/delete/profiles.json)
 
 ### Region
@@ -39,16 +41,18 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
 
 ## Body Parameters
 
-The body is uploaded as a JSON payload. 
+The body is uploaded as a JSON payload.
 
-| Parameter | Description                          | Required | Type         | Example Value               |
-| :-------- | :----------------------------------- | :------- | :----------- | :-------------------------- |
-| identity  | Custom user identity defined by you. | optional | string/array | \["client-19827239", "abc"] |
-| guid      | CleverTap ID.                        | optional | string/array | \["ctid123", "ctid456"]     |
+| Parameter | Description                          | Required | Type         | Example Value              |
+| :-------- | :----------------------------------- | :------- | :----------- | :------------------------- |
+| identity  | Custom user identity defined by you. | optional | string/array | ["client-19827239", "abc"] |
+| guid      | CleverTap ID.                        | optional | string/array | ["ctid123", "ctid456"]     |
 
-> 📘 Note
->
-> For a successful API request, make sure one of the optional parameters, either `identity` or `guid` is present in the body parameter.
+<Callout icon="📘" theme="info">
+  **Note**
+
+  For a successful API request, make sure one of the optional parameters, either `identity` or `guid` is present in the body parameter.
+</Callout>
 
 Below is an example payload.
 
@@ -72,7 +76,7 @@ OR
 
 ## Example Request
 
-Here is an example cURL request to the *Delete User Profile* API showing the headers needed to authenticate the request from the account in the India region:
+Here is an example cURL request to the _Delete User Profile_ API showing the headers needed to authenticate the request from the account in the India region:
 
 ```curl
 curl -X POST -d '{"guid":"df2e224d90874887b4d61153ef3a2508"}' "https://in1.api.clevertap.com/1/delete/profiles.json" \
@@ -194,6 +198,8 @@ defer resp.Body.Close()
 
 To understand the common queries and concerns related to CleverTap APIs, refer to [API FAQs](doc:api-faqs).
 
-> ❗️ Data Processing Rule
->
-> Once a request is accepted, CleverTap processes the data during non-business hours. Processing this request leads to the permanent deletion of profiles along with their event data that can not be recovered. For more information, refer to [Restoring the Delete Data](doc:api-faqs#q-can-i-restore-the-profile-and-its-event-data-after-deleting-it).
+<Callout icon="❗️" theme="error">
+  **Data Processing Rule**
+
+  Once a request is accepted, CleverTap processes the data during non-business hours. Processing this request leads to the permanent deletion of profiles along with their event data that can not be recovered. For more information, refer to [Restoring the Delete Data](doc:api-faqs#q-can-i-restore-the-profile-and-its-event-data-after-deleting-it).
+</Callout>
