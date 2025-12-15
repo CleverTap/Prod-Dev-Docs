@@ -16,27 +16,33 @@ next:
 ---
 # Overview
 
-The Subscribe API provides the ability to set a phone number or email status as subscribed or unsubscribed. This is important so that you do not send a message to your users accidentally unless they have explicitly opted for it. There may be cases when multiple users share a phone number or email; however, once a phone number or email is marked as unsubscribed (DND), communication is stopped for all users using the specified number or email. 
+The Subscribe API provides the ability to set a phone number or email status as subscribed or unsubscribed. This is important so that you do not send a message to your users accidentally unless they have explicitly opted for it. There may be cases when multiple users share a phone number or email; however, once a phone number or email is marked as unsubscribed (DND), communication is stopped for all users using the specified number or email.
 
 For example, a user opts out of receiving messages. You can pass the phone number or email address and the status as `Unsubscribe` in the Subscribe API.  The user phone number or email is unsubscribed for all users who share the same phone number or email. After the user opts to receive messages again, the phone number or email can be changed back to `Resubscribe`.
 
-> 📘 Note
->
-> To set only a specific user state as DND, set the MSG-sms flag for SMS or MSG-email flag for an email to false in the  [Upload User Profiles](https://developer.clevertap.com/docs/upload-user-profiles-api).  If the other users sharing the number or email have not opted out, they will continue to receive messages.
+<Callout icon="📘" theme="info">
+  **Note**
 
-> 📘 Note
->
-> From January 13, 2020 onwards, Channel Unsubscribed Event also triggers the Subscribe API.
+  To set only a specific user state as DND, set the MSG-sms flag for SMS or MSG-email flag for an email to false in the  [Upload User Profiles](https://developer.clevertap.com/docs/upload-user-profiles-api).  If the other users sharing the number or email have not opted out, they will continue to receive messages.
+</Callout>
+
+<Callout icon="📘" theme="info">
+  **Note**
+
+  From January 13, 2020 onwards, Channel Unsubscribed Event also triggers the Subscribe API.
+</Callout>
 
 Passing subscription status for phone numbers or email requires a POST request with a JSON payload specifying the phone number or email and subscription status. There is no limit on the number of requests to the API, but the batch size for each request must be up to 1000.
 
-> 📘 Note
->
-> The batch size denotes the maximum number of records that can be fetched in a single call. The response may vary.
+<Callout icon="📘" theme="info">
+  **Note**
+
+  The batch size denotes the maximum number of records that can be fetched in a single call. The response may vary.
+</Callout>
 
 ## Base URL
 
-Here is an example base URL from the account in the India region:\
+Here is an example base URL from the account in the India region:  
 [https://in1.api.clevertap.com/1/subscribe](https://in1.api.clevertap.com/1/subscribe)
 
 ### Region
@@ -55,7 +61,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
 
 * Add the type as email or phone number
 * Add the value of the email or phone number
-* Set the status to `Unsubscribe` or `Resubscribe`. 
+* Set the status to `Unsubscribe` or `Resubscribe`.
 
 <Table align={["left","left","left","left"]}>
   <thead>
@@ -93,8 +99,8 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        “phone”\
-        "email"\
+        “phone”  
+        "email"  
         "WhatsApp"
       </td>
     </tr>
@@ -113,7 +119,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        "+919213231415"\
+        "+919213231415"  
         "[johndoe@abc.com](mailto:johndoe@abc.com)"
       </td>
     </tr>
@@ -179,7 +185,7 @@ The following is an example JSON payload for iOS/Android.
 
 ## Example Request
 
-Here is an example cURL request to the *Subscribe* API showing the headers needed to authenticate the request from the account in the India region:
+Here is an example cURL request to the _Subscribe_ API showing the headers needed to authenticate the request from the account in the India region:
 
 ```curl
 curl --location --request POST 'https://in1.api.clevertap.com/1/subscribe'
@@ -314,7 +320,7 @@ To test if your data will be submitted without errors, you can add the parameter
 
 ## SMS Delivery
 
-The message delivery is decided by the phone-level and user-level subscription status. If a phone number has opted out but not the associated user profile, then the SMS is not delivered.  
+The message delivery is decided by the phone-level and user-level subscription status. If a phone number has opted out but not the associated user profile, then the SMS is not delivered.
 
 | Phone-level subscription (MSG-dndPhone) | User-level SMS subscription (MSG-sms) | Reachability |
 | :-------------------------------------- | :------------------------------------ | :----------- |
@@ -325,7 +331,7 @@ The message delivery is decided by the phone-level and user-level subscription s
 
 ## WhatsApp Delivery
 
-The message delivery is decided by the phone-level and user-level subscription status. If a WhatsApp number has opted out but not the associated user profile, then the WhatsApp message is not delivered.  
+The message delivery is decided by the phone-level and user-level subscription status. If a WhatsApp number has opted out but not the associated user profile, then the WhatsApp message is not delivered.
 
 | Phone-level subscription (MSG-dndWhatsapp) | User-level SMS subscription (MSG-Whatsapp) | Reachability |
 | :----------------------------------------- | :----------------------------------------- | :----------- |
@@ -336,7 +342,7 @@ The message delivery is decided by the phone-level and user-level subscription s
 
 ## Email Delivery
 
-The message delivery is decided by the email-level and user-level subscription status. If an email address has opted out but not the associated user profile, then the message is not delivered.  
+The message delivery is decided by the email-level and user-level subscription status. If an email address has opted out but not the associated user profile, then the message is not delivered.
 
 [Handling subscriptions](https://docs.clevertap.com/docs/handling-unsubscribes) will automatically trigger the [subscribe](https://developer.clevertap.com/docs/subscribe-api) and [disassociate](https://developer.clevertap.com/docs/disassociate-api) APIs leading to Email-level subscriptions instead of User-level subscriptions.
 
