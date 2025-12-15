@@ -70,7 +70,7 @@ These headers are all required. The X-CleverTap-Account-Id and X-CleverTap-Passc
       </td>
 
       <td>
-        "X-CleverTap-Account-Id: ACCOUNT\_ID"
+        "X-CleverTap-Account-Id: ACCOUNT_ID"
       </td>
     </tr>
 
@@ -115,7 +115,7 @@ These headers are all required. The X-CleverTap-Account-Id and X-CleverTap-Passc
 ## Body Parameters - Target User Events & Properties
 
 
-The body is uploaded as a JSON payload. name, when, title, body, subject, sender\_name, target\_mode, and where are required parameters. The where parameter is an object that has optional child properties including event\_name, from, to, and profile\_fields.
+The body is uploaded as a JSON payload. name, when, title, body, subject, sender_name, target_mode, and where are required parameters. The where parameter is an object that has optional child properties including event_name, from, to, and profile_fields.
 
 
 <Table align={["left","left","left","left","left"]}>
@@ -206,11 +206,13 @@ The body is uploaded as a JSON payload. name, when, title, body, subject, sender
       </td>
 
       <td>
-        "content": \{\
-                "subject": "Welcome",\
-                "body": "<div>Your HTML content for the email</div>",\
-                "sender\_name": "CleverTap"\
-            }
+        <pre>&lbrace;
+  "content": &lbrace;
+    "subject": "Welcome",
+    "body": "&lt;div&gt;Your HTML content for the email&lt;/div&gt;",
+    "sender_name": "CleverTap"
+  &rbrace;
+&rbrace;</pre>
       </td>
     </tr>
 
@@ -282,7 +284,7 @@ The body is uploaded as a JSON payload. name, when, title, body, subject, sender
 
     <tr>
       <td>
-        content.*sender\_name* 
+        content.*sender_name* 
       </td>
 
       <td>
@@ -304,7 +306,7 @@ The body is uploaded as a JSON payload. name, when, title, body, subject, sender
 
     <tr>
       <td>
-        content.template\_name
+        content.template_name
       </td>
 
       <td>
@@ -320,7 +322,7 @@ The body is uploaded as a JSON payload. name, when, title, body, subject, sender
       </td>
 
       <td>
-        "662da022\_5583\_406d\_9c71\_428d5e3164bb:ticket\_update"
+        "662da022_5583_406d_9c71_428d5e3164bb:ticket_update"
       </td>
     </tr>
 
@@ -342,11 +344,13 @@ The body is uploaded as a JSON payload. name, when, title, body, subject, sender
       </td>
 
       <td>
-        "replacements" : \{\
-                   "1" : &lt;value&gt;,\
-                   "2" : &lt;value&gt;,\
-                   "3" : &lt;value&gt;\
-        }
+        <pre>&lbrace;
+  "replacements": &lbrace;
+    "1": &lt;value&gt;,
+    "2": &lt;value&gt;,
+    "3": &lt;value&gt;
+  &rbrace;
+&rbrace;</pre>
       </td>
     </tr>
 
@@ -368,28 +372,31 @@ The body is uploaded as a JSON payload. name, when, title, body, subject, sender
       </td>
 
       <td>
-        "attachments": \{\
-                   "type": "Document",\
-                    "value": "[http://www.refworld.org/pdfid/4d3025492.pdf"](http://www.refworld.org/pdfid/4d3025492.pdf")\
-                }"
-
-        "attachments": \{\
-                    "type": "Location",\
-                    "value":\{\
-                        "latitude": "19.8876",\
-                        "longitude": "86.0945"\
-                    }\
-                }
+        <pre>&lbrace;
+  "attachments": &lbrace;
+    "type": "Document",
+    "value": "http://www.refworld.org/pdfid/4d3025492.pdf"
+  &rbrace;
+&rbrace;
+&lbrace;
+  "attachments": &lbrace;
+    "type": "Location",
+    "value": &lbrace;
+      "latitude": "19.8876",
+      "longitude": "86.0945"
+    &rbrace;
+  &rbrace;
+&rbrace;</pre>
       </td>
     </tr>
 
     <tr>
       <td>
-        provider\_nick\_name
+        provider_nick_name
       </td>
 
       <td>
-        Allows you to specify which vendor/provider to use for your campaign. For each target\_mode, you can have multiple providers integrated with CleverTap, and this parameter lets you select which provider to use for the campaign. For example, let's say you select target\_mode = email and you have integrated both SendGrid and Amazon SNS with CleverTap to send emails. In this scenario, you can set provider\_nick\_name = SendGrid to send the campaign through SendGrid.
+        Allows you to specify which vendor/provider to use for your campaign. For each target_mode, you can have multiple providers integrated with CleverTap, and this parameter lets you select which provider to use for the campaign. For example, let's say you select target_mode = email and you have integrated both SendGrid and Amazon SNS with CleverTap to send emails. In this scenario, you can set provider_nick_name = SendGrid to send the campaign through SendGrid.
       </td>
 
       <td>
@@ -411,7 +418,7 @@ The body is uploaded as a JSON payload. name, when, title, body, subject, sender
       </td>
 
       <td>
-        Allows you to filter of target base by user events and profile properties. Send an empty object (\{}) to target your entire user base.
+        Allows you to filter of target base by user events and profile properties. Send an empty object (&lbrace;&rbrace;) to target your entire user base.
       </td>
 
       <td>
@@ -423,26 +430,28 @@ The body is uploaded as a JSON payload. name, when, title, body, subject, sender
       </td>
 
       <td>
-        "where": \{\
-                "event\_name": "Charged",\
-                "from": 20171001,\
-                "to": 20171220,\
-              "common\_profile\_properties": \{\
-                    "profile\_fields": [  
-                        {  
-                            "name": "Customer Type",  
-                            "operator":"equals",  
-                            "value": "Platinum"  
-                        }  
-                    ]\
-                }\
-            }
+        <pre>&lbrace;
+  "where": &lbrace;
+    "event_name": "Charged",
+    "from": 20171001,
+    "to": 20171220,
+    "common_profile_properties": &lbrace;
+      "profile_fields": [
+        &lbrace;
+          "name": "Customer Type",
+          "operator": "equals",
+          "value": "Platinum"
+        &rbrace;
+      ]
+    &rbrace;
+  &rbrace;
+&rbrace;</pre>
       </td>
     </tr>
 
     <tr>
       <td>
-        where.event\_name
+        where.event_name
       </td>
 
       <td>
@@ -508,7 +517,7 @@ The body is uploaded as a JSON payload. name, when, title, body, subject, sender
 
     <tr>
       <td>
-        where.profile\_fields
+        where.profile_fields
       </td>
 
       <td>
@@ -524,21 +533,23 @@ The body is uploaded as a JSON payload. name, when, title, body, subject, sender
       </td>
 
       <td>
-        "common\_profile\_properties": \{\
-                    "profile\_fields": [  
-                        {  
-                            "name": "Customer Type",  
-                            "operator":"equals",  
-                            "value": "Platinum"  
-                        }  
-                    ]\
-                }
+        <pre>&lbrace;
+  "common_profile_properties": &lbrace;
+    "profile_fields": [
+      &lbrace;
+        "name": "Customer Type",
+        "operator": "equals",
+        "value": "Platinum"
+      &rbrace;
+    ]
+  &rbrace;
+&rbrace;</pre>
       </td>
     </tr>
 
     <tr>
       <td>
-        notification\_sent
+        notification_sent
       </td>
 
       <td>
@@ -560,7 +571,7 @@ The body is uploaded as a JSON payload. name, when, title, body, subject, sender
 
     <tr>
       <td>
-        respect\_frequency\_caps
+        respect_frequency_caps
       </td>
 
       <td>
@@ -582,7 +593,7 @@ The body is uploaded as a JSON payload. name, when, title, body, subject, sender
 
     <tr>
       <td>
-        estimate\_only
+        estimate_only
       </td>
 
       <td>
@@ -604,11 +615,11 @@ The body is uploaded as a JSON payload. name, when, title, body, subject, sender
 
     <tr>
       <td>
-        async\_estimate
+        async_estimate
       </td>
 
       <td>
-        This allows setting of the estimate\_only flag in the asynchronously. If this parameter is set to true, it will return a request ID that can be passed in the subsequent API call.
+        This allows setting of the estimate_only flag in the asynchronously. If this parameter is set to true, it will return a request ID that can be passed in the subsequent API call.
       </td>
 
       <td>
@@ -648,7 +659,7 @@ The body is uploaded as a JSON payload. name, when, title, body, subject, sender
 
     <tr>
       <td>
-        wzrk\_cid
+        wzrk_cid
       </td>
 
       <td>
@@ -672,7 +683,7 @@ The body is uploaded as a JSON payload. name, when, title, body, subject, sender
 
     <tr>
       <td>
-        wzrk\_bc
+        wzrk_bc
       </td>
 
       <td>
@@ -694,14 +705,14 @@ The body is uploaded as a JSON payload. name, when, title, body, subject, sender
 
     <tr>
       <td>
-        wzrk\_bi
+        wzrk_bi
       </td>
 
       <td>
         Platform specific key that can be used while targeting users on devices running Android O - can be used to determine which icon should be used.
 
-        Accepted values\
-        `app icon`\
+        Accepted values
+        `app icon`
         `notification icon`
       </td>
 
@@ -720,7 +731,7 @@ The body is uploaded as a JSON payload. name, when, title, body, subject, sender
 
     <tr>
       <td>
-        system\_control\_group\_include
+        system_control_group_include
       </td>
 
       <td>
@@ -742,7 +753,7 @@ The body is uploaded as a JSON payload. name, when, title, body, subject, sender
 
     <tr>
       <td>
-        control\_group
+        control_group
       </td>
 
       <td>
@@ -758,16 +769,18 @@ The body is uploaded as a JSON payload. name, when, title, body, subject, sender
       </td>
 
       <td>
-        "control\_group": \{\
-        "type": "custom"\
-        "name": "*name of control group*"\
-        }
+        <pre>&lbrace;
+  "control_group": &lbrace;
+    "type": "custom",
+    "name": "name of control group"
+  &rbrace;
+&rbrace;</pre>
       </td>
     </tr>
 
     <tr>
       <td>
-        control\_group
+        control_group
       </td>
 
       <td>
@@ -783,20 +796,22 @@ The body is uploaded as a JSON payload. name, when, title, body, subject, sender
       </td>
 
       <td>
-        "control\_group": \{\
-        "type": "campaign"\
-        "percentage": 5\
-        }
+        <pre>&lbrace;
+  "control_group": &lbrace;
+    "type": "campaign",
+    "percentage": 5
+  &rbrace;
+&rbrace;</pre>
       </td>
     </tr>
 
     <tr>
       <td>
-        wzrk\_acts
+        wzrk_acts
       </td>
 
       <td>
-        Android Action Buttons\
+        Android Action Buttons
         "l"= Action Title, "dl" = Deep link, "id" = Action id, "ico" = icon resource identifier
       </td>
 
@@ -809,15 +824,19 @@ The body is uploaded as a JSON payload. name, when, title, body, subject, sender
       </td>
 
       <td>
-        wzrk\_acts: "[{"l":"Action-1","dl":"","id":"01","ico":""},  
-        {"l":"Action-2","dl":"","id":"02","ico":""},  
-        {"l":"Action-3","dl":"","id":"03","ico":""}]
+        <pre>&lbrace;
+  "wzrk_acts": [
+    &lbrace;"l":"Action-1","dl":"","id":"01","ico":""&rbrace;,
+    &lbrace;"l":"Action-2","dl":"","id":"02","ico":""&rbrace;,
+    &lbrace;"l":"Action-3","dl":"","id":"03","ico":""&rbrace;
+  ]
+&rbrace;</pre>
       </td>
     </tr>
 
     <tr>
       <td>
-        respect\_throttle
+        respect_throttle
       </td>
 
       <td>
@@ -833,13 +852,13 @@ The body is uploaded as a JSON payload. name, when, title, body, subject, sender
       </td>
 
       <td>
-        "respect\_throttle":true
+        "respect_throttle":true
       </td>
     </tr>
 
     <tr>
       <td>
-        skip\_estimate
+        skip_estimate
       </td>
 
       <td>
@@ -855,13 +874,13 @@ The body is uploaded as a JSON payload. name, when, title, body, subject, sender
       </td>
 
       <td>
-        "skip\_estimate":true
+        "skip_estimate":true
       </td>
     </tr>
 
     <tr>
       <td>
-        send\_to\_all\_devices
+        send_to_all_devices
       </td>
 
       <td>
@@ -905,7 +924,7 @@ The body is uploaded as a JSON payload. name, when, title, body, subject, sender
 
     <tr>
       <td>
-        platform\_specific
+        platform_specific
       </td>
 
       <td>
@@ -1426,10 +1445,10 @@ Example Payloads :
 
 
 ```curl
-curl -X POST -d ' {"name": "My Sms API campaign","estimate_only": true,"target_mode":"sms", "where":{"event_name":"Charged","from":20171001,"to":20171220,"common_profile_properties":{"profile_fields": [ {"name": "Customer Type","operator":"equals","value": "Platinum"}]}},"respect_frequency_caps": false,"content": { "body": "Sms body"},"when": "now"}' \
-"https://api.clevertap.com/1/targets/create.json" \
--H "X-CleverTap-Account-Id: ACCOUNT_ID" \
--H "X-CleverTap-Passcode: PASSCODE" \
+curl -X POST -d ' {"name": "My Sms API campaign","estimate_only": true,"target_mode":"sms", "where":{"event_name":"Charged","from":20171001,"to":20171220,"common_profile_properties":{"profile_fields": [ {"name": "Customer Type","operator":"equals","value": "Platinum"}]}},"respect_frequency_caps": false,"content": { "body": "Sms body"},"when": "now"}' 
+"https://api.clevertap.com/1/targets/create.json" 
+-H "X-CleverTap-Account-Id: ACCOUNT_ID" 
+-H "X-CleverTap-Passcode: PASSCODE" 
 -H "Content-Type: application/json"
 ```
 ```ruby
@@ -1614,18 +1633,18 @@ You can message 1000 users per API request.
 
 The endpoint is different based on the channel you are sending the message. 
 
-**SMS**\
+**SMS**
 [https://api.clevertap.com/1/send/sms.json](https://api.clevertap.com/1/send/sms.json)
 
-**Push**\
+**Push**
 [https://api.clevertap.com/1/send/push.json](https://api.clevertap.com/1/send/push.json)
 
 > ❗️ The push.json API currently does not support Push Amplification.
 
-**Web Push**\
+**Web Push**
 [https://api.clevertap.com/1/send/webpush.json](https://api.clevertap.com/1/send/webpush.json)
 
-**Email**\
+**Email**
 [https://api.clevertap.com/1/send/email.json](https://api.clevertap.com/1/send/email.json)
 
 ## HTTP Method - Target Users by their Identities
@@ -1672,7 +1691,7 @@ These headers are all required. The X-CleverTap-Account-Id and X-CleverTap-Passc
       </td>
 
       <td>
-        "X-CleverTap-Account-Id: ACCOUNT\_ID"
+        "X-CleverTap-Account-Id: ACCOUNT_ID"
       </td>
     </tr>
 
@@ -1719,7 +1738,7 @@ These headers are all required. The X-CleverTap-Account-Id and X-CleverTap-Passc
 The body is uploaded as a JSON payload. 
 
 
-to, name, title, body, subject, sender\_name, and  target\_mode are required parameters. 
+to, name, title, body, subject, sender_name, and  target_mode are required parameters. 
 
 The to parameter is an object that has the following child properties: FBID, GPID, Email, Identity, objectId, which are used as identifiers to target your users. Each request can contain a max of 1000 users across these identifiers. 
 
@@ -1768,26 +1787,28 @@ The to parameter is an object that has the following child properties: FBID, GPI
       </td>
 
       <td>
-        "to": \{\
-                "FBID": [  
-                    "102029292929388",  
-                    "114342342453463"  
-                ],\
-                "GPID": [  
-                    "1928288389299292"  
-                ],\
-                "Email": [  
-                    "john@doe.com",  
-                    "jane@doe.com"  
-                ],\
-                "Identity": [  
-                    "JohnDoe"  
-                ],\
-                "objectId": [  
-                    "_asdnkansdjknaskdjnasjkndja",  
-                    "-adffajjdfoaiaefiohnefwprjf"  
-                ]\
-            }
+        <pre>&lbrace;
+  "to": &lbrace;
+    "FBID": [
+      "102029292929388",
+      "114342342453463"
+    ],
+    "GPID": [
+      "1928288389299292"
+    ],
+    "Email": [
+      "john@doe.com",
+      "jane@doe.com"
+    ],
+    "Identity": [
+      "JohnDoe"
+    ],
+    "objectId": [
+      "_asdnkansdjknaskdjnasjkndja",
+      "-adffajjdfoaiaefiohnefwprjf"
+    ]
+  &rbrace;
+&rbrace;</pre>
       </td>
     </tr>
 
@@ -1809,12 +1830,7 @@ The to parameter is an object that has the following child properties: FBID, GPI
       </td>
 
       <td>
-        "to": \{\
-                "FBID": [  
-                    "102029292929388",  
-                    "114342342453463"  
-                ]\
-        }
+        <pre>&lbrace;"to": &lbrace;"FBID": ["102029292929388", "114342342453463"]&rbrace;&rbrace;</pre>
       </td>
     </tr>
 
@@ -1836,13 +1852,7 @@ The to parameter is an object that has the following child properties: FBID, GPI
       </td>
 
       <td>
-        \{\
-            "to": \{\
-                "GPID": [  
-                    "102029292929388",  
-                    "114342342453463"  
-                ]\
-        }
+        <pre>&lbrace;"to": &lbrace;"GPID": ["102029292929388", "114342342453463"]&rbrace;&rbrace;</pre>
       </td>
     </tr>
 
@@ -1864,13 +1874,7 @@ The to parameter is an object that has the following child properties: FBID, GPI
       </td>
 
       <td>
-        \{\
-            "to": \{\
-                "Email": [  
-                    "john@doe.com",  
-                    "jan@doe.com"  
-                ]\
-        }
+        <pre>&lbrace;"to": &lbrace;"Email": ["john@doe.com", "jan@doe.com"]&rbrace;&rbrace;</pre>
       </td>
     </tr>
 
@@ -1892,12 +1896,7 @@ The to parameter is an object that has the following child properties: FBID, GPI
       </td>
 
       <td>
-        \{\
-            "to": \{\
-              "Identity": [  
-                    "JohnDoe"  
-                ]\
-        }
+        <pre>&lbrace;"to": &lbrace;"Identity": ["JohnDoe"]&rbrace;&rbrace;</pre>
       </td>
     </tr>
 
@@ -1919,18 +1918,13 @@ The to parameter is an object that has the following child properties: FBID, GPI
       </td>
 
       <td>
-        \{\
-            "to": \{\
-                "objectId": [  
-         "sdnkansdjknaskdjnasjkndja",     "dffajjdfoaiaefiohnefwprjf"  
-                ]\
-        }
+        <pre>&lbrace;"to": &lbrace;"objectId": ["sdnkansdjknaskdjnasjkndja", "dffajjdfoaiaefiohnefwprjf"]&rbrace;&rbrace;</pre>
       </td>
     </tr>
 
     <tr>
       <td>
-        tag\_group
+        tag_group
       </td>
 
       <td>
@@ -1938,7 +1932,7 @@ The to parameter is an object that has the following child properties: FBID, GPI
       </td>
 
       <td>
-        optional (either use tag \_group or campaign\_id)
+        optional (either use tag _group or campaign_id)
       </td>
 
       <td>
@@ -1968,11 +1962,13 @@ The to parameter is an object that has the following child properties: FBID, GPI
       </td>
 
       <td>
-        "content": \{\
-                "subject": "Welcome",\
-                "body": "<div>Your HTML content for the email</div>",\
-                "sender\_name": "CleverTap"\
-            }
+        <pre>&lbrace;
+  "content": &lbrace;
+    "subject": "Welcome",
+    "body": "&lt;div&gt;Your HTML content for the email&lt;/div&gt;",
+    "sender_name": "CleverTap"
+  &rbrace;
+&rbrace;</pre>
       </td>
     </tr>
 
@@ -2044,7 +2040,7 @@ The to parameter is an object that has the following child properties: FBID, GPI
 
     <tr>
       <td>
-        content.sender\_name
+        content.sender_name
       </td>
 
       <td>
@@ -2066,11 +2062,11 @@ The to parameter is an object that has the following child properties: FBID, GPI
 
     <tr>
       <td>
-        provider\_nick\_name
+        provider_nick_name
       </td>
 
       <td>
-        Allows you to specify which vendor/provider to use for your campaign. For each target\_mode, you can have multiple providers integrated with CleverTap, and this parameter lets you select which provider to use for the campaign. For example, let's say you select target\_mode = email and you have integrated both SendGrid and Amazon SNS with CleverTap to send emails. In this scenario, you can set provider\_nick\_name = SendGrid to send the campaign through SendGrid.
+        Allows you to specify which vendor/provider to use for your campaign. For each target_mode, you can have multiple providers integrated with CleverTap, and this parameter lets you select which provider to use for the campaign. For example, let's say you select target_mode = email and you have integrated both SendGrid and Amazon SNS with CleverTap to send emails. In this scenario, you can set provider_nick_name = SendGrid to send the campaign through SendGrid.
       </td>
 
       <td>
@@ -2088,7 +2084,7 @@ The to parameter is an object that has the following child properties: FBID, GPI
 
     <tr>
       <td>
-        notification\_sent
+        notification_sent
       </td>
 
       <td>
@@ -2110,7 +2106,7 @@ The to parameter is an object that has the following child properties: FBID, GPI
 
     <tr>
       <td>
-        respect\_frequency\_caps
+        respect_frequency_caps
       </td>
 
       <td>
@@ -2132,7 +2128,7 @@ The to parameter is an object that has the following child properties: FBID, GPI
 
     <tr>
       <td>
-        wzrk\_cid
+        wzrk_cid
       </td>
 
       <td>
@@ -2156,7 +2152,7 @@ The to parameter is an object that has the following child properties: FBID, GPI
 
     <tr>
       <td>
-        badge\_id
+        badge_id
       </td>
 
       <td>
@@ -2178,14 +2174,14 @@ The to parameter is an object that has the following child properties: FBID, GPI
 
     <tr>
       <td>
-        badge\_icon
+        badge_icon
       </td>
 
       <td>
         Platform specific key that can be used while targeting users on devices running Android O - can be used to determine which icon should be used.
 
-        Accepted values\
-        `app icon`\
+        Accepted values
+        `app icon`
         `notification icon`
       </td>
 
@@ -2208,7 +2204,7 @@ The to parameter is an object that has the following child properties: FBID, GPI
       </td>
 
       <td>
-        To raise Notification viewed event for Push notifications, raise the flag to "true" in the platform\_specific: ios section of the request payload.
+        To raise Notification viewed event for Push notifications, raise the flag to "true" in the platform_specific: ios section of the request payload.
       </td>
 
       <td>
@@ -2226,7 +2222,7 @@ The to parameter is an object that has the following child properties: FBID, GPI
 
     <tr>
       <td>
-        platform\_specific
+        platform_specific
       </td>
 
       <td>
@@ -2416,10 +2412,10 @@ Below are example payloads for web push, push, email, and SMS.
 
 
 ```curl
-curl -X POST -d '{"to":{"FBID":["102029292929388","114342342453463"],"GPID":["1928288389299292"],"Email":["john@doe.com","jane@doe.com"],"Identity":["JohnDoe"],"objectId":["_asdnkansdjknaskdjnasjkndja","-adffajjdfoaiaefiohnefwprjf"]},"campaign_id":1000000043,"tag_group":"mytaggroup","respect_frequency_caps":false,"content":{"body":"Smsbody"}}' \
-"https://api.clevertap.com/1/send/sms.json" \
--H "X-CleverTap-Account-Id: ACCOUNT_ID" \
--H "X-CleverTap-Passcode: PASSCODE" \
+curl -X POST -d '{"to":{"FBID":["102029292929388","114342342453463"],"GPID":["1928288389299292"],"Email":["john@doe.com","jane@doe.com"],"Identity":["JohnDoe"],"objectId":["_asdnkansdjknaskdjnasjkndja","-adffajjdfoaiaefiohnefwprjf"]},"campaign_id":1000000043,"tag_group":"mytaggroup","respect_frequency_caps":false,"content":{"body":"Smsbody"}}' 
+"https://api.clevertap.com/1/send/sms.json" 
+-H "X-CleverTap-Account-Id: ACCOUNT_ID" 
+-H "X-CleverTap-Passcode: PASSCODE" 
 -H "Content-Type: application/json"
 ```
 ```ruby
@@ -2724,11 +2720,11 @@ If there are errors, you will receive a response in the format below.
 
 
 
-Here are the possible error codes.\
-21 – to is a mandatory field\
-84 – Invalid recipients”\
-73 – “respect\_frequency\_caps” must be a Boolean\
-78 – Invalid JSON payload\
+Here are the possible error codes.
+21 – to is a mandatory field
+84 – Invalid recipients”
+73 – “respect_frequency_caps” must be a Boolean
+78 – Invalid JSON payload
 89 – Unexpected error, please try again
 
 # Unsubscribe Link for Emails
