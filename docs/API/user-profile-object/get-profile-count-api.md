@@ -62,7 +62,7 @@ These headers are all required. The X-CleverTap-Account-Id and X-CleverTap-Passc
       </td>
 
       <td>
-        "X-CleverTap-Account-Id: ACCOUNT\_ID"
+        "X-CleverTap-Account-Id: ACCOUNT_ID"
       </td>
     </tr>
 
@@ -137,7 +137,7 @@ The body is uploaded as a JSON payload.
   <tbody>
     <tr>
       <td>
-        event\_name
+        event_name
       </td>
 
       <td>
@@ -159,7 +159,7 @@ The body is uploaded as a JSON payload.
 
     <tr>
       <td>
-        event\_properties
+        event_properties
       </td>
 
       <td>
@@ -175,13 +175,12 @@ The body is uploaded as a JSON payload.
       </td>
 
       <td>
-        "event\_properties": [  
-                {  
-                    "name": "value",  
+        <pre>&lbrace;"event_properties": [  
+                &lbrace;"name": "value",  
                     "operator": "contains",  
                     "value": "piz"  
-                }  
-            ]
+                &rbrace;  
+            ]&rbrace;</pre>
       </td>
     </tr>
 
@@ -191,7 +190,7 @@ The body is uploaded as a JSON payload.
       </td>
 
       <td>
-        Start of date range within which users should have performed the event you specified in event\_name. Input values have to be formatted as integers in format YYYYMMDD.
+        Start of date range within which users should have performed the event you specified in event_name. Input values have to be formatted as integers in format YYYYMMDD.
       </td>
 
       <td>
@@ -213,7 +212,7 @@ The body is uploaded as a JSON payload.
       </td>
 
       <td>
-        End of date range within which users should have performed the event you specified in event\_name. Input values have to be formatted as integers in format YYYYMMDD.
+        End of date range within which users should have performed the event you specified in event_name. Input values have to be formatted as integers in format YYYYMMDD.
       </td>
 
       <td>
@@ -423,7 +422,7 @@ The response is a JSON object containing the key status, which might be success,
 
 If the status is success, there will be a count key with an int value of the count for the specified query. If the status is fail, there will be an error key with a string value and a HTTP status code.
 
-If the status is partial, the query has not finished processing in our system. In the response, you will receive a req\_id key with a long int value that you will use to poll for the result. After the query is completed, you will either receive a success response with the count if the query was successful, or a fail response with an error string and a HTTP status code. Please wait 30 seconds between polling requests.
+If the status is partial, the query has not finished processing in our system. In the response, you will receive a req_id key with a long int value that you will use to poll for the result. After the query is completed, you will either receive a success response with the count if the query was successful, or a fail response with an error string and a HTTP status code. Please wait 30 seconds between polling requests.
 
 Here is an example response for a partial status.
 
@@ -495,6 +494,6 @@ Here is an example response for a partial status.
 
 
 
-After getting the req\_id, you will poll the endpoint below and provide the value of req\_id as a query parameter.
+After getting the req_id, you will poll the endpoint below and provide the value of req_id as a query parameter.
 
-GET [https://api.clevertap.com/1/counts/profiles.json?req\_id=](https://api.clevertap.com/1/counts/profiles.json?req_id=)\<your\_request\_id\_here>
+GET [https://api.clevertap.com/1/counts/profiles.json?req_id=](https://api.clevertap.com/1/counts/profiles.json?req_id=)\<your_request_id_here>
