@@ -183,14 +183,7 @@ The Feature Flag  and its keys with the relevant segment are uploaded as a JSON 
       </td>
 
       <td>
-        "keys": \{\
-            "dark": [  
-              {  
-                "segmentName": "New York User",  
-                "segmentValue": true  
-              }  
-            ]\
-          }
+        `"keys": {` `"dark": [` `{` `"segmentName": "New York User",` `"segmentValue": true` `}` `]` `}`
       </td>
     </tr>
 
@@ -244,12 +237,7 @@ The Feature Flag  and its keys with the relevant segment are uploaded as a JSON 
       </td>
 
       <td>
-        "segmentsPriorityList": [  
-            {  
-              "segmentName": "New York User",  
-              "percentageRollout": 80  
-            }  
-          ]
+        `"segmentsPriorityList": [` `{` `"segmentName": "New York User",` `"percentageRollout": 80` `}` `]`
       </td>
     </tr>
 
