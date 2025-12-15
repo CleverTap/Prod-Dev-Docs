@@ -2737,7 +2737,7 @@ Following is the JSON payload for the iOS Carousel Push template
 Following is the JSON payload for WhatsApp interactive message templates:
 
 <Callout icon="📘" theme="info">
-  Note
+  **Note**
 
   Currently, Create Campaign APIs for WhatsApp do not support Carousel templates, Limited Time Offer (LTO) templates, Custom key-value pairs,, and templates with copy code button.
 </Callout>
@@ -3636,9 +3636,11 @@ Following are some example base URLs from the account in the India region:
 **Push**  
 [https://in1.api.clevertap.com/1/send/push.json](https://in1.api.clevertap.com/1/send/push.json)
 
-> ❗️ Note:
->
-> The push.json API currently does not support Pull Notifications.
+<Callout icon="❗️" theme="error">
+  **Note**
+
+  The push.json API currently does not support Pull Notifications.
+</Callout>
 
 **Web Push**  
 [https://in1.api.clevertap.com/1/send/webpush.json](https://in1.api.clevertap.com/1/send/webpush.json)
@@ -3646,9 +3648,11 @@ Following are some example base URLs from the account in the India region:
 **Email**  
 [https://in1.api.clevertap.com/1/send/email.json](https://in1.api.clevertap.com/1/send/email.json)
 
-> 📘 Region
->
-> These are some example base URLs from the account in the India region. To know the API endpoint for your account, refer to [Region](https://developer.clevertap.com/docs/create-campaign-api#region).
+<Callout icon="📘" theme="info">
+  **Region**
+
+  These are some example base URLs from the account in the India region. To know the API endpoint for your account, refer to [Region](https://developer.clevertap.com/docs/create-campaign-api#region).
+</Callout>
 
 **WhatsApp**  
 [https://in1.api.clevertap.com/1/send/whatsapp.json](https://in1.api.clevertap.com/1/send/whatsapp.json)
