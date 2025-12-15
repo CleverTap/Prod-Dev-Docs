@@ -30,14 +30,16 @@ Use the base URL that matches your account region.
 
 To authenticate and process your request, include these headers in every call:
 
-| Header        | Required | Value                      |
-| ------------- | -------- | -------------------------- |
-| Content-Type  | Yes      | application/json           |
-| Authorization | Yes      | Bearer YOUR\_ACCESS\_TOKEN |
+| Header        | Required | Value                    |
+| ------------- | -------- | ------------------------ |
+| Content-Type  | Yes      | application/json         |
+| Authorization | Yes      | Bearer YOUR_ACCESS_TOKEN |
 
-> 📘 Note
->
-> To use this API, first authenticate and retrieve an access token. To get your access token, refer to [Get Access Token](doc:get-access-token).
+<Callout icon="📘" theme="info">
+  **Note**
+
+  To use this API, first authenticate and retrieve an access token. To get your access token, refer to [Get Access Token](doc:get-access-token).
+</Callout>
 
 # Request Body
 
@@ -210,11 +212,11 @@ curl -X POST http://vault-endpoint/ct-vault/api/tokenization/tokens/values/batch
 
 On success, the API returns HTTP 200 OK and a JSON body with the resolved PII value.
 
-| Field       | Type   | Description                                                                                                                                                  |
-| ----------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| value       | String | Original PII value that corresponds to the token, such as an email address or phone number.                                                                  |
-| dataType    | String | Type of the original value, for example `email` or `phone`.                                                                                                  |
-| expires\_in | Int    | Token validity duration in seconds from the time of the response. When this value reaches zero, the token expires and resolution fails with `token_expired`. |
+| Field      | Type   | Description                                                                                                                                                  |
+| ---------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| value      | String | Original PII value that corresponds to the token, such as an email address or phone number.                                                                  |
+| dataType   | String | Type of the original value, for example `email` or `phone`.                                                                                                  |
+| expires_in | Int    | Token validity duration in seconds from the time of the response. When this value reaches zero, the token expires and resolution fails with `token_expired`. |
 
 # Example Response for a Single Token
 
@@ -276,19 +278,17 @@ The following is the sample response for getting PII for multiple tokens:
 
 # Error Responses
 
-On error, the API returns a non 2xx HTTP status code and a JSON body that describes the error.
+On error, the API returns a non-2xx HTTP status code and a JSON body that describes the error.
 
-## Error Response
-
-This section describes the fields in an error response:
-
-| Field       | Type   | Description                                                |
-| ----------- | ------ | ---------------------------------------------------------- |
-| error       | String | Machine readable error code.                               |
-| message     | String | Human readable description of the error and how to fix it. |
-| request\_id | String | Optional correlation ID for support and debugging.         |
+| Field      | Type   | Description                                                |
+| ---------- | ------ | ---------------------------------------------------------- |
+| error      | String | Machine-readable error code.                               |
+| message    | String | Human-readable description of the error and how to fix it. |
+| request_id | String | Optional correlation ID for support and debugging.         |
 
 ## Example Error Response
+
+The following is the sample error response:
 
 ```json
 {
@@ -298,28 +298,28 @@ This section describes the fields in an error response:
 }
 ```
 
-### Error Codes
+## Error Codes
 
 The following are the error codes and its description:
 
-| HTTP | error             | Description                                                                                                                                                             |
-| ---- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 400  | invalid\_token    | The request contains a missing, malformed, or improperly formatted token. This occurs when `token` is empty, corrupted, or not in the expected structure.               |
-| 401  | unauthorized      | The request cannot be authenticated because the access token in the `Authorization` header is missing, invalid, or expired.                                             |
-| 404  | token\_not\_found | The provided token does not have a corresponding stored value in the vault. No mapping exists for the token.                                                            |
-| 410  | token\_expired    | The token previously existed but passed its validity period and is no longer retrievable. You must re tokenise the original value to generate a new token.              |
-| 429  | rate\_limited     | The client has sent too many requests in a given period. Reduce request rate or implement backoff before retrying.                                                      |
-| 500  | server\_error     | The vault service encountered an internal error. Retry the request with exponential backoff. If the issue persists, contact support and include the `request_id` value. |
+| HTTP | error           | Description                                                                                                                                                             |
+| ---- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 400  | invalid_token   | The request contains a missing, malformed, or improperly formatted token. This occurs when `token` is empty, corrupted, or not in the expected structure.               |
+| 401  | unauthorized    | The request cannot be authenticated because the access token in the `Authorization` header is missing, invalid, or expired.                                             |
+| 404  | token_not_found | The provided token does not have a corresponding stored value in the vault. No mapping exists for the token.                                                            |
+| 410  | token_expired   | The token previously existed but passed its validity period and is no longer retrievable. You must re tokenise the original value to generate a new token.              |
+| 429  | rate_limited    | The client has sent too many requests in a given period. Reduce request rate or implement backoff before retrying.                                                      |
+| 500  | server_error    | The vault service encountered an internal error. Retry the request with exponential backoff. If the issue persists, contact support and include the `request_id` value. |
 
 # Security Considerations
 
 Follow these guidelines when you use the Vault Resolve API:
 
 * Use HTTPS for all requests. Do not send tokens or PII over an unencrypted channel.
-* Store `YOUR_VAULT_API_KEY` securely, for example in a secrets manager, not in source control.
+* Store `YOUR_VAULT_API_KEY` securely, for example, in a secrets manager, not in source control.
 * Restrict access to the vault API key to services that actually need to resolve tokens.
-* Avoid logging tokens or raw PII in application logs. If you must log, mask or hash sensitive values.
-* Use short lived credentials when possible and rotate keys regularly.
+* Avoid logging tokens or raw PII in application logs. If you must log, mask, or hash sensitive values.
+* Use short-lived credentials when possible and rotate keys regularly.
 
 # Rate Limits
 
