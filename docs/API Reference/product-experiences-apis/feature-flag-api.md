@@ -64,7 +64,7 @@ These headers are all required. The X-CleverTap-Account-Id and X-CleverTap-Passc
       </td>
 
       <td>
-        "X-CleverTap-Account-Id: ACCOUNT\_ID"
+        "X-CleverTap-Account-Id: ACCOUNT_ID"
       </td>
     </tr>
 
@@ -147,7 +147,7 @@ The Feature Flag  and its keys with the relevant segment are uploaded as a JSON 
       </td>
 
       <td>
-        dark\_mode
+        dark_mode
       </td>
     </tr>
 
@@ -183,14 +183,14 @@ The Feature Flag  and its keys with the relevant segment are uploaded as a JSON 
       </td>
 
       <td>
-        "keys": \{\
+        <pre>&lbrace;"keys": &lbrace;
             "dark": [  
-              {  
+              &lbrace;  
                 "segmentName": "New York User",  
                 "segmentValue": true  
-              }  
-            ]\
-          },
+              &rbrace;  
+            ]
+          &rbrace;,&rbrace;</pre>
       </td>
     </tr>
 
@@ -244,12 +244,12 @@ The Feature Flag  and its keys with the relevant segment are uploaded as a JSON 
       </td>
 
       <td>
-        "segmentsPriorityList": [  
-            {  
+        <pre>&lbrace;"segmentsPriorityList": [  
+            &lbrace;  
               "segmentName": "New York User",  
               "percentageRollout": 80  
-            }  
-          ]
+            &rbrace;  
+          ]&rbrace;</pre>
       </td>
     </tr>
 
@@ -635,11 +635,11 @@ Here is an example JSON payload for iOS/Android.
 
 
 ```curl
-curl --location --request POST 'https://api.clevertap.com/1/featureflag/create' \
---header 'X-CleverTap-Account-Id: <ACCOUNT_ID>' \
---header 'X-CleverTap-Passcode: <PassCode>' \
---header 'Content-Type: application/json' \
---header 'Content-Type: text/plain' \
+curl --location --request POST 'https://api.clevertap.com/1/featureflag/create' 
+--header 'X-CleverTap-Account-Id: <ACCOUNT_ID>' 
+--header 'X-CleverTap-Passcode: <PassCode>' 
+--header 'Content-Type: application/json' 
+--header 'Content-Type: text/plain' 
 --data-raw '{
   "name": "darkMode",
   "description": "enables/disables dark mode based on profile custom properties",
@@ -892,7 +892,7 @@ These headers are all required. The X-CleverTap-Account-Id and X-CleverTap-Passc
       </td>
 
       <td>
-        "X-CleverTap-Account-Id: ACCOUNT\_ID"
+        "X-CleverTap-Account-Id: ACCOUNT_ID"
       </td>
     </tr>
 
@@ -945,11 +945,11 @@ Here is an example JSON payload for iOS/Android. We have increased the percentag
 
 
 ```curl
-curl --location --request POST 'https://api.clevertap.com/1/featureflag/update?experiencename=darkMode' \
---header 'X-CleverTap-Account-Id: <ACCOUNT_ID>' \
---header 'X-CleverTap-Passcode: <PassCode>' \
---header 'Content-Type: application/json' \
---header 'Content-Type: text/plain' \
+curl --location --request POST 'https://api.clevertap.com/1/featureflag/update?experiencename=darkMode' 
+--header 'X-CleverTap-Account-Id: <ACCOUNT_ID>' 
+--header 'X-CleverTap-Passcode: <PassCode>' 
+--header 'Content-Type: application/json' 
+--header 'Content-Type: text/plain' 
 --data-raw '{
   "name": "darkMode",
   "description": "enables/disables dark mode based on profile custom properties",
@@ -1202,7 +1202,7 @@ These headers are all required. The X-CleverTap-Account-Id and X-CleverTap-Passc
       </td>
 
       <td>
-        "X-CleverTap-Account-Id: ACCOUNT\_ID"
+        "X-CleverTap-Account-Id: ACCOUNT_ID"
       </td>
     </tr>
 
@@ -1246,10 +1246,10 @@ These headers are all required. The X-CleverTap-Account-Id and X-CleverTap-Passc
 
 ## Example Request
 ```curl
-curl --location --request POST 'https://api.clevertap.com/1/featureflag/get' \
---header 'X-CleverTap-Account-Id: <ACCOUNT_ID>' \
---header 'X-CleverTap-Passcode: <PASSCODE>' \
---header 'Content-Type: application/json' \
+curl --location --request POST 'https://api.clevertap.com/1/featureflag/get' 
+--header 'X-CleverTap-Account-Id: <ACCOUNT_ID>' 
+--header 'X-CleverTap-Passcode: <PASSCODE>' 
+--header 'Content-Type: application/json' 
 --data-raw ''
 ```
 ```ruby
@@ -4156,7 +4156,7 @@ These headers are all required. The X-CleverTap-Account-Id and X-CleverTap-Passc
       </td>
 
       <td>
-        "X-CleverTap-Account-Id: ACCOUNT\_ID"
+        "X-CleverTap-Account-Id: ACCOUNT_ID"
       </td>
     </tr>
 
@@ -4202,10 +4202,10 @@ For example, you want to archive the featureFlag you created above you can use t
 
 ## Example Request
 ```curl
-curl --location --request POST 'https://api.clevertap.com/1/featureflag/archive?experiencename=darkMode' \
---header 'X-CleverTap-Account-Id: <ACCOUNT_ID>' \
---header 'X-CleverTap-Passcode: <PASSCODE>' \
---header 'Content-Type: application/json' \
+curl --location --request POST 'https://api.clevertap.com/1/featureflag/archive?experiencename=darkMode' 
+--header 'X-CleverTap-Account-Id: <ACCOUNT_ID>' 
+--header 'X-CleverTap-Passcode: <PASSCODE>' 
+--header 'Content-Type: application/json' 
 --data-raw ''
 ```
 ```ruby
@@ -4509,7 +4509,7 @@ These headers are all required. The X-CleverTap-Account-Id and X-CleverTap-Passc
       </td>
 
       <td>
-        "X-CleverTap-Account-Id: ACCOUNT\_ID"
+        "X-CleverTap-Account-Id: ACCOUNT_ID"
       </td>
     </tr>
 
@@ -4555,10 +4555,10 @@ For example, if you want to activate a Feature Flag that you archived above you 
 
 ## Example Request
 ```curl
-curl --location --request POST 'https://api.clevertap.com/1/featureflag/activate?experiencename=darkMode' \
---header 'X-CleverTap-Account-Id: <ACCOUNT_ID>' \
---header 'X-CleverTap-Passcode: <PASSCODE>' \
---header 'Content-Type: application/json' \
+curl --location --request POST 'https://api.clevertap.com/1/featureflag/activate?experiencename=darkMode' 
+--header 'X-CleverTap-Account-Id: <ACCOUNT_ID>' 
+--header 'X-CleverTap-Passcode: <PASSCODE>' 
+--header 'Content-Type: application/json' 
 --data-raw ''
 ```
 ```ruby
