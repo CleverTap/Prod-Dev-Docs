@@ -19,7 +19,7 @@ For example, you can use this API to send a price drop alert as a [push notifica
 For more information on API request limit, refer to [API Request Limit](doc:api-request-limit).
 
 <Callout icon="📘" theme="info">
-  **Note**
+  ****
 
   Currently, AMP Email campaigns cannot be created using Create Campaign API.
 </Callout>
@@ -47,15 +47,19 @@ POST
 
 Refer [Headers](https://developer.clevertap.com/docs/common-api-components#headers) for more details.
 
-> 📘 Note
->
-> CleverTap supports Liquid personalization for Push Campaigns sent via Create Campaign API. For more information refer [Liquid Personalization in Campaign APIs](https://docs.clevertap.com/docs/personalize-messages-push#liquid-personalization-in-campaign-apis).
+<Callout icon="📘" theme="info">
+  **Note**
+
+  CleverTap supports Liquid personalization for Push Campaigns sent via Create Campaign API. For more information refer [Liquid Personalization in Campaign APIs](https://docs.clevertap.com/docs/personalize-messages-push#liquid-personalization-in-campaign-apis).
+</Callout>
 
 ## Body Parameters - Target User Events & Properties
 
-> 📘 Mobile Push Notification Parameters
->
-> The parameters in bold and marked with * provide additional functionality for creating a push campaign.
+<Callout icon="📘" theme="info">
+  **Mobile Push Notification Parameters**
+
+  The parameters in bold and marked with * provide additional functionality for creating a push campaign.
+</Callout>
 
 <Table align={["left","left","left","left","left"]}>
   <thead>
@@ -2866,9 +2870,11 @@ Following is the JSON payload for the iOS Carousel Push template:
 
 Following is the JSON payload for WhatsApp interactive message templates:
 
-> 📘 Note:
->
-> * Currently, Create Campaign APIs for WhatsApp do not support Carousel templates, Limited Time Offer (LTO) templates, Custom key-value pairs,, and templates with copy code button.
+<Callout icon="📘" theme="info">
+  **Note**
+
+  * Currently, Create Campaign APIs for WhatsApp do not support Carousel templates, Limited Time Offer (LTO) templates, Custom key-value pairs,, and templates with copy code button.
+</Callout>
 
 ```json Image Template
 {
