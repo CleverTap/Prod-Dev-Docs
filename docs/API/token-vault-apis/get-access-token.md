@@ -50,4 +50,14 @@ The following is the list of response parameters for getting an access token
 
 # Example Response
 
-The following is the sample response:
+The following is the sample response:  
+
+```json
+{  
+  "access_token": "eyJhbGciOiJSUzI1NiIsInR5cCI...",  
+  "expires_in": 300,  
+  "refresh_expires_in": 1800,  
+  "token_type": "bearer",  
+  "scope": "vault.access"  
+}
+```
