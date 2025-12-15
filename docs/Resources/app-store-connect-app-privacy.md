@@ -10,9 +10,9 @@ metadata:
 next:
   description: ''
 ---
-## Overview
+# Overview
 
-Starting December 8, 2020, Apple requires [App Privacy Details](https://developer.apple.com/app-store/app-privacy-details/) for all new apps and app updates. Refer to [Manage App Privacy](https://help.apple.com/app-store-connect/#/dev1b4647c5b) to understand Apple’s privacy rules and app integrations with multiple third-party SDK(s) to make the correct decision for your app. 
+Starting December 8, 2020, Apple requires [App Privacy Details](https://developer.apple.com/app-store/app-privacy-details/) for all new apps and app updates. Refer to [Manage App Privacy](https://help.apple.com/app-store-connect/#/dev1b4647c5b) to understand Apple’s privacy rules and app integrations with multiple third-party SDK(s) to make the correct decision for your app.
 
 > 📘 Note
 >
@@ -24,36 +24,30 @@ CleverTap collects the following data for your app:
 
 * **Collected** - CleverTap SDK requires this data. It is collected by default.
 * **Not collected** -  CleverTap SDK does not require this data.
-* **May be, By Default: Not collected** -  Not required by CleverTap SDK. However, you can configure to send this data to CleverTap for additional tracking. 
+* **May be, By Default: Not collected** -  Not required by CleverTap SDK. However, you can configure to send this data to CleverTap for additional tracking.
 
 # Data type
 
-The following table should help you to answer the privacy declaration. 
+The following table should help you to answer the privacy declaration.
 
 <Table align={["left","left","left"]}>
   <thead>
     <tr>
       <th>
         <p>
-
-        Data Type
-
+          Data Type
         </p>
       </th>
 
       <th>
         <p>
-
-        Sent To CleverTap?
-
+          Sent To CleverTap?
         </p>
       </th>
 
       <th>
         <p>
-
-        Description
-
+          Description
         </p>
       </th>
     </tr>
@@ -224,18 +218,18 @@ The following table should help you to answer the privacy declaration.
       </td>
 
       <td>
-        <ul><li>Product interactions - App launches are measured, as well as any other user interaction configured by the app developer.</li><li>Advertising &#x26; Other usage data -   If you have configured to send this data, then declare accordingly.</li></ul>
+        <ul><li>Product interactions - App launches are measured, as well as any other user interaction configured by the app developer.</li><li>Advertising & Other usage data -   If you have configured to send this data, then declare accordingly.</li></ul>
       </td>
     </tr>
 
     <tr>
       <td>
-        * \*Diagnostics data\*\*Crash dataPerformance dataOther diagnostics data
+        * *Diagnostics data**Crash dataPerformance dataOther diagnostics data
       </td>
 
       <td>
-        Not collectedCrash data ==> No\
-        Performance data ==> No\
+        Not collectedCrash data ==> No  
+        Performance data ==> No  
         Other diagnostics data => No
       </td>
 
@@ -246,7 +240,7 @@ The following table should help you to answer the privacy declaration.
 
     <tr>
       <td>
-        **Other Data** 
+        **Other Data**
       </td>
 
       <td>
@@ -254,7 +248,7 @@ The following table should help you to answer the privacy declaration.
       </td>
 
       <td>
-        Technical device information (for example, OS, device type, language, Wi-Fi status, screen size,  etc.) or network information (for example, IP address, HTTP user agent) is received by CleverTap.\
+        Technical device information (for example, OS, device type, language, Wi-Fi status, screen size,  etc.) or network information (for example, IP address, HTTP user agent) is received by CleverTap.  
         IDFV is collected.
       </td>
     </tr>
@@ -276,7 +270,7 @@ Understand how each data type is used by you and your third-party partners. For 
 
 # Data linked to the user
 
-Data types collected through CleverTap are typically connected to identifiers when configured.  Therefore, app developers must select 'Yes' when asked if the data is linked to an identity.\
+Data types collected through CleverTap are typically connected to identifiers when configured.  Therefore, app developers must select 'Yes' when asked if the data is linked to an identity.  
 The associations that the customer is capable of making (for example, to a customer account or an identifiable individual) is unique to the customers and at their own discretion.
 
 # Tracking
