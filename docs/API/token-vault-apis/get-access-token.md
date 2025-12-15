@@ -38,12 +38,12 @@ curl -X POST https\://your-keycloak-server/auth/realms/ct-vault/protocol/openid-
 
 # Response Parameters
 
-The following is the list of response parameters for getting an access token
+The following is the list of response parameters for getting an access token:
 
 | Field              | Type    | Description                                                                                                                        |
 | ------------------ | ------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 | access_token       | String  | The OAuth 2.0 bearer token your service must include in the `Authorization: Bearer <access_token>` header when calling Vault APIs. |
-| expires_in         | Integer | Lifetime of the access token in seconds. After this period, the token is no longer valid and a new token must be generated.        |
+| expires_in         | Integer | Lifetime of the access token in seconds. After this period, the token is no longer valid, and a new token must be generated.       |
 | refresh_expires_in | Integer | Duration in seconds for which a refresh token remains valid. (Typically unused in client credentials flow.)                        |
 | token_type         | String  | Type of token returned. Always `bearer`.                                                                                           |
 | scope              | String  | Permissions granted to this token. Must include `vault.access` to interact with Vault APIs.                                        |
