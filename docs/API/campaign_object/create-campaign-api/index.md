@@ -2732,9 +2732,11 @@ Following is the JSON payload for the iOS Carousel Push template
 
 Following is the JSON payload for WhatsApp interactive message templates:
 
-> 📘 Note
->
-> Currently, Create Campaign APIs for WhatsApp do not support Carousel templates, Limited Time Offer (LTO) templates, Custom key-value pairs,, and templates with copy code button.
+<Callout icon="📘" theme="info">
+  **Note**
+
+  Currently, Create Campaign APIs for WhatsApp do not support Carousel templates, Limited Time Offer (LTO) templates, Custom key-value pairs,, and templates with copy code button.
+</Callout>
 
 ```json Image Template
 {
@@ -3195,15 +3197,15 @@ The Generic Sample Campaign API includes configurations for without Key Values, 
 
       <td>
         `{
-                                                                                                  "event_name": "Charged",
-                                                                                                  "from": 20251001,
-                                                                                                  "to": 20251220,
-                                                                                                  "common_profile_properties": {
-                                                                                                    "profile_fields": {
-                                                                                                      "field_name": "value"
-                                                                                                    }
-                                                                                                  }
-                                                                                                }`
+                                                                                                          "event_name": "Charged",
+                                                                                                          "from": 20251001,
+                                                                                                          "to": 20251220,
+                                                                                                          "common_profile_properties": {
+                                                                                                            "profile_fields": {
+                                                                                                              "field_name": "value"
+                                                                                                            }
+                                                                                                          }
+                                                                                                        }`
       </td>
     </tr>
 
