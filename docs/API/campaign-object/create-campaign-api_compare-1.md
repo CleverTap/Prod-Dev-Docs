@@ -366,20 +366,7 @@ The body is uploaded as a JSON payload. name, when, title, body, subject, sender
       </td>
 
       <td>
-        "where": \{\
-                "event\_name": "Charged",\
-                "from": 20171001,\
-                "to": 20171220,\
-              "common\_profile\_properties": \{\
-                    "profile\_fields": [  
-                        {  
-                            "name": "Customer Type",  
-                            "operator":"equals",  
-                            "value": "Platinum"  
-                        }  
-                    ]\
-                }\
-            }
+        `"where": {` `"event_name": "Charged",` `"from": 20171001,` `"to": 20171220,` `"common_profile_properties": {` `"profile_fields": [` `{` `"name": "Customer Type",` `"operator":"equals",` `"value": "Platinum"` `}` `]` `}` `}`
       </td>
     </tr>
 
@@ -467,15 +454,7 @@ The body is uploaded as a JSON payload. name, when, title, body, subject, sender
       </td>
 
       <td>
-        "common\_profile\_properties": \{\
-                    "profile\_fields": [  
-                        {  
-                            "name": "Customer Type",  
-                            "operator":"equals",  
-                            "value": "Platinum"  
-                        }  
-                    ]\
-                }
+        `"common_profile_properties": {` `"profile_fields": [` `{` `"name": "Customer Type",` `"operator":"equals",` `"value": "Platinum"` `}` `]` `}`
       </td>
     </tr>
 
@@ -735,9 +714,7 @@ The body is uploaded as a JSON payload. name, when, title, body, subject, sender
 
     <tr>
       <td>
-        wzrk\_acts: "[{"l":"Action-1","dl":"","id":"01","ico":""},  
-        {"l":"Action-2","dl":"","id":"02","ico":""},  
-        {"l":"Action-3","dl":"","id":"03","ico":""}]
+        `wzrk_acts: "[{"l":"Action-1","dl":"","id":"01","ico":""},` `{"l":"Action-2","dl":"","id":"02","ico":""},` `{"l":"Action-3","dl":"","id":"03","ico":""}]`
       </td>
 
       <td>
