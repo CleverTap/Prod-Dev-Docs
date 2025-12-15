@@ -7614,7 +7614,7 @@ To view campaigns created through APIs:
 1. Navigate to the *Campaigns* section from the CleverTap dashboard. The list of campaign displays.
 2. Click the Filter icon > *Created by* filter and select the *serverapi&lt;channel name&gt;* option.
 
-<Image alt="Filter API Campaigns" align="center" border={true} src="https://files.readme.io/ee5427a-small-Filter_campaigns_by_API.png">  Filter API Campaigns
+<Image alt="Filter API Campaigns" align="center" border={true} src="https://files.readme.io/ee5427a-small-Filter_campaigns_by_API.png" />  Filter API Campaigns
 
 
 
