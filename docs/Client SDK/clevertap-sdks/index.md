@@ -12,11 +12,11 @@ next:
 ---
 ## Overview
 
-CleverTap's mobile and web SDKs provide the capability to integrate CleverTap into your mobile apps and websites. The server-side libraries make it easy to call the CleverTap API. This page lists CleverTap’s official mobile and web SDKs, server-side libraries, partner integrations, and community-supported projects. 
+CleverTap's mobile and web SDKs provide the capability to integrate CleverTap into your mobile apps and websites. The server-side libraries make it easy to call the CleverTap API. This page lists CleverTap’s official mobile and web SDKs, server-side libraries, partner integrations, and community-supported projects.
 
 > 📘 GDPR Compliance
 >
-> The current version of CleverTap's iOS and Android SDKs are GDPR compliant. 
+> The current version of CleverTap's iOS and Android SDKs are GDPR compliant.
 >
 > Please review [the GDPR compliance SDK updates](https://developer.clevertap.com/docs/sdk-changes-for-gdpr-compliance) which describe the changes you need to make for GDPR compliance to the installation of the Android and iOS SDKs in your application.
 
@@ -60,11 +60,11 @@ This section covers the web SDK.
 
 ## JavaScript
 
-* Installation instructions are in the [Web Quick Start Guide](doc:web-quickstart-guide). 
+* Installation instructions are in the [Web Quick Start Guide](doc:web-quickstart-guide).
 
 # Partner Integrations
 
-This section covers partner integrations. 
+This section covers partner integrations.
 
 ## CleverTap/Segment Android Integration
 
