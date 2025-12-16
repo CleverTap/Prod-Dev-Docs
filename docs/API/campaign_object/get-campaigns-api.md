@@ -12,7 +12,7 @@ next:
 ---
 # Overview
 
-The Get Campaigns API returns a list of campaigns (created via the CleverTap dashboard or API) scheduled within the specified date range.
+The Get Campaigns API returns a list of campaigns (created via the CleverTap API) scheduled within the specified date range.
 
 * Provides campaign IDs, names, scheduled start times, and status.
 * Use the returned `id` with the [Get Campaign Report API](doc:get-campaign-report-api) to fetch detailed metrics.
