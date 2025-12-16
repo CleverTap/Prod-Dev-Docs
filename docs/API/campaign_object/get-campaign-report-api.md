@@ -164,12 +164,7 @@ The following are the sample responses:
   "status": "success",
   "result": {
     "sent": 82,
-    "delivered": 80,
     "clicked": 28,
-    "bounced": 2,
-    "unsubscribed": 1,
-    "opened": 40,
-    "converted": 5
   },
   "metadata": {
     "campaign_id": 1457432766,
@@ -186,16 +181,10 @@ The following are the sample responses:
 
 The following are the response parameters:
 
-| Field          | Description                                                                  | Type    |
-| -------------- | ---------------------------------------------------------------------------- | ------- |
-| `sent`         | Number of messages attempted to be sent.                                     | Integer |
-| `delivered`    | Number of messages successfully delivered.                                   | Integer |
-| `clicked`      | Number of users who clicked the message (push, email, SMS with links).       | Integer |
-| `opened`       | Number of users who opened the message (applies to email).                   | Integer |
-| `bounced`      | Number of messages that failed due to invalid addresses or delivery issues.  | Integer |
-| `unsubscribed` | Number of users who unsubscribed after receiving the message.                | Integer |
-| `converted`    | Number of users who completed a conversion event attributed to the campaign. | Integer |
-| `metadata`     | Contains campaign metadata like name, type, and timestamps.                  | Object  |
+| Field     | Description                                                            | Type    |
+| --------- | ---------------------------------------------------------------------- | ------- |
+| `sent`    | Number of messages attempted to be sent.                               | Integer |
+| `clicked` | Number of users who clicked the message (push, email, SMS with links). | Integer |
 
 <Callout icon="📘" theme="info">
   **Notes**
