@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-## User Events
+# User Events
 
 ## Record an event with event data
 
