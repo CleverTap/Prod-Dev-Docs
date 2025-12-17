@@ -30,7 +30,7 @@ There are two ways to integrate CleverTap Web SDK:
 To get started, use the following steps:
 
 1. Copy and paste the code snippet below inside the <head /> section of your website.
-2. Replace CLEVERTAP_ACCOUNT_ID with your CleverTap Account ID. You can find your CleverTap Account ID on the_Settings_ page of the CleverTap dashboard.
+2. Replace CLEVERTAP_ACCOUNT_ID with your CleverTap Account ID. You can find your CleverTap Account ID on the _Settings_ page of the CleverTap dashboard.
 3. Setting the region is optional. You can get the region code from the CleverTap Dashboard. For more information, refer to [Region Codes](https://developer.clevertap.com/docs/idc).
 4. Setting the _Target Domain_ is optional. If no target domain is provided, the default target domain, _clevertap-prod.com_, is used.
 
