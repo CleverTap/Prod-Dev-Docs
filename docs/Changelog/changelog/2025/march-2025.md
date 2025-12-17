@@ -253,9 +253,9 @@ We are excited to share the March SDK changelog for our product!
 
 This update improves stability, simplifies API usage, and enhances push notification reliability.
 
-* **Deprecated` notifications.enable` API**
+* **Deprecated `notifications.enable` API**
   * `notifications.push` API now handles both old and new soft prompts, including the bell icon rendering.
-* **Updated` notifications.push` API**
+* **Updated `notifications.push` API**
   * Manages the entire web push prompt flow.
   * Ensures correct rendering based on the received web push configuration.
   * Handles race conditions when the SDK is not yet initialized, or the application server key is unavailable.
