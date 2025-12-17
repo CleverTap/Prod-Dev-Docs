@@ -23,14 +23,18 @@ CleverTap provides a JavaScript library to track and engage users on your websit
 
 # Integrate SDK
 
-There are two ways to integrate CleverTap Web SDK: 
+There are two ways to integrate CleverTap Web SDK:
 
 ## Option A: Add the CleverTap JavaScript Library Manually to Your Website
 
 To get started, use the following steps:
 
-1. Copy and paste the code snippet below inside the `<head>` section of your website.
-2. Replace `CLEVERTAP_ACCOUNT_ID` with your CleverTap Account ID. You can find your CleverTap Account ID on the *Settings* page of the CleverTap dashboard. 
+1. Copy and paste the code snippet below inside the <head /> section of your website.
+2. Replace CLEVERTAP_ACCOUNT_ID with your CleverTap Account ID. You can find your CleverTap Account ID on the_Settings_ page of the CleverTap dashboard.
+3. Setting the region is optional. You can get the region code from the CleverTap Dashboard. For more information, refer to [Region Codes](https://developer.clevertap.com/docs/idc).
+4. Setting the _Target Domain_ is optional. If no target domain is provided, the default target domain, _clevertap-prod.com_, is used.
+
+<br />
 
 > 📘 Note
 >
@@ -56,7 +60,7 @@ clevertap.privacy.push({useIP: false}); //set the flag to true, if the user agre
 
 ## Option B - Using the Package Manager (Recommended)
 
-CleverTap Web SDK is available as an **npm** package for adding to your website.\
+CleverTap Web SDK is available as an **npm** package for adding to your website.  
 Use the following npm command for the node package manager:
 
 ```javascript
@@ -71,6 +75,115 @@ yarn add clevertap-web-sdk
 
 ## Add Region Code
 
+Refer to the following table to identify the region for your account:
+
+| CleverTap Dashboard URL                                                                                  | Region            |
+| :------------------------------------------------------------------------------------------------------- | :---------------- |
+| [https://eu1.dashboard.clevertap.com/login.html#/](https://eu1.dashboard.clevertap.com/login.html#/)     | EU                |
+| [https://in1.dashboard.clevertap.com/login.html#/](https://in1.dashboard.clevertap.com/login.html#/)     | India             |
+| [https://us1.dashboard.clevertap.com/login.html#/](https://us1.dashboard.clevertap.com/login.html#/)     | US                |
+| [https://sg1.dashboard.clevertap.com/login.html#/](https://sg1.dashboard.clevertap.com/login.html#/)     | Singapore         |
+| [[https://aps3.dashboard.clevertap.com/login.html#/](https://aps3.dashboard.clevertap.com/login.html#/)] | Indonesia         |
+| [[https://mec1.dashboard.clevertap.com/login.html#/](https://mec1.dashboard.clevertap.com/login.html#/)] | Middle East (UAE) |
+
+Refer the following table for `region` key values:
+
+| Region                  | Value                                 |
+| :---------------------- | :------------------------------------ |
+| India                   | `in1`                                 |
+| Singapore               | `sg1`                                 |
+| United States (U.S)     | `us1`                                 |
+| Indonesia               | `aps3`                                |
+| Middle East (UAE)       | `mec1`                                |
+| Europe (default region) | You can skip adding the `region` key. |
+
+To enable the CleverTap region, add a `region` element to the `clevertap` object as shown in the following code (second line):
+
+```javascript India
+<script type="text/javascript">
+     var clevertap = {event:[], profile:[], region : 'in1', account:[], onUserLogin:[], notifications:[], privacy:[]};
+ clevertap.account.push({"id": "CLEVERTAP_ACCOUNT_ID"});
+ (function () {
+ var wzrk = document.createElement('script');
+ wzrk.type = 'text/javascript';
+ wzrk.async = true;
+ wzrk.src = ('https:' == document.location.protocol ? 'https://d2r1yp2w7bby2u.cloudfront.net' : 'http://static.clevertap.com') + '/js/clevertap.min.js';
+ var s = document.getElementsByTagName('script')[0];
+ s.parentNode.insertBefore(wzrk, s);
+  })();
+</script>
+```
+```javascript Singapore
+<script type="text/javascript">
+     var clevertap = {event:[], profile:[], region : 'sg1', account:[], onUserLogin:[], notifications:[],privacy:[]};
+ clevertap.account.push({"id": "CLEVERTAP_ACCOUNT_ID"});
+ (function () {
+ var wzrk = document.createElement('script');
+ wzrk.type = 'text/javascript';
+ wzrk.async = true;
+ wzrk.src = ('https:' == document.location.protocol ? 'https://d2r1yp2w7bby2u.cloudfront.net' : 'http://static.clevertap.com') + '/js/clevertap.min.js';
+ var s = document.getElementsByTagName('script')[0];
+ s.parentNode.insertBefore(wzrk, s);
+  })();
+</script>
+```
+```javascript United States
+<script type="text/javascript">
+     var clevertap = {event:[], profile:[], region : 'us1', account:[], onUserLogin:[], notifications:[], privacy:[]};
+ clevertap.account.push({"id": "CLEVERTAP_ACCOUNT_ID"});
+ (function () {
+ var wzrk = document.createElement('script');
+ wzrk.type = 'text/javascript';
+ wzrk.async = true;
+ wzrk.src = ('https:' == document.location.protocol ? 'https://d2r1yp2w7bby2u.cloudfront.net' : 'http://static.clevertap.com') + '/js/clevertap.min.js';
+ var s = document.getElementsByTagName('script')[0];
+ s.parentNode.insertBefore(wzrk, s);
+  })();
+</script>
+```
+```javascript Indonesia
+<script type="text/javascript">
+     var clevertap = {event:[], profile:[], region : 'aps3', account:[], onUserLogin:[], notifications:[], privacy:[]};
+ clevertap.account.push({"id": "CLEVERTAP_ACCOUNT_ID"});
+ (function () {
+ var wzrk = document.createElement('script');
+ wzrk.type = 'text/javascript';
+ wzrk.async = true;
+ wzrk.src = ('https:' == document.location.protocol ? 'https://d2r1yp2w7bby2u.cloudfront.net' : 'http://static.clevertap.com') + '/js/clevertap.min.js';
+ var s = document.getElementsByTagName('script')[0];
+ s.parentNode.insertBefore(wzrk, s);
+  })();
+</script>
+```
+```javascript Middle East (UAE)
+<script type="text/javascript">
+     var clevertap = {event:[], profile:[], region : 'mec1', account:[], onUserLogin:[], notifications:[], privacy:[]};
+ clevertap.account.push({"id": "CLEVERTAP_ACCOUNT_ID"});
+ (function () {
+ var wzrk = document.createElement('script');
+ wzrk.type = 'text/javascript';
+ wzrk.async = true;
+ wzrk.src = ('https:' == document.location.protocol ? 'https://d2r1yp2w7bby2u.cloudfront.net' : 'http://static.clevertap.com') + '/js/clevertap.min.js';
+ var s = document.getElementsByTagName('script')[0];
+ s.parentNode.insertBefore(wzrk, s);
+  })();
+</script>
+```
+```javascript Europe (default region)
+<script type="text/javascript">
+     var clevertap = {event:[], profile:[], account:[], onUserLogin:[], notifications:[], privacy:[]};
+ clevertap.account.push({"id": "CLEVERTAP_ACCOUNT_ID"});
+ (function () {
+ var wzrk = document.createElement('script');
+ wzrk.type = 'text/javascript';
+ wzrk.async = true;
+ wzrk.src = ('https:' == document.location.protocol ? 'https://d2r1yp2w7bby2u.cloudfront.net' : 'http://static.clevertap.com') + '/js/clevertap.min.js';
+ var s = document.getElementsByTagName('script')[0];
+ s.parentNode.insertBefore(wzrk, s);
+  })();
+</script>
+```
+
 To know how to add region code in Web SDK, refer to [Region Codes](doc:idc#web).
 
 ## Migrating from Legacy Web SDK to the Latest Web SDK
@@ -82,8 +195,8 @@ The legacy Web SDK represented below is deprecated, and no fixes will be release
 To add the CleverTap JavaScript library manually to your website:
 
 1. Copy and paste the code snippet below inside the `<head> `section of your website.
-2. Replace `CLEVERTAPACCOUNT_ID` with your CleverTap Account ID. You can find your CleverTap Account ID on the *Settings* page of the CleverTap dashboard.
-3. Replace the existing code snippet with the new code snippet mentioned below. 
+2. Replace `CLEVERTAPACCOUNT_ID` with your CleverTap Account ID. You can find your CleverTap Account ID on the _Settings_ page of the CleverTap dashboard.
+3. Replace the existing code snippet with the new code snippet mentioned below.
 
 **Existing Code Snippet**
 
@@ -127,7 +240,7 @@ clevertap.privacy.push({useIP: false}); //set the flag to true, if the user agre
 
 ### Option B: Migrate to the Latest SDK Using the Package Manager
 
-CleverTap Web SDK is available as an *npm* package for adding to your website. Use the following *npm* command for the node package manager:
+CleverTap Web SDK is available as an _npm_ package for adding to your website. Use the following _npm_ command for the node package manager:
 
 ```javascript
 npm install clevertap-web-sdk --save
@@ -159,9 +272,9 @@ clevertap.spa = true
 
 # Identify Users
 
-CleverTap automatically creates a user profile for each person visiting your website. At first, the user profile starts out as anonymous which means the user profile does not contain any identifiable information. 
+CleverTap automatically creates a user profile for each person visiting your website. At first, the user profile starts out as anonymous which means the user profile does not contain any identifiable information.
 
-1. Enrich the user profile with information, such as the user’s name or email, by calling `clevertap.onuserlogin`.\
+1. Enrich the user profile with information, such as the user’s name or email, by calling `clevertap.onuserlogin`.  
    Here is an example showing how to add a name and an email to a user’s profile:
 
 ```javascript
@@ -208,16 +321,16 @@ clevertap.onUserLogin.push({
 
 # Track User Events
 
-CleverTap provides the ability to track custom events that are specific to your website. For example, if you are an e-commerce company, you most likely want to track what products were viewed. 
+CleverTap provides the ability to track custom events that are specific to your website. For example, if you are an e-commerce company, you most likely want to track what products were viewed.
 
-1. Track custom events by calling `clevertap.event.push("EVENT_NAME")`.\
+1. Track custom events by calling `clevertap.event.push("EVENT_NAME")`.  
    Here is an example to track that a product was viewed:
 
 ```javascript
 clevertap.event.push("Product Viewed");
 ```
 
-2. In addition to tracking an event, you can add any key/value pairs as properties on the event which lets you create more specific segments and targeted campaigns. 
+2. In addition to tracking an event, you can add any key/value pairs as properties on the event which lets you create more specific segments and targeted campaigns.
 
 ```javascript
 clevertap.event.push("Product Viewed", {
@@ -232,7 +345,7 @@ Below are a few more things to consider:
 
 * The CleverTap JavaScript library does not have any external dependencies, such as third-party libraries like jQuery.
 * CleverTap’s JavaScript library works well within [Google Tag Manager](https://developers.google.com/tag-manager/quickstart).
-* We recommend recording an event only after it has passed all of your validations successfully. For example, record an *Added to Cart* event only on successful addition to the cart.
+* We recommend recording an event only after it has passed all of your validations successfully. For example, record an _Added to Cart_ event only on successful addition to the cart.
 
 # Debugging
 
@@ -254,7 +367,7 @@ clevertap.setLogLevel(LOG_LEVEL)
 
 # Offline Mode
 
-The offline mode allows setting CleverTap SDK to offline state. The `setOffline` method determines the SDK's online state. By default, the offline state of the SDK is set to false.\
+The offline mode allows setting CleverTap SDK to offline state. The `setOffline` method determines the SDK's online state. By default, the offline state of the SDK is set to false.  
 However, once the `setoffline` method is passed with `true` as described below, the CleverTap SDK goes offline. All the events are recorded and queued locally, but they are not sent to the CleverTap server.
 
 If the `setoffline` method is passed with `false` as described below, the CleverTap SDK is set to online mode, and the queued events are sent to the CleverTap server immediately.
