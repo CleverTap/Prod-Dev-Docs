@@ -26,8 +26,8 @@ This request generates a pre-signed URL that you use to upload your custom list 
 
 ## Base URL
 
-Here is an example base URL from the India region:\
-[https://in1.api.clevertap.com/get\_custom\_list\_segment\_url](https://in1.api.clevertap.com/get_custom_list_segment_url)\
+Here is an example base URL from the India region:  
+[https://in1.api.clevertap.com/get_custom_list_segment_url](https://in1.api.clevertap.com/get_custom_list_segment_url)  
 Refer to [Region](https://developer.clevertap.com/docs/common-api-components#region) for region-specific endpoints.
 
 ## HTTP Method
@@ -186,13 +186,13 @@ echo $response;
 
 # Step 3: Indicate Completion of File Upload
 
-After you upload the file, call this endpoint to confirm completion. CleverTap processes the file and creates the custom list segment.\
+After you upload the file, call this endpoint to confirm completion. CleverTap processes the file and creates the custom list segment.  
 If your account has **Teams** enabled, include the optional `team_allocations` array to allocate the new segment to team(s).
 
 ## Base URL
 
-Example base URL from the India region:\
-[https://in1.api.clevertap.com/upload\_custom\_list\_segment\_completed](https://in1.api.clevertap.com/upload_custom_list_segment_completed)
+Example base URL from the India region:  
+[https://in1.api.clevertap.com/upload_custom_list_segment_completed](https://in1.api.clevertap.com/upload_custom_list_segment_completed)
 
 ## HTTP Method
 
@@ -222,7 +222,7 @@ Provide the following body parameters. Include the Teams parameter only if Teams
 | `email`            | Admin email address of the owner.                                                                                  | String           | Yes      | `"jane@clevertap.com"`   |
 | `url`              | Pre-signed URL used for upload, obtained in Step 1.                                                                | String           | Yes      | `"<PRE-SIGNED URL>"`     |
 | `replace`          | If `true`, replaces an existing segment with the same name.                                                        | Boolean          | No       | `false`                  |
-| `team_allocations` | **Teams only.** Array that maps the created segment to one or more team names. Omit this field if not using Teams. | Array of objects | No\*     | See “Teams Object” below |
+| `team_allocations` | **Teams only.** Array that maps the created segment to one or more team names. Omit this field if not using Teams. | Array of objects | No*      | See “Teams Object” below |
 
 * Required only when allocating segments to teams due to account policy or configuration.
 
