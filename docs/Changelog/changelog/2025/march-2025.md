@@ -138,13 +138,13 @@ We are excited to share the March SDK changelog for our product!
 
 ### Bug Fixes
 
-* Adds validations to prevent errors caused by `null` values in campaign objects.  
+* Adds validations to prevent errors caused by `null` values in campaign objects.
 
-* Addresses runtime issues affecting WebInbox functionality.  
+* Addresses runtime issues affecting WebInbox functionality.
 
-* Skips WebInbox retries when configuration is not present to prevent unnecessary API calls.  
+* Skips WebInbox retries when configuration is not present to prevent unnecessary API calls.
 
-* Corrects inconsistencies in the custom event payload structure for Web Native Display.  
+* Corrects inconsistencies in the custom event payload structure for Web Native Display.
 
 * Improves session storage validation for `WZRK_D` with fallback mechanism and error handling.
 
@@ -160,9 +160,9 @@ We are excited to share the March SDK changelog for our product!
 
 * **Updates Huawei Push Integration**
   * Updates Huawei Push integration process to improve reliability and simplify setup. If you have integrated CleverTap Huawei Push SDK, you must follow the new steps listed under [Huawei Push Integration](doc:clevertap-huawei-push-integration) to ensure continued functionality.
-* **Updates Baidu Push Integration**\
+* **Updates Baidu Push Integration**  
   Updates Baidu Push integration steps for better performance. To ensure compatibility, refer to the new steps listed under [Baidu Push Integration](doc:baidu-push-notifications).
-* **Updates Unified Push Registration**\
+* **Updates Unified Push Registration**  
   Removes `pushBaiduRegistrationId()` and `pushHuaweiRegistrationId()` methods removed from `CleverTapAPI` to simplify push registration. Use the appropriate `PushType` constant to identify the push provider (Huawei or Baidu). For more information about implementation updates, refer to [Huawei Push Integration](doc:clevertap-huawei-push-integration) and [Baidu Push Integration](doc:baidu-push-notifications).
 
 > ❗️ Critical Update
@@ -184,9 +184,9 @@ We are excited to share the March SDK changelog for our product!
 
 ### Important API Changes
 
-* **Updates Huawei Push Integration**\
+* **Updates Huawei Push Integration**  
   The integration process for Huawei Push has been significantly updated. If you have previously integrated the CleverTap Huawei Push SDK, you must now follow the new steps outlined under [CleverTap Huawei Push Integration](doc:clevertap-huawei-push-integration) to ensure continued functionality.
-* **Pluggable Huawei Push Integration**\
+* **Pluggable Huawei Push Integration**  
   Huawei Push is now available as a pluggable component, providing more flexibility and removing reliance on reflection-based initialization in the core SDK.
 
 ## [Expo 0.0.1](https://github.com/CleverTap/clevertap-expo-plugin/releases/tag/0.0.1)
@@ -207,7 +207,7 @@ We are excited to share the March SDK changelog for our product!
 
 ### What's New
 
-* Supports preview in custom HTML templates for Web Native Display campaigns, using a `post message proxy` for seamless preview functionality.  
+* Supports preview in custom HTML templates for Web Native Display campaigns, using a `post message proxy` for seamless preview functionality.
 
 ### Bug Fixes
 
@@ -219,11 +219,11 @@ We are excited to share the March SDK changelog for our product!
 
 ### What's New
 
-* Introduces priority support for Web Native Display campaigns, allowing better control over message selection and delivery.  
+* Introduces priority support for Web Native Display campaigns, allowing better control over message selection and delivery.
 
 ### Bug Fixes
 
-* Combines multiple Web Native Display events into a single event with different `campaignSource` values. 
+* Combines multiple Web Native Display events into a single event with different `campaignSource` values.
 
 ### Important API Changes
 
@@ -236,15 +236,15 @@ We are excited to share the March SDK changelog for our product!
 ### What's New
 
 * **VAPID Migration and APNS Support**
-  * Supports Apple Push Notification Service (APNS) in the new soft prompt. 
-  * Sends prompt configurations on every page refresh.  
+  * Supports Apple Push Notification Service (APNS) in the new soft prompt.
+  * Sends prompt configurations on every page refresh.
 
 ### Bug Fixes
 
-* Fixes race conditions when `notifications.push` is called before web push configuration is available.  
-* Improves error handling for notification subscriptions.  
-* Ensures proper prompt closure when users grant permissions via the bell icon.  
-* Enhances prompt rendering logic to handle missing configurations or initialization delays.  
+* Fixes race conditions when `notifications.push` is called before web push configuration is available.
+* Improves error handling for notification subscriptions.
+* Ensures proper prompt closure when users grant permissions via the bell icon.
+* Enhances prompt rendering logic to handle missing configurations or initialization delays.
 * **Improved Web Push Handling**
   * Enhances web push notification handling with improved configuration management.
   * Introduces structured methods for setting up and processing soft prompts.
@@ -253,14 +253,14 @@ We are excited to share the March SDK changelog for our product!
 
 This update improves stability, simplifies API usage, and enhances push notification reliability.
 
-* **Deprecated`notifications.enable` API**
-  * `notifications.push` API now handles both old and new soft prompts, including the bell icon rendering.  
-* **Updated`notifications.push` API**
-  * Manages the entire web push prompt flow.  
-  * Ensures correct rendering based on the received web push configuration.  
+* **Deprecated` notifications.enable` API**
+  * `notifications.push` API now handles both old and new soft prompts, including the bell icon rendering.
+* **Updated` notifications.push` API**
+  * Manages the entire web push prompt flow.
+  * Ensures correct rendering based on the received web push configuration.
   * Handles race conditions when the SDK is not yet initialized, or the application server key is unavailable.
 * **Refactored Notification Handler Methods**
-  * Adds `setupWebPush`, `processSoftPrompt`, `parseDisplayArgs`, and `setNotificationHandlerValues` for better modularity.  
+  * Adds `setupWebPush`, `processSoftPrompt`, `parseDisplayArgs`, and `setNotificationHandlerValues` for better modularity.
   * Updates `processWebPushConfig`, `enable`, and `push` methods to improve prompt logic.
   * Improves notification subscription flow and error handling.
 
@@ -306,7 +306,7 @@ This release introduces key improvements to Android and iOS, including enhanced 
 
 #### Android and iOS
 
-* Supports triggering In-App campaigns based on a combination of recurring and first-time events. For example, trigger a campaign every time the *Charged* event occurs or the *App Launched* event occurs for the first time.
+* Supports triggering In-App campaigns based on a combination of recurring and first-time events. For example, trigger a campaign every time the _Charged_ event occurs or the _App Launched_ event occurs for the first time.
 * Supports user-level event log tracking system with the help of the following new APIs:
   * `getUserEventLog()`: Retrieves specific event details.
   * `getUserEventLogCount()`: Retrieves the count of times an event occurred.
