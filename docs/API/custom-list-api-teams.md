@@ -261,13 +261,7 @@ curl -X POST \
     "creator":"Jane",
     "url":"<PRE-SIGNED URL>",
     "replace":false,
-    "team_allocations":[
-      {
-        "segment_name":"sample_segment",
-        "customer_segment_id":"SEG12345",
-        "team_names":["team A"]
-      }
-    ]
+    "team_names":["team A"]
   }'
 ```
 ```python
