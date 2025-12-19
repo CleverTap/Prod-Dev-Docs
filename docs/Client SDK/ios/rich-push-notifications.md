@@ -37,7 +37,7 @@ To configure rich push notifications, perform the following steps:
 1. Create a notification service extension in your Xcode project, and select _File_ > _New_ > _Target_.
 2. Select the _Notification Service Extension_ from the available extensions.
 
-<Image align="center" alt={1438} border={true} caption="Select Notification Service Extension" title="Notification Service Extension Template" src="https://files.readme.io/99f83fd-ios10.png" />
+<Image align="center" alt="Select Notification Service Extension" border={true} caption="Select Notification Service Extension" title="Notification Service Extension Template" src="https://files.readme.io/99f83fd-ios10.png" />
 
 3. Install [CTNotificationService](https://github.com/CleverTap/CTNotificationService#configure-your-notification-service-extension-to-use-the-ctnotificationserviceextension-class) in the **Notification Service Extension**. You can install it manually via [CocoaPods](doc:ios-quickstart-guide#install-using-swift-package-manager)(recommended) or Carthage or SPM.
 
