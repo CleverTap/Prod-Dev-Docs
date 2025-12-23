@@ -12,7 +12,7 @@ next:
 ---
 # Overview
 
-This endpoint enables you to get a specific Content Block by its ID. 
+This endpoint enables you to get a specific Content Block by its ID.
 
 ## Base URL
 
@@ -40,7 +40,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
 
 ## Example Request
 
-Here is an example cURL request to the *Content Blocks* API.
+Here is an example cURL request to the _Content Blocks_ API.
 
 ```curl
 
@@ -72,8 +72,6 @@ curl --location --request GET 'https://(region).api.clevertap.com/v1/contentBloc
 | ----------------- | --------------------------------------------------------------------------------------- |
 | 403               | Content Blocks isn’t enabled on your account. Contact Support to access Content Blocks. |
 | 400               | Content block ID consists of only numbers. Try again.                                   |
-| 200               | Content block ID consists of only numbers. Try again.                                   |
-| 200               | Content block response.                                                                 |
 | 500               | Request couldn’t be processed due to a system error. Try again.                         |
 
 # API FAQs
