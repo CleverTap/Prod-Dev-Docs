@@ -12,13 +12,13 @@ next:
 ---
 # Overview
 
-This endpoint enables you to create a new Content Block. You can create either a *Text* or an *HTML* Content Block. You have to specify the type, name, and content for your Content Block. For example, you can create a  footer with a content block that contains links to various social media handles. 
+This endpoint enables you to create a new Content Block. You can create either a _Text_ or an _HTML_ Content Block. You have to specify the type, name, and content for your Content Block. For example, you can create a  footer with a content block that contains links to various social media handles.
 
 ## Base URL
 
 Here is an example base URL:
 
-`https://{Region}.api.clevertap.com/v1/cms/createContentBlock`
+`https://{Region}.api.clevertap.com/v1/contentBlock/create`
 
 ### Region
 
@@ -36,17 +36,17 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
 
 The body is uploaded as a JSON payload.
 
-| **Parameter** | **Type** | **Example Value**                       | **Description**                                                                                                                                                                                                                                                                                                                                | **Required?** |
-| ------------- | -------- | --------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
-| **type**      | String   | "Text" or "HTML"                        | Specifies the format of the content. Use "Text" for plain text and "HTML" for HTML-formatted content.                                                                                                                                                                                                                                          | Mandatory     |
-| **partner**   | String   | "Taxi"                                  | Identifies the partner platform or service associated with this content, such as "Taxi". Check that you have a subscription to the service or platform and it is [supported by CleverTap](https://docs.clevertap.com/docs/technology-partners).                                                                                                | Optional      |
-| **name**      | String   | "Welcome Email"                         | Provides a descriptive name for the content block, such as "Welcome Email" or "Newsletter Header". Names can include letters (A-Z, a-z), numbers (0-9), underscores (\_), periods (.), hyphens (-), parentheses (()), and spaces. However, names must not begin with a special character. Additionally, the content block name must be unique. | Mandatory     |
-| **content**   | String   | "Hello, [Name]! Welcome to our service" | The main body of the content. It may include personalized text or HTML.                                                                                                                                                                                                                                                                        | Mandatory     |
-| **createdBy** | String   | "[abc@gmail.com](mailto:abc@gmail.com)" | Specifies the email address of the user who created the content block.                                                                                                                                                                                                                                                                         | Mandatory     |
+| **Parameter** | **Type** | **Example Value**                       | **Description**                                                                                                                                                                                                                                                                                                                               | **Required?** |
+| ------------- | -------- | --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
+| **type**      | String   | "Text" or "HTML"                        | Specifies the format of the content. Use "Text" for plain text and "HTML" for HTML-formatted content.                                                                                                                                                                                                                                         | Mandatory     |
+| **partner**   | String   | "Taxi"                                  | Identifies the partner platform or service associated with this content, such as "Taxi". Check that you have a subscription to the service or platform and it is [supported by CleverTap](https://docs.clevertap.com/docs/technology-partners).                                                                                               | Optional      |
+| **name**      | String   | "Welcome Email"                         | Provides a descriptive name for the content block, such as "Welcome Email" or "Newsletter Header". Names can include letters (A-Z, a-z), numbers (0-9), underscores (_), periods (.), hyphens (-), parentheses (()), and spaces. However, names must not begin with a special character. Additionally, the content block name must be unique. | Mandatory     |
+| **content**   | String   | "Hello, [Name]! Welcome to our service" | The main body of the content. It may include personalized text or HTML.                                                                                                                                                                                                                                                                       | Mandatory     |
+| **createdBy** | String   | "[abc@gmail.com](mailto:abc@gmail.com)" | Specifies the email address of the user who created the content block.                                                                                                                                                                                                                                                                        | Mandatory     |
 
 ## Example Request
 
-Here is an example cURL request to the *Create Content Blocks* API.
+Here is an example cURL request to the _Create Content Blocks_ API.
 
 ```json
 
@@ -66,7 +66,10 @@ curl --location --request POST 'https://(region).clevertap.com/v1/contentBlock/c
 
 ```json
 {
-   "message": "Content Block with name Welcome Message created"
+    "id": 176243992157295,
+    "name": "Content event personalization_8",
+    "result": "Content Block with name Content event personalization_8 created",
+    "status": "success"
 }
 ```
 
@@ -75,6 +78,7 @@ curl --location --request POST 'https://(region).clevertap.com/v1/contentBlock/c
 | Response Code | Response Error                                                                          |
 | :------------ | :-------------------------------------------------------------------------------------- |
 | 403           | Content Blocks isn’t enabled on your account. Contact Support to access Content Blocks. |
+| 406           | API access disabled due to overuse. Contact customer support for more details.          |
 | 400           | Invalid partner name. Check spelling or ensure the partner is registered with us.       |
 | 400           | Parameters entered for content block creation are invalid. Try again.                   |
 | 500           | Request couldn’t be processed due to a system error. Try again.                         |
