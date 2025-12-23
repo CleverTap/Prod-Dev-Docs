@@ -12,13 +12,13 @@ next:
 ---
 # Overview
 
-This endpoint gives you a list of all available Content Blocks based on the query. For example,  you can define the list by number of pages required, by the person who created the blocks, and so on. 
+This endpoint gives you a list of all available Content Blocks based on the query. For example,  you can define the list by number of pages required, by the person who created the blocks, and so on.
 
 ## Base URL
 
 Here is an example base URL from the account in the India region:
 
-`https://{Region}.api.clevertap.com/v1/contentBlock/List`
+`https://{Region}.api.clevertap.com/v1/contentBlock/list`
 
 ### Region
 
@@ -45,7 +45,7 @@ Refer [Headers](docs:common-api-components#api-headers) for more details.
 
 ## Example Request
 
-Here is an example cURL request to the *Get Content Content Blocks List* API. 
+Here is an example cURL request to the _Get Content Content Blocks List_ API.
 
 ```curl
 curl --location --request GET 'https://(region).api.clevertap.com/v1/contentBlock/list' \
@@ -97,7 +97,6 @@ curl --location --request GET 'https://(region).api.clevertap.com/v1/contentBloc
 | 400               | The page number can only be a positive number.                                          |
 | 400               | Enter the date in ISO format. For example, 2020-24-12T11:45:50:965Z.                    |
 | 200               | There are no content blocks matching your search.                                       |
-| 200               | Content block response.                                                                 |
 | 500               | The request couldn’t be processed due to a system error. Try again.                     |
 
 # API FAQs
