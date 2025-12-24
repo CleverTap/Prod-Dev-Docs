@@ -89,103 +89,82 @@ We recommend installing the React Native SDK through `npm`. To add the SDK as a 
 
 1. Navigate to the root of your application and add `@rudderstack/rudder-sdk-react-native` to your application as a dependency with:
 
-```java
-<meta-data
-    android:name="CLEVERTAP_ACCOUNT_ID"
-    android:value="Your CleverTap Account ID"/>
-<meta-data
-    android:name="CLEVERTAP_TOKEN"
-    android:value="Your CleverTap Account Token"/>
+```shell
+npm install @rudderstack/rudder-sdk-react-native --save
 ```
 
-2. Add the region tag based on the region of your account. Refer to the above table listed under [Set Up Source and Destination at RudderStack](doc:rudderstack-in-android#set-up-source-and-destination-at-rudderstack) to identify the region of your account. Based on the region of your account, add the tag as follows:
+Or
 
-```xml India Region
-<meta-data 
-android:name="CLEVERTAP_REGION" 
-android:value="in1"/>
-```
-```xml Singapore Region
-<meta-data 
-android:name="CLEVERTAP_REGION" 
-android:value="sg1"/>
-```
-```xml U.S. Region
-<meta-data 
-android:name="CLEVERTAP_REGION" 
-android:value="us1"/>
+```shell
+yarn add @rudderstack/rudder-sdk-react-native
 ```
 
-3. Register CleverTap’s ActivityLifecycleCallback methods. To do so, you can either set the `android:name` in your `AndroidManifest.xml` tag to `com.clevertap.android.sdk.Application`. Or, if you have a custom Application class, call `ActivityLifecycleCallback.register(this)`; before super.onCreate()` in your application class.
+2. Add the RudderStack-CleverTap module to your app using the following code:
 
-This is important for tracking lifecycle events on CleverTap, such as App Installed and App Launched, and for the appropriate functioning of push notifications from CleverTap.
+```shell
+npm install @rudderstack/rudder-integration-clevertap-react-native
+```
 
-## Install SDK in Native application
+Or
 
-To install Android SDK within the application:
+```shell
+yarn add @rudderstack/rudder-integration-clevertap-react-native
+```
 
-1. Add the following lines of code to your `app/build.gradle` file:
+3. Navigate to your **Android/App** folder and add the following dependency to your `app/build.gradle` file:
 
 ```groovy
-repositories {
-  mavenCentral()
-}
-```
-
-2. Add the following dependencies under `dependencies` within `app/build.gradle` file:
-
-```groovy
-implementation 'com.rudderstack.android.sdk:core:1+'
-implementation 'com.rudderstack.android.integration:clevertap:1+'
-
-implementation 'com.clevertap.android:clevertap-android-sdk:4.0.0'
+implementation 'com.clevertap.android:clevertap-android-sdk:4.4.0'
 implementation 'com.google.android.gms:play-services-base:17.4.0'
-
-implementation 'com.google.android.exoplayer:exoplayer:2.11.5' //Optional for Audio/Video
-implementation 'com.google.android.exoplayer:exoplayer-hls:2.11.5' //Optional for Audio/Video
-implementation 'com.google.android.exoplayer:exoplayer-ui:2.11.5' //Optional for Audio/Video
+implementation 'com.android.installreferrer:installreferrer:2.1'
+implementation 'com.google.firebase:firebase-messaging:20.2.4'
+implementation project(':clevertap-react-native')
 implementation 'com.github.bumptech.glide:glide:4.11.0' //Mandatory for App Inbox
 implementation 'androidx.recyclerview:recyclerview:1.1.0' //Mandatory for App Inbox
 implementation 'androidx.viewpager:viewpager:1.0.0' //Mandatory for App Inbox
-implementation 'com.google.android.material:material:1.2.1' //Mandatory for App Inbox
+implementation 'com.google.android.material:material:1.3.0' //Mandatory for App Inbox
 implementation 'androidx.appcompat:appcompat:1.2.0' //Mandatory for App Inbox
+implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
 implementation 'androidx.core:core:1.3.0'
 implementation 'androidx.fragment:fragment:1.1.0' // InApp
-//Mandatory for React Native SDK v0.3.9 and above add the following -
-implementation 'com.android.installreferrer:installreferrer:2.1'
+implementation 'com.google.android.exoplayer:exoplayer:2.11.5' //Optional for Audio/Video
+implementation 'com.google.android.exoplayer:exoplayer-hls:2.11.5' //Optional for Audio/Video
+implementation 'com.google.android.exoplayer:exoplayer-ui:2.11.5' //Optional for Audio/Video
+implementation 'com.android.support:multidex:1.0.3'
+```
+
+4. Open the `iOS folder` from your terminal and install all the pod files with the following command:
+
+```shell
+pod install
 ```
 
 ## Initialize RudderStack Client
 
 To initialize the RudderStack client:
 
-1. Import the library for the classes you desire to use in the `RudderClient` library.
+1. Import the module you added above as shown below:
 
-```java
-import com.rudderstack.android.sdk.core.*;
+```javascript
+import rudderClient from '@rudderstack/rudder-sdk-react-native';
+import clevertap from "@rudderstack/rudder-integration-clevertap-react-native";
+const CleverTap = require('clevertap-react-native');
 ```
 
 2. Initialize the CleverTap-RudderStack SDK as follows:
 
-```java
-crudderClient = RudderClient.getInstance(
-                    this,
-                    <YOUR_WRITE_KEY>,
-                    new RudderConfig.Builder()
-                            //.withDataPlaneUrl(<YOUR_DATA_PLANE_URL>)
-                            .withTrackLifecycleEvents(true)
-                            .withLogLevel(RudderLogger.RudderLogLevel.DEBUG) 
-                            .withFactory(CleverTapIntegrationFactory.FACTORY)
-                            .build()
-            );
+```javascript
+const config = {
+  dataPlaneUrl : "YOUR_DATA_PLANE_URL", 
+  logLevel: 3,
+  trackAppLifecycleEvents: true,
+  recordScreenViews:true,
+  withFactories: [clevertap]
+};
+rudderClient.setup("YOUR_WRITE_KEY", config);
 ```
-
-| Parameter                 | Description                                                                                                             |
-| :------------------------ | :---------------------------------------------------------------------------------------------------------------------- |
-| `YOUR_DATA_PLANE_URL`     | Navigate to _Connect_ > _Connections._ page from the RudderStack dashboard to get this data plane URL.                  |
-| `YOUR_WRITE_KEY`          | Navigate to the _Connect_ > _Source_ page from the RudderStack dashboard and click **Details** to get this information. |
-| `trackAppLifecycleEvents` | Allows you to track Rudderstack SDK to capture their Lifecycle events.                                                  |
-| `logLevel`                | Allows you to check the application log when developing the application.                                                |
+* `trackAppLifecycleEvents`: This method allows the Rudderstack SDK to capture the Lifecycle events.
+* `logLevel` → This method allows you to go through the application log when developing the application.
 
 <Image align="center" alt={2880} border={true} caption="Obtain Data Plane URL" title="Data Plane URL" src="https://files.readme.io/3c8b00f-data_plane_URL.png" />
 
