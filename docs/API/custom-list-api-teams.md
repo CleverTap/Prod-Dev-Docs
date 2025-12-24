@@ -187,7 +187,7 @@ echo $response;
 # Step 3: Indicate Completion of File Upload
 
 After you upload the file, call this endpoint to confirm completion. CleverTap processes the file and creates the custom list segment.  
-If your account has **Teams** enabled, include the optional `team_allocations` array to allocate the new segment to team(s).
+If your account has **Teams** enabled, include the attribute `team_names` array to mention your team name.
 
 ## Base URL
 
@@ -214,25 +214,15 @@ The following table lists the required headers for this request.
 
 Provide the following body parameters. Include the Teams parameter only if Teams are enabled for your account.
 
-| Parameter          | Description                                                                                                        | Type             | Required | Example                  |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------ | ---------------- | -------- | ------------------------ |
-| `name`             | Name of the segment.                                                                                               | String           | Yes      | `"sample_segment"`       |
-| `creator`          | Name of the user making this API call.                                                                             | String           | Yes      | `"Jane"`                 |
-| `filename`         | Name of the uploaded file.                                                                                         | String           | Yes      | `"my_file_name.csv"`     |
-| `email`            | Admin email address of the owner.                                                                                  | String           | Yes      | `"jane@clevertap.com"`   |
-| `url`              | Pre-signed URL used for upload, obtained in Step 1.                                                                | String           | Yes      | `"<PRE-SIGNED URL>"`     |
-| `replace`          | If `true`, replaces an existing segment with the same name.                                                        | Boolean          | No       | `false`                  |
-| `team_allocations` | **Teams only.** Array that maps the created segment to one or more team names. Omit this field if not using Teams. | Array of objects | No*      | See “Teams Object” below |
-
-* Required only when allocating segments to teams due to account policy or configuration.
-
-Each object in `team_allocations` uses the following keys.
-
-| Key                   | Description                                                                                                                     | Type             | Required | Example           |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ---------------- | -------- | ----------------- |
-| `segment_name`        | Name of the segment to allocate (use the same value as `name` in this request).                                                 | String           | Yes      | `"Premium Users"` |
-| `customer_segment_id` | Internal ID if already available; omit when creating a new segment without an existing ID.                                      | String           | No       | `"SEG12345"`      |
-| `team_names`          | One or more team names to assign to the segment. Team names must match names configured in your account and are case-sensitive. | Array of strings | Yes      | `["team A"]`      |
+| Parameter    | Description                                                                                                                     | Type             | Required | Example                |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------- | ---------------- | -------- | ---------------------- |
+| `name`       | Name of the segment.                                                                                                            | String           | Yes      | `"sample_segment"`     |
+| `creator`    | Name of the user making this API call.                                                                                          | String           | Yes      | `"Jane"`               |
+| `filename`   | Name of the uploaded file.                                                                                                      | String           | Yes      | `"my_file_name.csv"`   |
+| `email`      | Admin email address of the owner.                                                                                               | String           | Yes      | `"jane@clevertap.com"` |
+| `url`        | Pre-signed URL used for upload, obtained in Step 1.                                                                             | String           | Yes      | `"<PRE-SIGNED URL>"`   |
+| `replace`    | If `true`, replaces an existing segment with the same name.                                                                     | Boolean          | No       | `false`                |
+| `team_names` | One or more team names to assign to the segment. Team names must match names configured in your account and are case-sensitive. | Array of strings | Yes      | `["team A"]`           |
 
 ### Example Teams Payload
 
@@ -280,13 +270,7 @@ data = {
     "creator": "Jane",
     "url": "<PRE-SIGNED URL>",
     "replace": False,
-    "team_allocations": [
-        {
-            "segment_name": "sample_segment",
-            "customer_segment_id": "SEG12345",
-            "team_names": ["team A"]
-        }
-    ]
+    "team_names": ["team A"]
 }
 
 response = requests.post(url, json=data, headers=headers)
@@ -309,13 +293,7 @@ const data = {
   creator: "Jane",
   url: "<PRE-SIGNED URL>",
   replace: false,
-  team_allocations: [
-    {
-      segment_name: "sample_segment",
-      customer_segment_id: "SEG12345",
-      team_names: ["team A"]
-    }
-  ]
+  team_names:["team A"]
 };
 
 axios.post(url, data, { headers })
@@ -336,14 +314,8 @@ request.body = {
   filename: "my_file_name.csv",
   creator: "Jane",
   url: "<PRE-SIGNED URL>",
-  replace: false,
-  team_allocations: [
-    {
-      segment_name: "sample_segment",
-      customer_segment_id: "SEG12345",
-      team_names: ["team A"]
-    }
-  ]
+  replace: false, 
+  team_names: ["team A"]
 }.to_json
 
 response = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) do |http|
@@ -367,13 +339,7 @@ $data = array(
   "creator" => "Jane",
   "url" => "<PRE-SIGNED URL>",
   "replace" => false,
-  "team_allocations" => array(
-    array(
-      "segment_name" => "sample_segment",
-      "customer_segment_id" => "SEG12345",
-      "team_names" => array("team A")
-    )
-  )
+  "team_names" => array("team A")
 );
 
 $ch = curl_init($url);
@@ -392,7 +358,7 @@ echo $response;
 
 The Custom List API may return various error responses depending on the request.
 
-Use the following table to troubleshoot common errors. (Teams-specific checks can also trigger `team_ids_required` if your account requires team allocation.)
+Use the following table to troubleshoot common errors.
 
 | **HTTP Status** | **Error**                 | **Description**                                                                                         |
 | --------------- | ------------------------- | ------------------------------------------------------------------------------------------------------- |
@@ -419,7 +385,5 @@ Use the following table to troubleshoot common errors. (Teams-specific checks ca
 
 # Notes
 
-* `team_allocations` is optional and only applies to accounts with Teams enabled.
 * Use the exact team names configured in your account for `team_names`. Team names are case-sensitive.
 * When creating a brand-new segment, you can omit `customer_segment_id`.
-* If your account enforces team allocation, omitting `team_allocations` may result in `team_ids_required`.
