@@ -23,7 +23,7 @@ The following table describes the supported features for each Smart TV SDK:
 | **Analytics**           | Yes                    | Yes              | Yes (only 7.0)     | Yes              | Yes                  | Yes                  |
 | **Push (OOTB)**         | No                     | No               | No                 | No               | No                   | No                   |
 | **Custom Push**         | Yes                    | No               | No                 | No               | No                   | No                   |
-| **In Apps/Web Pop-Ups** | Yes                    | No               | Yes (only 7.0)     | Yes              | Yes                  | Yes                  |
+| **In Apps/Web Pop-Ups** | Yes                    | No               | No                 | No               | Yes                  | Yes                  |
 | **App Inbox**           | Yes                    | No               | Yes                | Yes              | Yes                  | Yes                  |
 | **Native Display**      | Yes                    | No               | Yes                | Yes              | Yes                  | Yes                  |
 | **Product Experiences** | Yes                    | No               | Yes                | Yes              | Yes                  | Yes                  |
