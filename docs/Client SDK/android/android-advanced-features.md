@@ -115,7 +115,7 @@ CleverTap supports three encryption levels for PII data:
 
 * **NONE (0)**: Data is stored in plaintext.
 * **MEDIUM (1)**: Only PII fields are encrypted.
-* **FULL\_DATA (2)**: Encrypts all stored data, not just PII fields. Available from Android SDK version 7.7.0 and above.
+* **FULL_DATA (2)**: Encrypts all stored data, not just PII fields. Available from Android SDK version 7.7.0 and above.
 
 > 📘 Default Encryption Level
 >
@@ -192,7 +192,7 @@ Encryption in transit applies to all event data.
 To use this feature, ensure that you perform the following steps:
 
 1. Contact your account manager to enable the encryption feature on your account.
-2. Set the string key `CleverTapEncryptionInTransitEnabled` to `1` in your app’s `AndroidManifest.xml`.
+2. Set the string key `CLEVERTAP_ENCRYPTION_IN_TRANSIT` to `0` in your app’s `AndroidManifest.xml`.
 
 ### Encryption Specifications
 
@@ -248,14 +248,12 @@ CleverTapAPI.setDebugLevel(CleverTapAPI.LogLevel.VERBOSE);     //Set Log level t
 CleverTapAPI.setDebugLevel(CleverTapAPI.LogLevel.OFF); //Switch off logs for Production environment
 ```
 
-2. After setting the debug level to `CleverTap.Loglevel.VERBOSE`, search for Clevertap.  The logcat displays the handshakes between CleverTap and your app. 
-3. Copy the CleverTap ID from the logs. 
-4. Open the CleverTap dashboard. 
-5. Navigate to *Segments*> *Find People* > search *By Identity*.
+2. After setting the debug level to `CleverTap.Loglevel.VERBOSE`, search for Clevertap.  The logcat displays the handshakes between CleverTap and your app.
+3. Copy the CleverTap ID from the logs.
+4. Open the CleverTap dashboard.
+5. Navigate to _Segments_> _Find People_ > search _By Identity_.
 
-<Image title="Find People by Identity" alt={1205} align="center" border={true} src="https://files.readme.io/d46c9c8-Android_search_by__identity.png">
-  Find People by Identity
-</Image>
+<Image align="center" alt={1205} border={true} caption="Find People by Identity" title="Find People by Identity" src="https://files.readme.io/d46c9c8-Android_search_by__identity.png" />
 
 ## Changing Account Credentials
 
