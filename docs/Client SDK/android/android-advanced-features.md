@@ -192,7 +192,7 @@ Encryption in transit applies to all event data.
 To use this feature, ensure that you perform the following steps:
 
 1. Contact your account manager to enable the encryption feature on your account.
-2. Set the string key `CLEVERTAP_ENCRYPTION_IN_TRANSIT` to `0` in your app’s `AndroidManifest.xml`.
+2. Set the string key `CLEVERTAP_ENCRYPTION_IN_TRANSIT` to `1` in your app’s `AndroidManifest.xml`.
 
 ### Encryption Specifications
 
