@@ -1,6 +1,6 @@
 ---
 title: Get Variables API
-excerpt: ''
+excerpt: Learn how get all the variables for your Remote Config or AB Tests.
 deprecated: false
 hidden: false
 metadata:
