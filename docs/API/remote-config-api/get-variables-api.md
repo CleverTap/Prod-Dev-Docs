@@ -12,9 +12,7 @@ next:
 ---
 # Overview
 
-The Get API endpoint retrieves Variables and their values for the current user or device.
-
-The API returns the default values or values associated with all users for the variables in the following scenarios:
+The Get API endpoint retrieves Variables and their values for the current user or device. The API returns the default values or values associated with all users for the variables in the following scenarios:
 
 * If the profile or CleverTap ID does not exist. It does not generate new profiles or devices.
 * If the user segment contains any of the follower user properties:
