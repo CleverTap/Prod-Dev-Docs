@@ -10,9 +10,11 @@ metadata:
 next:
   description: ''
 ---
-Welcome to CleverTap's Developer Changelog! 
+Welcome to CleverTap's Developer Changelog!
 
 Here, you can find information about the most recent changes that have been made to our SDKs, including bug fixes, new features, and other improvements.
+
+## [2026](doc:2026)
 
 ## [2025](doc:2025)
 
