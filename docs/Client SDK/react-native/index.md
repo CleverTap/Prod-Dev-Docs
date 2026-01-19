@@ -43,7 +43,7 @@ For React Native SDK versions and React Native SDK code size, refer to the follo
 
 | SDK          | Version | Code Size |
 | :----------- | :------ | :-------- |
-| React Native | 3.8.0   | 3.8 MB    |
+| React Native | 3.8.1   | 3.5 MB    |
 
 # Integrate the React Native SDK
 
