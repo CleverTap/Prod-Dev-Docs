@@ -22,10 +22,10 @@ CleverTap supports System for Cross-domain Identity Management (SCIM) to automat
 
 Before generating your SCIM token, choose the configuration that best suits your environment. The following table compares the available SCIM configurations, when to use each, and the corresponding SCIM endpoint.
 
-| Configuration                                                                             | When to Use                                             | SCIM Endpoint          |
-| ----------------------------------------------------------------------------------------- | ------------------------------------------------------- | ---------------------- |
-| [API-based](https://staging.docs.dev.clevertap.net/docs/scim-user-provisioning-using-api) | You manage users with scripts or automation             | `/nx/v2/scim/v2/Users` |
-| IdP-driven                                                                                | You use an Identity Provider (Okta, Azure AD, OneLogin) | `/nx/v2/scim/v2/idp`   |
+| Configuration                                     | When to Use                                             | SCIM Endpoint          |
+| ------------------------------------------------- | ------------------------------------------------------- | ---------------------- |
+| [API-based](doc:scim-user-provisioning-using-api) | You manage users with scripts or automation             | `/nx/v2/scim/v2/Users` |
+| IdP-driven                                        | You use an Identity Provider (Okta, Azure AD, OneLogin) | `/nx/v2/scim/v2/idp`   |
 
 <Callout icon="⚠️" theme="warn">
   #### Important
@@ -86,5 +86,5 @@ After generating your SCIM token, follow these guidelines to manage it securely 
 
 After generating your SCIM token, follow one of the setup guides:
 
-* [Configure SCIM Provisioning Without SSO](https://staging.docs.dev.clevertap.net/docs/scim-provisioning-without-sso)
-* [Configure SCIM Provisioning With SSO (SAML Enabled)](https://staging.docs.dev.clevertap.net/docs/scim-provisioning-with-sso-saml-enabled)
+* [Configure SCIM Provisioning Without SSO](doc:scim-provisioning-without-sso)
+* [Configure SCIM Provisioning With SSO (SAML Enabled)](doc:scim-provisioning-with-sso-saml-enabled)
