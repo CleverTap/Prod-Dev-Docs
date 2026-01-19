@@ -181,7 +181,7 @@ Assigning a user links their IdP profile to CleverTap, allowing automatic provis
 
 1. Go to _Applications_ > _Assignments_ > then open the **Assign** dropdown and select _Assign to People_.
 2. A list of users in your application will appear. Click **Assign** next to the specific user you want to provision.
-3. In the _Account_, click **Add Another** and paste the JSON payload. Refer to the [Example JSON payload](https://staging.docs.dev.clevertap.net/docs/scim-provisioning-without-sso#example-json-payload).
+3. In the _Account_, click **Add Another** and paste the JSON payload. Refer to the [Example JSON payload](doc:scim-provisioning-without-sso#example-json-payload).
 
 If the user already exists, CleverTap automatically updates their details. If not, a new user record will be created in CleverTap.
 
