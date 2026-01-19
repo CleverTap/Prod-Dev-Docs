@@ -4,7 +4,7 @@ excerpt: >-
   Learn how to use CleverTap’s SCIM endpoints to provision users
   programmatically.
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
