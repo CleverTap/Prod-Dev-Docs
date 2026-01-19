@@ -29,7 +29,7 @@ To automate user provisioning without Single Sign-On (SSO), perform the followin
 1. [Configure SCIM Application in Okta](doc:scim-provisioning-without-sso#configure-scim-application-in-okta)
 2. [Configure SCIM Token](doc:scim-provisioning-without-sso#configure-scim-token)
 3. [Configure Required Attributes](doc:scim-provisioning-without-sso#configure-required-attributes)
-4. [Add and Assign Users](doc:scim-user-provisioning-using-api?isFramePreview=true#add-and-assign-users)
+4. [Add and Assign Users](https://developer.clevertap.com/docs/scim-provisioning-without-sso#add-and-assign-users)
 5. [Managed Users](doc:scim-provisioning-without-sso#managed-users)
 6. [Verify Provisioning Status](doc:scim-provisioning-without-sso#step-5-verify-provisioning-status)
 
