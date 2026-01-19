@@ -98,7 +98,7 @@ By default, your IdP may include many SCIM attributes, but CleverTap only requir
 To configure attributes, follow these two key sub-steps:
 
 * [Add the `accounts` Attribute](doc:scim-provisioning-without-sso#add-accounts-attribute): Create a custom field that defines user access to CleverTap accounts.
-* [Remove Unnecessary Attributes](doc:scim-user-provisioning-using-api?isFramePreview=true#remove-unnecessary-attributes): Unmap and delete attributes that CleverTap doesn’t use.
+* [Remove Unnecessary Attributes](doc:scim-provisioning-without-sso#remove-unnecessary-attributes): Unmap and delete attributes that CleverTap doesn’t use.
 
 ### Required Attributes
 
@@ -111,7 +111,7 @@ Keep the following attributes mapped and active; these fields are mandatory for 
 | `familyName` | String       | User’s last name                            |
 | `accounts`   | String array | Lists CleverTap account IDs (**Mandatory**) |
 
-All other attributes can be safely unmapped and removed to simplify your SCIM configuration. To unmap and remove, refer to [Remove Unnecessary Attributes](https://staging.docs.dev.clevertap.net/docs/scim-provisioning-without-sso#remove-unnecessary-attributes).
+All other attributes can be safely unmapped and removed to simplify your SCIM configuration. To unmap and remove, refer to [Remove Unnecessary Attributes](doc:scim-provisioning-without-sso#remove-unnecessary-attributes).
 
 ### Add `accounts` Attribute
 
