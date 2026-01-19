@@ -34,7 +34,7 @@ Refer to the following table for iOS SDK versions and iOS SDK code sizes:
 
 | SDK                                                           | Version | Code Size |
 | :------------------------------------------------------------ | :------ | :-------- |
-| Core iOS                                                      | 7.4.1   | 1.1 MB    |
+| Core iOS                                                      | 7.4.2   | 1.1 MB    |
 | [Geofence](https://developer.clevertap.com/docs/geofence-ios) | 1.0.6   | 4.6 MB    |
 | CTNotificationService                                         | 0.1.7   | 13.4 KB   |
 | CTNotificationContent                                         | 1.1.0   | 242 KB    |
@@ -56,7 +56,7 @@ The following table lists all the iOS SDK resources:
 | Resources                                                                                         | Description                                                                                                 |
 | :------------------------------------------------------------------------------------------------ | :---------------------------------------------------------------------------------------------------------- |
 | [GitHub Repository](https://github.com/CleverTap/clevertap-ios-sdk)                               | Provides all the resources required to integrate CleverTap iOS SDK.                                         |
-| [SDK Direct Download](https://github.com/CleverTap/clevertap-ios-sdk/archive/refs/tags/7.4.1.zip) | Provides the downloaded iOS SDK source file.                                                                |
+| [SDK Direct Download](https://github.com/CleverTap/clevertap-ios-sdk/archive/refs/tags/7.4.2.zip) | Provides the downloaded iOS SDK source file.                                                                |
 | [Sample Applications](https://developer.clevertap.com/docs/ios-resources#sample-app)              | Provides a sample application to demonstrate the integration of our iOS SDK.                                |
 | [Advanced Features](https://developer.clevertap.com/docs/advanced-options-ios)                    | Provides all the advanced features related to iOS.                                                          |
 | [Go Live Checklist ](https://developer.clevertap.com/docs/go-live-checklist)                      | Provides a list of actions to be performed before you launch your application.                              |
