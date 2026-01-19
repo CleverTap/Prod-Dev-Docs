@@ -31,7 +31,7 @@ To automate user provisioning without Single Sign-On (SSO), perform the followin
 3. [Configure Required Attributes](doc:scim-provisioning-without-sso#configure-required-attributes)
 4. [Add and Assign Users](https://developer.clevertap.com/docs/scim-provisioning-without-sso#add-and-assign-users)
 5. [Managed Users](doc:scim-provisioning-without-sso#managed-users)
-6. [Verify Provisioning Status](doc:scim-provisioning-without-sso#step-5-verify-provisioning-status)
+6. [Verify Provisioning Status](doc:scim-provisioning-without-sso#verify-provisioning-status)
 
 This document uses Okta to illustrate the SCIM setup process. You can follow the same steps for other SCIM-compatible IdPs such as Azure AD or OneLogin.
 
