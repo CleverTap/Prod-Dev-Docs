@@ -82,7 +82,7 @@ When a user uninstalls the app from an Android device, Firebase logs the `app_re
 
   Google has introduced changes to Google Analytics (G4), Firebase Events, and Cloud Functions that impact real-time uninstall tracking.
 
-  If you are setting up real-time uninstall tracking in v2 or updating an existing integration, refer to [Uninstall Tracking Using Google Analytics](https://staging.docs.dev.clevertap.net/update/docs/uninstall-tracking-updated-implementation#/). This document includes the updated GA4 Key Event flow, revised Cloud Function script, region settings, and Node.js version requirements.
+  If you are setting up real-time uninstall tracking in v2 or updating an existing integration, refer to [Uninstall Tracking Using Google Analytics](doc:uninstall-tracking-using-google-analytics). This document includes the updated GA4 Key Event flow, revised Cloud Function script, region settings, and Node.js version requirements.
 </Callout>
 
 ## Implement Real-Time Uninstall Tracking
