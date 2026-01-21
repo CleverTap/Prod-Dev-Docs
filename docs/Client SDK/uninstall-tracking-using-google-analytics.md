@@ -138,7 +138,7 @@ To set up real-time uninstalls, ensure that a Key Event is configured for the `a
 
   To allow Firebase Cloud Functions to call a third-party HTTP endpoint (such as the CleverTap API upload endpoint), your Firebase project must be on the Blaze plan. For more information about plans and pricing, refer to [Firebase Pricing](https://firebase.google.com/pricing).
 
-  Additionally, ensure that the [API region](https://developer.clevertap.com/docs/idc#section-configuration-steps-to-enable-clever-tap-region) is configured correctly.
+  Additionally, ensure that the [API region](doc:dc#section-configuration-steps-to-enable-clever-tap-region) is configured correctly.
 </Callout>
 
 To mark `app_remove` as a key event, perform the following steps:
