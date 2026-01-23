@@ -1,5 +1,5 @@
 ---
-title: SCIM User Provisioning Using IdP
+title: SCIM User Provisioning using IdP
 excerpt: >-
   Learn how to configure SCIM provisioning in CleverTap to automate user access
   management using an Identity Provider or API-based setup.
