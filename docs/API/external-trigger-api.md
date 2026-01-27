@@ -54,11 +54,122 @@ For more information, see [Headers](doc:common-api-components#headers).
 
 The body is uploaded as a JSON payload. A payload is an object keyed with `"ExternalTrigger"` whose value is an array including the following information: target user, campaign ID, and key-value pairs for personalization.
 
-| Parameter         | Description                                                                                                                                                                                                                                                                                                                                                 | Required | Type                                                  | Example                                                                                                                                                    |
-| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `to`              | Represents the user to whom the campaign is to be sent. Must contain the following identifiers per user: `email`, `identity`, or `objectId`. Multiple identifiers in a single user object are not allowed. For bulk send (up to 1000 users), use the `/2/send/externaltrigger.json`. For a single send, use`/1/send/externaltrigger.json for single send}`. | Yes      | List of strings                                       | `["johndoe@example.com"]`                                                                                                                                  |
-| `campaign_id`     | Unique ID of the campaign. For sending multiple campaigns, include up to 5 campaign IDs.                                                                                                                                                                                                                                                                    | Yes      | String (single ID) or List of integers (multiple IDs) | `"1709550110"` or `[1709550110,1709550111]`                                                                                                                |
-| `ExternalTrigger` | Key-value map containing the campaign message content. You can include personalized fields such as name, product details, and pricing.                                                                                                                                                                                                                      | Yes      | Map                                                   | `{ "ExternalTrigger": { "Name": "John", "productDetails": [{ "productName": "Apple Watch","productID": "APPL2209","imageURL": "https://example.jpg"}] } }` |
+<Table>
+  <thead>
+    <tr>
+      <th>
+        Parameter
+      </th>
+
+      <th>
+        Description
+      </th>
+
+      <th>
+        Required
+      </th>
+
+      <th>
+        Type
+      </th>
+
+      <th>
+        Example
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        `to`
+      </td>
+
+      <td>
+        Represents the user to whom the campaign is to be sent. Must contain the following identifiers per user: `email`, `identity`, or `objectId`. Multiple identifiers in a single user object are not allowed. For bulk send (up to 1000 users), use the `/2/send/externaltrigger.json`. For a single send, use`/1/send/externaltrigger.json for single send}`.
+      </td>
+
+      <td>
+        Yes
+      </td>
+
+      <td>
+        List of strings
+      </td>
+
+      <td>
+        `["johndoe@example.com"]`
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `campaign_id`  
+
+      </td>
+
+      <td>
+        Unique ID of the campaign. For sending multiple campaigns, include up to 5 campaign IDs.
+      </td>
+
+      <td>
+        Yes
+      </td>
+
+      <td>
+        String (single ID)
+      </td>
+
+      <td>
+        `"1709550110"`
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `campaign_id_list`
+      </td>
+
+      <td>
+        Unique IDs of the campaigns. For sending multiple campaigns, include up to 5 campaign IDs.
+      </td>
+
+      <td>
+        Yes
+      </td>
+
+      <td>
+        List of integers (multiple IDs)
+      </td>
+
+      <td>
+        `[1709550110,1709550111]`
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `ExternalTrigger`
+      </td>
+
+      <td>
+        Key-value map containing the campaign message content. You can include personalized fields such as name, product details, and pricing.
+      </td>
+
+      <td>
+        Yes
+      </td>
+
+      <td>
+        Map
+      </td>
+
+      <td>
+        `{ "ExternalTrigger": { "Name": "John", "productDetails": [{ "productName": "Apple Watch","productID": "APPL2209","imageURL": "https://example.jpg"}] } }`
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 <Callout icon="🚧" theme="warn">
   **Note**
