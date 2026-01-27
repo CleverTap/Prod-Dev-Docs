@@ -207,7 +207,7 @@ curl --location 'https://in1.api.clevertap.com/2/send/externaltrigger.json' \
             "Mpgorepk6o435mp234o"
         ]
     },
-    "campaign_id": [1709550110, 1709550111],
+    "campaign_id_list": [1709550110, 1709550111],
     "ExternalTrigger": {
         "Name": "John Doe",
         "productDetails": [
@@ -436,7 +436,7 @@ curl --location --request POST 'https://in1.api.clevertap.com/2/send/externaltri
 --header 'Content-Type: application/json' \
 --data-raw '{
 "to": { "email": [ "<Email ID>" ] },
-"campaign_id": [<campaign ID1>,<campaign ID2>],
+"campaign_id_list": [<campaign ID1>,<campaign ID2>],
 "ExternalTrigger": {"<key>" : "<value>"}
 }'
 ```
