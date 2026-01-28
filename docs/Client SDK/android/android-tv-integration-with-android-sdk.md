@@ -12,7 +12,7 @@ next:
 ---
 # Overview
 
-The Android SDK for TV Operating System (OS) is similar to the Android SDK for Mobile. Most core components work similarly, such as views, activities, fragments, services, and more. However, some classes in core Android SDK are not supported for TV. Therefore, some features would not work out of the box. For example, `NotificationManager.notify()` does not create notifications. We use custom workarounds to use these features, such as creating a floating view and a cross button. It removes the floating view when pressed. 
+The Android SDK for TV Operating System (OS) is similar to the Android SDK for Mobile. Most core components work similarly, such as views, activities, fragments, services, and more. However, some classes in core Android SDK are not supported for TV. Therefore, some features would not work out of the box. For example, `NotificationManager.notify()` does not create notifications. We use custom workarounds to use these features, such as creating a floating view and a cross button. It removes the floating view when pressed.
 
 # Steps to Integrate
 
@@ -25,7 +25,7 @@ The Android SDK for TV Operating System (OS) is similar to the Android SDK for M
 
 ## Integrate CleverTap SDK, FCM Service in Gradle, and Manifest
 
-This section describes integrating CleverTap SDK FCM service in Gradle and Manifest. 
+This section describes integrating CleverTap SDK FCM service in Gradle and Manifest.
 
 * [Gradle Files](https://developer.clevertap.com/docs/android-tv-integration-with-android-sdk#gradle-files)
 * [Manifest Files](https://developer.clevertap.com/docs/android-tv-integration-with-android-sdk#manifest-files)
@@ -75,7 +75,7 @@ dependencies {
     implementation "com.github.bumptech.glide:glide:4.11.0"
     
     //CLEVERTAP Libs
-    implementation "com.clevertap.android:clevertap-android-sdk:7.7.1"
+    implementation "com.clevertap.android:clevertap-android-sdk:7.8.0"
     //implementation "com.clevertap.android:push-templates:2.2.0"
     //implementation "com.clevertap.android:clevertap-hms-sdk:1.5.1"
     //implementation "com.clevertap.android:clevertap-geofence-sdk:1.4.0"
@@ -270,7 +270,7 @@ ctCoreApi?.pushEvent("Product viewed", prodViewedAction)
 
 ### Charged Event
 
-To raise a *Charged* event, use the following code:
+To raise a _Charged_ event, use the following code:
 
 ```java
 HashMap<String, Object> chargeDetails = new HashMap<String, Object>();
@@ -319,7 +319,7 @@ fun recordPurchase(cleverTapAPI: CleverTapAPI){
 
 ## Add Custom FCM Class Code
 
-To add a custom FCM class, add the following code: 
+To add a custom FCM class, add the following code:
 
 ```kotlin
 class MyFcmMessageListenerService : FirebaseMessagingService() {
