@@ -16,11 +16,17 @@ CleverTap stores the user's demographic data (gender, age, location), app and we
 
 A user profile is automatically created for every user launching your web application, whether logged in or not.
 
-At first, the user profile starts as *Anonymous* which means that the profile does not contain any identifiable information about the user yet. 
+At first, the user profile starts as _Anonymous_ which means that the profile does not contain any identifiable information about the user yet.
 
 CleverTap automatically creates a user profile for each person visiting your website. At first, the user profile starts out as anonymous, which means the user profile does not contain any identifiable information.
 
-Enrich the user profile with information, such as the user’s name or email, by calling `clevertap.onUserlogin`.\
+Enrich the user profile with information, such as the user’s name or email, by calling `clevertap.onUserlogin`.
+
+You can also manage category-level subscriptions using the following keys:
+
+* `category-unsubscribe`: to opt users out of specific email categories
+* `category-resubscribe`: to opt users back into previously unsubscribed categories
+
 Here is an example showing how to add a name and an email to a user’s profile:
 
 ```javascript
@@ -40,6 +46,12 @@ clevertap.onUserLogin.push({
    "MSG-push": true,                  // Enable push notifications
    "MSG-sms": true,                   // Enable sms notifications
    "MSG-whatsapp": true,              // Enable WhatsApp notifications
+   "category-resubscribe": {
+        	"email": ["Newsletter"]
+    },
+      "category-unsubscribe": {
+        	"email": ["Articles"]
+     }
  }
 })
 ```
@@ -74,7 +86,7 @@ clevertap.profile.push({
 
 > 📘 Note
 >
-> You do not require to pass *Age* as a profile property in the API because it is automatically calculated and stored.
+> You do not require to pass _Age_ as a profile property in the API because it is automatically calculated and stored.
 
 CleverTap provides easy ways to enrich the user profile with data from sources such as Facebook. You can also store custom attributes in a user profile, which can be used to segment users later.
 
