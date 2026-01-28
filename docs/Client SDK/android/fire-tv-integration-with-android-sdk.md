@@ -18,7 +18,7 @@ Fire TV stick is a device that can transform any TV into a smart TV. It consists
 
 Since Fire OS is a platform from Amazon based on Android OS, the applications are created for Fire OS in a similar manner. However, Fire OS does not support certain Google APIs and hence does not allow the working of certain libraries, such as FCM. You can integrate the CleverTap SDK with your Fire OS App to engage with customers on Fire TV.
 
-For more information on how Fire TV development differs from Android TV development, refer to the [document. ](https://developer.amazon.com/docs/fire-tv/differences-from-android-tv-development.html). 
+For more information on how Fire TV development differs from Android TV development, refer to the [document. ](https://developer.amazon.com/docs/fire-tv/differences-from-android-tv-development.html).
 
 # Integrate CleverTap with FireTV Apps
 
@@ -30,7 +30,7 @@ FireOS does not support certain Google APIs and Libraries. Therefore, we cannot 
 
 ## Integrate CleverTap SDK in Gradle and Manifest
 
-This section describes how to integrate CleverTap SDK in Gradle and Manifest files. 
+This section describes how to integrate CleverTap SDK in Gradle and Manifest files.
 
 * [Gradle Files](https://developer.clevertap.com/docs/fire-tv-integration-with-android-sdk#gradle-files)
 * [Manifest Files](https://developer.clevertap.com/docs/fire-tv-integration-with-android-sdk#manifest-files)
@@ -62,7 +62,7 @@ dependencies {
     implementation "com.github.bumptech.glide:glide:4.11.0"
     
     //CLEVERTAP Libs
-    implementation "com.clevertap.android:clevertap-android-sdk:7.7.1"
+    implementation "com.clevertap.android:clevertap-android-sdk:7.8.0"
     
 }
 ```
@@ -95,7 +95,7 @@ To integrate CleverTap SDK in the Manifest file, use the following code:
 
 ## Initialize CleverTap SDK in the Application class
 
-To initialize CleverTap SDK in the Application class, use the following code: 
+To initialize CleverTap SDK in the Application class, use the following code:
 
 ```kotlin
 class MainApp : Application() {
@@ -123,7 +123,7 @@ You can call the `CleverTapAPI` instance to run the following functions:
 
 ### Send User Profile
 
-To send a user profile to CleverTap, use the following code: 
+To send a user profile to CleverTap, use the following code:
 
 ```kotlin
 val map = hashMapOf<String,Any>("Name" to "new_tv_user", "Email" to "new_tv_user@gmail.com")
@@ -132,7 +132,7 @@ cleverTapAPI.onUserLogin(map)
 
 ### Push Event
 
-For example, let's say you want to record an event called "BUTTON\_PRESSED" when a user clicks on a button in the Custom Push. To record this event with the CleverTap SDK, you can use the following code snippet:
+For example, let's say you want to record an event called "BUTTON_PRESSED" when a user clicks on a button in the Custom Push. To record this event with the CleverTap SDK, you can use the following code snippet:
 
 ```kotlin
 cleverTapAPI.pushEvent("BUTTON_PRESSED")
@@ -149,7 +149,7 @@ cleverTapAPI.pushEvent("REMOTE_BUTTON_PRESSED", mapOf("time" to date))
 
 ### Push Charged Event
 
-To push a *Charged* event to CleverTap, use the following code:
+To push a _Charged_ event to CleverTap, use the following code:
 
 ```kotlin
 val charges = hashMapOf<String,Any>("Total Number Of Items" to "4", "Total Amount" to "400")
