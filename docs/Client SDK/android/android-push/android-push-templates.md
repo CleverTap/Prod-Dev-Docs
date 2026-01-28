@@ -35,7 +35,7 @@ To configure out-of-the-box Push Notification Handling, perform the following st
 
 ```groovy
 implementation "com.clevertap.android:push-templates:2.2.0" // 2.1.0 and above
-implementation "com.clevertap.android:clevertap-android-sdk:7.7.1" // 7.4.1 and above
+implementation "com.clevertap.android:clevertap-android-sdk:7.8.0" // 7.4.1 and above
 ```
 
 2. Add the following line of code to your Application class:
@@ -97,15 +97,13 @@ You can implement the following customizable push notification templates using t
 
 Standard Template is a default template for push notifications received on apps that supports a simple layout with title, message, image, and optional buttons, ideal for quick, informative alerts. For example, an e-commerce business might want to inform customers that their order is on the way. To use a GIF in a standard push template, pass the key `wzrk_gif` with the value set to the URL of the GIF image.
 
-<Image alt="Standard Push Template" align="center" width="35% " src="https://files.readme.io/7a4e66924248b609d31ccdc200b05788c5a2b1b5e6550e58de559233caefe4b2-image.png">
-  Standard Push Template
-</Image>
+<Image align="center" alt="Standard Push Template" border={false} caption="Standard Push Template" src="https://files.readme.io/7a4e66924248b609d31ccdc200b05788c5a2b1b5e6550e58de559233caefe4b2-image.png" width="35% " />
 
 ## GIF Support in Standard Push Template
 
 CleverTap supports GIFs in standard push templates from SDK version 7.5.0 on devices running Android 14 and above. This allows you to add animated media to push notifications, enhancing user engagement through dynamic visuals.
 
-<Image align="center" width="35% " src="https://files.readme.io/47c076dffe3d89c693a3fc4aeac5117649dc0a28af5e2b820157f86d7919ed29-Screen_Recording_Jul_28_2025_1.gif" />
+<Image align="center" border={false} width="35% " src="https://files.readme.io/47c076dffe3d89c693a3fc4aeac5117649dc0a28af5e2b820157f86d7919ed29-Screen_Recording_Jul_28_2025_1.gif" />
 
 ### Specifications and Design Guidelines
 
@@ -128,9 +126,7 @@ This template supports rich media, deep links, and enhanced customization for mo
 
 For template outputs Android 11 and below, refer to [Push Templates on Android v11 and below](https://github.com/CleverTap/clevertap-android-sdk/blob/master/docs/CTPUSHTEMPLATESANDROID12.md).
 
-<Image alt="Advanced Push Template" align="center" width="35% " src="https://files.readme.io/65cc6bcd2523518ceab5cdc452022fbc4f4bce889e87469c883fd394b1fb18e4-image.png">
-  Advanced Push Template
-</Image>
+<Image align="center" alt="Advanced Push Template" border={false} caption="Advanced Push Template" src="https://files.readme.io/65cc6bcd2523518ceab5cdc452022fbc4f4bce889e87469c883fd394b1fb18e4-image.png" width="35% " />
 
 ## Template Keys
 
@@ -154,7 +150,7 @@ For template outputs Android 11 and below, refer to [Push Templates on Android v
   <tbody>
     <tr>
       <td>
-        pt\_id
+        pt_id
       </td>
 
       <td>
@@ -168,7 +164,7 @@ For template outputs Android 11 and below, refer to [Push Templates on Android v
 
     <tr>
       <td>
-        pt\_title
+        pt_title
       </td>
 
       <td>
@@ -182,7 +178,7 @@ For template outputs Android 11 and below, refer to [Push Templates on Android v
 
     <tr>
       <td>
-        pt\_msg
+        pt_msg
       </td>
 
       <td>
@@ -196,7 +192,7 @@ For template outputs Android 11 and below, refer to [Push Templates on Android v
 
     <tr>
       <td>
-        pt\_msg\_summary
+        pt_msg_summary
       </td>
 
       <td>
@@ -210,7 +206,7 @@ For template outputs Android 11 and below, refer to [Push Templates on Android v
 
     <tr>
       <td>
-        pt\_subtitle
+        pt_subtitle
       </td>
 
       <td>
@@ -224,7 +220,7 @@ For template outputs Android 11 and below, refer to [Push Templates on Android v
 
     <tr>
       <td>
-        pt\_bg
+        pt_bg
       </td>
 
       <td>
@@ -238,7 +234,7 @@ For template outputs Android 11 and below, refer to [Push Templates on Android v
 
     <tr>
       <td>
-        pt\_bg\_dark
+        pt_bg_dark
       </td>
 
       <td>
@@ -252,7 +248,7 @@ For template outputs Android 11 and below, refer to [Push Templates on Android v
 
     <tr>
       <td>
-        pt\_big\_img
+        pt_big_img
       </td>
 
       <td>
@@ -266,7 +262,7 @@ For template outputs Android 11 and below, refer to [Push Templates on Android v
 
     <tr>
       <td>
-        pt\_big\_img\_alt\_text
+        pt_big_img_alt_text
       </td>
 
       <td>
@@ -280,7 +276,7 @@ For template outputs Android 11 and below, refer to [Push Templates on Android v
 
     <tr>
       <td>
-        pt\_gif
+        pt_gif
       </td>
 
       <td>
@@ -294,7 +290,7 @@ For template outputs Android 11 and below, refer to [Push Templates on Android v
 
     <tr>
       <td>
-        pt\_gif\_frames
+        pt_gif_frames
       </td>
 
       <td>
@@ -308,7 +304,7 @@ For template outputs Android 11 and below, refer to [Push Templates on Android v
 
     <tr>
       <td>
-        pt\_ico
+        pt_ico
       </td>
 
       <td>
@@ -322,7 +318,7 @@ For template outputs Android 11 and below, refer to [Push Templates on Android v
 
     <tr>
       <td>
-        wzrk\_hide\_large\_icon
+        wzrk_hide_large_icon
       </td>
 
       <td>
@@ -330,8 +326,8 @@ For template outputs Android 11 and below, refer to [Push Templates on Android v
       </td>
 
       <td>
-        Hide the large icon in Android notifications\
-        Values:  
+        Hide the large icon in Android notifications  
+        Values:
 
         <li> hide = `true` to hide the icon </li> <li> hide = `false` to show the icon (Default) </li>
       </td>
@@ -339,7 +335,7 @@ For template outputs Android 11 and below, refer to [Push Templates on Android v
 
     <tr>
       <td>
-        pt\_dl1
+        pt_dl1
       </td>
 
       <td>
@@ -353,7 +349,7 @@ For template outputs Android 11 and below, refer to [Push Templates on Android v
 
     <tr>
       <td>
-        pt\_title\_clr
+        pt_title_clr
       </td>
 
       <td>
@@ -367,7 +363,7 @@ For template outputs Android 11 and below, refer to [Push Templates on Android v
 
     <tr>
       <td>
-        pt\_title\_clr\_dark
+        pt_title_clr_dark
       </td>
 
       <td>
@@ -381,7 +377,7 @@ For template outputs Android 11 and below, refer to [Push Templates on Android v
 
     <tr>
       <td>
-        pt\_msg\_clr
+        pt_msg_clr
       </td>
 
       <td>
@@ -395,7 +391,7 @@ For template outputs Android 11 and below, refer to [Push Templates on Android v
 
     <tr>
       <td>
-        pt\_msg\_clr\_dark
+        pt_msg_clr_dark
       </td>
 
       <td>
@@ -409,7 +405,7 @@ For template outputs Android 11 and below, refer to [Push Templates on Android v
 
     <tr>
       <td>
-        pt\_small\_icon\_clr
+        pt_small_icon_clr
       </td>
 
       <td>
@@ -423,7 +419,7 @@ For template outputs Android 11 and below, refer to [Push Templates on Android v
 
     <tr>
       <td>
-        pt\_small\_icon\_clr\_dark
+        pt_small_icon_clr_dark
       </td>
 
       <td>
@@ -437,7 +433,7 @@ For template outputs Android 11 and below, refer to [Push Templates on Android v
 
     <tr>
       <td>
-        pt\_scale\_type
+        pt_scale_type
       </td>
 
       <td>
@@ -445,14 +441,14 @@ For template outputs Android 11 and below, refer to [Push Templates on Android v
       </td>
 
       <td>
-        Specify the image scaling type for notifications.  Available values: <li>`fit_center` </li>  <li>`center_crop`</li>\
+        Specify the image scaling type for notifications.  Available values: <li>`fit_center` </li>  <li>`center_crop`</li>  
         For more information on how it works, refer to [Image Scaling](doc:android-push-templates#image-scaling).
       </td>
     </tr>
 
     <tr>
       <td>
-        pt\_sticky
+        pt_sticky
       </td>
 
       <td>
@@ -466,7 +462,7 @@ For template outputs Android 11 and below, refer to [Push Templates on Android v
 
     <tr>
       <td>
-        pt\_dismiss
+        pt_dismiss
       </td>
 
       <td>
@@ -480,7 +476,7 @@ For template outputs Android 11 and below, refer to [Push Templates on Android v
 
     <tr>
       <td>
-        pt\_json
+        pt_json
       </td>
 
       <td>
@@ -498,9 +494,7 @@ For template outputs Android 11 and below, refer to [Push Templates on Android v
 
 Auto Carousel is an automatic revolving carousel push notification that automatically cycles through multiple cards or slides within a single notification. Each card typically includes an image, title, description, and a CTA button, allowing users to view multiple offers, messages, or product highlights without leaving their device’s notification tray.
 
-<Image alt="Auto Carousel Template" align="center" width="35% " src="https://files.readme.io/b06f01f282ddb61ab6bca44b51c79e65c9735b224432fadaf0799eb6c1dd7a70-Screen_Recording_Jun_4_2025_from_Google_Drive.mp4_1.gif">
-  Auto Carousel Template
-</Image>
+<Image align="center" alt="Auto Carousel Template" border={false} caption="Auto Carousel Template" src="https://files.readme.io/b06f01f282ddb61ab6bca44b51c79e65c9735b224432fadaf0799eb6c1dd7a70-Screen_Recording_Jun_4_2025_from_Google_Drive.mp4_1.gif" width="35% " />
 
 ## Template Keys
 
@@ -524,7 +518,7 @@ Auto Carousel is an automatic revolving carousel push notification that automati
   <tbody>
     <tr>
       <td>
-        pt\_id
+        pt_id
       </td>
 
       <td>
@@ -538,7 +532,7 @@ Auto Carousel is an automatic revolving carousel push notification that automati
 
     <tr>
       <td>
-        pt\_title
+        pt_title
       </td>
 
       <td>
@@ -552,7 +546,7 @@ Auto Carousel is an automatic revolving carousel push notification that automati
 
     <tr>
       <td>
-        pt\_msg
+        pt_msg
       </td>
 
       <td>
@@ -566,7 +560,7 @@ Auto Carousel is an automatic revolving carousel push notification that automati
 
     <tr>
       <td>
-        pt\_msg\_summary
+        pt_msg_summary
       </td>
 
       <td>
@@ -580,7 +574,7 @@ Auto Carousel is an automatic revolving carousel push notification that automati
 
     <tr>
       <td>
-        pt\_subtitle
+        pt_subtitle
       </td>
 
       <td>
@@ -594,7 +588,7 @@ Auto Carousel is an automatic revolving carousel push notification that automati
 
     <tr>
       <td>
-        pt\_dl1
+        pt_dl1
       </td>
 
       <td>
@@ -608,7 +602,7 @@ Auto Carousel is an automatic revolving carousel push notification that automati
 
     <tr>
       <td>
-        pt\_img1
+        pt_img1
       </td>
 
       <td>
@@ -622,7 +616,7 @@ Auto Carousel is an automatic revolving carousel push notification that automati
 
     <tr>
       <td>
-        pt\_img1\_alt\_text
+        pt_img1_alt_text
       </td>
 
       <td>
@@ -636,7 +630,7 @@ Auto Carousel is an automatic revolving carousel push notification that automati
 
     <tr>
       <td>
-        pt\_img2
+        pt_img2
       </td>
 
       <td>
@@ -650,7 +644,7 @@ Auto Carousel is an automatic revolving carousel push notification that automati
 
     <tr>
       <td>
-        pt\_img2\_alt\_text
+        pt_img2_alt_text
       </td>
 
       <td>
@@ -664,7 +658,7 @@ Auto Carousel is an automatic revolving carousel push notification that automati
 
     <tr>
       <td>
-        pt\_img3
+        pt_img3
       </td>
 
       <td>
@@ -678,7 +672,7 @@ Auto Carousel is an automatic revolving carousel push notification that automati
 
     <tr>
       <td>
-        pt\_img3\_alt\_text
+        pt_img3_alt_text
       </td>
 
       <td>
@@ -692,7 +686,7 @@ Auto Carousel is an automatic revolving carousel push notification that automati
 
     <tr>
       <td>
-        pt\_img`n`
+        pt_img`n`
       </td>
 
       <td>
@@ -706,7 +700,7 @@ Auto Carousel is an automatic revolving carousel push notification that automati
 
     <tr>
       <td>
-        pt\_img`n`\_alt\_text
+        pt_img`n`_alt_text
       </td>
 
       <td>
@@ -720,7 +714,7 @@ Auto Carousel is an automatic revolving carousel push notification that automati
 
     <tr>
       <td>
-        pt\_bg
+        pt_bg
       </td>
 
       <td>
@@ -734,7 +728,7 @@ Auto Carousel is an automatic revolving carousel push notification that automati
 
     <tr>
       <td>
-        pt\_bg\_dark
+        pt_bg_dark
       </td>
 
       <td>
@@ -748,7 +742,7 @@ Auto Carousel is an automatic revolving carousel push notification that automati
 
     <tr>
       <td>
-        pt\_ico
+        pt_ico
       </td>
 
       <td>
@@ -762,7 +756,7 @@ Auto Carousel is an automatic revolving carousel push notification that automati
 
     <tr>
       <td>
-        wzrk\_hide\_large\_icon
+        wzrk_hide_large_icon
       </td>
 
       <td>
@@ -770,8 +764,8 @@ Auto Carousel is an automatic revolving carousel push notification that automati
       </td>
 
       <td>
-        Hide the large icon in Android notifications\
-        Values:  
+        Hide the large icon in Android notifications  
+        Values:
 
         <li> hide = `true` to hide the icon </li> <li> hide = `false` to show the icon (Default) </li>
       </td>
@@ -779,7 +773,7 @@ Auto Carousel is an automatic revolving carousel push notification that automati
 
     <tr>
       <td>
-        pt\_title\_clr
+        pt_title_clr
       </td>
 
       <td>
@@ -793,7 +787,7 @@ Auto Carousel is an automatic revolving carousel push notification that automati
 
     <tr>
       <td>
-        pt\_title\_clr\_dark
+        pt_title_clr_dark
       </td>
 
       <td>
@@ -807,7 +801,7 @@ Auto Carousel is an automatic revolving carousel push notification that automati
 
     <tr>
       <td>
-        pt\_msg\_clr
+        pt_msg_clr
       </td>
 
       <td>
@@ -821,7 +815,7 @@ Auto Carousel is an automatic revolving carousel push notification that automati
 
     <tr>
       <td>
-        pt\_msg\_clr\_dark
+        pt_msg_clr_dark
       </td>
 
       <td>
@@ -835,7 +829,7 @@ Auto Carousel is an automatic revolving carousel push notification that automati
 
     <tr>
       <td>
-        pt\_small\_icon\_clr
+        pt_small_icon_clr
       </td>
 
       <td>
@@ -849,7 +843,7 @@ Auto Carousel is an automatic revolving carousel push notification that automati
 
     <tr>
       <td>
-        pt\_small\_icon\_clr\_dark
+        pt_small_icon_clr_dark
       </td>
 
       <td>
@@ -863,7 +857,7 @@ Auto Carousel is an automatic revolving carousel push notification that automati
 
     <tr>
       <td>
-        pt\_sticky
+        pt_sticky
       </td>
 
       <td>
@@ -877,7 +871,7 @@ Auto Carousel is an automatic revolving carousel push notification that automati
 
     <tr>
       <td>
-        pt\_dismiss
+        pt_dismiss
       </td>
 
       <td>
@@ -891,7 +885,7 @@ Auto Carousel is an automatic revolving carousel push notification that automati
 
     <tr>
       <td>
-        pt\_scale\_type
+        pt_scale_type
       </td>
 
       <td>
@@ -899,14 +893,14 @@ Auto Carousel is an automatic revolving carousel push notification that automati
       </td>
 
       <td>
-        Specify the image scaling type for notifications.  Available values: <li>`fit_center` </li>  <li>`center_crop`</li>\
+        Specify the image scaling type for notifications.  Available values: <li>`fit_center` </li>  <li>`center_crop`</li>  
         For more information on how it works, refer to [Image Scaling](doc:android-push-templates#image-scaling).
       </td>
     </tr>
 
     <tr>
       <td>
-        pt\_json
+        pt_json
       </td>
 
       <td>
@@ -926,9 +920,7 @@ Manual Carousel is an interactive push notification format that allows users to 
 
 If only a single image is available for download, this template falls back to the Basic Template.
 
-<Image alt="Manual Carousel Template" align="center" width="35% " border={true} src="https://files.readme.io/314a341e4efcff60b16c13c2d9d89c91866ff0a66eb39458de68670c9d1d7ab7-Screen_Recording_Jun_4_2025_from_Google_Drive_1.mp4_1.gif">
-  Manual Carousel Template
-</Image>
+<Image align="center" alt="Manual Carousel Template" border={true} caption="Manual Carousel Template" src="https://files.readme.io/314a341e4efcff60b16c13c2d9d89c91866ff0a66eb39458de68670c9d1d7ab7-Screen_Recording_Jun_4_2025_from_Google_Drive_1.mp4_1.gif" width="35% " />
 
 ## Template Keys
 
@@ -952,7 +944,7 @@ If only a single image is available for download, this template falls back to th
   <tbody>
     <tr>
       <td>
-        pt\_id
+        pt_id
       </td>
 
       <td>
@@ -966,7 +958,7 @@ If only a single image is available for download, this template falls back to th
 
     <tr>
       <td>
-        pt\_title
+        pt_title
       </td>
 
       <td>
@@ -980,7 +972,7 @@ If only a single image is available for download, this template falls back to th
 
     <tr>
       <td>
-        pt\_msg
+        pt_msg
       </td>
 
       <td>
@@ -994,7 +986,7 @@ If only a single image is available for download, this template falls back to th
 
     <tr>
       <td>
-        pt\_msg\_summary
+        pt_msg_summary
       </td>
 
       <td>
@@ -1008,7 +1000,7 @@ If only a single image is available for download, this template falls back to th
 
     <tr>
       <td>
-        pt\_subtitle
+        pt_subtitle
       </td>
 
       <td>
@@ -1022,7 +1014,7 @@ If only a single image is available for download, this template falls back to th
 
     <tr>
       <td>
-        pt\_dl1
+        pt_dl1
       </td>
 
       <td>
@@ -1036,7 +1028,7 @@ If only a single image is available for download, this template falls back to th
 
     <tr>
       <td>
-        pt\_dl2
+        pt_dl2
       </td>
 
       <td>
@@ -1050,7 +1042,7 @@ If only a single image is available for download, this template falls back to th
 
     <tr>
       <td>
-        pt\_dl`n`
+        pt_dl`n`
       </td>
 
       <td>
@@ -1064,7 +1056,7 @@ If only a single image is available for download, this template falls back to th
 
     <tr>
       <td>
-        pt\_img1
+        pt_img1
       </td>
 
       <td>
@@ -1078,7 +1070,7 @@ If only a single image is available for download, this template falls back to th
 
     <tr>
       <td>
-        pt\_img1\_alt\_text
+        pt_img1_alt_text
       </td>
 
       <td>
@@ -1092,7 +1084,7 @@ If only a single image is available for download, this template falls back to th
 
     <tr>
       <td>
-        pt\_img2
+        pt_img2
       </td>
 
       <td>
@@ -1106,7 +1098,7 @@ If only a single image is available for download, this template falls back to th
 
     <tr>
       <td>
-        pt\_img2\_alt\_text
+        pt_img2_alt_text
       </td>
 
       <td>
@@ -1120,7 +1112,7 @@ If only a single image is available for download, this template falls back to th
 
     <tr>
       <td>
-        pt\_img3
+        pt_img3
       </td>
 
       <td>
@@ -1134,7 +1126,7 @@ If only a single image is available for download, this template falls back to th
 
     <tr>
       <td>
-        pt\_img3\_alt\_text
+        pt_img3_alt_text
       </td>
 
       <td>
@@ -1148,7 +1140,7 @@ If only a single image is available for download, this template falls back to th
 
     <tr>
       <td>
-        pt\_img`n`
+        pt_img`n`
       </td>
 
       <td>
@@ -1162,7 +1154,7 @@ If only a single image is available for download, this template falls back to th
 
     <tr>
       <td>
-        pt\_img`n`\_alt\_text
+        pt_img`n`_alt_text
       </td>
 
       <td>
@@ -1176,7 +1168,7 @@ If only a single image is available for download, this template falls back to th
 
     <tr>
       <td>
-        pt\_bg
+        pt_bg
       </td>
 
       <td>
@@ -1190,7 +1182,7 @@ If only a single image is available for download, this template falls back to th
 
     <tr>
       <td>
-        pt\_bg\_dark
+        pt_bg_dark
       </td>
 
       <td>
@@ -1204,7 +1196,7 @@ If only a single image is available for download, this template falls back to th
 
     <tr>
       <td>
-        pt\_ico
+        pt_ico
       </td>
 
       <td>
@@ -1218,7 +1210,7 @@ If only a single image is available for download, this template falls back to th
 
     <tr>
       <td>
-        wzrk\_hide\_large\_icon
+        wzrk_hide_large_icon
       </td>
 
       <td>
@@ -1226,8 +1218,8 @@ If only a single image is available for download, this template falls back to th
       </td>
 
       <td>
-        Hide the large icon in Android notifications\
-        Values:  
+        Hide the large icon in Android notifications  
+        Values:
 
         <li> hide = `true` to hide the icon </li> <li> hide = `false` to show the icon (Default) </li>
       </td>
@@ -1235,7 +1227,7 @@ If only a single image is available for download, this template falls back to th
 
     <tr>
       <td>
-        pt\_title\_clr
+        pt_title_clr
       </td>
 
       <td>
@@ -1249,7 +1241,7 @@ If only a single image is available for download, this template falls back to th
 
     <tr>
       <td>
-        pt\_title\_clr\_dark
+        pt_title_clr_dark
       </td>
 
       <td>
@@ -1263,7 +1255,7 @@ If only a single image is available for download, this template falls back to th
 
     <tr>
       <td>
-        pt\_msg\_clr
+        pt_msg_clr
       </td>
 
       <td>
@@ -1277,7 +1269,7 @@ If only a single image is available for download, this template falls back to th
 
     <tr>
       <td>
-        pt\_msg\_clr\_dark
+        pt_msg_clr_dark
       </td>
 
       <td>
@@ -1291,7 +1283,7 @@ If only a single image is available for download, this template falls back to th
 
     <tr>
       <td>
-        pt\_small\_icon\_clr
+        pt_small_icon_clr
       </td>
 
       <td>
@@ -1305,7 +1297,7 @@ If only a single image is available for download, this template falls back to th
 
     <tr>
       <td>
-        pt\_small\_icon\_clr\_dark
+        pt_small_icon_clr_dark
       </td>
 
       <td>
@@ -1319,7 +1311,7 @@ If only a single image is available for download, this template falls back to th
 
     <tr>
       <td>
-        pt\_sticky
+        pt_sticky
       </td>
 
       <td>
@@ -1333,7 +1325,7 @@ If only a single image is available for download, this template falls back to th
 
     <tr>
       <td>
-        pt\_dismiss
+        pt_dismiss
       </td>
 
       <td>
@@ -1347,7 +1339,7 @@ If only a single image is available for download, this template falls back to th
 
     <tr>
       <td>
-        pt\_scale\_type
+        pt_scale_type
       </td>
 
       <td>
@@ -1355,14 +1347,14 @@ If only a single image is available for download, this template falls back to th
       </td>
 
       <td>
-        Specify the image scaling type for notifications.  Available values: <li>`fit_center` </li>  <li>`center_crop`</li>\
+        Specify the image scaling type for notifications.  Available values: <li>`fit_center` </li>  <li>`center_crop`</li>  
         For more information on how it works, refer to [Image Scaling](doc:android-push-templates#image-scaling).
       </td>
     </tr>
 
     <tr>
       <td>
-        pt\_json
+        pt_json
       </td>
 
       <td>
@@ -1376,7 +1368,7 @@ If only a single image is available for download, this template falls back to th
 
     <tr>
       <td>
-        pt\_manual\_carousel\_type
+        pt_manual_carousel_type
       </td>
 
       <td>
@@ -1390,7 +1382,7 @@ If only a single image is available for download, this template falls back to th
 
     <tr>
       <td>
-        pt\_gif\_frames
+        pt_gif_frames
       </td>
 
       <td>
@@ -1412,44 +1404,42 @@ The library does not notify if at least three icons are not retrieved. The bifur
 
 By default, if the user clicks on any notification area except the five and close icons, an activity intent launches.
 
-<Image align="center" className="border" width="50% " border={true} src="https://files.readme.io/563c039e56f135aea167f9fecda45c428087ada312e0013d1347567fcd8f724e-image.png" />
+<Image align="center" border={true} width="50% " src="https://files.readme.io/563c039e56f135aea167f9fecda45c428087ada312e0013d1347567fcd8f724e-image.png" className="border" />
 
 ## Template Keys
 
-|   Five Icons Template Keys | Required | Description                                                       |
-| -------------------------: | :------: | :---------------------------------------------------------------- |
-|                     pt\_id | Required | Indicates the type of template, for example,`pt_five_icons`       |
-|                   pt\_img1 | Required | Icon One                                                          |
-|        pt\_img1\_alt\_text | Optional | Alt Text for Icon One                                             |
-|                   pt\_img2 | Required | Icon Two                                                          |
-|        pt\_img2\_alt\_text | Optional | Alt Text for Icon Two                                             |
-|                   pt\_img3 | Required | Icon Three                                                        |
-|        pt\_img3\_alt\_text | Optional | Alt Text for Icon Three                                           |
-|                   pt\_img4 | Optional | Icon Four                                                         |
-|        pt\_img4\_alt\_text | Optional | Alt Text for Icon Four                                            |
-|                   pt\_img5 | Optional | Icon Five                                                         |
-|        pt\_img5\_alt\_text | Optional | Alt Text for Icon Five                                            |
-|                    pt\_dl1 | Required | Deep Link for first icon                                          |
-|                    pt\_dl2 | Required | Deep Link for second icon                                         |
-|                    pt\_dl3 | Required | Deep Link for third icon                                          |
-|                    pt\_dl4 | Optional | Deep Link for fourth icon                                         |
-|                    pt\_dl5 | Optional | Deep Link for fifth icon                                          |
-|                     pt\_bg | Required | Background Color in HEX                                           |
-|       pt\_small\_icon\_clr | Optional | Small Icon Color in HEX                                           |
-| pt\_small\_icon\_clr\_dark | Optional | Small Icon Color in HEX in dark mode                              |
-|                 pt\_sticky | Optional | Should the notification be sticky? ("true"/"false")               |
-|                pt\_dismiss | Optional | Auto dismiss the notification after a set time (value in seconds) |
-|                   pt\_json | Optional | Above keys in JSON format                                         |
+| Five Icons Template Keys | Required | Description                                                       |
+| -----------------------: | :------: | :---------------------------------------------------------------- |
+|                    pt_id | Required | Indicates the type of template, for example,`pt_five_icons`       |
+|                  pt_img1 | Required | Icon One                                                          |
+|         pt_img1_alt_text | Optional | Alt Text for Icon One                                             |
+|                  pt_img2 | Required | Icon Two                                                          |
+|         pt_img2_alt_text | Optional | Alt Text for Icon Two                                             |
+|                  pt_img3 | Required | Icon Three                                                        |
+|         pt_img3_alt_text | Optional | Alt Text for Icon Three                                           |
+|                  pt_img4 | Optional | Icon Four                                                         |
+|         pt_img4_alt_text | Optional | Alt Text for Icon Four                                            |
+|                  pt_img5 | Optional | Icon Five                                                         |
+|         pt_img5_alt_text | Optional | Alt Text for Icon Five                                            |
+|                   pt_dl1 | Required | Deep Link for first icon                                          |
+|                   pt_dl2 | Required | Deep Link for second icon                                         |
+|                   pt_dl3 | Required | Deep Link for third icon                                          |
+|                   pt_dl4 | Optional | Deep Link for fourth icon                                         |
+|                   pt_dl5 | Optional | Deep Link for fifth icon                                          |
+|                    pt_bg | Required | Background Color in HEX                                           |
+|        pt_small_icon_clr | Optional | Small Icon Color in HEX                                           |
+|   pt_small_icon_clr_dark | Optional | Small Icon Color in HEX in dark mode                              |
+|                pt_sticky | Optional | Should the notification be sticky? ("true"/"false")               |
+|               pt_dismiss | Optional | Auto dismiss the notification after a set time (value in seconds) |
+|                  pt_json | Optional | Above keys in JSON format                                         |
 
 # Timer Template
 
 Timer template is a dynamic and time-sensitive push notification template designed to display a live countdown timer directly within the notification. This format is ideal for creating urgency around limited-time offers, flash sales, upcoming events, or deadlines. You can update the new message, title, or background image automatically once the countdown expires, keeping the notification relevant and engaging after expiry.
 
-Timer notification is only supported for Android version 8 and above. For Android versions below 8, the library falls back to the *Basic Template*.
+Timer notification is only supported for Android version 8 and above. For Android versions below 8, the library falls back to the _Basic Template_.
 
-<Image alt="Timer Template" align="center" width="35% " src="https://files.readme.io/a0dd4a50b5b7783a1f970928b1d13d16d660728b9afb935e4947fbd3c942fb00-Timer_12_Light_Live.mp4_1.gif">
-  Timer Template
-</Image>
+<Image align="center" alt="Timer Template" border={false} caption="Timer Template" src="https://files.readme.io/a0dd4a50b5b7783a1f970928b1d13d16d660728b9afb935e4947fbd3c942fb00-Timer_12_Light_Live.mp4_1.gif" width="35% " />
 
 ## Template Keys
 
@@ -1473,7 +1463,7 @@ Timer notification is only supported for Android version 8 and above. For Androi
   <tbody>
     <tr>
       <td>
-        pt\_id
+        pt_id
       </td>
 
       <td>
@@ -1487,7 +1477,7 @@ Timer notification is only supported for Android version 8 and above. For Androi
 
     <tr>
       <td>
-        pt\_title
+        pt_title
       </td>
 
       <td>
@@ -1501,7 +1491,7 @@ Timer notification is only supported for Android version 8 and above. For Androi
 
     <tr>
       <td>
-        pt\_title\_alt
+        pt_title_alt
       </td>
 
       <td>
@@ -1515,7 +1505,7 @@ Timer notification is only supported for Android version 8 and above. For Androi
 
     <tr>
       <td>
-        pt\_msg
+        pt_msg
       </td>
 
       <td>
@@ -1529,7 +1519,7 @@ Timer notification is only supported for Android version 8 and above. For Androi
 
     <tr>
       <td>
-        pt\_msg\_alt
+        pt_msg_alt
       </td>
 
       <td>
@@ -1543,7 +1533,7 @@ Timer notification is only supported for Android version 8 and above. For Androi
 
     <tr>
       <td>
-        pt\_msg\_summary
+        pt_msg_summary
       </td>
 
       <td>
@@ -1557,7 +1547,7 @@ Timer notification is only supported for Android version 8 and above. For Androi
 
     <tr>
       <td>
-        pt\_subtitle
+        pt_subtitle
       </td>
 
       <td>
@@ -1571,7 +1561,7 @@ Timer notification is only supported for Android version 8 and above. For Androi
 
     <tr>
       <td>
-        pt\_dl1
+        pt_dl1
       </td>
 
       <td>
@@ -1585,7 +1575,7 @@ Timer notification is only supported for Android version 8 and above. For Androi
 
     <tr>
       <td>
-        pt\_big\_img
+        pt_big_img
       </td>
 
       <td>
@@ -1599,7 +1589,7 @@ Timer notification is only supported for Android version 8 and above. For Androi
 
     <tr>
       <td>
-        pt\_big\_img\_alt
+        pt_big_img_alt
       </td>
 
       <td>
@@ -1613,7 +1603,7 @@ Timer notification is only supported for Android version 8 and above. For Androi
 
     <tr>
       <td>
-           pt\_big\_img\_alt\_text
+        pt_big_img_alt_text
       </td>
 
       <td>
@@ -1627,7 +1617,7 @@ Timer notification is only supported for Android version 8 and above. For Androi
 
     <tr>
       <td>
-        pt\_big\_img\_alt\_alt\_text
+        pt_big_img_alt_alt_text
       </td>
 
       <td>
@@ -1641,7 +1631,7 @@ Timer notification is only supported for Android version 8 and above. For Androi
 
     <tr>
       <td>
-        pt\_gif
+        pt_gif
       </td>
 
       <td>
@@ -1655,7 +1645,7 @@ Timer notification is only supported for Android version 8 and above. For Androi
 
     <tr>
       <td>
-        pt\_gif\_frames
+        pt_gif_frames
       </td>
 
       <td>
@@ -1669,7 +1659,7 @@ Timer notification is only supported for Android version 8 and above. For Androi
 
     <tr>
       <td>
-        pt\_bg
+        pt_bg
       </td>
 
       <td>
@@ -1683,7 +1673,7 @@ Timer notification is only supported for Android version 8 and above. For Androi
 
     <tr>
       <td>
-        pt\_bg\_dark
+        pt_bg_dark
       </td>
 
       <td>
@@ -1697,7 +1687,7 @@ Timer notification is only supported for Android version 8 and above. For Androi
 
     <tr>
       <td>
-        pt\_chrono\_title\_clr
+        pt_chrono_title_clr
       </td>
 
       <td>
@@ -1711,7 +1701,7 @@ Timer notification is only supported for Android version 8 and above. For Androi
 
     <tr>
       <td>
-        pt\_chrono\_title\_clr\_dark
+        pt_chrono_title_clr_dark
       </td>
 
       <td>
@@ -1725,7 +1715,7 @@ Timer notification is only supported for Android version 8 and above. For Androi
 
     <tr>
       <td>
-        pt\_timer\_threshold
+        pt_timer_threshold
       </td>
 
       <td>
@@ -1739,7 +1729,7 @@ Timer notification is only supported for Android version 8 and above. For Androi
 
     <tr>
       <td>
-        pt\_timer\_end
+        pt_timer_end
       </td>
 
       <td>
@@ -1747,13 +1737,13 @@ Timer notification is only supported for Android version 8 and above. For Androi
       </td>
 
       <td>
-        Epoch Timestamp to countdown to (for example, $D\_1595871380 or 1595871380). Not required if `pt_timer_threshold` is specified.
+        Epoch Timestamp to countdown to (for example, $D_1595871380 or 1595871380). Not required if `pt_timer_threshold` is specified.
       </td>
     </tr>
 
     <tr>
       <td>
-        pt\_title\_clr
+        pt_title_clr
       </td>
 
       <td>
@@ -1767,7 +1757,7 @@ Timer notification is only supported for Android version 8 and above. For Androi
 
     <tr>
       <td>
-        pt\_title\_clr\_dark
+        pt_title_clr_dark
       </td>
 
       <td>
@@ -1781,7 +1771,7 @@ Timer notification is only supported for Android version 8 and above. For Androi
 
     <tr>
       <td>
-        pt\_msg\_clr
+        pt_msg_clr
       </td>
 
       <td>
@@ -1795,7 +1785,7 @@ Timer notification is only supported for Android version 8 and above. For Androi
 
     <tr>
       <td>
-        pt\_msg\_clr\_dark
+        pt_msg_clr_dark
       </td>
 
       <td>
@@ -1809,7 +1799,7 @@ Timer notification is only supported for Android version 8 and above. For Androi
 
     <tr>
       <td>
-        pt\_small\_icon\_clr
+        pt_small_icon_clr
       </td>
 
       <td>
@@ -1823,7 +1813,7 @@ Timer notification is only supported for Android version 8 and above. For Androi
 
     <tr>
       <td>
-        pt\_small\_icon\_clr\_dark
+        pt_small_icon_clr_dark
       </td>
 
       <td>
@@ -1837,7 +1827,7 @@ Timer notification is only supported for Android version 8 and above. For Androi
 
     <tr>
       <td>
-        pt\_scale\_type
+        pt_scale_type
       </td>
 
       <td>
@@ -1845,14 +1835,14 @@ Timer notification is only supported for Android version 8 and above. For Androi
       </td>
 
       <td>
-        Specify the image scaling type for notifications.  Available values: <li>`fit_center` </li>  <li>`center_crop`</li>\
+        Specify the image scaling type for notifications.  Available values: <li>`fit_center` </li>  <li>`center_crop`</li>  
         For more information on how it works, refer to [Image Scaling](doc:android-push-templates#image-scaling).
       </td>
     </tr>
 
     <tr>
       <td>
-        pt\_render\_terminal
+        pt_render_terminal
       </td>
 
       <td>
@@ -1860,14 +1850,14 @@ Timer notification is only supported for Android version 8 and above. For Androi
       </td>
 
       <td>
-        Determines whether terminal notification is rendered\
+        Determines whether terminal notification is rendered  
         Value- `true` or `false`
       </td>
     </tr>
 
     <tr>
       <td>
-        pt\_sticky
+        pt_sticky
       </td>
 
       <td>
@@ -1881,7 +1871,7 @@ Timer notification is only supported for Android version 8 and above. For Androi
 
     <tr>
       <td>
-        pt\_dismiss
+        pt_dismiss
       </td>
 
       <td>
@@ -1895,7 +1885,7 @@ Timer notification is only supported for Android version 8 and above. For Androi
 
     <tr>
       <td>
-        pt\_msg\_summary\_alt
+        pt_msg_summary_alt
       </td>
 
       <td>
@@ -1903,13 +1893,13 @@ Timer notification is only supported for Android version 8 and above. For Androi
       </td>
 
       <td>
-         Summary to display once the timer expires
+        Summary to display once the timer expires
       </td>
     </tr>
 
     <tr>
       <td>
-        pt\_json
+        pt_json
       </td>
 
       <td>
@@ -1929,9 +1919,7 @@ Text over Image template is a visually immersive push notification format design
 
 The library falls back to the Advanced Template if the image cannot be downloaded.
 
-<Image alt="Text over Image Push Template" align="center" width="35% " src="https://files.readme.io/aca5987a4cff4a252167cf9c0c954a422b08bfd7cfa7860b6ebb2c7bd0bc40f9-image.png">
-  Text over Image Push Template
-</Image>
+<Image align="center" alt="Text over Image Push Template" border={false} caption="Text over Image Push Template" src="https://files.readme.io/aca5987a4cff4a252167cf9c0c954a422b08bfd7cfa7860b6ebb2c7bd0bc40f9-image.png" width="35% " />
 
 ## Template Keys
 
@@ -1955,7 +1943,7 @@ The library falls back to the Advanced Template if the image cannot be downloade
   <tbody>
     <tr>
       <td>
-        pt\_id
+        pt_id
       </td>
 
       <td>
@@ -1969,7 +1957,7 @@ The library falls back to the Advanced Template if the image cannot be downloade
 
     <tr>
       <td>
-        pt\_title
+        pt_title
       </td>
 
       <td>
@@ -1983,7 +1971,7 @@ The library falls back to the Advanced Template if the image cannot be downloade
 
     <tr>
       <td>
-        pt\_msg
+        pt_msg
       </td>
 
       <td>
@@ -1997,7 +1985,7 @@ The library falls back to the Advanced Template if the image cannot be downloade
 
     <tr>
       <td>
-        pt\_msg\_summary
+        pt_msg_summary
       </td>
 
       <td>
@@ -2011,7 +1999,7 @@ The library falls back to the Advanced Template if the image cannot be downloade
 
     <tr>
       <td>
-        pt\_subtitle
+        pt_subtitle
       </td>
 
       <td>
@@ -2025,7 +2013,7 @@ The library falls back to the Advanced Template if the image cannot be downloade
 
     <tr>
       <td>
-        pt\_big\_img
+        pt_big_img
       </td>
 
       <td>
@@ -2039,7 +2027,7 @@ The library falls back to the Advanced Template if the image cannot be downloade
 
     <tr>
       <td>
-        pt\_big\_img\_alt\_text
+        pt_big_img_alt_text
       </td>
 
       <td>
@@ -2053,7 +2041,7 @@ The library falls back to the Advanced Template if the image cannot be downloade
 
     <tr>
       <td>
-        pt\_gif
+        pt_gif
       </td>
 
       <td>
@@ -2067,7 +2055,7 @@ The library falls back to the Advanced Template if the image cannot be downloade
 
     <tr>
       <td>
-        pt\_gif\_frames
+        pt_gif_frames
       </td>
 
       <td>
@@ -2081,7 +2069,7 @@ The library falls back to the Advanced Template if the image cannot be downloade
 
     <tr>
       <td>
-        pt\_small\_view
+        pt_small_view
       </td>
 
       <td>
@@ -2095,7 +2083,7 @@ The library falls back to the Advanced Template if the image cannot be downloade
 
     <tr>
       <td>
-        pt\_dl1
+        pt_dl1
       </td>
 
       <td>
@@ -2109,7 +2097,7 @@ The library falls back to the Advanced Template if the image cannot be downloade
 
     <tr>
       <td>
-        pt\_title\_clr
+        pt_title_clr
       </td>
 
       <td>
@@ -2123,7 +2111,7 @@ The library falls back to the Advanced Template if the image cannot be downloade
 
     <tr>
       <td>
-        pt\_title\_clr\_dark
+        pt_title_clr_dark
       </td>
 
       <td>
@@ -2137,7 +2125,7 @@ The library falls back to the Advanced Template if the image cannot be downloade
 
     <tr>
       <td>
-        pt\_msg\_clr
+        pt_msg_clr
       </td>
 
       <td>
@@ -2151,7 +2139,7 @@ The library falls back to the Advanced Template if the image cannot be downloade
 
     <tr>
       <td>
-        pt\_msg\_clr\_dark
+        pt_msg_clr_dark
       </td>
 
       <td>
@@ -2165,7 +2153,7 @@ The library falls back to the Advanced Template if the image cannot be downloade
 
     <tr>
       <td>
-        pt\_small\_icon\_clr
+        pt_small_icon_clr
       </td>
 
       <td>
@@ -2179,7 +2167,7 @@ The library falls back to the Advanced Template if the image cannot be downloade
 
     <tr>
       <td>
-        pt\_small\_icon\_clr\_dark
+        pt_small_icon_clr_dark
       </td>
 
       <td>
@@ -2193,7 +2181,7 @@ The library falls back to the Advanced Template if the image cannot be downloade
 
     <tr>
       <td>
-        pt\_scale\_type
+        pt_scale_type
       </td>
 
       <td>
@@ -2201,14 +2189,14 @@ The library falls back to the Advanced Template if the image cannot be downloade
       </td>
 
       <td>
-        Specify the image scaling type for notifications.  Available values: <li>`fit_center` </li>  <li>`center_crop`</li>\
+        Specify the image scaling type for notifications.  Available values: <li>`fit_center` </li>  <li>`center_crop`</li>  
         For more information on how it works, refer to [Image Scaling](doc:android-push-templates#image-scaling).
       </td>
     </tr>
 
     <tr>
       <td>
-        pt\_big\_img\_collapsed
+        pt_big_img_collapsed
       </td>
 
       <td>
@@ -2222,7 +2210,7 @@ The library falls back to the Advanced Template if the image cannot be downloade
 
     <tr>
       <td>
-        pt\_gif\_collapsed
+        pt_gif_collapsed
       </td>
 
       <td>
@@ -2236,7 +2224,7 @@ The library falls back to the Advanced Template if the image cannot be downloade
 
     <tr>
       <td>
-        pt\_gif\_frames\_collapsed
+        pt_gif_frames_collapsed
       </td>
 
       <td>
@@ -2250,7 +2238,7 @@ The library falls back to the Advanced Template if the image cannot be downloade
 
     <tr>
       <td>
-        pt\_big\_img\_collapsed\_alt\_text
+        pt_big_img_collapsed_alt_text
       </td>
 
       <td>
@@ -2264,7 +2252,7 @@ The library falls back to the Advanced Template if the image cannot be downloade
 
     <tr>
       <td>
-        pt\_scale\_type\_collapsed
+        pt_scale_type_collapsed
       </td>
 
       <td>
@@ -2272,13 +2260,13 @@ The library falls back to the Advanced Template if the image cannot be downloade
       </td>
 
       <td>
-        ScaleType for the image in the collapsed View ("center\_crop"/"fit\_center")
+        ScaleType for the image in the collapsed View ("center_crop"/"fit_center")
       </td>
     </tr>
 
     <tr>
       <td>
-        pt\_sticky
+        pt_sticky
       </td>
 
       <td>
@@ -2292,7 +2280,7 @@ The library falls back to the Advanced Template if the image cannot be downloade
 
     <tr>
       <td>
-        pt\_dismiss
+        pt_dismiss
       </td>
 
       <td>
@@ -2306,7 +2294,7 @@ The library falls back to the Advanced Template if the image cannot be downloade
 
     <tr>
       <td>
-        pt\_ico
+        pt_ico
       </td>
 
       <td>
@@ -2320,7 +2308,7 @@ The library falls back to the Advanced Template if the image cannot be downloade
 
     <tr>
       <td>
-        wzrk\_hide\_large\_icon
+        wzrk_hide_large_icon
       </td>
 
       <td>
@@ -2328,8 +2316,8 @@ The library falls back to the Advanced Template if the image cannot be downloade
       </td>
 
       <td>
-        Hide the large icon in Android notifications\
-        Values:  
+        Hide the large icon in Android notifications  
+        Values:
 
         <li> hide = `true` to hide the icon </li> <li> hide = `false` to show the icon (Default) </li>
       </td>
@@ -2337,7 +2325,7 @@ The library falls back to the Advanced Template if the image cannot be downloade
 
     <tr>
       <td>
-        pt\_json
+        pt_json
       </td>
 
       <td>
@@ -2353,11 +2341,9 @@ The library falls back to the Advanced Template if the image cannot be downloade
 
 # Rating Template
 
-Rating template lets your users give you feedback. This feedback is captured in the event *Rating Submitted* within the property `wzrk_c2a`.
+Rating template lets your users give you feedback. This feedback is captured in the event _Rating Submitted_ within the property `wzrk_c2a`.
 
-<Image alt="Rating Template" align="center" width="35% " src="https://files.readme.io/e026a6e56be3574972ff15ae648e46be20699f55cd77eac60f318c3d77c3948e-image.png">
-  Rating Template
-</Image>
+<Image align="center" alt="Rating Template" border={false} caption="Rating Template" src="https://files.readme.io/e026a6e56be3574972ff15ae648e46be20699f55cd77eac60f318c3d77c3948e-image.png" width="35% " />
 
 ## Template Keys
 
@@ -2381,7 +2367,7 @@ Rating template lets your users give you feedback. This feedback is captured in 
   <tbody>
     <tr>
       <td>
-        pt\_id
+        pt_id
       </td>
 
       <td>
@@ -2395,7 +2381,7 @@ Rating template lets your users give you feedback. This feedback is captured in 
 
     <tr>
       <td>
-        pt\_title
+        pt_title
       </td>
 
       <td>
@@ -2409,7 +2395,7 @@ Rating template lets your users give you feedback. This feedback is captured in 
 
     <tr>
       <td>
-        pt\_msg
+        pt_msg
       </td>
 
       <td>
@@ -2423,7 +2409,7 @@ Rating template lets your users give you feedback. This feedback is captured in 
 
     <tr>
       <td>
-        pt\_default\_dl
+        pt_default_dl
       </td>
 
       <td>
@@ -2437,7 +2423,7 @@ Rating template lets your users give you feedback. This feedback is captured in 
 
     <tr>
       <td>
-        pt\_dl1
+        pt_dl1
       </td>
 
       <td>
@@ -2451,7 +2437,7 @@ Rating template lets your users give you feedback. This feedback is captured in 
 
     <tr>
       <td>
-        pt\_bg
+        pt_bg
       </td>
 
       <td>
@@ -2465,7 +2451,7 @@ Rating template lets your users give you feedback. This feedback is captured in 
 
     <tr>
       <td>
-        pt\_bg\_dark
+        pt_bg_dark
       </td>
 
       <td>
@@ -2479,7 +2465,7 @@ Rating template lets your users give you feedback. This feedback is captured in 
 
     <tr>
       <td>
-        pt\_msg\_summary
+        pt_msg_summary
       </td>
 
       <td>
@@ -2493,7 +2479,7 @@ Rating template lets your users give you feedback. This feedback is captured in 
 
     <tr>
       <td>
-        pt\_subtitle
+        pt_subtitle
       </td>
 
       <td>
@@ -2507,7 +2493,7 @@ Rating template lets your users give you feedback. This feedback is captured in 
 
     <tr>
       <td>
-        pt\_dl2
+        pt_dl2
       </td>
 
       <td>
@@ -2521,7 +2507,7 @@ Rating template lets your users give you feedback. This feedback is captured in 
 
     <tr>
       <td>
-        pt\_dl3
+        pt_dl3
       </td>
 
       <td>
@@ -2535,7 +2521,7 @@ Rating template lets your users give you feedback. This feedback is captured in 
 
     <tr>
       <td>
-        pt\_dl4
+        pt_dl4
       </td>
 
       <td>
@@ -2549,7 +2535,7 @@ Rating template lets your users give you feedback. This feedback is captured in 
 
     <tr>
       <td>
-        pt\_dl5
+        pt_dl5
       </td>
 
       <td>
@@ -2563,7 +2549,7 @@ Rating template lets your users give you feedback. This feedback is captured in 
 
     <tr>
       <td>
-        pt\_ico
+        pt_ico
       </td>
 
       <td>
@@ -2577,7 +2563,7 @@ Rating template lets your users give you feedback. This feedback is captured in 
 
     <tr>
       <td>
-        wzrk\_hide\_large\_icon
+        wzrk_hide_large_icon
       </td>
 
       <td>
@@ -2585,8 +2571,8 @@ Rating template lets your users give you feedback. This feedback is captured in 
       </td>
 
       <td>
-        Hide the large icon in Android notifications\
-        Values:  
+        Hide the large icon in Android notifications  
+        Values:
 
         <li> hide = `true` to hide the icon </li> <li> hide = `false` to show the icon (Default) </li>
       </td>
@@ -2594,7 +2580,7 @@ Rating template lets your users give you feedback. This feedback is captured in 
 
     <tr>
       <td>
-        pt\_title\_clr
+        pt_title_clr
       </td>
 
       <td>
@@ -2608,7 +2594,7 @@ Rating template lets your users give you feedback. This feedback is captured in 
 
     <tr>
       <td>
-        pt\_title\_clr\_dark
+        pt_title_clr_dark
       </td>
 
       <td>
@@ -2622,7 +2608,7 @@ Rating template lets your users give you feedback. This feedback is captured in 
 
     <tr>
       <td>
-        pt\_msg\_clr
+        pt_msg_clr
       </td>
 
       <td>
@@ -2636,7 +2622,7 @@ Rating template lets your users give you feedback. This feedback is captured in 
 
     <tr>
       <td>
-        pt\_msg\_clr\_dark
+        pt_msg_clr_dark
       </td>
 
       <td>
@@ -2650,7 +2636,7 @@ Rating template lets your users give you feedback. This feedback is captured in 
 
     <tr>
       <td>
-        pt\_small\_icon\_clr
+        pt_small_icon_clr
       </td>
 
       <td>
@@ -2664,7 +2650,7 @@ Rating template lets your users give you feedback. This feedback is captured in 
 
     <tr>
       <td>
-        pt\_small\_icon\_clr\_dark
+        pt_small_icon_clr_dark
       </td>
 
       <td>
@@ -2678,7 +2664,7 @@ Rating template lets your users give you feedback. This feedback is captured in 
 
     <tr>
       <td>
-        pt\_scale\_type
+        pt_scale_type
       </td>
 
       <td>
@@ -2686,14 +2672,14 @@ Rating template lets your users give you feedback. This feedback is captured in 
       </td>
 
       <td>
-        Specify the image scaling type for notifications.  Available values: <li>`fit_center` </li>  <li>`center_crop`</li>\
+        Specify the image scaling type for notifications.  Available values: <li>`fit_center` </li>  <li>`center_crop`</li>  
         For more information on how it works, refer to [Image Scaling](doc:push-templates-android#image-scaling).
       </td>
     </tr>
 
     <tr>
       <td>
-        pt\_json
+        pt_json
       </td>
 
       <td>
@@ -2707,7 +2693,7 @@ Rating template lets your users give you feedback. This feedback is captured in 
 
     <tr>
       <td>
-        pt\_big\_img
+        pt_big_img
       </td>
 
       <td>
@@ -2721,7 +2707,7 @@ Rating template lets your users give you feedback. This feedback is captured in 
 
     <tr>
       <td>
-        pt\_big\_img\_alt\_text
+        pt_big_img_alt_text
       </td>
 
       <td>
@@ -2735,7 +2721,7 @@ Rating template lets your users give you feedback. This feedback is captured in 
 
     <tr>
       <td>
-        pt\_gif
+        pt_gif
       </td>
 
       <td>
@@ -2749,7 +2735,7 @@ Rating template lets your users give you feedback. This feedback is captured in 
 
     <tr>
       <td>
-        pt\_gif\_frames
+        pt_gif_frames
       </td>
 
       <td>
@@ -2763,7 +2749,7 @@ Rating template lets your users give you feedback. This feedback is captured in 
 
     <tr>
       <td>
-        pt\_sticky
+        pt_sticky
       </td>
 
       <td>
@@ -2777,7 +2763,7 @@ Rating template lets your users give you feedback. This feedback is captured in 
 
     <tr>
       <td>
-        pt\_dismiss
+        pt_dismiss
       </td>
 
       <td>
@@ -2793,25 +2779,21 @@ Rating template lets your users give you feedback. This feedback is captured in 
 
 # Product Catalog Template
 
-The product catalog template lets you showcase different product images (or a product catalog) before the user can click on the *BUY NOW* option, which can take them directly to the product via deep links. This template has two variants.
+The product catalog template lets you showcase different product images (or a product catalog) before the user can click on the _BUY NOW_ option, which can take them directly to the product via deep links. This template has two variants.
 
 ## Vertical View
 
-<Image alt="Product Catalog Template- Vertical View" align="center" width="35% " border={true} src="https://files.readme.io/21393452affbcdbd00b8a7550c07b59db3a855a46f0746099529338ef5208a2f-image.png">
-  Product Catalog Template- Vertical View
-</Image>
+<Image align="center" alt="Product Catalog Template- Vertical View" border={true} caption="Product Catalog Template- Vertical View" src="https://files.readme.io/21393452affbcdbd00b8a7550c07b59db3a855a46f0746099529338ef5208a2f-image.png" width="35% " />
 
 ## Linear View
 
 Use the following keys to enable the linear view variant of this template:
 
-|                 Template Key | Required | Value  |
-| ---------------------------: | :------: | :----- |
-| pt\_product\_display\_linear | Optional | `true` |
+|              Template Key | Required | Value  |
+| ------------------------: | :------: | :----- |
+| pt_product_display_linear | Optional | `true` |
 
-<Image alt="Product Catalog Template-Linear View" align="center" width="35% " border={true} src="https://files.readme.io/1e2e81891b1ce9faa0a12731f254d616dcf51818c28f14f6428c0a5d833855b8-image.png">
-  Product Catalog Template-Linear View
-</Image>
+<Image align="center" alt="Product Catalog Template-Linear View" border={true} caption="Product Catalog Template-Linear View" src="https://files.readme.io/1e2e81891b1ce9faa0a12731f254d616dcf51818c28f14f6428c0a5d833855b8-image.png" width="35% " />
 
 ## Template Keys
 
@@ -2835,7 +2817,7 @@ Use the following keys to enable the linear view variant of this template:
   <tbody>
     <tr>
       <td>
-        pt\_id
+        pt_id
       </td>
 
       <td>
@@ -2849,7 +2831,7 @@ Use the following keys to enable the linear view variant of this template:
 
     <tr>
       <td>
-        pt\_msg
+        pt_msg
       </td>
 
       <td>
@@ -2863,7 +2845,7 @@ Use the following keys to enable the linear view variant of this template:
 
     <tr>
       <td>
-        pt\_title
+        pt_title
       </td>
 
       <td>
@@ -2877,7 +2859,7 @@ Use the following keys to enable the linear view variant of this template:
 
     <tr>
       <td>
-        pt\_img1
+        pt_img1
       </td>
 
       <td>
@@ -2891,7 +2873,7 @@ Use the following keys to enable the linear view variant of this template:
 
     <tr>
       <td>
-        pt\_img1\_alt\_text
+        pt_img1_alt_text
       </td>
 
       <td>
@@ -2905,7 +2887,7 @@ Use the following keys to enable the linear view variant of this template:
 
     <tr>
       <td>
-        pt\_img2
+        pt_img2
       </td>
 
       <td>
@@ -2919,7 +2901,7 @@ Use the following keys to enable the linear view variant of this template:
 
     <tr>
       <td>
-        pt\_img2\_alt\_text
+        pt_img2_alt_text
       </td>
 
       <td>
@@ -2933,7 +2915,7 @@ Use the following keys to enable the linear view variant of this template:
 
     <tr>
       <td>
-        pt\_img3
+        pt_img3
       </td>
 
       <td>
@@ -2947,7 +2929,7 @@ Use the following keys to enable the linear view variant of this template:
 
     <tr>
       <td>
-        pt\_img3\_alt\_text
+        pt_img3_alt_text
       </td>
 
       <td>
@@ -2961,7 +2943,7 @@ Use the following keys to enable the linear view variant of this template:
 
     <tr>
       <td>
-        pt\_bt1
+        pt_bt1
       </td>
 
       <td>
@@ -2975,7 +2957,7 @@ Use the following keys to enable the linear view variant of this template:
 
     <tr>
       <td>
-        pt\_bt2
+        pt_bt2
       </td>
 
       <td>
@@ -2989,7 +2971,7 @@ Use the following keys to enable the linear view variant of this template:
 
     <tr>
       <td>
-        pt\_bt3
+        pt_bt3
       </td>
 
       <td>
@@ -3003,7 +2985,7 @@ Use the following keys to enable the linear view variant of this template:
 
     <tr>
       <td>
-        pt\_st2
+        pt_st2
       </td>
 
       <td>
@@ -3017,7 +2999,7 @@ Use the following keys to enable the linear view variant of this template:
 
     <tr>
       <td>
-        pt\_st1
+        pt_st1
       </td>
 
       <td>
@@ -3031,7 +3013,7 @@ Use the following keys to enable the linear view variant of this template:
 
     <tr>
       <td>
-        pt\_st3
+        pt_st3
       </td>
 
       <td>
@@ -3045,7 +3027,7 @@ Use the following keys to enable the linear view variant of this template:
 
     <tr>
       <td>
-        pt\_dl1
+        pt_dl1
       </td>
 
       <td>
@@ -3059,7 +3041,7 @@ Use the following keys to enable the linear view variant of this template:
 
     <tr>
       <td>
-        pt\_dl2
+        pt_dl2
       </td>
 
       <td>
@@ -3073,7 +3055,7 @@ Use the following keys to enable the linear view variant of this template:
 
     <tr>
       <td>
-        pt\_dl3
+        pt_dl3
       </td>
 
       <td>
@@ -3087,7 +3069,7 @@ Use the following keys to enable the linear view variant of this template:
 
     <tr>
       <td>
-        pt\_price1
+        pt_price1
       </td>
 
       <td>
@@ -3101,7 +3083,7 @@ Use the following keys to enable the linear view variant of this template:
 
     <tr>
       <td>
-        pt\_price2
+        pt_price2
       </td>
 
       <td>
@@ -3115,7 +3097,7 @@ Use the following keys to enable the linear view variant of this template:
 
     <tr>
       <td>
-        pt\_price3
+        pt_price3
       </td>
 
       <td>
@@ -3129,7 +3111,7 @@ Use the following keys to enable the linear view variant of this template:
 
     <tr>
       <td>
-        pt\_bg
+        pt_bg
       </td>
 
       <td>
@@ -3143,7 +3125,7 @@ Use the following keys to enable the linear view variant of this template:
 
     <tr>
       <td>
-        pt\_bg\_dark
+        pt_bg_dark
       </td>
 
       <td>
@@ -3157,7 +3139,7 @@ Use the following keys to enable the linear view variant of this template:
 
     <tr>
       <td>
-        pt\_product\_display\_action
+        pt_product_display_action
       </td>
 
       <td>
@@ -3171,7 +3153,7 @@ Use the following keys to enable the linear view variant of this template:
 
     <tr>
       <td>
-        pt\_product\_display\_action\_clr
+        pt_product_display_action_clr
       </td>
 
       <td>
@@ -3185,7 +3167,7 @@ Use the following keys to enable the linear view variant of this template:
 
     <tr>
       <td>
-        pt\_subtitle
+        pt_subtitle
       </td>
 
       <td>
@@ -3199,7 +3181,7 @@ Use the following keys to enable the linear view variant of this template:
 
     <tr>
       <td>
-        pt\_product\_display\_linear
+        pt_product_display_linear
       </td>
 
       <td>
@@ -3213,7 +3195,7 @@ Use the following keys to enable the linear view variant of this template:
 
     <tr>
       <td>
-        pt\_title\_clr
+        pt_title_clr
       </td>
 
       <td>
@@ -3227,7 +3209,7 @@ Use the following keys to enable the linear view variant of this template:
 
     <tr>
       <td>
-        pt\_title\_clr\_dark
+        pt_title_clr_dark
       </td>
 
       <td>
@@ -3241,7 +3223,7 @@ Use the following keys to enable the linear view variant of this template:
 
     <tr>
       <td>
-        pt\_msg\_clr
+        pt_msg_clr
       </td>
 
       <td>
@@ -3255,7 +3237,7 @@ Use the following keys to enable the linear view variant of this template:
 
     <tr>
       <td>
-        pt\_msg\_clr\_dark
+        pt_msg_clr_dark
       </td>
 
       <td>
@@ -3269,7 +3251,7 @@ Use the following keys to enable the linear view variant of this template:
 
     <tr>
       <td>
-        pt\_small\_icon\_clr
+        pt_small_icon_clr
       </td>
 
       <td>
@@ -3283,7 +3265,7 @@ Use the following keys to enable the linear view variant of this template:
 
     <tr>
       <td>
-        pt\_small\_icon\_clr\_dark
+        pt_small_icon_clr_dark
       </td>
 
       <td>
@@ -3297,7 +3279,7 @@ Use the following keys to enable the linear view variant of this template:
 
     <tr>
       <td>
-        pt\_sticky
+        pt_sticky
       </td>
 
       <td>
@@ -3311,7 +3293,7 @@ Use the following keys to enable the linear view variant of this template:
 
     <tr>
       <td>
-        pt\_dismiss
+        pt_dismiss
       </td>
 
       <td>
@@ -3325,7 +3307,7 @@ Use the following keys to enable the linear view variant of this template:
 
     <tr>
       <td>
-        pt\_scale\_type
+        pt_scale_type
       </td>
 
       <td>
@@ -3333,14 +3315,14 @@ Use the following keys to enable the linear view variant of this template:
       </td>
 
       <td>
-        Specify the image scaling type for notifications.  Available values: <li>`fit_center` </li>  <li>`center_crop`</li>\
+        Specify the image scaling type for notifications.  Available values: <li>`fit_center` </li>  <li>`center_crop`</li>  
         For more information on how it works, refer to [Image Scaling](doc:android-push-templates#image-scaling).
       </td>
     </tr>
 
     <tr>
       <td>
-        pt\_json
+        pt_json
       </td>
 
       <td>
@@ -3364,13 +3346,11 @@ The CTA variant of the Input Box Template uses action buttons on the notificatio
 
 To set the CTAs, use the Advanced Options when setting up the campaign on the dashboard.
 
-<Image title="Input Box Template-With CTAs" alt={618} align="center" width="35% " border={true} src="https://github.com/CleverTap/clevertap-android-sdk/raw/master/static/inputctabasicdismiss.gif">
-  Input Box Template-With CTAs
-</Image>
+<Image align="center" alt={618} border={true} caption="Input Box Template-With CTAs" title="Input Box Template-With CTAs" src="https://github.com/CleverTap/clevertap-android-sdk/raw/master/static/inputctabasicdismiss.gif" width="35% " />
 
-|           Template Key | Required | Value                                                        |
-| ---------------------: | :------: | :----------------------------------------------------------- |
-| pt\_dismiss\_on\_click | Optional | `true` (Dismisses the notification without opening the app). |
+|        Template Key | Required | Value                                                        |
+| ------------------: | :------: | :----------------------------------------------------------- |
+| pt_dismiss_on_click | Optional | `true` (Dismisses the notification without opening the app). |
 
 > 📘 **Display the Notification in the tray (for Android 12 and above)**
 >
@@ -3411,16 +3391,14 @@ This variant of the Input Box Template is advantageous if the user wants to be r
 
 Ensure to set one of the CTAs as a Remind Later button. Set the action ID to `remind` from the dashboard.
 
-|                              Template Key | Required | Value                                                                                                                                                                  |
-| ----------------------------------------: | :------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                           pt\_event\_name | Required | For example: `Remind Later`,                                                                                                                                           |
-| pt\_event\_property\_\<property\_name\_1> | Optional | For example: `<property_value>`,                                                                                                                                       |
-| pt\_event\_property\_\<property\_name\_2> | Optional | future epoch timestamp. For example: `\$D_1592503813`                                                                                                                  |
-|                    pt\_dismiss\_on\_click | Required | Value should be `true`. It dismisses the notification without opening the app and raises a required event to the user profile, needed to send a reminder notification. |
+|                         Template Key | Required | Value                                                                                                                                                                  |
+| -----------------------------------: | :------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|                        pt_event_name | Required | For example: `Remind Later`,                                                                                                                                           |
+| pt_event_property_\<property_name_1> | Optional | For example: `<property_value>`,                                                                                                                                       |
+| pt_event_property_\<property_name_2> | Optional | future epoch timestamp. For example: `\$D_1592503813`                                                                                                                  |
+|                  pt_dismiss_on_click | Required | Value should be `true`. It dismisses the notification without opening the app and raises a required event to the user profile, needed to send a reminder notification. |
 
-<Image title="Input Box Template-CTAs with Remind Later option" alt={618} align="center" width="35% " border={true} src="https://github.com/CleverTap/clevertap-android-sdk/raw/master/static/inputCtaRemind.gif">
-  Input Box Template-CTAs with Remind Later option
-</Image>
+<Image align="center" alt={618} border={true} caption="Input Box Template-CTAs with Remind Later option" title="Input Box Template-CTAs with Remind Later option" src="https://github.com/CleverTap/clevertap-android-sdk/raw/master/static/inputCtaRemind.gif" width="35% " />
 
 ## Reply as an Event
 
@@ -3428,17 +3406,15 @@ This variant raises an event capturing the user's input as an event property. Th
 
 To use this variant, use the following values for the keys.
 
-|                              Template Key | Required | Value                                   |
-| ----------------------------------------: | :------: | :-------------------------------------- |
-|                          pt\_input\_label | Required | for example, `Search`                   |
-|                       pt\_input\_feedback | Required | for example, `Thanks for your feedback` |
-|                           pt\_event\_name | Required | for example. `Searched`,                |
-| pt\_event\_property\_\<property\_name\_2> | Required | fixed value - `pt_input_reply`          |
-| pt\_event\_property\_\<property\_name\_1> | Optional | for example. `<property_value>`,        |
+|                         Template Key | Required | Value                                   |
+| -----------------------------------: | :------: | :-------------------------------------- |
+|                       pt_input_label | Required | for example, `Search`                   |
+|                    pt_input_feedback | Required | for example, `Thanks for your feedback` |
+|                        pt_event_name | Required | for example. `Searched`,                |
+| pt_event_property_\<property_name_2> | Required | fixed value - `pt_input_reply`          |
+| pt_event_property_\<property_name_1> | Optional | for example. `<property_value>`,        |
 
-<Image title="Input Box Template-Reply as an Event" alt={618} align="center" width="35% " border={true} src="https://github.com/CleverTap/clevertap-android-sdk/raw/master/static/inputCtaNoOpen.gif">
-  Input Box Template-Reply as an Event
-</Image>
+<Image align="center" alt={618} border={true} caption="Input Box Template-Reply as an Event" title="Input Box Template-Reply as an Event" src="https://github.com/CleverTap/clevertap-android-sdk/raw/master/static/inputCtaNoOpen.gif" width="35% " />
 
 ## Reply as an Intent
 
@@ -3446,17 +3422,15 @@ This variant passes the reply to the app as an Intent. The app can then process 
 
 To use this variant, use the following values for the keys.
 
-|          Template Key | Required | Value                                    |
-| --------------------: | :------: | :--------------------------------------- |
-|      pt\_input\_label | Required | for example, `Search`                    |
-|   pt\_input\_feedback | Required | for example., `Thanks for your feedback` |
-| pt\_input\_auto\_open | Required | fixed value - `true`                     |
+|       Template Key | Required | Value                                    |
+| -----------------: | :------: | :--------------------------------------- |
+|     pt_input_label | Required | for example, `Search`                    |
+|  pt_input_feedback | Required | for example., `Thanks for your feedback` |
+| pt_input_auto_open | Required | fixed value - `true`                     |
 
 To capture the input, the app can get the `pt_input_reply` key from the Intent extras.
 
-<Image title="Input Box Template-Reply as an Intent" alt={618} align="center" width="35% " border={true} src="https://github.com/CleverTap/clevertap-android-sdk/raw/master/static/inputCtaWithOpen.gif">
-  Input Box Template-Reply as an Intent
-</Image>
+<Image align="center" alt={618} border={true} caption="Input Box Template-Reply as an Intent" title="Input Box Template-Reply as an Intent" src="https://github.com/CleverTap/clevertap-android-sdk/raw/master/static/inputCtaWithOpen.gif" width="35% " />
 
 ## Template Keys
 
@@ -3480,7 +3454,7 @@ To capture the input, the app can get the `pt_input_reply` key from the Intent e
   <tbody>
     <tr>
       <td>
-        pt\_id
+        pt_id
       </td>
 
       <td>
@@ -3494,7 +3468,7 @@ To capture the input, the app can get the `pt_input_reply` key from the Intent e
 
     <tr>
       <td>
-        pt\_title
+        pt_title
       </td>
 
       <td>
@@ -3508,7 +3482,7 @@ To capture the input, the app can get the `pt_input_reply` key from the Intent e
 
     <tr>
       <td>
-        pt\_msg
+        pt_msg
       </td>
 
       <td>
@@ -3522,7 +3496,7 @@ To capture the input, the app can get the `pt_input_reply` key from the Intent e
 
     <tr>
       <td>
-        pt\_big\_img
+        pt_big_img
       </td>
 
       <td>
@@ -3536,7 +3510,7 @@ To capture the input, the app can get the `pt_input_reply` key from the Intent e
 
     <tr>
       <td>
-        pt\_big\_img\_alt
+        pt_big_img_alt
       </td>
 
       <td>
@@ -3550,7 +3524,7 @@ To capture the input, the app can get the `pt_input_reply` key from the Intent e
 
     <tr>
       <td>
-        pt\_input\_label
+        pt_input_label
       </td>
 
       <td>
@@ -3564,7 +3538,7 @@ To capture the input, the app can get the `pt_input_reply` key from the Intent e
 
     <tr>
       <td>
-        pt\_input\_feedback
+        pt_input_feedback
       </td>
 
       <td>
@@ -3578,7 +3552,7 @@ To capture the input, the app can get the `pt_input_reply` key from the Intent e
 
     <tr>
       <td>
-        pt\_dl1
+        pt_dl1
       </td>
 
       <td>
@@ -3592,7 +3566,7 @@ To capture the input, the app can get the `pt_input_reply` key from the Intent e
 
     <tr>
       <td>
-        pt\_msg\_summary
+        pt_msg_summary
       </td>
 
       <td>
@@ -3606,7 +3580,7 @@ To capture the input, the app can get the `pt_input_reply` key from the Intent e
 
     <tr>
       <td>
-        pt\_subtitle
+        pt_subtitle
       </td>
 
       <td>
@@ -3620,7 +3594,7 @@ To capture the input, the app can get the `pt_input_reply` key from the Intent e
 
     <tr>
       <td>
-        pt\_event\_name
+        pt_event_name
       </td>
 
       <td>
@@ -3634,7 +3608,7 @@ To capture the input, the app can get the `pt_input_reply` key from the Intent e
 
     <tr>
       <td>
-        pt\_event\_property\_\<property\_name\_1>
+        pt_event_property_\<property_name_1>
       </td>
 
       <td>
@@ -3642,13 +3616,13 @@ To capture the input, the app can get the `pt_input_reply` key from the Intent e
       </td>
 
       <td>
-        Value for event property \<property\_name\_1>
+        Value for event property \<property_name_1>
       </td>
     </tr>
 
     <tr>
       <td>
-        pt\_event\_property\_\<property\_name\_2>
+        pt_event_property_\<property_name_2>
       </td>
 
       <td>
@@ -3656,13 +3630,13 @@ To capture the input, the app can get the `pt_input_reply` key from the Intent e
       </td>
 
       <td>
-        Value for event property \<property\_name\_2>
+        Value for event property \<property_name_2>
       </td>
     </tr>
 
     <tr>
       <td>
-        pt\_event\_property\_\<property\_name\_n>
+        pt_event_property_\<property_name_n>
       </td>
 
       <td>
@@ -3670,13 +3644,13 @@ To capture the input, the app can get the `pt_input_reply` key from the Intent e
       </td>
 
       <td>
-        Value for event property \<property\_name\_n>
+        Value for event property \<property_name_n>
       </td>
     </tr>
 
     <tr>
       <td>
-        pt\_input\_auto\_open
+        pt_input_auto_open
       </td>
 
       <td>
@@ -3690,7 +3664,7 @@ To capture the input, the app can get the `pt_input_reply` key from the Intent e
 
     <tr>
       <td>
-        pt\_title\_clr
+        pt_title_clr
       </td>
 
       <td>
@@ -3704,7 +3678,7 @@ To capture the input, the app can get the `pt_input_reply` key from the Intent e
 
     <tr>
       <td>
-        pt\_title\_clr\_dark
+        pt_title_clr_dark
       </td>
 
       <td>
@@ -3718,7 +3692,7 @@ To capture the input, the app can get the `pt_input_reply` key from the Intent e
 
     <tr>
       <td>
-        pt\_msg\_clr
+        pt_msg_clr
       </td>
 
       <td>
@@ -3732,7 +3706,7 @@ To capture the input, the app can get the `pt_input_reply` key from the Intent e
 
     <tr>
       <td>
-        pt\_msg\_clr\_dark
+        pt_msg_clr_dark
       </td>
 
       <td>
@@ -3746,7 +3720,7 @@ To capture the input, the app can get the `pt_input_reply` key from the Intent e
 
     <tr>
       <td>
-        pt\_small\_icon\_clr
+        pt_small_icon_clr
       </td>
 
       <td>
@@ -3760,7 +3734,7 @@ To capture the input, the app can get the `pt_input_reply` key from the Intent e
 
     <tr>
       <td>
-        pt\_small\_icon\_clr\_dark
+        pt_small_icon_clr_dark
       </td>
 
       <td>
@@ -3774,7 +3748,7 @@ To capture the input, the app can get the `pt_input_reply` key from the Intent e
 
     <tr>
       <td>
-        pt\_ico
+        pt_ico
       </td>
 
       <td>
@@ -3788,7 +3762,7 @@ To capture the input, the app can get the `pt_input_reply` key from the Intent e
 
     <tr>
       <td>
-        wzrk\_hide\_large\_icon
+        wzrk_hide_large_icon
       </td>
 
       <td>
@@ -3796,8 +3770,8 @@ To capture the input, the app can get the `pt_input_reply` key from the Intent e
       </td>
 
       <td>
-        Hide the large icon in Android notifications\
-        Values:  
+        Hide the large icon in Android notifications  
+        Values:
 
         <li> hide = `true` to hide the icon </li> <li> hide = `false` to show the icon (Default) </li>
       </td>
@@ -3805,7 +3779,7 @@ To capture the input, the app can get the `pt_input_reply` key from the Intent e
 
     <tr>
       <td>
-        pt\_dismiss\_on\_click
+        pt_dismiss_on_click
       </td>
 
       <td>
@@ -3819,7 +3793,7 @@ To capture the input, the app can get the `pt_input_reply` key from the Intent e
 
     <tr>
       <td>
-        pt\_json
+        pt_json
       </td>
 
       <td>
@@ -3846,7 +3820,7 @@ Users can preview and render different variations of outputs for each Push templ
 
 # Dark Mode
 
-Push templates automatically adapt to the device's theme settings, rendering notifications in dark or light mode. 
+Push templates automatically adapt to the device's theme settings, rendering notifications in dark or light mode.
 
 | **Theme Setting**      | **Notification Appearance**                       | Sample Output                                                                                           |
 | ---------------------- | ------------------------------------------------- | :------------------------------------------------------------------------------------------------------ |
@@ -3891,7 +3865,7 @@ The following table lists the different scaling settings in Push templates:
       </td>
 
       <td>
-        Applies to all expanded images in Android push templates.  
+        Applies to all expanded images in Android push templates.
 
         The image is scaled proportionally (maintaining the aspect ratio) to ensure that both its width and height fit within the boundaries of the image container. This ensures the entire image is visible without any cropping.
       </td>
@@ -3907,7 +3881,7 @@ The following table lists the different scaling settings in Push templates:
       </td>
 
       <td>
-        Applies to all expanded images in all Android push templates.  
+        Applies to all expanded images in all Android push templates.
 
         The image is resized uniformly while preserving the aspect ratio.  If necessary, it is scaled down so that both width and height fit within the image container. This ensures the full image is displayed without any part being cropped.
       </td>
@@ -3940,9 +3914,6 @@ The following are the image specifications and guidelines for the Push Templates
 
       <th>
         Maximum File Size
-
-
-
 
         (OS version 12 and above)
       </th>
