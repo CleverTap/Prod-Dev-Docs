@@ -22,7 +22,7 @@ The CleverTap iOS SDK allows you to show In-App notifications to your users, and
 
 # In-App Notification Callbacks
 
-You can track user interactions with In-App Notifications using delegate methods provided by the CleverTap iOS SDK.\
+You can track user interactions with In-App Notifications using delegate methods provided by the CleverTap iOS SDK.  
 These callbacks notify your app when a user **views**, **dismisses**, or **taps** an In-App Notification.
 
 To use callbacks, implement the `CleverTapInAppNotificationDelegate` protocol in your class and define the following methods:
@@ -36,7 +36,7 @@ Implementing these callbacks allows you to control when notifications appear and
 
 ### `shouldShowInAppNotificationWithExtras` Callback
 
-This callback is triggered *before* an In-App Notification is displayed. Use it to decide whether a notification should be shown.
+This callback is triggered _before_ an In-App Notification is displayed. Use it to decide whether a notification should be shown.
 
 Return `false` to suppress a notification if specific app conditions are not met (for example, if the user is already on the target screen).
 
@@ -64,7 +64,7 @@ func shouldShowInAppNotification(withExtras extras: [AnyHashable : Any]!) -> Boo
 
 ### `inAppNotificationDidShow` Callback
 
-This callback is triggered *after* an In-App Notification is displayed to the user. Use this callback to log impression data or trigger custom analytics events.
+This callback is triggered _after_ an In-App Notification is displayed to the user. Use this callback to log impression data or trigger custom analytics events.
 
 ```swift
 // Called when an In-App Notification is displayed.
@@ -81,7 +81,7 @@ func inAppNotificationDidShow(_ notification: [AnyHashable : Any]!) {
 
 ### `inAppNotificationDismissedWithExtras` Callback
 
-This callback is triggered *after* a notification is dismissed by the user or automatically after a timeout. Use this callback to perform cleanup tasks or record dismissal events.
+This callback is triggered _after_ a notification is dismissed by the user or automatically after a timeout. Use this callback to perform cleanup tasks or record dismissal events.
 
 ```swift
 // Called when an In-App Notification is dismissed.
@@ -192,7 +192,7 @@ class MyViewController: UIViewController, CleverTapInAppNotificationDelegate {
 
 # Control In-App Notifications
 
-For CleverTap iOS SDK 3.10.0 and above, you can suspend, discard, or resume in-app notifications. 
+For CleverTap iOS SDK 3.10.0 and above, you can suspend, discard, or resume in-app notifications.
 
 > 📘 Note
 >
@@ -241,7 +241,7 @@ CleverTap.sharedInstance()?.discard(inAppNotifications: true)
 
 ### Resume
 
-The `resumeInAppNotifications` method resumes displaying in-app notifications.\
+The `resumeInAppNotifications` method resumes displaying in-app notifications.  
 If you call this method after the `discardInAppNotifications()` method, it resumes the in-app notifications for events raised after the call is performed.
 
 However, if you call the resumeInAppNotifications method after the suspendInAppNotifications() method, then it displays all queued in-app notifications and also resumes in-app notifications for events raised after the call is performed.
@@ -260,7 +260,7 @@ CleverTap.sharedInstance()?.resumeInAppNotifications()
 
 # Custom Handling Deeplink
 
-For CleverTap iOS SDK 3.10.0 and above, you can implement custom handling for URLs of in-app notification CTAs, push notifications, and app Inbox messages. 
+For CleverTap iOS SDK 3.10.0 and above, you can implement custom handling for URLs of in-app notification CTAs, push notifications, and app Inbox messages.
 
 Check that your class conforms to the `CleverTapURLDelegate` protocol by first calling `setURLDelegate`. Use the following protocol method  `shouldHandleCleverTap(_ : forChannel:)`  to handle URLs received from channels such as in-app notification CTAs, push notifications, and app Inbox messages:
 
@@ -292,13 +292,9 @@ public func shouldHandleCleverTap(_ url: URL?, for channel: CleverTapChannel) ->
 
 CleverTap iOS SDK v3.5.0 and above supports embedding Javascript code inside Custom In-Apps. To make sure your Javascript code works on the app, while creating the InApp campaign, select the checkbox for Enabling javascript during the In-App campaign creation
 
-<Image title="Custom HTML Templates in In-App Notification" alt={2870} align="center" border={true} src="https://files.readme.io/d45b488-185fa3f-image_1.png">
-  Custom HTML Templates in In-App Notification
-</Image>
+<Image align="center" alt={2870} border={true} caption="Custom HTML Templates in In-App Notification" title="Custom HTML Templates in In-App Notification" src="https://files.readme.io/d45b488-185fa3f-image_1.png" />
 
-<Image alt="Include JavaScript in In-App Notifications" align="center" border={true} src="https://files.readme.io/61ffc95-small-iOS_CustomHTML_inApp.png">
-  Include JavaScript in In-App Notifications
-</Image>
+<Image align="center" alt="Include JavaScript in In-App Notifications" border={true} caption="Include JavaScript in In-App Notifications" src="https://files.readme.io/61ffc95-small-iOS_CustomHTML_inApp.png" />
 
 All methods are explained with examples below:
 
@@ -404,23 +400,34 @@ if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandl
 }
 ```
 
+# Delayed In-App
+
+The CleverTap iOS SDK 7.4.0 and above supports Delayed In-App.
+
+This feature allows you to configure a delay of _1 - 1200_ seconds before displaying an In-App message after a trigger event. Delayed delivery helps you present messages at more meaningful moments. For example:
+
+* Show a discount offer 5 seconds after a user views a product.
+* Display an upgrade prompt 15 seconds after content consumption begins.
+
+For details on creating and managing campaigns using Delayed In-App, refer to [Create In-App Message](https://docs.clevertap.com/docs/create-message-inapp#in-app-delay).
+
 # System In-App Functions
 
-The CleverTap iOS SDK (v7.2.0 and above) supports a set of built-in system in-app functions. These can be triggered either via in-app notification button actions or launched as stand-alone campaigns.  For more information about the implementation flows, refer to [CleverTap Github Repository](https://github.com/CleverTap/clevertap-ios-sdk/blob/0da0b384c7ae97a73f8dfe6dcd4792512e34fd4c/docs/SystemInAppFunctions.md). For more information about using the App Functions from the dashboard, refer to [App Functions](https://docs.user.clevertap.net/docs/app-functions). 
+The CleverTap iOS SDK (v7.2.0 and above) supports a set of built-in system in-app functions. These can be triggered either via in-app notification button actions or launched as stand-alone campaigns.  For more information about the implementation flows, refer to [CleverTap Github Repository](https://github.com/CleverTap/clevertap-ios-sdk/blob/0da0b384c7ae97a73f8dfe6dcd4792512e34fd4c/docs/SystemInAppFunctions.md). For more information about using the App Functions from the dashboard, refer to [App Functions](https://docs.user.clevertap.net/docs/app-functions).
 
 ## Open URL
 
-The Open URL function opens a specific URL or deep link on iOS, configured via the CleverTap Dashboard when using a stand-alone in-app template. It is typically used to redirect users to destinations such as product pages, help centers, or feedback forms, seamlessly within the app experience. When a valid URL is launched, the system automatically raises the *Notification Viewed* event.
+The Open URL function opens a specific URL or deep link on iOS, configured via the CleverTap Dashboard when using a stand-alone in-app template. It is typically used to redirect users to destinations such as product pages, help centers, or feedback forms, seamlessly within the app experience. When a valid URL is launched, the system automatically raises the _Notification Viewed_ event.
 
 ## Push Permission
 
-The [Push Permission function ](https://github.com/CleverTap/clevertap-ios-sdk/blob/0da0b384c7ae97a73f8dfe6dcd4792512e34fd4c/docs/SystemInAppFunctions.md#push-permission)triggers the iOS system prompt to request notification permissions. It can be launched as a stand-alone campaign or invoked via an in-app notification button. This function is ideal for prompting users at relevant moments, such as after a key engagement, rather than during app launch. 
+The [Push Permission function ](https://github.com/CleverTap/clevertap-ios-sdk/blob/0da0b384c7ae97a73f8dfe6dcd4792512e34fd4c/docs/SystemInAppFunctions.md#push-permission)triggers the iOS system prompt to request notification permissions. It can be launched as a stand-alone campaign or invoked via an in-app notification button. This function is ideal for prompting users at relevant moments, such as after a key engagement, rather than during app launch.
 
 ## App Rating
 
-The App Rating function invokes the native iOS app rating prompt. It helps gather user feedback within the app experience by prompting users at contextually relevant moments, such as after a successful transaction or a positive interaction. When displayed, it automatically records the *Notification Viewed* event to measure user engagement with the prompt.
+The App Rating function invokes the native iOS app rating prompt. It helps gather user feedback within the app experience by prompting users at contextually relevant moments, such as after a successful transaction or a positive interaction. When displayed, it automatically records the _Notification Viewed_ event to measure user engagement with the prompt.
 
 > 📘 Apple Rating Prompt Limits
 >
-> Apple limits rating prompts to three per user per year. Avoid prompting immediately on app launch.\
+> Apple limits rating prompts to three per user per year. Avoid prompting immediately on app launch.  
 > For more information, refer to [Apple’s App Review documentation](https://developer.apple.com/documentation/storekit/requesting-app-store-reviews#Overview).
