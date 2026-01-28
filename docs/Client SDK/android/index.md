@@ -32,7 +32,7 @@ Refer to the following table for Android SDK code sizes. All the below SDKs are 
 
 | SDK                                                                   | Version | Code Size |
 | :-------------------------------------------------------------------- | :------ | :-------- |
-| [Core Android](doc:android-quickstart-guide)                          | 7.7.1   | 1.36 MB   |
+| [Core Android](doc:android-quickstart-guide)                          | 7.8.0   | 1.61 MB   |
 | [Geofence](doc:geofence-android)                                      | 1.4.0   | 114 KB    |
 | [Huawei Mobile Services (HMS)](doc:clevertap-huawei-push-integration) | 1.5.1   | 55.4 KB   |
 | [Push Templates](doc:push-templates-android)                          | 2.2.0   | 331 KB    |
@@ -67,32 +67,29 @@ Refer to the following for additional Android SDK references.
 <details>
   <summary>Android Data Tracking</summary>
 
-* [Android User Profiles](doc:user-profiles-android) 
-* [Android User Events](doc:user-events-android) 
-
+  * [Android User Profiles](doc:user-profiles-android)
+  * [Android User Events](doc:user-events-android)
 </details>
 
 <details>
   <summary>Android Push</summary>
 
-* [Android Push](doc:android-push)
-* [CleverTap Huawei Push Integration](doc:clevertap-huawei-push-integration) 
-* [CleverTap Baidu Push Integration](doc:baidu-push-notifications) 
-* [CleverTap Xiaomi Push Integration](doc:xiaomi-push-notifications) 
-* [Android Push Templates](doc:push-templates-android) 
-
+  * [Android Push](doc:android-push)
+  * [CleverTap Huawei Push Integration](doc:clevertap-huawei-push-integration)
+  * [CleverTap Baidu Push Integration](doc:baidu-push-notifications)
+  * [CleverTap Xiaomi Push Integration](doc:xiaomi-push-notifications)
+  * [Android Push Templates](doc:push-templates-android)
 </details>
 
 <details>
   <summary>Android SDK Features</summary>
 
-* [Android In-App](doc:android-in-app-notifications) 
-* [Android App Inbox](doc:android-app-inbox) 
-* [Android Native Display](doc:android-native-display) 
-* [Android Product Experiences](doc:android-remote-config) 
-* [Multi-Instance Support Android](doc:multi-instance-support-android) 
-* [Geofence Android SDK](doc:geofence-android-sdk) 
-
+  * [Android In-App](doc:android-in-app-notifications)
+  * [Android App Inbox](doc:android-app-inbox)
+  * [Android Native Display](doc:android-native-display)
+  * [Android Product Experiences](doc:android-remote-config)
+  * [Multi-Instance Support Android](doc:multi-instance-support-android)
+  * [Geofence Android SDK](doc:geofence-android-sdk)
 </details>
 
 <HTMLBlock>{`
