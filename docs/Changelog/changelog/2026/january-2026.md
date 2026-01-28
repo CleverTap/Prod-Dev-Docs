@@ -11,6 +11,24 @@ We are excited to share the January SDK changelog for our product!
 >
 > Click each SDK header to view the corresponding GitHub repository for release details.
 
+# January 22
+
+## [Android 7.8.0](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/corev7.8.0)
+
+### What's New
+
+* Support for ingestion of _Nested objects_ in event properties and profile properties, enabling richer engagement through more structured analytics.
+
+> 🚧 Account-Controlled Feature
+>
+> This feature is account-controlled. Contact [CleverTap Support](https://help.clevertap.com/en-US/clevertapsupport/directories) to enable support for nested objects on your account.
+
+* Support for inaction-based In-App notifications. You can configure an inaction duration between _01_ and _1,200_ seconds to trigger an In-App notification when a user does not perform an expected action within the specified time window.
+
+### Bug Fixes
+
+* Fixes `AbstractMethodError` related to `setTheme` in `InAppNotificationActivity`.
+
 # January 14
 
 ## [React Native 3.8.1](https://github.com/CleverTap/clevertap-react-native/releases/tag/3.8.1)
