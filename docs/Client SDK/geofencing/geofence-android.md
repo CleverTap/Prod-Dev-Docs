@@ -20,7 +20,7 @@ Add the following dependencies to the `build.gradle`
 
 ```groovy
 implementation 'com.clevertap.android:clevertap-geofence-sdk:1.4.0'
-implementation 'com.clevertap.android:clevertap-android-sdk:7.5.0'
+implementation 'com.clevertap.android:clevertap-android-sdk:7.8.0'
 implementation 'com.google.android.gms:play-services-location:21.0.0'
 implementation 'androidx.work:work-runtime:2.7.1' // required for FETCH_LAST_LOCATION_PERIODIC
 implementation 'androidx.concurrent:concurrent-futures:1.1.0' // required for FETCH_LAST_LOCATION_PERIODIC
@@ -102,7 +102,7 @@ Detailed parameter information is available on our Github page  [Settings Parame
 
 ## Trigger Location
 
-This method fetches the last known location from OS (can be null) and delivers it to the app through `CTLocationUpdatesListener`. 
+This method fetches the last known location from OS (can be null) and delivers it to the app through `CTLocationUpdatesListener`.
 
 Detailed trigger location information is available on our Github page [Android Trigger Location](https://github.com/CleverTap/clevertap-android-sdk/blob/master/docs/TriggerLocation.md).
 
@@ -129,7 +129,7 @@ CleverTap Android Geofence SDK provides three callbacks or listeners on the main
 
 ## OnGeofenceApiInitializedListener
 
-CleverTap Android Geofence SDK provides a callback on the main thread to notify that the CTGeofenceAPI class has been initialized. The callback can be used in the following way: 
+CleverTap Android Geofence SDK provides a callback on the main thread to notify that the CTGeofenceAPI class has been initialized. The callback can be used in the following way:
 
 ```java JAVA
 CTGeofenceAPI.getInstance(getApplicationContext())
@@ -227,7 +227,7 @@ CTGeofenceAPI.getInstance(getApplicationContext()).deactivate();
 CTGeofenceAPI.getInstance(getApplicationContext()).deactivate()
 ```
 
-**Note:** Deactivation removes all callbacks/listeners as well. 
+**Note:** Deactivation removes all callbacks/listeners as well.
 
 ## Example Usage
 
@@ -235,7 +235,7 @@ A [demo application](https://github.com/CleverTap/clevertap-android-sdk/tree/mas
 
 ## FAQ
 
-FAQs are available [here](https://github.com/CleverTap/clevertap-android-sdk/tree/master/docs/FAQ.md). 
+FAQs are available [here](https://github.com/CleverTap/clevertap-android-sdk/tree/master/docs/FAQ.md).
 
 ## Questions
 
