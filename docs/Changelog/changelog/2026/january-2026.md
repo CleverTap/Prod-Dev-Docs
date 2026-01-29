@@ -29,6 +29,17 @@ We are excited to share the January SDK changelog for our product!
 
 * Fixes `AbstractMethodError` related to `setTheme` in `InAppNotificationActivity`.
 
+# [Unity 5.5.0](https://github.com/CleverTap/clevertap-unity-sdk/releases/tag/5.5.0)
+
+### What’s New
+
+* Supports [CleverTap Android SDK v7.7.1](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/corev7.7.1)
+* Supports [CleverTap iOS SDK v7.4.1](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/7.4.1)
+* Supports managing multiple CleverTap environments in a single Unity project. Refer to [Multi-Environment Credential Support](doc:unity-multi-environment-credential-support).
+* Updated _x64_ and _x86_ `sqlite3.dll` binaries and their associated `.meta` files.
+  SQLite has been updated to version 3.51.1.
+* Supports tracking the app launch event processing state for _Queue Custom Events_.
+
 # January 14
 
 ## [React Native 3.8.1](https://github.com/CleverTap/clevertap-react-native/releases/tag/3.8.1)
