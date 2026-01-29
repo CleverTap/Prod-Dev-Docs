@@ -81,7 +81,7 @@ This ensures that the CleverTap Post Processor scripts automatically add these s
 
 From CleverTap Unity SDK 5.5.0 and above, you can manage multiple environments such as _TEST_, _DEV_, _STAGE_, _PROD_, and custom environments within a single Unity project.
 
-For setup steps, runtime switching, and migration details, refer to [CleverTap Unity SDK – Multi-Environment Credential Support](doc:unity-sdk-multi-environment-support).
+For setup steps, runtime switching, and migration details, refer to [CleverTap Unity SDK – Multi-Environment Credential Support](doc:unity-multi-environment-credential-support).
 
 # iOS Specific Instructions
 
