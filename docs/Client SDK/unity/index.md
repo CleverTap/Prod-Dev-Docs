@@ -39,12 +39,11 @@ Refer to the following table for Unity SDK versions and Unity SDK code sizes:
 
 | SDK                 | Version | Code Size |
 | :------------------ | :------ | :-------- |
-| CleverTap Unity SDK | 5.4.0   | 1.95 MB   |
+| CleverTap Unity SDK | 5.5.0   | 2.9 MB    |
 
 # Integrate the Unity SDK
 
 Refer to our quick start guide to get started with the Unity integration:
-
 
 <Table align={["left","left"]}>
   <thead>
@@ -101,8 +100,7 @@ The following table lists all the Unity SDK resources:
 
 Use the following resources to implement and troubleshoot the CleverTap Unity SDK. These references cover core integration areas like data tracking, push notifications, In-App messaging, and common troubleshooting scenarios to help maximise your Unity integration.
 
-<HTMLBlock>
-{`
+<HTMLBlock>{`
 <div class="two-col-container">
   <div class="link-content">
     <h4 class="custom-heading">Unity Data Tracking</h4>
@@ -125,5 +123,4 @@ Use the following resources to implement and troubleshoot the CleverTap Unity SD
     <p><a class="links" href="https://developer.clevertap.com/docs/unity-troubleshooting-and-faqs">Unity Troubleshooting and FAQs</a></p>
   </div>
 </div>
-`}
-</HTMLBlock>
+`}</HTMLBlock>
