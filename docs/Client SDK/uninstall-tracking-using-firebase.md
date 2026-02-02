@@ -188,7 +188,7 @@ exports.sendAndroidUninstallToCleverTap = functions.analytics.event('app_remove'
             'X-CleverTap-Passcode': '<CT_ACCOUNT_PASSCODE>'
         },
         body: data,
-        url: 'https://api.clevertap.com/firebase/upload',
+        url: 'https://in1.api.clevertap.com/firebase/upload',//Add your account region in the url
 
         // The below parameters are specific to request-retry
         maxAttempts: 5, // (default) try 5 times
@@ -233,7 +233,7 @@ exports.sendAndroidUninstallToCleverTap = functions.analytics.event('app_remove'
     "logs": "firebase functions:log"
   },
   "engines": {
-    "node": "18"
+    "node": "20"
   },
   "main": "index.js",
   "dependencies": {
