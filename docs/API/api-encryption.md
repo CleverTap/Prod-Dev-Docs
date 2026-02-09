@@ -11,7 +11,7 @@ metadata:
 ---
 # Overview
 
-This guide explains how to integrate Hybrid Public Key Encryption (HPKE) with CleverTap APIs to encrypt request and response payloads. It outlines the prerequisites, describes the encryption flow, and includes [example implementations](doc:api-encryption-in-transit-integration-and-reference#example-implementation-1-upload-user-profiles-api).
+This guide explains how to integrate Hybrid Public Key Encryption (HPKE) with CleverTap APIs to encrypt request and response payloads. It outlines the prerequisites, describes the encryption flow, and includes [example implementations](doc:api-encryption#example-implementation-1-upload-user-profiles-api).
 
 <Callout icon="📘" theme="info">
   This encryption approach applies uniformly to all CleverTap API endpoints.
