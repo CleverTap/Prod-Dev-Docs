@@ -21,7 +21,7 @@ This document demonstrates example implementations for the following APIs:
 
 * [Upload User Profile API](doc:api-encryption#example-implementation-1-upload-user-profiles-api)
 * [Get Events API](doc:api-encryption#example-implementation-2-get-events-api)
-* [Get User Profile API](doc:api-encryption#example-implementation-3-get-user-profile-api)
+* the [Get User Profile API](doc:api-encryption#example-implementation-3-get-user-profile-api)
 
 For more information, refer to [API Encryption](https://docs.clevertap.com/docs/api-encryption).
 
@@ -179,7 +179,7 @@ The following example shows how to decrypt an HPKE-encrypted response returned b
 // Get encrypted response bytes
 byte[] encryptedResponse = response.body();
  
-// Decrypt using customer's private key
+// Decrypt using the customer's private key
 HybridDecrypt decrypter = custPrivateKey.getPrimitive(HybridDecrypt.class);
 byte[] decryptedBytes = decrypter.decrypt(encryptedResponse, contextInfo);
  
@@ -203,7 +203,7 @@ The following example shows a successful API response after decrypting the encry
 
 # Example Implementation 2: Get Events API
 
-The following example demonstrates how to retrieve events using the `/1/events.json` endpoint. Before fetching events, customer must first obtain a cursor link, which is then used to request the event data.
+The following example demonstrates how to retrieve events using the `/1/events.json` endpoint. Before fetching events, the customer must first obtain a cursor link, which is then used to request the event data.
 
 ## Method
 
@@ -317,7 +317,7 @@ The following example shows how to decrypt the cursor response returned by Cleve
 byte[] encryptedResponse = response.body();
 
 
-// Decrypt using customer's private key
+// Decrypt using the customer's private key
 HybridDecrypt decrypter = custPrivateKey.getPrimitive(HybridDecrypt.class);
 byte[] decryptedBytes = decrypter.decrypt(encryptedResponse, contextInfo);
 
@@ -372,7 +372,7 @@ HttpResponse<byte[]> response = client.send(
 byte[] encryptedResponse = response.body();
 
 
-// Decrypt using customer's private key
+// Decrypt using the customer's private key
 byte[] contextInfo = ENCODED_ACCOUNT_ID.getBytes(StandardCharsets.UTF_8);
 HybridDecrypt decrypter = custPrivateKey.getPrimitive(HybridDecrypt.class);
 byte[] decryptedBytes = decrypter.decrypt(encryptedResponse, contextInfo);
@@ -488,7 +488,7 @@ The following example shows how to decrypt the profile response returned by Clev
 byte[] encryptedResponse = response.body();
 
 
-// Decrypt using customer's private key
+// Decrypt using the customer's private key
 byte[] contextInfo = ENCODED_ACCOUNT_ID.getBytes(StandardCharsets.UTF_8);
 HybridDecrypt decrypter = custPrivateKey.getPrimitive(HybridDecrypt.class);
 byte[] decryptedBytes = decrypter.decrypt(encryptedResponse, contextInfo);
