@@ -21,7 +21,7 @@ This document demonstrates example implementations for the following APIs:
 
 * [Upload User Profile API](doc:api-encryption#example-implementation-1-upload-user-profiles-api)
 * [Get Events API](doc:api-encryption#example-implementation-2-get-events-api)
-* the [Get User Profile API](doc:api-encryption#example-implementation-3-get-user-profile-api)
+* [Get User Profile API](doc:api-encryption#example-implementation-3-get-user-profile-api)
 
 For more information, refer to [API Encryption](https://docs.clevertap.com/docs/api-encryption).
 
