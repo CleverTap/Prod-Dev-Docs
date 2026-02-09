@@ -32,7 +32,7 @@ Before you begin, check for the following requirements:
 * CleverTap shares its public key with the customer. The customer uses this key to encrypt all API requests sent to CleverTap.
 * The customer shares their public key with CleverTap. CleverTap uses this key to encrypt all API responses sent back to the customer.
 
-For more information, refer to [Key Management](https://staging.docs.user.clevertap.net/docs/api-encryption-in-transit#key-management).
+For more information, refer to [Key Management](https://docs.clevertap.com/docs/api-encryption#key-management).
 
 # Encryption Standard
 
@@ -50,7 +50,7 @@ The following are the supported HPKE profiles for encryption:
 
 CleverTap uses end-to-end encryption to ensure that request and response payloads remain encrypted while in transit between the customer system and CleverTap. Only the sender and the intended recipient can decrypt and access the payload contents.
 
-For more details,  refer to [End-to-End Encryption Flow](https://staging.docs.user.clevertap.net/docs/api-encryption-in-transit#end-to-end-api-encryption-workflow).
+For more details,  refer to [End-to-End Encryption Flow](https://docs.clevertap.com/docs/api-encryption#end-to-end-api-encryption-workflow).
 
 <Callout icon="📘" theme="info">
   **Encryption Guidelines**
