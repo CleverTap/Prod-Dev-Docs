@@ -137,6 +137,12 @@ To integrate the required dependencies and configurations for your Android proje
 
 <Image align="center" alt="Build Settings" border={true} caption="Build Settings" src="https://files.readme.io/9a40fa9106dd42dee514c494a0956bcd8cf6d5ddd37d0b2de12e4a4f009dda6e-image.png" width="65% " />
 
+> 📘 Unity 6 Users
+>
+> If you are using _Unity 6_, you must configure the Android _Application Entry Point_ to ensure CleverTap initializes correctly.
+>
+> See [Unity 6 Android Application Entry Point Configuration](doc:unity-sdk-quick-start-guide-sdk-v300#unity-6-android-application-entry-point-configuration) before continuing with the Android setup.
+
 4. Make the following changes to your Android application project, if applicable:
 
    1. If you have implemented a custom `android.app.Application` class, add the following code:
@@ -327,6 +333,27 @@ To integrate the required dependencies and configurations for your Android proje
 ### Add Region Code
 
 To know how to add region code for Android in Unity SDK, refer to [Region Codes.](doc:idc#android)
+
+### Unity 6 Android Application Entry Point Configuration
+
+Unity 6 provides two Android application entry point options:
+
+* _Activity_
+* _GameActivity_
+
+For CleverTap Android integration, you must select _Activity_.
+
+#### Configure the entry point
+
+1. In the Unity Editor, go to _Project Settings_ > _Player_ > _Android_ > _Other Settings_
+2. Set _Application Entry Point_ to _Activity_.
+
+> 📘 Note
+>
+> CleverTap depends on standard Android `Application` and `Activity` lifecycle callbacks.  
+> Using _GameActivity_ can prevent CleverTap from initializing correctly.
+
+After completing this step, continue with the Android setup in this guide. For required Android components, refer to [Sample Manifest structure](doc:unity-sdk-quick-start-guide-sdk-v300#sample-manifest-structure).
 
 # Callbacks
 
