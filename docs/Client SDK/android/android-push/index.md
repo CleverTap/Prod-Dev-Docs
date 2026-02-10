@@ -777,3 +777,15 @@ You will not be able to send Push Notifications via legacy credentials; instead,
 ### How can I increase the rate limit for my account?
 
 To request an increase in the rate limit, contact [Firebase Support](https://firebase.google.com/support).
+
+### Why does FCM fail when using a custom `FirebaseOptions.Builder`, and how do I fix it?
+
+When Firebase is initialized using a custom `FirebaseOptions.Builder`, Firebase Cloud Messaging (FCM) requires the **GCM/FCM Sender ID** to be explicitly set. If `setGcmSenderId()` is missing, FCM cannot register correctly, which causes push notification issues.
+
+To fix this, add the Sender ID (from the Firebase console) to your builder:
+
+```java
+builder.setGcmSenderId(YOUR_FCM_SENDER_ID);
+```
+
+This resolves FCM issues when using the CleverTap Android SDK with custom Firebase initialization.
