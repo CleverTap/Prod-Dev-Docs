@@ -94,11 +94,23 @@ CleverTapPlugin.suspendInAppNotifications();
 
 ## Discard
 
-This method suspends the display of In-App Notifications and discards any new In-App notifications.\
+This method suspends the display of In-App Notifications and discards any new In-App notifications.  
 In-app notifications are discarded until the `resumeInAppNotifications` method is called for the current session.
 
 ```javascript Dart
 CleverTapPlugin.discardInAppNotifications();
+```
+
+From CleverTap Flutter SDK version 3.7.0 and above, you can optionally pass a parameter to control whether the currently visible In-App notification should be dismissed:
+
+#### Parameters
+
+* `dismissInAppIfVisible`
+  * If `true`: Immediately dismisses the currently visible In-App notification (if any).
+  * If `false`: Allows the currently visible In-App notification to remain on the screen.
+
+```javascript Dart
+discardInAppNotifications({bool? dismissInAppIfVisible})
 ```
 
 ## Resume
