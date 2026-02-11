@@ -67,7 +67,6 @@ let profile: Dictionary<String, AnyObject> = [
     "Phone": "+14155551234" as AnyObject,                // Phone (with the country code, starting with +)
     "Gender": "M" as AnyObject,                          // Can be either M or F
     "DOB": d! as AnyObject,                              // Date of Birth. An NSDate object
-    "Age": 28 as AnyObject,                              // Not required if DOB is set
     "Photo": "www.foobar.com/image.jpeg" as AnyObject,   // URL to the Image
 
 // optional fields. controls whether the user will be sent email, push etc.
@@ -126,7 +125,6 @@ NSDictionary *profile = @{
     @"Education": @"Graduate",              // Can be either Graduate, College or School
     @"Married": @"Y",                       // Can be either Y or N
     @"DOB": d,                              // Date of Birth. An NSDate object
-    @"Age": @28,                            // Not required if DOB is set
     @"Tz": @"Asia/Kolkata",                 //an abbreviation such as "PST", a full name such as "America/Los_Angeles", 
                                             //or a custom ID such as "GMT-8:00"
     @"Photo": @"www.foobar.com/image.jpeg", // URL to the Image
@@ -209,7 +207,7 @@ You can opt out a user by either phone or email.
 You can opt-out a user or a phone number:
 
 * To opt out a specific user when multiple users share the same phone number, you can disable SMS for a specific user. Set the MSG-sms flag to false, and the specified user stops receiving SMS; however, all other users sharing the number continue to receive messages if they have not opted out.
-* To opt-out a phone number and all the users associated with it, set the MSG-dndPhone flag to *true*.
+* To opt-out a phone number and all the users associated with it, set the MSG-dndPhone flag to _true_.
 
 Refer to [User Profile API Endpoints](doc:user-profile-object) for complete user profile documentation.
 
@@ -218,7 +216,7 @@ Refer to [User Profile API Endpoints](doc:user-profile-object) for complete user
 You can opt-out a user or an email address:
 
 * To opt out a specific user when multiple users share the same email address, you can disable email for a specific user. Set the MSG-email flag to false, and the specified user stops receiving messages; however, all other users sharing the email address continue to receive messages if they have not opted out.
-* To opt-out an email address and all the users associated with it, set the MSG-dndEmail flag to *true*.
+* To opt-out an email address and all the users associated with it, set the MSG-dndEmail flag to _true_.
 
 Refer to [User Profile API Endpoints](doc:user-profile-object) for complete user profile documentation.
 
@@ -228,7 +226,7 @@ Starting from CleverTap iOS SDK v4.0.1, you can enable custom identity managemen
 
 * Phone
 * Email
-* Identity\
+* Identity  
   This process varies for default(shared) CleverTap instances and additional Instances.
 
 ### Default(shared) CleverTap instance
@@ -236,7 +234,7 @@ Starting from CleverTap iOS SDK v4.0.1, you can enable custom identity managemen
 The CleverTap iOS SDK provides the default instance to call CleverTap methods. The `autoIntegrate()` method initializes this instance as follows:
 
 1. Navigate to the app's `Info.plist` file in your project navigator.
-2. Create a key called *CleverTapIdentifiers* with the type `Array`.
+2. Create a key called _CleverTapIdentifiers_ with the type `Array`.
 3. Add the identifier keys for the user.
 
 ### Additional Instances
