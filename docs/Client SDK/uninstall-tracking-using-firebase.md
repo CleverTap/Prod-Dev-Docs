@@ -39,7 +39,7 @@ CleverTap tracks app uninstalls in three ways:
 </Callout>
 
 * _Real-time_: Detects the uninstall event as soon as a user removes the app. This method is available only for Android devices.
-* _Push Notification Campaign_: Detects uninstalls when a push notification cannot be delivered because the device token is invalid or expired. For more information, refer to [Push Campaign](https://staging.docs.user.clevertap.net/docs/create-message-push).
+* _Push Notification Campaign_: Detects uninstalls when a push notification cannot be delivered because the device token is invalid or expired. For more information, refer to [Push Campaign](https://docs.clevertap.com/docs/create-message-push).
 
 <Callout icon="🚧" theme="warn">
   **Temporary Spike in Uninstall Tracking Numbers**
