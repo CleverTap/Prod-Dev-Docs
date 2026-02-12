@@ -49,7 +49,7 @@ We are excited to share the February SDK changelog for our product!
 
 # February 04
 
-# [Unity 5.5.1](https://github.com/CleverTap/clevertap-unity-sdk/releases/tag/5.5.1)
+## [Unity 5.5.1](https://github.com/CleverTap/clevertap-unity-sdk/releases/tag/5.5.1)
 
 ### What’s New
 
