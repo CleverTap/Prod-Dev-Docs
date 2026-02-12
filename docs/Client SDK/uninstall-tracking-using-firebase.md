@@ -87,17 +87,17 @@ When a user uninstalls the app from an Android device, Firebase logs the `app_re
 
   Google has introduced changes to Google Analytics (G4), Firebase Events, and Cloud Functions that impact real-time uninstall tracking.
 
-  If you are setting up real-time uninstall tracking in v2 or updating an existing integration, refer to [Uninstall Tracking Using Google Analytics](https://staging.docs.dev.clevertap.net/update/docs/uninstall-tracking-updated-implementation#/). This document includes the updated GA4 Key Event flow, revised Cloud Function script, region settings, and Node.js version requirements.
+  If you are setting up real-time uninstall tracking in v2 or updating an existing integration, refer to [Uninstall Tracking Using Google Analytics](doc:uninstall-tracking-using-google-analytics). This document includes the updated GA4 Key Event flow, revised Cloud Function script, region settings, and Node.js version requirements.
 </Callout>
 
 ## Implement Real-Time Uninstall Tracking
 
 Real-time uninstall tracking is a four-step process :
 
-1. [Set up a common identifier in your app](https://developer.clevertap.com/docs/uninstall-tracking#section-set-up-a-common-identifier).
-2. [Set the `app_remove` event as a conversion event in Firebase](https://developer.clevertap.com/docs/uninstall-tracking#section-set-up-conversion-event-using-firebase).
-3. [Use the Firebase cloud function to send uninstall information to CleverTap](https://developer.clevertap.com/docs/uninstall-tracking#section-create-a-cloud-function).
-4. [Enable the real-time settings in CleverTap](https://developer.clevertap.com/docs/uninstall-tracking#section-enable-real-time-uninstall-tracking-in-clever-tap).
+1. [Set up a common identifier in your app](doc:uninstall-tracking#section-set-up-a-common-identifier).
+2. [Set the `app_remove` event as a conversion event in Firebase](doc:uninstall-tracking#section-set-up-conversion-event-using-firebase).
+3. [Use the Firebase cloud function to send uninstall information to CleverTap](doc:uninstall-tracking#section-create-a-cloud-function).
+4. [Enable the real-time settings in CleverTap](doc:uninstall-tracking#section-enable-real-time-uninstall-tracking-in-clever-tap).
 
 ## Set Up Common Identifier in App
 
@@ -129,7 +129,7 @@ The `app_remove` event is automatically logged by Firebase Analytics. It is trig
 
   To allow Firebase Cloud Functions to call a third-party HTTP endpoint (such as the CleverTap API upload endpoint), your Firebase project must be on the Blaze plan. For more information about plans and pricing, refer to [Firebase Pricing](https://firebase.google.com/pricing).
 
-  Additionally, ensure that the [API region](https://developer.clevertap.com/docs/idc#section-configuration-steps-to-enable-clever-tap-region) is configured correctly.
+  Additionally, ensure that the [API region](doc:idc#section-configuration-steps-to-enable-clever-tap-region) is configured correctly.
 </Callout>
 
 To set up the conversion event, perform the following steps:
