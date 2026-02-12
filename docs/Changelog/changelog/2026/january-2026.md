@@ -29,7 +29,7 @@ We are excited to share the January SDK changelog for our product!
 
 * Fixes `AbstractMethodError` related to `setTheme` in `InAppNotificationActivity`.
 
-# [Unity 5.5.0](https://github.com/CleverTap/clevertap-unity-sdk/releases/tag/5.5.0)
+## [Unity 5.5.0](https://github.com/CleverTap/clevertap-unity-sdk/releases/tag/5.5.0)
 
 ### What’s New
 
