@@ -33,7 +33,7 @@ CleverTap tracks app uninstalls in three ways:
 </Callout>
 
 * _Real-time_: Detects the uninstall event as soon as a user removes the app. This method is available only for Android devices.
-* _Push Notification Campaign_: Detects uninstalls when a push notification cannot be delivered due to an invalid or expired device token. For more information, refer to [Push Campaign](https://staging.docs.user.clevertap.net/docs/create-message-push).
+* _Push Notification Campaign_: Detects uninstalls when a push notification cannot be delivered due to an invalid or expired device token. For more information, refer to [Push Campaign](https://docs.clevertap.com/docs/create-message-push).
 
 <Callout icon="🚧" theme="warn">
   **Temporary Spike in Uninstall Tracking Numbers**
@@ -276,7 +276,7 @@ After you have configured the key event setup and created the cloud function, en
 1. From the CleverTap dashboard, select _Settings_ > _Uninstall Tracking_.
 2. Toggle ON the _Android (Real-time tracking)_ option.
 
-<Image align="center" alt={1486} border={true} caption="Select Android (Real-time tracking)" title="Select Android (Real-time tracking)" src="https://files.readme.io/b919669-2020-09-28_15-35-19_inabling_tracking_in_CT.png" />
+<Image align="center" border={true} caption="Select Real-Time Uninstall Tracking" src="https://files.readme.io/0a891306d2c0781c65505ac41236f5c76a00d3ec50e2571759a4e39785f10b4e-image.png" />
 
 When you enable Silent Push notifications, CleverTap starts collecting a silent push token for each device. This token allows CleverTap to deliver background notifications that are not visible to the user. After the setting is turned on, devices become eligible to receive silent pushes from CleverTap.
 
@@ -293,3 +293,5 @@ No. This is tracked by default. For more information, refer to [Tracking Uninsta
 ### Why the `app_remove` event is not appearing under Events in Firebase?
 
 `app_remove` is a GA4 event, not a Firebase event. If the project UI differs, open Google Analytics directly from the Firebase project.
+
+<br />
