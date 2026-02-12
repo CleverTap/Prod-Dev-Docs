@@ -2,7 +2,7 @@
 title: Uninstall Tracking using Google Analytics
 excerpt: >-
   Learn how to implement uninstall tracking using the latest Google Analytics
-  (G4) Key Event flow and updated Firebase Cloud Function requirements.
+  (G4) Key Event flow.
 deprecated: false
 hidden: false
 metadata:
@@ -22,7 +22,16 @@ Users may uninstall an application due to poor experience, technical issues, or 
 
 CleverTap tracks app uninstalls in three ways:
 
-* _Silent Push Notification_: Detects uninstalls by sending a silent push notification daily.
+* _Silent Push Notification_: Detects uninstalls by sending a silent push notification daily. This method is available only for Android devices.
+
+<Callout icon="🚧" theme="warn">
+  #### Deprecation of Uninstall Tracking for iOS
+
+  Due to recent changes to Apple Push Notification service (APNs), uninstall events can no longer be reliably identified on iOS devices. As a result, CleverTap has deprecated uninstall tracking for iOS applications.
+
+  This change does not impact push notification delivery or any other CleverTap features.
+</Callout>
+
 * _Real-time_: Detects the uninstall event as soon as a user removes the app. This method is available only for Android devices.
 * _Push Notification Campaign_: Detects uninstalls when a push notification cannot be delivered due to an invalid or expired device token. For more information, refer to [Push Campaign](https://staging.docs.user.clevertap.net/docs/create-message-push).
 
@@ -32,29 +41,25 @@ CleverTap tracks app uninstalls in three ways:
   CleverTap has upgraded the uninstall tracking system to provide deeper insights into user behavior, now including tracking for unsubscribed devices. Starting February 22, 2024, this enhancement may lead to a temporary spike in uninstall numbers. If you have any queries, contact your Customer Success Manager.
 </Callout>
 
-## Silent Push Notifications (iOS & Android)
+## Silent Push Notifications
 
-A silent notification is an effective mechanism to check token validity. An invalid token usually indicates that the app has been uninstalled. CleverTap uses silent push notifications to track application uninstalls for both _Android_ and _iOS_ applications. A silent push notification contains an empty message that is sent to the user's device via the Firebase Cloud Messaging (FCM) server for Android devices or Apple Push Notification service (APNs) for iOS devices.
+A silent notification is an effective mechanism to check token validity. An invalid token usually indicates that the app has been uninstalled. CleverTap uses silent push notifications to track application uninstalls for _Android_ applications. A silent push notification contains an empty message that is sent to the user's device via the Firebase Cloud Messaging (FCM) server for Android devices.
 
 The [Uninstall](https://docs.clevertap.com/docs/uninstalls-view) board helps you monitor your app uninstalls and take timely action.
 
-<Callout icon="🚧" theme="warn">
-  **Change in App Uninstall Tracking for Android Devices**
+Starting May 15, 2024, FCM is implementing changes regarding [stale tokens](https://firebase.google.com/docs/cloud-messaging/manage-tokens#stale-and-expired-tokens) for devices not connected to FCM in over 270 days. Such tokens are considered expired and invalid. Consequently, any push notification request sent to stale tokens will fail and return a 404 error (Unregistered).
 
-  Starting May 15, 2024, FCM is implementing changes regarding [stale tokens](https://firebase.google.com/docs/cloud-messaging/manage-tokens#stale-and-expired-tokens) for devices not connected to FCM in over 270 days. Such tokens are considered expired and invalid. Consequently, any push notification request sent to stale tokens will fail and return a 404 error (Unregistered).
+**Whom does this change impact?**
 
-  **Whom does this change impact?**
+The change solely affects customers who rely on the Silent Push Notification method for uninstall tracking.
 
-  The change solely affects customers who rely on the Silent Push Notification method for uninstall tracking.
+**Impact of this implementation**
 
-  **Impact of this implementation**
+With this change, FCM will return a 404 error (Unregistered) from inactive apps after 270 days. Thus, CleverTap will stop marking such devices as uninstalled because this may incorrectly identify inactive users as churned, thereby inflating uninstall numbers.
 
-  With this change, FCM will return a 404 error (Unregistered) from inactive apps after 270 days. Thus, CleverTap will stop marking such devices as uninstalled because this may incorrectly identify inactive users as churned, thereby inflating uninstall numbers.
+To address this, CleverTap strongly recommends implementing CleverTap's Real-Time Uninstall Tracking capability, which leverages Firebase Analytics. If you fail to implement Real-Time Uninstall Tracking by May 15, 2024, Uninstall Tracking through Silent Push Notifications will be discontinued. However, the _Push Unregistered_ event will be raised whenever a silent push notification is sent. You can view the Push Unregistered event count from the CleverTap dashboard by applying a filter where source = `CT_Push`.
 
-  To address this, CleverTap strongly recommends implementing CleverTap's Real-Time Uninstall Tracking capability, which leverages Firebase Analytics. If you fail to implement Real-Time Uninstall Tracking by May 15, 2024, Uninstall Tracking through Silent Push Notifications will be discontinued. However, the _Push Unregistered_ event will be raised whenever a silent push notification is sent. You can view the Push Unregistered event count from the CleverTap dashboard by applying a filter where source = `CT_Push`.
-
-  If you have already implemented Real-Time Uninstall Tracking, then this change does not impact you. For any queries or further assistance, raise a support ticket from the CleverTap Dashboard or contact your Customer Success Manager.
-</Callout>
+If you have already implemented Real-Time Uninstall Tracking, then this change does not impact you. For any queries or further assistance, raise a support ticket from the CleverTap Dashboard or contact your Customer Success Manager.
 
 ### Enable Silent Push Notifications
 
@@ -63,11 +68,11 @@ To enable Silent Push notifications in CleverTap, perform the following steps:
 1. From the CleverTap dashboard, go to _Settings_ > _Uninstall Tracking_.
 2. Toggle ON the _Silent token-based push notification_ option.
 
-<Image align="center" alt={800} border={true} caption="Enable Silent Push Notifications" title="Enable Silent Push Notifications" src="https://files.readme.io/1f8a490-uninstall_tracking_silent_push.png" />
+<Image align="center" border={true} caption="Enable Silent Push Notifications" src="https://files.readme.io/0a891306d2c0781c65505ac41236f5c76a00d3ec50e2571759a4e39785f10b4e-image.png" />
 
 When you enable Silent Push notifications, CleverTap starts collecting a silent push token for each device. This token allows CleverTap to deliver background notifications that are not visible to the user. After the setting is turned on, devices become eligible to receive silent pushes from CleverTap.
 
-## Real-Time Uninstall Tracking (Android)
+## Real-Time Uninstall Tracking
 
 Verify that the Android app is integrated with Firebase Analytics, which powers Google Analytics 4 (GA4) uninstall tracking. Add the required GA4 dependency in your Android project. For more information, refer to [Get Started with Google Analytics](https://firebase.google.com/docs/analytics/get-started?platform=android).
 
@@ -138,7 +143,7 @@ To set up real-time uninstalls, ensure that a Key Event is configured for the `a
 
   To allow Firebase Cloud Functions to call a third-party HTTP endpoint (such as the CleverTap API upload endpoint), your Firebase project must be on the Blaze plan. For more information about plans and pricing, refer to [Firebase Pricing](https://firebase.google.com/pricing).
 
-  Additionally, ensure that the [API region](doc:dc#section-configuration-steps-to-enable-clever-tap-region) is configured correctly.
+  Additionally, ensure that the [API region](https://developer.clevertap.com/docs/idc#section-configuration-steps-to-enable-clever-tap-region) is configured correctly.
 </Callout>
 
 To mark `app_remove` as a key event, perform the following steps:
