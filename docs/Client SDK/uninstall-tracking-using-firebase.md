@@ -95,7 +95,7 @@ When a user uninstalls the app from an Android device, Firebase logs the `app_re
 Real-time uninstall tracking is a four-step process :
 
 1. [Set up a common identifier in your app](doc:uninstall-tracking#set-up-a-common-identifier).
-2. [Set the `app_remove` event as a conversion event in Firebase](doc:uninstall-tracking#set-up-conversion-event-using-firebase).
+2. [Set the `app_remove` event as a conversion event in Firebase](doc:uninstall-tracking-using-firebase#set-up-conversion-event-using-firebase).
 3. [Use the Firebase cloud function to send uninstall information to CleverTap](doc:uninstall-tracking#create-a-cloud-function).
 4. [Enable the real-time settings in CleverTap](doc:uninstall-tracking#enable-real-time-uninstall-tracking-in-clever-tap).
 
