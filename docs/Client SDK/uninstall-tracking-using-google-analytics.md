@@ -15,7 +15,7 @@ Users may uninstall an application due to poor experience, technical issues, or 
 <Callout icon="📘" theme="info">
   **For Projects Using Firebase Cloud Functions v1 or Legacy Uninstall Tracking**
 
-  If your implementation continues to use Firebase Cloud Functions (1st Gen) or the legacy Firebase-based uninstall tracking flow, refer to [Uninstall Tracking using Firebase](doc:uninstall-tracking-firebase). This approach remains supported in regions where Firebase Functions v1 is available. For more information on supported locations and versions, refer to [Cloud Function Locations](https://firebase.google.com/docs/functions/locations#tier_1_pricing)
+  If your implementation continues to use Firebase Cloud Functions (1st Gen) or the legacy Firebase-based uninstall tracking flow, refer to [Uninstall Tracking using Firebase](doc:uninstall-tracking-using-firebase). This approach remains supported in regions where Firebase Functions v1 is available. For more information on supported locations and versions, refer to [Cloud Function Locations](https://firebase.google.com/docs/functions/locations#tier_1_pricing)
 </Callout>
 
 # Track Uninstalls
