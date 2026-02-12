@@ -12,14 +12,14 @@ next:
 ---
 # Overview
 
-There may be multiple reasons why a user might uninstall an application, such as poor user experience, technical faults, or app performance. Tracking app uninstalls can provide powerful insights into user churn and help devise ways to increase retention.
+There may be multiple reasons a user might uninstall an application, such as poor user experience, technical issues, or app performance. Tracking app uninstalls can provide powerful insights into user churn and help devise ways to increase retention.
 
 <Callout icon="📘" theme="info">
   **For Projects Using Google Analytics (GA4) or Cloud Functions v2**
 
   If your project uses Google Analytics (GA4) Key Events or Cloud Functions v2, this implementation does not apply. Recent updates from Google to Analytics, Events, and Cloud Functions require a revised configuration for real-time uninstall tracking.
 
-  For more information about implementation, refer to [Uninstall Tracking Using Google Analytics(G4)](doc:uninstall-tracking-google-analytics#/) .
+  For more information about implementation, refer to [Uninstall Tracking using Google Analytics(G4)](doc:uninstall-tracking-google-analytics#/) .
 
   For more information about supported regions and versions, refer to [Cloud Function Locations](https://firebase.google.com/docs/functions/locations#tier_1_pricing.).
 </Callout>
@@ -28,9 +28,18 @@ There may be multiple reasons why a user might uninstall an application, such as
 
 CleverTap tracks app uninstalls in three ways:
 
-* _Silent Push Notification_: Detects uninstalls by sending a silent push notification daily.
+* _Silent Push Notification_: Detects uninstalls by sending a silent push notification daily. This method is available only for Android devices.
+
+<Callout icon="🚧" theme="warn">
+  #### Deprecation of Uninstall Tracking for iOS
+
+  Due to recent changes to Apple Push Notification service (APNs), uninstall events can no longer be reliably identified on iOS devices. As a result, CleverTap has deprecated uninstall tracking for iOS applications.
+
+  This change does not impact push notification delivery or any other CleverTap features.
+</Callout>
+
 * _Real-time_: Detects the uninstall event as soon as a user removes the app. This method is available only for Android devices.
-* _Push Notification Campaign_: Detects uninstalls when a push notification cannot be delivered due to an invalid or expired device token. For more information, refer to [Push Campaign](https://staging.docs.user.clevertap.net/docs/create-message-push).
+* _Push Notification Campaign_: Detects uninstalls when a push notification cannot be delivered because the device token is invalid or expired. For more information, refer to [Push Campaign](https://staging.docs.user.clevertap.net/docs/create-message-push).
 
 <Callout icon="🚧" theme="warn">
   **Temporary Spike in Uninstall Tracking Numbers**
@@ -38,29 +47,25 @@ CleverTap tracks app uninstalls in three ways:
   CleverTap has upgraded the uninstall tracking system to provide deeper insights into user behavior, now including tracking for unsubscribed devices. Starting February 22, 2024, this enhancement may lead to a temporary spike in uninstall numbers. If you have any queries, contact your Customer Success Manager.
 </Callout>
 
-## Silent Push Notifications (For iOS & Android)
+## Silent Push Notifications
 
-A silent notification is an effective mechanism to check token validity. An invalid token usually indicates that the app has been uninstalled. CleverTap uses silent push notifications to track application uninstalls for both, _Android_ and _iOS_ applications. A silent push notification contains an empty message that is sent to the user's device via Firebase Cloud Messaging (FCM) server for Android devices or Apple Push Notification service (APNs) for iOS devices.
+A silent notification is an effective mechanism to check token validity. CleverTap supports uninstall tracking via silent push notifications for _Android_ applications. CleverTap sends a silent push notification to the device, and an invalid token response may indicate that the app has been uninstalled.
 
-The [Uninstall](https://docs.clevertap.com/docs/uninstalls-view) board helps you monitor your app uninstalls and take timely action.
+The [Uninstall](https://docs.clevertap.com/docs/uninstalls-view) board helps you monitor your app uninstalls for Android and take timely action.
 
-<Callout icon="🚧" theme="warn">
-  **Change in App Uninstall Tracking for Android Devices**
+Starting May 15, 2024, FCM is implementing changes regarding [stale tokens](https://firebase.google.com/docs/cloud-messaging/manage-tokens#stale-and-expired-tokens) for devices not connected to FCM for over 270 days. Such tokens are considered expired and invalid. Consequently, any push notification request sent to stale tokens will fail and return a 404 error (Unregistered).
 
-  Starting May 15, 2024, FCM is implementing changes regarding [stale tokens](https://firebase.google.com/docs/cloud-messaging/manage-tokens#stale-and-expired-tokens) for devices not connected to FCM in over 270 days. Such tokens are considered expired and invalid. Consequently, any push notification request sent to stale tokens will fail and return a 404 error (Unregistered).
+**Whom does this change impact?**
 
-  **Whom does this change impact?**
+The change solely affects customers who rely on the Silent Push Notification method for uninstall tracking.
 
-  The change solely affects customers who rely on the Silent Push Notification method for uninstall tracking.
+**Impact of this implementation**
 
-  **Impact of this implementation**
+With this change, FCM will return a 404 (Unregistered) error for inactive apps after 270 days. Thus, CleverTap will stop marking such devices as uninstalled because this may incorrectly identify inactive users as churned, thereby inflating uninstall numbers.
 
-  With this change, FCM will return a 404 error (Unregistered) from inactive apps after 270 days. Thus, CleverTap will stop marking such devices as uninstalled because this may incorrectly identify inactive users as churned, thereby inflating uninstall numbers.
+To address this, CleverTap strongly recommends implementing CleverTap's Real-Time Uninstall Tracking capability, which leverages Firebase Analytics. If you fail to implement Real-Time Uninstall Tracking by May 15, 2024, Uninstall Tracking through Silent Push Notifications will be discontinued. However, the _Push Unregistered_ event will be raised whenever a silent push notification is sent. You can view the Push Unregistered event count from the CleverTap dashboard by applying a filter where source = `CT_Push`.
 
-  To address this, CleverTap strongly recommends implementing CleverTap's Real-Time Uninstall Tracking capability, which leverages Firebase Analytics. If you fail to implement Real-Time Uninstall Tracking by May 15, 2024, Uninstall Tracking through Silent Push Notifications will be discontinued. However, the _Push Unregistered_ event will be raised whenever a silent push notification is sent. You can view the Push Unregistered event count from the CleverTap dashboard by applying a filter where source = `CT_Push`.
-
-  If you have already implemented Real-Time Uninstall Tracking, this change will not affect you. For any queries or further assistance, raise a support ticket from the CleverTap Dashboard or contact your Customer Success Manager.
-</Callout>
+If you have already implemented Real-Time Uninstall Tracking, this change will not affect you. For any queries or further assistance, raise a support ticket from the CleverTap Dashboard or contact your Customer Success Manager.
 
 ### Enable Silent Push Notifications
 
@@ -69,9 +74,9 @@ Enable Silent Push notifications in CleverTap by performing the following steps:
 1. From the CleverTap dashboard, go to _Settings_ > _Uninstall Tracking_.
 2. Toggle ON the _Silent token-based push notification_ option.
 
-<Image align="center" alt={800} border={true} caption="Enable Silent Push Notifications" title="Enable Silent Push Notifications" src="https://files.readme.io/1f8a490-uninstall_tracking_silent_push.png" />
+<Image align="center" border={true} caption="Enable Silent Push Notifications" src="https://files.readme.io/0a891306d2c0781c65505ac41236f5c76a00d3ec50e2571759a4e39785f10b4e-image.png" />
 
-## Real-Time Uninstall Tracking (For Android)
+## Real-Time Uninstall Tracking
 
 Verify that the Android app is integrated with _Firebase Analytics_ for real-time uninstall tracking. Add Firebase Analytics dependency in the app SDK.
 
@@ -82,7 +87,7 @@ When a user uninstalls the app from an Android device, Firebase logs the `app_re
 
   Google has introduced changes to Google Analytics (G4), Firebase Events, and Cloud Functions that impact real-time uninstall tracking.
 
-  If you are setting up real-time uninstall tracking in v2 or updating an existing integration, refer to [Uninstall Tracking Using Google Analytics](doc:uninstall-tracking-using-google-analytics). This document includes the updated GA4 Key Event flow, revised Cloud Function script, region settings, and Node.js version requirements.
+  If you are setting up real-time uninstall tracking in v2 or updating an existing integration, refer to [Uninstall Tracking Using Google Analytics](https://staging.docs.dev.clevertap.net/update/docs/uninstall-tracking-updated-implementation#/). This document includes the updated GA4 Key Event flow, revised Cloud Function script, region settings, and Node.js version requirements.
 </Callout>
 
 ## Implement Real-Time Uninstall Tracking
@@ -188,7 +193,7 @@ exports.sendAndroidUninstallToCleverTap = functions.analytics.event('app_remove'
             'X-CleverTap-Passcode': '<CT_ACCOUNT_PASSCODE>'
         },
         body: data,
-        url: 'https://in1.api.clevertap.com/firebase/upload',//Add your account region in the url
+        url: 'https://api.clevertap.com/firebase/upload',
 
         // The below parameters are specific to request-retry
         maxAttempts: 5, // (default) try 5 times
@@ -233,7 +238,7 @@ exports.sendAndroidUninstallToCleverTap = functions.analytics.event('app_remove'
     "logs": "firebase functions:log"
   },
   "engines": {
-    "node": "20"
+    "node": "18"
   },
   "main": "index.js",
   "dependencies": {
@@ -273,7 +278,7 @@ Yes. You can set up live-triggered campaigns for the _App Uninstalled_ event. On
 
 Real-time uninstalls can be targeted in a campaign by using the event property filter _source = REALTIME_FIREBASE_.
 
-<Image align="center" alt={1752} border={false} caption="App Uninstalled Event" title="App Uninstalled Event" src="https://files.readme.io/db9dacb-Screenshot_2021-06-10_at_12.18.48_PM.png" />
+<Image align="center" alt={1752} caption="App Uninstalled Event" title="App Uninstalled Event" src="https://files.readme.io/db9dacb-Screenshot_2021-06-10_at_12.18.48_PM.png" />
 
 ### Can I turn off uninstall tracking for push notifications sent via a Campaign or a Journey?
 
