@@ -88,10 +88,10 @@ When a user uninstalls the app from an Android device, GA4 logs the `app_remove`
 
 Real-time uninstall tracking is a four-step process:
 
-1. [Set up common identifier in your app](https://developer.clevertap.com/docs/uninstall-tracking#section-set-up-a-common-identifier)
-2. [Set up `app_remove` event as key event in Google Analytics](https://developer.clevertap.com/docs/uninstall-tracking#section-set-up-conversion-event-using-firebase)
-3. [Create cloud function](https://developer.clevertap.com/docs/uninstall-tracking#section-create-a-cloud-function)
-4. [Enable the real-time settings in CleverTap](https://developer.clevertap.com/docs/uninstall-tracking#section-enable-real-time-uninstall-tracking-in-clever-tap)
+1. [Set up common identifier in your app](doc:uninstall-tracking-using-google-analytics#set-up-common-identifier-in-your-app)
+2. [Set up `app_remove` event as key event in Google Analytics](doc:uninstall-tracking-using-google-analytics#set-up-app_remove-as-key-event-in-google-analytics)
+3. [Create cloud function](doc:uninstall-tracking-using-google-analytics#create-cloud-function)
+4. [Enable the real-time settings in CleverTap](doc:uninstall-tracking-using-google-analytics#enable-real-time-uninstall-tracking-in-clevertap)
 
 Discover the video tutorial for implementing Real-Time Uninstall Tracking in CleverTap.
 
