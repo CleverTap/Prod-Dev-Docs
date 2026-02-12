@@ -11,6 +11,25 @@ We are excited to share the February SDK changelog for our product!
 >
 > Click each SDK header to view the corresponding GitHub repository for release details.
 
+# February 09
+
+## [iOS 7.5.0](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/7.5.0)
+
+### What's New
+
+* Support for ingestion of _Nested Objects_ in event properties and profile properties, enabling richer engagement through more structured analytics.
+
+> 🚧 Account-Controlled Feature
+>
+> This feature is account-controlled. Contact [CleverTap Support](https://help.clevertap.com/en-US/clevertapsupport/directories) to enable support for nested objects on your account.
+
+* Support for inaction-based In-App notifications. You can configure an inaction duration between _01_ to _1,200_ seconds to trigger an In-App notification when a user does not perform an expected action within the specified time window.
+* Adds Swift Package Manager (SPM) support for tvOS.
+
+### Bug Fixes
+
+* Refactored console logging to use `OSLog` instead of `NSLog`.
+
 # February 06
 
 ## [Flutter 3.7.0](https://github.com/CleverTap/clevertap-flutter/releases/tag/3.7.0)
