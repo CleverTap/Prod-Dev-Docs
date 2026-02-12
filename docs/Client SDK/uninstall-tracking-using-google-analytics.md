@@ -55,7 +55,7 @@ The change solely affects customers who rely on the Silent Push Notification met
 
 **Impact of this implementation**
 
-With this change, FCM will return a 404 error (Unregistered) from inactive apps after 270 days. Thus, CleverTap will stop marking such devices as uninstalled because this may incorrectly identify inactive users as churned, thereby inflating uninstall numbers.
+With this change, FCM will return a 404 (Unregistered) error for inactive apps after 270 days. Thus, CleverTap will stop marking such devices as uninstalled because this may incorrectly identify inactive users as churned, thereby inflating uninstall numbers.
 
 To address this, CleverTap strongly recommends implementing CleverTap's Real-Time Uninstall Tracking capability, which leverages Firebase Analytics. If you fail to implement Real-Time Uninstall Tracking by May 15, 2024, Uninstall Tracking through Silent Push Notifications will be discontinued. However, the _Push Unregistered_ event will be raised whenever a silent push notification is sent. You can view the Push Unregistered event count from the CleverTap dashboard by applying a filter where source = `CT_Push`.
 
@@ -88,10 +88,10 @@ When a user uninstalls the app from an Android device, GA4 logs the `app_remove`
 
 Real-time uninstall tracking is a four-step process:
 
-1. [Set up common identifier in your app](https://developer.clevertap.com/docs/uninstall-tracking#section-set-up-a-common-identifier).
-2. [Set up `app_remove` event as Key Event in Google Analytics](https://developer.clevertap.com/docs/uninstall-tracking#section-set-up-conversion-event-using-firebase).
-3. [Use Firebase cloud function to send uninstall information to CleverTap](https://developer.clevertap.com/docs/uninstall-tracking#section-create-a-cloud-function).
-4. [Enable the real-time settings in CleverTap](https://developer.clevertap.com/docs/uninstall-tracking#section-enable-real-time-uninstall-tracking-in-clever-tap).
+1. [Set up common identifier in your app](https://developer.clevertap.com/docs/uninstall-tracking#section-set-up-a-common-identifier)
+2. [Set up `app_remove` event as key event in Google Analytics](https://developer.clevertap.com/docs/uninstall-tracking#section-set-up-conversion-event-using-firebase)
+3. [Create cloud function](https://developer.clevertap.com/docs/uninstall-tracking#section-create-a-cloud-function)
+4. [Enable the real-time settings in CleverTap](https://developer.clevertap.com/docs/uninstall-tracking#section-enable-real-time-uninstall-tracking-in-clever-tap)
 
 Discover the video tutorial for implementing Real-Time Uninstall Tracking in CleverTap.
 
@@ -114,7 +114,7 @@ Discover the video tutorial for implementing Real-Time Uninstall Tracking in Cle
               style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 `}</HTMLBlock>
 
-### Set Up Common Identifier in App
+### Set Up Common Identifier in Your App
 
 Add the following code to your app to set up a common identifier between Firebase and CleverTap.
 
