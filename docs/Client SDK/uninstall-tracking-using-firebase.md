@@ -264,7 +264,7 @@ After you have configured the conversion setup and created the cloud function, e
 1. From the CleverTap dashboard, select _Settings_ > _Uninstall Tracking_.
 2. Toggle ON the _Android (Real-time tracking)_ option.
 
-<Image align="center" alt={1486} border={true} caption="Select Android (Real-time tracking)" title="Select Android (Real-time tracking)" src="https://files.readme.io/b919669-2020-09-28_15-35-19_inabling_tracking_in_CT.png" />
+<Image align="center" border={true} caption="Select Android Real-Time Tracking" src="https://files.readme.io/0a891306d2c0781c65505ac41236f5c76a00d3ec50e2571759a4e39785f10b4e-image.png" />
 
 When you enable Silent Push notifications, CleverTap starts collecting a silent push token for each device. This token allows CleverTap to deliver background notifications that are not visible to the user. After the setting is turned on, devices become eligible to receive silent pushes from CleverTap.
 
@@ -272,7 +272,7 @@ When you enable Silent Push notifications, CleverTap starts collecting a silent 
 
 ### Can I run triggered campaigns on the _App Uninstalled_ event?
 
-Yes. You can set up live-triggered campaigns for the _App Uninstalled_ event. Only those users who are tracked via the real-time uninstall will qualify for the campaign.
+Yes. You can set up live-triggered campaigns for the _App Uninstalled_ event. Only users who are tracked in real time via uninstall will qualify for the campaign.
 
 ### How do I target users who have uninstalled the app in a campaign?
 
