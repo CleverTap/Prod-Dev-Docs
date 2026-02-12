@@ -19,7 +19,7 @@ There may be multiple reasons a user might uninstall an application, such as poo
 
   If your project uses Google Analytics (GA4) Key Events or Cloud Functions v2, this implementation does not apply. Recent updates from Google to Analytics, Events, and Cloud Functions require a revised configuration for real-time uninstall tracking.
 
-  For more information about implementation, refer to [Uninstall Tracking using Google Analytics(G4)](doc:uninstall-tracking-google-analytics) .
+  For more information about implementation, refer to [Uninstall Tracking using Google Analytics(G4)](doc:uninstall-tracking-using-google-analytics) .
 
   For more information about supported regions and versions, refer to [Cloud Function Locations](https://firebase.google.com/docs/functions/locations#tier_1_pricing.).
 </Callout>
