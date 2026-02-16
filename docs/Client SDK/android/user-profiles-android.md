@@ -58,7 +58,7 @@ CleverTap stores the user's demographic data (gender, age, location), app and we
 
 A user profile is automatically created for every user launching your mobile application, whether logged in or not.
 
-At first, the user profile starts as *Anonymous* which means that the profile does not contain any identifiable information about the user yet. You can choose to enrich the profile with attributes, such as name, age, and customer ID. You can also add custom attributes that you define to extend the CleverTap data model.
+At first, the user profile starts as _Anonymous_ which means that the profile does not contain any identifiable information about the user yet. You can choose to enrich the profile with attributes, such as name, age, and customer ID. You can also add custom attributes that you define to extend the CleverTap data model.
 
 Sending user profile information to CleverTap using our Android SDK requires two steps:
 
@@ -95,7 +95,7 @@ Checkout the [Quick Start guide](https://developer.clevertap.com/docs/android-qu
 
 The `Onuserlogin` method identifies the individual users on the device. However, you may need to add additional user properties to the user profile such as gender, date of birth, and so on.
 
-CleverTap provides pre-defined profile properties, such as name, phone, gender, and age, to represent well-known properties associated with a profile. We strongly recommend using these standard property names. A list of all pre-defined property names is available. In addition, we also support arbitrary single and multi-value profile properties. 
+CleverTap provides pre-defined profile properties, such as name, phone, gender, and age, to represent well-known properties associated with a profile. We strongly recommend using these standard property names. A list of all pre-defined property names is available. In addition, we also support arbitrary single and multi-value profile properties.
 
 Below are examples of updating these types of properties:
 
@@ -209,9 +209,9 @@ profileUpdate["Prefered Language"] = "English"
 clevertapDefaultInstance?.pushProfile(profileUpdate)
 ```
 
-> 📘 Note
+> 📘 Age Property Behavior in SDKs
 >
-> You do not require to pass *Age* as a profile property in the API because it is automatically calculated and stored.
+> The _Age_ property cannot be set manually via the API. It is automatically calculated from the Date of Birth (DOB) and stored by the system.
 
 CleverTap provides easy ways to enrich the user profile with data from sources, such as Facebook. You can also store custom attributes in a user profile which can be used to segment users later.
 
@@ -250,19 +250,19 @@ You can opt-out a user by either phone or email.
 
 You can opt-out a user or a phone number:
 
-* To opt out a specific user when multiple users share the same phone number, you can disable SMS for a specific user. Set the MSG-sms flag to *false*, and the specified user stops receiving SMS; however, all other users sharing the number continue to receive messages if they have not opted out.  
+* To opt out a specific user when multiple users share the same phone number, you can disable SMS for a specific user. Set the MSG-sms flag to _false_, and the specified user stops receiving SMS; however, all other users sharing the number continue to receive messages if they have not opted out.
 
-* To opt-out a phone number and all the users associated with it, set the MSG-dndPhone flag to *true*.
+* To opt-out a phone number and all the users associated with it, set the MSG-dndPhone flag to _true_.
 
 Refer to [User Profile API Endpoints](doc:user-profile-object) for complete user profile documentation.
 
 ### Email
 
-You can opt-out a user or an email address: 
+You can opt-out a user or an email address:
 
-* To opt out a specific user when multiple users share the same email address, you can disable email for a specific user. Set the MSG-email flag to *false*, and the specified user stops receiving messages; however, all other users sharing the email address continue to receive messages if they have not opted out.  
+* To opt out a specific user when multiple users share the same email address, you can disable email for a specific user. Set the MSG-email flag to _false_, and the specified user stops receiving messages; however, all other users sharing the email address continue to receive messages if they have not opted out.
 
-* To opt-out an email address and all the users associated with it, set the MSG-dndEmail flag to *true*.
+* To opt-out an email address and all the users associated with it, set the MSG-dndEmail flag to _true_.
 
 Refer to [User Profile API Endpoints](doc:user-profile-object) for complete user profile documentation.
 
@@ -270,9 +270,9 @@ Refer to [User Profile API Endpoints](doc:user-profile-object) for complete user
 
 Starting from CleverTap Android SDK v4.0.1, you can enable custom identity management. The `onUserLogin()` method can identify users in advance (only for new app installs) whenever a user logs in to the app. You can use any of the following identifiers or a combination of them:
 
-Phone\
-Email\
-Identity\
+Phone  
+Email  
+Identity  
 This process varies for default(shared) CleverTap instances and additional Instances.
 
 ### Default(shared) CleverTap instance
@@ -280,8 +280,8 @@ This process varies for default(shared) CleverTap instances and additional Insta
 The CleverTap Android SDK provides the default instance to call CleverTap methods. The `getDefaultInstance()` method initializes this instance as follows:
 
 1. Navigate to the app's `AndroidManifest.xml` file in your project navigator.
-2. Create a *CleverTapIdentifiers* key with the type `Array`.
-3. Add the identifier keys for the user.\
+2. Create a _CleverTapIdentifiers_ key with the type `Array`.
+3. Add the identifier keys for the user.  
    The following is an example:
 
 ```groovy
