@@ -169,6 +169,10 @@ NSDictionary *profile = @{
 [[CleverTap sharedInstance] profileRemoveValueForKey:@"myStuff"];
 ```
 
+> 📘 Age Property Behavior in SDKs
+>
+> The _Age_ property cannot be set manually via the API. It is automatically calculated from the Date of Birth (DOB) and stored by the system.
+
 CleverTap provides easy ways to enrich the user profile with data from sources, such as Facebook. You can also store custom attributes in a user profile. These attributes can later be used to segment users.
 
 ## Increment/Decrement Operator in iOS
