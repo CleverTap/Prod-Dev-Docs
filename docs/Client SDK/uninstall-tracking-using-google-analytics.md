@@ -27,7 +27,7 @@ CleverTap tracks app uninstalls in three ways:
 <Callout icon="🚧" theme="warn">
   #### Deprecation of Uninstall Tracking for iOS
 
-  Due to recent changes to Apple Push Notification service (APNs), uninstall events can no longer be reliably identified on iOS devices. As a result, CleverTap has deprecated uninstall tracking for iOS applications.
+  Due to recent changes to Apple Push Notification service (APNs), uninstall events cannot be reliably identified on iOS devices. As a result, CleverTap no longer tracks iOS uninstalls starting 20th Jan 2026.
 
   This change does not impact push notification delivery or any other CleverTap features.
 </Callout>
