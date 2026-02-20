@@ -14,7 +14,7 @@ next:
 ---
 # Overview
 
-[Nested Objects](https://docs.clevertap.com/update/docs/nested-objects-for-user-properties-and-custom-event-properties) allow developers to represent structured data directly within user profiles and custom event payloads. This feature supports up to three levels of nesting and is available through CleverTap's REST API. You can use Nested Objects to model complex user attributes, such as policies or subscriptions, and structured event-level data, such as cart details, product line items, or transaction metadata. This enables scalable data modeling without increasing the number of flat properties in your account.
+[Nested Objects](https://docs.clevertap.com/docs/nested-objects-for-user-properties-and-custom-event-properties) allow developers to represent structured data directly within user profiles and custom event payloads. This feature supports up to three levels of nesting and is available through CleverTap's REST API. You can use Nested Objects to model complex user attributes, such as policies or subscriptions, and structured event-level data, such as cart details, product line items, or transaction metadata. This enables scalable data modeling without increasing the number of flat properties in your account.
 
 For example payloads, refer to the following:
 
