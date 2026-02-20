@@ -11,6 +11,25 @@ We are excited to share the February SDK changelog for our product!
 >
 > Click each SDK header to view the corresponding GitHub repository for release details.
 
+# February 19
+
+## [CTNotificationContent 1.2.0](https://github.com/CleverTap/CTNotificationContent/releases/tag/1.2.0)
+
+### What's new
+
+* Supports displaying GIFs in `Basic`, `Timer`, `Zero Bezel`, and `Rating` templates.
+* Supports configuring transparency for title, message, and background colors.
+
+# February 18
+
+## [Unity 5.5.2](https://github.com/CleverTap/clevertap-unity-sdk/releases/tag/5.5.2)
+
+### What's new
+
+* Supports [CleverTap Android SDK v7.8.0](https://github.com/CleverTap/clevertap-android-sdk/blob/master/docs/CTCORECHANGELOG.md#version-780-january-22-2026).
+* Supports [CleverTap iOS SDK v7.5.0](https://github.com/CleverTap/clevertap-ios-sdk/blob/master/CHANGELOG.md#version-750-february-9-2026).
+* Support for ingestion of _Nested Objects_ in event properties and profile properties, enabling richer engagement through more structured analytics.
+
 # February 09
 
 ## [iOS 7.5.0](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/7.5.0)
