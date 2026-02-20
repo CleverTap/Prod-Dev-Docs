@@ -21,10 +21,6 @@ For example payloads, refer to the following:
 * [Example: Upload User Profile with Nested Objects](doc:ingesting-nested-objects-via-clevertap-apis#example-upload-user-profile-with-nested-objects)
 * [Example: Upload Event with Nested Objects](doc:ingesting-nested-objects-via-clevertap-apis#example-upload-event-with-nested-objects)
 
-> 📘 Public Beta
->
-> This feature is released in Public Beta. For more information about this feature, contact your Customer Success Manager or CleverTap Support.
-
 ## Prerequisites
 
 Before using Nested Objects, check the following:
