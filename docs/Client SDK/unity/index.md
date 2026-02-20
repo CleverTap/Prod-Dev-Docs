@@ -39,7 +39,7 @@ Refer to the following table for Unity SDK versions and Unity SDK code sizes:
 
 | SDK                 | Version | Code Size |
 | :------------------ | :------ | :-------- |
-| CleverTap Unity SDK | 5.5.1   | 2.9 MB    |
+| CleverTap Unity SDK | 5.5.2   | 2.9 MB    |
 
 # Integrate the Unity SDK
 
