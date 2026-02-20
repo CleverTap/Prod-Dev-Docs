@@ -32,7 +32,7 @@ Before using Nested Objects, check the following:
 * The feature is enabled for your CleverTap account.
 * Your account schema supports object and array data types.
 
-## Send Nested Objects in Upload User Profile API
+## Send Nested Objects in the Upload User Profile API
 
 To send Nested Objects as user properties, include the nested JSON directly inside the `profileData` object in the [Upload User Profile API](doc:upload-user-profiles-api) payload. You do not need to flatten nested fields.
 
@@ -84,7 +84,7 @@ In this payload, you can find the following:
 * `profileData` contains both standard profile properties and Nested Objects.
 * The `InsuranceDetails.Policy` array is a Nested Object stored inside `profileData`.
 
-## Send Nested Objects in Upload Events API
+## Send Nested Objects in the Upload Events API
 
 To send Nested Objects as custom event properties, include the nested JSON directly inside the `evtData` object in the [Upload Events API ](doc:upload-events-api) payload.
 
