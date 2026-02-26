@@ -20,9 +20,11 @@ For example, you can use this API to send a price drop alert as a [push notifica
 
 For more information on API request limit, refer to [API Request Limit](doc:api-request-limit).
 
-> 📘 Note
->
-> Currently, AMP Email campaigns cannot be created using Create Campaign API.
+<Callout icon="📘" theme="info">
+  #### Note
+
+  Currently, AMP Email campaigns cannot be created using Create Campaign API.
+</Callout>
 
 # Create Campaign API - Target User Events & Properties
 
@@ -49,9 +51,11 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
 
 ## Body Parameters - Target User Events & Properties
 
-> 📘 Mobile Push Notification Parameters
->
-> The parameters in bold and marked with * provide additional functionality for creating a push campaign.
+<Callout icon="📘" theme="info">
+  #### Mobile Push Notification Parameters
+
+  The parameters in bold and marked with * provide additional functionality for creating a push campaign.
+</Callout>
 
 <Table align={["left","left","left","left","left"]}>
   <thead>
@@ -2874,9 +2878,11 @@ Following is the JSON payload for the iOS Carousel Push template:
 
 Following is the JSON payload for WhatsApp interactive message templates:
 
-> 📘 Note:
->
-> Currently, Create Campaign APIs for WhatsApp do not support Carousel templates, Limited Time Offer (LTO) templates, Custom key-value pairs, and templates with copy code button.
+<Callout icon="📘" theme="info">
+  #### Note
+
+  Currently, Create Campaign APIs for WhatsApp do not support Carousel templates, Limited Time Offer (LTO) templates, Custom key-value pairs, and templates with copy code button.
+</Callout>
 
 ```json Basic SMS Campaign Payload
 {
@@ -3643,9 +3649,11 @@ Following are some example base URLs from the account in the India region:
 **Push**  
 [https://in1.api.clevertap.com/1/send/push.json](https://in1.api.clevertap.com/1/send/push.json)
 
-> ❗️ Note:
->
-> The push.json API currently does not support Pull Notifications.
+<Callout icon="❗️" theme="error">
+  #### Note:
+
+  The push.json API currently does not support Pull Notifications.
+</Callout>
 
 **Web Push**  
 [https://in1.api.clevertap.com/1/send/webpush.json](https://in1.api.clevertap.com/1/send/webpush.json)
@@ -3653,9 +3661,11 @@ Following are some example base URLs from the account in the India region:
 **Email**  
 [https://in1.api.clevertap.com/1/send/email.json](https://in1.api.clevertap.com/1/send/email.json)
 
-> 📘 Region
->
-> These are some example base URLs from the account in the India region. To know the API endpoint for your account, refer to [Region](https://developer.clevertap.com/docs/create-campaign-api#region).
+<Callout icon="📘" theme="info">
+  #### Region
+
+  These are some example base URLs from the account in the India region. To know the API endpoint for your account, refer to [Region](https://developer.clevertap.com/docs/create-campaign-api#region).
+</Callout>
 
 **WhatsApp**  
 [https://in1.api.clevertap.com/1/send/whatsapp.json](https://in1.api.clevertap.com/1/send/whatsapp.json)
@@ -4006,7 +4016,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
         "header": {'{'}  
         "type": "image",  
         "media": {'{'}  
-        "url": "[[https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg"](https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo\_1280x720\_5mb.jpg"\)](https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg"]\(https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo\\_1280x720\\_5mb.jpg"\\\))
+        "url": "[[https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg"](https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg")](https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg")
 
         {'}'}
 
@@ -4096,7 +4106,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
         "header": {'{'}  
         "type": "image",  
         "media": {'{'}  
-        "url": "[[https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg"](https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo\_1280x720\_5mb.jpg"\)](https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg"]\(https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo\\_1280x720\\_5mb.jpg"\\\))
+        "url": "[[https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg"](https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg")](https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg")
 
         {'}'}
 
@@ -4149,7 +4159,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
         "header": {'{'}  
         "type": "image",  
         "media": {'{'}  
-        "url": "[[https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg"](https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo\_1280x720\_5mb.jpg"\)](https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg"]\(https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo\\_1280x720\\_5mb.jpg"\\\))
+        "url": "[[https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg"](https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg")](https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg")
 
         {'}'}
 
@@ -4768,9 +4778,11 @@ Below are example payloads for web push, push, email, SMS, and WhatsApp.
 
 Following is the JSON payload for WhatsApp interactive message templates:
 
-> 📘 Note:
->
-> Currently, Create Campaign APIs for WhatsApp do not support Carousel templates, Limited Time Offer (LTO) templates, Custom key-value pairs, and templates with copy code button.
+<Callout icon="📘" theme="info">
+  #### Note
+
+  Currently, Create Campaign APIs for WhatsApp do not support Carousel templates, Limited Time Offer (LTO) templates, Custom key-value pairs, and templates with copy code button.
+</Callout>
 
 ```json Image Template
 {
