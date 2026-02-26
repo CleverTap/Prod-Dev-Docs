@@ -4016,7 +4016,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
         "header": {'{'}  
         "type": "image",  
         "media": {'{'}  
-        "url": "[[https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg"](https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg")](https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg")
+        "url": "[[https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg"](https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg")]([https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg](https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg)")
 
         {'}'}
 
@@ -4106,7 +4106,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
         "header": {'{'}  
         "type": "image",  
         "media": {'{'}  
-        "url": "[[https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg"](https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg")](https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg")
+        "url": "[[https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg"](https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg")]([https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg](https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg)")
 
         {'}'}
 
@@ -4159,7 +4159,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
         "header": {'{'}  
         "type": "image",  
         "media": {'{'}  
-        "url": "[[https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg"](https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg")](https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg")
+        "url": "[[https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg"](https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg")]([https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg](https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg)")
 
         {'}'}
 
@@ -4375,9 +4375,9 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-        Platform-specific key required to target users on devices running Android O. It can be used to determine the notification channel to which a given push notification belongs.
+        Platform specific key that is required to target users on devices running Android O - can be used to determine notification channel to which a given push notification must belong.
 
-        If a Notification ID is mandatory, then the channel ID is expected. An error occurs if a valid channel ID is not received.
+        If a Notification ID is mandatory then the channel ID is expected. An error occurs if a valid channel ID is not received.
       </td>
 
       <td>
@@ -4399,7 +4399,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-        Platform-specific key that can be used while targeting users on devices running Android O - can be used to determine the notification count shown on the app icon
+        Platform specific key that can be used while targeting users on devices running Android O - can be used to determine the notification count shown on the app icon
       </td>
 
       <td>
@@ -4421,7 +4421,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-        Platform-specific key that can be used while targeting users on devices running Android O - can be used to determine which icon should be used.
+        Platform specific key that can be used while targeting users on devices running Android O - can be used to determine which icon should be used.
 
         Accepted values:  
         app icon  
@@ -4447,7 +4447,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-        To raise the Notification viewed event for Push notifications, raise the flag to "true" in the platform_specific: ios section of the request payload.
+        To raise Notification viewed event for Push notifications, raise the flag to "true" in the platform_specific: ios section of the request payload.
       </td>
 
       <td>
@@ -4469,7 +4469,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-        The platform-specific details for Push and Web Push notifications.
+        The platform-specific details for Push and Web Push notification
       </td>
 
       <td>
@@ -4541,7 +4541,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-        A Platform-specific key that can be used to set the color for small icons in push notifications.
+        A Platform specific key that can be used to set color for small icons in push notifications.
       </td>
 
       <td>
@@ -4655,9 +4655,55 @@ Below are example payloads for web push, push, email, SMS, and WhatsApp.
     }
 }
 ```
-```Text Push
+```json Push
+{
+    "to": {
+        "FBID": [
+            "102029292929388",
+            "114342342453463"
+        ],
+        "GPID": [
+            "1928288389299292"
+        ],
+        "Email": [
+            "john@doe.com",
+            "jane@doe.com"
+        ],
+        "Identity": [
+            "JohnDoe"
+        ],
+        "objectId": [
+            "_asdnkansdjknaskdjnasjkndja",
+            "-adffajjdfoaiaefiohnefwprjf"
+        ]
+    },
+    "tag_group": "my tag group",
+    "respect_frequency_caps": false,
+    "content": {
+        "title": "Welcome",
+        "body": "Hello world!",
+        "platform_specific": {
+            "ios": {
+                "deep_link": "example.com",
+                "sound_file": "example.caf",
+                "mutable-content": "true",
+                "ct_mediaUrl": "https://i.ibb.co/pJ8D5Z7/woman-g40aa99db5-1920.jpg",
+                "category": "notification category",
+                "badge_count": 1,
+                "key": "value_ios"
+            },
+            "android": {
+                "background_image": "http://example.jpg",
+                "default_sound": true,
+                "deep_link": "example.com",
+                "large_icon": "http://example.png",
+                "key": "value_android"
+            }
+        }
+    }
+}
 ```
-```Text Email
+```json Email
 {
     "to": {
         "FBID": [
@@ -4705,7 +4751,7 @@ Below are example payloads for web push, push, email, SMS, and WhatsApp.
     }
 }
 ```
-```Text SMS
+```json SMS
 {
     "to": {
         "FBID": [
@@ -4734,7 +4780,7 @@ Below are example payloads for web push, push, email, SMS, and WhatsApp.
     }
 }
 ```
-```Text WhatsApp
+```json WhatsApp
 {
   "to": {
     "Identity": [
