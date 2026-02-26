@@ -4375,9 +4375,9 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-        Platform specific key that is required to target users on devices running Android O - can be used to determine notification channel to which a given push notification must belong.
+        Platform-specific key required to target users on devices running Android O. It can be used to determine the notification channel to which a given push notification belongs.
 
-        If a Notification ID is mandatory then the channel ID is expected. An error occurs if a valid channel ID is not received.
+        If a Notification ID is mandatory, then the channel ID is expected. An error occurs if a valid channel ID is not received.
       </td>
 
       <td>
@@ -4399,7 +4399,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-        Platform specific key that can be used while targeting users on devices running Android O - can be used to determine the notification count shown on the app icon
+        Platform-specific key that can be used while targeting users on devices running Android O - can be used to determine the notification count shown on the app icon
       </td>
 
       <td>
@@ -4421,7 +4421,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-        Platform specific key that can be used while targeting users on devices running Android O - can be used to determine which icon should be used.
+        Platform-specific key that can be used while targeting users on devices running Android O - can be used to determine which icon should be used.
 
         Accepted values:  
         app icon  
@@ -4447,7 +4447,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-        To raise Notification viewed event for Push notifications, raise the flag to "true" in the platform_specific: ios section of the request payload.
+        To raise the Notification viewed event for Push notifications, raise the flag to "true" in the platform_specific: ios section of the request payload.
       </td>
 
       <td>
@@ -4469,7 +4469,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-        The platform-specific details for Push and Web Push notification
+        The platform-specific details for Push and Web Push notifications.
       </td>
 
       <td>
@@ -4541,7 +4541,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-        A Platform specific key that can be used to set color for small icons in push notifications.
+        A Platform-specific key that can be used to set the color for small icons in push notifications.
       </td>
 
       <td>
