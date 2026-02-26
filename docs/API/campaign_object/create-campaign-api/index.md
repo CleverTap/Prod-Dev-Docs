@@ -3197,15 +3197,15 @@ The Generic Sample Campaign API includes configurations for without Key Values, 
 
       <td>
         `{
-                                                                                                          "event_name": "Charged",
-                                                                                                          "from": 20251001,
-                                                                                                          "to": 20251220,
-                                                                                                          "common_profile_properties": {
-                                                                                                            "profile_fields": {
-                                                                                                              "field_name": "value"
-                                                                                                            }
-                                                                                                          }
-                                                                                                        }`
+                                                                                                                  "event_name": "Charged",
+                                                                                                                  "from": 20251001,
+                                                                                                                  "to": 20251220,
+                                                                                                                  "common_profile_properties": {
+                                                                                                                    "profile_fields": {
+                                                                                                                      "field_name": "value"
+                                                                                                                    }
+                                                                                                                  }
+                                                                                                                }`
       </td>
     </tr>
 
@@ -4721,7 +4721,7 @@ Below are example payloads for web push, push, email, SMS, and WhatsApp.
     }
 }
 ```
-````json WhatsApp
+```json WhatsApp
 {
   "to": {
     "Identity": [
@@ -4763,47 +4763,7 @@ Below are example payloads for web push, push, email, SMS, and WhatsApp.
   }
 }
 
-Following is the JSON payload for WhatsApp interactive message templates:
-
-> 📘 Note:
-> 
-> Currently, Create Campaign APIs for WhatsApp do not support Carousel templates, Limited Time Offer (LTO) templates, Custom key-value pairs, and templates with copy code button.
-
-```json Image Template
-{
-  "to": {
-    "Identity": [
-      "johndoe@mail.com"
-    ]
-  },
-  "tag_group": "Tag Group 1",
-  "provider_nick_name": "Provider_1",
-  "respect_frequency_caps": false,
-  "message_id": "4536tsytr",
-  "respect_communication_preference": true,
-  "content": {
-    "message_type": "template",
-    "template": {
-      "template_name": "Image_Template_1",
-      "header": {
-        "type": "image",
-        "media": {
-          "url": "https://ia800701.us.archive.org/26/items/SampleVideo1280x7205mb/SampleVideo_1280x720_5mb.jpg"
-        }
-      },
-      "body": {
-        "type": "text",
-        "replacements": [
-          "var1",
-          "Var2"
-        ]
-      },
-      "language": "en"
-    }
-  }
-}
-
-````
+```
 ```json Video Template
 {
     "to": {
