@@ -57,7 +57,7 @@ Send a JSON object in the request body. The following table describes the reques
 The following is the sample request for getting a token for a single value:
 
 ```curl
-curl -X POST https://vault-endpoint/ct-vault/api/tokenization/getToken \
+curl -X POST https://vault-endpoint/ct-vault/api/v2/tokenize \
   -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
