@@ -24,7 +24,7 @@ POST
 
 Use the base URL that matches your account region.
 
-`https://vault-endpoint/ct-vault/api/tokenization/getRawValue`
+`https://vault-endpoint/ct-vault/api/v2/detokenize`
 
 # Authentication and Headers
 
