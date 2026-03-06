@@ -371,4 +371,4 @@ This table lists the error codes for the GetToken API.
 
 For a complete token lifecycle, use the GetToken API with the following related endpoints:
 
-* [GetValue API](doc:get-value-api) to convert a token back to the original PII value, subject to permissions.
+* [GetValue API](doc:detokenize-api) to convert a token back to the original PII value, subject to permissions.
