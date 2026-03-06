@@ -188,7 +188,7 @@ if ($statusCode >= 200 && $statusCode < 300) {
 The following is the sample request for getting PII for multiple tokens:
 
 ```curl
-curl -X POST http://vault-endpoint/ct-vault/api/tokenization/tokens/values/batch \
+curl -X POST http://vault-endpoint/ct-vault/api/v2/detokenize/batch \
   -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
