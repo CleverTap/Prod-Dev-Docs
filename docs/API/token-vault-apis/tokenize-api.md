@@ -179,7 +179,7 @@ In this example:
 The following is the sample request for getting tokens for multiple values:
 
 ```curl
-curl -X POST https://vault-endpoint/ct-vault/api/tokenization/tokens/batch \
+curl -X POST https://vault-endpoint/ct-vault/api/v2/tokenize/batch \
   -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
