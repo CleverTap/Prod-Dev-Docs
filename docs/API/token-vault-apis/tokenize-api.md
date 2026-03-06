@@ -206,8 +206,8 @@ This section describes the fields in a successful response.
 
 | Field        | Type    | Always present               | Description                                                                                                                                                    |
 | :----------- | :------ | :--------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| token        | String  | Yes                          | The generated Vault token that represents the input value. Treat this as an opaque, case sensitive string. Do not parse or infer structure from it.            |
-| exists       | Boolean | Yes                          | True if the token already exists and the service returned an existing mapping. False if the token was created in this request.                                 |
+| token        | String  | Yes                          | The generated Vault token that represents the input value. Treat this as an opaque, case-sensitive string. Do not parse or infer structure from it.            |
+| exists       | Boolean | Yes                          | True if the token already exists and the service returned a mapping for it. False if the token was created in this request.                                    |
 | newlyCreated | Boolean | Yes                          | True if the token was created in this request. False if the token already existed.                                                                             |
 | dataType     | String  | Yes                          | Describes the type of the input value, for example `string`, `email`, or `phone`. The actual values depend on your Vault configuration.                        |
 | expiry       | String  | Yes, if expiry is configured | The timestamp when the token expires, in ISO 8601 format, such as `2027-09-24T12:34:56Z`. If your Vault does not use token expiry, this field might be absent. |
