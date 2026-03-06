@@ -1,5 +1,5 @@
 ---
-title: GetValue API
+title: Detokenize API
 excerpt: ''
 deprecated: false
 hidden: false
@@ -12,7 +12,7 @@ next:
 ---
 # Overview
 
-Resolves a token generated using [GetToken API](doc:get-token-api), back to its PII value.
+Resolves a token generated using [GetToken API](doc:tokenize-api), back to its PII value.
 
 Use this API when you already have a tokenized value and need to retrieve the underlying PII, for example, when sending an email or SMS to a user.
 
@@ -331,10 +331,10 @@ Vault APIs may enforce rate limits per account or per API key.
 
 # Best Practices
 
-Follow these best practices to ensure reliable, secure, and efficient integration when working with the token resolution workflow.
+Follow these best practices to ensure a reliable, secure, and efficient integration when using the token resolution workflow.
 
 * Validate token format on the client before sending the request, when practical.
-* Handle `token_expired` and `token_not_found` explicitly. Decide whether your application should prompt a re tokenization flow or treat the user as unknown.
-* Cache non sensitive derived information, not the PII itself, to reduce the number of resolve calls.
+* Handle `token_expired` and `token_not_found` explicitly. Decide whether your application should prompt a re-tokenization flow or treat the user as unknown.
+* Cache non-sensitive derived information, not the PII itself, to reduce the number of resolve calls.
 * Implement robust error handling and logging for non 2xx responses, including `request_id` where available.
 * Set reasonable client timeouts so calls do not hang indefinitely. A typical starting point is 5 to 10 seconds, then tune based on your environment.
