@@ -12,7 +12,7 @@ next:
 ---
 # Overview
 
-The GetToken API converts a PII value, such as an email address, phone number, or any custom property, into a token when the token does not exist.
+The Tokenize API converts a PII value, such as an email address, phone number, or any custom property, into a token when the token does not exist.
 
 The API is idempotent. If you send the same input value multiple times, the service returns the same token each time. The response indicates whether the token already exists or was created in the current request.
 
@@ -28,9 +28,9 @@ Use the following base URL for all regions:
 
 # Authentication and Headers
 
-The GetToken API uses Bearer token authentication. You must include a valid access token in the Authorization header for every request. This token is specific to your vault service.
+The Tokenize API uses Bearer token authentication. You must include a valid access token in the Authorization header for every request. This token is specific to your vault service.
 
-Include the following headers in every GetToken API request.
+Include the following headers in every Tokenize API request.
 
 | Header        | Required | Description                                                                                          |
 | :------------ | :------- | :--------------------------------------------------------------------------------------------------- |
@@ -357,7 +357,7 @@ The following is the sample error response:
 
 ## Error Codes
 
-This table lists the error codes for the GetToken API.
+This table lists the error codes for the Tokenize API.
 
 | HTTP status | error               | Description                                                                                                                                     |
 | :---------- | :------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -369,6 +369,6 @@ This table lists the error codes for the GetToken API.
 
 # Related API
 
-For a complete token lifecycle, use the GetToken API with the following related endpoints:
+For a complete token lifecycle, use the Tokenzie API with the following related endpoints:
 
-* [GetValue API](doc:detokenize-api) to convert a token back to the original PII value, subject to permissions.
+* [Detokenize API](doc:detokenize-api) to convert a token back to the original PII value, subject to permissions.
