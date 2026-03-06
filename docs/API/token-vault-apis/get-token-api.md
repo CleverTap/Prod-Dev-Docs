@@ -24,7 +24,7 @@ POST
 
 Use the following base URL for all regions:
 
-`https://vault-endpoint/ct-vault/api/tokenization/getToken`
+`https://vault-endpoint/ct-vault/api/v2/tokenize`
 
 # Authentication and Headers
 
