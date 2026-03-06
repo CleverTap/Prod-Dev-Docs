@@ -363,7 +363,7 @@ This table lists the error codes for the Tokenize API.
 | :---------- | :------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------- |
 | 400         | invalid_input       | The request payload is missing required fields or contains malformed data. For example, `value` is absent or does not meet format requirements. |
 | 401         | unauthorized        | The request does not include valid credentials. The access token is missing, invalid, or expired.                                               |
-| 403         | forbidden           | The caller is authenticated but does not have permission to use the Vault or perform tokenization.                                              |
+| 403         | forbidden           | The caller is authenticated but lacks permission to use the Vault or perform tokenization.                                                      |
 | 500         | server_error        | The service encountered an unexpected error. You can retry after a short delay or contact support with the `request_id`.                        |
 | 503         | service_unavailable | The service is temporarily unavailable. Implement retries with exponential backoff.                                                             |
 
