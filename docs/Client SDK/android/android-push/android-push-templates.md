@@ -97,28 +97,7 @@ You can implement the following customizable push notification templates using t
 
 Standard Template is a default template for push notifications received on apps that supports a simple layout with title, message, image, and optional buttons, ideal for quick, informative alerts. For example, an e-commerce business might want to inform customers that their order is on the way. To use a GIF in a standard push template, pass the key `wzrk_gif` with the value set to the URL of the GIF image.
 
-<Image align="center" alt="Standard Push Template" border={false} caption="Standard Push Template" src="https://files.readme.io/7a4e66924248b609d31ccdc200b05788c5a2b1b5e6550e58de559233caefe4b2-image.png" width="35% " />
-
-## GIF Support in Standard Push Template
-
-CleverTap supports GIFs in standard push templates from SDK version 7.5.0 on devices running Android 14 and above. This allows you to add animated media to push notifications, enhancing user engagement through dynamic visuals.
-
-<Image align="center" border={false} width="35% " src="https://files.readme.io/47c076dffe3d89c693a3fc4aeac5117649dc0a28af5e2b820157f86d7919ed29-Screen_Recording_Jul_28_2025_1.gif" />
-
-### Specifications and Design Guidelines
-
-* Supported on Android 14+ with SDK v7.5.0 or later.
-* Applies only to the Standard push template.
-* For older Android versions or SDKs, CleverTap shows the first frame of the GIF as a static image.
-* Use the recommended aspect ratio for the selected template to avoid cropping or distortion.
-* Keep file size under 1MB for smooth rendering.
-* Opt for looped, visually clear GIFs that work well even if partially cropped.
-
-### Limitations
-
-* Devices running Android 13 and below do not support GIF playback; a static fallback image is shown.
-* Some OEMs may not fully support GIF rendering, even on Android 14 and above.
-* On certain devices, the heads-up notification may display only the first frame, while the full GIF appears when the notification tray is expanded.
+<Image align="center" alt="Standard Push Template" caption="Standard Push Template" src="https://files.readme.io/7a4e66924248b609d31ccdc200b05788c5a2b1b5e6550e58de559233caefe4b2-image.png" width="35% " />
 
 # Advanced Push Template
 
@@ -126,7 +105,7 @@ This template supports rich media, deep links, and enhanced customization for mo
 
 For template outputs Android 11 and below, refer to [Push Templates on Android v11 and below](https://github.com/CleverTap/clevertap-android-sdk/blob/master/docs/CTPUSHTEMPLATESANDROID12.md).
 
-<Image align="center" alt="Advanced Push Template" border={false} caption="Advanced Push Template" src="https://files.readme.io/65cc6bcd2523518ceab5cdc452022fbc4f4bce889e87469c883fd394b1fb18e4-image.png" width="35% " />
+<Image align="center" alt="Advanced Push Template" caption="Advanced Push Template" src="https://files.readme.io/65cc6bcd2523518ceab5cdc452022fbc4f4bce889e87469c883fd394b1fb18e4-image.png" width="35% " />
 
 ## Template Keys
 
@@ -494,7 +473,7 @@ For template outputs Android 11 and below, refer to [Push Templates on Android v
 
 Auto Carousel is an automatic revolving carousel push notification that automatically cycles through multiple cards or slides within a single notification. Each card typically includes an image, title, description, and a CTA button, allowing users to view multiple offers, messages, or product highlights without leaving their device’s notification tray.
 
-<Image align="center" alt="Auto Carousel Template" border={false} caption="Auto Carousel Template" src="https://files.readme.io/b06f01f282ddb61ab6bca44b51c79e65c9735b224432fadaf0799eb6c1dd7a70-Screen_Recording_Jun_4_2025_from_Google_Drive.mp4_1.gif" width="35% " />
+<Image align="center" alt="Auto Carousel Template" caption="Auto Carousel Template" src="https://files.readme.io/b06f01f282ddb61ab6bca44b51c79e65c9735b224432fadaf0799eb6c1dd7a70-Screen_Recording_Jun_4_2025_from_Google_Drive.mp4_1.gif" width="35% " />
 
 ## Template Keys
 
@@ -1439,7 +1418,7 @@ Timer template is a dynamic and time-sensitive push notification template design
 
 Timer notification is only supported for Android version 8 and above. For Android versions below 8, the library falls back to the _Basic Template_.
 
-<Image align="center" alt="Timer Template" border={false} caption="Timer Template" src="https://files.readme.io/a0dd4a50b5b7783a1f970928b1d13d16d660728b9afb935e4947fbd3c942fb00-Timer_12_Light_Live.mp4_1.gif" width="35% " />
+<Image align="center" alt="Timer Template" caption="Timer Template" src="https://files.readme.io/a0dd4a50b5b7783a1f970928b1d13d16d660728b9afb935e4947fbd3c942fb00-Timer_12_Light_Live.mp4_1.gif" width="35% " />
 
 ## Template Keys
 
@@ -1919,7 +1898,7 @@ Text over Image template is a visually immersive push notification format design
 
 The library falls back to the Advanced Template if the image cannot be downloaded.
 
-<Image align="center" alt="Text over Image Push Template" border={false} caption="Text over Image Push Template" src="https://files.readme.io/aca5987a4cff4a252167cf9c0c954a422b08bfd7cfa7860b6ebb2c7bd0bc40f9-image.png" width="35% " />
+<Image align="center" alt="Text over Image Push Template" caption="Text over Image Push Template" src="https://files.readme.io/aca5987a4cff4a252167cf9c0c954a422b08bfd7cfa7860b6ebb2c7bd0bc40f9-image.png" width="35% " />
 
 ## Template Keys
 
@@ -2343,7 +2322,7 @@ The library falls back to the Advanced Template if the image cannot be downloade
 
 Rating template lets your users give you feedback. This feedback is captured in the event _Rating Submitted_ within the property `wzrk_c2a`.
 
-<Image align="center" alt="Rating Template" border={false} caption="Rating Template" src="https://files.readme.io/e026a6e56be3574972ff15ae648e46be20699f55cd77eac60f318c3d77c3948e-image.png" width="35% " />
+<Image align="center" alt="Rating Template" caption="Rating Template" src="https://files.readme.io/e026a6e56be3574972ff15ae648e46be20699f55cd77eac60f318c3d77c3948e-image.png" width="35% " />
 
 ## Template Keys
 
@@ -3806,6 +3785,29 @@ To capture the input, the app can get the `pt_input_reply` key from the Intent e
     </tr>
   </tbody>
 </Table>
+
+# GIF Support
+
+CleverTap supports GIFs in standard push templates starting with SDK version 7.5.0 on devices running Android 14 or later. This allows you to add animated media to push notifications, enhancing user engagement through dynamic visuals.
+
+<Image align="center" width="35% " src="https://files.readme.io/47c076dffe3d89c693a3fc4aeac5117649dc0a28af5e2b820157f86d7919ed29-Screen_Recording_Jul_28_2025_1.gif" />
+
+### Specifications and Design Guidelines
+
+* Supported on Android 14+ with SDK v7.5.0 or later.
+* Applies only to the Standard push template.
+* For older Android versions or SDKs, CleverTap shows the first frame of the GIF as a static image.
+* Use the recommended aspect ratio for the selected template to avoid cropping or distortion.
+* Keep file size under 1MB for smooth rendering.
+* Opt for looped, visually clear GIFs that work well even if partially cropped.
+
+### Limitations
+
+* Devices running Android 13 and below do not support GIF playback; a static fallback image is shown.
+* Some OEMs may not fully support GIF rendering, even on Android 14 and above.
+* On certain devices, the heads-up notification may display only the first frame, while the full GIF appears when the notification tray is expanded.
+
+#
 
 # Template Variations
 
