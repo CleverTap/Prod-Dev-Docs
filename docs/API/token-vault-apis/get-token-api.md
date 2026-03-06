@@ -1,5 +1,5 @@
 ---
-title: GetToken API
+title: Tokenize API
 excerpt: ''
 deprecated: false
 hidden: false
