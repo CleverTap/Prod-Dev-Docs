@@ -3788,14 +3788,14 @@ To capture the input, the app can get the `pt_input_reply` key from the Intent e
 
 # GIF Support
 
-CleverTap supports GIFs in standard push templates starting with SDK version 7.5.0 on devices running Android 14 or later. This allows you to add animated media to push notifications, enhancing user engagement through dynamic visuals.
+CleverTap supports GIFs in push templates starting with SDK version 7.5.0 on devices running Android 14 or later. This allows you to add animated media to push notifications, enhancing user engagement through dynamic visuals.
 
 <Image align="center" width="35% " src="https://files.readme.io/47c076dffe3d89c693a3fc4aeac5117649dc0a28af5e2b820157f86d7919ed29-Screen_Recording_Jul_28_2025_1.gif" />
 
 ### Specifications and Design Guidelines
 
 * Supported on Android 14+ with SDK v7.5.0 or later.
-* Applies only to the Standard push template.
+* Applies to all push templates.
 * For older Android versions or SDKs, CleverTap shows the first frame of the GIF as a static image.
 * Use the recommended aspect ratio for the selected template to avoid cropping or distortion.
 * Keep file size under 1MB for smooth rendering.
@@ -3806,8 +3806,6 @@ CleverTap supports GIFs in standard push templates starting with SDK version 7.5
 * Devices running Android 13 and below do not support GIF playback; a static fallback image is shown.
 * Some OEMs may not fully support GIF rendering, even on Android 14 and above.
 * On certain devices, the heads-up notification may display only the first frame, while the full GIF appears when the notification tray is expanded.
-
-#
 
 # Template Variations
 
