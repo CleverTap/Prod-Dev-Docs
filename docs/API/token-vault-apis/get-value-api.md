@@ -55,7 +55,7 @@ The following table describes the request fields:
 The following is the sample request for getting PII for a single token:
 
 ```curl
-curl -X POST https://vault-endpoint/ct-vault/api/tokenization/getRawValue \
+curl -X POST https://vault-endpoint/ct-vault/api/v2/detokenize \
   -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{
