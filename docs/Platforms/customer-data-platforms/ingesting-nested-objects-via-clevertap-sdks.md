@@ -21,8 +21,8 @@ Nested object support is available in the CleverTap Android and iOS SDKs, and ca
 
 The following sections demonstrate how to ingest nested objects using the Android and iOS SDKs.
 
-* [Nested Objects For Android SDK](doc:ingesting-nested-objects-via-clevertap-sdk#nested-objects-for-android-sdk)
-* [Nested Objects For iOS SDK](doc:ingesting-nested-objects-via-clevertap-sdk#nested-objects-for-ios-sdk)
+* [Nested Objects For Android SDK](doc:ingesting-nested-objects-via-clevertap-sdks#nested-objects-for-android-sdk)
+* [Nested Objects For iOS SDK](doc:ingesting-nested-objects-via-clevertap-sdks#nested-objects-for-ios-sdk)
 
 # Supported SDK Versions
 
