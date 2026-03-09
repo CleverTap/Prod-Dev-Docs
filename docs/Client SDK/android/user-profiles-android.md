@@ -213,7 +213,11 @@ clevertapDefaultInstance?.pushProfile(profileUpdate)
 >
 > The _Age_ property cannot be set manually via the API. It is automatically calculated from the Date of Birth (DOB) and stored by the system.
 
-CleverTap provides easy ways to enrich the user profile with data from sources, such as Facebook. You can also store custom attributes in a user profile which can be used to segment users later.
+CleverTap provides easy ways to enrich user profiles with data from sources such as Facebook. You can also store custom attributes in a user profile, which can be used to segment users later.
+
+> 📘 Nested Objects Support
+>
+> To update profile properties using nested objects, refer to [Ingesting Nested Objects via CleverTap SDK](https://docs.dev.clevertap.net/docs/ingesting-nested-objects-via-clevertap-sdk).
 
 ### Increment/Decrement Operator in Android
 
