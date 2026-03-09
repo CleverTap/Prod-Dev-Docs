@@ -216,6 +216,25 @@ If the image is not downloaded, the template falls back to the basic template wi
 >
 > The templates also support custom color definitions that adapt to light and dark themes, ensuring visual consistency across modes.
 
+# GIF Support
+
+CleverTap supports GIFs in push templates starting with SDK version 1.2.0 on devices running iOS 10 or later. This allows you to add animated media to push notifications, enhancing user engagement through dynamic visuals.
+
+<Image align="center" border={true} width="35% " src="https://files.readme.io/97fee5e125d68f4efa6fd5c3010686239475d9d79a86a4b53f24972b0772244d-Screen_Recording_2026-03-05_at_4.11.41_PM_1.gif" className="border" />
+
+## Specifications and Design Guidelines
+
+* Supported on iOS-  with SDK v1.2.0 or later.
+* For older iOS versions or SDKs, CleverTap shows the first frame of the GIF as a static image.
+* Use the recommended aspect ratio for the selected template to avoid cropping or distortion.
+* Keep file size under 1MB for smooth rendering.
+* Opt for looped, visually clear GIFs that work well even if partially cropped.
+
+## Limitations
+
+* Devices running iOS 9 and below do not support GIF playback; a static fallback image is shown.
+* Some OEMs may not fully support GIF rendering, even on iOS 10 and later.
+
 ## Use HTML Tags Support in Rich Push Notification Titles and Messages
 
 Starting with v0.3.0, `CTNotificationContent` supports bold, italic, underline, and strikethrough HTML tags in **Title** and **Message** for rich push notifications. This allows you to format text and add visual emphasis to your rich push notifications.
