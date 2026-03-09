@@ -2,6 +2,6 @@
 - rudderstack
 - segment
 - ingesting-nested-objects-via-clevertap-apis
+- ingesting-nested-objects-via-clevertap-sdks
 - scim-user-provisioning-using-api
 - scim-user-provisioning-using-idp
-- ingesting-nested-objects-via-clevertap-sdks
