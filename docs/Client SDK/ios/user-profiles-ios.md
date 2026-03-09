@@ -175,6 +175,10 @@ NSDictionary *profile = @{
 
 CleverTap provides easy ways to enrich the user profile with data from sources, such as Facebook. You can also store custom attributes in a user profile. These attributes can later be used to segment users.
 
+> 📘 Nested Objects Support
+>
+> To update profile properties using nested objects, refer to [Ingesting Nested Objects via CleverTap SDK](https://staging.docs.dev.clevertap.net/docs/ingesting-nested-objects-via-clevertap-sdk).
+
 ## Increment/Decrement Operator in iOS
 
 Increment or decrement a user profile property by using the `profileIncrementValue` or `profileDecrementValue` methods for Clevertap iOS SDK 3.10.0 version and above.
