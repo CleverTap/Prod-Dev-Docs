@@ -3795,7 +3795,6 @@ CleverTap supports GIFs in push templates starting with SDK version 7.5.0 on dev
 ### Specifications and Design Guidelines
 
 * Supported on Android 14+ with SDK v7.5.0 or later.
-* Applies to all push templates.
 * For older Android versions or SDKs, CleverTap shows the first frame of the GIF as a static image.
 * Use the recommended aspect ratio for the selected template to avoid cropping or distortion.
 * Keep file size under 1MB for smooth rendering.
