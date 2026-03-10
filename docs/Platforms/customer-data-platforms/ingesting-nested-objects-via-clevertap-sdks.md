@@ -49,15 +49,19 @@ val shoppingProfile = hashMapOf(
     "recentPurchases" to arrayListOf(
         hashMapOf(
             "item" to "Laptop",
-            "date" to "2024-11-20",
+            "date" to Calendar.getInstance().apply {
+                set(2024, Calendar.NOVEMBER, 20)
+ }.time,
             "amount" to 1299.99
-        ),
+ ),
         hashMapOf(
             "item" to "Headphones",
-            "date" to "2024-11-18",
+            "date" to Calendar.getInstance().apply {
+                set(2024, Calendar.NOVEMBER, 18)
+ }.time,
             "amount" to 199.99
-        )
-    ),
+ )
+ ),
     "wishlist" to arrayListOf("Smart Watch", "Camera", "Desk Chair"),
     "loyaltyPoints" to 2500
 )
