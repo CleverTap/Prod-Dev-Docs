@@ -10,7 +10,7 @@ metadata:
 ---
 # Overview
 
-[Nested objects](https://docs.clevertap.com/docs/nested-objects-for-user-properties-and-custom-event-properties) allow you to group related attributes under a single parent key. This helps structure complex user data, such as preferences, purchase history, and subscription details, into a more organized, readable format.
+[Nested objects](https://docs.clevertap.com/docs/nested-objects-for-user-properties-and-custom-event-properties) allows you to group related attributes under a single parent key. This helps structure complex user data, such as preferences, purchase history, and subscription details, into a more organized, readable format.
 
 For example, instead of storing multiple flat properties such as `favoriteCategory`, `wishlistItems`, and `loyaltyPoints` separately at the profile level, you can group them under a logical parent object such as `ShoppingProfile`. This keeps related attributes organized and makes the data structure easier to read and maintain.
 
