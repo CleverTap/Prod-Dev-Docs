@@ -170,16 +170,20 @@ When setting up a Notify campaign in the CleverTap dashboard, you can personaliz
 For example, to trigger an order confirmation Notify campaign for a specific user profile (with identity `123`) with the order ID, the API request may look like this:
 
 ```curl
-curl -X POST https://api.clevertap.com/v1/notify \
-  -H "Content-Type: application/json" \
-  -H "X-CleverTap-Account-Id: YOUR_ACCOUNT_ID" \
-  -H "X-CleverTap-Passcode: YOUR_PASSCODE" \
-  -d '{
+curl --location 'https://api.clevertap.com/v1/notify' \
+--header 'Content-Type: application/json' \
+--header 'X-CleverTap-Account-Id: YOUR_ACCOUNT_ID' \
+--header 'X-CleverTap-Passcode: YOUR_PASSCODE' \
+--data-raw '{
     "identity": "123",
     "notifyId": "4d06dacc-b52a-4e72-9193-b58c78d5840f",
-    "recipient": { "email": "abc@gmail.com" },
-    "notifyFields": { "order_id": "A1234" }
-  }
+    "recipient": {
+        "email": "abc@gmail.com"
+    },
+    "notifyFields": {
+        "order_id": "A1234"
+    }
+}'
 ```
 
 # Sample Response
