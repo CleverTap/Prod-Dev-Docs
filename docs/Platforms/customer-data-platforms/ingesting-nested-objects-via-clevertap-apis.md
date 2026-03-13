@@ -78,7 +78,11 @@ The following example shows how to send a user profile with multiple insurance p
 In this payload, you can find the following:
 
 * `profileData` contains both standard profile properties and Nested Objects.
-* The `InsuranceDetails.Policy` array is a Nested Object stored inside `profileData`.
+* The `InsuranceDetails.Policy` array is a Nested Object stored inside `profileData`.  
+
+### Pre-Built Profile Update Functions
+
+Pre-built profile update functions are supported with Nested Objects. These include `setMultiValues`, `addMultiValues`, and `removeMultiValues` for multi-value properties, and `profileIncrementValue` and `profileDecrementValue` for numeric updates. However, arrays of objects are currently out of scope for these functions.
 
 ## Send Nested Objects in the Upload Events API
 
