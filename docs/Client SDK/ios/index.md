@@ -34,7 +34,7 @@ Refer to the following table for iOS SDK versions and iOS SDK code sizes:
 
 | SDK                                                           | Version | Code Size |
 | :------------------------------------------------------------ | :------ | :-------- |
-| Core iOS                                                      | 7.5.0   | 1.1 MB    |
+| Core iOS                                                      | 7.5.1   | 1.1 MB    |
 | [Geofence](https://developer.clevertap.com/docs/geofence-ios) | 1.0.6   | 4.6 MB    |
 | CTNotificationService                                         | 0.1.7   | 13.4 KB   |
 | CTNotificationContent                                         | 1.2.0   | 242 KB    |
