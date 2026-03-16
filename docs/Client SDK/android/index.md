@@ -25,6 +25,7 @@ Ensure you have the following prerequisites to start the Android integration:
 
 * For [Android 14](https://developer.android.com/about/versions/14/summary), we recommend using the CleverTap Android SDK v6.1.1 or higher.
 * For [Android 15](https://developer.android.com/about/versions/15/summary), we recommend using the CleverTap Android SDK v7.2.0 or higher.
+* For [Android 16](https://developer.android.com/about/versions/16/summary), we recommend using the CleverTap Android SDK v7.5.0 or higher.
 
 # Android SDK Versions and Size
 
