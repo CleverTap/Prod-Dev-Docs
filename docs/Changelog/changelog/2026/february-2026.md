@@ -11,6 +11,25 @@ We are excited to share the February SDK changelog for our product!
 >
 > Click each SDK header to view the corresponding GitHub repository for release details.
 
+# February 20
+
+## [Android 8.0.0](https://github.com/CleverTap/clevertap-android-sdk/blob/master/docs/CTCORECHANGELOG.md#version-800-february-20-2026)
+
+### What's New
+
+* **Android 16 Support**: Adds support for Android 16, making the SDK compliant with [Android 16 requirements](https://developer.android.com/about/versions/16/summary).
+* **Enhanced Push Delivery Tracking**: Tracks image download failure reasons along with `wzrk_bpds`, providing better insights into push notification delivery issues.
+* **InApp Deep Link Attribution**: Adds deep link URL capture in InApp notification click events, providing consistent attribution with Push notifications. Supports button-level deep links for CTA clicks and template-level deep links for image-only and HTML templates.
+
+### Improvements
+
+* Removes all `printStackTrace` calls across the SDK to address security vulnerability concerns.
+* Moves Install Referrer processing from the main thread to prevent ANRs.
+
+### Bug Fixes
+
+* Fixes a race condition that could cause an Activity `NullPointerException`.
+
 # February 19
 
 ## [CTNotificationContent 1.2.0](https://github.com/CleverTap/CTNotificationContent/releases/tag/1.2.0)
