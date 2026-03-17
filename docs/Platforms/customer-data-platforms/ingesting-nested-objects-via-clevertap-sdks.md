@@ -10,7 +10,7 @@ metadata:
 ---
 # Overview
 
-[Nested Objects](https://docs.clevertap.com/docs/nested-objects) allows you to group related attributes under a single parent key. This helps structure complex user data, such as preferences, purchase history, and subscription details, into a more organized, readable format.
+Nested objects allow you to group related attributes under a single parent key. This helps structure complex user data, such as preferences, purchase history, and subscription details, into a more organized, readable format.
 
 For example, instead of storing multiple flat properties such as `favoriteCategory`, `wishlistItems`, and `loyaltyPoints` separately at the profile level, you can group them under a logical parent object such as `ShoppingProfile`. This keeps related attributes organized and makes the data structure easier to read and maintain.
 
@@ -19,11 +19,6 @@ Nested object support is available in the CleverTap Android and iOS SDKs, and ca
 * User profile updates
 * Event properties
 
-The following sections demonstrate how to ingest nested objects using the Android and iOS SDKs.
-
-* [Nested Objects For Android SDK](doc:ingesting-nested-objects-via-clevertap-sdks#use-nested-objects-with-android-sdk)
-* [Nested Objects For iOS SDK](doc:ingesting-nested-objects-via-clevertap-sdks#use-nested-objects-with-ios-sdk)
-
 # Supported SDK Versions
 
 Nested objects are supported in the following SDK versions:
@@ -31,9 +26,9 @@ Nested objects are supported in the following SDK versions:
 * [CleverTap Android SDK version 7.8.0 and above](https://github.com/CleverTap/clevertap-android-sdk/blob/master/docs/CTCORECHANGELOG.md#version-780-january-22-2026)
 * [CleverTap iOS SDK version 7.5.0 and above](https://github.com/CleverTap/clevertap-ios-sdk/blob/master/CHANGELOG.md#version-750-february-9-2026)
 
-# Use Nested Objects with Android SDK
+# Use Nested Objects with Android and iOS SDKs
 
-This section explains how to use nested objects with the CleverTap Android SDK.
+This section explains how to use nested objects with the CleverTap Android and iOS SDKs.
 
 ## Create User Profile with Nested Objects
 
@@ -43,7 +38,7 @@ You can send nested objects when creating or updating a user profile.
 
 The following example shows how to send a nested `ShoppingProfile` object using `onUserLogin()`.
 
-```kotlin
+```kotlin Kotlin (Android)
 val shoppingProfile = hashMapOf(
     "favoriteCategories" to arrayListOf("Electronics", "Fashion", "Home"),
     "recentPurchases" to arrayListOf(
@@ -73,6 +68,79 @@ val profileUpdate = hashMapOf<String, Any>(
 
 cleverTapAPI?.onUserLogin(profileUpdate)
 ```
+```swift Swift (iOS)
+let shoppingProfile: [String: Any] = [
+    "favoriteCategories": ["Electronics", "Fashion", "Home"],
+    "recentPurchases": [
+        ["item": "Laptop", "date": "2024-11-20", "amount": 1299.99],
+        ["item": "Headphones", "date": "2024-11-18", "amount": 199.99]
+    ],
+    "wishlist": ["Smart Watch", "Camera", "Desk Chair"],
+    "loyaltyPoints": 2500
+]
+
+let profileUpdate: [String: Any] = [
+    "Identity": "USER_12345",
+    "ShoppingProfile": shoppingProfile
+]
+
+CleverTap.sharedInstance()?.onUserLogin(profileUpdate as [String: AnyObject])
+```
+```javascript Dart (Flutter)
+var time1 = DateTime(2024, 11, 20);
+var time2 = DateTime(2024, 11, 18);
+
+var profileUpdate = {
+  'Identity': 'USER_12345',
+  'ShoppingProfile': {
+    'favoriteCategories': ['Electronics', 'Fashion', 'Home'],
+    'recentPurchases': [
+      {
+        'item': 'Laptop',
+        'date': CleverTapPlugin.getCleverTapDate(time1),
+        'amount': 1299.99
+      },
+      {
+        'item': 'Headphones',
+        'date': CleverTapPlugin.getCleverTapDate(time2),
+        'amount': 199.99
+      }
+    ],
+    'wishlist': ['Smart Watch', 'Camera', 'Desk Chair'],
+    'loyaltyPoints': 2500
+  }
+};
+
+CleverTapPlugin.onUserLogin(profileUpdate);
+```
+```javascript JavaScript (React Native)
+const profile = {
+  Identity: 'USER_12345',
+
+  ShoppingProfile: {
+    favoriteCategories: ['Electronics', 'Fashion', 'Home'],
+
+    recentPurchases: [
+      {
+        item: 'Laptop',
+        date: new Date(2024, 10, 20).getTime() + '',
+        amount: 1299.99
+      },
+      {
+        item: 'Headphones',
+        date: new Date(2024, 10, 18).getTime() + '',
+        amount: 199.99
+      }
+    ],
+
+    wishlist: ['Smart Watch', 'Camera', 'Desk Chair'],
+
+    loyaltyPoints: 2500
+  }
+};
+
+CleverTap.onUserLogin(profile);
+```
 
 ## Update Nested Objects in User Profile
 
@@ -80,7 +148,7 @@ After a user logs in, you can update nested profile properties using `pushProfil
 
 The following example updates values inside the nested `ShoppingProfile` object in the user profile:
 
-```kotlin
+```kotlin Kotlin (Android)
 val updatedShoppingProfile = hashMapOf<String, Any>(
     "preferences" to hashMapOf(
         "wishlist" to arrayListOf(
@@ -102,6 +170,60 @@ val profileUpdate = hashMapOf<String, Any>(
 
 cleverTapAPI?.pushProfile(profileUpdate)
 ```
+```swift Swift (iOS)
+let updatedShoppingProfile: [String: Any] = [
+    "loyaltyPoints": 3000,
+    "wishlist": ["Camera", "Desk Chair", "Gaming Mouse"]
+]
+
+let profileUpdate: [String: Any] = [
+    "ShoppingProfile": updatedShoppingProfile
+]
+
+CleverTap.sharedInstance()?.profilePush(profileUpdate)
+```
+```javascript Dart (Flutter)
+final updatedShoppingProfile = {
+  'preferences': {
+    'wishlist': [
+      'Camera',
+      'Desk Chair',
+      'Gaming Mouse'
+    ]
+  },
+  'account': {
+    'rewards': {
+      'loyaltyPoints': 3000
+    }
+  }
+};
+
+final profileUpdate = {
+  'ShoppingProfile': updatedShoppingProfile
+};
+
+CleverTapPlugin.profileSet(profileUpdate);
+```
+```javascript JavaScript (React Native)
+const profileUpdate = {
+  ShoppingProfile: {
+    preferences: {
+      wishlist: [
+        'Camera',
+        'Desk Chair',
+        'Gaming Mouse'
+      ]
+    },
+    account: {
+      rewards: {
+        loyaltyPoints: 3000
+      }
+    }
+  }
+};
+
+CleverTap.profileSet(profileUpdate);
+```
 
 ## Send Nested Objects with Events
 
@@ -109,7 +231,7 @@ You can pass nested objects as event properties using `pushEvent()`.
 
 The following example sends a nested `ShoppingProfile` object as part of an event.
 
-```kotlin
+```kotlin Kotlin (Android)
 val eventProps = hashMapOf<String, Any>(
     "ShoppingProfile" to hashMapOf(
         "preferences" to hashMapOf(
@@ -130,63 +252,7 @@ val eventProps = hashMapOf<String, Any>(
 
 cleverTapAPI?.pushEvent("ProfileUpdated", eventProps)
 ```
-
-## Increment or Decrement Nested Object Values
-
-You can increment or decrement numeric values inside nested objects using dot notation keys.
-
-The following example increments the `amount` value of the second item in the `recentPurchases` array.
-
-```kotlin
-cleverTapAPI?.incrementValue(
-    "ShoppingProfile.recentPurchases[1].amount",
-    50
-)
-```
-
-Only numeric fields of type `Integer`, `Float`, or `Double` are supported.
-
-The following code decrements the `amount` value of the second item in the `recentPurchases` array.
-
-```kotlin
-cleverTapAPI?.decrementValue(
-  "ShoppingProfile.recentPurchases[1].amount",
-  50
-)
-```
-
-# Use Nested Objects with iOS SDK
-
-This section describes the use of nested objects in the CleverTap iOS SDK.
-
-## Create User Profile with Nested Objects
-
-Use onUserLogin() to set profile properties, including nested objects, when a user logs in.
-
-```swift
-let shoppingProfile: [String: Any] = [
-    "favoriteCategories": ["Electronics", "Fashion", "Home"],
-    "recentPurchases": [
-        ["item": "Laptop", "date": "2024-11-20", "amount": 1299.99],
-        ["item": "Headphones", "date": "2024-11-18", "amount": 199.99]
-    ],
-    "wishlist": ["Smart Watch", "Camera", "Desk Chair"],
-    "loyaltyPoints": 2500
-]
-
-let profileUpdate: [String: Any] = [
-    "Identity": "USER_12345",
-    "ShoppingProfile": shoppingProfile
-]
-
-CleverTap.sharedInstance()?.onUserLogin(profileUpdate as [String: AnyObject])
-```
-
-## Send Nested Objects with Events (iOS)
-
-You can include nested objects as event properties using `recordEvent()`.
-
-```swift
+```swift Swift (iOS)
 let eventProps: [String: Any] = [
     "ShoppingProfile": shoppingProfile,
     "source": "app"
@@ -194,27 +260,52 @@ let eventProps: [String: Any] = [
 
 CleverTap.sharedInstance()?.recordEvent("ProfileUpdated", withProps: eventProps)
 ```
+```javascript Dart (Flutter)
+final eventProps = {
+  'ShoppingProfile': {
+    'preferences': {
+      'wishlist': [
+        'Camera',
+        'Desk Chair',
+        'Gaming Mouse'
+      ]
+    },
+    'account': {
+      'rewards': {
+        'loyaltyPoints': 3000
+      }
+    }
+  },
+  'source': 'app'
+};
 
-## Update Nested Objects in User Profile
+CleverTapPlugin.recordEvent('ProfileUpdated', eventProps);
+```
+```javascript JavaScript (React Native)
+const eventProps = {
+  ShoppingProfile: {
+    preferences: {
+      wishlist: [
+        'Camera',
+        'Desk Chair',
+        'Gaming Mouse'
+      ]
+    },
+    account: {
+      rewards: {
+        loyaltyPoints: 3000
+      }
+    }
+  },
+  source: 'app'
+};
 
-After a user logs in, you can update nested profile properties using `profilePush()`.
-
-```swift
-let updatedShoppingProfile: [String: Any] = [
-    "loyaltyPoints": 3000,
-    "wishlist": ["Camera", "Desk Chair", "Gaming Mouse"]
-]
-
-let profileUpdate: [String: Any] = [
-    "ShoppingProfile": updatedShoppingProfile
-]
-
-CleverTap.sharedInstance()?.profilePush(profileUpdate)
+CleverTap.recordEvent('ProfileUpdated', eventProps);
 ```
 
 ## Increment or Decrement Nested Object Values
 
-You can increment or decrement numeric values inside nested objects using dot-notation keys.
+You can increment or decrement numeric values inside nested objects using dot notation keys.
 
 ### Dot Notation Rules
 
@@ -222,20 +313,84 @@ You can increment or decrement numeric values inside nested objects using dot-no
 * Use array index notation `[index]` to access array elements.
 * Only numeric fields of type `Integer`, `Float`, or `Double` are supported.
 
-#### Example: Increment Nested Value
+The following example increments the `amount` value of the second item in the `recentPurchases` array.
 
-The following code increases the `amount` value of the item at index `[1]` (the second item) in the `recentPurchases` array by 500:
-
-```swift
+```kotlin Kotlin (Android)
+cleverTapAPI?.incrementValue(
+    "ShoppingProfile.recentPurchases[1].amount",
+    50
+)
+```
+```swift Swift (iOS)
 CleverTap.sharedInstance()?.profileIncrementValue(by: NSNumber(value: 500), forKey: "ShoppingProfile.recentPurchases[1].amount")
 ```
+```javascript Dart (Flutter)
+CleverTapPlugin.profileIncrementValue(
+  'ShoppingProfile.recentPurchases[1].amount',
+  50,
+);
+```
+```javascript JavaScript (React Native)
+CleverTap.profileIncrementValueForKey(
+  'ShoppingProfile.recentPurchases[1].amount',
+  50
+);
+```
 
-#### Example: Decrement Nested Value
+Only numeric fields of type `Integer`, `Float`, or `Double` are supported.
 
-The following code decreases the `amount` value of the item at index `[1]` (the second item) in the `recentPurchases` array by `50`:
+The following code decrements the `amount` value of the second item in the `recentPurchases` array.
 
-```swift
+```kotlin Kotlin (Android)
+cleverTapAPI?.decrementValue(
+  "ShoppingProfile.recentPurchases[1].amount",
+  50
+)
+```
+```swift Swift (iOS)
 CleverTap.sharedInstance()?.profileDecrementValue(by: NSNumber(value: 50), forKey: "ShoppingProfile.recentPurchases[1].amount")
+```
+```javascript Dart (Flutter)
+CleverTapPlugin.profileDecrementValue(
+  'ShoppingProfile.recentPurchases[1].amount',
+  50,
+);
+```
+```javascript JavaScript (React Native)
+CleverTap.profileDecrementValueForKey(
+  'ShoppingProfile.recentPurchases[1].amount',
+  50
+);
+```
+
+# Remove Value For Key
+
+The `removeValueForKey` method removes the entire key-value pair associated with the specified key.
+
+<Callout icon="📘" theme="info">
+  `removeValueForKey` can only be used to remove terminal (leaf) values, not keys that contain nested objects or child values.
+</Callout>
+
+The following code removes the value for the key:
+
+```kotlin Kotlin (Android)
+cleverTapAPI?.removeValueForKey(
+    "ShoppingProfile.recentPurchases[1].amount"
+)
+```
+```swift Swift (iOS)
+CleverTap.sharedInstance()?.profileRemoveValue(forKey: 
+"ShoppingProfile.recentPurchases[1].amount"
+```
+```javascript Dart (Flutter)
+CleverTapPlugin.profileRemoveValueForKey(
+  'ShoppingProfile.recentPurchases[1].amount'
+);
+```
+```javascript JavaScript (React Native)
+CleverTap.profileRemoveValueForKey(
+  'ShoppingProfile.recentPurchases[1].amount'
+);
 ```
 
 # Validation Rules for Nested Objects
