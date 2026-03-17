@@ -110,7 +110,7 @@ Each `bulk_profiles` entry updates multiple user profiles and assigns them to sp
 
 # Request Limit
 
-For information on rate limits for Update Segment API, refer to [API Request Limit](doc:api-request-limit#concurrent-request-limits-for-apis).
+For information on request limits for Update Segment API, refer to [API Request Limit](doc:api-request-limit#concurrent-request-limits-for-apis).
 
 # Errors
 
