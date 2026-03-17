@@ -51,7 +51,7 @@ next:
 
 A user event is an action a user takes in your mobile application. CleverTap records the event on the user profile using an event name and optional associated key:value-based event properties. You can then segment users, target, and personalize messaging based on the event name and specific event properties.
 
-Below is an example of recording a user event called *Product Viewed*: 
+Below is an example of recording a user event called _Product Viewed_:
 
 ```java JAVA
 // event without properties
@@ -62,7 +62,7 @@ cleverTap.pushEvent("Product viewed");
 clevertapDefaultInstance?.pushEvent("Product viewed")
 ```
 
-To record a list of items viewed, use the Items collection. Along with the product name, you can also add properties like size, color, category etc.  An example of recording a *Product Viewed* user event with properties is shown as follows:
+To record a list of items viewed, use the Items collection. Along with the product name, you can also add properties like size, color, category etc.  An example of recording a _Product Viewed_ user event with properties is shown as follows:
 
 ```java JAVA
 // event with properties
@@ -107,7 +107,11 @@ clevertapDefaultInstance?.pushEvent("Product viewed", prodViewedAction)
 */
 ```
 
-Events help you understand how your users interact with your app. CleverTap tracks certain common user events automatically while giving you the flexibility to record business-specific events.
+Events help you understand how your users interact with your app. CleverTap automatically tracks common user events while giving you the flexibility to record business-specific events.
+
+> 📘 Nested Objects Support
+>
+> To update profile properties using nested objects, refer to [Ingesting Nested Objects via CleverTap SDK](https://staging.docs.dev.clevertap.net/docs/ingesting-nested-objects-via-clevertap-sdk).
 
 ## Recording Customer Purchases
 
@@ -115,13 +119,13 @@ You should record transactions or purchases in CleverTap using a special event c
 
 ### Charged Special Event
 
-Charged is a special event as it lets you record key details, including items sold, categories, transaction amount, transaction ID, and user information. 
+Charged is a special event as it lets you record key details, including items sold, categories, transaction amount, transaction ID, and user information.
 
 Recording a purchase identifies a user as a customer in CleverTap, letting you compare funnel reports between customers and non-customers.
 
 ### Recording Items Sold
 
-You should use the items collection to record a list of items sold. In addition to the product name, you can add properties like size, color, category, and so on. 
+You should use the items collection to record a list of items sold. In addition to the product name, you can add properties like size, color, category, and so on.
 
 ### Recording the Transaction Amount
 
@@ -187,7 +191,7 @@ cleverTapAPI.recordScreen("Home")
 
 ## Record Errors
 
- Internally records an *Error Occurred* event, which can be viewed in the dashboard.
+Internally records an _Error Occurred_ event, which can be viewed in the dashboard.
 
 ```java
 cleverTapAPI.pushError("Payments Api Failed",501)
