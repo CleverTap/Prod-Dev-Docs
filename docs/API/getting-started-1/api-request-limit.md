@@ -18,7 +18,7 @@ When interacting with CleverTap APIs, you might need to perform several operatio
 
 Here is a practical example to help you understand concurrent requests:
 
-**Uploading Device Tokens:**&#x53;uppose you have a batch of device tokens to upload. The concurrent request limit for this operation is 15, meaning you can send up to 15 upload requests at the same time. If you exceed this limit, the system rejects the extra requests, and you receive an **HTTP 429** error with the message *Too many concurrent requests*.
+**Uploading Device Tokens:**Suppose you have a batch of device tokens to upload. The concurrent request limit for this operation is 15, meaning you can send up to 15 upload requests at the same time. If you exceed this limit, the system rejects the extra requests, and you receive an **HTTP 429** error with the message _Too many concurrent requests_.
 
 # Importance of Concurrent Request Limits
 
@@ -46,9 +46,6 @@ The following table lists the maximum number of concurrent requests allowed per 
       <th>
         Maximum
 
-
-
-
         Concurrent Requests
       </th>
     </tr>
@@ -57,7 +54,7 @@ The following table lists the maximum number of concurrent requests allowed per 
   <tbody>
     <tr>
       <td>
-        [Catalog API](doc:catalog-api-endpoints) 
+        [Catalog API](doc:catalog-api-endpoints)
       </td>
 
       <td>
@@ -67,7 +64,7 @@ The following table lists the maximum number of concurrent requests allowed per 
 
     <tr>
       <td>
-        [Create Campaign](doc:get-campaigns-api) 
+        [Create Campaign](doc:get-campaigns-api)
       </td>
 
       <td>
@@ -77,7 +74,7 @@ The following table lists the maximum number of concurrent requests allowed per 
 
     <tr>
       <td>
-        [Custom List API](doc:custom-list-endpoints) 
+        [Create Segment](doc:create-segment-api)
       </td>
 
       <td>
@@ -87,7 +84,7 @@ The following table lists the maximum number of concurrent requests allowed per 
 
     <tr>
       <td>
-        [Delete User Profile](doc:delete-user-profile-api) 
+        [Update Segment](doc:update-segment-api)
       </td>
 
       <td>
@@ -97,7 +94,7 @@ The following table lists the maximum number of concurrent requests allowed per 
 
     <tr>
       <td>
-        [Demerge User Profile](doc:demerge-user-profile-api) 
+        [Custom List API](doc:custom-list-endpoints)
       </td>
 
       <td>
@@ -107,7 +104,7 @@ The following table lists the maximum number of concurrent requests allowed per 
 
     <tr>
       <td>
-        [External Trigger API](https://developer.clevertap.com/docs/external-trigger-api) 
+        [Delete User Profile](doc:delete-user-profile-api)
       </td>
 
       <td>
@@ -117,7 +114,7 @@ The following table lists the maximum number of concurrent requests allowed per 
 
     <tr>
       <td>
-        [Get Campaign Report](doc:get-campaign-report-api) 
+        [Demerge User Profile](doc:demerge-user-profile-api)
       </td>
 
       <td>
@@ -127,7 +124,7 @@ The following table lists the maximum number of concurrent requests allowed per 
 
     <tr>
       <td>
-        [Get Campaigns](doc:get-campaigns-api) 
+        [External Trigger API](https://developer.clevertap.com/docs/external-trigger-api)
       </td>
 
       <td>
@@ -137,7 +134,7 @@ The following table lists the maximum number of concurrent requests allowed per 
 
     <tr>
       <td>
-        [Get Event Count](doc:get-event-count-api) 
+        [Get Campaign Report](doc:get-campaign-report-api)
       </td>
 
       <td>
@@ -147,7 +144,7 @@ The following table lists the maximum number of concurrent requests allowed per 
 
     <tr>
       <td>
-        [Get Events](doc:get-events-api) 
+        [Get Campaigns](doc:get-campaigns-api)
       </td>
 
       <td>
@@ -157,7 +154,7 @@ The following table lists the maximum number of concurrent requests allowed per 
 
     <tr>
       <td>
-        [Get Message Reports](doc:get-message-reports-api) 
+        [Get Event Count](doc:get-event-count-api)
       </td>
 
       <td>
@@ -167,7 +164,7 @@ The following table lists the maximum number of concurrent requests allowed per 
 
     <tr>
       <td>
-        [Get Profile Count](doc:get-profile-count-api) 
+        [Get Events](doc:get-events-api)
       </td>
 
       <td>
@@ -177,7 +174,7 @@ The following table lists the maximum number of concurrent requests allowed per 
 
     <tr>
       <td>
-        [Get User Profiles](doc:get-user-profiles-api) 
+        [Get Message Reports](doc:get-message-reports-api)
       </td>
 
       <td>
@@ -187,7 +184,7 @@ The following table lists the maximum number of concurrent requests allowed per 
 
     <tr>
       <td>
-        [Raise a Bulletin](doc:bulletins-api) 
+        [Get Profile Count](doc:get-profile-count-api)
       </td>
 
       <td>
@@ -197,7 +194,7 @@ The following table lists the maximum number of concurrent requests allowed per 
 
     <tr>
       <td>
-        [Real-Time Counts](doc:real-time-counts-api) 
+        [Get User Profiles](doc:get-user-profiles-api)
       </td>
 
       <td>
@@ -207,7 +204,7 @@ The following table lists the maximum number of concurrent requests allowed per 
 
     <tr>
       <td>
-        [Stop Scheduled Campaign](doc:stop-campaign-api) 
+        [Raise a Bulletin](doc:bulletins-api)
       </td>
 
       <td>
@@ -217,7 +214,7 @@ The following table lists the maximum number of concurrent requests allowed per 
 
     <tr>
       <td>
-        [Top Property Counts](doc:top-property-counts-api) 
+        [Real-Time Counts](doc:real-time-counts-api)
       </td>
 
       <td>
@@ -227,7 +224,7 @@ The following table lists the maximum number of concurrent requests allowed per 
 
     <tr>
       <td>
-        [Trends](doc:trends-api) 
+        [Stop Scheduled Campaign](doc:stop-campaign-api)
       </td>
 
       <td>
@@ -237,7 +234,27 @@ The following table lists the maximum number of concurrent requests allowed per 
 
     <tr>
       <td>
-        [Upload Device Tokens](doc:upload-device-tokens-api) 
+        [Top Property Counts](doc:top-property-counts-api)
+      </td>
+
+      <td>
+        3
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        [Trends](doc:trends-api)
+      </td>
+
+      <td>
+        3
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        [Upload Device Tokens](doc:upload-device-tokens-api)
       </td>
 
       <td>
@@ -247,7 +264,7 @@ The following table lists the maximum number of concurrent requests allowed per 
 
     <tr>
       <td>
-        [Upload Events](doc:upload-events-api) 
+        [Upload Events](doc:upload-events-api)
       </td>
 
       <td>
@@ -257,7 +274,7 @@ The following table lists the maximum number of concurrent requests allowed per 
 
     <tr>
       <td>
-        [Upload User Profiles](doc:upload-user-profiles-api) 
+        [Upload User Profiles](doc:upload-user-profiles-api)
       </td>
 
       <td>
