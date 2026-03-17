@@ -108,9 +108,13 @@ Each `bulk_profiles` entry updates multiple user profiles and assigns them to sp
 }
 ```
 
+# Request Limit
+
+For information on rate limits for Update Segment API, refer to [API Request Limit](doc:api-request-limit#concurrent-request-limits-for-apis).
+
 # Errors
 
-The following are the API errors that you may receive upon failure requests of the Update Segments API:
+The following are the API errors that you may receive upon failed requests of the Update Segments API:
 
 | Error Codes | Error Case                                | Error Description                                                                           |
 | :---------- | :---------------------------------------- | ------------------------------------------------------------------------------------------- |
