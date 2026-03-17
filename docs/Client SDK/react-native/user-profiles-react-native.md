@@ -18,14 +18,14 @@ CleverTap stores the user's demographic data (gender, age, location), app and we
 
 A user profile is automatically created for every user launching your mobile application – whether logged in or not.
 
-Initially, the user profile starts as *Anonymous*, meaning that the profile does not yet contain identifiable information about the user. You can enrich the profile with attributes such as name, age, and customer id.
+Initially, the user profile starts as _Anonymous_, meaning that the profile does not yet contain identifiable information about the user. You can enrich the profile with attributes such as name, age, and customer id.
 
 CleverTap provides pre-defined profile properties such as name, phone, gender, age, and so on to represent well-known properties associated with a profile. It is strongly recommended to use these standard property names. A list of all pre-defined property names is available in the below code snippet. In addition, we also support arbitrary single and multi-value profile properties.
 
 To send user profile information to CleverTap using our React Native SDK:
 
 1. Create an object with the profile properties.
-2. Call the SDK's `onUserLogin` method and pass the stringified object created in *step 1*.
+2. Call the SDK's `onUserLogin` method and pass the stringified object created in _step 1_.
 
 ```javascript
 // Each of the following fields are optional.
@@ -78,6 +78,10 @@ var props = {
 
 CleverTap.profileSet(props)
 ```
+
+> 📘 Nested Objects Support
+>
+> To update profile properties using nested objects, refer to [Ingesting Nested Objects via CleverTap SDK](https://staging.docs.dev.clevertap.net/docs/ingesting-nested-objects-via-clevertap-sdk).
 
 ## Set Multi Values For Key
 
