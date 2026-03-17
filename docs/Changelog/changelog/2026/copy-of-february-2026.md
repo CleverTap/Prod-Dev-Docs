@@ -25,4 +25,21 @@ Supports [CleverTap iOS SDK v7.5.1](https://github.com/CleverTap/clevertap-ios-s
 
 * Fixes a bug where `onUserLogin` was creating additional GUIDs only for encryption level high.
 
-<br />
+# March 2
+
+## [Flutter 3.8.0](https://github.com/CleverTap/clevertap-flutter/releases/tag/3.8.0) / [React Native 3.9.0](https://github.com/CleverTap/clevertap-react-native/releases/tag/3.9.0)
+
+### Android
+
+Supports CleverTap Android SDK v7.8.0.
+
+### iOS
+
+Supports CleverTap iOS SDK v7.5.0.
+
+### Both Android and iOS
+
+#### What's new
+
+* Adds support for in-action In-App notifications. This server-side feature allows triggering In-App notifications to users who do not perform specific actions within a defined timeframe.
+* Adds support for nested object ingestion in event and profile properties, enabling structured data modeling. This enables more granular segmentation, improved personalization, and deeper analytics of complex user behavior.
