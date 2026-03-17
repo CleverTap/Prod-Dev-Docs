@@ -90,6 +90,10 @@ The request body contains an array of customer segments, each defined by a `segm
 }
 ```
 
+# Request Limit
+
+For information on request limit for Create Segment API, refer to [API Request Limit](doc:api-request-limit#concurrent-request-limits-for-apis).
+
 # Errors
 
 The following are the API errors that you may encounter upon failure requests of the Create Segments API:
