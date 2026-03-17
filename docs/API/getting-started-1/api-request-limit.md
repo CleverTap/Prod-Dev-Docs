@@ -18,7 +18,7 @@ When interacting with CleverTap APIs, you might need to perform several operatio
 
 Here is a practical example to help you understand concurrent requests:
 
-**Uploading Device Tokens:**Suppose you have a batch of device tokens to upload. The concurrent request limit for this operation is 15, meaning you can send up to 15 upload requests at the same time. If you exceed this limit, the system rejects the extra requests, and you receive an **HTTP 429** error with the message _Too many concurrent requests_.
+**Uploading Device Tokens:** Suppose you have a batch of device tokens to upload. The concurrent request limit for this operation is 15, meaning you can send up to 15 upload requests at the same time. If you exceed this limit, the system rejects the extra requests, and you receive an **HTTP 429** error with the message _Too many concurrent requests_.
 
 # Importance of Concurrent Request Limits
 
