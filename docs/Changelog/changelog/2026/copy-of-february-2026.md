@@ -11,11 +11,25 @@ We are excited to share the March SDK changelog for our product!
 >
 > Click each SDK header to view the corresponding GitHub repository for release details.
 
-# March 4
+# March 17
+
+## [React Native 4.0.0](https://github.com/CleverTap/clevertap-react-native/blob/master/CHANGELOG.md#version-400-march-17-2026)
+
+### Android
+
+Supports CleverTap Android SDK v8.0.0.
 
 ### iOS
 
-Supports [CleverTap iOS SDK v7.5.1](https://github.com/CleverTap/clevertap-ios-sdk/blob/master/CHANGELOG.md#version-751-march-4-2026).
+Supports CleverTap iOS SDK v7.5.1.
+
+#### Bug Fixes
+
+* Fixes a bug where `CleverTapInAppNotificationShowed` was not called.
+
+# March 4
+
+## [iOS 7.5.1](https://github.com/CleverTap/clevertap-ios-sdk/blob/master/CHANGELOG.md#version-751-march-4-2026).
 
 **What's new**
 
