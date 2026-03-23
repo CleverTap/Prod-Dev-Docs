@@ -129,6 +129,11 @@ The following table lists the IP ranges for your data center regions to enable s
       </td>
 
       <td>
+        `54.220.234.102`
+        `63.32.150.50`
+        `52.208.167.14`
+        `54.75.186.7`
+        `99.80.174.40`
         `3.28.244.243`  
         `3.28.170.94`  
         `3.28.217.95`  
@@ -146,7 +151,7 @@ For more information on data center regions, refer to [Configuration Guide for C
 
 ### Q. Is CleverTap adding new IPs to the existing list?
 
-No. Our IPs range has remained unchanged since November 15, 2021.
+No. Our IP range has remained unchanged since November 15, 2021.
 
 ### Q. I have already whitelisted all the IPs recommended by CleverTap. Do I need to check again?
 
