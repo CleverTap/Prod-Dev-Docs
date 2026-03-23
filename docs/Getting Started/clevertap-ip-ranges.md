@@ -129,10 +129,10 @@ The following table lists the IP ranges for your data center regions to enable s
       </td>
 
       <td>
-        `54.220.234.102`
-        `63.32.150.50`
-        `52.208.167.14`
-        `54.75.186.7`
+        `54.220.234.102`   
+        `63.32.150.50`  
+        `52.208.167.14`  
+        `54.75.186.7`  
         `99.80.174.40`
       </td>
     </tr>
