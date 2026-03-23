@@ -134,12 +134,6 @@ The following table lists the IP ranges for your data center regions to enable s
         `52.208.167.14`
         `54.75.186.7`
         `99.80.174.40`
-        `3.28.244.243`  
-        `3.28.170.94`  
-        `3.28.217.95`  
-        `3.28.209.115`  
-        `3.28.22.190`  
-        `3.28.255.96/27` including `3.28.255.97` and `3.28.255.126`
       </td>
     </tr>
   </tbody>
