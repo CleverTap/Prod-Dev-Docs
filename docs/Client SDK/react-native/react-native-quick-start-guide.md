@@ -28,11 +28,11 @@ next:
 ---
 # Overview
 
-This document outlines the installation, setup, and testing of your React Native application.  
+This document outlines the installation, setup, and testing of your React Native application.
 
 > 📘 React Native New Architecture Support
 >
-> Starting from [clevertap-react-native v3.0.0](https://www.npmjs.com/package/clevertap-react-native), CleverTap supports the [React Native New Architecture](https://reactnative.dev/docs/the-new-architecture/landing-page), while still maintaining compatibility with the old architecture. 
+> Starting from [clevertap-react-native v3.0.0](https://www.npmjs.com/package/clevertap-react-native), CleverTap supports the [React Native New Architecture](https://reactnative.dev/docs/the-new-architecture/landing-page), while still maintaining compatibility with the old architecture.
 >
 > To know more about the New Architecture and how to enable it in your app, refer to the [React Native Official Guide](https://github.com/reactwg/react-native-new-architecture/blob/main/docs/enable-apps.md).
 >
@@ -90,7 +90,7 @@ Add the following snippet in the `AndroidManifest.xml` file so the CleverTap SDK
 
 ```groovy
 dependencies {
-            classpath 'com.android.tools.build:gradle:7.2.1'
+            classpath 'com.android.tools.build:gradle:8.0.0'
             classpath 'com.google.gms:google-services:4.3.3' //<--- Mandatory for using Firebase Messaging, skip if not using FCM
         }
 ```
@@ -328,22 +328,18 @@ To associate your iOS app with your CleverTap account, you need to add your Clev
 
 1. Go to the `Info` file from your project navigator.
 
-<Image alt="Information Property List in Info" align="center" width="75% " border={true} src="https://files.readme.io/369c9426ff6da75e285b1417f9b873bd7fe7bc5522a8c5a68897b2cfc6f8ef03-image.png">
-  Information Property List in Info
-</Image>
+<Image align="center" alt="Information Property List in Info" border={true} caption="Information Property List in Info" src="https://files.readme.io/369c9426ff6da75e285b1417f9b873bd7fe7bc5522a8c5a68897b2cfc6f8ef03-image.png" width="75% " />
 
-2. Create a key called `CleverTapAccountID` of type *String*. 
-3. Create a key called `CleverTapToken` of type *String*.
-4. Insert the *Project ID* and account *Project Token* values from your [CleverTap account](https://eu1.dashboard.clevertap.com). These values are available under the *Settings* page.
+2. Create a key called `CleverTapAccountID` of type _String_.
+3. Create a key called `CleverTapToken` of type _String_.
+4. Insert the _Project ID_ and account _Project Token_ values from your [CleverTap account](https://eu1.dashboard.clevertap.com). These values are available under the _Settings_ page.
 
 > 🚧 Credentials and Access
 >
-> The `CleverTapAccountId` and `CleverTapToken` are available as *Project ID* and *Project Token* respectively on the CleverTap dashboard.\
-> Member and Creator roles in the project don’t have access to view the *Passcode* and *Project Token* of the account on the dashboard.
+> The `CleverTapAccountId` and `CleverTapToken` are available as _Project ID_ and _Project Token_ respectively on the CleverTap dashboard.  
+> Member and Creator roles in the project don’t have access to view the _Passcode_ and _Project Token_ of the account on the dashboard.
 
-<Image alt="CleverTap Project Credentials" align="center" width="75% " border={true} src="https://files.readme.io/d94b29494952222e470323189c78cbf1b06c801762290adef237ca419581e759-image.png">
-  CleverTap Project Credentials
-</Image>
+<Image align="center" alt="CleverTap Project Credentials" border={true} caption="CleverTap Project Credentials" src="https://files.readme.io/d94b29494952222e470323189c78cbf1b06c801762290adef237ca419581e759-image.png" width="75% " />
 
 ## Add Region Code
 
