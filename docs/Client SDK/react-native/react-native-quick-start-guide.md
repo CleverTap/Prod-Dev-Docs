@@ -102,7 +102,7 @@ dependencies {
 > Starting from CleverTap React Native SDK v3.0.0, CleverTap now supports [AndroidX Media3](https://developer.android.com/media/media3/exoplayer/migration-guide), replacing the deprecated ExoPlayer libraries. CleverTap continues to support [ExoPlayer](https://github.com/google/ExoPlayer), but for a smoother migration to AndroidX Media3, update the following dependencies:
 
 ```groovy Dependencies with AndroidX Media3
-implementation 'com.clevertap.android:clevertap-android-sdk:7.0.2'
+implementation 'com.clevertap.android:clevertap-android-sdk:8.0.0'
 implementation 'com.google.firebase:firebase-messaging:23.0.6'
 implementation 'androidx.core:core:1.4.0'
 implementation 'androidx.fragment:fragment:1.3.6'
@@ -124,7 +124,7 @@ implementation "androidx.media3:media3-exoplayer-hls:1.1.1"
 implementation "androidx.media3:media3-ui:1.1.1"
 ```
 ```groovy Dependencies with Exoplayer Libraries
-implementation 'com.clevertap.android:clevertap-android-sdk:7.0.2'
+implementation 'com.clevertap.android:clevertap-android-sdk:8.0.0'
 implementation 'com.google.firebase:firebase-messaging:23.0.6'
 implementation 'androidx.core:core:1.4.0'
 implementation 'androidx.fragment:fragment:1.3.6'
