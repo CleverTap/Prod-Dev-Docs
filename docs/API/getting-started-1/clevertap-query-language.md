@@ -10,19 +10,21 @@ metadata:
 next:
   description: ''
 ---
-The CleverTap Query Language (CQL) can be used to analyze all your event data, identify groups of users, and also target them using our APIs. 
+# Overview
+
+The CleverTap Query Language (CQL) can be used to analyze all your event data, identify user groups, and target them using our APIs.
 
 CQL can be used with:
 
 * The [Get User Profiles](doc:get-user-profiles-api), [Get Events](doc:get-events-api), and [Get Profile Count APIs](doc:get-profile-count-api) to obtain raw data.
 * The [Report APIs](doc:report-object) to obtain dashboard counts for events, profiles, properties, and trends.
-* The [Create Campaign API](doc:create-campaign-api) to target these users through push and email messages.
+* The [Create Campaign API](doc:create-campaign-api) to target these users with push and email messages.
 
 # Query Language Template
 
-CQL is expressed as a JSON formatted payload in the API request body.
+CQL is expressed as a JSON-formatted payload in the API request body.
 
-The base query should generally have the following: 
+The base query should generally have the following:
 
 * An `event_name`
 * `from` and `to` dates are formatted as integers in **YYYYMMDD** format.
@@ -42,9 +44,9 @@ Additional filters are possible on top of the base query; these include:
 * Common profile property filters
 * Advanced event filters
 
-Event and session property based filters are applied directly to the base query.
+Event and session property-based filters are applied directly to the base query.
 
-When specifying common profile property or advanced event based filters, the base query can be omitted for target creation & people export APIs and defaults to all events over the past 365 days.
+When specifying common profile properties or advanced event-based filters, the base query can be omitted for target creation & people export APIs, and defaults to all events over the past 365 days.
 
 Base event query is mandatory for the event export API in all cases.
 
@@ -57,7 +59,7 @@ CQL supports (key, operator, value) combinations to filter results.
 * When the value is a String, the operator can be either `equals`, `not_equals`, `contains`, `does_not_contain`, `exists`, or `does_not_exist`''.
 * When the value is Numeric, the operator can be one of `equals`, `greater_than`, `greater_than_equals`, `less_than`, or `less_than_equals`
 
-While using the items property of the Charged event, which is a list of values, the operator is applied on one OR all values.
+When using the items property of the Charged event, which is a list of values, the operator is applied to one OR all of the values.
 
 # Event Property Filters
 
@@ -80,26 +82,28 @@ Event property filters enable you to query for User Profiles or Events based on 
 
 # Session Property Filters
 
-Session property filters enable you to query for User Profiles or User Events that exhibit certain kind of session information. The following session property filters are currently supported:
+Session property filters enable you to query for User Profiles or User Events that exhibit certain kinds of session information. The following session property filters are currently supported:
 
-All the parameters mentioned below are optional. CQL supports querying on any combinations of these parameters.
+All the parameters mentioned below are optional. CQL supports querying on any combination of these parameters.
 
-| Key               | Type                         | Description                                                                                                                                                            |
-| :---------------- | :--------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| utm\_source       | string                       | Value should be a known session source.                                                                                                                                |
-| utm\_medium       | string                       | Value should be a known session medium.                                                                                                                                |
-| utm\_campaign     | string                       | Value should be a known session campaign.                                                                                                                              |
-| session\_referrer | string                       | Value should be a known session referrer.                                                                                                                              |
-| session\_source   | string                       | Value should be a known session source. The possible values are Direct, Others, Search, Social, Email, UnAvailable, and Batch.                                         |
-| first\_time       | string                       | Filters whether the user performed the event for the first time. The accepted value is “True” or left blank.                                                           |
-| last\_time        | string                       | Filters whether the user performed the event last in the specified time frame. The accepted value is "True".                                                           |
-| time\_of\_day     | array of strings (size of 2) | Time of day of the event, containing the start and end time range in 24-hour “HH:MM” format.                                                                           |
-| day\_of\_month    | int                          | Day of month when the event was raised. The value field can be an integer between 1 and 31 or an array of possible integer values.                                     |
-| day\_of\_week     | string                       | Day of week when the event was raised. The value field can be a string denoting the day of the week (Sunday, Monday,… Saturday) or an array of possible string values. |
+| Key              | Type                         | Description                                                                                                                                                            |
+| :--------------- | :--------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| utm_source       | string                       | Value should be a known session source.                                                                                                                                |
+| utm_medium       | string                       | Value should be a known session medium.                                                                                                                                |
+| utm_campaign     | string                       | Value should be a known session campaign.                                                                                                                              |
+| session_referrer | string                       | Value should be a known session referrer.                                                                                                                              |
+| session_source   | string                       | Value should be a known session source. The possible values are Direct, Others, Search, Social, Email, UnAvailable, and Batch.                                         |
+| first_time       | string                       | Filters whether the user performed the event for the first time. The accepted value is “True” or left blank.                                                           |
+| last_time        | string                       | Filters whether the user performed the event last in the specified time frame. The accepted value is "True".                                                           |
+| time_of_day      | array of strings (size of 2) | Time of day of the event, containing the start and end time range in 24-hour “HH:MM” format.                                                                           |
+| day_of_month     | int                          | Day of the month when the event was raised. The value field can be an integer between 1 and 31 or an array of possible integer values.                                 |
+| day_of_week      | string                       | Day of week when the event was raised. The value field can be a string denoting the day of the week (Sunday, Monday,… Saturday) or an array of possible string values. |
 
-> 📘 Note
->
-> Session property filters are not supported with the **Notification Sent** event.
+<Callout icon="📘" theme="info">
+  #### Note
+
+  Session property filters are not supported with the **Notification Sent** event.
+</Callout>
 
 **Example**
 
@@ -126,14 +130,17 @@ All the parameters mentioned below are optional. CQL supports querying on any co
 
 # Common Property Filters
 
-Common property filters enable developers to query for people or events that map with certain profile-specific information. The following common profile property filters are currently supported:
+Common property filters enable developers to query for people or events that match certain profile-specific information. The following common profile property filters are currently supported:
 
-> 📘 Note
->
-> All the parameters mentioned below are optional. We support querying on any combinations of these parameters.
+<Callout icon="📘" theme="info">
+  #### Note
 
-**app\_fields**\
-It supports filtering on OS (Operating System) Version, Version (refers to app version), SDK Version, Make and Model of device as shown below:
+  All the parameters mentioned below are optional. We support querying on any combinations of these parameters.
+</Callout>
+
+### app_fields
+
+It supports filtering on Operating System (OS) Version, Version (refers to app version), SDK Version, Make, and Model of device, as shown below:
 
 ```json
 {
@@ -149,7 +156,7 @@ It supports filtering on OS (Operating System) Version, Version (refers to app v
 }
 ```
 
-**profile\_fields**
+### profile_fields
 
 * It supports querying custom profile fields.
 * It supports the following System Properties: Email and Phone
@@ -158,7 +165,7 @@ It supports filtering on OS (Operating System) Version, Version (refers to app v
 >
 > Profile properties such as Name and Identity are not supported.
 
-To download based on email/identity, refer [here](https://developer.clevertap.com/docs/get-user-profiles-api#section-download-user-profiles-by-id). 
+To download based on email/identity, refer [here](https://developer.clevertap.com/docs/get-user-profiles-api#section-download-user-profiles-by-id).
 
 ```json
 {
@@ -174,21 +181,22 @@ To download based on email/identity, refer [here](https://developer.clevertap.co
 }
 ```
 
-**demographics**\
+### demographics
+
 It supports filtering on Gender, Age, Education, and Employed as shown below:
 
 The possible values are:
 
-* Gender: Possible values are Unknown, Male and Female.
-* Age: Possible values are: 
+* Gender: Possible values are Unknown, Male, and Female.
+* Age: Possible values are:
   * Unknown
   * Kid: age \< 18 years
   * Youth: 18-24 age
-  * Young\_Adult: 25-40 age
+  * Young_Adult: 25-40 age
   * Adult: 41-60 age
   * Senior: age > 60 years
 * Education: Possible values are Unknown, School, College, and Graduate
-* Employed: Possible values are Unknown, Yes, and No 
+* Employed: Possible values are Unknown, Yes, and No
 
 ```json
 {
@@ -211,7 +219,8 @@ The possible values are:
 }
 ```
 
-**technographics**\
+### technographics
+
 It supports filtering on Platform, Platform Type, Device, OS (Operating System), and Browser as shown below:
 
 The possible values are:
@@ -220,7 +229,7 @@ The possible values are:
 * Platform Type: Possible values are WebApp, MobileApp
 * Device: Possible values are Desktop, Mobile, Tablet, and TV
 * OS: Possible values are Others, Android, iOS, Windows, Mac, BlackBerry, and Linux
-* Browser: Possible values are Others, Firefox, Chrome, Seamonkey, Safari, Opera, IE, and UCBrowser 
+* Browser: Possible values are Others, Firefox, Chrome, Seamonkey, Safari, Opera, IE, and UCBrowser
 
 ```json
 {
@@ -243,12 +252,13 @@ The possible values are:
 }
 ```
 
-**reachability**\
+### reachability
+
 It supports filtering on the following:
 
-* has\_token: Determines whether the user has a device token.
-* has\_email: Determines whether the user has an email address associated.
-* has\_phone\_number: Determines when the user has a phone number associated.
+* has_token: Determines whether the user has a device token.
+* has_email: Determines whether the user has an email address associated.
+* has_phone_number: Determines when the user has a phone number associated.
 * MSG-push: False indicates that the user has unsubscribed from push notifications.
 * MSG-email: False indicates that the user has unsubscribed from email notifications.
 
@@ -265,7 +275,8 @@ It supports filtering on the following:
 }
 ```
 
-**geo\_fields**\
+### geo_fields
+
 It supports filtering on geolocation information. It must be formatted as one or more Array(s) of Strings, each of size 1, 2, or 3, in [Country, Region, City] format.
 
 ```json
@@ -287,7 +298,8 @@ It supports filtering on geolocation information. It must be formatted as one or
 }
 ```
 
-**geo\_radius**\
+### geo_radius
+
 It supports filtering on geo radius. It must be formatted as one or more Array(s) of numbers (Int/Double), each of size 3, in [Latitude, Longitude, Radius] format.
 
 Radius is expressed in kilometers.
@@ -311,10 +323,87 @@ Radius is expressed in kilometers.
 }
 ```
 
+### segment_membership
+
+Use this to filter users based on their membership in existing CleverTap dashboard segments.
+
+#### Rules
+
+* Segment names are case-sensitive and must match exactly.
+* At least one of `include` or `exclude` must be specified.
+* Segment names must be non-empty strings.
+
+#### Example
+
+```json
+{
+  "common_profile_properties": {
+    "segment_membership": {
+      "include": ["VIP Users"],
+      "exclude": ["Dormant Users"]
+    }
+  }
+}
+```
+
+<Callout icon="📘" theme="info">
+  #### Note
+
+  This filter is evaluated using exact segment names defined in the dashboard.
+</Callout>
+
+### user_bucket
+
+Use this to filter users based on their assigned bucket values. You can specify bucket filters using a list of bucket IDs or define a range with an operator. For more information, refer to [User Bucket](https://staging.docs.user.clevertap.net/docs/user-bucket).
+
+#### Supported Formats
+
+* **List of Bucket IDs**
+
+  ```json
+  {
+    "common_profile_properties": {
+      "user_bucket": [1, 2, 3]
+    }
+  }
+  ```
+
+  <br />
+* **Range with Operator**
+  ```json
+  {
+    "common_profile_properties": {
+      "user_bucket": {
+        "range": { "from": 1, "to": 10 },
+        "operator": "equals"
+      }
+    }
+  }
+  ```
+  <br />
+* **Explicit List with Inversion**
+  ```json
+  {
+    "common_profile_properties": {
+      "user_bucket": {
+        "list": [1, 2, 3],
+        "invert": true
+      }
+    }
+  }
+  ```
+  <br />
+
+#### Rules
+
+* Bucket values must be integers.
+* When using the range operator, the operator field is mandatory.
+
 # Advanced Queries
 
-**Query With Did None Block**\
-This query is used to segment users who performed NONE of the specified action(s) within the given range as shown below:
+### Query With Did None Block
+
+This query is used to segment users who performed NONE of the specified action(s) within the given range, as shown below:
 
 ```json
 {
@@ -342,8 +431,9 @@ This query is used to segment users who performed NONE of the specified action(s
 }
 ```
 
-**Query With Did All Block**\
-This is used to segment users who performed ALL of the specified action(s) within the given range as shown below:
+### Query With Did All Block
+
+This is used to segment users who performed ALL of the specified action(s) within the given range, as shown below:
 
 ```json
 {
@@ -373,12 +463,15 @@ This is used to segment users who performed ALL of the specified action(s) withi
 }
 ```
 
-> 📘 Note
->
-> The operator and value are optional within each internal event block. The default values for the same are “greater\_than\_equals” and 1, respectively.
+<Callout icon="📘" theme="info">
+  #### Note
 
-**Query With Did Any Block**\
-This is used to segment users who performed ANY of the specified action(s) within the given range as shown below:
+  The operator and value are optional within each internal event block. The default values for the same are “greater_than_equals” and 1, respectively.
+</Callout>
+
+### Query With Did Any Block
+
+This is used to segment users who performed ANY of the specified action(s) within the given range, as shown below:
 
 ```json
 {
@@ -410,13 +503,140 @@ This is used to segment users who performed ANY of the specified action(s) withi
 }
 ```
 
-> 📘 Note
->
-> The operator and value are for the entire “any\_events” block and resolved for the entire combination of events. They are optional, with default values being “greater\_than\_equals” and 1, respectively.
+<Callout icon="📘" theme="info">
+  #### Note
+
+  The operator and value are for the entire “any_events” block and resolved for the entire combination of events. They are optional, with default values being “greater_than_equals” and 1, respectively.
+</Callout>
+
+# Likelihood (Behavior Analysis)
+
+The `likelihood` parameter enables you to define dominant or significant behavioral patterns for events.
+
+It allows you to evaluate how frequently a user performs an action under specific conditions, such as time of day, day of week, or event property values.
+
+## Usage
+
+You can use `likelihood` in the following places:
+
+* Top-level event query
+* Advanced query blocks:
+  * `advanced_query.did_all[]`
+  * `advanced_query.did_any.any_events[]`
+  * `advanced_query.did_none[]`
+
+## Fields
+
+<Table align={["left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Field
+      </th>
+
+      <th>
+        Type
+      </th>
+
+      <th>
+        Description
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        type
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        * Defines the behavior type.
+        * Possible values:
+          * `event_property` : Requires an event property filter object.
+          * `time_of_day`:
+            * `from_hour`: Integer (0–23)
+            * `to_hour`: Integer (0–23)
+          * `day_of_week`: Accepts a single day or an array of days (for example, `Monday`, `Tuesday`).
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        match_mode
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        * Defines how the condition is evaluated.
+        * Possible values: `predominant` (default), `at_least`
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        significance_factor
+      </td>
+
+      <td>
+        Double
+      </td>
+
+      <td>
+        * Required when `match_mode` is `at_least`.
+        * Value must be between 0.0 and 1.0
+      </td>
+    </tr>
+  </tbody>
+</Table>
+
+## Example: Predominant Usage (Time of Day)
+
+```json
+{
+  "event_name": "App Launched",
+  "from": 20200101,
+  "to": 20200131,
+  "likelihood": {
+    "type": "time_of_day",
+    "match_mode": "predominant",
+    "time_of_day": {
+      "from_hour": 8,
+      "to_hour": 10
+    }
+  }
+}
+```
+
+## Example: Minimum Threshold Usage
+
+```json
+{
+  "event_name": "App Launched",
+  "from": 20200101,
+  "to": 20200131,
+  "likelihood": {
+    "type": "time_of_day",
+    "match_mode": "at_least",
+    "time_of_day": {
+      "from_hour": 8,
+      "to_hour": 10
+    },
+    "significance_factor": 0.25
+  }
+}
+```
 
 # Sample Queries
 
-We provided code snippets on GitHub showing some sample queries. Please see the linked examples below:
+Sample code snippets have been added to the GitHub repository. For more information, refer to the following links
 
 * [Basic event query](https://github.com/CleverTap/clevertap-support-snippets/blob/master/clevertap_query_language/examples/basic_event_query_request_payload.json)
 * [Query with event/session properties](https://github.com/CleverTap/clevertap-support-snippets/blob/master/clevertap_query_language/examples/query_with_event_session_properties_request_payload.json)
@@ -426,7 +646,8 @@ We provided code snippets on GitHub showing some sample queries. Please see the 
 * [Query with did any block](https://github.com/CleverTap/clevertap-support-snippets/blob/master/clevertap_query_language/examples/query_with_did_any_block_request_payload.json)
 * [Sample hybrid query](https://github.com/CleverTap/clevertap-support-snippets/blob/master/clevertap_query_language/examples/sample_hybrid_query_request_payload.json)
 
-**Fetch profiles based on Subscription status**\
+### Fetch Profiles Based on Subscription Status
+
 It supports fetching profiles based on the subscription status of any group for the account.
 
 ```json
@@ -447,25 +668,19 @@ It supports fetching profiles based on the subscription status of any group for 
 
 # Special Events
 
-## Notification Events
+### Notification Events
 
 Notification events are special system events that provide information about users receiving notifications through CleverTap. They support filtering by the following event properties:
 
 * Campaign ID (Integer ID of the campaign shown on the dashboard)
 * Campaign Type can have the following possible values (passed as a string or array of strings):
-  * Mobile Push - Android 
-  * Mobile Push - iOS 
-  * Mobile Push - Windows 
-  * Email 
+  * Mobile Push - Android
+  * Mobile Push - iOS
+  * Mobile Push - Windows
+  * Email
   * Facebook Audiences
-  * SMS 
+  * SMS
   * Web Push - Chrome
-
-Notification events are available for filtering on the [Get User Profiles API](doc:get-user-profiles-api) and the [Create Campaign API](doc:create-campaign-api), as part of the where clause.
-
-> 📘 Filter by Session Property
->
-> Filtering by session properties is not supported for the Notification events as they are system events.
 
 The following is the list of Notification Events:
 
@@ -474,3 +689,10 @@ The following is the list of Notification Events:
 * Notification Delivered
 * Notification Clicked
 * Notification Viewed
+* These events are available for filtering on the [Get User Profiles API](doc:get-user-profiles-api) and the [Create Campaign API](doc:create-campaign-api), as part of the where clause.
+
+<Callout icon="📘" theme="info">
+  #### Filter by Session Property
+
+  Filtering by session properties is not supported for the Notification events as they are system events.
+</Callout>
