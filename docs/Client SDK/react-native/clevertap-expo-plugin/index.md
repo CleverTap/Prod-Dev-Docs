@@ -39,7 +39,7 @@ To ensure smooth integration of the CleverTap Expo plugin, please reference the 
 
 | CleverTap Expo Plugin Version | Expo SDK Version | React Native Version | CleverTap React Native SDK Version |
 | ----------------------------- | ---------------- | -------------------- | ---------------------------------- |
-| 0.0.3                         | 53.0.0           | 0.79                 | 3.7.0                              |
+| 1.0.0                         | 55.0.0           | 0.83                 | 4.0.0                              |
 
 # Expo Plugin Size
 
@@ -47,7 +47,7 @@ The following table outlines the code size for the current version of the Clever
 
 | Plugin                | Version | Code Size |
 | :-------------------- | :------ | :-------- |
-| CleverTap Expo Plugin | 0.0.3   | 259 KB    |
+| CleverTap Expo Plugin | 1.0.0   | 259 KB    |
 
 # Integrate the CleverTap Expo Plugin
 
