@@ -41,7 +41,7 @@ Supports CleverTap iOS SDK v7.5.1.
 
 # March 4
 
-## [iOS 7.5.1](https://github.com/CleverTap/clevertap-ios-sdk/blob/master/CHANGELOG.md#version-751-march-4-2026).
+## [iOS 7.5.1](https://github.com/CleverTap/clevertap-ios-sdk/blob/master/CHANGELOG.md#version-751-march-4-2026)
 
 **What's new**
 
