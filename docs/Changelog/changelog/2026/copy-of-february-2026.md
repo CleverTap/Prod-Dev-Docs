@@ -11,6 +11,18 @@ We are excited to share the March SDK changelog for our product!
 >
 > Click each SDK header to view the corresponding GitHub repository for release details.
 
+# March 26
+
+## [Expo 1.0.0](https://github.com/CleverTap/clevertap-expo-plugin/blob/main/CHANGELOG.md#version-100-march-26-2026) 
+
+* Adds support for Expo SDK 55.0.0 and React Native 0.83.
+
+* Adds support for CleverTap React Native SDK 4.0.0.
+
+### Android
+
+* Adds `android.notificationIcon` configuration option for custom push notification icons. This is required for Expo 55+, where `notification.icon` was removed from `app.json`.
+
 # March 17
 
 ## [React Native 4.0.0](https://github.com/CleverTap/clevertap-react-native/blob/master/CHANGELOG.md#version-400-march-17-2026)
