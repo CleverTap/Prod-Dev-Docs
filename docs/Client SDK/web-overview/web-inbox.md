@@ -10,10 +10,6 @@ metadata:
 next:
   description: ''
 ---
-> 📘 Private Beta
->
-> Currently, this feature is a Private Beta Release. If you want access to this feature, contact your Account Manager.
-
 # Overview
 
 Web Inbox channel enables you to deliver personalized notifications to your website users in real time based on the actions they perform on your website. These notifications are stacked under the Web Inbox window, and users can access them later.
@@ -33,12 +29,12 @@ To begin with, you need to specify the Element ID of the HTML element on which y
 Listed below are the basic operations defined for the Web Inbox window:
 
 * If the inbox is closed and the user clicks on the inbox selector, the inbox is opened.
-* If the inbox is open and the user clicks on the inbox selector, the inbox is closed. 
+* If the inbox is open and the user clicks on the inbox selector, the inbox is closed.
 * If the inbox is open and the user clicks anywhere else on the page, the inbox is closed.
 
 ## Notification Viewed and Notification Clicked Events-
 
-*Notification Viewed* and *Notification Clicked* events are handled by the CleverTap SDK. The *Notification Viewed* event is raised only once for a given message. The *Notification Clicked* event is raised each time the user clicks on the message.
+_Notification Viewed_ and _Notification Clicked_ events are handled by the CleverTap SDK. The _Notification Viewed_ event is raised only once for a given message. The _Notification Clicked_ event is raised each time the user clicks on the message.
 
 ### Recommended Image Specifications
 
@@ -72,7 +68,7 @@ Listed below are the basic operations defined for the Web Inbox window:
       </td>
 
       <td>
-        Icon - 1:1\
+        Icon - 1:1  
         Image - 4:3
       </td>
     </tr>
@@ -95,51 +91,35 @@ You can have your inbox selector placed anywhere on your website. Below are a fe
 
 * If the bell icon is on the top right corner, the inbox will display on top-right side just below the bell icon.
 
-<Image title="Position of the Inbox-Right Side Below the Bell Icon" alt={2854} align="center" border={true} src="https://files.readme.io/8554c7a-Top_right.png">
-  Position of the Inbox-Right Side Below the Bell Icon
-</Image>
+<Image align="center" alt={2854} border={true} caption="Position of the Inbox-Right Side Below the Bell Icon" title="Position of the Inbox-Right Side Below the Bell Icon" src="https://files.readme.io/8554c7a-Top_right.png" />
 
 * If the bell icon is on the bottom right corner, the inbox will be displayed on the right side just above the bell icon.
 
-<Image title="Position of the Inbox-Right Side Above the Bell Icon" alt={2866} align="center" border={true} src="https://files.readme.io/baa88ad-bottom_right.png">
-  Position of the Inbox-Right Side Above the Bell Icon
-</Image>
+<Image align="center" alt={2866} border={true} caption="Position of the Inbox-Right Side Above the Bell Icon" title="Position of the Inbox-Right Side Above the Bell Icon" src="https://files.readme.io/baa88ad-bottom_right.png" />
 
 * If the bell icon is on the top left corner, the inbox will be displayed on the left side just below the bell icon.
 
-<Image title="Position of the Inbox-Left Side Below the Bell Icon" alt={2846} align="center" border={true} src="https://files.readme.io/8dcccff-Top_left.png">
-  Position of the Inbox-Left Side Below the Bell Icon
-</Image>
+<Image align="center" alt={2846} border={true} caption="Position of the Inbox-Left Side Below the Bell Icon" title="Position of the Inbox-Left Side Below the Bell Icon" src="https://files.readme.io/8dcccff-Top_left.png" />
 
 * If the bell icon is on the bottom left corner, the inbox will be displayed on the left side just above the bell icon.
 
-<Image title="Position of the Inbox-Left Side Above the Bell Icon" alt={2840} align="center" border={true} src="https://files.readme.io/16c898f-bottom_left.png">
-  Position of the Inbox-Left Side Above the Bell Icon
-</Image>
+<Image align="center" alt={2840} border={true} caption="Position of the Inbox-Left Side Above the Bell Icon" title="Position of the Inbox-Left Side Above the Bell Icon" src="https://files.readme.io/16c898f-bottom_left.png" />
 
-* When the icon is on the top center, the inbox will be displayed just below the bell icon. 
+* When the icon is on the top center, the inbox will be displayed just below the bell icon.
 
-<Image title="Position of the Inbox-Top Center Below the Bell Icon" alt={2828} align="center" border={true} src="https://files.readme.io/387732f-top_center.png">
-  Position of the Inbox-Top Center Below the Bell Icon
-</Image>
+<Image align="center" alt={2828} border={true} caption="Position of the Inbox-Top Center Below the Bell Icon" title="Position of the Inbox-Top Center Below the Bell Icon" src="https://files.readme.io/387732f-top_center.png" />
 
-* When the icon is on the bottom center, the inbox will be displayed just above the bell icon. 
+* When the icon is on the bottom center, the inbox will be displayed just above the bell icon.
 
-<Image title="Position of the Inbox-Bottom Center Above the Bell Icon" alt={2854} align="center" border={true} src="https://files.readme.io/d9923ec-bottom_center.png">
-  Position of the Inbox-Bottom Center Above the Bell Icon
-</Image>
+<Image align="center" alt={2854} border={true} caption="Position of the Inbox-Bottom Center Above the Bell Icon" title="Position of the Inbox-Bottom Center Above the Bell Icon" src="https://files.readme.io/d9923ec-bottom_center.png" />
 
 * When the icon is on the left center, the inbox will be displayed to the right of the bell icon.
 
-<Image title="Position of the Inbox-Left Center Right of the Bell Icon" alt={2832} align="center" border={true} src="https://files.readme.io/021491f-left_center.png">
-  Position of the Inbox-Left Center Right of the Bell Icon
-</Image>
+<Image align="center" alt={2832} border={true} caption="Position of the Inbox-Left Center Right of the Bell Icon" title="Position of the Inbox-Left Center Right of the Bell Icon" src="https://files.readme.io/021491f-left_center.png" />
 
 * When the icon is on the right center, the inbox will be displayed to the left of the bell icon.
 
-<Image title="Position of the Inbox-Right Center Left of the Bell Icon" alt={2838} align="center" border={true} src="https://files.readme.io/a12ee24-Right_center.png">
-  Position of the Inbox-Right Center Left of the Bell Icon
-</Image>
+<Image align="center" alt={2838} border={true} caption="Position of the Inbox-Right Center Left of the Bell Icon" title="Position of the Inbox-Right Center Left of the Bell Icon" src="https://files.readme.io/a12ee24-Right_center.png" />
 
 > 📘 Note:
 >
@@ -147,7 +127,7 @@ You can have your inbox selector placed anywhere on your website. Below are a fe
 
 ## How to Override The Inbox Styles
 
-The look and feel of most elements within the inbox can be customized from the dashboard. Refer to the [Web Inbox Setup](https://docs.clevertap.com/docs/web-inbox-setup) document to learn more about customizing Web Inbox. 
+The look and feel of most elements within the inbox can be customized from the dashboard. Refer to the [Web Inbox Setup](https://docs.clevertap.com/docs/web-inbox-setup) document to learn more about customizing Web Inbox.
 
 > 📘 Default Configuration
 >
