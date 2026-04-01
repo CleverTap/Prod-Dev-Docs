@@ -42,7 +42,7 @@ npx expo install @clevertap/clevertap-expo-plugin
 >
 > The **CleverTap Account ID** and **CleverTap Token** appear as **Project ID** and **Project Token** on the CleverTap dashboard.
 >
-> To view these, go to the CleverTap dashboard, then navigate to *Settings* > *Project*.
+> To view these, go to the CleverTap dashboard, then navigate to _Settings_ > _Project_.
 >
 > Only users with Admin access can view the Passcode and Project Token. Member and Creator roles do not have permission to access these credentials.
 
@@ -200,6 +200,7 @@ Use the following settings to configure CleverTap for Android, including support
 | `android.customNotificationSound`            | `string` or `string\[]` | Specifies custom notification sound files stored in the assets folder. Can be used with `CleverTapAPI.createNotificationChannel()`.                                                                                                                                                                                                              | `null` (uses default system sound)                           |
 | `android.backgroundSync`                     | `string`                | Enables background sync for [CleverTap’s Pull Notification](https://staging.docs.user.clevertap.net/docs/push-optimize-delivery#optimize-delivery-via-pull-notification) service to deliver notifications when FCM is restricted.                                                                                                                | `0` (background sync disabled)                               |
 | `android.defaultNotificationChannelId`       | `string`                | Sets a default notification channel ID for push notifications. Used as a fallback when a push notification specifies a non-existent channel.                                                                                                                                                                                                     | `null` (falls back to the CleverTap "Miscellaneous" channel) |
+| `android.notificationIcon`                   | `string`                | Adds `android.notificationIcon` configuration option for custom push notification icons. Required for Expo v55+, where `notification.icon` was removed from `app.json`.                                                                                                                                                                          | `null` (no custom notification icon)                         |
 | `android.inAppExcludeActivities`             | `string`                | A comma-separated list of activities where In-App messages must not be displayed.                                                                                                                                                                                                                                                                | `null` (In-Apps are shown in all activities)                 |
 | `android.sslPinning`                         | `string`                | Enables [SSL pinning](doc:multi-instance-sdk-update#ssl-pinning) for enhanced security by setting it to `1`.                                                                                                                                                                                                                                     | `0` (SSL pinning disabled)                                   |
 | `android.registerActivityLifecycleCallbacks` | `boolean`               | Automatically registers for Android activity lifecycle callbacks to track session activity, In-App messages, and user engagement metrics.                                                                                                                                                                                                        | `true` (lifecycle callbacks enabled)                         |
@@ -232,7 +233,7 @@ The following Android permissions are required for CleverTap to function properl
 
 * `ACCESS_NETWORK_STATE` – Allows CleverTap to check network connectivity before sending data.
 * `INTERNET` – Enables CleverTap to communicate with servers for data exchange.
-* `POST_NOTIFICATIONS` – Required for **Android 13+** devices to display push notifications. 
+* `POST_NOTIFICATIONS` – Required for **Android 13+** devices to display push notifications.
 
 ### Additional Android Configuration for Push Notifications (Optional)
 
@@ -240,7 +241,7 @@ After setting up the basic configuration in `app.json`, configure platform-speci
 
 ### Firebase Cloud Messaging (FCM) Configuration
 
-This setting is required when integrating Firebase features such as [Firebase Cloud Messaging](https://firebase.google.com/docs/android/setup) (FCM) for push notifications, Firebase Analytics, App verification, and so on. Add the `google-services.json` file in your project `assets` folder and update `app.json` as follows: 
+This setting is required when integrating Firebase features such as [Firebase Cloud Messaging](https://firebase.google.com/docs/android/setup) (FCM) for push notifications, Firebase Analytics, App verification, and so on. Add the `google-services.json` file in your project `assets` folder and update `app.json` as follows:
 
 ```json
 {
