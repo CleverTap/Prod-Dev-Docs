@@ -21,7 +21,7 @@ We are excited to share the March SDK changelog for our product!
 
 ### Android
 
-* Adds `android.notificationIcon` configuration option for custom push notification icons. This is required for Expo v55+, where `notification.icon` was removed from `app.json`.
+* Adds `android.notificationIcon` configuration option for custom push notification icons. This is required for Expo v55+, because `notification.icon` was removed from `app.json`.
 
 # March 17
 
