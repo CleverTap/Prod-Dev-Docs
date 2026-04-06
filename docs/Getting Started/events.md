@@ -267,7 +267,7 @@ For every event that’s recorded, CleverTap records the following standard meta
 Additionally, CleverTap keeps the user profiles updated with the latest:
 
 * Geographic information like their city, region, country, and latitude/longitude (if available).
-* Browser or device make, model, and so on, used to access the website or app.  
+* Browser or device make, model, and so on, used to access the website or app.
 
 # Adding Multi-Value Arrays to Custom Event Properties
 
@@ -569,3 +569,4 @@ Listed are some recommended best practices that you should keep in mind during e
 * If your purchase process is broken into multiple steps, record each step as a separate event for better funnel analysis
 * If you accept payments in multiple currencies, you can record it via event properties. However, in the amount field convert the incoming amount to a single currency value. This will simplify revenue and LTV analysis
 * Avoid storing user profile information like age, gender, etc. as event properties. Store them as User Attributes instead
+* Even if every custom property is discarded, the profile update still carries meaningful data, such as timezone, device information, and so on
