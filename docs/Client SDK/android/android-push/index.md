@@ -54,7 +54,7 @@ CleverTap allows you to send push notifications to your applications from our da
 The following are the steps to configure push notifications for your Android app:
 
 1. [Find FCM Credentials](doc:android-push#find-fcm-credentials).
-2. [Set Up FCM Credentials](doc:android-push#set-up-push-notifications-credentials).  
+2. [Set Up FCM Credentials](doc:android-push#set-up-fcm-credentials-on-clevertap).  
    OR  
    [Safeguard Admin Credentials and Upload Credentials File to CleverTap](doc:android-push#safeguard-admin-credentials).
 
