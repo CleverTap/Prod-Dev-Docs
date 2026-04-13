@@ -8,7 +8,10 @@ metadata:
   description: ''
   robots: index
 next:
-  description: ''
+  pages:
+    - slug: content-blocks-api
+      title: Content Blocks API
+      type: basic
 ---
 These APIs allow you to both fetch data about dashboard settings and also allow you to set up/update existing dashboard settings.
 
