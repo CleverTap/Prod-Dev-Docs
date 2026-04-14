@@ -3921,66 +3921,6 @@ This template ensures that vertical-first designs appear exactly as intended, re
 
 <Image align="center" border={true} caption="Vertical Image with CTA Template" src="https://files.readme.io/8d7c562ee3568bc402a22f2f67578a7102c4d3e7ddb036799fbd6c3ebff840db-ChatGPT_Image_Apr_13_2026_at_04_13_04_PM.png" width="35% " />
 
-## Template Keys
-
-|  Vertical Image Template Keys | Required | Description                                                                           |
-| ----------------------------: | :------: | :------------------------------------------------------------------------------------ |
-|                   <b>Base</b> |          |                                                                                       |
-|                         pt_id | Required | Must be <code>pt_vertical_img</code>                                                  |
-|            pt_title / wzrk_nt | Required | Notification title                                                                    |
-|             pt_msg / wzrk_msg | Required | Notification message                                                                  |
-|                pt_msg_summary | Optional | Message summary (expanded view)                                                       |
-|                   pt_subtitle | Optional | Subtitle below title                                                                  |
-|                  pt_title_clr | Optional | Title text color (HEX)                                                                |
-|                    pt_msg_clr | Optional | Message text color (HEX)                                                              |
-|                         pt_bg | Optional | Notification background color (HEX)                                                   |
-|                   pt_meta_clr | Optional | Meta / timestamp color (HEX)                                                          |
-|                        pt_ico | Optional | Large icon URL                                                                        |
-|                 pt_default_dl | Optional | Default deep link on notification tap                                                 |
-|                     pt_sticky | Optional | Keep notification persistent (<code>true</code>/<code>false</code>)                   |
-|                    pt_dismiss | Optional | Auto-dismiss after specified time                                                     |
-|         <b>Expanded Media</b> |          |                                                                                       |
-|                    pt_big_img | Required | Expanded image URL                                                                    |
-|           pt_big_img_alt_text | Optional | Alt text for expanded image                                                           |
-|                        pt_gif | Optional | Expanded GIF URL (overrides image if provided)                                        |
-|                 pt_gif_frames | Optional | Number of GIF frames (default: 10)                                                    |
-|                 pt_scale_type | Optional | Image scaling type (for example, <code>fit_center</code>, <code>center_crop</code>)   |
-|          <b>Expanded Text</b> |          |                                                                                       |
-|                      pt_text1 | Optional | First overlay text on expanded image                                                  |
-|                  pt_text1_clr | Optional | Color for first overlay text                                                          |
-|                      pt_text2 | Optional | Second overlay text on expanded image                                                 |
-|                  pt_text2_clr | Optional | Color for second overlay text                                                         |
-|        <b>Collapsed Media</b> |          |                                                                                       |
-|          pt_big_img_collapsed | Optional | Collapsed image URL                                                                   |
-| pt_big_img_collapsed_alt_text | Optional | Alt text for collapsed image                                                          |
-|              pt_gif_collapsed | Optional | Collapsed GIF URL (overrides image if provided)                                       |
-|       pt_gif_frames_collapsed | Optional | Number of collapsed GIF frames                                                        |
-|       pt_scale_type_collapsed | Optional | Scaling type for collapsed image                                                      |
-|        <b>Expanded Button</b> |          |                                                                                       |
-|                   pt_btn_name | Optional | CTA button label                                                                      |
-|                     pt_btn_dl | Optional | CTA button deep link                                                                  |
-|                  pt_btn_style | Optional | Style: <code>solid</code>, <code>gradient_linear</code>, <code>gradient_radial</code> |
-|                    pt_btn_clr | Optional | Button background color (HEX)                                                         |
-|             pt_btn_border_clr | Optional | Button border color (HEX)                                                             |
-|               pt_btn_text_clr | Optional | Button text color (HEX)                                                               |
-|              pt_btn_grad_clr1 | Optional | Gradient start color                                                                  |
-|              pt_btn_grad_clr2 | Optional | Gradient end color                                                                    |
-|          pt_btn_border_radius | Optional | Corner radius for button                                                              |
-|           pt_btn_border_width | Optional | Border width                                                                          |
-|       <b>Collapsed Button</b> |          |                                                                                       |
-|         pt_btn_name_collapsed | Optional | CTA label (collapsed)                                                                 |
-|           pt_btn_id_collapsed | Optional | Button identifier                                                                     |
-|           pt_btn_dl_collapsed | Optional | CTA deep link (collapsed)                                                             |
-|        pt_btn_style_collapsed | Optional | Style for collapsed CTA                                                               |
-|          pt_btn_clr_collapsed | Optional | Button background color                                                               |
-|   pt_btn_border_clr_collapsed | Optional | Button border color                                                                   |
-|     pt_btn_text_clr_collapsed | Optional | Button text color                                                                     |
-|    pt_btn_grad_clr1_collapsed | Optional | Gradient start color                                                                  |
-|    pt_btn_grad_clr2_collapsed | Optional | Gradient end color                                                                    |
-|     pt_btn_grad_dir_collapsed | Optional | Gradient direction in degrees                                                         |
-|          pt_btn_border_radius | Optional | Corner radius for button                                                              |
-|           pt_btn_border_width | Optional | Border width                                                                          |
-
 > 📘 Note
 >
 > The minimum SDK version required for the Vertical Image with CTA Template is Push Templates SDK v2.4.0.
