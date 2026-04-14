@@ -92,7 +92,7 @@ You can implement the following customizable push notification templates using t
 * [Rating Template](doc:android-push-templates#rating-template)
 * [Product Catalog Template](doc:android-push-templates#product-catalog-template)
 * [Input Box Template](doc:android-push-templates#input-box-template)
-* Vertical Image CTA
+* [Vertical Image CTA](https://developer.clevertap.com/docs/android-push-templates#vertical-image-with-cta-template)
 
 # Standard Push Template
 
