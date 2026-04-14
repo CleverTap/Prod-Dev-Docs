@@ -92,6 +92,7 @@ You can implement the following customizable push notification templates using t
 * [Rating Template](doc:android-push-templates#rating-template)
 * [Product Catalog Template](doc:android-push-templates#product-catalog-template)
 * [Input Box Template](doc:android-push-templates#input-box-template)
+* Vertical Image CTA
 
 # Standard Push Template
 
@@ -1887,6 +1888,132 @@ Timer notification is only supported for Android version 8 and above. For Androi
 
       <td>
         Above keys in JSON format
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt_chrono_style
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Controls styling mode. Available values: <code>solid</code> (default),  <code>gradient_linear</code> ,  <code>gradient_radial</code>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt_chrono_bg_clr
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Background color (HEX). Required if style = `solid`
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt_chrono_border_clr
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Border color (HEX). No border if absent
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt_chrono_grad_clr1
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Gradient start color (HEX)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt_chrono_grad_clr2
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Gradient end color (HEX)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt_chrono_grad_dir
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Angle in degrees (String). Default <code>"90"</code>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt_chrono_border_radius
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Corner radius in dp (Density-independent Pixels) (Default: 6)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt_chrono_border_width
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Border width in dp. No border if absent, even if `pt_chrono_border_clr` is set.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        pt_chrono_title_clr
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Countdown text color (falls back to <code>pt_title_clr</code>)
       </td>
     </tr>
   </tbody>
@@ -3786,25 +3913,145 @@ To capture the input, the app can get the `pt_input_reply` key from the Intent e
   </tbody>
 </Table>
 
+# Vertical Image with CTA Template
+
+The Vertical Image with CTA template is designed for displaying portrait-oriented creatives without cropping or resizing. It preserves the original layout of vertical assets, making it ideal for campaigns such as product showcases, posters, or reel-style creatives.
+
+This template ensures that vertical-first designs appear exactly as intended, reducing the need to redesign assets for square or landscape formats. It supports expanded and collapsed views on Android. You can also include additional text fields for richer layouts and an optional CTA button with customizable styles.
+
+<Image align="center" border={true} caption="Vertical Image with CTA Template" src="https://files.readme.io/8d7c562ee3568bc402a22f2f67578a7102c4d3e7ddb036799fbd6c3ebff840db-ChatGPT_Image_Apr_13_2026_at_04_13_04_PM.png" width="35% " />
+
+## Template Keys
+
+|  Vertical Image Template Keys | Required | Description                                                                           |
+| ----------------------------: | :------: | :------------------------------------------------------------------------------------ |
+|                   <b>Base</b> |          |                                                                                       |
+|                         pt_id | Required | Must be <code>pt_vertical_img</code>                                                  |
+|            pt_title / wzrk_nt | Required | Notification title                                                                    |
+|             pt_msg / wzrk_msg | Required | Notification message                                                                  |
+|                pt_msg_summary | Optional | Message summary (expanded view)                                                       |
+|                   pt_subtitle | Optional | Subtitle below title                                                                  |
+|                  pt_title_clr | Optional | Title text color (HEX)                                                                |
+|                    pt_msg_clr | Optional | Message text color (HEX)                                                              |
+|                         pt_bg | Optional | Notification background color (HEX)                                                   |
+|                   pt_meta_clr | Optional | Meta / timestamp color (HEX)                                                          |
+|                        pt_ico | Optional | Large icon URL                                                                        |
+|                 pt_default_dl | Optional | Default deep link on notification tap                                                 |
+|                     pt_sticky | Optional | Keep notification persistent (<code>true</code>/<code>false</code>)                   |
+|                    pt_dismiss | Optional | Auto-dismiss after specified time                                                     |
+|         <b>Expanded Media</b> |          |                                                                                       |
+|                    pt_big_img | Required | Expanded image URL                                                                    |
+|           pt_big_img_alt_text | Optional | Alt text for expanded image                                                           |
+|                        pt_gif | Optional | Expanded GIF URL (overrides image if provided)                                        |
+|                 pt_gif_frames | Optional | Number of GIF frames (default: 10)                                                    |
+|                 pt_scale_type | Optional | Image scaling type (for example, <code>fit_center</code>, <code>center_crop</code>)   |
+|          <b>Expanded Text</b> |          |                                                                                       |
+|                      pt_text1 | Optional | First overlay text on expanded image                                                  |
+|                  pt_text1_clr | Optional | Color for first overlay text                                                          |
+|                      pt_text2 | Optional | Second overlay text on expanded image                                                 |
+|                  pt_text2_clr | Optional | Color for second overlay text                                                         |
+|        <b>Collapsed Media</b> |          |                                                                                       |
+|          pt_big_img_collapsed | Optional | Collapsed image URL                                                                   |
+| pt_big_img_collapsed_alt_text | Optional | Alt text for collapsed image                                                          |
+|              pt_gif_collapsed | Optional | Collapsed GIF URL (overrides image if provided)                                       |
+|       pt_gif_frames_collapsed | Optional | Number of collapsed GIF frames                                                        |
+|       pt_scale_type_collapsed | Optional | Scaling type for collapsed image                                                      |
+|        <b>Expanded Button</b> |          |                                                                                       |
+|                   pt_btn_name | Optional | CTA button label                                                                      |
+|                     pt_btn_dl | Optional | CTA button deep link                                                                  |
+|                  pt_btn_style | Optional | Style: <code>solid</code>, <code>gradient_linear</code>, <code>gradient_radial</code> |
+|                    pt_btn_clr | Optional | Button background color (HEX)                                                         |
+|             pt_btn_border_clr | Optional | Button border color (HEX)                                                             |
+|               pt_btn_text_clr | Optional | Button text color (HEX)                                                               |
+|              pt_btn_grad_clr1 | Optional | Gradient start color                                                                  |
+|              pt_btn_grad_clr2 | Optional | Gradient end color                                                                    |
+|          pt_btn_border_radius | Optional | Corner radius for button                                                              |
+|           pt_btn_border_width | Optional | Border width                                                                          |
+|       <b>Collapsed Button</b> |          |                                                                                       |
+|         pt_btn_name_collapsed | Optional | CTA label (collapsed)                                                                 |
+|           pt_btn_id_collapsed | Optional | Button identifier                                                                     |
+|           pt_btn_dl_collapsed | Optional | CTA deep link (collapsed)                                                             |
+|        pt_btn_style_collapsed | Optional | Style for collapsed CTA                                                               |
+|          pt_btn_clr_collapsed | Optional | Button background color                                                               |
+|   pt_btn_border_clr_collapsed | Optional | Button border color                                                                   |
+|     pt_btn_text_clr_collapsed | Optional | Button text color                                                                     |
+|    pt_btn_grad_clr1_collapsed | Optional | Gradient start color                                                                  |
+|    pt_btn_grad_clr2_collapsed | Optional | Gradient end color                                                                    |
+|     pt_btn_grad_dir_collapsed | Optional | Gradient direction in degrees                                                         |
+|          pt_btn_border_radius | Optional | Corner radius for button                                                              |
+|           pt_btn_border_width | Optional | Border width                                                                          |
+
+> 📘 Note
+>
+> The minimum SDK version required for the Vertical Image with CTA Template is Push Templates SDK v2.4.0.
+
 # GIF Support
 
 CleverTap supports GIFs in push templates starting with SDK version 7.5.0 on devices running Android 14 or later. This allows you to add animated media to push notifications, enhancing user engagement through dynamic visuals.
 
 <Image align="center" width="35% " src="https://files.readme.io/47c076dffe3d89c693a3fc4aeac5117649dc0a28af5e2b820157f86d7919ed29-Screen_Recording_Jul_28_2025_1.gif" />
 
-### Specifications and Design Guidelines
+## Supported Templates
 
-* Supported on Android 14+ with SDK v7.5.0 or later.
-* For older Android versions or SDKs, CleverTap shows the first frame of the GIF as a static image.
-* Use the recommended aspect ratio for the selected template to avoid cropping or distortion.
-* Keep file size under 1MB for smooth rendering.
-* Opt for looped, visually clear GIFs that work well even if partially cropped.
+GIFs are supported in the following templates:
 
-### Limitations
+| Template Name            | Key Parameter | Supported From | Notes                                                                         |
+| :----------------------- | :------------ | :------------- | :---------------------------------------------------------------------------- |
+| Standard Template        | `wzrk_gif`    | SDK v7.5.0     | Android 14+ only; size limits below do **not apply**                          |
+| Advanced Template        | `pt_gif`      | SDK v7.5.0     | Supports optional `pt_gif_frames`                                             |
+| Timer Template           | `pt_gif`      | SDK v7.5.0     | GIF continues until timer expiry                                              |
+| Text over Image Template | `pt_gif`      | SDK v7.5.0     | Supports `pt_gif` for expanded and `pt_gif_collapsed` for collapsed view      |
+| Rating Template          | `pt_gif`      | SDK v7.5.0     | Optional; static fallback if unsupported                                      |
+| Vertical Image with CTA  | `pt_gif`      | SDK v7.5.0     | Supports GIFs in expanded (`pt_gif`) and collapsed (`pt_gif_collapsed`) views |
+
+> 📘 Note:
+>
+> For templates other than _Standard Push Template_, Refer to the [GIF Size Guidelines](doc:android-push-templates-v2#gif-size-guidelines) for smooth rendering.
+
+## GIF Size Guidelines
+
+To ensure optimal performance across devices:
+
+| GIF Size     | Recommended Number of Frames |
+| :----------- | :--------------------------- |
+| 180 x 120 px | 15                           |
+| 240 x 160 px | 10                           |
+| 300 x 200 px | 6                            |
+
+You can use [Ezgif Tool](https://ezgif.com/resize) to resize or optimize your GIFs.
+
+## Example: Standard Push Template with GIF
+
+To use a GIF in a Standard Push Template, include the following payload key:
+
+```json
+{
+  "wzrk_gif": "https://example.com/your-gif-url.gif"
+}
+```
+
+For templates using `pt_gif`, specify the key as:
+
+```json
+{
+  "pt_gif": "https://example.com/your-gif-url.gif"
+}
+```
+
+### SDK Requirements
+
+| Requirement           | Minimum Version                     |
+| --------------------- | ----------------------------------- |
+| CleverTap Android SDK | v7.5.0                              |
+| Push Templates SDK    | v2.2.0                              |
+| Android OS            | 14 and above for animation playback |
+
+## Limitations
 
 * Devices running Android 13 and below do not support GIF playback; a static fallback image is shown.
 * Some OEMs may not fully support GIF rendering, even on Android 14 and above.
 * On certain devices, the heads-up notification may display only the first frame, while the full GIF appears when the notification tray is expanded.
+* GIFs may not loop smoothly if the frame count is high or the file size exceeds 1 MB.
 
 # Template Variations
 
@@ -4085,18 +4332,9 @@ Ensure images for the following templates meet the specified size guidelines:
 | Auto Carousel Template   | 400 x 300 px           |
 | Manual Carousel Template | 240 x 180 px           |
 | Five Icon  Template      | 300 x 300 px           |
+| Product Catalogue        | 225 x 225 px           |
 
 For Text over Image Template, ensure the text is center-aligned within the image for devices running OS version 12 and above.
-
-# GIF Size Guidelines
-
-To use GIFs in the Push Templates, use Push Templates SDK version 2.2.0 and above. Also, make sure GIFs meet the specified size guidelines. You can use [Ezgif tool](https://ezgif.com/resize) to resize the GIF.
-
-| GIF Size     | Recommended Number of Frames |
-| :----------- | :--------------------------- |
-| 180 x 120 px | 15                           |
-| 240 x 160 px | 10                           |
-| 300 x 200 px | 6                            |
 
 # FAQs
 
