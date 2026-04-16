@@ -16,7 +16,7 @@ next:
 
 The Debit/Credit Wallet API allows you to update the points in the user's wallet by either debiting (subtracting) or crediting (adding) them. The wallet ledger balance is updated immediately after the transaction is processed.
 
-This API provides flexibility for a range of scenarios where point adjustments are required for the user's wallet, as follows: 
+This API provides flexibility for a range of scenarios where point adjustments are required for the user's wallet, as follows:
 
 * **Redeeming Wallet Points in Transactions**: Enable users to redeem wallet points during transactions, providing them with a seamless way to utilize their loyalty rewards.
 * **Crediting Points to User Wallets**: Add points to the user wallet as and when needed.
@@ -29,11 +29,11 @@ Consider an example user case where a user makes a purchase worth $200 and has a
 
 1. **Determine Redemption Details**: With a conversion rate of 1 point = $1, this redemption translates into a $50 discount.
 
-2. **Calculate Final Payable Amount**: Apply the $50 discount to the purchase amount of $200. The user’s final payable amount is $150.  
+2. **Calculate Final Payable Amount**: Apply the $50 discount to the purchase amount of $200. The user’s final payable amount is $150.
 
 3. **Invoke the Debit API**: Invoke the Debit API to deduct the redeemed points from the user's wallet after completing the transaction successfully. Pass the transaction details, such as `walletId`, `identity`, and `points` to be debited (in this case, 50) in the API request.
 
-4. **Update Wallet Ledger**: Update the wallet balance to **150 points**, ensuring the user wallet accurately reflects the redeemed points.  
+4. **Update Wallet Ledger**: Update the wallet balance to **150 points**, ensuring the user wallet accurately reflects the redeemed points.
 
 > 📘 Example Credit Use Case
 >
@@ -120,7 +120,7 @@ POST
       </td>
 
       <td>
-        Loyalty points value to be debited/credited. Only positive point values are accepted. Requests with negative points for `debit` or `credit` transactions are rejected. 
+        Loyalty points value to be debited/credited. Only positive point values are accepted. Requests with negative points for `debit` or `credit` transactions are rejected.
       </td>
 
       <td>
@@ -142,7 +142,10 @@ POST
       </td>
 
       <td>
-        <p>Type of transaction. Valid values are:</p><ul><li>`DEBIT`</li> <li>`CREDIT`</li></ul>
+        Type of transaction. Valid values are:
+
+        * DEBIT
+        * CREDIT
       </td>
 
       <td>
@@ -186,9 +189,16 @@ POST
       </td>
 
       <td>
-        Specifies the time duration before points move from the Pending bucket to the Active bucket. This applies only to credit transactions. If the value is set to zero, the credit is applied immediately.  
+        Specifies the time duration before points move from the Pending bucket to the Active bucket. This applies only to credit transactions. If the value is set to zero, the credit is applied immediately.
 
-        The format is space separated as follows: Xw Xd Xh Xm, where: Xw Xd Xh Xm where: <ul><li>X = value</li> <li>w = week</li> <li>d = day</li> <li>h = hour</li> <li>m = minute</li></ul>
+        The format is space-separated as follows:
+
+        * Xw Xd Xh Xm, where:
+          * X = value
+          * w = week
+          * d = day
+          * h = hour
+          * m = minute
       </td>
 
       <td>
@@ -210,9 +220,17 @@ POST
       </td>
 
       <td>
-        Specifies the expiry duration. This applies only to credit transactions. If not provided, the system defaults to the wallet-level expiry.  
+        Specifies the expiry duration for credits. If not provided, the system defaults to the expiry duration configured at the wallet level.
 
-        The format is space separated as follows: Xw Xd Xh Xm where: <ul><li>X = value</li> <li>w = week</li> <li>d = day</li> <li>h = hour</li> <li>m = minute</li></ul>
+        The format is space-separated as follows:
+
+        * Xw Xd Xh Xm Xy, where:
+          * X = value
+          * w = week
+          * d = day
+          * h = hour
+          * m = minute
+          * y = calendar year
       </td>
 
       <td>
@@ -340,15 +358,19 @@ POST
   </tbody>
 </Table>
 
-> 📘 Metadata Validation
->
-> * You may include any number of key–value pairs.
-> * Do not send an empty object (\{}) for metadata. If metadata is present but empty, the request fails with error code 777 and message *metadata key value can not be empty*.
-> * All key–value pairs in metadata are saved with each credit/debit transaction in the wallet transaction store.
+<Callout icon="📘" theme="info">
+  #### Metadata Validation
 
-> 📘 Debit Transactions Validation
->
-> If debit transactions exceed available active points, they are not processed to prevent overdrafts in the wallet.
+  * You may include any number of key–value pairs.
+  * Do not send an empty object (\{}) for metadata. If metadata is present but empty, the request fails with error code 777 and message _metadata key value can not be empty_.
+  * All key–value pairs in metadata are saved with each credit/debit transaction in the wallet transaction store.
+</Callout>
+
+<Callout icon="📘" theme="info">
+  #### Debit Transactions Validation
+
+  If debit transactions exceed available active points, they are not processed to prevent overdrafts in the wallet.
+</Callout>
 
 # Sample Request
 
@@ -363,11 +385,9 @@ curl -X POST "https://in1.api.clevertap.com/1/promo/creditDebit?identity=krishna
 
 ## Find CleverTap Account ID and Passcode
 
-You can find the CleverTap Account ID and Passcode from the CleverTap dashboard by navigating to the *Settings* > *Project* page on the CleverTap dashboard.
+You can find the CleverTap Account ID and Passcode from the CleverTap dashboard by navigating to the _Settings_ > _Project_ page on the CleverTap dashboard.
 
-<Image alt="Find CleverTap Project Details" align="center" border={true} src="https://files.readme.io/739d78a63824aae1ab3162099ad19831000b8f090ce5960502d7fb7497def258-image.png">
-  Find CleverTap Project Details
-</Image>
+<Image align="center" alt="Find CleverTap Project Details" border={true} caption="Find CleverTap Project Details" src="https://files.readme.io/739d78a63824aae1ab3162099ad19831000b8f090ce5960502d7fb7497def258-image.png" />
 
 The following are the request payloads for debit/credit transactions:
 
@@ -411,7 +431,7 @@ The following are the request payloads for debit/credit transactions:
 
 # Sample Response
 
-The sample response returns the updated wallet balance and transaction details in the following format: 
+The sample response returns the updated wallet balance and transaction details in the following format:
 
 ```json
 {
