@@ -31,7 +31,7 @@ BSPs are requested to create an endpoint where CleverTap can send the notificati
 
 ### Authentication
 
- Authentication details will be provided during provider setup. The process is similar to generic SMS integration.
+Authentication details will be provided during provider setup. The process is similar to generic SMS integration.
 
 ### Headers
 
@@ -43,7 +43,7 @@ CleverTap supports four RCS message formats, each with optional SMS fallback.
 
 ### Text Message
 
-Used for sending simple messages with optional interactive buttons such as quick replies, links, or dialers.\
+Used for sending simple messages with optional interactive buttons such as quick replies, links, or dialers.  
 **Supports:**
 
 * Suggestions: `REPLY`, `DIAL_PHONE`, `OPEN_URL`
@@ -107,7 +107,7 @@ Used for sending simple messages with optional interactive buttons such as quick
 
 ### TEMPLATE Message
 
-Used for sending structured, pre-approved messages with dynamic fields populated using parameters.\
+Used for sending structured, pre-approved messages with dynamic fields populated using parameters.  
 **Supports:**
 
 * Template IDs and personalization parameters
@@ -174,7 +174,7 @@ Used for sending structured, pre-approved messages with dynamic fields populated
 Used for sending rich media with one card, including:
 
 * Title and description
-* Media Types 
+* Media Types
   * `IMAGE`: Static image content (JPG, PNG, GIF)
   * `VIDEO`: Video content (MP4, MOV, AVI)
 * Up to 10 suggestions
@@ -211,8 +211,7 @@ Used for sending rich media with one card, including:
       "cardContent": {
         "title": "Latest Smartphone Model XYZ", //Max 200 characters
         "description": "Experience cutting-edge technology with an advanced camera system, long-lasting battery, and premium design. Available in multiple colors.", //Max 2000 characters
-        "media": {
-          "type": "IMAGE",
+        "media": {     
           "mediaUrl": "https://cdn.example.com/products/smartphone-xyz-hero.jpg",
           "thumbnailUrl": "https://cdn.example.com/products/smartphone-xyz-thumb.jpg", 
           "height": "MEDIUM"
@@ -254,11 +253,11 @@ Used for sending rich media with one card, including:
 
 ### CAROUSEL Message
 
-Used for showcasing multiple cards in a horizontally scrollable format.\
+Used for showcasing multiple cards in a horizontally scrollable format.  
 **Each card can include:**
 
 * Title and description
-* Media Types 
+* Media Types
   * `IMAGE`: Static image content (JPG, PNG, GIF)
   * `VIDEO`: Video content (MP4, MOV, AVI)
 * Up to 10 suggestions
