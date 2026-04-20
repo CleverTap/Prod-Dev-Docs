@@ -3919,7 +3919,7 @@ The Vertical Image with CTA template is designed for displaying portrait-oriente
 
 This template ensures that vertical-first designs appear exactly as intended, reducing the need to redesign assets for square or landscape formats. It supports expanded and collapsed views on Android. You can also include additional text fields for richer layouts and an optional CTA button with customizable styles.
 
-<Image align="center" border={true} caption="Vertical Image with CTA Template" src="https://files.readme.io/8d7c562ee3568bc402a22f2f67578a7102c4d3e7ddb036799fbd6c3ebff840db-ChatGPT_Image_Apr_13_2026_at_04_13_04_PM.png" width="35% " />
+<Image align="center" border={true} caption="Vertical Image with CTA Template" src="https://files.readme.io/6170b638867cb0457a6744586cdf70a8df6250759cb0b828c3c90923bbb66d95-ChatGPT_Image_Apr_20_2026_at_12_27_11_PM.png" width="35% " />
 
 > 📘 Note
 >
