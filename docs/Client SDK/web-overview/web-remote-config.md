@@ -12,25 +12,36 @@ next:
 ---
 # Overview
 
-CleverTap's Remote Config feature allows you to modify your website's functionality and appearance without pushing updates through the App Store or Google Play using variables. The CleverTap Web SDK provides the ability to create variables on the client side that can be updated with new values from the server. Additionally, variables can be utilized in A/B tests to test features for a percentage of users selectively.
+CleverTap's Remote Config feature lets you modify your website's functionality and appearance without deploying new code by using variables. The CleverTap Web SDK lets you define client-side variables with default values; you can override them from the CleverTap dashboard and deliver them to users at runtime. Variables can also be used in A/B tests to selectively roll out features to a percentage of your users.
 
-To define variables, developers can use the platform-specific call within CleverTap Web SDK. After defining the variables in the code, you must sync the variables to the dashboard through the provided SDK method.
+To use Remote Config, define variables in your code using the SDK, then sync them to the dashboard as a one-time setup step. Once synced, you can manage and update variable values directly from the CleverTap dashboard without any code changes. 
 
-> 📘 Prerequisite
->
-> To use the Remote Config feature, ensure that you are using Web SDK v1.7.0 or higher.
+<Callout icon="📘" theme="info">
+  Note
 
-# Supported Variable Types
+  Syncing variables to the dashboard is a one-time setup step intended for development only and should not be performed in production.
+</Callout>
+
+## Prerequisite
+
+To use the Remote Config feature, check that  you are using the following:
+
+* Web SDK v1.7.0 or higher for String, Number, and Boolean variables.
+* Web SDK v1.14.0 or higher for JSON object and File variables.
+
+## Supported Variable Types
 
 Currently, CleverTap Web SDK supports the following variable types:
 
 * Number
 * String
 * Boolean
+* JSON object (v1.14.0+)
+* File (v1.14.0+)
 
 # Update to CleverTap Initialize Method
 
-The `syncVariables()` method requires the account token. This field is included in `clevertap.init()` method. Henceforth, tokens are required to maintain parity, as they are mandatory in mobile platforms. 
+The `syncVariables()` method requires the account token. This field is included in `clevertap.init()` method. Henceforth, tokens are required to maintain parity, as they are mandatory in mobile platforms.
 
 ## Using CleverTap as a Script
 
@@ -65,7 +76,7 @@ clevertap.init('ACCOUNT_ID', 'REGION', 'TARGET_DOMAIN', 'TOKEN')
 
 # Define Variables
 
-The Web SDK exposes a method `defineVariable` to set the default value of the variables. 
+The Web SDK exposes a method `defineVariable` to set the default value of the variables.
 
 ```javascript
 const var1 = clevertap.defineVariable("var_string", "str")  
@@ -151,9 +162,9 @@ clevertap.syncVariables(
 
 # Fetch Variables During a Session
 
-During a session, you can fetch the updated values for your CleverTap variables from the server. The fetched data goes into local storage under the **WZRK\_PE** key. 
+During a session, you can fetch the updated values for your CleverTap variables from the server. The fetched data goes into local storage under the **WZRK_PE** key.
 
-The `fetchVariable()` method is triggered once when the page count is 1. 
+The `fetchVariable()` method is triggered once when the page count is 1.
 
 ```javascript
 clevertap.fetchVariables()  
