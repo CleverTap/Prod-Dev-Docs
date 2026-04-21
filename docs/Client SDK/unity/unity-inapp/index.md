@@ -66,9 +66,9 @@ private void CleverTapInAppNotificationShowCallback(string message)
 }
 ```
 
-* Parameters: 
+* Parameters:
   * Message:JSON string containing the in-app notification payload (campaign ID, type, custom key-value extras, and so on.)
-  * Platform support: Android and iOS only. Not fired on desktop/WebGL (in-app notifications not supported on those platforms).
+* Platform support: Android and iOS only. Not fired on desktop/WebGL (in-app notifications not supported on those platforms).
 
 <Callout icon="📘" theme="info">
   Note
