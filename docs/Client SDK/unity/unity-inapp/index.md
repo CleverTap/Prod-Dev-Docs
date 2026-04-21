@@ -50,7 +50,7 @@ void CleverTapInAppNotificationDismissedCallback(string message)
 }
 ```
 
-### OnCleverTapInAppNotificationShowCallback
+### In-App Notification`OnCleverTapInAppNotificationShow`callback
 
 Fires each time an in-app notification is displayed to the user.
 
