@@ -50,6 +50,32 @@ void CleverTapInAppNotificationDismissedCallback(string message)
 }
 ```
 
+### OnCleverTapInAppNotificationShowCallback
+
+Fires each time an in-app notification is displayed to the user.
+
+```csharp
+csharp
+// Subscribe to the callback
+CleverTap.OnCleverTapInAppNotificationShowCallback += CleverTapInAppNotificationShowCallback;
+
+// Handler
+private void CleverTapInAppNotificationShowCallback(string message)
+{
+  Debug.Log($"InAppNotification Show callback: {message}");
+}
+```
+
+* Parameters: 
+  * Message:JSON string containing the in-app notification payload (campaign ID, type, custom key-value extras, and so on.)
+  * Platform support: Android and iOS only. Not fired on desktop/WebGL (in-app notifications not supported on those platforms).
+
+<Callout icon="📘" theme="info">
+  Note
+
+  Subscribe before CleverTap.LaunchWithCredentials to avoid missing the first show event.
+</Callout>
+
 ## In-App Notification Controls
 
 Control how and when In-App notifications appear in your app.
@@ -64,7 +90,7 @@ CleverTap.SuspendInAppNotifications();
 
 ### Discard In-App Notifications
 
-Remove all pending In-App notifications permanently. Use this to clear irrelevant or outdated notifications. 
+Remove all pending In-App notifications permanently. Use this to clear irrelevant or outdated notifications.
 
 ```csharp C#
 CleverTap.DiscardInAppNotifications();
@@ -88,11 +114,9 @@ To support these notifications, you can export your Unity project and modify the
 
 To enable header and footer In-Apps in your Unity Android app, follow these steps:
 
-1. In the Unity Editor, go to *File* >*Build Settings*, select the Android platform, and check the Export Project option. Click **Export**.
+1. In the Unity Editor, go to _File_ >_Build Settings_, select the Android platform, and check the Export Project option. Click **Export**.
 
-<Image alt="Exporting Unity project for Android Studio" align="center" width="75% " border={true} src="https://files.readme.io/f6e5759fd7b42d99f0756d71ac47da3f970bb178f1a2b1050bea83bcc29e031e-image.png">
-  Exporting Unity project for Android Studio
-</Image>
+<Image align="center" alt="Exporting Unity project for Android Studio" border={true} caption="Exporting Unity project for Android Studio" src="https://files.readme.io/f6e5759fd7b42d99f0756d71ac47da3f970bb178f1a2b1050bea83bcc29e031e-image.png" width="75% " />
 
 2. Open the exported project in Android Studio and locate the `UnityPlayerActivity.java` file.
 3. Update the class to extend `FragmentActivity` instead of `Activity`, and add the required import:
