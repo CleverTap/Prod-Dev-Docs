@@ -10,34 +10,25 @@ metadata:
 next:
   description: ''
 ---
+<br />
+
 # Overview
 
-CleverTap's Remote Config feature lets you modify your website's functionality and appearance without deploying new code by using variables. The CleverTap Web SDK lets you define client-side variables with default values; you can override them from the CleverTap dashboard and deliver them to users at runtime. Variables can also be used in A/B tests to selectively roll out features to a percentage of your users.
+CleverTap's Remote Config feature enables you to modify your website's functionality and appearance without needing to push updates through the App Store or Google Play, using variables. The CleverTap Web SDK allows the creation of client-side variables that can be updated with new values from the server. Additionally, variables can be used in A/B tests to test features for a select percentage of users.
 
-To use Remote Config, define variables in your code using the SDK, then sync them to the dashboard as a one-time setup step. Once synced, you can manage and update variable values directly from the CleverTap dashboard without any code changes. 
+To define variables, developers can use the platform-specific call within CleverTap Web SDK. After defining the variables in the code, you must sync the variables to the dashboard through the provided SDK method.
 
-<Callout icon="📘" theme="info">
-  Note
+> 📘 Prerequisite
+>
+> To use the Remote Config feature, ensure that you are using Web SDK v1.11.10 or higher.
 
-  Syncing variables to the dashboard is a one-time setup step intended for development only and should not be performed in production.
-</Callout>
-
-## Prerequisite
-
-To use the Remote Config feature, check that  you are using the following:
-
-* Web SDK v1.7.0 or higher for String, Number, and Boolean variables.
-* Web SDK v1.14.0 or higher for JSON object and File variables.
-
-## Supported Variable Types
+# Supported Variable Types
 
 Currently, CleverTap Web SDK supports the following variable types:
 
 * Number
 * String
 * Boolean
-* JSON object (v1.14.0+)
-* File (v1.14.0+)
 
 # Update to CleverTap Initialize Method
 
