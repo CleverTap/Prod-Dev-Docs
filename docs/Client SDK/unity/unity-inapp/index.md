@@ -72,7 +72,7 @@ private void CleverTapInAppNotificationShowCallback(string message)
 <Callout icon="📘" theme="info">
   Note
 
-  Check that you subscribe to the OnCleverTapInAppNotificationShow callback before the LaunchWithCredentials SDK initialization call to avoid missing the first show event.
+  Check that you subscribe to the 'OnCleverTapInAppNotificationShow' callback before the 'LaunchWithCredentials SDK' initialization call to avoid missing the first show event.
 </Callout>
 
 ## In-App Notification Controls
