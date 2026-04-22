@@ -13,6 +13,14 @@ We are excited to share the April SDK changelog for our product!
   Click each SDK header to view the corresponding GitHub repository for release details.
 </Callout>
 
+# April 17
+
+## [CTNotificationContent 1.3.0 ](https://github.com/CleverTap/CTNotificationContent/releases/tag/1.3.0)
+
+### What's New
+
+* Adds a new Vertical Image push notification template which supports images and GIFs with CTA.
+
 # April 14
 
 ## [Unity 5.5.3](https://github.com/CleverTap/clevertap-unity-sdk/blob/master/CHANGELOG.md#version-553-14-april-2026)
