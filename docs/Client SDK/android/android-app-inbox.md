@@ -24,15 +24,15 @@ App Inbox allows you to send permanent content directly to your app from the Cle
 
 # App Inbox
 
-CleverTap provides the App Inbox out of the box to send messages directly to your app from the CleverTap dashboard.  Using the CleverTap App Inbox, you can design App Inbox notifications right from the dashboard. 
+CleverTap provides the App Inbox out of the box to send messages directly to your app from the CleverTap dashboard.  Using the CleverTap App Inbox, you can design App Inbox notifications right from the dashboard.
 
-Perform the following steps to use the CleverTap App Inbox: 
+Perform the following steps to use the CleverTap App Inbox:
 
 1. Add the inbox dependencies in your app's `build.gradle` file.
 
 > 📘 Migrating from ExoPlayer to AndroidX Media3
 >
-> Starting from SDK v7.0.0 CleverTap now supports [AndroidX Media3](https://developer.android.com/media/media3/exoplayer/migration-guide), replacing the deprecated ExoPlayer libraries. CleverTap continues to support [ExoPlayer](https://github.com/google/ExoPlayer), but for a smoother migration to AndroidX Media3, update the following dependencies:
+> Starting from SDK v7.0.0 CleverTap supports [AndroidX Media3](https://developer.android.com/media/media3/exoplayer/migration-guide), replacing the deprecated ExoPlayer libraries. Support for [ExoPlayer](https://github.com/google/ExoPlayer) will be removed after upgrading to v9.0.0. For a smoother migration to AndroidX Media3, update the following dependencies:
 
 ```groovy App Inbox with Exoplayer Libraries
 //MANDATORY for App Inbox
@@ -318,7 +318,7 @@ Let's understand the types of buttons first that App Inbox supports:
 
 The Android SDK v4.6.1 and above supports `onInboxItemClicked` callback on the click of an App Inbox item, such as text or media.
 
- The Android SDK v4.6.9 onwards and below v4.7.0, the `onInboxItemClicked` callback supports the button click besides the item click.
+The Android SDK v4.6.9 onwards and below v4.7.0, the `onInboxItemClicked` callback supports the button click besides the item click.
 
 The callback returns `CTInboxMessage` object, `contentPageIndex` and `buttonIndex` parameters. To use this callback, check that your activity implements the `InboxMessageListener` and overrides the following method:
 
@@ -372,9 +372,9 @@ override fun onInboxItemClicked(message: CTInboxMessage?, contentPageIndex: Int,
 
 > 📘 Parameters received in `onInboxItemClicked` callback
 >
-> The `message` parameter represents the entire *App Inbox Item* object.\
-> The `contentPageIndex` parameter corresponds to the page index of the content, which ranges from 0 to n-1 (where n is the total number of pages for carousel templates). The non-carousel templates always have a value of 0, because they have only one page of content.\
-> The `buttonIndex` parameter corresponds to the App Inbox button (0, 1, or 2), that is clicked. A value of -1 in `buttonIndex` field indicates the entire *App Inbox Item* is clicked.
+> The `message` parameter represents the entire _App Inbox Item_ object.  
+> The `contentPageIndex` parameter corresponds to the page index of the content, which ranges from 0 to n-1 (where n is the total number of pages for carousel templates). The non-carousel templates always have a value of 0, because they have only one page of content.  
+> The `buttonIndex` parameter corresponds to the App Inbox button (0, 1, or 2), that is clicked. A value of -1 in `buttonIndex` field indicates the entire _App Inbox Item_ is clicked.
 
 Android SDK v3.6.1 and above supports an exclusive `onInboxButtonClick` callback on the click of **KV** type of buttons. It returns a Map of Key-Value pairs. To use this, make sure your activity implements the `InboxMessageButtonListener` and override the following method:
 
