@@ -27,7 +27,7 @@ On the Android side, add the following inbox dependencies in your app's `build.g
 
 > 📘 Migrating from ExoPlayer to AndroidX Media3
 >
-> Starting from CleverTap React Native SDK v3.0.0, CleverTap supports [AndroidX Media3](https://developer.android.com/media/media3/exoplayer/migration-guide), replacing the deprecated [ExoPlayer](https://github.com/google/ExoPlayer) libraries. Support for ExoPlayer will be removed after upgrading to v9.0.0. For a smoother migration to AndroidX Media3, update the following dependencies:
+> Starting from CleverTap React Native SDK v3.0.0, CleverTap supports [AndroidX Media3](https://developer.android.com/media/media3/exoplayer/migration-guide), replacing the deprecated [ExoPlayer](https://github.com/google/ExoPlayer) libraries as of Android SDK v8.1.0. Support for ExoPlayer will be removed after upgrading to v9.0.0. For a smoother migration to AndroidX Media3, update the following dependencies:
 
 ```groovy Dependencies with AndroidX Media3 Libraries
 //MANDATORY for App Inbox
