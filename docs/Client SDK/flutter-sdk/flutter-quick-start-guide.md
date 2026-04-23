@@ -109,7 +109,7 @@ dependencies {
 
 > 📘 Migrating from ExoPlayer to AndroidX Media3
 >
-> Starting from CleverTap Flutter SDK v2.5.0, CleverTap now supports [AndroidX Media3](https://developer.android.com/media/media3/exoplayer/migration-guide), replacing the deprecated ExoPlayer libraries. Support for [ExoPlayer](https://github.com/google/ExoPlayer) will be removed after upgrading to v9.0.0. For a smoother migration to AndroidX Media3, update the following dependencies:
+> Starting from CleverTap Flutter SDK v2.5.0, CleverTap now supports [AndroidX Media3](https://developer.android.com/media/media3/exoplayer/migration-guide), replacing the deprecated ExoPlayer libraries as of Android SDK v8.1.0. Support for [ExoPlayer](https://github.com/google/ExoPlayer) will be removed after upgrading to v9.0.0. For a smoother migration to AndroidX Media3, update the following dependencies:
 
 ```groovy Dependencies with AndroidX Media3
 implementation 'com.google.firebase:firebase-messaging:21.0.0'
