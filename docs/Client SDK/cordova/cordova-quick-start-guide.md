@@ -200,7 +200,7 @@ Check that your `build.gradle` file includes the play-services and support libra
 
 > 📘 Migrating from ExoPlayer to AndroidX Media3
 >
-> Starting from CleverTap Cordova SDK v3.3.0, CleverTap supports [AndroidX Media3](https://developer.android.com/media/media3/exoplayer/migration-guide), replacing the deprecated ExoPlayer libraries as of CleverTap Android SDK v8.1.0. Support for [ExoPlayer](https://github.com/google/ExoPlayer) will be removed after upgrading to v9.0.0. For a smoother migration to AndroidX Media3, update the following dependencies:
+> Starting from CleverTap Cordova SDK v3.3.0, CleverTap supports [AndroidX Media3](https://developer.android.com/media/media3/exoplayer/migration-guide), replacing the deprecated ExoPlayer libraries as of CleverTap Android SDK v8.1.0. Support for [ExoPlayer](https://github.com/google/ExoPlayer) will be removed after upgrading to v6.0.0. For a smoother migration to AndroidX Media3, update the following dependencies:
 
 For a smoother migration to AndroidX Media3. Update the following dependencies:
 
