@@ -12,7 +12,7 @@ next:
 ---
 # Steps to Install
 
-Grab the Account ID and Token values from the *Settings* page of your [CleverTap Dashboard](https://dashboard.clevertap.com).
+Grab the Account ID and Token values from the _Settings_ page of your [CleverTap Dashboard](https://dashboard.clevertap.com).
 
 ## Cordova Integration
 
@@ -96,7 +96,7 @@ ionic cordova open ios
 
 ## Set Up CleverTap in Ionic + Capacitor Projects
 
-Use this method if your Ionic project uses *Capacitor* instead of Cordova.
+Use this method if your Ionic project uses _Capacitor_ instead of Cordova.
 
 ### Step 1: Install the CleverTap Plugin for Capacitor
 
@@ -144,11 +144,9 @@ ionic capacitor open ios
 
 ## iOS
 
-Check your *.plist* file for the added Account ID and Account Token.
+Check your _.plist_ file for the added Account ID and Account Token.
 
-<Image title="Info.plist" alt={574} align="center" border={true} src="https://files.readme.io/7c74e73-19c6c39-image4.png">
-  Information Property List-Info.plist File
-</Image>
+<Image align="center" alt={574} border={true} caption="Information Property List-Info.plist File" title="Info.plist" src="https://files.readme.io/7c74e73-19c6c39-image4.png" />
 
 ### Add Region Code
 
@@ -156,7 +154,7 @@ To know how to add region code for iOS in Cordova SDK, refer to [Region Codes.](
 
 ## Android
 
-Ensure that the following metadata tags are added inside the `<application> </application>` tags of your `AndroidManifest.xml`: 
+Ensure that the following metadata tags are added inside the `<application> </application>` tags of your `AndroidManifest.xml`:
 
 ```xml
     <meta-data  
@@ -198,11 +196,11 @@ Refer to the example [AndroidManifest.xml](https://github.com/CleverTap/cleverta
 
 ### Add Dependencies
 
-Check that your `build.gradle` file includes the play-services and support library dependencies:  
+Check that your `build.gradle` file includes the play-services and support library dependencies:
 
 > 📘 Migrating from ExoPlayer to AndroidX Media3
 >
-> Starting from CleverTap Cordova SDK v3.3.0, CleverTap now supports [AndroidX Media3](https://developer.android.com/media/media3/exoplayer/migration-guide), replacing the deprecated ExoPlayer libraries.  While CleverTap continues to support [ExoPlayer](https://github.com/google/ExoPlayer).
+> Starting from CleverTap Cordova SDK v3.3.0, CleverTap supports [AndroidX Media3](https://developer.android.com/media/media3/exoplayer/migration-guide), replacing the deprecated ExoPlayer libraries as of CleverTap Android SDK v8.1.0. Support for [ExoPlayer](https://github.com/google/ExoPlayer) will be removed after upgrading to v9.0.0. For a smoother migration to AndroidX Media3, update the following dependencies:
 
 For a smoother migration to AndroidX Media3. Update the following dependencies:
 
