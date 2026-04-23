@@ -32,7 +32,7 @@ Perform the following steps to use the CleverTap App Inbox:
 
 > 📘 Migrating from ExoPlayer to AndroidX Media3
 >
-> Starting from SDK v7.0.0 CleverTap supports [AndroidX Media3](https://developer.android.com/media/media3/exoplayer/migration-guide), replacing the deprecated ExoPlayer libraries. Support for [ExoPlayer](https://github.com/google/ExoPlayer) will be removed after upgrading to v9.0.0. For a smoother migration to AndroidX Media3, update the following dependencies:
+> Starting from SDK v7.0.0 CleverTap supports [AndroidX Media3](https://developer.android.com/media/media3/exoplayer/migration-guide), replacing the deprecated ExoPlayer libraries as of Android SDK v8.1.0. Support for [ExoPlayer](https://github.com/google/ExoPlayer) will be removed after upgrading to v9.0.0. For a smoother migration to AndroidX Media3, update the following dependencies:
 
 ```groovy App Inbox with Exoplayer Libraries
 //MANDATORY for App Inbox
