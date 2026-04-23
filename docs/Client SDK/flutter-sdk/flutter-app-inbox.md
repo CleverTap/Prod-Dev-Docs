@@ -35,7 +35,7 @@ On the Android side, add the following inbox dependencies in your app's `build.g
 
 > 📘 Migrating from ExoPlayer to AndroidX Media3
 >
-> [ExoPlayer](https://github.com/google/ExoPlayer) is deprecated as of CleverTap Android SDK v8.1.0 and support will be removed in v9.0.0. Migrate to [AndroidX Media3](https://developer.android.com/media/media3/exoplayer/migration-guide) before upgrading to v9.0.0. CleverTap Flutter SDK v2.5.0 and above supports AndroidX Media3. Update the following dependencies:
+> [ExoPlayer](https://github.com/google/ExoPlayer) is deprecated as of CleverTap Android SDK v8.1.0 and support will be removed in v5.0.0. Migrate to [AndroidX Media3](https://developer.android.com/media/media3/exoplayer/migration-guide) before upgrading to v5.0.0. CleverTap Flutter SDK v2.5.0 and above supports AndroidX Media3. Update the following dependencies:
 
 ```groovy Dependencies with AndroidX Media3
 implementation 'com.google.firebase:firebase-messaging:21.0.0'
