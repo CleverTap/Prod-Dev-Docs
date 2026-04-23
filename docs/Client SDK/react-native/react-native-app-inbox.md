@@ -27,7 +27,7 @@ On the Android side, add the following inbox dependencies in your app's `build.g
 
 > 📘 Migrating from ExoPlayer to AndroidX Media3
 >
-> Starting from CleverTap React Native SDK v3.0.0, CleverTap now supports [AndroidX Media3](https://developer.android.com/media/media3/exoplayer/migration-guide), replacing the deprecated ExoPlayer libraries. CleverTap continues to support [ExoPlayer](https://github.com/google/ExoPlayer), but for a smoother migration to AndroidX Media3, update the following dependencies:
+> Starting from CleverTap React Native SDK v3.0.0, CleverTap supports [AndroidX Media3](https://developer.android.com/media/media3/exoplayer/migration-guide), replacing the deprecated [ExoPlayer](https://github.com/google/ExoPlayer) libraries. Support for ExoPlayer will be removed after upgrading to v9.0.0. For a smoother migration to AndroidX Media3, update the following dependencies:
 
 ```groovy Dependencies with AndroidX Media3 Libraries
 //MANDATORY for App Inbox
@@ -324,7 +324,7 @@ const message = {
 console.log(message);
 ```
 
-The following table describes the key attributes of an App Inbox message:  
+The following table describes the key attributes of an App Inbox message:
 
 | **Field**     | **Type**     | **Description**                                                                                               |
 | ------------- | ------------ | ------------------------------------------------------------------------------------------------------------- |
@@ -336,7 +336,7 @@ The following table describes the key attributes of an App Inbox message:
 | `actionUrl`   | `String`     | URL associated with the message action (for example, opening a webpage or deep link).                         |
 | `bgColor`     | `String`     | Background color of the message, allowing customization to match app themes.                                  |
 | `isRead`      | `boolean`    | A flag indicating whether the user has read the message.                                                      |
-| `date`        | `long`       | The timestamp when the message was created, in milliseconds. ($D\_EPOCH format).                              |
+| `date`        | `long`       | The timestamp when the message was created, in milliseconds. ($D_EPOCH format).                               |
 | `expires`     | `long`       | The timestamp when the message will expire and no longer be visible.                                          |
 | `tags`        | `JSONArray`  | Tags used to categorize or filter messages.                                                                   |
 | `orientation` | `String`     | Orientation of the message layout (for example, `portrait` or `landscape`).                                   |
