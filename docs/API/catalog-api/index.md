@@ -13,7 +13,8 @@ CleverTap supports Product Catalog, a collection of items, such as products in a
 
 The Catalog API provides endpoints to manage the full lifecycle of catalogs, including creation, updates, data uploads, and attribute configuration. The following are the available APIs:
 
-* [Get Signed URL API](doc:pre-signed-url-api)
+* [Get Signed URL API](doc:pre-signed-url-api)  
+* [Mark a Signed URL API](doc:mark-a-signed-url-api)
 * [Create Catalog API](doc:create-catalog-api)
 * [List Catalogs API](doc:list-catalogs-api)
 * [Get Catalog API ](doc:/get-catalog-api)
@@ -21,4 +22,3 @@ The Catalog API provides endpoints to manage the full lifecycle of catalogs, inc
 * [Delete Catalog API](doc:delete-catalog-api)
 * [Complete Multipart Upload](doc:complete-multipart-upload)
 * [Mark Attribute as Filterable API  ](doc:mark-attribute-as-filterable-api)
-* [Mark a Signed URL API](doc:mark-a-signed-url-api)
