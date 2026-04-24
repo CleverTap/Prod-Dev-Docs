@@ -4,3 +4,4 @@
 - list-catalogs-api
 - get-catalog-api
 - update-catalog-api
+- delete-catalog-api
