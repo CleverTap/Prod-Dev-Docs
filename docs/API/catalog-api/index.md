@@ -20,5 +20,4 @@ The Catalog API provides endpoints to manage the full lifecycle of catalogs, inc
 * [Get Catalog API ](doc:/get-catalog-api)
 * [Update Catalog API](doc:update-catalog-api)
 * [Delete Catalog API](doc:delete-catalog-api)
-* [Complete Multipart Upload](doc:complete-multipart-upload)
 * [Mark Attribute as Filterable API  ](doc:mark-attribute-as-filterable-api)
