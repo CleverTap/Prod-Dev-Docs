@@ -1,7 +1,7 @@
 ---
 title: Create Single Product API
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   robots: index
 ---
