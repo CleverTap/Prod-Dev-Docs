@@ -17,7 +17,7 @@ The Catalog API provides endpoints to manage the full lifecycle of catalogs, inc
 * [Mark a Signed URL API](doc:mark-a-signed-url-api)
 * [Create Catalog API](doc:create-catalog-api)
 * [List Catalogs API](doc:list-catalogs-api)
-* [Get Catalog API ](doc:/get-catalog-api)
+* [Get Catalog API ](doc:get-catalog-api)
 * [Update Catalog API](doc:update-catalog-api)
 * [Delete Catalog API](doc:delete-catalog-api)
 * [Mark Attribute as Filterable API  ](doc:mark-attribute-as-filterable-api)
