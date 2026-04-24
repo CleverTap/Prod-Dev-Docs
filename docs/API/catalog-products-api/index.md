@@ -15,7 +15,7 @@ Refer to the following endpoints:
 * [Create Products (Bulk) API](doc:create-products-bulk-api)
 * [List Products API](doc:list-products-api)
 * [Get Single Product API](doc:get-single-product-api)
-* [Update Single Product API](doc::update-single-product-api)
+* [Update Single Product API](doc:update-single-product-api)
 * [Update Products (Bulk) API](doc:update-products-bulk-api)
 * [Delete Single Product API](doc:delete-products-api)
 * [Delete Products (Bulk) API](doc:delete-products-bulk-api)
