@@ -17,7 +17,7 @@ Refer to the following endpoints:
 * [Get Single Product API](doc:get-single-product-api)
 * [Update Single Product API](doc:update-single-product-api)
 * [Update Products (Bulk) API](doc:update-products-bulk-api)
-* [Delete Single Product API](doc:delete-products-api)
+* [Delete Single Product API](doc:delete-single-product-api)
 * [Delete Products (Bulk) API](doc:delete-products-bulk-api)
 
 # Product Model
