@@ -4,6 +4,7 @@
 - external-trigger-api
 - campaign_object
 - catalog-api-endpoints
+- catalog-api
 - custom-list-endpoints
 - events-object
 - user-profile-object
@@ -18,5 +19,4 @@
 - custom-list-api-teams
 - token-vault-apis
 - api-encryption
-- catalog-api
 - catalog-products-api
