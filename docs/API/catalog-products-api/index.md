@@ -11,7 +11,7 @@ The Catalog Products API allows you to create, retrieve, update, and delete prod
 
 Refer to the following endpoints:
 
-* [Create Single Product API](doc:create-products-api)
+* [Create Single Product API](doc:create-single-product-api)
 * [Create Products (Bulk) API](doc:create-products-bulk-api)
 * [List Products API](doc:list-products-api)
 * [Get Single Product API](doc:get-product-api)
