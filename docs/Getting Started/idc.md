@@ -16,6 +16,38 @@ Data centers help store, process, or distribute large amounts of data. We offer 
 
 In addition to these regions, CleverTap has recently set up the infrastructure in **Indonesia** and **Middle East (UAE)** AWS regions to help Indonesia and Middle East customers in the Fintech and Healthtech space to have their data processed and stored in these regions.
 
+<br />
+
+> 📘 Region for CleverTap Essentials Plan
+>
+> The default region code applicable for CleverTap Essentials plan is **EU**.
+
+<br />
+
+## Identify Region Code
+
+Refer to the following table to identify the region for your account:
+
+| CleverTap Dashboard URL                                                                                  | Region            |
+| :------------------------------------------------------------------------------------------------------- | :---------------- |
+| [https://eu1.dashboard.clevertap.com/login.html#/](https://eu1.dashboard.clevertap.com/login.html#/)     | EU                |
+| [https://in1.dashboard.clevertap.com/login.html#/](https://in1.dashboard.clevertap.com/login.html#/)     | India             |
+| [https://us1.dashboard.clevertap.com/login.html#/](https://us1.dashboard.clevertap.com/login.html#/)     | US                |
+| [https://sg1.dashboard.clevertap.com/login.html#/](https://sg1.dashboard.clevertap.com/login.html#/)     | Singapore         |
+| [[https://aps3.dashboard.clevertap.com/login.html#/](https://aps3.dashboard.clevertap.com/login.html#/)] | Indonesia         |
+| [[https://mec1.dashboard.clevertap.com/login.html#/](https://mec1.dashboard.clevertap.com/login.html#/)] | Middle East (UAE) |
+
+Refer to the following table for `region` key values:
+
+| Region                  | Value                                 |
+| :---------------------- | :------------------------------------ |
+| India                   | `in1`                                 |
+| Singapore               | `sg1`                                 |
+| United States (U.S)     | `us1`                                 |
+| Indonesia               | `aps3`                                |
+| Middle East (UAE)       | `mec1`                                |
+| Europe (default region) | You can skip adding the `region` key. |
+
 # Enable CleverTap Region
 
 To enable the processing and storage in our regional data center, perform the following two steps:
@@ -30,7 +62,7 @@ To enable the processing and storage in our regional data center, perform the fo
 
 ## Android
 
-To integrate CleverTap into your Android application, refer to the [Android Quick Start Guide](doc:android-quickstart-guide). 
+To integrate CleverTap into your Android application, refer to the [Android Quick Start Guide](doc:android-quickstart-guide).
 
 To enable the CleverTap region, add the following snippet in your `AndroidManifest.xml` file between the `<application></application>` tags:
 
@@ -69,9 +101,7 @@ To integrate CleverTap into your iOS application, refer to the [iOS Quick Start 
 
 To enable the CleverTap region, in your `Info.plist` file, add a new `CleverTapRegion` key of type string under the `Information Property List`.
 
-<Image title="Add the CleverTapRegion Key in iOS" alt={1316} align="center" border={true} src="https://files.readme.io/594c9b1-2023-02-01_10-48-33.png">
-  Add the 'CleverTapRegion' Key
-</Image>
+<Image align="center" alt={1316} border={true} caption="Add the 'CleverTapRegion' Key" title="Add the CleverTapRegion Key in iOS" src="https://files.readme.io/594c9b1-2023-02-01_10-48-33.png" />
 
 Refer the following table for `CleverTapRegion` key values:
 
@@ -88,7 +118,7 @@ Refer the following table for `CleverTapRegion` key values:
 
 To integrate CleverTap into your KaiOS application, refer to the [KaiOS Integration Guide](https://developer.clevertap.com/docs/kaios).
 
-To enable the CleverTap region, use the following code: 
+To enable the CleverTap region, use the following code:
 
 ```javascript India
 clevertap.init("<Project ID>", "in1")
