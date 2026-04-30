@@ -28,14 +28,14 @@ In addition to these regions, CleverTap has recently set up the infrastructure i
 
 Refer to the following table to identify the region for your account:
 
-| CleverTap Dashboard URL                                                                                  | Region            |
-| :------------------------------------------------------------------------------------------------------- | :---------------- |
-| [https://eu1.dashboard.clevertap.com/login.html#/](https://eu1.dashboard.clevertap.com/login.html#/)     | EU                |
-| [https://in1.dashboard.clevertap.com/login.html#/](https://in1.dashboard.clevertap.com/login.html#/)     | India             |
-| [https://us1.dashboard.clevertap.com/login.html#/](https://us1.dashboard.clevertap.com/login.html#/)     | US                |
-| [https://sg1.dashboard.clevertap.com/login.html#/](https://sg1.dashboard.clevertap.com/login.html#/)     | Singapore         |
-| [[https://aps3.dashboard.clevertap.com/login.html#/](https://aps3.dashboard.clevertap.com/login.html#/)] | Indonesia         |
-| [[https://mec1.dashboard.clevertap.com/login.html#/](https://mec1.dashboard.clevertap.com/login.html#/)] | Middle East (UAE) |
+| CleverTap Dashboard URL                                                                                | Region            |
+| :----------------------------------------------------------------------------------------------------- | :---------------- |
+| [https://eu1.dashboard.clevertap.com/login.html#/](https://eu1.dashboard.clevertap.com/login.html#/)   | EU                |
+| [https://in1.dashboard.clevertap.com/login.html#/](https://in1.dashboard.clevertap.com/login.html#/)   | India             |
+| [https://us1.dashboard.clevertap.com/login.html#/](https://us1.dashboard.clevertap.com/login.html#/)   | US                |
+| [https://sg1.dashboard.clevertap.com/login.html#/](https://sg1.dashboard.clevertap.com/login.html#/)   | Singapore         |
+| [https://aps3.dashboard.clevertap.com/login.html#/](https://aps3.dashboard.clevertap.com/login.html#/) | Indonesia         |
+| [https://mec1.dashboard.clevertap.com/login.html#/](https://mec1.dashboard.clevertap.com/login.html#/) | Middle East (UAE) |
 
 Refer to the following table for `region` key values:
 
