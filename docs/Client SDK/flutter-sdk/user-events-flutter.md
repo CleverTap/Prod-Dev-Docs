@@ -33,7 +33,7 @@ CleverTapPlugin.recordEvent("Flutter Event", eventData);
 
 > 📘 Nested Objects Support
 >
-> To update profile properties using nested objects, refer to [Ingesting Nested Objects via CleverTap SDK](https://staging.docs.dev.clevertap.net/docs/ingesting-nested-objects-via-clevertap-sdk).
+> To update profile properties using nested objects, refer to [Ingesting Nested Objects via CleverTap SDK](https://developer.clevertap.com/docs/ingesting-nested-objects-via-clevertap-sdks).
 
 ## Record Charged event
 
