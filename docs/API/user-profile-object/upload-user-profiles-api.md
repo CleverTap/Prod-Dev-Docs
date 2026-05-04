@@ -105,8 +105,8 @@ For each user profile, a user identifier is required. This is the key that Cleve
       </td>
 
       <td>
-        <ul><li>profileData[“Phone”] should be formatted as +[country code][phone number].</li>  
-          <li> Accepted values for profileData["Gender"]: "M" or "F".</li></ul>
+        <ul><li>Accepted format for profileData[“Phone”]: +[country code][phone number].</li>\
+        <li> Accepted values for profileData["Gender"]: "M" or "F".</li></ul>
       </td>
 
       <td>
