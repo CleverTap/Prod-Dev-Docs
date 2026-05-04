@@ -105,8 +105,8 @@ For each user profile, a user identifier is required. This is the key that Cleve
       </td>
 
       <td>
-        User profile properties. Passed as key/value pairs.  
-        profileData[“Phone”] should be formatted as +[country code][phone number].
+        <ul><li>profileData[“Phone”] should be formatted as +[country code][phone number].</li>  
+          <li> Accepted values for profileData["Gender"]: "M" or "F".</li></ul>
       </td>
 
       <td>
@@ -138,7 +138,7 @@ For each user profile, a user identifier is required. This is the key that Cleve
       </td>
 
       <td>
-        Identity to recognize a unique user. It can be the user’s email, a phone number, or any other identifier that you are using to tag your users.  
+        Identity to recognize a unique user. It can be the user’s email address, a phone number, or any other identifier you use to tag your users.  
         You have to set a value for one of these parameters to identify the user: identity, FBID, GPID, or objectId.
       </td>
 
