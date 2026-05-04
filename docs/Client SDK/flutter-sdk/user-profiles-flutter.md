@@ -20,6 +20,12 @@ Initially, the user profile starts as "Anonymous," meaning that the profile does
 
 CleverTap provides pre-defined profile properties such as name, phone, gender, age, and so on to represent well-known properties associated with a profile. It is strongly recommended to use these standard property names. A list of all pre-defined property names is available here. In addition, we also support arbitrary single and multi-value profile properties.
 
+<Callout icon="📘" theme="info">
+  Note
+
+  Nested objects are supported on the Web platform (as of v3.8.1) in addition to Android/iOS (added in v3.8.0).
+</Callout>
+
 ## Create a User profile when user logs in (On User Login method)
 
 ```javascript Dart
