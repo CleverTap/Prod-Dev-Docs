@@ -38,7 +38,7 @@ Refer to the following table for the Flutter SDK version and the corresponding S
 
 | SDK     | Version | Code Size |
 | :------ | :------ | :-------- |
-| Flutter | 3.7.0   | 340 KB    |
+| Flutter | 4.0.0   | 340 KB    |
 
 # Integrate the Flutter SDK
 
