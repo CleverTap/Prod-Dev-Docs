@@ -28,8 +28,8 @@ Ensure you have the following prerequisites to integrate CleverTap Cordova SDK w
 
 The CleverTap Cordova SDK version 4.3.0 supports the following versions:
 
-* [CleverTap Android SDK version 7.5.2](https://github.com/CleverTap/clevertap-android-sdk/blob/master/docs/CTCORECHANGELOG.md#version-752-september-11-2025)
-* [CleverTap iOS SDK version 7.3.3](https://github.com/CleverTap/clevertap-ios-sdk/blob/master/CHANGELOG.md#version-733-september-11-2025)
+* [CleverTap Android SDK 8.1.0](https://github.com/CleverTap/clevertap-android-sdk/blob/master/docs/CTCORECHANGELOG.md#version-810-april-17-2026)
+* [CleverTap iOS SDK 7.6.0](https://github.com/CleverTap/clevertap-ios-sdk/blob/master/CHANGELOG.md#version-760-april-17-2026)
 
 # Cordova SDK Versions and Size
 
@@ -37,7 +37,7 @@ Refer to the following table for Cordova SDK versions and Cordova SDK code size:
 
 | SDK                   | Version | Code Size |
 | :-------------------- | :------ | :-------- |
-| CleverTap Cordova SDK | 4.3.0   | 470 KB    |
+| CleverTap Cordova SDK | 5.0.0   | 470 KB    |
 
 # Integrate the Cordova SDK
 
@@ -63,8 +63,8 @@ Refer to our quick start guide to get started with the Cordova integration:
       </td>
 
       <td>
-        [Cordova Integration](https://developer.clevertap.com/docs/cordova-quick-start-guide#cordova-integration)\
-        OR\
+        [Cordova Integration](https://developer.clevertap.com/docs/cordova-quick-start-guide#cordova-integration)  
+        OR  
         [Ionic/Capacitor Integration](https://developer.clevertap.com/docs/cordova-quick-start-guide#ioniccapacitor-integration)
       </td>
     </tr>
