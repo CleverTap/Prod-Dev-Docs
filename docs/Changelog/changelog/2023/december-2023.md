@@ -40,3 +40,5 @@ We are excited to share the October SDK changelog for our product!
   * **Added** support for Integration Debugger. It allows you to view errors and events on the dashboard when the `debugLevel` is set to 3.
   ## Bug Fixes
   * Fixes a crash in iOS 17/Xcode 15 related to alerts in in-apps.
+
+[Getting Started](https://developer.clevertap.com/docs/getting-starte)
