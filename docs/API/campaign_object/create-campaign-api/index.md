@@ -852,7 +852,8 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       <td>
         Send only to the provided number of qualified users.  
         By default all target segment users are selected.  
-        Note: Do not provide this parameter if upper_cap_for_target_segment is provided. (Minimum value is 100)
+        Note: Do not provide this parameter if upper_cap_for_target_segment is provided. (Minimum value is 100)  
+        This parameter works only for Push and is silently ignored for Email, SMS, WhatsApp, Webhook, Web Push, and App Inbox.
       </td>
 
       <td>
@@ -874,7 +875,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        Send only to the provided number of users per run.
+        Send only to the provided number of users per run. This parameter works only for Push and is silently ignored for Email, SMS, WhatsApp, Webhook, Web Push, and App Inbox.
       </td>
 
       <td>
@@ -3197,15 +3198,15 @@ The Generic Sample Campaign API includes configurations for without Key Values, 
 
       <td>
         `{
-                                                                                                                          "event_name": "Charged",
-                                                                                                                          "from": 20251001,
-                                                                                                                          "to": 20251220,
-                                                                                                                          "common_profile_properties": {
-                                                                                                                            "profile_fields": {
-                                                                                                                              "field_name": "value"
-                                                                                                                            }
-                                                                                                                          }
-                                                                                                                        }`
+                                                                                                                                  "event_name": "Charged",
+                                                                                                                                  "from": 20251001,
+                                                                                                                                  "to": 20251220,
+                                                                                                                                  "common_profile_properties": {
+                                                                                                                                    "profile_fields": {
+                                                                                                                                      "field_name": "value"
+                                                                                                                                    }
+                                                                                                                                  }
+                                                                                                                                }`
       </td>
     </tr>
 
@@ -3715,12 +3716,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-        "to": \{
-        "FBID": ["1234567890"],
-        "Email": ["[user@example.com](mailto:user@example.com)"],
-        "Identity": ["user_123"],
-        "objectId": ["abcdef123456"]
-        }
+        "to": \{ "FBID": ["1234567890"], "Email": ["[user@example.com](mailto:user@example.com)"], "Identity": ["user_123"], "objectId": ["abcdef123456"] }
       </td>
     </tr>
 
@@ -3818,12 +3814,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-        \<li>Each message can be tagged into a tag group.\</li>
-        \<li>Metrics, such as sent and viewed, will be shown against each tag group in the CleverTap dashboard.\</li>
-        \<li>You can create a maximum of 500 tag groups.\</li>
-        \<li>If not specified, the metrics are shown against the “Not Tagged” tag.\</li>
-        \<li>The <em>Stats</em> page shows the tag group for the selected campaign.\</li>
-        \<li>For campaigns created via the Target Users by Identity API with tag groups, CleverTap strongly recommends setting up individual subscriptions so large tag groups do not affect row allocation for other campaigns.\</li>
+        \<li>Each message can be tagged into a tag group.\</li> \<li>Metrics, such as sent and viewed, will be shown against each tag group in the CleverTap dashboard.\</li> \<li>You can create a maximum of 500 tag groups.\</li> \<li>If not specified, the metrics are shown against the “Not Tagged” tag.\</li> \<li>The <em>Stats</em> page shows the tag group for the selected campaign.\</li> \<li>For campaigns created via the Target Users by Identity API with tag groups, CleverTap strongly recommends setting up individual subscriptions so large tag groups do not affect row allocation for other campaigns.\</li>
       </td>
 
       <td>
@@ -3857,11 +3848,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-        "content": \{
-        "subject": "Welcome",
-        "body": "\<div>Your HTML content for the email\</div>",
-        "sender_name": "CleverTap"
-        }
+        "content": \{ "subject": "Welcome", "body": "\<div>Your HTML content for the email\</div>", "sender_name": "CleverTap" }
       </td>
     </tr>
 
@@ -3996,23 +3983,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-        "template": \{
-        "template_name": "Image_Template_1",
-        "header": \{
-        "type": "image",
-        "media": \{
-        "url": "[https://example.com/sample-image.jpg](https://example.com/sample-image.jpg)"
-        }
-        },
-        "body": \{
-        "type": "text",
-        "replacements": ["var1", "Var2"]
-        },
-        "buttons": [
-        \{ "replacements": ["mvi qr payload 5"] },
-        \{ "replacements": ["mvi qr payload 7"] }
-        ]
-        }
+        "template": \{ "template_name": "Image_Template_1", "header": \{ "type": "image", "media": \{ "url": "[https://example.com/sample-image.jpg](https://example.com/sample-image.jpg)" } }, "body": \{ "type": "text", "replacements": ["var1", "Var2"] }, "buttons": [ \{ "replacements": ["mvi qr payload 5"] }, \{ "replacements": ["mvi qr payload 7"] } ] }
       </td>
     </tr>
 
@@ -4044,8 +4015,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-        Language code for the language used to create the template.
-        For more information, see Meta Message Templates (supported languages).
+        Language code for the language used to create the template. For more information, see Meta Message Templates (supported languages).
       </td>
 
       <td>
@@ -4079,13 +4049,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-        "header": \{
-        "type": "image",
-        "media": \{
-        "url": "[https://example.com/sample-image.jpg](https://example.com/sample-image.jpg)"
-        }
-        }
-        (For more header types, refer to the examples.)
+        "header": \{ "type": "image", "media": \{ "url": "[https://example.com/sample-image.jpg](https://example.com/sample-image.jpg)" } } (For more header types, refer to the examples.)
       </td>
     </tr>
 
@@ -4129,9 +4093,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-        "media": \{
-        "url": "[https://example.com/sample-video.mp4](https://example.com/sample-video.mp4)"
-        }
+        "media": \{ "url": "[https://example.com/sample-video.mp4](https://example.com/sample-video.mp4)" }
       </td>
     </tr>
 
@@ -4153,10 +4115,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-        "header": \{
-        "type": "text",
-        "replacements": ["header var 1"]
-        }
+        "header": \{ "type": "text", "replacements": ["header var 1"] }
       </td>
     </tr>
 
@@ -4178,10 +4137,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-        "body": \{
-        "type": "text",
-        "replacements": ["Var 1", "Var 2"]
-        }
+        "body": \{ "type": "text", "replacements": ["Var 1", "Var 2"] }
       </td>
     </tr>
 
@@ -4247,10 +4203,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-        "buttons": [
-        \{ "replacements": ["quick reply custom payload 1"] },
-        \{ "replacements": ["quick reply custom payload 2"] }
-        ]
+        "buttons": [ \{ "replacements": ["quick reply custom payload 1"] }, \{ "replacements": ["quick reply custom payload 2"] } ]
       </td>
     </tr>
 
@@ -4260,11 +4213,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-        Allows you to specify which vendor/provider to use for your campaign. For each target_mode, you can have multiple
-        providers integrated with CleverTap, and this parameter allows you to select which provider to use for the campaign.
-        For example, you select target_mode = email and you have integrated both SendGrid and Amazon SNS with CleverTap to
-        send emails. In this scenario, you can set provider_nick_name = SendGrid to send the campaign through SendGrid.
-        This parameter is required for WhatsApp and SMS.
+        Allows you to specify which vendor/provider to use for your campaign. For each target_mode, you can have multiple providers integrated with CleverTap, and this parameter allows you to select which provider to use for the campaign. For example, you select target_mode = email and you have integrated both SendGrid and Amazon SNS with CleverTap to send emails. In this scenario, you can set provider_nick_name = SendGrid to send the campaign through SendGrid. This parameter is required for WhatsApp and SMS.
       </td>
 
       <td>
@@ -4308,8 +4257,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-        Valid values are: true and false. Set to false by default. When true, emails are sent to all qualified users,
-        including those who have unsubscribed. For more information, refer to Override Communication Preferences for Email.
+        Valid values are: true and false. Set to false by default. When true, emails are sent to all qualified users, including those who have unsubscribed. For more information, refer to Override Communication Preferences for Email.
       </td>
 
       <td>
@@ -4331,9 +4279,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-        Platform specific key that is required to target users on devices running Android O – can be used to determine
-        the notification channel to which a given push notification must belong. If a Notification ID is mandatory,
-        then the channel ID is expected. An error occurs if a valid channel ID is not received.
+        Platform specific key that is required to target users on devices running Android O – can be used to determine the notification channel to which a given push notification must belong. If a Notification ID is mandatory, then the channel ID is expected. An error occurs if a valid channel ID is not received.
       </td>
 
       <td>
@@ -4355,8 +4301,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-        Platform specific key that can be used while targeting users on devices running Android O – can be used to
-        determine the notification count shown on the app icon.
+        Platform specific key that can be used while targeting users on devices running Android O – can be used to determine the notification count shown on the app icon.
       </td>
 
       <td>
@@ -4378,13 +4323,11 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-        Platform specific key that can be used while targeting users on devices running Android O – can be used to
-        determine which icon should be used. Accepted values:
+        Platform specific key that can be used while targeting users on devices running Android O – can be used to determine which icon should be used. Accepted values:
 
         <br />
 
-        <code>app icon</code>,
-        <code>notification icon</code>
+        <code>app icon</code>, <code>notification icon</code>
       </td>
 
       <td>
@@ -4406,8 +4349,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-        To raise Notification viewed event for Push notifications, raise the flag to "true" in the
-        platform_specific: ios section of the request payload.
+        To raise Notification viewed event for Push notifications, raise the flag to "true" in the platform_specific: ios section of the request payload.
       </td>
 
       <td>
@@ -4517,9 +4459,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-        Send this value as False to override the communication preferences of the user.
-        For example, transaction updates, user replies, and so on.
-        Check that you do not breach any compliance regulations by overriding the user communication preferences.
+        Send this value as False to override the communication preferences of the user. For example, transaction updates, user replies, and so on. Check that you do not breach any compliance regulations by overriding the user communication preferences.
       </td>
 
       <td>
@@ -4541,8 +4481,7 @@ The to parameter is an object that has the following child properties: FBID, Ema
       </td>
 
       <td>
-        A unique identifier to track the status of each message sent to the end user.
-        The limit is 8 characters.
+        A unique identifier to track the status of each message sent to the end user. The limit is 8 characters.
       </td>
 
       <td>
