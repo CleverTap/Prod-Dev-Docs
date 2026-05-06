@@ -27,7 +27,7 @@ We are excited to share the October SDK changelog for our product!
 
 # December 6
 
-## [Cordova 2.7.2](ttps://github.com/CleverTap/clevertap-cordova/releases/tag/2.7.2)
+## [Cordova 2.7.2](https://github.com/CleverTap/clevertap-cordova/releases/tag/2.7.2)
 
 ## New Features
 
