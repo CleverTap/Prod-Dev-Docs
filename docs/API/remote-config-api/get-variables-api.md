@@ -149,7 +149,7 @@ Refer to [Regions](https://developer.clevertap.com/docs/common-api-components#re
 ## Sample Request
 
 ```curl curl
-curl -X POST -d '{"identity":"user@clevertap.com","cleverTapId":"12345678","includeDefaults":false}' "https://in1.api.clevertap.com/1/getVars" \
+curl -X POST -d '{"identity":"user@clevertap.com","clevertapId":"12345678","includeDefaults":false}' "https://in1.api.clevertap.com/1/getVars" \
 -H "X-CleverTap-Account-Id: ACCOUNT_ID" \
 -H "X-CleverTap-Passcode: PASSCODE" \
 -H "Content-Type: application/json; charset=utf-8"
