@@ -13,6 +13,105 @@ We are excited to share the April SDK changelog for our product!
   Click each SDK header to view the corresponding GitHub repository for release details.
 </Callout>
 
+# April 30
+
+## [Cordova 5.0.0](https://github.com/CleverTap/clevertap-cordova/releases/tag/5.0.0)
+
+### What's new
+
+#### Android
+
+* Supports CleverTap [Android SDK 8.1.0](https://github.com/CleverTap/clevertap-android-sdk/blob/master/docs/CTCORECHANGELOG.md#version-810-april-17-2026).
+* Raises the minimum supported Android API level from 21 (Android 5.0) to 23 (Android 6.0).
+
+#### iOS
+
+* Supports CleverTap [iOS SDK 7.6.0](https://github.com/CleverTap/clevertap-ios-sdk/blob/master/CHANGELOG.md#version-760-april-17-2026).
+
+### API changes
+
+#### Android and iOS
+
+* Adds new `variants(successCallback)` API to fetch the active A/B experiment variants for the current user. Each variant object contains an `id` key mapping to the numeric ID of the variant.
+* Updates `discardInAppNotifications()` with an optional boolean parameter `dismissInAppIfVisible`. When `true`, it immediately dismisses any currently visible In-App notification in addition to clearing the pending queue.
+* Adds new `unmute()` API to resume event tracking, overriding any active mute period.
+
+### Bug Fixes
+
+#### iOS
+
+* Fixes a bug where `onUserLogin` was creating additional guids for high level encryption.
+
+## [React Native 4.1.0](https://github.com/CleverTap/clevertap-react-native/releases)
+
+### What's New
+
+#### Android and iOS
+
+* Supports CleverTap [Android SDK 8.1.0](https://github.com/CleverTap/clevertap-android-sdk/blob/master/docs/CTCORECHANGELOG.md#version-810-april-17-2026).
+* Supports CleverTap[ iOS SDK 7.6.0](https://github.com/CleverTap/clevertap-ios-sdk/blob/master/CHANGELOG.md#version-760-april-17-2026).
+* Adds Picture-in-Picture In-App Notifications support.
+* Adds GIF and video media support in In-App templates.
+
+### API changes
+
+#### Android and iOS
+
+* Adds a new API `unmute()` to clear a backend-imposed mute state, resuming network operations immediately.
+
+> ❗️ Critical Update
+>
+> The minimum supported Android API level has been raised to **23 (Android 6.0)**. Apps targeting API levels below 23 can no longer integrate this SDK version.
+>
+> ExoPlayer integration is deprecated. Migrate to Media3 before upgrading to v5.0.0.
+
+# April 28
+
+## [Xamarin DotNet 4.0.0](https://github.com/CleverTap/clevertap-xamarin/blob/master/CHANGELOG.md#version-400-android-dotnet-april-28-2026)
+
+### What's New
+
+* Supports CleverTap [Android SDK v8.1.0](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/corev8.1.0).
+
+# April 23
+
+## [Flutter 4.0.0](https://github.com/CleverTap/clevertap-flutter/releases/tag/4.0.0)
+
+### What's New
+
+#### Android
+
+* Supports CleverTap [Android SDK 8.1.0](https://github.com/CleverTap/clevertap-android-sdk/blob/master/docs/CTCORECHANGELOG.md#version-810-april-17-2026).
+* Deprecates ExoPlayer integration. Migration to Media3 is required before Android SDK 9.0.0.
+* Upgrades `compileSDKVersion` to 36.
+
+#### iOS
+
+* Supports CleverTap [iOS SDK 7.6.0](https://github.com/CleverTap/clevertap-ios-sdk/blob/master/CHANGELOG.md#version-760-april-17-2026).
+
+#### Android and iOS
+
+* Adds Picture-in-Picture In-App Notifications support.
+* Adds GIF and video media support in In-App templates.
+* Adds support for App Inbox default media view.
+* Adds support for server-controlled mute durations via backend header.
+
+### API changes
+
+#### Android and iOS
+
+* Adds new `unmute()` API to resume event tracking, overriding any active mute period.
+
+### Bug Fixes
+
+#### iOS
+
+* Fixes a bug where `onUserLogin` was creating additional guids for high level encryption.
+
+> ❗️ Critical Update
+>
+> The minimum supported Android API level has been raised to **23 (Android 6.0)**. Devices running Android 5.x (API levels 21–22) are no longer supported.
+
 # April 17
 
 ## [CTNotificationContent 1.3.0 ](https://github.com/CleverTap/CTNotificationContent/releases/tag/1.3.0)
