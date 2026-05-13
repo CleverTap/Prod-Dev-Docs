@@ -36,7 +36,7 @@ The following table outlines the code size for the current version of the Clever
 
 | SDK                  | Version | Code Size |
 | :------------------- | :------ | :-------- |
-| CleverTap Unreal SDK | 1.0.0   | 4.3 MB    |
+| CleverTap Unreal SDK | 1.1.0   | 4.3 MB    |
 
 # Supported Platforms
 
