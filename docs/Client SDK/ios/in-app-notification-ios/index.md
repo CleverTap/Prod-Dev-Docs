@@ -290,7 +290,7 @@ public func shouldHandleCleverTap(_ url: URL?, for channel: CleverTapChannel) ->
 
 # Javascript support in In-App Notifications
 
-CleverTap iOS SDK v3.5.0 and above supports embedding Javascript code inside Custom In-Apps. To make sure your Javascript code works on the app, while creating the InApp campaign, select the checkbox for Enabling javascript during the In-App campaign creation
+CleverTap iOS SDK v3.5.0 and above supports embedding JavaScript code inside Custom In-Apps. To make sure your JavaScript code works on the app, while creating the In-App campaign, select the checkbox for Enabling JavaScript during the In-App campaign creation
 
 <Image align="center" alt={2870} border={true} caption="Custom HTML Templates in In-App Notification" title="Custom HTML Templates in In-App Notification" src="https://files.readme.io/d45b488-185fa3f-image_1.png" />
 
