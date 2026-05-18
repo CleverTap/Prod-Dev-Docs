@@ -14,9 +14,9 @@ next:
 
 # Overview
 
-CleverTap's Remote Config feature enables you to modify your website's functionality and appearance without needing to push updates through the App Store or Google Play, using variables. The CleverTap Web SDK allows the creation of client-side variables that can be updated with new values from the server. Additionally, variables can be used in A/B tests to test features for a select percentage of users.
+CleverTap's Remote Config feature lets you modify your website's functionality and appearance without deploying new code by using variables. The CleverTap Web SDK lets you define client-side variables with default values; you can override them from the CleverTap dashboard and deliver them to users at runtime. Variables can also be used in A/B tests to selectively roll out features to a percentage of your users.
 
-To define variables, developers can use the platform-specific call within CleverTap Web SDK. After defining the variables in the code, you must sync the variables to the dashboard through the provided SDK method.
+To use Remote Config, define variables in your code using the SDK, then sync them to the dashboard during a one-time setup. Once synced, you can manage and update variable values directly from the CleverTap dashboard without any code changes.
 
 > 📘 Prerequisite
 >
