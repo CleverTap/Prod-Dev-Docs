@@ -388,6 +388,84 @@ if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandl
 >
 > To add inline media support in custom HTML for in-app notifications, add the key playsinline with value as 1 or true as a query parameter in your media URL. For example, watch this [YouTube video](https://www.youtube.com/watch?v=RUvrypIAPbg?playsinline=1). This functionality is available for CleverTap iOS SDK 3.7.2 and above.
 
+## JavaScript Button Actions in Custom HTML In-Apps
+
+The CleverTap iOS SDK provides the `triggerInAppAction` message via the WebKit JavaScript bridge to handle button clicks in custom HTML In-App templates. This action supports multiple action types and automatically records a `Notification Clicked` event.
+
+### Syntax
+
+Use the following structure to post a `triggerInAppAction` message via the WebKit bridge:
+
+```javascript
+window.webkit.messageHandlers.clevertap.postMessage({
+    action: 'triggerInAppAction',
+    actionJson: actionJson,
+    callToAction: callToAction,
+    buttonId: buttonId
+});
+```
+
+> 📘 Note
+>
+> Always verify that `window.webkit.messageHandlers.clevertap` is available before invoking this method. To detect the iOS environment in a shared HTML template, check `window.cleverTapIOSSDKVersion`, which is injected by the iOS SDK.
+
+### Parameters
+
+The following parameters are accepted by the `triggerInAppAction` message:
+
+| Parameter      | Type   | Description                                                   |
+| -------------- | ------ | ------------------------------------------------------------- |
+| `actionJson`   | Object | Action configuration — see supported types below              |
+| `callToAction` | String | Label of the button that triggered the action (can be `null`) |
+| `buttonId`     | String | Identifier of the button (can be `null`)                      |
+
+### Supported Action Types
+
+The `type` field inside `actionJson` determines what happens when the button is tapped. The following types are supported:
+
+| `type` value    | Description                           | Additional fields                                           |
+| --------------- | ------------------------------------- | ----------------------------------------------------------- |
+| `"close"`       | Dismisses the in-app notification     | None                                                        |
+| `"url"`         | Opens a URL                           | `"ios"`: the URL string (iOS-specific)                      |
+| `"kv"`          | Passes key-value pairs to the app     | `"kv"`: `{ "key": "value" }`                                |
+| `"custom-code"` | Triggers a custom template            | `"templateId"`, `"templateName"`, `"vars"`                  |
+| `"rfp"`         | Requests push notification permission | `"fbSettings"`: `true` to show fallback settings (optional) |
+
+### Examples
+
+The following examples demonstrate how to handle common button tap scenarios in a custom HTML In-App template, such as dismissing the notification, opening a URL, and passing key-value pairs to your app.
+
+```javascript Close Action
+window.webkit.messageHandlers.clevertap.postMessage({
+    action: 'triggerInAppAction',
+    actionJson: { type: 'close' },
+    callToAction: 'Dismiss',
+    buttonId: 'btn_close'
+});
+```
+```javascript Open URL
+window.webkit.messageHandlers.clevertap.postMessage({
+    action: 'triggerInAppAction',
+    actionJson: {
+        type: 'url',
+        ios: 'https://example.com/offer'
+    },
+    callToAction: 'Learn More',
+    buttonId: 'btn_cta'
+});
+```
+```javascript Key-Value
+window.webkit.messageHandlers.clevertap.postMessage({
+    action: 'triggerInAppAction',
+    actionJson: {
+        type: 'kv',
+        kv: { promoCode: 'SAVE20' }
+    },
+    callToAction: 'Redeem',
+    buttonId: 'btn_redeem'
+});
+```
+
 # Dismissing JS-Enabled Custom In-App Notifications
 
 If your In-App Notification supports JavaScript, you can dismiss it by calling the JS method when you set the action `dismissInAppNotification` in the CleverTap dashboard. Use the following code:
