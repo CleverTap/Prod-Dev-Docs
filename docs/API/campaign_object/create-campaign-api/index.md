@@ -536,6 +536,50 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
 
     <tr>
       <td>
+        **draft***
+      </td>
+
+      <td>
+        When set to true, saves the campaign as a draft instead of publishing it. The campaign will be visible in the CleverTap dashboard as a draft and will not be sent to users.
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        Boolean
+      </td>
+
+      <td>
+        "draft": true
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **pa_webhook_name***
+      </td>
+
+      <td>
+        Specifies the name of the Post Action Webhook to trigger after the campaign is delivered. The webhook name must match one configured in your CleverTap account settings.
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        "pa_webhook_name": "asda"
+      </td>
+    </tr>
+
+    <tr>
+      <td>
         where
       </td>
 
@@ -2070,99 +2114,72 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
 ```json Mobile Push Notification
 {
     "name": "My API Campaign",
-    "estimate_only": true,
-    "target_mode":"push",
-    "conversion_goal":{
-      "event_name": "Charged",
-      "filter_type":{
-          "event_property":[
-              {
-                   "property_name":"Items|Book name",
-                   "operator":"equals",
-                   "property_value":"book name"
-               },
-               {
-                   "property_name":"Amount",
-                   "operator":"equals",
-                   "property_value":3456
-               },
-               {
-                   "property_name":"Currency",
-                   "operator":"equals",
-                   "property_value":"USD"
-               }
-           ],
-           "first_time":"yes",
-           "last_time":"yes",
-           "time_of_day":[["21:00","23:00"],["11:34","12:44"],["13:01","13:40"]],
-           "day_of_week":[1,7],
-           "day_of_month":[1,3,16,31]
-      },
-      "conversion_time":"1D",
-      "revenue_property": "Amount"
-   },
+    "estimate_only": false,
+    "draft": true,
+    "target_mode": "push",
+    "labels": [
+        "label-name-1",
+        "label-name-2"
+    ],
+    "conversion_goal": {
+        "event_name": "Charged",
+        "conversion_time": "1D",
+        "revenue_property": "Amount"
+    },
     "where": {
         "event_name": "App Launched",
-        "from": 20250101,
-        "to": 20250303,
-        "common_profile_properties": {
-            "profile_fields": [
-                {
-                    "name": "Customer Type",
-                    "operator":"equals",
-                    "value": "Platinum"
-                }
-            ]
-        }
+        "from": 20260101,
+        "to": 20260303
     },
-    "respect_frequency_caps": false,
-    "ttl": {
-             "ttl_type": "absolute",
-                "value" : 202207200000 },
+    "respect_frequency_caps": true,
+    "pa_webhook_name": "asds",
+    "respect_throttle": true,
     "content": {
         "title": "Hi!",
         "body": "How are you doing today?",
         "platform_specific": {
             "ios": {
-                "mutable-content": "true", 
+                "mutable-content": "true",
                 "deep_link": "example.com",
                 "sound_file": "example.caf",
                 "category": "application category//Books",
                 "badge_count": 1,
                 "Key": "Value_ios"
-            },
-            "android": {
-                "enable_rendermax": true,
-                "wzrk_cid": "Marketing",
-                "background_image": "http://example.jpg",
-                "default_sound": true,
-                "deep_link": "example.com",
-                "large_icon": "http://example.png",
-                "Key": "Value_android",
-                },
             }
         }
     },
     "devices": [
-        "android",
         "ios"
     ],
     "users_limit_overall": 101,
-  "when":{
-      "type":"now",
-      "delivery_timezone":"user",
-      "user_timezone_wrap_around":true,
-      "dnd":{
-          "message_state":"delay",
-          "dnd_timezone":"user",
-          "dnd_info":{
-              "2": ["21:00","06:00"],
-              "4": ["23:56","04:34"],
-              "5": ["09:00","09:13"]
-       }
-      },
-      "campaign_cutoff": "08:00"
-  }
+    "when": {
+        "type": "later",
+        "delivery_date_time": [
+            "20260510 15:20"
+        ],
+        "delivery_timezone": "account",
+        "user_timezone_wrap_around": true,
+        "throttlePer5Mins": "200",
+        "dnd": {
+            "message_state": "delay",
+            "dnd_timezone": "user",
+            "dnd_info": {
+                "2": [
+                    "21:00",
+                    "06:00"
+                ],
+                "4": [
+                    "23:56",
+                    "04:34"
+                ],
+                "5": [
+                    "09:00",
+                    "09:13"
+                ]
+            }
+        },
+        "campaign_cutoff": "08:00"
+    }
 }
 ```
 ```json Email
@@ -3198,15 +3215,15 @@ The Generic Sample Campaign API includes configurations for without Key Values, 
 
       <td>
         `{
-                                                                                                                                  "event_name": "Charged",
-                                                                                                                                  "from": 20251001,
-                                                                                                                                  "to": 20251220,
-                                                                                                                                  "common_profile_properties": {
-                                                                                                                                    "profile_fields": {
-                                                                                                                                      "field_name": "value"
-                                                                                                                                    }
-                                                                                                                                  }
-                                                                                                                                }`
+                                                                                                                                          "event_name": "Charged",
+                                                                                                                                          "from": 20251001,
+                                                                                                                                          "to": 20251220,
+                                                                                                                                          "common_profile_properties": {
+                                                                                                                                            "profile_fields": {
+                                                                                                                                              "field_name": "value"
+                                                                                                                                            }
+                                                                                                                                          }
+                                                                                                                                        }`
       </td>
     </tr>
 
