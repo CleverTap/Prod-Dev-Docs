@@ -500,7 +500,7 @@ The following table summarizes all supported callback event types, their trigger
     "data": [
       {
         "ts": 1710504000,
-				"channel": "RCS"
+"channel": "RCS"
         "code": "2002",
         "meta": "CT_TXT_20240315_001_ABC123"
       }
@@ -728,7 +728,7 @@ These errors are sent via callback when delivery fails after the initial API acc
     "data": [
       {
         "ts": 1710504000,
-				"channel": "RCS"
+"channel": "RCS"
         "code": "903",
         "meta": "CT_TXT_20240315_001_ABC123"
       }
