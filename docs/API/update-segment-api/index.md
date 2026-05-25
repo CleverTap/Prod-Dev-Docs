@@ -31,7 +31,7 @@ Here is an example base URL from the account in the India region:
 
 `https://<region>.api.clevertap.com/api/updateSegment`
 
-### Region
+## Region
 
 To identify the API endpoint for your account's region, refer to [Region](https://developer.clevertap.com/docs/common-api-components#regions).
 
@@ -64,7 +64,9 @@ Each `bulk_profiles` entry updates multiple user profiles and assigns them to sp
 >
 > If both `ct_segment_id` and `customer_segment_id` are provided in the request payload, they must match. If they do not match, the corresponding entry is skipped, and the error is logged in the Error Stream dashboard. Other valid entries in the request are still being processed.
 
-### Sample Request
+# Example Request
+
+The following is the sample request:
 
 ```json
 {
@@ -100,17 +102,21 @@ Each `bulk_profiles` entry updates multiple user profiles and assigns them to sp
 }
 ```
 
-### Sample Response
+# Example Response
 
 The API returns HTTP 200 when the request is accepted, even if some entries are invalid. Valid entries are processed successfully, while invalid entries are skipped and reported in the Error Stream dashboard.
 
-The following is a sample response:
+The following is the sample response:
 
 ```json
 {
   "success": true
 }
 ```
+
+# Request Limit
+
+For information on request limits for the Update Segment API, refer to [API Request Limit](doc:api-request-limit#concurrent-request-limits-for-apis).
 
 # Error Stream Reporting
 
@@ -125,10 +131,6 @@ Each logged error includes the following fields:
 | User Identity       | The identity or GUID of the user associated with the request.    |
 
 You can view these errors in the Error Stream dashboard to diagnose issues with individual segment updates.
-
-# Request Limit
-
-For information on request limits for the Update Segment API, refer to [API Request Limit](doc:api-request-limit#concurrent-request-limits-for-apis).
 
 # Errors
 
