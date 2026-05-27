@@ -109,9 +109,11 @@ clevertapDefaultInstance?.pushEvent("Product viewed", prodViewedAction)
 
 Events help you understand how your users interact with your app. CleverTap automatically tracks common user events while giving you the flexibility to record business-specific events.
 
-> 📘 Nested Objects Support
->
-> To update profile properties using nested objects, refer to [Ingesting Nested Objects via CleverTap SDK](https://staging.docs.dev.clevertap.net/docs/ingesting-nested-objects-via-clevertap-sdk).
+<Callout icon="📘" theme="info">
+  #### Nested Objects Support
+
+  To update profile properties using nested objects, refer to [Ingesting Nested Objects via CleverTap SDK](doc:ingesting-nested-objects-via-clevertap-sdks).
+</Callout>
 
 ## Recording Customer Purchases
 
