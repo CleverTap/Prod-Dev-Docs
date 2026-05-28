@@ -4117,7 +4117,8 @@ The following are the image specifications and guidelines for the Push Templates
       </td>
 
       <td>
-        <li> OS version 12 and above: **3:2**</li> <li>OS version 11 and below: **5:3**</li>
+        * OS version 12 and above: **3:2**
+        * OS version 11 and below: **5:3**
       </td>
 
       <td>
@@ -4131,7 +4132,8 @@ The following are the image specifications and guidelines for the Push Templates
       </td>
 
       <td>
-        <li>OS version 12 and above: **3:2**</li><li>OS version 11 and below: **5:3**</li>
+        * OS version 12 and above: **3:2**
+        * OS version 11 and below: **5:3**
       </td>
 
       <td>
@@ -4145,7 +4147,8 @@ The following are the image specifications and guidelines for the Push Templates
       </td>
 
       <td>
-        <li>OS version 12 and above: **3:2**</li><li>OS version 11 and below: **5:3**</li>
+        * OS version 12 and above: **3:2**
+        * OS version 11 and below: **5:3**
       </td>
 
       <td>
@@ -4159,7 +4162,8 @@ The following are the image specifications and guidelines for the Push Templates
       </td>
 
       <td>
-        <li>OS version 12 and above: **3:2**</li><li>OS version 11 and below: **5:3**</li>
+        * OS version 12 and above: **3:2**
+        * OS version 11 and below: **5:3**
       </td>
 
       <td>
@@ -4173,7 +4177,8 @@ The following are the image specifications and guidelines for the Push Templates
       </td>
 
       <td>
-        <li> OS version 12 and above: **1:1**</li><li>OS version 11 and below: **1:1**</li>
+        * OS version 12 and above: **1:1**
+        * OS version 11 and below: **1:1**
       </td>
 
       <td>
@@ -4187,7 +4192,8 @@ The following are the image specifications and guidelines for the Push Templates
       </td>
 
       <td>
-        <li>OS version 12 and above: **1:1**</li><li>OS version 11 and below: **2:1**</li>
+        * OS version 12 and above: **1:1**
+        * OS version 11 and below: **2:1**
       </td>
 
       <td>
@@ -4201,7 +4207,8 @@ The following are the image specifications and guidelines for the Push Templates
       </td>
 
       <td>
-        <li>OS version 12 and above: **3:2**</li><li>OS version 11 and below: **5:3**</li>
+        * OS version 12 and above: **3:2**
+        * OS version 11 and below: **5:3**
       </td>
 
       <td>
@@ -4215,7 +4222,8 @@ The following are the image specifications and guidelines for the Push Templates
       </td>
 
       <td>
-        <li>OS version 12 and above - **3:2**</li><li>OS version 11 and below- **2:1**</li>
+        * OS version 12 and above - **3:2**
+        * OS version 11 and below- **2:1**
       </td>
 
       <td>
@@ -4229,7 +4237,8 @@ The following are the image specifications and guidelines for the Push Templates
       </td>
 
       <td>
-        <li>OS version 12 and above - **3:4**</li><li>OS version 11 and below- **1:1**</li>
+        * OS version 12 and above - **3:4**
+        * OS version 11 and below- **1:1**
       </td>
 
       <td>
@@ -4243,7 +4252,8 @@ The following are the image specifications and guidelines for the Push Templates
       </td>
 
       <td>
-        <li>OS version 12 and above - **3:2**</li><li>OS version 11 and below- **5:3**</li>
+        * OS version 12 and above - **3:2**
+        * OS version 11 and below- **5:3**
       </td>
 
       <td>
@@ -4257,7 +4267,23 @@ The following are the image specifications and guidelines for the Push Templates
       </td>
 
       <td>
-        <li>OS version 12 and above - **3:1**</li><li>OS version 11 and below- **5:3**</li>
+        * OS version 12 and above - **3:1**
+        * OS version 11 and below- **5:3**
+      </td>
+
+      <td>
+        500 KB
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **Vertical Image with CTA**
+      </td>
+
+      <td>
+        * OS version 12 and above - **3:2**
+        * OS version 11 and below - **3:2**
       </td>
 
       <td>
