@@ -164,15 +164,7 @@ The following are the sample responses:
   "status": "success",
   "result": {
     "sent": 82,
-    "clicked": 28,
-  },
-  "metadata": {
-    "campaign_id": 1457432766,
-    "campaign_name": "My Campaign",
-    "campaign_type": "push",
-    "created_at": "2025-03-01T10:00:00Z",
-    "completed_at": "2025-03-01T12:00:00Z",
-    "last_updated": "2025-03-01T12:05:00Z"
+    "clicked": 28
   }
 }
 ```
