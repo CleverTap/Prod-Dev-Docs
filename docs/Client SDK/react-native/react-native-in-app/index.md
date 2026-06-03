@@ -66,6 +66,10 @@ function _handleCleverTapEvent(eventName, event) {
 }
 ```
 
+> 📘 Note
+>
+> `CleverTapInAppNotificationShowed` on iOS requires React Native SDK v4.0.0+. 
+
 ## Control In-App Notifications
 
 ### Suspend
