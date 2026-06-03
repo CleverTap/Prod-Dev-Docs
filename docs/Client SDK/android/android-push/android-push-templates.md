@@ -2019,6 +2019,12 @@ Timer notification is only supported for Android version 8 and above. For Androi
   </tbody>
 </Table>
 
+<Callout icon="📘" theme="info">
+  ## Note
+
+  When a notification arrives with an already-expired timer (or remaining time below 10 seconds), and if `pt_render_terminal` is true, the SDK renders the terminal/fallback notification as a Basic template (using `pt_title_alt`, `pt_msg_alt`, `pt_big_img_alt`). If `pt_render_terminal` is false, the notification is silently skipped.
+</Callout>
+
 # Text over Image Template
 
 Text over Image template is a visually immersive push notification format designed to maximize the use of imagery. In this layout, the background image spans the entire surface area of the notification, creating an edge-to-edge visual experience. All accompanying text such as the title, message, and call-to-action is seamlessly overlaid on top of the image, ensuring the message is prominent while maintaining a clean, modern aesthetic.
