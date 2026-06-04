@@ -18,16 +18,16 @@ Smart TVs have become an integral part of modern entertainment, offering a range
 
 The following table describes the supported features for each Smart TV SDK:
 
-| Feature x Platform      | Android TV / Google TV | Apple TV         | Samsung TV (Tizen) | LG Web OS TV     | Fire TV              | Jio STB              |
-| :---------------------- | :--------------------- | :--------------- | :----------------- | :--------------- | :------------------- | :------------------- |
-| **Analytics**           | Yes                    | Yes              | Yes (only 7.0)     | Yes              | Yes                  | Yes                  |
-| **Push (OOTB)**         | No                     | No               | No                 | No               | No                   | No                   |
-| **Custom Push**         | Yes                    | No               | No                 | No               | No                   | No                   |
-| **In Apps/Web Pop-Ups** | Yes                    | No               | No                 | No               | Yes                  | Yes                  |
-| **App Inbox**           | Yes                    | No               | Yes                | Yes              | Yes                  | Yes                  |
-| **Native Display**      | Yes                    | No               | Yes                | Yes              | Yes                  | Yes                  |
-| **Product Experiences** | Yes                    | No               | Yes                | Yes              | Yes                  | Yes                  |
-| **SDK**                 | Android SDK v5.0.0 +   | iOS SDK v4.2.0 + | Web SDK v1.7.0 +   | Web SDK v1.7.0 + | Android SDK v5.0.0 + | Android SDK v5.0.0 + |
+| Feature x Platform               | Android TV / Google TV | Apple TV         | Samsung TV (Tizen) | LG Web OS TV     | Fire TV              | Jio STB              |
+| :------------------------------- | :--------------------- | :--------------- | :----------------- | :--------------- | :------------------- | :------------------- |
+| **Analytics**                    | Yes                    | Yes              | Yes (only 7.0)     | Yes              | Yes                  | Yes                  |
+| **Push (OOTB)**                  | No                     | No               | No                 | No               | No                   | No                   |
+| **Custom Push**                  | Yes                    | No               | No                 | No               | No                   | No                   |
+| **In Apps/Web Pop-Ups**          | Yes                    | Yes              | Yes                | Yes              | Yes                  | Yes                  |
+| **App Inbox**                    | Yes                    | No               | Yes                | Yes              | Yes                  | Yes                  |
+| **Native Display**               | Yes                    | No               | Yes                | Yes              | Yes                  | Yes                  |
+| **Product Experiences**          | Yes                    | No               | Yes                | Yes              | Yes                  | Yes                  |
+| **Minimum SDK version required** | Android SDK v5.0.0 +   | iOS SDK v4.2.0 + | Web SDK v1.7.0 +   | Web SDK v1.7.0 + | Android SDK v5.0.0 + | Android SDK v5.0.0 + |
 
 **Yes**: Supported
 
