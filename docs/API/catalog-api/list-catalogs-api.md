@@ -39,21 +39,21 @@ These headers must be included with every API request to ensure successful authe
 
 The following parameters can be used to refine the catalog listing results.
 
-| Parameter   | Type    | Required | Description                                                                 |
-| ----------- | ------- | -------- | --------------------------------------------------------------------------- |
-| `status`    | String  | No       | Filter catalogs by status: `ACTIVE`, `INACTIVE`, or `DELETED`.              |
-| `search`    | String  | No       | Performs a partial match on catalog names.                                  |
-| `page`      | Integer | No       | Page number for paginated results. Defaults to `0`.                         |
-| `size`      | Integer | No       | Number of records per page. Defaults to `20`. The maximum allowed is `100`. |
-| `sortBy`    | String  | No       | Sort field. Options include `createdAt`, `catalogName`, and `updatedAt`.    |
-| `sortOrder` | String  | No       | Sort direction. Allowed values: `ASC` or `DESC`. Defaults to `DESC`.        |
+| Parameter   | Type    | Required | Description                                                                                               |
+| ----------- | ------- | -------- | --------------------------------------------------------------------------------------------------------- |
+| `status`    | String  | No       | Filter catalogs by status: `ACTIVE`, `INACTIVE`, or `DELETED`.                                            |
+| `search`    | String  | No       | Performs a partial match on catalog names.                                                                |
+| `page`      | Integer | No       | Page number for paginated results. Defaults to `0`.                                                       |
+| `size`      | Integer | No       | Number of records per page. Defaults to `20`. The maximum allowed is`100`.                                |
+| `sortBy`    | String  | No       | Sort field. Options include `createdTs`, `name`, `updatedTs`, `totalProducts`, `status`, and `createdBy`. |
+| `sortOrder` | String  | No       | Sort direction. Allowed values: `ASC` or `DESC`. Defaults to `DESC`.                                      |
 
 # Example Request
 
 This example demonstrates how to retrieve catalogs with filters and pagination applied.
 
 ```curl
-GET /v2/catalogs?status=ACTIVE&search=electronics&page=0&size=20&sortBy=createdAt&sortOrder=DESC
+GET /v2/catalogs?status=ACTIVE&search=electronics&page=0&size=20&sortBy=createdTs&sortOrder=DESC
 ```
 
 # Example Response
