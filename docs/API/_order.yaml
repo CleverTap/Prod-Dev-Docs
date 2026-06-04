@@ -1,4 +1,3 @@
-- recommendations-api
 - getting-started-1
 - api-reference
 - bulletins-api
@@ -7,6 +6,7 @@
 - catalog-api-endpoints
 - catalog-api
 - catalog-products-api
+- recommendations-api
 - custom-list-endpoints
 - events-object
 - user-profile-object
