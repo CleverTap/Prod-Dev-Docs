@@ -3012,6 +3012,92 @@ Following is the JSON payload for WhatsApp interactive message templates:
 
 ```
 
+## Time in User Property Object
+
+The `time_in_user_property` block can be added inside the `when` object for `later` and `recurring` campaign types. It instructs CleverTap to schedule message delivery for each user based on a time value stored in a user profile property, rather than a fixed send time.
+
+The user property must store the send time as an integer representing minutes since the start of the day (`00:00`). For example, `570` means 09:30 AM and `1125` means 06:45 PM. For more information, refer to [Time in User Property](https://docs.clevertap.com/docs/time-in-user-property).
+
+<Callout icon="📘" theme="info">
+  #### Private Beta
+
+  Currently, this feature is a Private Beta Release. If you want access to this feature, contact your Account Manager.
+</Callout>
+
+### New Parameters in the `when` Object
+
+| Parameter                                                             | Description                                                                                                                                                           | Required/Optional                                              | Type                                                  | Example Value                          |
+| --------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- | ----------------------------------------------------- | -------------------------------------- |
+| `when.end_time`                                                       | Array of end times for each scheduled run, in `YYYYMMDD HH:MM` format. Size must match the `delivery_date_time` array. Applicable only when `when.type` is `"later"`. | Required if `time_in_user_property` is used with `type: later` | Array of strings                                      | `["20260601 15:00", "20260602 11:30"]` |
+| `when.time_in_user_property`                                          | Object that defines the Time in User Property configuration.                                                                                                          | Optional                                                       | Object                                                | —                                      |
+| `when.time_in_user_property.user_property`                            | Name of the user profile property that stores the send time value (as minutes since `00:00`).                                                                         | Required                                                       | String                                                | `"sendTimeProp"`                       |
+| `when.time_in_user_property.if_prop_missing_or_invalid`               | Fallback behavior when the user property is missing, empty, or contains an invalid value.                                                                             | Required                                                       | Object                                                | —                                      |
+| `when.time_in_user_property.if_prop_missing_or_invalid.fallback`      | Fallback action. Accepted values: `"send_at_fixed_time"` or `"don't_send"`.                                                                                           | Required                                                       | String                                                | `"send_at_fixed_time"`                 |
+| `when.time_in_user_property.if_prop_missing_or_invalid.time`          | Fallback send time in `HH:MM` format. For `later` campaigns with multiple runs, provide an array of times, one per run.                                               | Required when `fallback` is `"send_at_fixed_time"`.            | Array of strings (only for scheduled later) or String | `"06:30"` or `["23:59", "06:30"]`      |
+| `when.time_in_user_property.if_prop_time_out_of_time_window`          | Fallback behavior when the user property value is valid but falls outside the campaign's configured start–end time window. Not applicable for `recurring` campaigns.  | Optional                                                       | Object                                                | —                                      |
+| `when.time_in_user_property.if_prop_time_out_of_time_window.fallback` | Fallback action. Accepted values: `"send_at_fixed_time"` or `"don't_send"`.                                                                                           | Required if `if_prop_time_out_of_time_window` is provided      | String                                                | `"don't_send"`                         |
+| `when.time_in_user_property.if_prop_time_out_of_time_window.time`     | Fallback send time in `HH:MM` format.                                                                                                                                 | Required when `fallback` is `"send_at_fixed_time"`.            | String                                                | `"09:00"`                              |
+
+> 📘 Note
+>
+> Time in User Property is available only for Past Behaviour Campaigns. The `delivery_timezone` must be set to `account`. The user's local timezone is not supported.
+
+### Example Payloads
+
+```json Schedule for Later
+{
+  "name": "My Campaign",
+  "target_mode": "push",
+  "where": { ... },
+  "content": { ... },
+  "when": {
+    "type": "later",
+    "delivery_date_time": ["20260601 14:00", "20260602 10:30"],
+    "end_time": ["20260601 15:00", "20260602 11:30"],
+    "time_in_user_property": {
+      "user_property": "sendTimeProp",
+      "if_prop_missing_or_invalid": {
+        "fallback": "send_at_fixed_time",
+        "time": ["23:59", "06:30"]
+      },
+      "if_prop_time_out_of_time_window": {
+        "fallback": "don't_send"
+      }
+    },
+    "delivery_timezone": "account"
+  }
+}
+```
+```Text Recurring
+{
+  "name": "My Recurring Campaign",
+  "target_mode": "push",
+  "where": { ... },
+  "content": { ... },
+  "when": {
+    "type": "recurring",
+    "repeat_type": "day",
+    "repeats_every": 2,
+    "start_time": "20260531 14:00",
+    "end_by_date": "20260601",
+    "time_in_user_property": {
+      "user_property": "sendTimeProp",
+      "if_prop_missing_or_invalid": {
+        "fallback": "send_at_fixed_time",
+        "time": "06:30"
+      }
+    },
+    "delivery_timezone": "account"
+  }
+}
+```
+
+> 📘 Note
+>
+> * `if_prop_time_out_of_time_window` is not supported for `recurring` campaigns. Recurring campaigns operate over a full day, so there is no bounded send window for a user's time value to fall outside of.
+> * For `recurring` campaigns, `fallback` and `time` must be scalar values (not arrays), since the same fallback configuration applies to all runs.
+> * For `later` campaigns with multiple runs, `time` under `if_prop_missing_or_invalid` must be an array with one value per run, matching the size of `delivery_date_time`.
+
 ## Labels
 
 You can associate one or more labels with a campaign when creating it. Labels make it easier to organize, search, and filter campaigns in the CleverTap dashboard.
@@ -3215,15 +3301,15 @@ The Generic Sample Campaign API includes configurations for without Key Values, 
 
       <td>
         `{
-                                                                                                                                          "event_name": "Charged",
-                                                                                                                                          "from": 20251001,
-                                                                                                                                          "to": 20251220,
-                                                                                                                                          "common_profile_properties": {
-                                                                                                                                            "profile_fields": {
-                                                                                                                                              "field_name": "value"
-                                                                                                                                            }
-                                                                                                                                          }
-                                                                                                                                        }`
+                                                                                                                                                  "event_name": "Charged",
+                                                                                                                                                  "from": 20251001,
+                                                                                                                                                  "to": 20251220,
+                                                                                                                                                  "common_profile_properties": {
+                                                                                                                                                    "profile_fields": {
+                                                                                                                                                      "field_name": "value"
+                                                                                                                                                    }
+                                                                                                                                                  }
+                                                                                                                                                }`
       </td>
     </tr>
 
