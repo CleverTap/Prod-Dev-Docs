@@ -1069,6 +1069,30 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
 
     <tr>
       <td>
+        content.preheader
+      </td>
+
+      <td>
+        * Preview text displayed just after the subject line.
+
+        * Maximum 1,000 characters.
+      </td>
+
+      <td>
+        Optional
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        "Your exclusive offer inside"
+      </td>
+    </tr>
+
+    <tr>
+      <td>
         content.sender_name
       </td>
 
@@ -2204,9 +2228,10 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
   	"respect_frequency_caps": false,
 	"subscription_groups": ["tech news","marketing","service updates"],
     "content": {
-        "subject": "Welcome",
-        "body": "<div>Your HTML content for the email</div>",
-        "sender_name": "CleverTap"
+      "subject": "Welcome",
+			"preheader": "Your exclusive offer inside",
+       "body": "<div>Your HTML content for the email</div>",
+       "sender_name": "CleverTap"
     },
     "when": "now"
 }
@@ -2233,6 +2258,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
     "respect_frequency_caps": false,
     "content": {
   "subject": "Weekly summary is ready!",
+	"preheader": "Your exclusive offer inside",
   "body": "<div>Hi Subscriber,<br>Your HTML email content goes here.</div>",
   "amp_body": "<!doctype html><html amp4email><head><meta charset='utf-8'></head><body><p>Hi Subscriber,</p><p>Your AMP email content goes here.</p></body></html>",
   "sender_name": "CleverTap"
@@ -3301,15 +3327,15 @@ The Generic Sample Campaign API includes configurations for without Key Values, 
 
       <td>
         `{
-                                                                                                                                                  "event_name": "Charged",
-                                                                                                                                                  "from": 20251001,
-                                                                                                                                                  "to": 20251220,
-                                                                                                                                                  "common_profile_properties": {
-                                                                                                                                                    "profile_fields": {
-                                                                                                                                                      "field_name": "value"
-                                                                                                                                                    }
-                                                                                                                                                  }
-                                                                                                                                                }`
+                                                                                                                                                          "event_name": "Charged",
+                                                                                                                                                          "from": 20251001,
+                                                                                                                                                          "to": 20251220,
+                                                                                                                                                          "common_profile_properties": {
+                                                                                                                                                            "profile_fields": {
+                                                                                                                                                              "field_name": "value"
+                                                                                                                                                            }
+                                                                                                                                                          }
+                                                                                                                                                        }`
       </td>
     </tr>
 
