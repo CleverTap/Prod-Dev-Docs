@@ -2228,10 +2228,10 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
   	"respect_frequency_caps": false,
 	"subscription_groups": ["tech news","marketing","service updates"],
     "content": {
-      "subject": "Welcome",
+     "subject": "Welcome",
 	"preheader": "Your exclusive offer inside",
-       "body": "<div>Your HTML content for the email</div>",
-       "sender_name": "CleverTap"
+      "body": "<div>Your HTML content for the email</div>",
+      "sender_name": "CleverTap"
     },
     "when": "now"
 }
@@ -3327,15 +3327,15 @@ The Generic Sample Campaign API includes configurations for without Key Values, 
 
       <td>
         `{
-                                                                                                                                                                                          "event_name": "Charged",
-                                                                                                                                                                                          "from": 20251001,
-                                                                                                                                                                                          "to": 20251220,
-                                                                                                                                                                                          "common_profile_properties": {
-                                                                                                                                                                                            "profile_fields": {
-                                                                                                                                                                                              "field_name": "value"
-                                                                                                                                                                                            }
-                                                                                                                                                                                          }
-                                                                                                                                                                                        }`
+                                                                                                                                                                                                  "event_name": "Charged",
+                                                                                                                                                                                                  "from": 20251001,
+                                                                                                                                                                                                  "to": 20251220,
+                                                                                                                                                                                                  "common_profile_properties": {
+                                                                                                                                                                                                    "profile_fields": {
+                                                                                                                                                                                                      "field_name": "value"
+                                                                                                                                                                                                    }
+                                                                                                                                                                                                  }
+                                                                                                                                                                                                }`
       </td>
     </tr>
 
