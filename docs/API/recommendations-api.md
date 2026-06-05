@@ -28,7 +28,7 @@ Recommendations API supports the following recommendation algorithms:
   All strategies use the same endpoint. What varies between strategies is the request body. Refer to the [Required Parameters by Strategy]() to understand what each algorithm type requires.
 </Callout>
 
-For more information on Recommendations and the Strategies, refer to [Recommendations Agent]().
+For more information on Recommendations and the Strategies, refer to [Recommendations Agent](https://docs.clevertap.com/docs/recommendations-agent#/).
 
 # Method
 
