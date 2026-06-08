@@ -84,7 +84,7 @@ To use the CleverTap Android SDK, you have two options. You can install it autom
 dependencies {
     implementation 'androidx.core:core:1.13.0'
 
-    implementation 'com.clevertap.android:clevertap-android-sdk:7.8.0' // checkout the latest sdk version at https://github.com/CleverTap/clevertap-android-sdk/blob/master/README.md#-installation
+    implementation 'com.clevertap.android:clevertap-android-sdk:8.1.0' // checkout the latest sdk version at https://github.com/CleverTap/clevertap-android-sdk/blob/master/README.md#-installation
     implementation 'com.google.firebase:firebase-messaging:24.0.0'
 }
 
