@@ -49,6 +49,10 @@ import 'package:clevertap_plugin/clevertap_plugin.dart';
 
 # Android Integration
 
+> ❗️ Note
+>
+> As of Flutter SDK 4.0.0, the minimum supported Android version is Android 6.0. Devices running Android 5.x (API levels 21–22) are no longer supported. Update your app's minSdkVersion to 23 or higher before upgrading.
+
 ## Add CleverTap Credentials
 
 To associate your Android app with your CleverTap account, you must add your CleverTap credentials to the application's `AndroidManifest.xml` file. Follow the steps to add CleverTap credentials:
