@@ -127,11 +127,15 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        Allows you to specify which vendor/provider to use for your campaign. For each target_mode, you can have multiple providers integrated with CleverTap, and this parameter allows you to select which provider to use for the campaign. For example, you select target_mode = email and you have integrated both SendGrid and Amazon SNS with CleverTap to send emails. In this scenario, you can set provider_nick_name = SendGrid to send the campaign through SendGrid. This parameter is only for Email, WhatsApp, and SMS.
+        * Allows you to specify which vendor/provider to use for your campaign.
+        * This parameter is only for Email, WhatsApp, and SMS.
+        * For each target_mode, you can integrate multiple providers with CleverTap, and this parameter lets you select which provider to use for the campaign. For example, you select target_mode = email, and you have integrated both SendGrid and Amazon SNS with CleverTap to send emails. In this scenario, set provider_nick_name = SendGrid to send the campaign via SendGrid.
+
+        **Note**: For email campaigns, if the provider is not provided,  it falls back to the default provider defined for the account.
       </td>
 
       <td>
-        Required
+        Required for WhatsApp
       </td>
 
       <td>
@@ -3321,15 +3325,15 @@ The Generic Sample Campaign API includes configurations for without Key Values, 
 
       <td>
         `{
-                                                                                                                                                                                                                  "event_name": "Charged",
-                                                                                                                                                                                                                  "from": 20251001,
-                                                                                                                                                                                                                  "to": 20251220,
-                                                                                                                                                                                                                  "common_profile_properties": {
-                                                                                                                                                                                                                    "profile_fields": {
-                                                                                                                                                                                                                      "field_name": "value"
-                                                                                                                                                                                                                    }
-                                                                                                                                                                                                                  }
-                                                                                                                                                                                                                }`
+                                                                                                                                                                                                                          "event_name": "Charged",
+                                                                                                                                                                                                                          "from": 20251001,
+                                                                                                                                                                                                                          "to": 20251220,
+                                                                                                                                                                                                                          "common_profile_properties": {
+                                                                                                                                                                                                                            "profile_fields": {
+                                                                                                                                                                                                                              "field_name": "value"
+                                                                                                                                                                                                                            }
+                                                                                                                                                                                                                          }
+                                                                                                                                                                                                                        }`
       </td>
     </tr>
 
