@@ -2224,7 +2224,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
     "content": {
     "subject": "Welcome",
 	"preheader": "Your exclusive offer inside",
-     "body": "<div>Your HTML content for the email</div>",
+     "body": "<html><div>Your HTML content for the email</div></html>",
      "sender_name": "CleverTap"
     },
     "when": "now"
