@@ -2253,7 +2253,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
     "content": {
   "subject": "Weekly summary is ready!",
 "preheader": "Your exclusive offer inside",
-  "body": "<div>Hi Subscriber,<br>Your HTML email content goes here.</div>",
+  "body": "<html><div>Hi Subscriber,<br>Your HTML email content goes here.</div></html>",
   "amp_body": "<!doctype html><html amp4email><head><meta charset='utf-8'></head><body><p>Hi Subscriber,</p><p>Your AMP email content goes here.</p></body></html>",
   "sender_name": "CleverTap"
     },
