@@ -27,17 +27,6 @@ CleverTap.sharedInstance()?.setOptOut(true)
 [[CleverTap sharedInstance] setOptOut:YES];
 ```
 
-From CleverTap iOS SDK 7.3.1 onwards, the `setOptOut()` method supports an enhanced signature that allows apps to stop tracking events while sending generic, non-personalized communications, in compliance with GDPR guidelines.
-
-```swift
-// Only stop event tracking, allow generic communications
-CleverTap.sharedInstance()?.setOptOut(true, allowSystemEvents: true)
-```
-```objectivec
-// Only stop tracking, allow generic communications
-[[CleverTap sharedInstance]setOptOut:YES allowSystemEvents:YES];
-```
-
 If the user wants to opt in again to share their data, you call the same method like this.
 
 ```swift
@@ -163,11 +152,9 @@ To debug the device in the CleverTap dashboard and check if events and profiles 
 
 1. Copy the CleverTap ID from the logs.
 2. Open the CleverTap dashboard.
-3. Navigate to *Segments* > *Find People* > search *By Identity*.
+3. Navigate to _Segments_ > _Find People_ > search _By Identity_.
 
-<Image title="Search By Identity on CleverTap Dashboard" alt={1205} align="center" border={true} src="https://files.readme.io/fc78aaf-d46c9c8-Android_search_by__identity.png">
-  Search By Identity on CleverTap Dashboard
-</Image>
+<Image align="center" alt={1205} border={true} caption="Search By Identity on CleverTap Dashboard" title="Search By Identity on CleverTap Dashboard" src="https://files.readme.io/fc78aaf-d46c9c8-Android_search_by__identity.png" />
 
 # Setting Account Credentials
 
@@ -196,7 +183,7 @@ If you have set used this method to set your CleverTap Account ID and Token, ple
 
 If you wish to determine whether a notification originated from CleverTap, call this method:
 
-* (BOOL)isCleverTapNotification:(NSDictionary \*)payload;
+* (BOOL)isCleverTapNotification:(NSDictionary *)payload;
 
 You must manually call the SDK as follows/add the following CleverTap code to your AppDelegate:
 
