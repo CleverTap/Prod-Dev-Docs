@@ -33,17 +33,6 @@ CleverTapAPI cleverTap = CleverTapAPI.getDefaultInstance(this);
 cleverTap.setOptOut(true); // Will opt out the user to send data to CleverTap
 ```
 
-From CleverTap Android SDK 7.5.0 onwards, the `setOptOut()` method supports an enhanced signature that allows apps to stop tracking events while sending generic, non-personalized communications, in compliance with GDPR guidelines.
-
-```kotlin
-val cleverTap = CleverTapAPI.getDefaultInstance(this)
-cleverTap.setOptOut(true, true) // Only stop tracking, allow generic communication
-```
-```java
-CleverTapAPI cleverTap = CleverTapAPI.getDefaultInstance(this);
-cleverTap.setOptOut(true, true); // Only stop tracking, allow generic communication
-```
-
 If the user wants to opt in again to share their data, you call the same method like this.
 
 ```kotlin
