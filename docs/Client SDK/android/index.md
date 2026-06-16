@@ -33,7 +33,7 @@ Refer to the following table for Android SDK code sizes. All the below SDKs are 
 
 | SDK                                                                   | Version | Code Size |
 | :-------------------------------------------------------------------- | :------ | :-------- |
-| [Core Android](doc:android-quickstart-guide)                          | 8.2.0   | 2 MB      |
+| [Core Android](doc:android-quickstart-guide)                          | 8.3.0   | 2 MB      |
 | [Geofence](doc:geofence-android)                                      | 1.4.0   | 114 KB    |
 | [Huawei Mobile Services (HMS)](doc:clevertap-huawei-push-integration) | 1.5.1   | 55.4 KB   |
 | [Push Templates](doc:push-templates-android)                          | 2.4.0   | 331 KB    |
