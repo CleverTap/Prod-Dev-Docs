@@ -4,7 +4,7 @@ excerpt: >-
   Learn how to use the Reverse/Refund Points API to update the points in loyalty
   wallets, ensuring accurate application and reversals during transactions.
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   robots: index
 ---
