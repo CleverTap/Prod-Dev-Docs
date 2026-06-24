@@ -58,7 +58,7 @@ System events are events recorded automatically after you integrate our SDK.
 
 # System Properties
 
-CleverTap tracks the following system properties automatically from the mobile SDK. All the system properties are prefixed by ‘CT’, indicating that they are provided by CleverTap.
+CleverTap automatically tracks the following system properties via the mobile SDK. All system properties are prefixed with ‘CT’, indicating they are provided by CleverTap.
 
 The following properties are tracked automatically on all events (except Uninstalled and Notification Sent):
 
