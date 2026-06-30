@@ -190,7 +190,7 @@ The following is the sample payload:
 
 # Notes
 
-The response is a JSON object with the status key, which can be success, partial, or fail.
+The response is a JSON object with a status key that can be success, partial, or fail.
 
 If the status is success, the response includes a count key with an int value of the count for the specified query. If the status is fail, the response includes an error key with a string value and an HTTP status code.
 
