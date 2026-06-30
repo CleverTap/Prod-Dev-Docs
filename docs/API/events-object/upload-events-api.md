@@ -396,6 +396,8 @@ To test if your data submits without errors, you can add the parameter `dryRun=1
 
 # Error Codes
 
+The following table lists the error codes returned by this API:
+
 ## HTTP-Level Errors (whole request rejected)
 
 | HTTP Status | Code or Status | Error                          | Description                                      | Example Error Response                                      |
