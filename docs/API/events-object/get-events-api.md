@@ -1,6 +1,6 @@
 ---
 title: Get Events
-excerpt: ''
+excerpt: Lets you download user events from CleverTap.
 deprecated: false
 hidden: false
 metadata:
@@ -10,33 +10,32 @@ metadata:
 next:
   description: ''
 ---
-The Get Events API lets you download user events from CleverTap. 
-
-For example, you can use this API to get a list App Launch or Purchase events. 
-
 # Overview
 
-Getting a list of user events requires two steps:
+Get Events API allows you to export user events in two steps. 
 
-* With your first API call you will specify the event name, date range, and batch size needed. This request will return a cursor, which you will use to get the list of event records in step 2. 
-* You will make second API call using the cursor from step 1. This call will return the first batch of events and and another cursor to get the second batch of events. You will repeat this process until the cursor is not returned in the response, which means there are no more events.
+1. Request a cursor by specifying the event name, date range, and batch size. 
+2. Page through results using the cursor until no `next_cursor` is returned.
 
-> 📘 Note
->
-> The batch size denotes the maximum number of records that can be fetched in a single call. The response may vary.
+<Callout icon="📘" theme="info">
+  #### Note
 
-# Step 1: Get Cursor by Specifying Events Needed
+  The `batch_size` parameter indicates the maximum number of records returned per call. Actual batch sizes may be smaller.
+</Callout>
 
-In this request, you will specify the event name, date range, and batch size needed. This request will return a cursor, which you will use to get the list of events in the step 2.
+The following events aren't exported by this endpoint: _Notification Sent, Notification Bounce, Notification Control Group, Notification Rendered, Notification System Control Group_. Use [S3 Export](https://docs.clevertap.com/docs/data-export-to-aws-s3) or [GCP Export](https://docs.clevertap.com/docs/data-export-to-gcp) to export these events.
+
+# Step 1: Request a Cursor
+
+Use this endpoint to obtain a cursor for the specified event and date range. The cursor is then used in Step 2 to fetch records in batches.
 
 ## Base URL
 
-Here is an example base URL from the account in the India region:\
-[https://in1.api.clevertap.com/1/events.json](https://in1.api.clevertap.com/1/events.json)
+Here is an example base URL for the India region.
 
-### Region
+``https://in1.api.clevertap.com/1/events.json``
 
-Refer [Region](https://developer.clevertap.com/docs/common-api-components#region) for more details.
+For region-specific endpoints, refer to [Region](https://developer.clevertap.com/docs/common-api-components#region).
 
 ## HTTP Method
 
@@ -44,173 +43,157 @@ POST
 
 ## Headers
 
-Refer [Headers](https://developer.clevertap.com/docs/common-api-components#headers) for more details.
+The following headers are required for this request.
 
-## URL Parameter
+| Header                   | Description                       | Example            |
+| ------------------------ | --------------------------------- | ------------------ |
+| `X-CleverTap-Account-Id` | Your CleverTap Account ID.        | `<ACCOUNT_ID>`     |
+| `X-CleverTap-Passcode`   | Your CleverTap Account Passcode.  | `<PASSCODE>`       |
+| `Content-Type`           | Always set to `application/json`. | `application/json` |
 
-| Parameter   | Description                                                                                                                                                                      | Type    | Example Value |
-| :---------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------ | :------------ |
-| batch\_size | The number of results to return in each API call. The maximum is 5000.                                                                                                           | int     | 50            |
-| app         | Optional parameter. Set to true to receive app fields in the response This will return the OS version, device make, device model, app version within the profile object.         | boolean | true          |
-| events      | Optional parameter. Includes the event summary fields in the response. The default value is true. Set to false to exclude event summary fields in the response.                  | boolean | true          |
-| profile     | Optional parameter. Includes the custom profile properties in the response. The default value is true. Set to false to exclude custom profile properties fields in the response. | boolean | true          |
+For more information, refer to [Headers](https://developer.clevertap.com/docs/common-api-components#headers).
+
+## Query Parameters
+
+These optional query parameters belong in the URL, not the JSON body. The table below describes each parameter, along with its type, default value, and example value.
+
+| Parameter    | Description                                                                                                                                                                                                                                                                  | Type    | Default | Example |
+| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ------- | ------- |
+| `batch_size` | Maximum number of records per batch. This value in Step 1 affects paging in Step 2. Maximum allowed value: 5000.                                                                                                                                                             | integer | 500     | `50`    |
+| `app`        | Include app and device fields in the `profile` object. When set to`true`, the response adds `os_version`, `app_version`, `make`, and `model` as flat fields directly on the `profile` object, alongside fields like `name` and `email`.                                      | boolean | `false` | `true`  |
+| `events`     | Include event summary fields in the `records[].events` object. When set to`false`, the `events` key is omitted entirely from the response. It is not returned as an empty object or null.                                                                                    | boolean | `true`  | `false` |
+| `profile`    | Include custom profile properties in `profile.profileData`. When set to `false`, the `profileData` sub-object is omitted, but `name`, `email`, `phone`, `identity`, `all_identities`, `objectId`, and `platform` are always present in `profile` regardless of this setting. | boolean | `true`  | `false` |
 
 ## Body Parameters
 
-| Parameter   | Description                                                                                                                                                                                                                     | Type   | Example Value  |
-| :---------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :----- | :------------- |
-| event\_name | The event type needed. You can get both standard and custom events from this endpoint. The standard events include App Launched, App Installed, App Uninstalled, Charged, Notification Viewed, Product Viewed, and UTM Visited. | string | “App Launched” |
-| from        | Start of date range for events needed. Value specified in format YYYYMMDD.                                                                                                                                                      | int    | 20171201       |
-| to          | End of date range for events needed. Value specified in format YYYYMMDD.                                                                                                                                                        | int    | 20171225       |
+These parameters must be sent in the JSON body. The table below describes each parameter along with its type, requirement status, and example value.
+
+| Parameter    | Description                                                                                                                                                                                       | Type    | Required | Example          |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | -------- | ---------------- |
+| `event_name` | Event type to export. Supports standard events (for example, _App Launched, App Installed, App Uninstalled, Charged, Notification Viewed, Product Viewed, UTM Visited_) and custom events.        | string  | Yes      | `"App Launched"` |
+| `from`       | Start of the date range (inclusive) in `YYYYMMDD` format. The value must not be a future date, and `from` must be less than or equal to `to`. Violating either condition returns error code 4002. | integer | Yes      | `20171201`       |
+| `to`         | End of the date range (inclusive) in `YYYYMMDD` format. Follows the same conditions as `from`.                                                                                                    | integer | Yes      | `20171225`       |
+
+<Callout icon="📘" theme="info">
+  #### Date Formats
+
+  * Input (request body): `YYYYMMDD` (for example, `20171201`)
+  * Output (`records[].ts`): `yyyyMMddHHmmSS`, expressed in the account's configured timezone (for example, `20151023140416`)
+</Callout>
 
 ## Example Request
 
-Here is an example cURL request to the *Get Events* API showing the headers needed to authenticate the request from the account in the India region:
+The following is the sample request:
 
 ```curl
-curl -X POST -d '{"event_name":"App Launched","from":20171201,"to":20171225}' "https://in1.api.clevertap.com/1/events.json?batch_size=50" \
--H "X-CleverTap-Account-Id: ACCOUNT_ID" \
--H "X-CleverTap-Passcode: PASSCODE" \
--H "Content-Type: application/json"
-```
-```ruby
-require 'net/http'
-require 'uri'
-require 'json'
-
-uri = URI.parse("https://in1.api.clevertap.com/1/events.json?batch_size=50")
-request = Net::HTTP::Post.new(uri)
-request.content_type = "application/json"
-request["X-Clevertap-Account-Id"] = "ACCOUNT_ID"
-request["X-Clevertap-Passcode"] = "PASSCODE"
-request.body = JSON.dump({
-  "event_name" => "App Launched",
-  "from" => 20171201,
-  "to" => 20171225
-})
-
-req_options = {
-  use_ssl: uri.scheme == "https",
-}
-
-response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
-  http.request(request)
-end
+curl -X POST 'https://in1.api.clevertap.com/1/events.json?batch_size=50&app=true&events=true&profile=true' \
+  -H 'X-CleverTap-Account-Id: <ACCOUNT_ID>' \
+  -H 'X-CleverTap-Passcode: <PASSCODE>' \
+  -H 'Content-Type: application/json' \
+  -d '{ "event_name":"App Launched", "from":20171201, "to":20171225 }'
 ```
 ```python
 import requests
 
+url = "https://in1.api.clevertap.com/1/events.json"
+params = {"batch_size": 50, "app": True, "events": True, "profile": True}
 headers = {
-    'X-CleverTap-Account-Id': 'ACCOUNT_ID',
-    'X-CleverTap-Passcode': 'PASSCODE',
-    'Content-Type': 'application/json',
+    "X-CleverTap-Account-Id": "<ACCOUNT_ID>",
+    "X-CleverTap-Passcode": "<PASSCODE>",
+    "Content-Type": "application/json"
 }
+body = {"event_name": "App Launched", "from": 20171201, "to": 20171225}
 
-params = (
-    ('batch_size', '50'),
-)
+r = requests.post(url, params=params, json=body, headers=headers)
+print(r.json())
+```
+```javascript
+const axios = require("axios");
 
-data = '{"event_name":"App Launched","from":20171201,"to":20171225}'
+const url = "https://in1.api.clevertap.com/1/events.json";
+const params = { batch_size: 50, app: true, events: true, profile: true };
+const headers = {
+    "X-CleverTap-Account-Id": "<ACCOUNT_ID>",
+    "X-CleverTap-Passcode": "<PASSCODE>",
+    "Content-Type": "application/json"
+};
+const data = { event_name: "App Launched", from: 20171201, to: 20171225 };
 
-response = requests.post('https://in1.api.clevertap.com/1/events.json', headers=headers, params=params, data=data)
+axios.post(url, data, { params, headers })
+    .then(res => console.log(res.data))
+    .catch(err => console.error(err.response ? err.response.data : err.message));
+```
+```ruby
+require "net/http"
+require "json"
+require "uri"
+
+uri = URI("https://in1.api.clevertap.com/1/events.json")
+uri.query = URI.encode_www_form(batch_size: 50, app: true, events: true, profile: true)
+
+req = Net::HTTP::Post.new(uri)
+req["X-CleverTap-Account-Id"] = "<ACCOUNT_ID>"
+req["X-CleverTap-Passcode"] = "<PASSCODE>"
+req["Content-Type"] = "application/json"
+req.body = { event_name: "App Launched", from: 20171201, to: 20171225 }.to_json
+
+res = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) { |http| http.request(req) }
+puts res.body
 ```
 ```php
 <?php
-include('vendor/rmccue/requests/library/Requests.php');
-Requests::register_autoloader();
-$headers = array(
-    'X-CleverTap-Account-Id' => 'ACCOUNT_ID',
-    'X-CleverTap-Passcode' => 'PASSCODE',
-    'Content-Type' => 'application/json'
-);
-$data = '{"event_name":"App Launched","from":20171201,"to":20171225}';
-$response = Requests::post('https://in1.api.clevertap.com/1/events.json?batch_size=50', $headers, $data);
-```
-```javascript Node.js
-var request = require('request');
-
-var headers = {
-    'X-CleverTap-Account-Id': 'ACCOUNT_ID',
-    'X-CleverTap-Passcode': 'PASSCODE',
-    'Content-Type': 'application/json'
-};
-
-var dataString = '{"event_name":"App Launched","from":20171201,"to":20171225}';
-
-var options = {
-    url: 'https://in1.api.clevertap.com/1/events.json?batch_size=50',
-    method: 'POST',
-    headers: headers,
-    body: dataString
-};
-
-function callback(error, response, body) {
-    if (!error && response.statusCode == 200) {
-        console.log(body);
-    }
-}
-
-request(options, callback);
-```
-```go
-type Payload struct {
-	EventName string `json:"event_name"`
-	From      int    `json:"from"`
-	To        int    `json:"to"`
-}
-
-data := Payload{
-// fill struct
-}
-payloadBytes, err := json.Marshal(data)
-if err != nil {
-	// handle err
-}
-body := bytes.NewReader(payloadBytes)
-
-req, err := http.NewRequest("POST", "https://in1.api.clevertap.com/1/events.json?batch_size=50", body)
-if err != nil {
-	// handle err
-}
-req.Header.Set("X-Clevertap-Account-Id", "ACCOUNT_ID")
-req.Header.Set("X-Clevertap-Passcode", "PASSCODE")
-req.Header.Set("Content-Type", "application/json")
-
-resp, err := http.DefaultClient.Do(req)
-if err != nil {
-	// handle err
-}
-defer resp.Body.Close()
+$ch = curl_init("https://in1.api.clevertap.com/1/events.json?batch_size=50&app=true&events=true&profile=true");
+curl_setopt_array($ch, [
+    CURLOPT_POST => true,
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_HTTPHEADER => [
+        "X-CleverTap-Account-Id: <ACCOUNT_ID>",
+        "X-CleverTap-Passcode: <PASSCODE>",
+        "Content-Type: application/json"
+    ],
+    CURLOPT_POSTFIELDS => json_encode([
+        "event_name" => "App Launched",
+        "from" => 20171201,
+        "to" => 20171225
+    ])
+]);
+$response = curl_exec($ch);
+curl_close($ch);
+echo $response;
 ```
 
 ## Example Response
 
+A successful Step 1 request always returns a cursor, even if the specified date range contains no events. The following is a sample successful request:
+
 ```json
-{ "cursor" : "AfljfgIJBgBnamF5Kz8NegcBAwxhbCe%2Fbmhhe04BBAVlYjT4YG5reQEATQQrai57K2oue04FAUhnd38%3D" , "status" : "success"}
+{
+  "status": "success",
+  "cursor": "ZyZjfwYEAgdjYmZyKz8NegYFAwxmamF%2FZ21meU4BBQFlYmN7ZG5ifAYCTQQrai57K2ouegJMABl6"
+}
 ```
 
-> 🚧 Note
->
-> Currently, we do not support exporting the following events via this API:
->
-> * Notification Sent
-> * Notification Bounce
-> * Notification Control Group
-> * Notification Rendered
-> * Notification System Control Group 
->
-> To export these events we have multiple other ways such as [S3 Export](https://docs.clevertap.com/docs/data-export-to-aws-s3) or [GCP Export](https://docs.clevertap.com/docs/data-export-to-gcp).
+# Step 2: Fetch Batches Using Cursor
 
-# Step 2: Get Events Using Cursor
+Use the cursor received from Step 1 to fetch event records in batches. Keep calling this endpoint until the response no longer includes `next_cursor`. When there are no further batches, the `next_cursor` field is omitted entirely from the response rather than returned as null.
 
-Using the cursor from step 1, you will now make an API call that will return the first batch of events and and another cursor to get the second batch of events. You will repeat this process until a cursor is not returned in the response, which means there are no more events.
+> 📘 **Cursor Expiry**
+>
+> A cursor expires 4 hours after creation or after 1 hour of inactivity, whichever comes first. A cleanup process removes expired cursors approximately every 10 minutes. Once a cursor expires, using it returns HTTP 400 with a status of `CURSOR_INVALIDATED`. There is no grace period, so you must restart from Step 1 to obtain a new cursor.
+
+> 📘 **Zero matching records**
+>
+> If Step 1 returns a cursor but the specified date range contains no events, the first Step 2 call for that cursor returns `{"status": "success"}` with no `records` key. This response is identical to the end-of-pagination response, so there is no way to distinguish "no events ever existed in this range" from "all batches have already been fetched."
 
 ## Base URL
 
-Here is an example base URL from the account in the India region:\
-[https://in1.api.clevertap.com/1/events.json](https://in1.api.clevertap.com/1/events.json)
+Here is an example base URL for the India region.
 
-To know the API endpoint for your account, refer to [Region](https://developer.clevertap.com/docs/get-events-api#region).
+```
+https://in1.api.clevertap.com/1/events.json
+```
+
+For more information, refer to [Region](https://developer.clevertap.com/docs/get-events-api#region).
 
 ## HTTP Method
 
@@ -218,207 +201,181 @@ GET
 
 ## Headers
 
-The headers described below are all required. The X-CleverTap-Account-Id and X-CleverTap-Passcode are used to authenticate the request. Please see the [authentication guide](doc:authentication) to see how to get their values.
+The following headers are required for this request.
 
-| Header                 | Description                                             | Type   | Example Value                         |
-| :--------------------- | :------------------------------------------------------ | :----- | :------------------------------------ |
-| X-CleverTap-Account-Id | Your CleverTap Account ID.                              | string | "X-CleverTap-Account-Id: ACCOUNT\_ID" |
-| X-CleverTap-Passcode   | Your CleverTap Account Passcode.                        | string | "X-CleverTap-Passcode: PASSCODE"      |
-| Content-Type           | Request content-type is always set to application/json. | string | "Content-Type: application/json"      |
+| Header                   | Description                      | Example        |
+| ------------------------ | -------------------------------- | -------------- |
+| `X-CleverTap-Account-Id` | Your CleverTap Account ID.       | `<ACCOUNT_ID>` |
+| `X-CleverTap-Passcode`   | Your CleverTap Account Passcode. | `<PASSCODE>`   |
 
-## URL Parameters
+For more information, refer to [Headers](https://developer.clevertap.com/docs/common-api-components#headers).
 
-| Parameter | Description                                                 | Type   | Example Value                                                                  |
-| :-------- | :---------------------------------------------------------- | :----- | :----------------------------------------------------------------------------- |
-| cursor    | Required parameter. Specifies what set of events to return. | string | ZyZjfwYEAgdjYmZyKz8NegYFAwxmamF%2FZ21meU4BBQFlYmN7ZG5ifAYCTQQrai57K2ouegJMABl6 |
+## Request Parameters
+
+The table below describes the single required parameter for this request.
+
+| Parameter | Description                                                 | Type   | Required | Example     |
+| --------- | ----------------------------------------------------------- | ------ | -------- | ----------- |
+| `cursor`  | Returned from the prior response. Points to the next batch. | string | Yes      | `ZyZjfw...` |
 
 ## Example Request
 
-Here is an example cURL request to the *Get Events Using Cursor* API showing the headers needed to authenticate the request from the account in the India region:
+The following is the sample request:
 
-```curl
-curl "https://in1.api.clevertap.com/1/events.json?cursor=CURSOR" \
--H "X-CleverTap-Account-Id: ACCOUNT_ID" \
--H "X-CleverTap-Passcode: PASSCODE" \
--H "Content-Type: application/json"
-```
-```ruby
-require 'net/http'
-require 'uri'
-
-uri = URI.parse("https://in1.api.clevertap.com/1/events.json?cursor=CURSOR")
-request = Net::HTTP::Get.new(uri)
-request.content_type = "application/json"
-request["X-Clevertap-Account-Id"] = "ACCOUNT_ID"
-request["X-Clevertap-Passcode"] = "PASSCODE"
-
-req_options = {
-  use_ssl: uri.scheme == "https",
-}
-
-response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
-  http.request(request)
-end
+```curl cURL
+curl 'https://in1.api.clevertap.com/1/events.json?cursor=CURSOR' \
+  -H 'X-CleverTap-Account-Id: <ACCOUNT_ID>' \
+  -H 'X-CleverTap-Passcode: <PASSCODE>'
 ```
 ```python
 import requests
 
+url = "https://in1.api.clevertap.com/1/events.json"
+params = {"cursor": "CURSOR"}
 headers = {
-    'X-CleverTap-Account-Id': 'ACCOUNT_ID',
-    'X-CleverTap-Passcode': 'PASSCODE',
-    'Content-Type': 'application/json',
+    "X-CleverTap-Account-Id": "<ACCOUNT_ID>",
+    "X-CleverTap-Passcode": "<PASSCODE>"
 }
+r = requests.get(url, params=params, headers=headers)
+print(r.json())
+```
+```javascript
+const axios = require("axios");
 
-response = requests.get('https://in1.api.clevertap.com/1/events.json?cursor=CURSOR', headers=headers)
+const url = "https://in1.api.clevertap.com/1/events.json";
+const params = { cursor: "CURSOR" };
+const headers = {
+    "X-CleverTap-Account-Id": "<ACCOUNT_ID>",
+    "X-CleverTap-Passcode": "<PASSCODE>"
+};
+
+axios.get(url, { params, headers })
+    .then(res => console.log(res.data))
+    .catch(err => console.error(err.response ? err.response.data : err.message));
+```
+```ruby
+require "net/http"
+require "uri"
+
+uri = URI("https://in1.api.clevertap.com/1/events.json")
+uri.query = URI.encode_www_form(cursor: "CURSOR")
+
+req = Net::HTTP::Get.new(uri)
+req["X-CleverTap-Account-Id"] = "<ACCOUNT_ID>"
+req["X-CleverTap-Passcode"] = "<PASSCODE>"
+
+res = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) { |http| http.request(req) }
+puts res.body
 ```
 ```php
 <?php
-include('vendor/rmccue/requests/library/Requests.php');
-Requests::register_autoloader();
-$headers = array(
-    'X-CleverTap-Account-Id' => 'ACCOUNT_ID',
-    'X-CleverTap-Passcode' => 'PASSCODE',
-    'Content-Type' => 'application/json'
-);
-$response = Requests::get('https://in1.api.clevertap.com/1/events.json?cursor=CURSOR', $headers);
-```
-```javascript Node.js
-var request = require('request');
-
-var headers = {
-    'X-CleverTap-Account-Id': 'ACCOUNT_ID',
-    'X-CleverTap-Passcode': 'PASSCODE',
-    'Content-Type': 'application/json'
-};
-
-var options = {
-    url: 'https://in1.api.clevertap.com/1/events.json?cursor=CURSOR',
-    headers: headers
-};
-
-function callback(error, response, body) {
-    if (!error && response.statusCode == 200) {
-        console.log(body);
-    }
-}
-
-request(options, callback);
+$url = "https://in1.api.clevertap.com/1/events.json?cursor=CURSOR";
+$ch = curl_init($url);
+curl_setopt_array($ch, [
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_HTTPHEADER => [
+        "X-CleverTap-Account-Id: <ACCOUNT_ID>",
+        "X-CleverTap-Passcode: <PASSCODE>"
+    ]
+]);
+$response = curl_exec($ch);
+curl_close($ch);
+echo $response;
 ```
 
-## Example Response
+## Example Response (with more data)
 
-If there are more events available, next\_cursor will be returned. The value for next\_cursor is used to get the next batch of events. 
-
-Events will be returned in a records object. The schema for the Event object is provided in the next section.
+If more events are available, the response includes `next_cursor`, as shown below.
 
 ```json
 {
-	"status": "success",
-	"next_cursor": "ZyZjfwYEAgdjYmZyKz8NegYFAwxmamF%2FZ21meU4BBQFlYmN7ZG5ifAYCTQQrai57K2ouegJMABl6",
-	"records": [
+  "status": "success",
+  "next_cursor": "ZyZjfwYEAgdjYmZyKz8NegYFAwxmamF%2FZ21meU4BBQFlYmN7ZG5ifAYCTQQrai57K2ouegJMABl6",
+  "records": [
     {
-			"profile": {
-				"objectId": "a8ffcbc9-a747-4ee3-a791-c5e58ad03097",
-				"platform": "Web",
-				"email": "peter@foo.com",
-				"profileData": {
-					"favoriteColor": "blue"
-				},
-				"identity": "5555555555",
-				"id": 33
-			},
-			"events": {
-				"Identity Set": {
-					"count": 1,
-					"first_seen": 1677155829,
-					"last_seen": 1677155829
-				},
-				"Test event": {
-					"count": 2,
-					"first_seen": 1677155653,
-					"last_seen": 1677155726
-				}
-			},
-			"ts": 20151023140416,
-			"event_props": {
-				"value": "pizza"
-			},
-			"session_props": {
-				"utm_source": "Foo",
-				"utm_medium": "Bar",
-				"utm_campaign": "FooBar",
-				"session_source": "Direct"
-			}
-		},
-		{
-			"profile": {
-				"objectId": "a8ffcbc9-a747-4ee3-a791-c5e58ad03097",
-				"platform": "Web",
-				"email": "peter@foo.com",
-				"profileData": {
-					"favoriteColor": "blue"
-				},
-				"identity": "5555555555",
-				"id": 33
-			},
-			"events": {
-				"Identity Set": {
-					"count": 1,
-					"first_seen": 1677155829,
-					"last_seen": 1677155829
-				},
-				"Test event": {
-					"count": 2,
-					"first_seen": 1677155653,
-					"last_seen": 1677155726
-				}
-			},
-			"ts": 20151024121636,
-			"event_props": {
-				"value": "pizza"
-			},
-			"session_props": {
-				"session_source": "Others",
-				"session_referrer": "http://example.com"
-			}
-		}
-	]
+      "profile": {
+        "objectId": "a8ffcbc9-a747-4ee3-a791-c5e58ad03097",
+        "platform": "Web",
+        "email": "peter@foo.com",
+        "profileData": { "favoriteColor": "blue" },
+        "identity": "5555555555"
+      },
+      "events": {
+        "Identity Set": { "count": 1, "first_seen": 1677155829, "last_seen": 1677155829 },
+        "Test event": { "count": 2, "first_seen": 1677155653, "last_seen": 1677155726 }
+      },
+      "ts": 20151023140416,
+      "event_props": { "value": "pizza" },
+      "session_props": {
+        "utm_source": "Foo",
+        "utm_medium": "Bar",
+        "utm_campaign": "FooBar",
+        "session_source": "Direct"
+      }
+    }
+  ]
 }
 ```
 
-If there are no more events available, next\_cursor will not be returned and a success response will be returned.
+If there are no more events, the response omits `next_cursor`, as shown below.
 
 ```json
-{ "status" : "success"}
+{ "status": "success" }
 ```
 
-If the data for the cursor is not ready, you'll get the following response :
+If the data is not yet ready, the response indicates that the request is still in progress, as shown below.
 
 ```json
 {
-   "status": "fail",
-   "error": "Request still in progress, please retry later",
-   "code": 2
+  "status": "fail",
+  "error": "Request still in progress, please retry later",
+  "code": 2
 }
 ```
 
-# Event Object
+# Event Object Schema
 
-Here is the schema for the Events object.
+Use this schema to parse objects in `records[]`. The table below describes each key, its type, and its description.
 
-| Key             | Description                                                                                                                                                                                                                                                      |
-| :-------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| objectId        | CleverTap ID of the user.                                                                                                                                                                                                                                        |
-| profileData     | All custom profile properties of the user.                                                                                                                                                                                                                       |
-| identity        | Custom user identity provided by you.                                                                                                                                                                                                                            |
-| ts              | Event timestamp in yyyyMMddHHmmSS format.                                                                                                                                                                                                                        |
-| event\_props    | All event properties and their values.                                                                                                                                                                                                                           |
-| session\_props  | Possible values are utm\_source, utm\_medium, utm\_campaign, session\_source, and session\_referrer for the event. These are only provided if they were set.                                                                                                     |
-| session\_source | Possible values are Direct, Search, Social, Email, and Batch. These are only provided if they were set. If unset, the source is Unavailable, and Others if there is a custom referrer (session\_referrer field contains the referrer value if source is Others). |
+| Key                        | Type    | Description                                                                                                                                                                                                                                                                                      |
+| -------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `profile`                  | object  | User identity and custom profile properties. When `app=true`, this object also includes `os_version`, `app_version`, `make`, and `model` as flat fields.                                                                                                                                         |
+| `profile.objectId`         | string  | CleverTap Global Object ID for the user. This is the user identifier returned by this API; there is no separate numeric `profile.id` field.                                                                                                                                                      |
+| `profile.platform`         | string  | Source platform (for example, `Web`, `Android`, `iOS`).                                                                                                                                                                                                                                          |
+| `profile.email`            | string  | User email, if available.                                                                                                                                                                                                                                                                        |
+| `profile.profileData`      | object  | Custom profile properties (key-value map). Omitted when `profile=false`.                                                                                                                                                                                                                         |
+| `profile.identity`         | string  | Your custom identity for the user, if set.                                                                                                                                                                                                                                                       |
+| `events`                   | object  | Event summary keyed by event name: `{ "<eventName>": { "count": integer, "first_seen": integer, "last_seen": integer } }`. Omitted entirely when `events=false`.                                                                                                                                 |
+| `events.<name>.count`      | integer | Occurrence count within the requested window.                                                                                                                                                                                                                                                    |
+| `events.<name>.first_seen` | integer | Unix timestamp (seconds) when first seen.                                                                                                                                                                                                                                                        |
+| `events.<name>.last_seen`  | integer | Unix timestamp (seconds) when last seen.                                                                                                                                                                                                                                                         |
+| `ts`                       | integer | A 14-digit integer in `yyyyMMddHHmmSS` format, expressed in the account's configured timezone, not UTC or the server or browser timezone. For example, `20241215142305` represents December 15, 2024, 14:23:05 in account time. This value is not a Unix timestamp and does not follow ISO 8601. |
+| `event_props`              | object  | Event properties as a flat key-value map. Values are scalars only: string, integer, float, a date string in `yyyyMMdd` format, or a JSON array of strings for multi-value properties. Values are never nested objects or nested arrays.                                                          |
+| `session_props`            | object  | UTM and session metadata, for example `utm_source`, `utm_medium`, `utm_campaign`, `session_source`, `session_referrer`.                                                                                                                                                                          |
+| `session_source`           | string  | Always one of `Direct`, `Search`, `Social`, `Email`, `Batch`, `Others`, or `Unavailable`. If a custom referrer is present, this value is `Others` and the actual referrer appears in `session_referrer`. If unavailable, the value is `Unavailable`.                                             |
+
+# Error Codes
+
+The following table lists the error codes returned by this API, along with their HTTP status codes, descriptions, and example error responses.
+
+| HTTP Status | Code or Status       | Error                 | Description                                                                                                                         | Example Error Response                                                                      |
+| ----------- | -------------------- | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| 401         | 401                  | `invalid_credentials` | Authentication failure. Invalid or missing credentials.                                                                             | `{ "status": "fail", "error": "Invalid credentials", "code": 401 }`                         |
+| 400         | 4001                 | `invalid_event_name`  | Event type not recognized.                                                                                                          | `{ "status": "fail", "error": "Invalid event_name provided", "code": 4001 }`                |
+| 400         | 4002                 | `invalid_date_range`  | Invalid date range (bad format, `from` greater than `to`, or a future date).                                                        | `{ "status": "fail", "error": "Invalid date range format YYYYMMDD", "code": 4002 }`         |
+| 400         | 4003                 | `invalid_batch_size`  | `batch_size` too large or not an integer.                                                                                           | `{ "status": "fail", "error": "batch_size must be an integer <= 5000", "code": 4003 }`      |
+| 400         | `CURSOR_INVALIDATED` | `invalid_cursor`      | Cursor expired (4 hours from creation or 1 hour of inactivity) or otherwise invalid. There is no grace period; restart from Step 1. | `{ "status": "fail", "error": "Invalid cursor", "code": 4004 }`                             |
+| 202         | 2                    | `in_progress`         | Request still processing, retry later.                                                                                              | `{ "status": "fail", "error": "Request still in progress, please retry later", "code": 2 }` |
+| 429         | 429                  | `rate_limit_exceeded` | API rate limit exceeded.                                                                                                            | `{ "status": "fail", "error": "Rate limit exceeded. Try again later", "code": 429 }`        |
+| 500         | 500                  | `internal_error`      | Internal server error.                                                                                                              | `{ "status": "fail", "error": "Internal server error. Please retry later", "code": 500 }`   |
 
 # Notes
 
-* You can only define single event type with each request for events.
-* API errors are described on the [errors page](doc:api-errors).
-* For more information on request limit, refer to [API Request Limit](doc:api-request-limit).
-* To understand the common queries and concerns related to CleverTap APIs, refer to [API FAQs](doc:api-faqs).
+This section summarizes key behaviors of the export flow.
+
+* One event per request: each Step 1 request targets a single `event_name`.
+* Response evolution: Step 1 returns `{ cursor, status }`. Step 2 returns `{ status, records, next_cursor? }`.
+* For endpoint limits, see [API Request Limit](doc:api-request-limit).
+* For standard errors, see [API Errors](doc:api-errors).
+
+<br />
