@@ -18,7 +18,9 @@ This endpoint retrieves counts for an event in a specified duration. For example
 
 # Base URL
 
-Here is an example base URL from the account in the India region: [https://in1.api.clevertap.com/1/counts/events.json](https://in1.api.clevertap.com/1/counts/events.json)
+Here is a sample base URL:
+
+`https://<region>.api.clevertap.com/1/counts/events.json`
 
 ## Region
 
@@ -210,22 +212,22 @@ For more information on the request limit, refer to [API Request Limit](doc:api-
 
 # Error Codes
 
-<br />
+The following table lists the error codes returned by this API:
 
-| HTTP Status | Code or Status | Error                                                   | Description                                                                                                 | Example Error Response                                                               |
-| ----------- | -------------- | ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
-| 400         | fail           | Account credentials missing                             | Account-Id or Passcode header is present but cannot be parsed                                               | \{"status":"fail","error":"Account credentials missing"}                             |
-| 400         | fail           | Payload is mandatory                                    | Request body is absent, empty, or not valid JSON                                                            | \{"status":"fail","error":"Payload is mandatory"}                                    |
-| 400         | fail           | (query validation error string)                         | Body is valid JSON but the query fails semantic validation; the exact validation error is returned verbatim | \{"status":"fail","error":"[unknown event property]"}                                |
-| 400         | fail           | Invalid request ID                                      | Polling req_id is expired or not found                                                                      | \{"status":"fail","error":"Invalid request ID"}                                      |
-| 400         | fail           | Invalid query                                           | Polling request has no req_id, or an unhandled exception occurred during processing                         | \{"status":"fail","error":"Invalid query"}                                           |
-| 400         | fail           | Error Processing, Please try again later                | Async processing failure (e.g. async context error mid-flight)                                              | \{"status":"fail","error":"Error Processing, Please try again later"}                |
-| 401         | fail           | Invalid Credentials                                     | Account-Id or Passcode header value is incorrect                                                            | \{"status":"fail","error":"Invalid Credentials"}                                     |
-| 429         | fail           | Too many concurrent requests                            | Per-account concurrency limit exceeded (infrastructure throttle)                                            | \{"status":"fail","error":"Too many concurrent requests"}                            |
-| 429         | fail           | Invalid query blocking this because of too many retries | Request blocked by an internal per-account rate-limit control (LaunchDarkly-managed)                        | \{"status":"fail","error":"Invalid query blocking this because of too many retries"} |
-| 500         | fail           | Server error                                            | Event Store returned an internal server error                                                               | \{"status":"fail","error":"Server error"}                                            |
-| 503         | fail           | 12 digit account ID mandatory.                          | Account-Id header is missing from the request                                                               | \{"status":"fail","error":"12 digit account ID mandatory."}                          |
-| 503         | fail           | Please come back later                                  | Global request limit exceeded, or async processing timed out                                                | \{"status":"fail","error":"Please come back later"}                                  |
-| 503         | fail           | System under maintenance. Please retry later            | Event Store is unreachable or reports itself as down                                                        | \{"status":"fail","error":"System under maintenance. Please retry later"}            |
+| HTTP Status | Code or Status | Error                                                   | Description                                                                                                  | Example Error Response                                                               |
+| ----------- | -------------- | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| 400         | fail           | Account credentials missing                             | Account-Id or Passcode header is present, but cannot be parsed                                               | \{"status":"fail","error":"Account credentials missing"}                             |
+| 400         | fail           | Payload is mandatory                                    | Request body is absent, empty, or not valid JSON                                                             | \{"status":"fail","error":"Payload is mandatory"}                                    |
+| 400         | fail           | (query validation error string)                         | Body is valid JSON, but the query fails semantic validation; the exact validation error is returned verbatim | \{"status":"fail","error":"[unknown event property]"}                                |
+| 400         | fail           | Invalid request ID                                      | Polling req_id has expired or is not found                                                                   | \{"status":"fail","error":"Invalid request ID"}                                      |
+| 400         | fail           | Invalid query                                           | Polling request has no req_id, or an unhandled exception occurred during processing                          | \{"status":"fail","error":"Invalid query"}                                           |
+| 400         | fail           | Error Processing, Please try again later                | Async processing failure (e.g. async context error mid-flight)                                               | \{"status":"fail","error":"Error Processing, Please try again later"}                |
+| 401         | fail           | Invalid Credentials                                     | Account-Id or Passcode header value is incorrect                                                             | \{"status":"fail","error":"Invalid Credentials"}                                     |
+| 429         | fail           | Too many concurrent requests                            | Per-account concurrency limit exceeded (infrastructure throttle)                                             | \{"status":"fail","error":"Too many concurrent requests"}                            |
+| 429         | fail           | Invalid query blocking this because of too many retries | Request blocked by an internal per-account rate-limit control (LaunchDarkly-managed)                         | \{"status":"fail","error":"Invalid query blocking this because of too many retries"} |
+| 500         | fail           | Server error                                            | Event Store returned an internal server error                                                                | \{"status":"fail","error":"Server error"}                                            |
+| 503         | fail           | 12-digit account ID mandatory.                          | Account-Id header is missing from the request                                                                | \{"status":"fail","error":"12 digit account ID mandatory."}                          |
+| 503         | fail           | Please come back later                                  | Global request limit exceeded, or async processing timed out                                                 | \{"status":"fail","error":"Please come back later"}                                  |
+| 503         | fail           | System under maintenance. Please retry later            | Event Store is unreachable or reports itself as down                                                         | \{"status":"fail","error":"System under maintenance. Please retry later."}           |
 
 <br />
