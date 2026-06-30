@@ -20,9 +20,7 @@ The following is a sample base URL:
 
 `https://<region>.api.clevertap.com/1/counts/profiles.json`
 
-## Region
-
-Refer to [Region](https://developer.clevertap.com/docs/common-api-components#region) for more details.
+For region-specific endpoints, refer to [Region](https://developer.clevertap.com/docs/common-api-components#region).
 
 # HTTP Method
 
