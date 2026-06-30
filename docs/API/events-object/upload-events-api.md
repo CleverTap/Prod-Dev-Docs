@@ -430,8 +430,8 @@ The following table lists the error codes returned by this API:
 | 528  | Trying to raise a discarded event                               | Event name is on the account's discard list                                            |
 | 530  | Invalid 'objectId'                                              | Token upload attempted without a valid objectId                                        |
 | 531  | Invalid token data.                                             | tokenData is absent or has fewer than 2 fields                                         |
-| 532  | Token 'id' is not present.                                      | tokenData.id is missing                                                                |
-| 533  | Token 'type' is not present.                                    | tokenData.type is missing                                                              |
+| 532  | Token 'id' is not present.                                      | `tokenData.id` is missing                                                              |
+| 533  | Token 'type' is not present.                                    | `tokenData.type` is missing                                                            |
 | 534  | Token 'type' is not valid for 'objectId'.                       | Token type does not match the device type of the objectId                              |
 | 536  | Invalid Name update operation                                   | Profile Name field contains an unsupported operation                                   |
 | 537  | Invalid gender update operation                                 | Profile Gender field contains an unsupported operation                                 |
