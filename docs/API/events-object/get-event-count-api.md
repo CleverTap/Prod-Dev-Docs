@@ -30,7 +30,7 @@ The initial query uses the POST method. Polling for results uses the GET method 
 
 # Headers
 
-The headers required depend on the request type. The initial POST request requires all headers described in [Headers](https://developer.clevertap.com/docs/common-api-components#headers), including `Content-Type`. 
+The headers required depend on the request type. The initial POST request requires all headers described in [Headers](https://developer.clevertap.com/docs/common-api-components#headers), including `Content-Type`.
 
 The GET polling request requires only `X-CleverTap-Account-Id` and `X-CleverTap-Passcode`; `Content-Type` is not required for GET requests.
 
@@ -206,6 +206,26 @@ After getting the req_id, poll the endpoint below using the GET method, and prov
   This is an example base URL from the account in the India region. To know the API endpoint for your account, refer to [Region](https://developer.clevertap.com/docs/get-event-count-api#region).
 </Callout>
 
-For more information on the request limit, refer to [API Request Limit](doc:api-request-limit). To understand the common queries and concerns related to CleverTap APIs, refer to [API FAQs](doc:api-faqs).
+For more information on the request limit, refer to [API Request Limit](doc:api-request-limit). To understand common queries and concerns about CleverTap APIs, refer to [API FAQs](doc:api-faqs).
+
+# Error Codes
+
+<br />
+
+| HTTP Status | Code or Status | Error                                                   | Description                                                                                                 | Example Error Response                                                               |
+| ----------- | -------------- | ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| 400         | fail           | Account credentials missing                             | Account-Id or Passcode header is present but cannot be parsed                                               | \{"status":"fail","error":"Account credentials missing"}                             |
+| 400         | fail           | Payload is mandatory                                    | Request body is absent, empty, or not valid JSON                                                            | \{"status":"fail","error":"Payload is mandatory"}                                    |
+| 400         | fail           | (query validation error string)                         | Body is valid JSON but the query fails semantic validation; the exact validation error is returned verbatim | \{"status":"fail","error":"[unknown event property]"}                                |
+| 400         | fail           | Invalid request ID                                      | Polling req_id is expired or not found                                                                      | \{"status":"fail","error":"Invalid request ID"}                                      |
+| 400         | fail           | Invalid query                                           | Polling request has no req_id, or an unhandled exception occurred during processing                         | \{"status":"fail","error":"Invalid query"}                                           |
+| 400         | fail           | Error Processing, Please try again later                | Async processing failure (e.g. async context error mid-flight)                                              | \{"status":"fail","error":"Error Processing, Please try again later"}                |
+| 401         | fail           | Invalid Credentials                                     | Account-Id or Passcode header value is incorrect                                                            | \{"status":"fail","error":"Invalid Credentials"}                                     |
+| 429         | fail           | Too many concurrent requests                            | Per-account concurrency limit exceeded (infrastructure throttle)                                            | \{"status":"fail","error":"Too many concurrent requests"}                            |
+| 429         | fail           | Invalid query blocking this because of too many retries | Request blocked by an internal per-account rate-limit control (LaunchDarkly-managed)                        | \{"status":"fail","error":"Invalid query blocking this because of too many retries"} |
+| 500         | fail           | Server error                                            | Event Store returned an internal server error                                                               | \{"status":"fail","error":"Server error"}                                            |
+| 503         | fail           | 12 digit account ID mandatory.                          | Account-Id header is missing from the request                                                               | \{"status":"fail","error":"12 digit account ID mandatory."}                          |
+| 503         | fail           | Please come back later                                  | Global request limit exceeded, or async processing timed out                                                | \{"status":"fail","error":"Please come back later"}                                  |
+| 503         | fail           | System under maintenance. Please retry later            | Event Store is unreachable or reports itself as down                                                        | \{"status":"fail","error":"System under maintenance. Please retry later"}            |
 
 <br />
