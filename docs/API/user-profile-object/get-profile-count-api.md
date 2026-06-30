@@ -28,7 +28,7 @@ Refer to [Region](https://developer.clevertap.com/docs/common-api-components#reg
 
 POST
 
-This method applies to the initial request that submits the event query. The polling request used to check on a pending query uses a different method, covered in Polling Endpoint
+This method applies to the initial request that submits the event query. The polling request used to check on a pending query uses a different method, covered in [Polling Endpoint](doc:get-profile-count-api#polling-endpoint).
 
 # Headers
 
