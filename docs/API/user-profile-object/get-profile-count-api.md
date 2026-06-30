@@ -12,7 +12,7 @@ next:
 ---
 # Overview
 
-This endpoint returns the total number of profiles that match an event query. The API can return the count immediately or a pending status that requires polling. Refer to Response Handling below for both flows.
+This endpoint returns the total number of profiles that match an event query. The API can return the count immediately or a pending status that requires polling. Refer to [Response Handling](doc:get-profile-count-api#response-handling) below for both flows.
 
 # Base URL
 
