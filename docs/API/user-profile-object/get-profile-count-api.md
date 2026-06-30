@@ -12,28 +12,35 @@ next:
 ---
 # Overview
 
-This endpoint enables you to get the total number of profiles that match an event query.
+This endpoint returns the total number of profiles that match an event query. The API can return the count immediately or a pending status that requires polling. Refer to Response Handling below for both flows.
 
-## Base URL
+# Base URL
 
-Here is an example base URL from the account in the India region:  
-[https://in1.api.clevertap.com/1/counts/profiles.json](https://in1.api.clevertap.com/1/counts/profiles.json)
+The following is a sample base URL:
 
-### Region
+`https://<region>.api.clevertap.com/1/counts/profiles.json`
 
-Refer [Region](https://developer.clevertap.com/docs/common-api-components#region) for more details.
+## Region
 
-## HTTP Method
+Refer to [Region](https://developer.clevertap.com/docs/common-api-components#region) for more details.
+
+# HTTP Method
 
 POST
 
-## Headers
+This method applies to the initial request that submits the event query. The polling request used to check on a pending query uses a different method, covered in Polling Endpoint
 
-Refer [Headers](https://developer.clevertap.com/docs/common-api-components#headers) for more details.
+# Headers
 
-## Body Parameters
+Refer to [Headers](https://developer.clevertap.com/docs/common-api-components#headers) for more details. The request requires the following headers.
 
-The body is uploaded as a JSON payload.
+* `X-CleverTap-Account-Id`
+* `X-CleverTap-Passcode`
+* `Content-Type: application/json`
+
+# Body Parameters
+
+The following table lists the body parameters:
 
 <Table align={["left","left","left","left","left"]}>
   <thead>
@@ -119,7 +126,7 @@ The body is uploaded as a JSON payload.
       </td>
 
       <td>
-        Start of date range within which users should have performed the event you specified in event_name. Input values have to be formatted as integers in format YYYYMMDD.
+        Start of date range within which users should have performed the event you specified in event_name. Input values must be formatted as integers in the YYYYMMDD format.
       </td>
 
       <td>
@@ -141,7 +148,7 @@ The body is uploaded as a JSON payload.
       </td>
 
       <td>
-        End of date range within which users should have performed the event you specified in event_name. Input values have to be formatted as integers in format YYYYMMDD.
+        End of date range within which users should have performed the event you specified in event_name. Input values must be formatted as integers in the YYYYMMDD format.
       </td>
 
       <td>
@@ -159,7 +166,7 @@ The body is uploaded as a JSON payload.
   </tbody>
 </Table>
 
-Below is an example payload.
+The following is a sample payload.
 
 ```json
 {
@@ -176,12 +183,12 @@ Below is an example payload.
 }
 ```
 
-## Example Request
+# Example Request
 
-Here is an example cURL request to the _Get Profile Count_ API showing the headers needed to authenticate the request from the account in the India region:
+The following is a sample request:
 
 ```curl
-curl -X POST -d '{"event_name":"choseNewFavoriteFood","event_properties":[{"name":"value","operator":"contains","value":"piz"}],"from":20150810,"to":20151025}' "https://in1.api.clevertap.com/1/counts/profiles.json" \
+curl -X POST -d '{"event_name":"choseNewFavoriteFood","event_properties":[{"name":"value","operator":"contains","value":"piz"}],"from":20150810,"to":20151025}' "https://<region>.api.clevertap.com/1/counts/profiles.json" \
 -H "X-CleverTap-Account-Id: ACCOUNT_ID" \
 -H "X-CleverTap-Passcode: PASSCODE" \
 -H "Content-Type: application/json"
@@ -191,7 +198,7 @@ require 'net/http'
 require 'uri'
 require 'json'
 
-uri = URI.parse("https://in1.api.clevertap.com/1/counts/profiles.json")
+uri = URI.parse("https://<region>.api.clevertap.com/1/counts/profiles.json")
 request = Net::HTTP::Post.new(uri)
 request.content_type = "application/json"
 request["X-Clevertap-Account-Id"] = "ACCOUNT_ID"
@@ -228,7 +235,7 @@ headers = {
 
 data = '{"event_name":"choseNewFavoriteFood","event_properties":[{"name":"value","operator":"contains","value":"piz"}],"from":20150810,"to":20151025}'
 
-response = requests.post('https://in1.api.clevertap.com/1/counts/profiles.json', headers=headers, data=data)
+response = requests.post('https://<region>.api.clevertap.com/1/counts/profiles.json', headers=headers, data=data)
 ```
 ```php
 <?php
@@ -240,7 +247,7 @@ $headers = array(
     'Content-Type' => 'application/json'
 );
 $data = '{"event_name":"choseNewFavoriteFood","event_properties":[{"name":"value","operator":"contains","value":"piz"}],"from":20150810,"to":20151025}';
-$response = Requests::post('https://in1.api.clevertap.com/1/counts/profiles.json', $headers, $data);
+$response = Requests::post('https://<region>.api.clevertap.com/1/counts/profiles.json', $headers, $data);
 ```
 ```javascript Node.js
 var request = require('request');
@@ -254,7 +261,7 @@ var headers = {
 var dataString = '{"event_name":"choseNewFavoriteFood","event_properties":[{"name":"value","operator":"contains","value":"piz"}],"from":20150810,"to":20151025}';
 
 var options = {
-    url: 'https://in1.api.clevertap.com/1/counts/profiles.json',
+    url: 'https://<region>.api.clevertap.com/1/counts/profiles.json',
     method: 'POST',
     headers: headers,
     body: dataString
@@ -289,7 +296,7 @@ if err != nil {
 }
 body := bytes.NewReader(payloadBytes)
 
-req, err := http.NewRequest("POST", "https://in1.api.clevertap.com/1/counts/profiles.json", body)
+req, err := http.NewRequest("POST", "https://<region>.api.clevertap.com/1/counts/profiles.json", body)
 if err != nil {
 	// handle err
 }
@@ -304,7 +311,29 @@ if err != nil {
 defer resp.Body.Close()
 ```
 
-## Example Response
+# Response Handling
+
+The response status determines what action you take next. The API returns one of three statuses: success, partial, or fail. The following diagram shows the full decision flow, including the polling loop:
+
+```mermaid
+flowchart TD
+    A([POST /1/counts/profiles.json]) --> B{Response}
+    B -->|status: success| C([Done, use count value])
+    B -->|status: partial| D([Save req_id])
+    B -->|status: fail| E([Check error message and fix request])
+    D --> F[Wait 30 seconds]
+    F --> G([GET /1/counts/profiles.json?req_id=...])
+    G --> H{Response}
+    H -->|status: success| C
+    H -->|status: partial| F
+    H -->|status: fail| E
+```
+
+## Synchronous Response
+
+If the query completes immediately, the status is success or failure.
+
+If the status is success, the response includes a count key with an int value for the specified query.
 
 ```json
 {
@@ -313,31 +342,35 @@ defer resp.Body.Close()
 }
 ```
 
-## Note
+If the status is fail, the response includes an error key with a string value and an HTTP status code. If the request body is missing or not valid JSON, the API returns HTTP 400 with the error "Payload is mandatory." A missing or incorrect Content-Type header does not, on its own, cause a failure; the API reads the request body directly regardless of the declared Content-Type.
 
-The response is a JSON object containing the key status, which might be success, partial, or fail.
+## Asynchronous Response (Polling Required)
 
-If the status is success, there will be a count key with an int value of the count for the specified query. If the status is fail, there will be an error key with a string value and a HTTP status code.
+If the status is partial, the query has not finished processing in our system. The response includes a req_id key with a long int value, which you use to poll for the result.
 
-If the status is partial, the query has not finished processing in our system. In the response, you will receive a req_id key with a long int value that you will use to poll for the result. After the query is completed, you will either receive a success response with the count if the query was successful, or a fail response with an error string and a HTTP status code. Please wait 30 seconds between polling requests.
-
-Here is an example response for a partial status.
-
-```
+```json
 {
   "req_id": 384649162721759,
   "status": "partial"
 }
 ```
 
-After getting the req_id, you will poll the endpoint below and provide the value of req_id as a query parameter.
+After the query completes, polling returns either a success response with the count or a failure response with an error string and an HTTP status code.
 
-GET [https://api.clevertap.com/1/counts/profiles.json?req_id=](https://api.clevertap.com/1/counts/profiles.json?req_id=)\<your_request_id_here>
+### Polling Endpoint
+
+Once you receive a req_id, you poll a separate endpoint to retrieve the final result. This request uses the GET method, unlike the initial POST request, and passes req_id as a query parameter.
+
+```
+GET https://api.clevertap.com/1/counts/profiles.json?req_id=<your_request_id_here>
+```
+
+Wait 30 seconds between polling requests.
 
 <Callout icon="📘" theme="info">
-  **Region**
+  #### Region
 
-  This is an example base URL from the account in the India region. To know the API endpoint for your account, refer to [Region](https://developer.clevertap.com/docs/get-event-count-api#region).
+  The following is an example base URL from the account in the India region. To know the API endpoint for your account, refer to [Region](https://developer.clevertap.com/docs/common-api-components#region).
 </Callout>
 
-For more information on request limit, refer to [API Request Limit](doc:api-request-limit). To understand the common queries and concerns related to CleverTap APIs, refer to [API FAQs](doc:api-faqs).
+For more information on the request limit, refer to [API Request Limit](doc:api-request-limit). To understand common queries and concerns about CleverTap APIs, refer to [API FAQs](doc:api-faqs).
