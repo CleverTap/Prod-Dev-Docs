@@ -18,7 +18,7 @@ This endpoint retrieves counts for an event in a specified duration. For example
 
 # Base URL
 
-Here is a sample base URL:
+The following is a sample base URL:
 
 `https://<region>.api.clevertap.com/1/counts/events.json`
 
