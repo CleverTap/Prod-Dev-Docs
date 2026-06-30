@@ -360,7 +360,7 @@ Use this schema to parse objects in `records[]`. The table below describes each 
 
 # Error Codes
 
-The following table lists the error codes returned by this API, along with their HTTP status codes, descriptions, and example error responses.
+The following table lists the error codes returned by this API:
 
 | HTTP Status | Code or Status       | Error                 | Description                                                                                                                         | Example Error Response                                                                      |
 | ----------- | -------------------- | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
