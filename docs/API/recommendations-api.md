@@ -425,7 +425,7 @@ The following code blocks provide sample requests for each of the 8 recommendati
 
 ```json Popular Top 30
 {
-    "id": 1768980341562,
+    "id": <POPULAR_STRATEGY_ID>,
     "name": "PopularTop30",
     "filters": {
         "logic": "OR",
@@ -443,7 +443,7 @@ The following code blocks provide sample requests for each of the 8 recommendati
 ```
 ```json Popular By Category
 {
-    "id": 1768980341562,
+    "id": <POPULAR_BY_CATEGORY_STRATEGY_ID>,
     "name": "PopularByCategory",
     "scope": { "genre": "Horror", "language": "Hindi" },
     "filters": {
@@ -499,20 +499,8 @@ The following code blocks provide sample requests for each of the 8 recommendati
 ```
 ```json Hybrid
 {
-    "id": 1774877949745,
-    "userId": "<USER_ID>",
-    "fallback": 1773210729642,
-    "responseColumns": ["cast", "tags"],
-    "count": 20,
-    "page": { "pageNumber": 1, "limit": 10 },
-    "includeMetadata": true
-    }
-```
-```json Hybrid By Category
-{
-    "id": <HYBRID_BY_CATEGORY_STRATEGY_ID>,
-    "userId": "<USER_ID>",
-    "scope": { "genre": "Horror", "language": "Hindi" },
+    "id": <HYBRID_STRATEGY_ID>,
+    "identity": "<USER_IDENTITY>",
     "fallback": 1773210729642,
     "responseColumns": ["cast", "tags"],
     "count": 20,
@@ -522,20 +510,9 @@ The following code blocks provide sample requests for each of the 8 recommendati
 ```
 ```json Content Based
 {
-    "id": 1774509314369,
+    "id": <CONTENT_BASED_STRATEGY_ID>,
     "productId": "CTTDOC002",
     "responseColumns": ["price", "name"],
-    "count": 10,
-    "page": { "pageNumber": 1, "limit": 10 },
-    "includeMetadata": true
-    }
-```
-```json Content Based By Category
-{
-    "id": <CONTENT_BASED_BY_CATEGORY_STRATEGY_ID>,
-    "productId": "CTTDOC002",
-    "scope": { "genre": "Horror", "language": "Hindi" },
-    "responseColumns": ["cast", "genre"],
     "count": 10,
     "page": { "pageNumber": 1, "limit": 10 },
     "includeMetadata": true
@@ -554,7 +531,7 @@ The following code blocks provide sample responses for each of the 8 recommendat
 
 ```json Popular Top 30
 {
-    "id": 1768980341562,
+    "id": <POPULAR_STRATEGY_ID>,
     "name": "PopularTop30",
     "page": { "pageNumber": 1, "limit": 10 },
     "items": [
@@ -573,7 +550,7 @@ The following code blocks provide sample responses for each of the 8 recommendat
 ```
 ```json Popular By Category
 {
-    "id": 1768980341562,
+    "id": <POPULAR_BY_CATEGORY_STRATEGY_ID,
     "name": "PopularByCategory",
     "scope": { "genre": "Horror", "language": "Hindi" },
     "page": { "pageNumber": 1, "limit": 10 },
@@ -593,7 +570,7 @@ The following code blocks provide sample responses for each of the 8 recommendat
 ```
 ```json Trending Top 30
 {
-    "id": 1769012345678,
+    "id": <TRENDING_STRATEGY_ID>,
     "name": "TrendingTop30",
     "page": { "pageNumber": 1, "limit": 10 },
     "items": [
@@ -612,7 +589,7 @@ The following code blocks provide sample responses for each of the 8 recommendat
 ```
 ```json Trending By Category
 {
-    "id": 1769023456789,
+    "id": <TRENDING_BY_CATEGORY_STRATEGY_ID>,
     "name": "TrendingByCategory",
     "scope": { "genre": "Horror", "language": "Hindi" },
     "page": { "pageNumber": 1, "limit": 10 },
@@ -632,7 +609,7 @@ The following code blocks provide sample responses for each of the 8 recommendat
 ```
 ```json Hybrid
 {
-    "id": 1774877949745,
+    "id": <HYBRID_STRATEGY_ID>,
     "page": { "pageNumber": 1, "limit": 10 },
     "items": [
         {
@@ -648,28 +625,9 @@ The following code blocks provide sample responses for each of the 8 recommendat
     "fallback_count": 2
     }
 ```
-```json Hybrid By Category
-{
-    "id": 1774890123456,
-    "scope": { "genre": "Horror", "language": "Hindi" },
-    "page": { "pageNumber": 1, "limit": 10 },
-    "items": [
-        {
-            "identity": "PROD_006",
-            "data": { "cast": "Actor C, Actor D", "tags": "horror, suspense" },
-            "metaData": {
-                "identity": "PROD_006",
-                "image_url": "https://sample.jpg",
-                "name": "The Haunting"
-            }
-        }
-    ],
-    "fallback_count": 0
-    }
-```
 ```json Content Based
 {
-    "id": 1774509314369,
+    "id": <CONTENT_BASED_STRATEGY_ID>,
     "page": { "pageNumber": 1, "limit": 10 },
     "items": [
         {
@@ -679,25 +637,6 @@ The following code blocks provide sample responses for each of the 8 recommendat
                 "identity": "PROD_007",
                 "image_url": "https://sample.jpg",
                 "name": "SwiftRun Elite"
-            }
-        }
-    ],
-    "fallback_count": 0
-    }
-```
-```json Content Based By Category
-{
-    "id": 1774520123456,
-    "scope": { "genre": "Horror", "language": "Hindi" },
-    "page": { "pageNumber": 1, "limit": 10 },
-    "items": [
-        {
-            "identity": "PROD_008",
-            "data": { "cast": "Actor A, Actor B", "genre": "Horror" }
-            "metaData": {
-                "identity": "PROD_008",
-                "image_url": "https://sample.jpg",
-                "name": "Night Walker"
             }
         }
     ],
