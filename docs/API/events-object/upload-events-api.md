@@ -426,7 +426,7 @@ The following table lists the error codes returned by this API:
 | 523  | 'identity' or 'fbId' or 'gpId' or 'objectId' is necessary...    | No valid user identifier found in the record                                           |
 | 524  | Data is not of type Event, Profile, or Token                    | `type` field is absent or has an unrecognized value                                    |
 | 525  | The timestamp should be in Unix Epoch format...                 | ts is zero, in milliseconds, or not parseable as a Long                                |
-| 527  | The record is too old. Please use the historic batch upload API | ts is older than the allowed ingestion window                                          |
+| 527  | The record is too old. Please use the historic batch upload API | `ts` is older than the allowed ingestion window                                        |
 | 528  | Trying to raise a discarded event                               | Event name is on the account's discard list                                            |
 | 530  | Invalid 'objectId'                                              | Token upload attempted without a valid objectId                                        |
 | 531  | Invalid token data.                                             | tokenData is absent or has fewer than 2 fields                                         |
