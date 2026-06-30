@@ -10,8 +10,6 @@ metadata:
 next:
   description: ''
 ---
-<br />
-
 # Overview
 
 Get Events API allows you to export user events in two steps.
