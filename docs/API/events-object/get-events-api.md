@@ -10,11 +10,13 @@ metadata:
 next:
   description: ''
 ---
+<br />
+
 # Overview
 
-Get Events API allows you to export user events in two steps. 
+Get Events API allows you to export user events in two steps.
 
-1. Request a cursor by specifying the event name, date range, and batch size. 
+1. Request a cursor by specifying the event name, date range, and batch size.
 2. Page through results using the cursor until no `next_cursor` is returned.
 
 <Callout icon="📘" theme="info">
@@ -31,9 +33,9 @@ Use this endpoint to obtain a cursor for the specified event and date range. The
 
 ## Base URL
 
-Here is an example base URL for the India region.
+Here is a sample base URL:
 
-``https://in1.api.clevertap.com/1/events.json``
+`https://<region>.api.clevertap.com/1/events.json`
 
 For region-specific endpoints, refer to [Region](https://developer.clevertap.com/docs/common-api-components#region).
 
@@ -177,21 +179,23 @@ A successful Step 1 request always returns a cursor, even if the specified date 
 
 Use the cursor received from Step 1 to fetch event records in batches. Keep calling this endpoint until the response no longer includes `next_cursor`. When there are no further batches, the `next_cursor` field is omitted entirely from the response rather than returned as null.
 
-> 📘 **Cursor Expiry**
->
-> A cursor expires 4 hours after creation or after 1 hour of inactivity, whichever comes first. A cleanup process removes expired cursors approximately every 10 minutes. Once a cursor expires, using it returns HTTP 400 with a status of `CURSOR_INVALIDATED`. There is no grace period, so you must restart from Step 1 to obtain a new cursor.
+<Callout icon="📘" theme="info">
+  #### Cursor Expiry
 
-> 📘 **Zero matching records**
->
-> If Step 1 returns a cursor but the specified date range contains no events, the first Step 2 call for that cursor returns `{"status": "success"}` with no `records` key. This response is identical to the end-of-pagination response, so there is no way to distinguish "no events ever existed in this range" from "all batches have already been fetched."
+  A cursor expires 4 hours after creation or after 1 hour of inactivity, whichever comes first. A cleanup process removes expired cursors approximately every 10 minutes. Once a cursor expires, using it returns HTTP 400 with a status of `CURSOR_INVALIDATED`. There is no grace period, so you must restart from Step 1 to obtain a new cursor.
+</Callout>
+
+<Callout icon="📘" theme="info">
+  #### Zero Matching Records
+
+  If Step 1 returns a cursor but the specified date range contains no events, the first Step 2 call for that cursor returns `{"status": "success"}` with no `records` key. This response is identical to the end-of-pagination response, so there is no way to distinguish "no events ever existed in this range" from "all batches have already been fetched."
+</Callout>
 
 ## Base URL
 
-Here is an example base URL for the India region.
+Here is a sample base URL:
 
-```
-https://in1.api.clevertap.com/1/events.json
-```
+`https://<region>.api.clevertap.com/1/events.json`
 
 For more information, refer to [Region](https://developer.clevertap.com/docs/get-events-api#region).
 
