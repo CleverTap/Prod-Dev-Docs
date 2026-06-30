@@ -156,24 +156,6 @@ The following parameters control the recommendation strategy, scoping, filtering
 
     <tr>
       <td>
-        userId
-      </td>
-
-      <td>
-        Integer
-      </td>
-
-      <td>
-        Conditional
-      </td>
-
-      <td>
-        CleverTap internal user ID. Required for Hybrid strategies when the userId is already known.
-      </td>
-    </tr>
-
-    <tr>
-      <td>
         productId
       </td>
 
