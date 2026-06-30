@@ -377,7 +377,7 @@ For more information on the request limit, refer to [API Request Limit](doc:api-
 
 # Error Codes
 
-The following is the list of error codes:
+The following table lists the error codes returned by this API:
 
 | HTTP Status | Code or Status | Error                                                   | Description                                                                                                  | Example Error Response                                                               |
 | ----------- | -------------- | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
