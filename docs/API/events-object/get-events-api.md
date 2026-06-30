@@ -31,7 +31,7 @@ Use this endpoint to obtain a cursor for the specified event and date range. The
 
 ## Base URL
 
-Here is a sample base URL:
+The following is a sample base URL:
 
 `https://<region>.api.clevertap.com/1/events.json`
 
@@ -191,7 +191,7 @@ Use the cursor received from Step 1 to fetch event records in batches. Keep call
 
 ## Base URL
 
-Here is a sample base URL:
+The following is a sample base URL:
 
 `https://<region>.api.clevertap.com/1/events.json`
 
