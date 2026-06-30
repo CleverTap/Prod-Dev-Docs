@@ -47,24 +47,7 @@ The table below describes each body parameter along with its requirement status,
 | from             | Start of date range within which users should have performed the event you specified in event_name. Input values are formatted as integers in YYYYMMDD format, with exactly 8 digits and leading zeros for single-digit months and days (for example, January 5, 2024 is 20240105). The value of from must be less than or equal to. Invalid date ordering returns HTTP 400.                                                                                                                                                                                                                                                        | required | int                    | 20150810               |
 | to               | End of date range within which users should have performed the event you specified in event_name. Follows the same date format and ordering rules as from.                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | required | int                    | 20151025               |
 
-### Example event_properties
-
-```json
-{
-    "event_name": "choseNewFavoriteFood",
-    "event_properties": [
-        {
-            "name": "value",
-            "operator": "contains",
-            "value": "piz"
-        }
-    ],
-    "from": 20150810,
-    "to": 20151025
-}
-```
-
-## Example Request
+# Example Request
 
 Here is an example cURL request to the _Get Event Count_ API showing the headers needed to authenticate the request from the account in the India region:
 
@@ -157,9 +140,28 @@ function callback(error, response, body) {
 request(options, callback);
 ```
 
-## Example Response
+# Example Payload
 
-### Success Response
+The following is the sample payload:
+
+```json
+{
+    "event_name": "choseNewFavoriteFood",
+    "event_properties": [
+        {
+            "name": "value",
+            "operator": "contains",
+            "value": "piz"
+        }
+    ],
+    "from": 20150810,
+    "to": 20151025
+}
+```
+
+# Example Response
+
+## Success Response
 
 ```json
 {
@@ -168,7 +170,7 @@ request(options, callback);
 }
 ```
 
-### Partial Response
+## Partial Response
 
 ```json
 {
@@ -177,7 +179,7 @@ request(options, callback);
 }
 ```
 
-### Error Response
+## Error Response
 
 ```json
 {
@@ -186,7 +188,7 @@ request(options, callback);
 }
 ```
 
-## Notes
+# Notes
 
 The response is a JSON object with the status key, which can be success, partial, or fail.
 
