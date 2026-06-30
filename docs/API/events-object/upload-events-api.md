@@ -394,6 +394,47 @@ Requests with processing errors are returned in the API call response, as shown 
 
 To test if your data submits without errors, you can add the parameter `dryRun=1` to the URL. This validates the input without submitting the data to CleverTap.
 
+# Error Codes
+
+## HTTP-Level Errors (whole request rejected)
+
+| HTTP Status | Code or Status | Error                          | Description                                      | Example Error Response                                      |
+| ----------- | -------------- | ------------------------------ | ------------------------------------------------ | ----------------------------------------------------------- |
+| 400         | fail           | Payload is mandatory           | Request body is absent or empty                  | \{"status":"fail","error":"Payload is mandatory"}           |
+| 400         | fail           | Malformed request              | Request body is not valid JSON                   | \{"status":"fail","error":"Malformed request"}              |
+| 400         | fail           | Batch size exceeded            | Payload contains more than 1000 records          | \{"status":"fail","error":"Batch size exceeded"}            |
+| 401         | fail           | Invalid Credentials            | Account-Id or Passcode header value is incorrect | \{"status":"fail","error":"Invalid Credentials"}            |
+| 503         | fail           | 12-digit account ID mandatory. | Account-Id header is missing                     | \{"status":"fail","error":"12 digit account ID mandatory."} |
+| 503         | fail           | Please come back later         | Service is not ready; retry the request          | \{"status":"fail","error":"Please come back later"}         |
+
+## Record-Level Errors (HTTP 200, individual records in unprocessed array)
+
+| Code | Error                                                           | Description                                                                            |
+| :--- | :-------------------------------------------------------------- | :------------------------------------------------------------------------------------- |
+| 509  | Event name is mandatory                                         | `evtName` field is absent or empty                                                     |
+| 512  | Only Items can have a nested structure                          | A non-Items field in a non-Charged event contains a nested object or array             |
+| 513  | Trying to raise a restricted system event                       | evtName matches a reserved system event (for example, Notification Sent, App Launched) |
+| 515  | Email is not valid                                              | Profile email field is malformed                                                       |
+| 516  | Phone number is not valid                                       | Profile phone is not in +(digits) format                                               |
+| 517  | Employed needs to be Y/N                                        | Profile Employed field is not Y or N                                                   |
+| 518  | Education needs to be School/College/Graduate.                  | Profile Education field has an invalid value                                           |
+| 519  | Married needs to be Y/N                                         | Profile Married field is not Y or N                                                    |
+| 520  | Age is invalid                                                  | Profile Age is not a number between 0 and 120                                          |
+| 522  | Cannot have more than {'<n>'} properties.                       | evtData exceeds the property limit (default 100)                                       |
+| 523  | 'identity' or 'fbId' or 'gpId' or 'objectId' is necessary...    | No valid user identifier found in the record                                           |
+| 524  | Data is not of type Event, Profile, or Token                    | `type` field is absent or has an unrecognized value                                    |
+| 525  | The timestamp should be in Unix Epoch format...                 | ts is zero, in milliseconds, or not parseable as a Long                                |
+| 527  | The record is too old. Please use the historic batch upload API | ts is older than the allowed ingestion window                                          |
+| 528  | Trying to raise a discarded event                               | Event name is on the account's discard list                                            |
+| 530  | Invalid 'objectId'                                              | Token upload attempted without a valid objectId                                        |
+| 531  | Invalid token data.                                             | tokenData is absent or has fewer than 2 fields                                         |
+| 532  | Token 'id' is not present.                                      | tokenData.id is missing                                                                |
+| 533  | Token 'type' is not present.                                    | tokenData.type is missing                                                              |
+| 534  | Token 'type' is not valid for 'objectId'.                       | Token type does not match the device type of the objectId                              |
+| 536  | Invalid Name update operation                                   | Profile Name field contains an unsupported operation                                   |
+| 537  | Invalid gender update operation                                 | Profile Gender field contains an unsupported operation                                 |
+| 555  | Error                                                           | Unhandled exception during record processing                                           |
+
 # Notes
 
 * You can also use the [Data Upload Script](https://github.com/CleverTap/clevertap-data-upload) to upload the event data to the CleverTap dashboard.
