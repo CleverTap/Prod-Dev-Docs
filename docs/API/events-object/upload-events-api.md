@@ -420,7 +420,7 @@ To test if your data submits without errors, you can add the parameter `dryRun=1
 | 518  | Education needs to be School/College/Graduate.                  | Profile Education field has an invalid value                                           |
 | 519  | Married needs to be Y/N                                         | Profile Married field is not Y or N                                                    |
 | 520  | Age is invalid                                                  | Profile Age is not a number between 0 and 120                                          |
-| 522  | Cannot have more than {'<n>'} properties.                       | evtData exceeds the property limit (default 100)                                       |
+| 522  | Cannot have more than {'n'} properties.                         | evtData exceeds the property limit (default 100)                                       |
 | 523  | 'identity' or 'fbId' or 'gpId' or 'objectId' is necessary...    | No valid user identifier found in the record                                           |
 | 524  | Data is not of type Event, Profile, or Token                    | `type` field is absent or has an unrecognized value                                    |
 | 525  | The timestamp should be in Unix Epoch format...                 | ts is zero, in milliseconds, or not parseable as a Long                                |
@@ -441,3 +441,5 @@ To test if your data submits without errors, you can add the parameter `dryRun=1
 * A list of error codes for this API can be found on the [Errors](doc:api-errors) page.
 
 To understand common queries and concerns about CleverTap APIs, refer to [API FAQs](doc:api-faqs).
+
+<br />
