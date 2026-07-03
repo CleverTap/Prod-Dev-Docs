@@ -65,26 +65,28 @@ POST
 
 The following table lists the required body parameters. Provide the event name and date window to filter users.
 
-| Parameter  | Required | Description                                                                                                                                                                                                     | Type    | Format   | Example  |
-| :--------- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------ | :------- | :------- |
-| event_name | Yes      | Event type, standard or custom. Standard events include but are not limited to: App Launched, App Installed, App Uninstalled, Charged, Notification Viewed, Notification Sent, Product Viewed, and UTM Visited. | string  | —        | Charged  |
-| from       | Yes      | Start of the date range. Must be an integer, not a string. This date is inclusive.                                                                                                                              | integer | YYYYMMDD | 20171201 |
-| to         | Yes      | End of the date range. Must be an integer, not a string. This date is inclusive and must be greater than or equal to `from`.                                                                                    | integer | YYYYMMDD | 20171225 |
+| Parameter   | Required | Description                                                                                                                                                                                                     | Type    | Format   | Example  |
+| :---------- | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------ | :------- | :------- |
+| event\_name | Yes      | Event type, standard or custom. Standard events include but are not limited to: App Launched, App Installed, App Uninstalled, Charged, Notification Viewed, Notification Sent, Product Viewed, and UTM Visited. | string  | —        | Charged  |
+| from        | Yes      | Start of the date range. Must be an integer, not a string. This date is inclusive.                                                                                                                              | integer | YYYYMMDD | 20171201 |
+| to          | Yes      | End of the date range. Must be an integer, not a string. This date is inclusive and must be greater than or equal to `from`.                                                                                    | integer | YYYYMMDD | 20171225 |
 
 ### Query Parameters
 
 The following table lists the optional query parameters. Use these to control the response shape and pagination.
 
-| Parameter  | Description                                                                                                                                                                      | Type    | Default | Example |
-| :--------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------ | :------ | :------ |
-| batch_size | Maximum number of records to return per call. Values up to 5000 are supported.                                                                                                   | integer | —       | 5000    |
-| app        | When true, includes app fields in profile platform info (OS version, device make and model, app version). When false, these fields are omitted.                                  | boolean | false   | true    |
-| events     | When true, includes event summary fields inside the events object (count, first_seen, last_seen per event). When false, the events key is omitted entirely from profile objects. | boolean | true    | true    |
-| profile    | When true, includes custom profile properties in profileData. When false, only system fields are returned.                                                                       | boolean | true    | true    |
+| Parameter   | Description                                                                                                                                                                        | Type    | Default | Example |
+| :---------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------ | :------ | :------ |
+| batch\_size | Maximum number of records to return per call. Values up to 5000 are supported.                                                                                                     | integer | —       | 5000    |
+| app         | When true, includes app fields in profile platform info (OS version, device make and model, app version). When false, these fields are omitted.                                    | boolean | false   | true    |
+| events      | When true, includes event summary fields inside the events object (count, first\_seen, last\_seen per event). When false, the events key is omitted entirely from profile objects. | boolean | true    | true    |
+| profile     | When true, includes custom profile properties in profileData. When false, only system fields are returned.                                                                         | boolean | true    | true    |
 
 Boolean parameters are case-insensitive. Any value other than `false` is treated as `true` (for example, `?app=true&events=false`).
 
 <Callout icon="📘" theme="info">
+  ###
+
   **Batch size**
 
   Choose a size that balances throughput and memory. Values up to 5000 are supported.
@@ -191,6 +193,8 @@ The following table describes the cursor response schema.
 | cursor | string | Opaque pagination token to use in Step 2. Valid for 4 days. |
 
 <Callout icon="⚠️" theme="warning">
+  ###
+
   **Cursors are opaque tokens**
 
   Do not attempt to decode, modify, or store cursors long-term. Use them only for immediate pagination. Cursors expire after 4 days. Each cursor is single-threaded; using the same cursor from multiple processes simultaneously may cause out-of-order requests that fail unrecoverably, requiring you to restart from Step 1.
@@ -320,17 +324,17 @@ The following is a sample response for Step 2. A successful request returns HTTP
 
 The following table describes the pagination response schema.
 
-| Field       | Type   | Required | Description                                                                                   |
-| :---------- | :----- | :------- | :-------------------------------------------------------------------------------------------- |
-| status      | string | Yes      | Always "success" for successful requests.                                                     |
-| records     | array  | No       | Array of user profile objects. Present when data is available. See User Profile Object below. |
-| next_cursor | string | No       | Pagination token for the next page. When absent, no more records are available.               |
+| Field        | Type   | Required | Description                                                                                   |
+| :----------- | :----- | :------- | :-------------------------------------------------------------------------------------------- |
+| status       | string | Yes      | Always "success" for successful requests.                                                     |
+| records      | array  | No       | Array of user profile objects. Present when data is available. See User Profile Object below. |
+| next\_cursor | string | No       | Pagination token for the next page. When absent, no more records are available.               |
 
 The following describes the pagination flow:
 
-* Page with more data: response includes a `records` array and `next_cursor`. Use `next_cursor` to fetch the next page.
-* Final page with data: response includes a `records` array and no `next_cursor`. This is the last page of data.
-* No more data: response contains `{"status": "success", "records": []}` with no `next_cursor`.
+- Page with more data: response includes a `records` array and `next_cursor`. Use `next_cursor` to fetch the next page.
+- Final page with data: response includes a `records` array and no `next_cursor`. This is the last page of data.
+- No more data: response contains `{"status": "success", "records": []}` with no `next_cursor`.
 
 Continue pagination while `next_cursor` is present in the response.
 
@@ -338,7 +342,7 @@ Continue pagination while `next_cursor` is present in the response.
 
 Fields that are unavailable are omitted from the response entirely, not returned as null. Always check for the existence of a field before accessing its value. Fields marked Conditional below may be absent.
 
-System-defined fields use snake_case (for example, `first_seen`, `last_seen`, `os_version`). User-defined custom properties in `profileData` follow your own naming convention.
+System-defined fields use snake\_case (for example, `first_seen`, `last_seen`, `os_version`). User-defined custom properties in `profileData` follow your own naming convention.
 
 The following table describes the user profile object schema.
 
@@ -352,6 +356,8 @@ The following table describes the user profile object schema.
 | platformInfo | Yes         | An array of platform entries. Always present, and may be an empty array `[]` if the user has no registered platforms. Each entry contains: `platform` (string), `objectId` (unique CleverTap identifier for that platform instance). App-specific fields appear only for mobile platforms: `push_token`, `app_version`, `os_version`, `make`, `model`.                      |
 
 <Callout icon="📘" theme="info">
+  ###
+
   **Event summary fields**
 
   When `events=true` is set in Step 1 query parameters, each event in the `events` object contains `count`, `first_seen`, and `last_seen` fields. The `count` value represents the user's lifetime total for that event, not the count within the query date range.
@@ -363,15 +369,15 @@ Each entry in the `platformInfo` array represents a device or platform where the
 
 The following table describes the platform info fields.
 
-| Field       | Type   | Platforms    | Description                                                                                                                                                                               |
-| :---------- | :----- | :----------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| platform    | string | All          | Platform type. Valid values: "iOS", "Android", "Web".                                                                                                                                     |
-| objectId    | string | All          | Unique CleverTap identifier for this platform instance.                                                                                                                                   |
-| push_token  | string | iOS, Android | Device push notification token. Present only for mobile platforms with push enabled.                                                                                                      |
-| app_version | string | iOS, Android | Version of your app installed on this device (for example, 6.1.3). Present only for mobile platforms.                                                                                     |
-| os_version  | string | iOS, Android | Operating system version (for example, 17.1). Present only for mobile platforms.                                                                                                          |
-| make        | string | iOS, Android | Device manufacturer (for example, "Apple", "Samsung"). Present only for mobile platforms.                                                                                                 |
-| model       | string | iOS, Android | Device model identifier. iOS uses internal model IDs (for example, "iPhone15,2", not "iPhone 15 Pro"). Android uses manufacturer-specific identifiers. Present only for mobile platforms. |
+| Field        | Type   | Platforms    | Description                                                                                                                                                                               |
+| :----------- | :----- | :----------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| platform     | string | All          | Platform type. Valid values: "iOS", "Android", "Web".                                                                                                                                     |
+| objectId     | string | All          | Unique CleverTap identifier for this platform instance.                                                                                                                                   |
+| push\_token  | string | iOS, Android | Device push notification token. Present only for mobile platforms with push enabled.                                                                                                      |
+| app\_version | string | iOS, Android | Version of your app installed on this device (for example, 6.1.3). Present only for mobile platforms.                                                                                     |
+| os\_version  | string | iOS, Android | Operating system version (for example, 17.1). Present only for mobile platforms.                                                                                                          |
+| make         | string | iOS, Android | Device manufacturer (for example, "Apple", "Samsung"). Present only for mobile platforms.                                                                                                 |
+| model        | string | iOS, Android | Device model identifier. iOS uses internal model IDs (for example, "iPhone15,2", not "iPhone 15 Pro"). Android uses manufacturer-specific identifiers. Present only for mobile platforms. |
 
 Platforms appear in no guaranteed order. Always check the `platform` field explicitly rather than relying on array position. Web platforms include only `platform` and `objectId` fields.
 
@@ -494,17 +500,14 @@ The following is an example of a malformed JSON request body that results in a 4
 
 The following are guidelines for working with this API.
 
-* Consistency: Use the same region base URL for Step 1, Step 2, and by-ID requests (for example, `https://in1.api.clevertap.com`).
-* Date formats: Input dates are YYYYMMDD integers, not strings. Response timestamps such as `first_seen` and `last_seen` are UNIX seconds, not milliseconds.
-* Pagination: Continue calling Step 2 with `next_cursor` until it is absent from the response. The final page includes `records` and no `next_cursor`. The subsequent request returns `{"status": "success", "records": []}`.
-* Rate limits: Rate limits are account-specific. Contact CleverTap support for your account's limits. Implement exponential backoff (1s, 2s, 4s, 8s, 16s, maximum 5 retries) when you receive 429 errors.
-* Request timeouts: Set a 60-second timeout on all API requests. On timeout, retry with the same cursor; the cursor retains its position and does not reset.
-
-<br />
-
-* URL encoding: Always URL-encode email, identity, and objectId values in query strings. Common characters requiring encoding: `+` (%2B), `@` (%40), `#` (%23), `&` (%26), space (%20).
-* Cursor handling: Cursors are opaque tokens valid for 4 days. Do not decode, modify, or store them. Use cursors immediately for pagination. Each cursor is single-threaded; using the same cursor from multiple processes simultaneously may cause unrecoverable failures, requiring a restart from Step 1.
-* Error handling: Implement retry logic with exponential backoff for 429, 500, and 503 errors. Parse error responses to extract the error message for logging and debugging.
-* Field presence: Fields that are unavailable are omitted from responses entirely, not returned as null. Always check for the existence of a field before accessing its value in your code.
+- Consistency: Use the same region base URL for Step 1, Step 2, and by-ID requests (for example, `https://in1.api.clevertap.com`).
+- Date formats: Input dates are YYYYMMDD integers, not strings. Response timestamps such as `first_seen` and `last_seen` are UNIX seconds, not milliseconds.
+- Pagination: Continue calling Step 2  `next_cursor` until it is absent from the response. The final page includes `records` no `next_cursor`. The subsequent request returns `{"status": "success", "records": []}`.
+- Rate limits: Rate limits are account-specific. Contact CleverTap support for your account's limits. Implement exponential backoff (1s, 2s, 4s, 8s, 16s, maximum 5 retries) when you receive 429 errors.
+- Request timeouts: Set a 60-second timeout on all API requests. On timeout, retry with the same cursor; the cursor retains its position and does not reset.
+- URL encoding: Always URL-encode email, identity, and objectId values in query strings. Common characters requiring encoding: `+` (%2B), `@` (%40), `#` (%23), `&` (%26), space (%20).
+- Cursor handling: Cursors are opaque tokens valid for 4 days. Do not decode, modify, or store them. Use cursors immediately for pagination. Each cursor is single-threaded; using the same cursor from multiple processes simultaneously may cause unrecoverable failures, requiring a restart from Step 1.
+- Error handling: Implement retry logic with exponential backoff for 429, 500, and 503 errors. Parse error responses to extract the error message for logging and debugging.
+- Field presence: Fields that are unavailable are omitted from responses entirely, not returned as null. Always check whether a field exists before accessing its value in your code.
 
 For more information on request limits, refer to [API Request Limit](doc:api-request-limit). To understand common queries and concerns related to CleverTap APIs, refer to [API FAQs](doc:api-faqs).
