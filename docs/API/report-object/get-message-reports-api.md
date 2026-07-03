@@ -36,16 +36,16 @@ The body is uploaded as a JSON payload. `from` and `to` are required. All option
 
 The following table lists the body parameters.
 
-| Parameter    | Description                                                                                                                                                                                                                                                                                                            | Type             | Example Value           |
-| :----------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------- | :---------------------- |
-| from         | Start of the report date range. Value specified in YYYYMMDD format. Required.                                                                                                                                                                                                                                          | string           | "20171201"              |
-| to           | End of the date range for the report. Value specified in YYYYMMDD format. Required.                                                                                                                                                                                                                                    | string           | "20171225"              |
-| channel      | The channels to include in the report. Supported values: `push` (mobile push), `email`, `sms`, `browser` (browser push), `audiences` (Facebook), `inapp` (in-app), `webhooks`, `web_pop_up`, `web_exit_intent`, `web_native_display`, `web_inbox`, `tiktok`, `nativedisplay` (alias for web_native_display). Optional. | array of strings | ["push","email"]        |
-| delivery     | Delivery type of communications for the report. Supported values: `one_time`, `inaction`, `action`, `recurring`, `property_time`, `api`, `multiple_dates`. Optional.                                                                                                                                                   | array of strings | ["inaction","action"]   |
-| daily        | Determines if the report is a day-wise split or an aggregate report. When `true`, the `data` array in the response contains one entry per day in the date range. When `false` (default), `data` contains a single aggregated entry. Supported values: `true` or `false`. Optional.                                     | boolean          | false                   |
-| status       | The campaign statuses to include in the report. Supported values: `scheduled`, `running`, `stopped`, `completed`. Optional.                                                                                                                                                                                            | array of strings | ["completed","running"] |
-| message_type | The message types to include in the report. Supported values: `single`, `ab`, `message_on_user_property`. Optional.                                                                                                                                                                                                    | array of strings | ["single","ab"]         |
-| label        | Filters results to include only messages with the specified labels. Optional.                                                                                                                                                                                                                                          | array of strings | ["Onboarding"]          |
+| Parameter     | Description                                                                                                                                                                                                                                                                                                              | Type             | Example Value            |
+| :------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------- | :----------------------- |
+| from          | Start of the report date range. Value specified in YYYYMMDD format. Required.                                                                                                                                                                                                                                            | string           | "20171201"               |
+| to            | End of the date range for the report. Value specified in YYYYMMDD format. Required.                                                                                                                                                                                                                                      | string           | "20171225"               |
+| channel       | The channels to include in the report. Supported values: `push` (mobile push), `email`, `sms`, `browser` (browser push), `audiences` (Facebook), `inapp` (in-app), `webhooks`, `web_pop_up`, `web_exit_intent`, `web_native_display`, `web_inbox`, `tiktok`, `nativedisplay` (alias for web\_native\_display). Optional. | array of strings | \["push","email"]        |
+| delivery      | Delivery type of communications for the report. Supported values: `one_time`, `inaction`, `action`, `recurring`, `property_time`, `api`, `multiple_dates`. Optional.                                                                                                                                                     | array of strings | \["inaction","action"]   |
+| daily         | Determines if the report is a day-wise split or an aggregate report. When `true`, the `data` array in the response contains one entry per day in the date range. When `false` (default), `data` contains a single aggregated entry. Supported values: `true` or `false`. Optional.                                       | boolean          | false                    |
+| status        | The campaign statuses to include in the report. Supported values: `scheduled`, `running`, `stopped`, `completed`. Optional.                                                                                                                                                                                              | array of strings | \["completed","running"] |
+| message\_type | The message types to include in the report. Supported values: `single`, `ab`, `message_on_user_property`. Optional.                                                                                                                                                                                                      | array of strings | \["single","ab"]         |
+| label         | Filters results to include only messages with the specified labels. Optional.                                                                                                                                                                                                                                            | array of strings | \["Onboarding"]          |
 
 The following is a sample payload:
 
@@ -196,41 +196,60 @@ The following is a sample response:
 
 The following table describes the top-level response fields.
 
-| Field         | Type    | Description                                                              |
-| :------------ | :------ | :----------------------------------------------------------------------- |
-| status        | string  | Always "success" for successful requests.                                |
-| total_results | integer | Total number of campaigns matching the query.                            |
-| messages      | array   | An array of message report objects. See the message object fields below. |
+| Field          | Type    | Description                                                              |
+| :------------- | :------ | :----------------------------------------------------------------------- |
+| status         | string  | Always "success" for successful requests.                                |
+| total\_results | integer | Total number of campaigns matching the query.                            |
+| messages       | array   | An array of message report objects. See the message object fields below. |
 
 The following table describes the fields inside each message object in the `messages` array.
 
-| Field            | Type             | Description                                                                                                                                                                                                                                                                                |
-| :--------------- | :--------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| message id       | integer          | Unique identifier for the message. Note: this field name contains a space, not an underscore. Attempting to access it as `message_id` will not work.                                                                                                                                       |
-| data             | array            | Double-nested array containing delivery metrics (`sent`, `viewed`, `clicked`). When `daily` is `false`, contains a single aggregated entry: `[[{"sent": N, "viewed": N, "clicked": N}]]`. When `daily` is `true`, contains one entry per day in the date range, in the same nested format. |
-| start_date       | string           | The campaign start date and time, formatted as "MMM D, h:mm AM/PM" (for example, "Oct 18, 4:08 PM"). The year is not included. For queries that span multiple years, use the `from` and `to` date range parameters to determine the year context.                                          |
-| device           | array of strings | Platforms targeted by this campaign (for example, "Android", "iOS"). `WindowsMobile` may appear for legacy campaigns but is no longer actively supported.                                                                                                                                  |
-| conversion_event | string or null   | The event is configured as the conversion goal for this campaign. `null` if no conversion event was set.                                                                                                                                                                                   |
-| labels           | array of strings | Labels assigned to this campaign. Empty array if no labels are set.                                                                                                                                                                                                                        |
-| status           | string           | Current status of the campaign. Possible values: `scheduled`, `running`, `stopped`, `completed`.                                                                                                                                                                                           |
-| channel          | string           | The channel used by this campaign. Response values use display names that differ from input values (for example, input `inapp` returns as `"InApp"`, input `one_time` delivery returns as `"One Time"`). See the input-to-response mapping note below.                                     |
-| message_name     | string           | The name of the campaign.                                                                                                                                                                                                                                                                  |
-| delivery         | string           | The delivery type of the campaign. Response values use display names that differ from input values. See the input-to-response mapping note below.                                                                                                                                          |
+| Field             | Type             | Description                                                                                                                                                                                                                                                                                |
+| :---------------- | :--------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| message id        | integer          | Unique identifier for the message. Note: this field name contains a space, not an underscore. Attempting to access it as `message_id` will not work.                                                                                                                                       |
+| data              | array            | Double-nested array containing delivery metrics (`sent`, `viewed`, `clicked`). When `daily` is `false`, contains a single aggregated entry: `[[{"sent": N, "viewed": N, "clicked": N}]]`. When `daily` is `true`, contains one entry per day in the date range, in the same nested format. |
+| start\_date       | string           | The campaign start date and time, formatted as "MMM D, h:mm AM/PM" (for example, "Oct 18, 4:08 PM"). The year is not included. For queries that span multiple years, use the `from` and `to` date range parameters to determine the year context.                                          |
+| device            | array of strings | Platforms targeted by this campaign (for example, "Android", "iOS"). `WindowsMobile` may appear for legacy campaigns but is no longer actively supported.                                                                                                                                  |
+| conversion\_event | string or null   | The event is configured as the conversion goal for this campaign. `null` if no conversion event was set.                                                                                                                                                                                   |
+| labels            | array of strings | Labels assigned to this campaign. Empty array if no labels are set.                                                                                                                                                                                                                        |
+| status            | string           | Current status of the campaign. Possible values: `scheduled`, `running`, `stopped`, `completed`.                                                                                                                                                                                           |
+| channel           | string           | The channel used by this campaign. Response values use display names that differ from input values (for example, input `inapp` returns as `"InApp"`, input `one_time` delivery returns as `"One Time"`). See the input-to-response mapping note below.                                     |
+| message\_name     | string           | The name of the campaign.                                                                                                                                                                                                                                                                  |
+| delivery          | string           | The delivery type of the campaign. Response values use display names that differ from input values. See the input-to-response mapping note below.                                                                                                                                          |
 
 <Callout icon="📘" theme="info">
-  **API Behavior**
+  ### **API Behavior**
 
   The Get Message Reports API fetches campaigns based on their start dates. Campaigns that begin before the specified date range but are still active are not included in the results.
 
   For example, you have two email campaigns:
 
-  * **Campaign A:** Started on June 1, 2023, and is still active, sending emails daily.
-  * **Campaign B:** Started on June 7, 2023, and ended on June 10, 2023.
+  - **Campaign A:** Started on June 1, 2023, and is still active, sending emails daily.
+  - **Campaign B:** Started on June 7, 2023, and ended on June 10, 2023.
 
   When you query for June 5, 2023 to June 8, 2023:
 
-  * **Campaign A** is excluded because it started before the range (June 1), even though it is active during the range.
-  * **Campaign B** is included because its start date falls within the range (June 7).
+  - **Campaign A** is excluded because it started before the range (June 1), even though it is active during the range.
+  - **Campaign B** is included because its start date falls within the range (June 7).
 </Callout>
 
-For more information on request limits, refer to [API Request Limit](doc:api-request-limit). To understand the common queries and concerns related to CleverTap APIs, refer to [API FAQs](doc:api-faqs).
+For more information on request limits, refer to [API Request Limit](doc:api-request-limit). To understand common queries and concerns related to CleverTap APIs, refer to [API FAQs](doc:api-faqs).
+
+# Error Codes
+
+The following table lists the error codes returned by this API:
+
+| HTTP Status | Error                                                                     | Description                                                                                          | Example Error Response                                                                                         |
+| ----------- | ------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| 400         | `"X-CleverTap-Account-ID and X-CleverTap-Passcode are mandatory headers"` | One or both auth headers missing. Add both required headers.                                         | `{"status":"fail","error":"X-CleverTap-Account-ID and X-CleverTap-Passcode are mandatory headers","code":400}` |
+| 400         | `"Content-Type must be application/json"`                                 | `Content-Type` header missing or set to the wrong value. Set `Content-Type: application/json`.       | `{"status":"fail","error":"Content-Type must be application/json","code":400}`                                 |
+| 400         | `"Empty payload"`                                                         | Request body is empty. Include a JSON body with at least `from` and `to`.                            | `{"status":"fail","error":"Empty payload","code":400}`                                                         |
+| 400         | `"Invalid JSON body"`                                                     | Request body is not valid JSON. Fix JSON syntax before retrying.                                     | `{"status":"fail","error":"Invalid JSON body","code":400}`                                                     |
+| 400         | `"Bad Request. Some mandatory parameter was missing"`                     | `from` or `to` date missing from body. Include both in YYYYMMDD format.                              | `{"status":"fail","error":"Bad Request. Some mandatory parameter was missing","code":400}`                     |
+| 401         | `"This account has been disabled"`                                        | Account blocked or not found. Contact CleverTap support.                                             | `{"status":"fail","error":"This account has been disabled","code":401}`                                        |
+| 429         | `"Too many concurrent requests"`                                          | Per-account concurrent request limit exceeded. Retry with exponential backoff.                       | `{"status":"fail","error":"Too many concurrent requests","code":429}`                                          |
+| 429         | `"Too Many Requests"`                                                     | Message report API rate limit exceeded (1 request per hour for some accounts). Wait before retrying. | `{"status":"fail","error":"Too Many Requests","code":429}`                                                     |
+| 500         | `"An unknown error occurred"`                                             | Unhandled server error. Retry; contact support if the issue persists.                                | `{"status":"fail","error":"An unknown error occurred","code":500}`                                             |
+| 503         | `"Please retry later"`                                                    | Global throttle limit exceeded. Retry with backoff.                                                  | `{"status":"fail","error":"Please retry later","code":503}`                                                    |
+
+<br />
