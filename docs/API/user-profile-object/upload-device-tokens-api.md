@@ -10,34 +10,31 @@ metadata:
 next:
   description: ''
 ---
-The Upload Device Tokens API enables developers to add an existing device token to a CleverTap user profile.
-
-For example, you can use this API to add a GCM or APNS token to a user profile. Adding this information will let you send push notifications to that device.
-
-<Callout icon="📘" theme="info">
-  **Uploading historical device tokens for Android/iOS/Web.**
-
-  Device token upload is only allowed after the user is live on the app, post SDK integration by the app. We cannot fetch tokens of users prior to SDK integration.
-</Callout>
-
-<Callout icon="📘" theme="info">
-  **Note**
-
-  Uploading device tokens via API is available for APNS, FCM, and GCM.
-</Callout>
-
 # Overview
 
-Uploading device tokens to CleverTap requires a POST request with a JSON payload specifying the device token information. 100 device token records can be sent per API call.
+The Upload Device Tokens API enables you to add an existing device token to a CleverTap user profile. For example, you can use this API to add a GCM or APNS token to a user profile. Adding this information enables you to send push notifications to that device.
+
+Uploading device tokens to CleverTap requires a POST request with a JSON payload specifying the device token information. A maximum of 1000 device token records can be sent per API call.
+
+<Callout icon="📘" theme="info">
+  ### **Uploading Historical Device Tokens for Android, iOS, and Web**
+
+  Device token upload is only allowed after the user is live on the app, post SDK integration. Tokens of users prior to SDK integration cannot be fetched.
+</Callout>
+
+<Callout icon="📘" theme="info">
+  ### **Supported Token Types**
+
+  Uploading device tokens via API is available for APNS, FCM, GCM, Chrome (Web Push), WNS, and MPNS.
+</Callout>
 
 ## Base URL
 
-Here is an example base URL from the account in the India region:  
-[https://in1.api.clevertap.com/1/upload](https://in1.api.clevertap.com/1/upload)
+The following is a sample base URL:
 
-### Region
+`https://<region>.api.clevertap.com/1/upload`
 
-Refer [Region](https://developer.clevertap.com/docs/common-api-components#region) for more details.
+For region-specific endpoints, refer to [Region](https://developer.clevertap.com/docs/common-api-components#region).
 
 ## HTTP Method
 
@@ -45,290 +42,162 @@ POST
 
 ## Headers
 
-Refer [Headers](https://developer.clevertap.com/docs/common-api-components#headers) for more details.
+Refer to [Headers](https://developer.clevertap.com/docs/common-api-components#headers) for more details.
 
 ## Body Parameters
 
-Device tokens are uploaded as a JSON payload. The payload is an object keyed with “d” whose value is an array describing the device tokens.
+Device tokens are uploaded as a JSON payload. The payload is an object keyed with `d` whose value is an array describing the device tokens.
 
-For each device token, objectId is required. objectId is CleverTap’s user identifier, which we will use to find the user and add the device token to their profile.
+For each device token record, `objectId` is required. This is the only supported identifier for token records. Identity, FBID, and GPID are not accepted for token uploads.
+
+The following table lists the body parameters.
 
 <Table align={["left","left","left","left"]}>
   <thead>
     <tr>
-      <th>
-        Parameter
-      </th>
-
-      <th>
-        Description
-      </th>
-
-      <th>
-        Type
-      </th>
-
-      <th>
-        Example Value
-      </th>
+      <th>Parameter</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Example Value</th>
     </tr>
   </thead>
-
   <tbody>
     <tr>
-      <td>
-        type
-      </td>
-
-      <td>
-        Set to token. Required.
-      </td>
-
-      <td>
-        string
-      </td>
-
-      <td>
-        “token”
-      </td>
+      <td>type</td>
+      <td>Set to token. Required.</td>
+      <td>string</td>
+      <td>"token"</td>
     </tr>
-
     <tr>
-      <td>
-        tokenData
-      </td>
-
-      <td>
-        Device token properties. Passed as key/value pairs. Required.  
-        Id and type are required properties of tokenData. They are passed as strings.
-      </td>
-
-      <td>
-        object
-      </td>
-
-      <td>
-        {`
-                    "d": [  
-                                {  
-                            "type": "token",  
-                            "tokenData": {  
-                                "id": "dYfuuBmHLGI:APA91bEfAq1b6NAmz0uhUbVxwSLqgKF25zDb7vhgajzS-bOAEUKekH_jbzO5oU1Qip-ZLvDpwKccxAxVNjC3rUUJnFTKDUiBcF9AtuG03_PRfjoUxLKHMR9qykK22SiubrLirNzQtNnO",  
-                                "type": "fcm"  
-                            },  
-                            "objectId": "__gc4grg4053N1eYkW6OBH71jhFev7b1iP"  
-                        },  
-                        {  
-                            "type": "token",  
-                            "tokenData": {  
-                                "id": "frfsgvrwe:APfdsafsgdfsgghfgfgjkhfsfgdhjhbvcvnetry767456fxsasdf",  
-                                "type": "gcm"  
-                            }  
-                    ]\
-                `}
-      </td>
+      <td>tokenData</td>
+      <td>Device token properties passed as key/value pairs. Required. `id` and `type` are required properties. `type` must be one of: `apns`, `fcm`, `gcm`, `chrome`, `wns`, `mpns`. For Chrome Web Push tokens, a `keys` object containing `p256dh` and `auth` is strongly recommended (see note below).</td>
+      <td>object</td>
+      <td>{"id": "dYfuuBm...", "type": "fcm"}</td>
     </tr>
-
     <tr>
-      <td>
-        objectId
-      </td>
-
-      <td>
-        Identify a unique user by CleverTap Global Object ID.  
-        You have to set a value for one of these parameters to identify the user: identity, FBID, GPID, or objectId.
-      </td>
-
-      <td>
-        string
-      </td>
-
-      <td>
-        “34322425"
-      </td>
+      <td>objectId</td>
+      <td>The CleverTap Global Object ID for the user. Required. This is the only supported identifier for token records.</td>
+      <td>string</td>
+      <td>"37b08803c1af4e10849f530264bac7f8"</td>
     </tr>
   </tbody>
 </Table>
 
-Here is an example JSON payload for iOS/Android/Windows.
+<Callout icon="⚠️" theme="warning">
+  ###
+
+  **Chrome Web Push encryption keys**
+
+  For Chrome Web Push tokens, `keys.p256dh` and `keys.auth` are strongly recommended. If omitted, the token is stored but encrypted push notifications to this device will not be deliverable, as the token will not carry the required encryption material.
+</Callout>
+
+## Example Payloads
+
+The following is a sample payload for iOS, Android, or Windows tokens.
 
 ```json
 {
-
-    "d": [
-
-        {
-
-            "type": "token",
-
-            "tokenData": {
-
-                "id": <Device Token>,
-
-                "type": apns/gcm/fcm/wns/mpns
-
-            },
-
-            "objectId": <ClevertapId/GUID>
-
-        }
-
-    ]
-
+  "d": [
+    {
+      "type": "token",
+      "tokenData": {
+        "id": "<device_token>",
+        "type": "apns"
+      },
+      "objectId": "<clevertap_object_id>"
+    }
+  ]
 }
 ```
 
-Here is an example JSON payload for Chrome.
+The following is a sample payload for a Chrome Web Push token.
 
 ```json
 {
-
-    "type": "token",
-
-    "tokenData": {
-
-        "id": <DeviceToken>,
-
+  "d": [
+    {
+      "type": "token",
+      "tokenData": {
+        "id": "<device_token>",
         "type": "chrome",
-
         "keys": {
-
-            "p256dh": <>,
-
-            "auth": <>
-
+          "p256dh": "<p256dh_key>",
+          "auth": "<auth_key>"
         }
-
-    },
-
-    "objectId": <ClevertapId/GUID>
-
+      },
+      "objectId": "<clevertap_object_id>"
+    }
+  ]
 }
 ```
 
-
-Here is an example JSON payload for adding device tokens for multiple OS types.
+The following is a sample payload for adding device tokens for multiple token types in a single call.
 
 ```json
 {
-
-    "d": [
-
-        {
-
-            "type": "token",
-
-            "tokenData": {
-
-                "id": "frfsgvrwe:APfdsafsgdfsgghfgfgjkhfsfgdhjhbvcvnetry767456fxsasdf",
-
-                "type": "chrome",
-
-                "keys": {
-
-                    "p256dh": "BLc4xRzKlKORKWlbdgFaBrrPK3ydWAHo4M0gs0i1oEKgPpWC5cW8OCzVrOQRv-1npXRWk8udnW3oYhIO4475rds=",
-
-                    "auth": "5I2Bu2oKdyy9CwL8QVF0NQ=="
-
-                }
-
-            },
-
-            "objectId": "QBOpVJZmKilRAzfaiVS86Tovxm75lHxg"
-
-        },
-
-        {
-
-            "type": "token",
-
-            "tokenData": {
-
-                "id": "dYfuuBmHLGI:APA91bEfAq1b6NAmz0uhUbVxwSLqgKF25zDb7vhgajzS-bOAEUKekH_jbzO5oU1Qip-ZLvDpwKccxAxVNjC3rUUJnFTKDUiBcF9AtuG03_PRfjoUxLKHMR9qykK22SiubrLirNzQtNnO",
-
-                "type": "fcm"
-
-            },
-
-            "objectId": "__gc4grg4053N1eYkW6OBH71jhFev7b1iP"
-
-        },
-
-        {
-
-            "type": "token",
-
-            "tokenData": {
-
-                "id": "frfsgvrwe:APfdsafsgdfsgghfgfgjkhfsfgdhjhbvcvnetry767456fxsasdf",
-
-                "type": "gcm"
-
-            },
-
-            "objectId": "__QlXHaDHBZxZPLEMpPo6VvwdZ7FnbGvWA"
-
-        },
-
-        {
-
-            "type": "token",
-
-            "tokenData": {
-
-                "id": "frfsgvrwe:APfdsafsgdfsgghfgfgjkhfsfgdhjhbvcvnetry767456fxsasdf",
-
-                "type": "apns"
-
-            },
-
-            "objectId": "-HwB9gZWb3RcKhXCQ222FhAhkjeYQs0Hj"
-
-        },
-
-        {
-
-            "type": "token",
-
-            "tokenData": {
-
-                "id": "frfsgvrwe:APfdsafsgdfsgghfgfgjkhfsfgdhjhbvcvnetry767456fxsasdf",
-
-                "type": "wns"
-
-            },
-
-            "objectId": "~9XrS4Dy6GsnDbdX98Ijs63kEtJDQbhJA"
-
-        },
-
-        {
-
-            "type": "token",
-
-            "tokenData": {
-
-                "id": "frfsgvrwe:APfdsafsgdfsgghfgfgjkhfsfgdhjhbvcvnetry767456fxsasdf",
-
-                "type": "mpns"
-
-            },
-
-            "objectId": "~y9MqjkDGRfbzwwH8fZI6LIXgTKaEPxHr"
-
+  "d": [
+    {
+      "type": "token",
+      "tokenData": {
+        "id": "frfsgvrwe:APfdsafsgdfsgghfgfgjkhfsfgdhjhbvcvnetry767456fxsasdf",
+        "type": "chrome",
+        "keys": {
+          "p256dh": "BLc4xRzKlKORKWlbdgFaBrrPK3ydWAHo4M0gs0i1oEKgPpWC5cW8OCzVrOQRv-1npXRWk8udnW3oYhIO4475rds=",
+          "auth": "5I2Bu2oKdyy9CwL8QVF0NQ=="
         }
-
-    ]
-
+      },
+      "objectId": "QBOpVJZmKilRAzfaiVS86Tovxm75lHxg"
+    },
+    {
+      "type": "token",
+      "tokenData": {
+        "id": "dYfuuBmHLGI:APA91bEfAq1b6NAmz0uhUbVxwSLqgKF25zDb7vhgajzS-bOAEUKekH_jbzO5oU1Qip-ZLvDpwKccxAxVNjC3rUUJnFTKDUiBcF9AtuG03_PRfjoUxLKHMR9qykK22SiubrLirNzQtNnO",
+        "type": "fcm"
+      },
+      "objectId": "__gc4grg4053N1eYkW6OBH71jhFev7b1iP"
+    },
+    {
+      "type": "token",
+      "tokenData": {
+        "id": "frfsgvrwe:APfdsafsgdfsgghfgfgjkhfsfgdhjhbvcvnetry767456fxsasdf",
+        "type": "gcm"
+      },
+      "objectId": "__QlXHaDHBZxZPLEMpPo6VvwdZ7FnbGvWA"
+    },
+    {
+      "type": "token",
+      "tokenData": {
+        "id": "frfsgvrwe:APfdsafsgdfsgghfgfgjkhfsfgdhjhbvcvnetry767456fxsasdf",
+        "type": "apns"
+      },
+      "objectId": "-HwB9gZWb3RcKhXCQ222FhAhkjeYQs0Hj"
+    },
+    {
+      "type": "token",
+      "tokenData": {
+        "id": "frfsgvrwe:APfdsafsgdfsgghfgfgjkhfsfgdhjhbvcvnetry767456fxsasdf",
+        "type": "wns"
+      },
+      "objectId": "~9XrS4Dy6GsnDbdX98Ijs63kEtJDQbhJA"
+    },
+    {
+      "type": "token",
+      "tokenData": {
+        "id": "frfsgvrwe:APfdsafsgdfsgghfgfgjkhfsfgdhjhbvcvnetry767456fxsasdf",
+        "type": "mpns"
+      },
+      "objectId": "~y9MqjkDGRfbzwwH8fZI6LIXgTKaEPxHr"
+    }
+  ]
 }
 ```
 
 ## Example Request
 
-Here is an example cURL request to the _Upload Device Tokens_ API showing the headers needed to authenticate the request from the account in the India region:
+The following is a sample request to the _Upload Device Tokens_ API, showing the headers needed to authenticate the request.
 
 ```curl
-curl -X POST -d '{"d": [{"type": "token","tokenData": {"id": "dYfuuBmHLGI:APA91bEfAq1b6NAmz0uhUbVxwSLqgKF25zDb7vhgajzS-bOAEUKekH_jbzO5oU1Qip-ZLvDpwKccxAxVNjC3rUUJnFTKDUiBcF9AtuG03_PRfjoUxLKHMR9qykK22SiubrLirNzQtNnO","type": "gcm"},"objectId": "37b08803c1af4e10849f530264bac7f8"}]}' "https://in1.api.clevertap.com/1/upload" \
+curl -X POST -d '{"d": [{"type": "token","tokenData": {"id": "dYfuuBmHLGI:APA91bEfAq1b6NAmz0uhUbVxwSLqgKF25zDb7vhgajzS-bOAEUKekH_jbzO5oU1Qip-ZLvDpwKccxAxVNjC3rUUJnFTKDUiBcF9AtuG03_PRfjoUxLKHMR9qykK22SiubrLirNzQtNnO","type": "gcm"},"objectId": "37b08803c1af4e10849f530264bac7f8"}]}' "https://<region>.api.clevertap.com/1/upload" \
 -H "X-CleverTap-Account-Id: ACCOUNT_ID" \
 -H "X-CleverTap-Passcode: PASSCODE" \
 -H "Content-Type: application/json; charset=utf-8"
@@ -338,7 +207,7 @@ require 'net/http'
 require 'uri'
 require 'json'
 
-uri = URI.parse("https://in1.api.clevertap.com/1/upload")
+uri = URI.parse("https://<region>.api.clevertap.com/1/upload")
 request = Net::HTTP::Post.new(uri)
 request.content_type = "application/json; charset=utf-8"
 request["X-Clevertap-Account-Id"] = "ACCOUNT_ID"
@@ -375,7 +244,7 @@ headers = {
 
 data = '{"d": [{"type": "token","tokenData": {"id": "dYfuuBmHLGI:APA91bEfAq1b6NAmz0uhUbVxwSLqgKF25zDb7vhgajzS-bOAEUKekH_jbzO5oU1Qip-ZLvDpwKccxAxVNjC3rUUJnFTKDUiBcF9AtuG03_PRfjoUxLKHMR9qykK22SiubrLirNzQtNnO","type": "gcm"},"objectId": "37b08803c1af4e10849f530264bac7f8"}]}'
 
-response = requests.post('https://in1.api.clevertap.com/1/upload', headers=headers, data=data)
+response = requests.post('https://<region>.api.clevertap.com/1/upload', headers=headers, data=data)
 ```
 ```php
 <?php
@@ -387,7 +256,7 @@ $headers = array(
     'Content-Type' => 'application/json; charset=utf-8'
 );
 $data = '{"d": [{"type": "token","tokenData": {"id": "dYfuuBmHLGI:APA91bEfAq1b6NAmz0uhUbVxwSLqgKF25zDb7vhgajzS-bOAEUKekH_jbzO5oU1Qip-ZLvDpwKccxAxVNjC3rUUJnFTKDUiBcF9AtuG03_PRfjoUxLKHMR9qykK22SiubrLirNzQtNnO","type": "gcm"},"objectId": "37b08803c1af4e10849f530264bac7f8"}]}';
-$response = Requests::post('https://in1.api.clevertap.com/1/upload', $headers, $data);
+$response = Requests::post('https://<region>.api.clevertap.com/1/upload', $headers, $data);
 ```
 ```javascript Node.js
 var request = require('request');
@@ -401,7 +270,7 @@ var headers = {
 var dataString = '{"d": [{"type": "token","tokenData": {"id": "dYfuuBmHLGI:APA91bEfAq1b6NAmz0uhUbVxwSLqgKF25zDb7vhgajzS-bOAEUKekH_jbzO5oU1Qip-ZLvDpwKccxAxVNjC3rUUJnFTKDUiBcF9AtuG03_PRfjoUxLKHMR9qykK22SiubrLirNzQtNnO","type": "gcm"},"objectId": "37b08803c1af4e10849f530264bac7f8"}]}';
 
 var options = {
-    url: 'https://in1.api.clevertap.com/1/upload',
+    url: 'https://<region>.api.clevertap.com/1/upload',
     method: 'POST',
     headers: headers,
     body: dataString
@@ -416,15 +285,30 @@ function callback(error, response, body) {
 request(options, callback);
 ```
 ```go
+// Standard token upload (FCM, GCM, APNS, WNS, MPNS):
+type TokenData struct {
+	ID   string `json:"id"`
+	Type string `json:"type"`
+}
+
+// Chrome Web Push token upload (includes encryption keys):
+// type TokenData struct {
+// 	ID   string `json:"id"`
+// 	Type string `json:"type"`
+// 	Keys struct {
+// 		P256DH string `json:"p256dh"`
+// 		Auth   string `json:"auth"`
+// 	} `json:"keys"`
+// }
+
+type Record struct {
+	Type      string    `json:"type"`
+	TokenData TokenData `json:"tokenData"`
+	ObjectID  string    `json:"objectId"`
+}
+
 type Payload struct {
-	D []struct {
-		Type      string `json:"type"`
-		TokenData struct {
-			ID   string `json:"id"`
-			Type string `json:"type"`
-		} `json:"tokenData"`
-		ObjectID string `json:"objectId"`
-	} `json:"d"`
+	D []Record `json:"d"`
 }
 
 data := Payload{
@@ -436,7 +320,7 @@ if err != nil {
 }
 body := bytes.NewReader(payloadBytes)
 
-req, err := http.NewRequest("POST", "https://in1.api.clevertap.com/1/upload", body)
+req, err := http.NewRequest("POST", "https://<region>.api.clevertap.com/1/upload", body)
 if err != nil {
 	// handle err
 }
@@ -453,39 +337,51 @@ defer resp.Body.Close()
 
 ## Example Response
 
+The following is a sample response.
+
 ```json
 {
-
     "status": "success",
-
     "processed": 1,
-
     "unprocessed": []
-
 }
 ```
 
 ## Debugging
 
-Requests with processing errors will be returned in the API call response as shown in the example below.
+Requests with processing errors are returned in the API call response. The following is a sample error response structure.
 
 ```json
 {
-
-    "status":<success, partial, fail>, 
-
-    "processed":<count>, 
-
-    "unprocessed": [{"status":"fail", "code":<error code>, "error":<error msg>, "record":<record>}]
-
+    "status": "success | partial | fail",
+    "processed": <count>,
+    "unprocessed": [{"status": "fail", "code": <error code>, "error": <error message>, "record": <record>}]
 }
 ```
 
-To test if your data will be submitted without errors, you can add the parameter dryRun=1 to the URL. This will validate the input without submitting the data to CleverTap.  
-A list of errors code for this API can be found on the [errors page](doc:api-errors).
+To test if your data submits without errors, add the parameter `dryRun=1` to the URL. This validates the input without submitting the data to CleverTap.
 
-## Notes
+For more information on request limits, refer to [API Request Limit](doc:api-request-limit). To understand common queries and concerns related to CleverTap APIs, refer to [API FAQs](doc:api-faqs).&#x20;
 
-* A device token can be updated against a CleverTap Id (objectId), but not against an email ID or a custom-defined user identity. If given profile already has a token, it will not be updated and an error will be reported into Live Error Stream.
-* For more information on request limit, refer to [API Request Limit](doc:api-request-limit).
-* To understand the common queries and concerns related to CleverTap APIs, refer to [API FAQs](doc:api-faqs).
+## Error Codes
+
+The following table lists the error codes returned by this API:<br />
+
+| HTTP Status | Error                                            | Description                                                                           | Example Error Response                                                                               |
+| ----------- | ------------------------------------------------ | ------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| 400         | `"Payload is mandatory"`                         | Empty request body                                                                    | `{"status":"fail","error":"Payload is mandatory","code":400}`                                        |
+| 400         | `"Malformed request"`                            | JSON parse failure                                                                    | `{"status":"fail","error":"Malformed request","code":400}`                                           |
+| 401         | `"Invalid credentials"`                          | Wrong or missing passcode                                                             | `{"status":"fail","error":"Invalid credentials","code":401}`                                         |
+| 403         | `"API access has been temporally suspended"`     | Account API access suspended                                                          | `{"status":"fail","error":"API access has been temporally suspended","code":403}`                    |
+| 429         | `"Too many concurrent requests"`                 | Per-account concurrent request limit exceeded. Retry with exponential backoff.        | `{"status":"fail","error":"Too many concurrent requests","code":429}`                                |
+| 503         | `"12 digit account ID mandatory."`               | Missing or invalid `X-CleverTap-Account-Id` header                                    | `{"status":"fail","error":"12 digit account ID mandatory.","code":503}`                              |
+| 503         | `"Please come back later"`                       | Global throttle limit exceeded. Retry with backoff.                                   | `{"status":"fail","error":"Please come back later","code":503}`                                      |
+| 200         | `"Data is not of type Event, Profile or Token."` | `type` field is not `"token"`, `"event"`, or `"profile"`                              | `{"status":"fail","code":524,"error":"Data is not of type Event, Profile or Token.","record":{...}}` |
+| 200         | `"Invalid 'objectId'."`                          | `objectId` missing or empty                                                           | `{"status":"fail","code":530,"error":"Invalid 'objectId'.","record":{...}}`                          |
+| 200         | `"Invalid token data."`                          | `tokenData` is null or has fewer than 2 fields                                        | `{"status":"fail","code":531,"error":"Invalid token data.","record":{...}}`                          |
+| 200         | `"Token 'id' is not present."`                   | `tokenData.id` missing or empty                                                       | `{"status":"fail","code":532,"error":"Token 'id' is not present.","record":{...}}`                   |
+| 200         | `"Token 'type' is not present."`                 | `tokenData.type` missing or empty                                                     | `{"status":"fail","code":533,"error":"Token 'type' is not present.","record":{...}}`                 |
+| 200         | `"Token 'type' is not valid for 'objectId'."`    | Token type doesn't match the device platform (for example, `fcm` for an iOS objectId) | `{"status":"fail","code":534,"error":"Token 'type' is not valid for 'objectId'.","record":{...}}`    |
+| 200         | `"Invalid token type"`                           | `tokenData.type` is not one of: `apns`, `gcm`, `fcm`, `chrome`, `wns`, `mpns`         | `{"status":"fail","code":535,"error":"Invalid token type","record":{...}}`                           |
+
+<br />
