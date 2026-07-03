@@ -119,7 +119,7 @@ The following table lists the body parameters.
 
 The following examples show the supported operations. Each operation must be sent as a separate record. The examples below are mutually exclusive and cannot be combined in a single `profileData` object.
 
-**Create or update a profile**
+**Create or Update a Profile**
 
 The following is a sample payload for creating or updating a user profile.
 
@@ -142,7 +142,7 @@ The following is a sample payload for creating or updating a user profile.
 }
 ```
 
-**Delete a profile property**
+**Delete a Profile Property**
 
 The following is a sample payload for deleting a profile property value using the `$delete` operator.
 
@@ -167,7 +167,7 @@ The following is a sample payload for deleting a profile property value using th
   The `$delete` operator is supported only for `Name` and `Gender` via this API. Using `$delete` on other properties via the Upload User Profiles API may fail silently or be rejected.
 </Callout>
 
-**Set messaging and subscription preferences**
+**Set Messaging and Subscription Preferences**
 
 The following is a sample payload for setting messaging preferences and DND flags.
 
@@ -456,29 +456,29 @@ For more information on API error codes, refer to [this page](doc:api-errors). T
 
 The following table lists the error codes returned by this API:
 
-| HTTP Status | Error                                                         | Description                                  | Example Error Response                                                                |
-| ----------- | ------------------------------------------------------------- | -------------------------------------------- | ------------------------------------------------------------------------------------- |
-| 400         | `"Payload is mandatory"`                                      | Empty or missing request body                | `{"status":"fail","error":"Payload is mandatory","code":400}`                         |
-| 400         | `"Malformed request"`                                         | JSON cannot be parsed                        | `{"status":"fail","error":"Malformed request","code":400}`                            |
-| 400         | `"Maximum 1000 records allowed in one request."`              | Batch size exceeds 1000                      | `{"status":"fail","error":"Maximum 1000 records allowed in one request.","code":400}` |
-| 401         | `"Invalid credentials"`                                       | Wrong passcode                               | `{"status":"fail","error":"Invalid credentials","code":401}`                          |
-| 503         | `"12 digit account ID mandatory."`                            | Account ID header absent                     | `{"status":"fail","error":"12 digit account ID mandatory.","code":503}`               |
-| 503         | `"Please come back later"`                                    | Account not in cache                         | `{"status":"fail","error":"Please come back later","code":503}`                       |
-| 200         | `"'identity' or 'fbId' or 'gpId' or 'objectId' is necessary"` | No valid user identifier provided            | `{"status":"fail","code":523,"error":"...","record":{...}}`                           |
-| 200         | `"Data is not of type Event, Profile or Token."`              | `type` field missing or unrecognized         | `{"status":"fail","code":524,"error":"...","record":{...}}`                           |
-| 200         | `"Timestamp must be in Unix Epoch format."`                   | Invalid or missing `ts` field                | `{"status":"fail","code":525,"error":"...","record":{...}}`                           |
-| 200         | `"Record is too old, please use historic batch upload API."`  | Timestamp too far in the past                | `{"status":"fail","code":527,"error":"...","record":{...}}`                           |
-| 200         | `"Email is not valid"`                                        | Email missing `@` or malformed               | `{"status":"fail","code":515,"error":"...","record":{...}}`                           |
-| 200         | `"Phone number is not valid"`                                 | Phone doesn't start with `+` or is too short | `{"status":"fail","code":516,"error":"...","record":{...}}`                           |
-| 200         | `"Employed needs to be Y/N"`                                  | Invalid value for `Employed` field           | `{"status":"fail","code":517,"error":"...","record":{...}}`                           |
-| 200         | `"Education needs to be School/College/Graduate."`            | Invalid value for `Education` field          | `{"status":"fail","code":518,"error":"...","record":{...}}`                           |
-| 200         | `"Married needs to be Y/N"`                                   | Invalid value for `Married` field            | `{"status":"fail","code":519,"error":"...","record":{...}}`                           |
-| 200         | `"Age is invalid"`                                            | Age \< 0, > 120, or non-numeric              | `{"status":"fail","code":520,"error":"...","record":{...}}`                           |
-| 200         | `"Invalid Name update operation"`                             | Invalid operator used on `Name` field        | `{"status":"fail","code":536,"error":"...","record":{...}}`                           |
-| 200         | `"Invalid gender update operation"`                           | Invalid operator used on `Gender` field      | `{"status":"fail","code":537,"error":"...","record":{...}}`                           |
-| 200         | `"509 - Event name is mandatory"`                             | `evtName` missing on event-type record       | `{"status":"fail","code":509,"error":"...","record":{...}}`                           |
-| 200         | `"513 - Trying to raise a restricted system event"`           | Attempt to upload a reserved event           | `{"status":"fail","code":513,"error":"...","record":{...}}`                           |
-| 200         | `"512 - Only Items can have a nested structure..."`           | Nested object used in non-items field        | `{"status":"fail","code":512,"error":"...","record":{...}}`                           |
-| 200         | `"522 - Cannot have more than N properties."`                 | Event exceeds property limit (default: 100)  | `{"status":"fail","code":522,"error":"...","record":{...}}`                           |
+| HTTP Status | Error                                                         | Description                                   | Example Error Response                                                                |
+| ----------- | ------------------------------------------------------------- | --------------------------------------------- | ------------------------------------------------------------------------------------- |
+| 400         | `"Payload is mandatory"`                                      | Empty or missing request body                 | `{"status":"fail","error":"Payload is mandatory","code":400}`                         |
+| 400         | `"Malformed request"`                                         | JSON cannot be parsed                         | `{"status":"fail","error":"Malformed request","code":400}`                            |
+| 400         | `"Maximum 1000 records allowed in one request."`              | Batch size exceeds 1000                       | `{"status":"fail","error":"Maximum 1000 records allowed in one request.","code":400}` |
+| 401         | `"Invalid credentials"`                                       | Wrong passcode                                | `{"status":"fail","error":"Invalid credentials","code":401}`                          |
+| 503         | `"12 digit account ID mandatory."`                            | Account ID header absent                      | `{"status":"fail","error":"12 digit account ID mandatory.","code":503}`               |
+| 503         | `"Please come back later"`                                    | Account not in cache                          | `{"status":"fail","error":"Please come back later","code":503}`                       |
+| 200         | `"'identity' or 'fbId' or 'gpId' or 'objectId' is necessary"` | No valid user identifier provided             | `{"status":"fail","code":523,"error":"...","record":{...}}`                           |
+| 200         | `"Data is not of type Event, Profile or Token."`              | `type` field missing or unrecognized          | `{"status":"fail","code":524,"error":"...","record":{...}}`                           |
+| 200         | `"Timestamp must be in Unix Epoch format."`                   | Invalid or missing `ts` field                 | `{"status":"fail","code":525,"error":"...","record":{...}}`                           |
+| 200         | `"Record is too old, please use historic batch upload API."`  | Timestamp too far in the past                 | `{"status":"fail","code":527,"error":"...","record":{...}}`                           |
+| 200         | `"Email is not valid"`                                        | Email missing `@` or malformed                | `{"status":"fail","code":515,"error":"...","record":{...}}`                           |
+| 200         | `"Phone number is not valid"`                                 | Phone does not start with `+` or is too short | `{"status":"fail","code":516,"error":"...","record":{...}}`                           |
+| 200         | `"Employed needs to be Y/N"`                                  | Invalid value for `Employed` field            | `{"status":"fail","code":517,"error":"...","record":{...}}`                           |
+| 200         | `"Education needs to be School/College/Graduate."`            | Invalid value for `Education` field           | `{"status":"fail","code":518,"error":"...","record":{...}}`                           |
+| 200         | `"Married needs to be Y/N"`                                   | Invalid value for `Married` field             | `{"status":"fail","code":519,"error":"...","record":{...}}`                           |
+| 200         | `"Age is invalid"`                                            | Age \< 0, > 120, or non-numeric               | `{"status":"fail","code":520,"error":"...","record":{...}}`                           |
+| 200         | `"Invalid Name update operation"`                             | Invalid operator used on `Name` field         | `{"status":"fail","code":536,"error":"...","record":{...}}`                           |
+| 200         | `"Invalid gender update operation"`                           | Invalid operator used on `Gender` field       | `{"status":"fail","code":537,"error":"...","record":{...}}`                           |
+| 200         | `"509 - Event name is mandatory"`                             | `evtName` missing on event-type record        | `{"status":"fail","code":509,"error":"...","record":{...}}`                           |
+| 200         | `"513 - Trying to raise a restricted system event"`           | Attempt to upload a reserved event            | `{"status":"fail","code":513,"error":"...","record":{...}}`                           |
+| 200         | `"512 - Only Items can have a nested structure..."`           | Nested object used in non-items field         | `{"status":"fail","code":512,"error":"...","record":{...}}`                           |
+| 200         | `"522 - Cannot have more than N properties."`                 | Event exceeds property limit (default: 100)   | `{"status":"fail","code":522,"error":"...","record":{...}}`                           |
 
 <br />
