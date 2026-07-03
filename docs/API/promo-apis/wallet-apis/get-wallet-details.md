@@ -47,7 +47,7 @@ For more information about API headers, refer to [Headers](doc:common-api-compon
 
 ## Query Parameters
 
-Provide exactly one of the following parameters to identify the user. The API resolves them in this priority order: if `objectId` is present, it is used first, then `email`, then `identity`. If none of the three resolve to a valid user, the API returns HTTP 400 `"Invalid identity"`.
+Provide exactly one of the following parameters to identify the user. The API resolves them in this priority order: if `objectId` is present, it is used first, then `email` `identity`. If none of the three resolve to a valid user, the API returns HTTP 400 `"Invalid identity"`.
 
 The following table lists the accepted query parameters:
 
