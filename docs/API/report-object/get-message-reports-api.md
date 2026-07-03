@@ -220,7 +220,7 @@ The following table describes the fields inside each message object in the `mess
 <Callout icon="📘" theme="info">
   **Input values vs. response display names**
 
-  The `channel` and `delivery` fields use different values in the response than in the request. Input values use lowercase and underscores. Response values use Title Case display names. The following table shows the mapping.
+  The `channel` and `delivery` fields use different values in the response than in the request. Input values use lowercase and underscores. Response values use Title Case display names. The following table shows the mapping:
 
   | Input value        | Response display name |
   | ------------------ | --------------------- |
