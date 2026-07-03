@@ -12,22 +12,29 @@ next:
 ---
 # Overview
 
-This endpoint enables you to demerge a user profile.
+This endpoint enables you to demerge a user profile. Demerge unlinks the identities associated with a merged user profile, splitting it back into separate standalone profiles. This reverses profile merges that occurred when multiple identities, such as email, phone, or a custom ID, were associated with the same user.
 
 <Callout icon="📘" theme="info">
-  **Event Data Loss**
+  ### **Event Data Loss**
 
-  There might be instances when you may lose the event data associated with the user profile after demerging.
+  Demerge removes the links between identities and their associated device mappings. Events that were indexed exclusively through the demerged identity's device associations may become unreachable after the operation.
 </Callout>
+
+<Callout icon="⚠️" theme="warning">
+  ### **Asynchronous Processing**
+
+  The API returns success immediately after queuing the request. The actual demerge processing happens asynchronously, typically within 5 minutes, during the 4–7 AM window in the account's timezone. Do not assume the demerge is complete at the time of the API response.
+</Callout>
+
+For more information on request limits, refer to [API Request Limit](doc:api-request-limit).
 
 ## Base URL
 
-Here is an example base URL from the account in the India region:  
-[https://in1.api.clevertap.com/1/demerge/profiles.json](https://in1.api.clevertap.com/1/demerge/profiles.json)
+The following is a sample base URL:
 
-### Region
+`https://<region>.api.clevertap.com/1/demerge/profiles.json`
 
-Refer [Region](https://developer.clevertap.com/docs/common-api-components#region) for more details.
+For region-specific endpoints, refer to [Region](https://developer.clevertap.com/docs/common-api-components#region).
 
 ## HTTP Method
 
@@ -35,31 +42,30 @@ POST
 
 ## Headers
 
-Refer [Headers](https://developer.clevertap.com/docs/common-api-components#headers) for more details.
+Refer to [Headers](https://developer.clevertap.com/docs/common-api-components#headers) for more details.
 
 ## Body Parameters
 
-The body is uploaded as a JSON payload.
+The following table lists the body parameters.
 
-| Parameter  | Description                                                                                  | Required | Type         | Example Value                                          |
-| :--------- | :------------------------------------------------------------------------------------------- | :------- | :----------- | :----------------------------------------------------- |
-| identities | Custom user identity defined by you. A maximum of 100 identities are allowed in one request. | optional | string/array | [“client-19827239”, “[abc@ct.com](mailto:abc@ct.com)”] |
+| Parameter  | Description                                                                                                                                                                                                                                                                                         | Required | Type             | Example Value                                           |
+| :--------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------- | :--------------- | :------------------------------------------------------ |
+| identities | Custom user identities to demerge. A maximum of 100 identities are allowed per request. Must be passed as an array; a single string value is not accepted and returns a 400 error. Only custom identities are supported; CleverTap-generated object IDs (`guid`) are not accepted by this endpoint. | Required | array of strings | \["client-19827239", "[abc@ct.com](mailto:abc@ct.com)"] |
 
-Below is an example payload.
+The following is a sample payload.
 
 ```json
 {
-	"identities": ["client-19827239", "abc@ct.com"]
+  "identities": ["client-19827239", "abc@ct.com"]
 }
 ```
 
 ## Example Request
 
-Here is an example cURL request to the _Demerge User Profile_ API showing the headers needed to authenticate the request from the account in the India region:
+The following is a sample request to the _Demerge User Profile_ API, showing the headers needed to authenticate the request.
 
 ```curl
-curl -X POST -d '{"identities":["client-19827239", "abc@ct.com"]}'
-"https://in1.api.clevertap.com/1/demerge/profiles.json" \
+curl -X POST -d '{"identities":["client-19827239", "abc@ct.com"]}' "https://<region>.api.clevertap.com/1/demerge/profiles.json" \
 -H "X-CleverTap-Account-Id: ACCOUNT_ID" \
 -H "X-CleverTap-Passcode: PASSCODE" \
 -H "Content-Type: application/json; charset=utf-8"
@@ -69,7 +75,7 @@ require 'net/http'
 require 'uri'
 require 'json'
 
-uri = URI.parse("https://in1.api.clevertap.com/1/demerge/profiles.json")
+uri = URI.parse("https://<region>.api.clevertap.com/1/demerge/profiles.json")
 request = Net::HTTP::Post.new(uri)
 request.content_type = "application/json; charset=utf-8"
 request["X-Clevertap-Account-Id"] = "ACCOUNT_ID"
@@ -97,7 +103,7 @@ headers = {
 
 data = '{"identities":["client-19827239", "abc@ct.com"]}'
 
-response = requests.post('https://in1.api.clevertap.com/1/demerge/profiles.json', headers=headers, data=data)
+response = requests.post('https://<region>.api.clevertap.com/1/demerge/profiles.json', headers=headers, data=data)
 ```
 ```php
 <?php
@@ -108,8 +114,8 @@ $headers = array(
     'X-CleverTap-Passcode' => 'PASSCODE',
     'Content-Type' => 'application/json; charset=utf-8'
 );
-$data = '{"identities":["client-19827239", "abc@ct.com"]}' ;
-$response = Requests::post('https://in1.api.clevertap.com/1/demerge/profiles.json', $headers, $data);
+$data = '{"identities":["client-19827239", "abc@ct.com"]}';
+$response = Requests::post('https://<region>.api.clevertap.com/1/demerge/profiles.json', $headers, $data);
 ```
 ```javascript Node.js
 var request = require('request');
@@ -123,7 +129,7 @@ var headers = {
 var dataString = '{"identities":["client-19827239", "abc@ct.com"]}';
 
 var options = {
-    url: 'https://in1.api.clevertap.com/1/demerge/profiles.json',
+    url: 'https://<region>.api.clevertap.com/1/demerge/profiles.json',
     method: 'POST',
     headers: headers,
     body: dataString
@@ -139,7 +145,7 @@ request(options, callback);
 ```
 ```go
 type Payload struct {
-	GUID string `json:"identities"`
+	Identities []string `json:"identities"`
 }
 
 data := Payload{
@@ -151,7 +157,7 @@ if err != nil {
 }
 body := bytes.NewReader(payloadBytes)
 
-req, err := http.NewRequest("POST", "https://in1.api.clevertap.com/1/demerge/profiles.json", body)
+req, err := http.NewRequest("POST", "https://<region>.api.clevertap.com/1/demerge/profiles.json", body)
 if err != nil {
 	// handle err
 }
@@ -168,12 +174,28 @@ defer resp.Body.Close()
 
 ## Example Response
 
+The following is a sample response. A successful request returns HTTP 200 immediately after the demerge is queued. It does not indicate that processing is complete.
+
 ```json
 {
   "status": "success"
 }
 ```
 
-For more information on request limit, refer to [API Request Limit](doc:api-request-limit).
+## Error Codes
+
+The following table lists the error codes returned by this endpoint.
+
+| HTTP Status | Error                                       | Description                                                                                 | Example Error Response                                                           |
+| ----------- | ------------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| 400         | `"Invalid payload received."`               | `identities` field is missing, wrong type, or passed as a single string instead of an array | `{"status":"fail","error":"Invalid payload received.","code":400}`               |
+| 400         | `"Max 100 identities allowed per request."` | `identities` array exceeds 100 items                                                        | `{"status":"fail","error":"Max 100 identities allowed per request.","code":400}` |
+| 401         | `"Invalid credentials"`                     | Wrong passcode                                                                              | `{"status":"fail","error":"Invalid credentials","code":401}`                     |
+| 429         | `"Too many concurrent requests"`            | Per-account throttle exceeded. Retry with exponential backoff.                              | `{"status":"fail","error":"Too many concurrent requests","code":429}`            |
+| 503         | `"Server Error. Please retry later"`        | MongoDB error while queuing the request. Retry with backoff.                                | `{"status":"fail","error":"Server Error. Please retry later","code":503}`        |
+| 503         | `"Please come back later"`                  | Global throttle exceeded. Retry with backoff.                                               | `{"status":"fail","error":"Please come back later","code":503}`                  |
+| 200         | —                                           | Demerge request queued successfully.                                                        | `{"status":"success"}`                                                           |
 
 To understand the common queries and concerns related to CleverTap APIs, refer to [API FAQs](doc:api-faqs).
+
+<br />
