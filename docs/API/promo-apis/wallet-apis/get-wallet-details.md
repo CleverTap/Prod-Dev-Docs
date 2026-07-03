@@ -12,7 +12,7 @@ next:
 ---
 # Overview
 
-The Get Wallet Details API fetches user wallet information, including the wallet balance, active points, and pending or expired points. This API can be integrated into your application at key touchpoints to provide seamless access to wallet data within your application's user interface.
+The Get Wallet Details API fetches user wallet information, including the wallet balance, active points, and pending or expired points. This API can be integrated at key touchpoints to provide seamless access to wallet data within your application's user interface.
 
 This API provides the following two key components:
 
