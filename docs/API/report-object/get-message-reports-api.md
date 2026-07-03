@@ -218,23 +218,6 @@ The following table describes the fields inside each message object in the `mess
 | delivery         | string           | The delivery type of the campaign. Response values use display names that differ from input values. See the input-to-response mapping note below.                                                                                                                                          |
 
 <Callout icon="📘" theme="info">
-  **Input values vs. response display names**
-
-  The `channel` and `delivery` fields use different values in the response than in the request. Input values use lowercase and underscores. Response values use Title Case display names. The following table shows the mapping:
-
-  | Input value        | Response display name |
-  | ------------------ | --------------------- |
-  | inapp              | InApp                 |
-  | web_native_display | Web Native Display    |
-  | one_time           | One Time              |
-  | property_time      | Property Time         |
-  | multiple_dates     | Multiple Dates        |
-  | api                | API                   |
-
-  All other delivery and channel values follow the same pattern: underscores become spaces and values are Title Cased in the response.
-</Callout>
-
-<Callout icon="📘" theme="info">
   **API Behavior**
 
   The Get Message Reports API fetches campaigns based on their start dates. Campaigns that begin before the specified date range but are still active are not included in the results.
