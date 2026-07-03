@@ -196,6 +196,6 @@ The following table lists the error codes returned by this endpoint.
 | 503         | `"Please come back later"`                  | Global throttle exceeded. Retry with backoff.                                               | `{"status":"fail","error":"Please come back later","code":503}`                  |
 | 200         | —                                           | Demerge request queued successfully.                                                        | `{"status":"success"}`                                                           |
 
-To understand the common queries and concerns related to CleverTap APIs, refer to [API FAQs](doc:api-faqs).
+To understand common queries and concerns related to CleverTap APIs, refer to [API FAQs](doc:api-faqs).
 
 <br />
