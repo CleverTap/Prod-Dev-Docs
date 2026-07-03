@@ -184,7 +184,7 @@ The following is a sample response. A successful request returns HTTP 200 immedi
 
 ## Error Codes
 
-The following table lists the error codes returned by this endpoint:
+The following table lists the error codes returned by this API:
 
 | HTTP Status | Error                                       | Description                                                                                 | Example Error Response                                                           |
 | ----------- | ------------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
