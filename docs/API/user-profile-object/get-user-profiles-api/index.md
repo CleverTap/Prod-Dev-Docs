@@ -510,41 +510,45 @@ The following are guidelines for working with this API.
 - Error handling: Implement retry logic with exponential backoff for 429, 500, and 503 errors. Parse error responses to extract the error message for logging and debugging.
 - Field presence: Fields that are unavailable are omitted from responses entirely, not returned as null. Always check whether a field exists before accessing its value in your code.
 
-For more information on request limits, refer to [API Request Limit](doc:api-request-limit). To understand common queries and concerns related to CleverTap APIs, refer to [API FAQs](doc:api-faqs).<br /><br /># Error Codes
+For more information on request limits, refer to [API Request Limit](doc:api-request-limit). To understand common queries and concerns related to CleverTap APIs, refer to [API FAQs](doc:api-faqs).
 
-**Step 1: POST&#x20;**`/1/profiles.json`**&#x20;— HTTP-level errors**
+# Error Codes
 
-| HTTP Status | Code or Status | Error                                                               | Description                                        | Example Error Response                                                                                   |
-| ----------- | -------------- | ------------------------------------------------------------------- | -------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| 400         | —              | `"Account ID missing"`                                              | `X-CleverTap-Account-Id` header absent or empty    | `{"status":"fail","error":"Account ID missing","code":400}`                                              |
-| 400         | —              | `"Account blocked"`                                                 | Account not found or suspended                     | `{"status":"fail","error":"Account blocked","code":400}`                                                 |
-| 400         | —              | `"Invalid credentials"`                                             | Wrong passcode                                     | `{"status":"fail","error":"Invalid credentials","code":400}`                                             |
-| 400         | —              | `"No query specified"`                                              | Neither `query` nor `enc_query` parameter provided | `{"status":"fail","error":"No query specified","code":400}`                                              |
-| 400         | —              | `"Invalid query specified"`                                         | Query is malformed or fails decompression          | `{"status":"fail","error":"Invalid query specified","code":400}`                                         |
-| 400         | —              | `"Illegal version"`                                                 | Unsupported query version                          | `{"status":"fail","error":"Illegal version","code":400}`                                                 |
-| 403         | —              | `"API access has been temporarily suspended"`                       | Account-level API access suspended                 | `{"status":"fail","error":"API access has been temporarily suspended","code":403}`                       |
-| 429         | —              | `"Too many requests. Please try later or contact customer support"` | API disabled for this account via dynamic config   | `{"status":"fail","error":"Too many requests. Please try later or contact customer support","code":429}` |
-| 503         | —              | `"Please come back later"`                                          | Account not in cache or EventStore unavailable     | `{"status":"fail","error":"Please come back later","code":503}`                                          |
+The following table lists the error codes returned by this API:
 
-**Step 2: GET&#x20;**`/1/profiles.json`**&#x20;— response-body errors (all return HTTP 200)**
+**Step 1: POST&#x20;**`/1/profiles.json`**&#x20;- HTTP-level errors**
 
-| HTTP Status | Code or Status | Error                                                   | Description                                                        | Example Error Response                                                            |
-| ----------- | -------------- | ------------------------------------------------------- | ------------------------------------------------------------------ | --------------------------------------------------------------------------------- |
-| 200         | `fail`         | `"Too many requests"`                                   | Account-level throttling. Retry with backoff.                      | `{"status":"fail","error":"Too many requests"}`                                   |
-| 200         | `fail`         | `"Service unavailable. Please retry later"`             | System-level throttling. Retry with backoff.                       | `{"status":"fail","error":"Service unavailable. Please retry later"}`             |
-| 200         | `fail`         | `"System busy, please retry later"`                     | EventStore temporarily unavailable. Retry with backoff.            | `{"status":"fail","error":"System busy, please retry later"}`                     |
-| 200         | `fail`         | `"Incorrect Usage"`                                     | Malformed cursor (host count mismatch). Restart from Step 1.       | `{"status":"fail","error":"Incorrect Usage"}`                                     |
-| 200         | `fail`         | `"Incorrect Usage, stale cursor"`                       | Out-of-order or concurrent cursor use. Restart from Step 1.        | `{"status":"fail","error":"Incorrect Usage, stale cursor"}`                       |
-| 200         | `fail`         | `"Cursor invalidated. Cannot export using this cursor"` | Cursor permanently invalidated after error. Restart from Step 1.   | `{"status":"fail","error":"Cursor invalidated. Cannot export using this cursor"}` |
-| 200         | `fail`         | `"Error processing"`                                    | Unexpected server error. Retry; contact support if issue persists. | `{"status":"fail","error":"Error processing"}`                                    |
+| HTTP Status | Error                                                               | Description                                        | Example Error Response                                                                                   |
+| ----------- | ------------------------------------------------------------------- | -------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| 400         | `"Account ID missing"`                                              | `X-CleverTap-Account-Id` header absent or empty    | `{"status":"fail","error":"Account ID missing","code":400}`                                              |
+| 400         | `"Account blocked"`                                                 | Account not found or suspended                     | `{"status":"fail","error":"Account blocked","code":400}`                                                 |
+| 400         | `"Invalid credentials"`                                             | Wrong passcode                                     | `{"status":"fail","error":"Invalid credentials","code":400}`                                             |
+| 400         | `"No query specified"`                                              | Neither `query` nor `enc_query` parameter provided | `{"status":"fail","error":"No query specified","code":400}`                                              |
+| 400         | `"Invalid query specified"`                                         | Query is malformed or fails decompression          | `{"status":"fail","error":"Invalid query specified","code":400}`                                         |
+| 400         | `"Illegal version"`                                                 | Unsupported query version                          | `{"status":"fail","error":"Illegal version","code":400}`                                                 |
+| 403         | `"API access has been temporarily suspended"`                       | Account-level API access suspended                 | `{"status":"fail","error":"API access has been temporarily suspended","code":403}`                       |
+| 429         | `"Too many requests. Please try later or contact customer support"` | API disabled for this account via dynamic config   | `{"status":"fail","error":"Too many requests. Please try later or contact customer support","code":429}` |
+| 503         | `"Please come back later"`                                          | Account not in cache or EventStore unavailable     | `{"status":"fail","error":"Please come back later","code":503}`                                          |
 
-**Get User Profile by ID —&#x20;**`/1/profile.json`
+**Step 2: GET&#x20;**`/1/profiles.json`**&#x20;- response-body errors (all return HTTP 200)**
 
-| HTTP Status | Code or Status | Error | Description                                                                                                   | Example Error Response                       |
-| ----------- | -------------- | ----- | ------------------------------------------------------------------------------------------------------------- | -------------------------------------------- |
-| 200         | `success`      | —     | Profile found.                                                                                                | `{"status":"success","record":{...}}`        |
-| 200         | `success`      | —     | Profile not found. The `record` field is `null`; this endpoint does not return HTTP 404 for missing profiles. | `{"status":"success","record":null}`         |
-| 503         | —              | —     | Missing or invalid lookup parameter. No `guid`, `email`, or `identity` provided.                              | `{"status":"fail","error":"...","code":503}` |
-| 503         | —              | —     | EventStore temporarily unavailable. Retry with backoff.                                                       | `{"status":"fail","error":"...","code":503}` |
+| HTTP Status | Error                                                   | Description                                                            | Example Error Response                                                            |
+| ----------- | ------------------------------------------------------- | ---------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| 200         | `"Too many requests"`                                   | Account-level throttling. Retry with backoff.                          | `{"status":"fail","error":"Too many requests"}`                                   |
+| 200         | `"Service unavailable. Please retry later"`             | System-level throttling. Retry with backoff.                           | `{"status":"fail","error":"Service unavailable. Please retry later"}`             |
+| 200         | `"System busy, please retry later"`                     | EventStore temporarily unavailable. Retry with backoff.                | `{"status":"fail","error":"System busy, please retry later"}`                     |
+| 200         | `"Incorrect Usage"`                                     | Malformed cursor (host count mismatch). Restart from Step 1.           | `{"status":"fail","error":"Incorrect Usage"}`                                     |
+| 200         | `"Incorrect Usage, stale cursor"`                       | Out-of-order or concurrent cursor use. Restart from Step 1.            | `{"status":"fail","error":"Incorrect Usage, stale cursor"}`                       |
+| 200         | `"Cursor invalidated. Cannot export using this cursor"` | Cursor permanently invalidated after error. Restart from Step 1.       | `{"status":"fail","error":"Cursor invalidated. Cannot export using this cursor"}` |
+| 200         | `"Error processing"`                                    | Unexpected server error. Retry; contact support if the issue persists. | `{"status":"fail","error":"Error processing"}`                                    |
+
+**Get User Profile by ID -&#x20;**`/1/profile.json`
+
+| HTTP Status | Error | Description                                                                                                       | Example Error Response                       |
+| ----------- | ----- | ----------------------------------------------------------------------------------------------------------------- | -------------------------------------------- |
+| 200         | —     | Profile found.                                                                                                    | `{"status":"success","record":{...}}`        |
+| 200         | —     | Profile not found. The `record` field is `null`<br />This endpoint does not return HTTP 404 for missing profiles. | `{"status":"success","record":null}`         |
+| 503         | —     | Missing or invalid lookup parameter. No `guid`, `email`, or `identity` provided.                                  | `{"status":"fail","error":"...","code":503}` |
+| 503         | —     | EventStore temporarily unavailable. Retry with backoff.                                                           | `{"status":"fail","error":"...","code":503}` |
 
 <br />
