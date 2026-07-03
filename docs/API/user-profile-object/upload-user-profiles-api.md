@@ -162,14 +162,10 @@ The following is a sample payload for deleting a profile property value using th
 ```
 
 <Callout icon="⚠️" theme="warning">
-  ###
-
-  **$delete scope**
+  ### **Delete Scope**
 
   The `$delete` operator is supported only for `Name` and `Gender` via this API. Using `$delete` on other properties via the Upload User Profiles API may fail silently or be rejected.
 </Callout>
-
-<mark>FLAG: Confirm with engineering whether $delete on arbitrary custom properties is supported via this API. Code review (BaseUploadServlet.java) confirmed $delete validation only for Name and Gender. Until confirmed, the doc restricts this to Name and Gender only.</mark>
 
 **Set messaging and subscription preferences**
 
