@@ -482,7 +482,7 @@ The following table lists the error codes returned by this API:
 | 200         | `"Invalid gender update operation"`                           | Invalid operator used on `Gender` field      | `{"status":"fail","code":537,"error":"...","record":{...}}`                           |
 | 200         | `"509 - Event name is mandatory"`                             | `evtName` missing on event-type record       | `{"status":"fail","code":509,"error":"...","record":{...}}`                           |
 | 200         | `"513 - Trying to raise a restricted system event"`           | Attempt to upload a reserved event           | `{"status":"fail","code":513,"error":"...","record":{...}}`                           |
-| 200         | `"512 - Only Items can have a nested structure..."`           | Nested object used in non-Items field        | `{"status":"fail","code":512,"error":"...","record":{...}}`                           |
+| 200         | `"512 - Only Items can have a nested structure..."`           | Nested object used in non-items field        | `{"status":"fail","code":512,"error":"...","record":{...}}`                           |
 | 200         | `"522 - Cannot have more than N properties."`                 | Event exceeds property limit (default: 100)  | `{"status":"fail","code":522,"error":"...","record":{...}}`                           |
 
 <br />
