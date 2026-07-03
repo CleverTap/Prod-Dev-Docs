@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-## # Overview
+# Overview
 
 This endpoint enables you to delete a user profile.
 
@@ -72,7 +72,7 @@ The following are sample payloads showing the accepted formats.
 { "guid": "clientid123" }
 ```
 
-## # Example Request
+# Example Request
 
 The following is a sample request to the _Delete User Profile_ API, showing the headers needed to authenticate the request.
 
@@ -190,7 +190,7 @@ if err != nil {
 defer resp.Body.Close()
 ```
 
-## # Example Response
+# Example Response
 
 The following is a sample response. A successful request returns HTTP 200 with a `status` of `success`. Unlike other upload APIs, this response does not include a processed count or an unprocessed list.
 
@@ -200,7 +200,7 @@ The following is a sample response. A successful request returns HTTP 200 with a
 }
 ```
 
-## # Error Codes
+# Error Codes
 
 The following table lists the error codes returned by this endpoint.
 
