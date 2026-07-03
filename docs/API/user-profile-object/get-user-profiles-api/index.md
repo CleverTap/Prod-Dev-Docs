@@ -359,7 +359,7 @@ The following table describes the user profile object schema.
   When `events=true` is set in Step 1 query parameters, each event in the `events` object contains `count`, `first_seen`, and `last_seen` fields. The `count` value represents the user's lifetime total for that event, not the count within the query date range.
 </Callout>
 
-#### Platform Info Details
+### Platform Info Details
 
 Each entry in the `platformInfo` array represents a device or platform where the user has interacted with your app.
 
