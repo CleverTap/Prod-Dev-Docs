@@ -499,7 +499,6 @@ The following are guidelines for working with this API.
 * Pagination: Continue calling Step 2 with `next_cursor` until it is absent from the response. The final page includes `records` and no `next_cursor`. The subsequent request returns `{"status": "success", "records": []}`.
 * Rate limits: Rate limits are account-specific. Contact CleverTap support for your account's limits. Implement exponential backoff (1s, 2s, 4s, 8s, 16s, maximum 5 retries) when you receive 429 errors.
 * Request timeouts: Set a 60-second timeout on all API requests. On timeout, retry with the same cursor; the cursor retains its position and does not reset.
-* GET headers: Do not include `Content-Type` on GET requests (Step 2 and Download by ID).
 * URL encoding: Always URL-encode email, identity, and objectId values in query strings. Common characters requiring encoding: `+` (%2B), `@` (%40), `#` (%23), `&` (%26), space (%20).
 * Cursor handling: Cursors are opaque tokens valid for 4 days. Do not decode, modify, or store them. Use cursors immediately for pagination. Each cursor is single-threaded; using the same cursor from multiple processes simultaneously may cause unrecoverable failures, requiring a restart from Step 1.
 * Error handling: Implement retry logic with exponential backoff for 429, 500, and 503 errors. Parse error responses to extract the error message for logging and debugging.
