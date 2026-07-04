@@ -234,13 +234,31 @@ After getting the `req_id`, poll, the following endpoint provides the value  `re
 GET https://<region>.api.clevertap.com/1/counts/trends.json?req_id=<your_request_id_here>
 ```
 
-## Next Steps
+## Error Codes
 
-Now that you have learned how to retrieve event trends from the CleverTap API, learn how to get events using the [Get Events API](doc:get-events-api).
+The following is the list of errors returned by this API:
+
+| HTTP Status | Error                                                 | Description                                                                    | Example Error Response                                                                     |
+| ----------- | ----------------------------------------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| 400         | `"Invalid event"`                                     | `event_name` missing or the event does not exist                               | `{"status":"fail","error":"Invalid event","code":400}`                                     |
+| 400         | `"Invalid date format. Use YYYYMMDD (e.g. 20240115)"` | `from` or `to` not in YYYYMMDD format                                          | `{"status":"fail","error":"Invalid date format. Use YYYYMMDD (e.g. 20240115)","code":400}` |
+| 400         | `"At least one trend group must be provided"`         | `groups` missing or empty                                                      | `{"status":"fail","error":"At least one trend group must be provided","code":400}`         |
+| 400         | `"trend_type missing or invalid in group: {key}"`     | A group entry is missing `trend_type`                                          | `{"status":"fail","error":"trend_type missing or invalid in group: foo","code":400}`       |
+| 400         | `"Invalid trend type: {value}"`                       | `trend_type` is not `daily`, `weekly`, or `monthly`                            | `{"status":"fail","error":"Invalid trend type: hourly","code":400}`                        |
+| 400         | `"Date range cannot exceed 1 year"`                   | Date range exceeds 1 year                                                      | `{"status":"fail","error":"Date range cannot exceed 1 year","code":400}`                   |
+| 400         | `"Max 5 groups allowed per request"`                  | More than 5 groups in a single request                                         | `{"status":"fail","error":"Max 5 groups allowed per request","code":400}`                  |
+| 401         | `"Authentication failure"`                            | Missing or invalid Account ID or Passcode headers                              | `{"status":"fail","error":"Authentication failure","code":401}`                            |
+| 408 / 504   | `"Request timed out"`                                 | Request timeout                                                                | `{"status":"fail","error":"Request timed out","code":408}`                                 |
+| 500         | `"Internal server error"`                             | Internal server error. Retry; contact support if issue persists.               | `{"status":"fail","error":"Internal server error","code":500}`                             |
+| 502 / 503   | `"Service unavailable"`                               | Service unavailable. Retry with backoff.                                       | `{"status":"fail","error":"Service unavailable","code":503}`                               |
+| 200         | —                                                     | Query still processing. Poll using `req_id`. Wait 30 seconds between attempts. | `{"status":"partial","req_id":384649162721759}`                                            |
+| 200         | `"Query failed after processing"`                     | Async query failed after polling completed                                     | `{"status":"fail","error":"Query failed after processing","code":200}`                     |
+| 200         | `"Polling timed out"`                                 | Polling exhausted after 10 attempts at 30-second intervals                     | `{"status":"fail","error":"Polling timed out"}`                                            |
+| 200         | —                                                     | No event activity in the specified range. Empty trend buckets returned.        | `{"status":"success","foo":{},"bar":{}}`                                                   |
 
 ## Notes
 
-- CleverTap recommends to make individual sequential calls and waiting for a response from each before making the next request.
+- CleverTap recommends making individual sequential calls and waiting for a response from each before making the next request.
 - For more information on request limits, refer to [API Request Limit](doc:api-request-limit).
 - To understand common queries and concerns about CleverTap APIs, refer to the [API FAQs](doc:api-faqs).
 
