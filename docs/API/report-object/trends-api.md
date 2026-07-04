@@ -228,7 +228,7 @@ The following is a sample response for a partial status.
 }
 ```
 
-After getting the `req_id`, poll, the following endpoint provides the value  `req_id` as a query parameter.
+After getting the `req_id`poll, the following endpoint provides the value  `req_id` as a query parameter.
 
 ```
 GET https://<region>.api.clevertap.com/1/counts/trends.json?req_id=<your_request_id_here>
