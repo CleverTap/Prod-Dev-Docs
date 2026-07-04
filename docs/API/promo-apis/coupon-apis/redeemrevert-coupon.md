@@ -20,10 +20,10 @@ You can integrate this API at critical touchpoints, such as payment processing o
 
 You can use this API in the following cases:
 
-* A user completes a transaction, and the coupon code needs to be redeemed.
-* A user cancels an order, and the redeemed coupon needs to be reverted for future use.
-* Payment failure after the coupon code is redeemed.
-* Any other custom checkpoints in the user journey that require coupon redemption or reversal during transaction management.  
+- A user completes a transaction, and the coupon code needs to be redeemed.
+- A user cancels an order, and the redeemed coupon needs to be reverted for future use.
+- Payment failure after the coupon code is redeemed.
+- Any other custom checkpoints in the user journey that require coupon redemption or reversal during transaction management.
 
 # Base URL
 
@@ -45,16 +45,17 @@ POST
 
 # Query Parameters
 
-
 | Parameter  | Description                                                                                                                                                                                                                                             | Required/Optional | Type   | Sample Value       |
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ------ | :----------------- |
 | `identity` | Unique identifier for the user. It is mandatory for campaign user coupon validation to determine the source of the coupon issued. If the `identity` is not provided, API returns an error message indicating that identity is mandatory for redemption. | Required          | String | `user0123`         |
 | `type`     | Specifies the action to be taken. Use `redeem` to apply a coupon or `revert` to cancel a redeemed coupon.                                                                                                                                               | Required          | String | `redeem`, `revert` |
 
-> 📘 Note
->
-> * If the `identity` is not provided for non logged-in users, the API returns an error message asking the user to log in to redeem the coupon code.
-> * In the case of invalid or missing `type` parameter, the API returns an error message indicating the `type` query parameter must be either `redeem` or `revert`.
+<Callout icon="📘" theme="info">
+  ### Note
+
+  - If the `identity` is not provided for non logged-in users, the API returns an error message asking the user to log in to redeem the coupon code.
+  - In the case of invalid or missing `type` parameter, the API returns an error message indicating the `type` query parameter must be either `redeem` or `revert`.
+</Callout>
 
 # Body Parameters
 
@@ -66,23 +67,23 @@ The `coupon` object contains the essential details to validate, redeem, or rever
 
 If the coupon details are not provided, the API returns an error message indicating that coupon details are mandatory for redemption.
 
-
 | Parameter    | Description                                | Required/Optional | Data Type | Sample Value |
 | ------------ | :----------------------------------------- | ----------------- | --------- | ------------ |
 | `couponId`   | Coupon ID generated against a coupon code. | Optional          | String    | `coupon_123` |
 | `couponCode` | Unique coupon code to be validated.        | Required          | String    | `DIWALI100`  |
 
-> 📘 Coupon ID and Coupon Code Handling
->
-> The following are the conditions and their system handling for the `couponId` and `couponCode`:
->
-> * **For Fixed Code Coupons**: For fixed codes, you can provide either a `couponCode` or a `couponID`. If both parameters are provided, the system validates the coupon using either one, as long as one of them is correct.
-> * **For Bulk Code Coupons**: For bulk codes, you must provide the coupon code. The coupon ID and coupon code can have the same value, but the system only validates the coupon based on the provided `couponCode`. If the `couponCode` is invalid or not found, the system returns an error.
+<Callout icon="📘" theme="info">
+  ### Coupon ID and Coupon Code Handling
+
+  The following are the conditions and their system handling for the `couponId` and `couponCode`:
+
+  - **For Fixed Code Coupons**: For fixed codes, you can provide either a `couponCode` or a `couponID`. If both parameters are provided, the system validates the coupon using either one, as long as one of them is correct.
+  - **For Bulk Code Coupons**: For bulk codes, you must provide the coupon code. The coupon ID and coupon code can have the same value, but the system only validates the coupon based on the provided `couponCode`. If the `couponCode` is invalid or not found, the system returns an error.
+</Callout>
 
 ## `order` Object
 
 The `order` object provides information about the overall order and is a mandatory parameter. If the `order` object is not included, the API cannot validate the coupon effectively, as the coupon's applicability and calculations depend on these order details.
-
 
 <Table align={[null,"left",null,null,null]}>
   <thead>
@@ -116,11 +117,11 @@ The `order` object provides information about the overall order and is a mandato
       </td>
 
       <td>
-        Unique identifier for the order being placed. This ID is used to track transactions and associate them with a specific purchase. For example, if a user is buying a shirt, the 
+        Unique identifier for the order being placed. This ID is used to track transactions and associate them with a specific purchase. For example, if a user is buying a shirt, the
 
         `orderId`
 
-         can be 
+        can be
 
         `abcd12345`
 
@@ -146,11 +147,11 @@ The `order` object provides information about the overall order and is a mandato
       </td>
 
       <td>
-        Sum of the original price of all items, calculated as 
+        Sum of the original price of all items, calculated as
 
         `MRP`
 
-         x 
+        x
 
         `quantity`
 
@@ -180,7 +181,7 @@ The `order` object provides information about the overall order and is a mandato
 
         `unitPrice`
 
-         x 
+        x
 
         `quantity`
       </td>
@@ -292,8 +293,7 @@ The `order` object provides information about the overall order and is a mandato
       </td>
 
       <td>
-        <p>Status of the transaction on the user's application, i.e., `pending`, `completed`, or `reverted`.</p>
-        <ul>
+        <p>Status of the transaction on the user's application, i.e., `pending`, `completed`, or `reverted`.</p><ul>
           <li>**Pending**: The transaction is initiated but not yet completed.</li>
           <li>**Completed**: The transaction is successfully completed.</li>
           <li>**Reverted**: The transaction is rolled back, and the coupon redemption is undone.</li>
@@ -319,19 +319,19 @@ The `order` object provides information about the overall order and is a mandato
       </td>
 
       <td>
-        Mode of payment used for the transaction. For example, 
+        Mode of payment used for the transaction. For example,
 
         `credit_card`
 
-        , 
+        ,
 
         `debit_card`
 
-        , 
+        ,
 
         `net_banking`
 
-         and so on.
+        and so on.
       </td>
 
       <td>
@@ -370,6 +370,7 @@ The `order` object provides information about the overall order and is a mandato
     </tr>
   </tbody>
 </Table>
+
 ## `item` Object
 
 The `item` object provides details about individual items in the cart and is a mandatory parameter for coupon redemption. If the item object is not included, the API cannot process the redemption correctly, as it relies on item-specific information such as `productId`, `unitPrice`, and `quantity` to redeem coupons.
@@ -390,7 +391,6 @@ The `item` object provides details about individual items in the cart and is a m
 
 The `metadata` object allows you to include additional custom key-value pairs for advanced coupon validations.
 
-
 | Parameter | Description                                                    | Required/Optional | Data Type | Sample Value |
 | --------- | -------------------------------------------------------------- | ----------------- | --------- | ------------ |
 | key       | Metadata property name (for example, color, size, supplier).   | Optional          | Object    | `size`       |
@@ -399,7 +399,6 @@ The `metadata` object allows you to include additional custom key-value pairs fo
 # Sample Request
 
 Here is an example request to the Redeem/Revert Coupon API, including headers needed to authenticate the request:
-
 
 ```json Redeem cURL
 curl POST "https://in1.api.clevertap.com/1/promo/coupons/apply?identity=krishna123&type=redeem" \
@@ -517,24 +516,18 @@ curl POST "https://in1.api.clevertap.com/1/promo/coupons/apply?identity=krishna1
 ```
 ```
 
-
 ## Find CleverTap Account ID and Passcode
 
-You can find the CleverTap Account ID and Passcode from the CleverTap dashboard by navigating to the *Settings* > *Project* page on the CleverTap dashboard.
-
-<Image alt="Find CleverTap Project Details" align="center" border={true} src="https://files.readme.io/739d78a63824aae1ab3162099ad19831000b8f090ce5960502d7fb7497def258-image.png" />  Find CleverTap Project Details
+You can find the CleverTap Account ID and Passcode from the CleverTap dashboard by navigating to the _Settings_ > _Project_ page on the CleverTap dashboard.
 
 
+<Image src="https://files.readme.io/739d78a63824aae1ab3162099ad19831000b8f090ce5960502d7fb7497def258-image.png" alt="Find CleverTap Project Details" align="center" border={true} />
 
 
-
-
-
-
-
-
+Find CleverTap Project Details
 
 # Sample Response
+
 ```json Redeem
 {
     "status": "success",
@@ -661,21 +654,19 @@ You can find the CleverTap Account ID and Passcode from the CleverTap dashboard 
 }
 ```
 
-
 # Understanding API Response
 
 The Redeem/Revert Coupon API shares several behavior points with the Validate Coupon API. Refer to the [Validate Coupon API Behavior](doc:validate-coupon#api-behaviour) section for applicable rules, including:
 
-* Identity validation
-* Order and Item Object validation
-* Optional parameters validation
-* Metadata validation
-* Coupon code or coupon ID validation
-* Day-specific coupon availability
-* Case sensitivity of coupon codes
+- Identity validation
+- Order and Item Object validation
+- Optional parameters validation
+- Metadata validation
+- Coupon code or coupon ID validation
+- Day-specific coupon availability
+- Case sensitivity of coupon codes
 
 Additional behaviors specific to the Redeem/Revert API are as follows:
-
 
 | Scenario                                                                                                                                                                                                                                                                                                                                                                                                                                                              | API Behavior                                                                                              |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
@@ -688,7 +679,6 @@ Additional behaviors specific to the Redeem/Revert API are as follows:
 | Stacking normal coupons                                                                                                                                                                                                                                                                                                                                                                                                                                               | Users cannot redeem the same or different normal coupons multiple times against the same order ID.        |
 | Stacking `customProperty` coupons                                                                                                                                                                                                                                                                                                                                                                                                                                     | Users cannot redeem the same `customProperty` coupon multiple times against the same order ID.            |
 | Duplicate order IDs                                                                                                                                                                                                                                                                                                                                                                                                                                                   | The API validates duplicate order IDs based on the combination of coupon type and order ID.               |
-
 
 # Errors
 
