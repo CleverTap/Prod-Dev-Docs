@@ -12,16 +12,15 @@ next:
 ---
 # Overview
 
-This endpoint is used to retrieve daily, weekly, and monthly event trends in a specified duration.
+This endpoint retrieves daily, weekly, and monthly event trends for a specified date range.
 
 ## Base URL
 
-Here is an example base URL from the account in the India region:  
-[https://in1.api.clevertap.com/1/counts/trends.json](https://in1.api.clevertap.com/1/counts/trends.json)
+The following is a sample base URL:
 
-### Region
+`https://<region>.api.clevertap.com/1/counts/trends.json`
 
-Refer [Region](https://developer.clevertap.com/docs/common-api-components#region) for more details.
+For region-specific endpoints, refer to [Region](https://developer.clevertap.com/docs/common-api-components#region).
 
 ## HTTP Method
 
@@ -29,51 +28,53 @@ POST
 
 ## Headers
 
-Refer [Headers](https://developer.clevertap.com/docs/common-api-components#headers) for more details.
+Refer to [Headers](https://developer.clevertap.com/docs/common-api-components#headers) for more details.
 
 ## Body Parameters
 
-The body is uploaded as a JSON payload.
+The body is uploaded as a JSON payload. The maximum date range is between `from` and `to` is 1 year. A maximum of 5 groups is supported per request.
 
-| Parameter         | Description                                                                                                                                                                                                                      | Required | Type    | Example Value                                                                                                |
-| :---------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------- | :------ | :----------------------------------------------------------------------------------------------------------- |
-| event_name        | The name of the event.                                                                                                                                                                                                           | required | string  | "choseNewFavoriteFood"                                                                                       |
-| from              | Start of date range within which users should have performed the event you specified in event_name. Input values have to be formatted as integers in format YYYYMMDD.                                                            | required | int     | 20150810                                                                                                     |
-| to                | End of date range within which users should have performed the event you specified in event_name. Input values have to be formatted as integers in format YYYYMMDD.                                                              | required | int     | 20151025                                                                                                     |
-| groups            | Object containing information about trends whose breakdown is required. The endpoint can be used to obtain analysis of multiple trends in one request. Each trend object is referenced by a unique key within the groups object. | required | object  |  "groups":\{"foo":\{"trend_type":"daily"},"bar":\{"trend_type":"weekly"},"foobar":\{"trend_type":"monthly"}} |
-| groups.trend_type | Can be daily, weekly or monthly. Must be present inside each individual group.                                                                                                                                                   | required | string  | "daily"                                                                                                      |
-| unique            | If set to true, returns trends of profiles instead of events.                                                                                                                                                                    | optional | boolean | true                                                                                                         |
-| sum_event_prop    | This event property can display values based on daily, weekly, or monthly trends. This property can process only Integer data types.                                                                                             | Optional | Integer | "Amount"                                                                                                     |
+The following table lists the body parameters.
 
-Below is an example payload.
+| Parameter                                     | Description                                                                                                                                                                                                                                                                       | Required | Type    | Example Value                                                  |
+| :-------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------- | :------ | :------------------------------------------------------------- |
+| event\_name                                   | The name of the event.                                                                                                                                                                                                                                                            | Required | string  | "choseNewFavoriteFood"                                         |
+| from                                          | Start of the date range within which users should have performed the event specified in `event_name`. Input values must be formatted as integers in YYYYMMDD format. The maximum date range between `from` and `to` is 1 year.                                                    | Required | integer | 20150810                                                       |
+| to                                            | End of the date range within which users should have performed the event specified in `event_name`. Input values must be formatted as integers in YYYYMMDD format. The maximum date range between `from` and `to` is 1 year.                                                      | Required | integer | 20151025                                                       |
+| groups                                        | Object containing the trend breakdowns required. Up to 5 groups are supported per request. Each trend object is referenced by a unique key within the `groups` object.                                                                                                            | Required | object  | `{"foo":{"trend_type":"daily"},"bar":{"trend_type":"weekly"}}` |
+| trend\_type (nested within each group object) | The trend granularity for that group. Valid values: `daily`, `weekly`, `monthly`. Must be present inside each individual group.                                                                                                                                                   | Required | string  | "daily"                                                        |
+| unique                                        | When set to `true`, returns trends based on unique users (distinct profiles) rather than total event occurrences. When `false` or omitted, returns total event counts.                                                                                                            | Optional | boolean | true                                                           |
+| sum\_event\_prop                              | The name of an event property whose values will be summed across each time bucket. When this parameter is set, the numeric values in the response represent the sum of the specified property rather than event counts. This property must hold integer values in the event data. | Optional | string  | "Amount"                                                       |
+
+The following is a sample payload.
 
 ```json
 {
-	"event_name": "Charged",
-	"from": 20161224,
-	"to": 20170103,
-	"unique": false,
+  "event_name": "Charged",
+  "from": 20161224,
+  "to": 20170103,
+  "unique": false,
   "sum_event_prop": "Amount",
-	"groups": {
-		"foo": {
-			"trend_type": "daily"
-		},
-		"bar": {
-			"trend_type": "weekly"
-		},
-		"foobar": {
-			"trend_type": "monthly"
-		}
-	}
+  "groups": {
+    "foo": {
+      "trend_type": "daily"
+    },
+    "bar": {
+      "trend_type": "weekly"
+    },
+    "foobar": {
+      "trend_type": "monthly"
+    }
+  }
 }
 ```
 
 ## Example Request
 
-Here is an example cURL request to the _Trends_ API showing the headers needed to authenticate the request from the account in the India region:
+The following is a sample request to the _Trends_ API, including the headers needed to authenticate it.
 
 ```curl
-curl -X POST -d '{"event_name":"Charged","from":20161224,"to":20170103,"unique":false,"sum_event_prop":"Amount","groups":{"foo":{"trend_type":"daily"},"bar":{"trend_type":"weekly"},"foobar":{"trend_type":"monthly"}}}' "https://in1.api.clevertap.com/1/counts/trends.json" \
+curl -X POST -d '{"event_name":"Charged","from":20161224,"to":20170103,"unique":false,"sum_event_prop":"Amount","groups":{"foo":{"trend_type":"daily"},"bar":{"trend_type":"weekly"},"foobar":{"trend_type":"monthly"}}}' "https://<region>.api.clevertap.com/1/counts/trends.json" \
 -H "X-CleverTap-Account-Id: ACCOUNT_ID" \
 -H "X-CleverTap-Passcode: PASSCODE" \
 -H "Content-Type: application/json"
@@ -83,7 +84,7 @@ require 'net/http'
 require 'uri'
 require 'json'
 
-uri = URI.parse("https://in1.api.clevertap.com/1/counts/trends.json")
+uri = URI.parse("https://<region>.api.clevertap.com/1/counts/trends.json")
 request = Net::HTTP::Post.new(uri)
 request.content_type = "application/json"
 request["X-Clevertap-Account-Id"] = "ACCOUNT_ID"
@@ -93,7 +94,7 @@ request.body = JSON.dump({
   "from" => 20161224,
   "to" => 20170103,
   "unique" => false,
-  "sum_event_prop":"Amount",
+  "sum_event_prop" => "Amount",
   "groups" => {
     "foo" => {
       "trend_type" => "daily"
@@ -126,7 +127,7 @@ headers = {
 
 data = '{"event_name":"Charged","from":20161224,"to":20170103,"unique":false,"sum_event_prop":"Amount","groups":{"foo":{"trend_type":"daily"},"bar":{"trend_type":"weekly"},"foobar":{"trend_type":"monthly"}}}'
 
-response = requests.post('https://in1.api.clevertap.com/1/counts/trends.json', headers=headers, data=data)
+response = requests.post('https://<region>.api.clevertap.com/1/counts/trends.json', headers=headers, data=data)
 ```
 ```php
 <?php
@@ -138,7 +139,7 @@ $headers = array(
     'Content-Type' => 'application/json'
 );
 $data = '{"event_name":"Charged","from":20161224,"to":20170103,"unique":false,"sum_event_prop":"Amount","groups":{"foo":{"trend_type":"daily"},"bar":{"trend_type":"weekly"},"foobar":{"trend_type":"monthly"}}}';
-$response = Requests::post('https://in1.api.clevertap.com/1/counts/trends.json', $headers, $data);
+$response = Requests::post('https://<region>.api.clevertap.com/1/counts/trends.json', $headers, $data);
 ```
 ```javascript Node.js
 var request = require('request');
@@ -152,7 +153,7 @@ var headers = {
 var dataString = '{"event_name":"Charged","from":20161224,"to":20170103,"unique":false,"sum_event_prop":"Amount","groups":{"foo":{"trend_type":"daily"},"bar":{"trend_type":"weekly"},"foobar":{"trend_type":"monthly"}}}';
 
 var options = {
-    url: 'https://in1.api.clevertap.com/1/counts/trends.json',
+    url: 'https://<region>.api.clevertap.com/1/counts/trends.json',
     method: 'POST',
     headers: headers,
     body: dataString
@@ -168,6 +169,8 @@ request(options, callback);
 ```
 
 ## Example Response
+
+The following is a sample response.
 
 ```json
 {
@@ -196,19 +199,27 @@ request(options, callback);
 }
 ```
 
-Each trend is referenced by the unique key assigned to it while querying.
+Each trend is referenced by the unique key assigned to it in the request. The date key formats are as follows:
 
-daily trend keys are in YYYYMMDD format. weekly trend keys are in YYYYWW format, where WW refers to week of year. monthly trend keys are in YYYYMM format.
+- Daily (`foo`): `YYYYMMDD`
+- Weekly (`bar`): `YYYYWW`, where WW is the ISO week of the year. For example, `201701` means week 1 of 2017.
+- Monthly (`foobar`): `YYYYMM`. For example, `201701` means January 2017.
 
-## Notes
+Note that weekly and monthly keys can look identical at year boundaries (for example, both `bar` and `foobar` show `201701` in the sample above). The formats are distinct: `bar`'s `201701` refers to week 1 of 2017, while `foobar`'s `201701` refers to January 2017.
 
-The response is a JSON object containing the key status, which might be success, partial, or fail.
+When `sum_event_prop` is set, the numeric values in the response represent the sum of that property across each time bucket, not event counts. For example, if `sum_event_prop` is set to `"Amount"`, each value is the total of all `Amount` values recorded for that date or period.
 
-If the status is success, there will be a count key with an int value of the count for the specified query. If the status is fail, there will be an error key with a string value and a HTTP status code.
+## Response Handling
 
-If the status is partial, the query has not finished processing in our system. In the response, you will receive a req_id key with a long int value that you will use to poll for the result. After the query is completed, you will either receive a success response with the count if the query was successful, or a fail response with an error string and a HTTP status code.
+The response is a JSON object containing the key `status`, which can be `success`, `partial`, or `fail`.
 
-Here is an example response for a partial status.
+If the status is `success`, the response contains the group keys matching those defined in the `groups` parameter of the request. Each key maps to an object of date-bucketed trend values. When `sum_event_prop` is not set, each value is an event count. When `sum_event_prop` is set, each value is the sum of that property for the period.
+
+If the status is `fail`, the response contains a `error` key with a string value and an HTTP status code.
+
+If the status is `partial`, the query has not finished processing. The response contains a `req_id` key with a long integer value to use for polling. After the query completes, polling returns either a success response with the trend data or a failure response with an error string and HTTP status code. Wait 30 seconds between polling requests.
+
+The following is a sample response for a partial status.
 
 ```json
 {
@@ -217,22 +228,20 @@ Here is an example response for a partial status.
 }
 ```
 
-After getting the req_id, you will poll the endpoint below and provide the value of req_id as a query parameter.
+After getting the `req_id`, poll, the following endpoint provides the value  `req_id` as a query parameter.
 
-GET [https://in1.api.clevertap.com/1/counts/trends.json?req_id=](https://in1.api.clevertap.com/1/counts/trends.json?req_id=)\<your_request_id_here>
+```
+GET https://<region>.api.clevertap.com/1/counts/trends.json?req_id=<your_request_id_here>
+```
 
-<Callout icon="📘" theme="info">
-  **Region**
+## Next Steps
 
-  This is an example base URL from the account in the India region. To know the API endpoint for your account, refer to [Region](https://developer.clevertap.com/docs/trends-api#region).
-</Callout>
-
-# Next Steps
-
-Now that you’ve learned how to get a message report from the CleverTap API, learn how to get events using the [Get Events API](doc:get-events-api).
+Now that you have learned how to retrieve event trends from the CleverTap API, learn how to get events using the [Get Events API](doc:get-events-api).
 
 ## Notes
 
-* Calls to this endpoint are synchronous. We recommend making individual calls, waiting for our response, and then make another request.
-* For more information on request limit, refer to [API Request Limit](doc:api-request-limit).
-* To understand the common queries and concerns related to CleverTap APIs, refer to [API FAQs](doc:api-faqs).
+- CleverTap recommends to make individual sequential calls and waiting for a response from each before making the next request.
+- For more information on request limits, refer to [API Request Limit](doc:api-request-limit).
+- To understand common queries and concerns about CleverTap APIs, refer to the [API FAQs](doc:api-faqs).
+
+<br />
