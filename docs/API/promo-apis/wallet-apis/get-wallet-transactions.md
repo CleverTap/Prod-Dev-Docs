@@ -58,9 +58,7 @@ The following table lists the accepted query parameters:
 | to          | Filters transactions with a timestamp on or before this value. Pass the timestamp in UTC epoch format (seconds). Must be used together with `from`. The boundary is inclusive.                                                                                                                 | integer | Optional          | `1706745600`   |
 
 <Callout icon="📘" theme="info">
-  ###
-
-  **Note**
+  ### **Note**
 
   - All filter parameters are optional. Filters not passed, or passed with blank or null values, are silently ignored.
   - Filters only apply to the `allTransactions` array in the response. The `promisedPoints` and `pointsExpiring` objects are not affected and always return their full data.
@@ -193,9 +191,7 @@ The following is a sample response. The API returns an array of objects, with ea
 ```
 
 <Callout icon="📘" theme="info">
-  ###
-
-  **Note**
+  ### **Note**
 
   - The parameters `type`, `txnSource`, `saleChannel`, `campaignId`, `orderId`, and `locationId` in each `allTransactions` entry correspond directly to the optional query parameters you can use to filter results.
   - The `from` and `to` query parameters filter based on the `txnTimestamp` field.
