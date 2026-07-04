@@ -12,8 +12,6 @@ metadata:
 next:
   description: ''
 ---
-<br />
-
 # Overview
 
 The Debit/Credit Wallet API allows you to update the points in the user's wallet by either debiting (subtracting) or crediting (adding) them. The wallet ledger balance is updated immediately after the transaction is processed.
@@ -32,7 +30,7 @@ Consider an example in which a user makes a $200 purchase and has a balance of 2
 1. **Determine Redemption Details**: With a conversion rate of 1 point = $1, this redemption translates into a $50 discount.
 2. **Calculate Final Payable Amount**: Apply the $50 discount to the purchase amount of $200. The user's final payable amount is $150.
 3. **Invoke the Debit API**: Invoke the Debit API to deduct the redeemed points from the user's wallet after completing the transaction successfully. Pass the transaction details such as `walletId`, `identity`, and `points` to be debited (in this case, 50) in the API request.
-4. **Update Wallet Ledger**: Update the wallet balance to 150 points, ensuring the user wallet accurately reflects the redeemed points.
+4. **Update Wallet Ledger**: Set the wallet balance to 150 points to ensure the user's wallet accurately reflects the redeemed points.
 
 <Callout icon="📘" theme="info">
   ### **Example Credit Use Case**
@@ -78,7 +76,7 @@ The following table lists the body parameters.
 | activationDuration | Specifies the time duration before points move from the PENDING bucket to the ACTIVE bucket. This parameter is only processed when `bucketType` is `PENDING`. It is silently ignored for `ACTIVE` transactions. The format is space-separated: `Xw Xd Xh Xm`, where X is the value and w = week, d = day, h = hour, m = minute. For example, `2d 3h` means 2 days and 3 hours.  | Optional          | string  | `2d 3h`                                           |
 | expiryDuration     | Specifies the expiry duration for points. Applies to both credit and debit transactions on the ACTIVE bucket. If not provided, the system defaults to the expiry duration configured at the wallet level. The format is space-separated: `Xw Xd Xh Xm Xy`, where X is the value and w = week, d = day, h = hour, m = minute, y = calendar year.                                 | Optional          | string  | `1w 2d`                                           |
 | orderId            | References the bill number to associate the transaction with a specific order ID for potential future refunds. This enables tracking transactions for return sales.                                                                                                                                                                                                             | Optional          | string  | `ORD12345`                                        |
-| saleChannel        | The source channel for the transaction (for example, Mobile, Web, POS). Applies to both credit and debit transactions.                                                                                                                                                                                                                                                          | Optional          | string  | `POS`                                             |
+| saleChannel        | The source channel for the transaction (for example, Mobile, Web, or POS). Applies to both credit and debit transactions.                                                                                                                                                                                                                                                       | Optional          | string  | `POS`                                             |
 | locationId         | Identifier for the transaction location (for example, a store code). Applies to both credit and debit transactions.                                                                                                                                                                                                                                                             | Optional          | string  | `BAN123`                                          |
 | saleAmount         | Gross order value tied to the transaction. Applies to both credit and debit transactions.                                                                                                                                                                                                                                                                                       | Optional          | numeric | `2499.00`                                         |
 | metadata           | Key-value pairs to persist with the transaction. Applies to both credit and debit transactions.                                                                                                                                                                                                                                                                                 | Optional          | object  | `{ "cashierId": "C42", "campaign": "FESTIVE25" }` |
@@ -99,7 +97,7 @@ The following table lists the body parameters.
 
 ## Example Request
 
-The following is a sample request to the Debit/Credit Wallet API, showing the headers needed to authenticate the request. The full request body options for debit and credit transactions are shown in the payload examples below.
+The following is a sample request to the Debit/Credit Wallet API, showing the headers needed to authenticate the request. The full set of request body options for debit and credit transactions is shown in the payload examples below.
 
 ```curl
 curl -X POST "https://<region>.api.clevertap.com/1/promo/creditDebit?identity=krishna123&walletId=1963" \
