@@ -12,173 +12,131 @@ next:
 ---
 # Overview
 
-The Get API endpoint retrieves Variables and their values for the current user or device. The API returns the default values or values associated with all users for the variables in the following scenarios:
+The Get Variables API retrieves variables and their values for the current user or device. The API returns default values or values associated with all users in the following scenarios:
 
-* If the profile or CleverTap ID does not exist. It does not generate new profiles or devices.
-* If the user segment contains any of the follower user properties:
-  * Geography
-  * App Fields: (OS, App Version, SDK Version, Make)
-  * Technographics: (Browser, Device, OS)
+- If the profile or CleverTap ID does not exist. No new profiles or devices are created.
+- If the user segment contains any of the following user properties:
+  - Geography
+  - App Fields: OS, App Version, SDK Version, Make
+  - Technographics: Browser, Device, OS
 
-# Endpoint
+## Base URL
 
-Here is a base sample endpoint from the account in the India region:  
-[https://in1.api.clevertap.com/1/getVars](https://in1.api.clevertap.com/1/getVars)
+The following is a sample base URL:
 
-# Authentication
+`https://<region>.api.clevertap.com/1/getVars`
 
-Authentication is required using accountId and passcode headers.
+For region-specific endpoints, refer to [Region](https://developer.clevertap.com/docs/common-api-components#region).
 
-# Headers
+## HTTP Method
+
+POST
+
+## Headers
 
 Refer to [Headers](https://developer.clevertap.com/docs/common-api-components#headers) for more details.
 
-# Region
+## Body Parameters
 
-Refer to [Regions](https://developer.clevertap.com/docs/common-api-components#region) to view region-specific sample endpoints
+The following table lists the body parameters. Provide either `identity` or `clevertapId` to identify the user.
 
-# HTTP Method
-
-**POST**
-
-# Body Parameters
-
-<Table align={["left","left","left","left","left"]}>
-  <thead>
-    <tr>
-      <th>
-        Parameter
-      </th>
-
-      <th>
-        Description
-      </th>
-
-      <th>
-        Type
-      </th>
-
-      <th>
-        Example
-      </th>
-
-      <th>
-        Required/Optional
-      </th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr>
-      <td>
-        identity
-      </td>
-
-      <td>
-        This indicates an identity to recognize a unique user. It can be the user’s email ID, phone number, or any other identifier that you are using to tag your users.
-      </td>
-
-      <td>
-        String
-      </td>
-
-      <td>
-        `("user@clevertap.com" / user )`
-      </td>
-
-      <td>
-        Required
-
-        (Either `identity` or `guid` is required)
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        clevertapId
-      </td>
-
-      <td>
-        Identify a unique user by CleverTap Global Object ID.
-      </td>
-
-      <td>
-        String
-      </td>
-
-      <td>
-        “12345678"
-      </td>
-
-      <td>
-        Optional  
-        (Either `identity` or `clevertapId` is required)
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        includeDefaults
-      </td>
-
-      <td>
-        This parameter determines if the response must return the default values of Variables that do not have set override.
-      </td>
-
-      <td>
-        Boolean
-      </td>
-
-      <td>
-        false (default)
-      </td>
-
-      <td>
-        Optional
-      </td>
-    </tr>
-  </tbody>
-</Table>
+| Parameter       | Description                                                                                                                                                                                                     | Type    | Example                | Required/Optional                                                                          |
+| :-------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------ | :--------------------- | :----------------------------------------------------------------------------------------- |
+| identity        | An identity to recognize a unique user. Can be the user's email address, phone number, or any other identifier used to tag your users.                                                                          | string  | `"user@clevertap.com"` | Required if `clevertapId` is not provided. Either `identity` or `clevertapId` is required. |
+| clevertapId     | The CleverTap Global Object ID for the user. When both `identity` and `clevertapId` are provided, `clevertapId` takes precedence for the profile lookup and `identity` is used only for post-lookup validation. | string  | `"12345678"`           | Required if `identity` is not provided. Either `identity` or `clevertapId` is required.    |
+| includeDefaults | When `true`, the response includes variables that have only default values (no user-specific overrides). When `false` (default), variables with only default values are omitted.                                | boolean | `false`                | Optional. Defaults to `false`.                                                             |
 
 <Callout icon="📘" theme="info">
-  **Note**
+  ### **Note**
 
-  In case the identity or clevertapId does not exist, the API returns all defined Variables default values. New user profiles are not created.
+  If the `identity` or `clevertapId` does not exist, the API returns all defined variable default values. New user profiles are not created.
 </Callout>
 
-## Sample Request
+## Example Request
 
-```curl curl
-curl -X POST -d '{"identity":"user@clevertap.com","clevertapId":"12345678","includeDefaults":false}' "https://in1.api.clevertap.com/1/getVars" \
+The following are sample requests to the _Get Variables_ API. Provide `identity` or `clevertapId`, but not both unless you intend `clevertapId` to take precedence.
+
+```curl Using identity
+curl -X POST "https://<region>.api.clevertap.com/1/getVars" \
 -H "X-CleverTap-Account-Id: ACCOUNT_ID" \
 -H "X-CleverTap-Passcode: PASSCODE" \
--H "Content-Type: application/json; charset=utf-8"
+-H "Content-Type: application/json; charset=utf-8" \
+-d '{"identity":"user@clevertap.com","includeDefaults":false}'
+```
+```curl Using clevertapId
+curl -X POST "https://<region>.api.clevertap.com/1/getVars" \
+-H "X-CleverTap-Account-Id: ACCOUNT_ID" \
+-H "X-CleverTap-Passcode: PASSCODE" \
+-H "Content-Type: application/json; charset=utf-8" \
+-d '{"clevertapId":"12345678","includeDefaults":false}'
 ```
 
-## Sample Response
+## Example Response
+
+The following is a sample success response.
 
 ```json
 {
+    "status": "success",
     "variables": {
-      	"zFolderA.aVariable": 9.9,
+        "zFolderA.aVariable": 9.9,
         "zFolderA.AVariable": 10.0,
         "variableB": 9.9,
         "zFolderB.dummy": 10.1,
         "zFolderA.zFolder.dummy": 25.0,
-        "variableA": 10.0},
-    "status": "success"
+        "variableA": 10.0
+    }
 }
-
 ```
 
-## Errors
+The following is a sample warning response. The request succeeds (HTTP 200) and variables are returned, but a `warning` field is included when the provided identity does not match the identities associated with the located profile.
 
-The Get Variables endpoint can return some of the following warnings or errors:
+```json
+{
+    "status": "success",
+    "variables": {
+        "variableA": 10.0
+    },
+    "warning": "Given identity is not in device profile identities."
+}
+```
 
-| Error Name                                         | Reason                                                                          |
-| :------------------------------------------------- | :------------------------------------------------------------------------------ |
-| Profile not found                                  | The user profile could not be located.                                          |
-| Profile lookup is not available at the moment      | Access to user profile lookup is currently unavailable.                         |
-| Blacklisted device                                 | This device is blacklisted.                                                     |
-| Given identity is not in device profile identities | The provided identity does not match any identities associated with the device. |
-| Something happened. Contact the support.           | An unexpected error. Contact support for assistance.                            |
+The following is a sample error response. Variables are not returned when a hard error occurs.
+
+```json
+{
+    "status": "error",
+    "error": "No variables were found. Please ensure that you have a live version and retry."
+}
+```
+
+## Response Fields
+
+The following table describes the response fields.
+
+| Field     | Type   | Description                                                                                                                                  |
+| :-------- | :----- | :------------------------------------------------------------------------------------------------------------------------------------------- |
+| status    | string | `success` for successful requests and warning responses. `error` when a hard error occurs.                                                   |
+| variables | object | Map of variable names to their current values for the user. Present on success and warning responses. Absent on error responses.             |
+| warning   | string | Warning message. Present when `identity` does not match the located profile's identities. Variables are still returned alongside this field. |
+| error     | string | Error message. Present when a hard error occurs. Variables are not returned alongside this field.                                            |
+
+## Errors and Warnings
+
+The following table describes warnings returned in HTTP 200 responses. Variables are still returned in the response.
+
+| Warning Message                                     | Reason                                                                                                                   |
+| :-------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------- |
+| Given identity is not in device profile identities. | The provided `identity` does not match the identities associated with the located profile. Variables are still returned. |
+
+The following table describes errors that prevent variables from being returned.
+
+| HTTP Status | Error                                        | Description                                                                     | Example Error Response                                                            |
+| ----------- | -------------------------------------------- | ------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| 400         | `"Failed to parse request."`                 | Request body is not valid JSON                                                  | `{"status":"fail","error":"Failed to parse request.","code":400}`                 |
+| 400         | `"Failed to process request."`               | Unexpected error during request setup                                           | `{"status":"fail","error":"Failed to process request.","code":400}`               |
+| 401         | `"Invalid credentials"`                      | Account ID not found or passcode is incorrect                                   | `{"status":"fail","error":"Invalid credentials","code":401}`                      |
+| 403         | `"API access has been temporally suspended"` | Account's API access has been suspended                                         | `{"status":"fail","error":"API access has been temporally suspended","code":403}` |
+| 503         | `"12 digit account ID mandatory."`           | `X-CleverTap-Account-Id` header is missing from the request                     | `{"status":"fail","error":"12 digit account ID mandatory.","code":503}`           |
+| 503         | `"Please come back later"`                   | Server at global capacity limit or warming up. Retry after at least 30 seconds. | `{"status":"fail","error":"Please come back later","code":503}`                   |
+
