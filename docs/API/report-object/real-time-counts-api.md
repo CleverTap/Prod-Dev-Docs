@@ -198,6 +198,8 @@ The following table describes the response fields.
 | device          | object  | Breakdown of active users by device type. Present only when `device: true` was passed in the request.                                   |
 | error           | string  | Error message. Present only when `status` is `"fail"`.                                                                                  |
 
+For more information on request limits, refer to [API Request Limit](doc:api-request-limit). To understand common queries and concerns about CleverTap APIs, refer to the [API FAQs](doc:api-faqs).
+
 ## Error Codes
 
 The following is the list of error codes returned by the API:
@@ -215,17 +217,4 @@ The following is the list of error codes returned by the API:
 | 503         | `"12 digit account ID mandatory."`           | `X-CleverTap-Account-Id` header is missing from the request                           | `{"status":"fail","error":"12 digit account ID mandatory.","code":503}`           |
 | 503         | `"Please come back later"`                   | Server at global capacity limit, warming up, or async timeout. Retry after 2 minutes. | `{"status":"fail","error":"Please come back later","code":503}`                   |
 
-## Notes
-
-If no payload is provided and the request is successful, the response includes only the total `count` of active users in real-time with no breakdown.
-
-The following is a sample fail response.
-
-```json
-{
-  "status": "fail",
-  "error": "<error message>"
-}
-```
-
-For more information on request limits, refer to [API Request Limit](doc:api-request-limit). To understand common queries and concerns about CleverTap APIs, refer to the [API FAQs](doc:api-faqs).
+<br />
