@@ -12,16 +12,15 @@ next:
 ---
 # Overview
 
-This endpoint enables you to get a real-time count of active users in the past five minutes in your app. The results can be spliced by user_type, session_source, browser, os, and device for active and new users.
+This endpoint retrieves a real-time count of active users in your app over the past five minutes. The results can be split by `user_type`, `session_source`, `browser`, `os`, and `device` for active and new users.
 
 ## Base URL
 
-Here is an example base URL from the account in the India region:  
-[https://in1.api.clevertap.com/1/now.json](https://in1.api.clevertap.com/1/now.json)
+The following is a sample base URL:
 
-### Region
+`https://<region>.api.clevertap.com/1/now.json`
 
-Refer [Region](https://developer.clevertap.com/docs/common-api-components#region) for more details.
+For region-specific endpoints, refer to [Region](https://developer.clevertap.com/docs/common-api-components#region).
 
 ## HTTP Method
 
@@ -29,30 +28,40 @@ POST
 
 ## Headers
 
-Refer [Headers](https://developer.clevertap.com/docs/common-api-components#headers) for more details.
+Refer to [Headers](https://developer.clevertap.com/docs/common-api-components#headers) for more details.
 
 ## Body Parameters
 
-The body is uploaded as a JSON payload. An empty payload {} will return a real-time count of active users.
+The body is uploaded as a JSON payload. An empty payload `{}` returns a real-time count of all active users with no breakdown. Set any of the parameters below to `true` to include a breakdown by that dimension.
 
-| Parameter | Description                                             | Required | Type    | Example Value |
-| :-------- | :------------------------------------------------------ | :------- | :------ | :------------ |
-| user_type | If set to true, will return the split of users by type. | optional | boolean | true          |
+The following table lists the body parameters.
 
-Below is an example payload.
+| Parameter       | Description                                                                    | Required | Type    | Example Value |
+| :-------------- | :----------------------------------------------------------------------------- | :------- | :------ | :------------ |
+| user\_type      | When `true `, returns a breakdown of active users by type (new vs. returning). | Optional | boolean | `true`        |
+| session\_source | When `true`, returns a breakdown of active users by session source.            | Optional | boolean | `true`        |
+| browser         | When `true`, returns a breakdown of active users by browser.                   | Optional | boolean | `true`        |
+| os              | When `true`, returns a breakdown of active users by operating system.          | Optional | boolean | `true`        |
+| device          | When `true`, returns a breakdown of active users by device type.               | Optional | boolean | `true`        |
+
+The following is a sample payload requesting multiple breakdowns at once.
 
 ```json
 {
-	"user_type": true
+    "user_type": true,
+    "session_source": true,
+    "browser": true,
+    "os": true,
+    "device": true
 }
 ```
 
 ## Example Request
 
-Here is an example cURL request to the _Real-Time Counts_ API showing the headers needed to authenticate the request from the account in the India region:
+The following is a sample request to the _Real-Time Counts_ API, showing the headers needed to authenticate the request.
 
 ```curl
-curl -X POST -d '{"user_type":true}' "https://in1.api.clevertap.com/1/now.json" \
+curl -X POST -d '{"user_type":true}' "https://<region>.api.clevertap.com/1/now.json" \
 -H "X-CleverTap-Account-Id: ACCOUNT_ID" \
 -H "X-CleverTap-Passcode: PASSCODE" \
 -H "Content-Type: application/json"
@@ -62,14 +71,13 @@ require 'net/http'
 require 'uri'
 require 'json'
 
-uri = URI.parse("https://in1.api.clevertap.com/1/now.json")
+uri = URI.parse("https://<region>.api.clevertap.com/1/now.json")
 request = Net::HTTP::Post.new(uri)
 request.content_type = "application/json"
 request["X-Clevertap-Account-Id"] = "ACCOUNT_ID"
 request["X-Clevertap-Passcode"] = "PASSCODE"
 request.body = JSON.dump({
   "user_type" => true
-  
 })
 
 req_options = {
@@ -91,7 +99,7 @@ headers = {
 
 data = '{"user_type":true}'
 
-response = requests.post('https://in1.api.clevertap.com/1/now.json', headers=headers, data=data)
+response = requests.post('https://<region>.api.clevertap.com/1/now.json', headers=headers, data=data)
 ```
 ```php
 <?php
@@ -103,7 +111,7 @@ $headers = array(
     'Content-Type' => 'application/json'
 );
 $data = '{"user_type":true}';
-$response = Requests::post('https://in1.api.clevertap.com/1/now.json', $headers, $data);
+$response = Requests::post('https://<region>.api.clevertap.com/1/now.json', $headers, $data);
 ```
 ```javascript Node.js
 var request = require('request');
@@ -117,7 +125,7 @@ var headers = {
 var dataString = '{"user_type":true}';
 
 var options = {
-    url: 'https://in1.api.clevertap.com/1/now.json',
+    url: 'https://<region>.api.clevertap.com/1/now.json',
     method: 'POST',
     headers: headers,
     body: dataString
@@ -134,6 +142,8 @@ request(options, callback);
 
 ## Example Response
 
+The following is a sample response with no breakdown parameters set (empty payload).
+
 ```json
 {
   "status": "success",
@@ -141,31 +151,81 @@ request(options, callback);
 }
 ```
 
-Here is an example response if you set user_type parameter to true.
+The following is a sample response when all breakdown parameters are set to `true`.
 
 ```json
 {
   "status": "success",
   "count": 214,
   "user_type": {
-    "new": 58
+    "new": 58,
+    "returning": 156
+  },
+  "session_source": {
+    "organic": 120,
+    "paid": 94
+  },
+  "browser": {
+    "Chrome": 98,
+    "Safari": 72,
+    "Firefox": 44
+  },
+  "os": {
+    "Android": 130,
+    "iOS": 84
+  },
+  "device": {
+    "mobile": 170,
+    "tablet": 44
   }
 }
 ```
 
+Each breakdown key is only present in the response when its corresponding parameter is set to `true` in the request.
+
+## Response Fields
+
+The following table describes the response fields.
+
+| Field           | Type    | Description                                                                                                                             |
+| :-------------- | :------ | :-------------------------------------------------------------------------------------------------------------------------------------- |
+| status          | string  | `"success"` or `"fail"`.                                                                                                                |
+| count           | integer | Total number of active users in the past 5 minutes. Always present on success.                                                          |
+| user\_type      | object  | Breakdown of active users by type (for example, `"new"`, `"returning"`). Present only when `user_type: true` was passed in the request. |
+| session\_source | object  | Breakdown of active users by session source. Present only when `session_source: true` was passed in the request.                        |
+| browser         | object  | Breakdown of active users by browser. Present only when `browser: true` was passed in the request.                                      |
+| os              | object  | Breakdown of active users by operating system. Present only when `os: true` was passed in the request.                                  |
+| device          | object  | Breakdown of active users by device type. Present only when `device: true` was passed in the request.                                   |
+| error           | string  | Error message. Present only when `status` is `"fail"`.                                                                                  |
+
+## Error Codes
+
+The following is the list of error codes returned by the API:
+
+| HTTP Status | Error                                        | Description                                                                           | Example Error Response                                                            |
+| ----------- | -------------------------------------------- | ------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| 400         | `"Incomplete request body"`                  | Request body could not be read due to an I/O error                                    | `{"status":"fail","error":"Incomplete request body","code":400}`                  |
+| 400         | `"Failed to process request."`               | Unexpected error during request setup                                                 | `{"status":"fail","error":"Failed to process request.","code":400}`               |
+| 400         | `"Error Processing, Please try again later"` | Async processing failure                                                              | `{"status":"fail","error":"Error Processing, Please try again later","code":400}` |
+| 401         | `"Invalid credentials"`                      | Account ID not found or passcode is incorrect                                         | `{"status":"fail","error":"Invalid credentials","code":401}`                      |
+| 403         | `"API access has been temporally suspended"` | Account's API access has been suspended                                               | `{"status":"fail","error":"API access has been temporally suspended","code":403}` |
+| 429         | `"Too many concurrent requests"`             | Per-account concurrent request limit exceeded. Retry after 120 seconds.               | `{"status":"fail","error":"Too many concurrent requests","code":429}`             |
+| 500         | `"Please try again"`                         | Dashboard request timed out or failed after 3 retry attempts                          | `{"status":"fail","error":"Please try again","code":500}`                         |
+| 500         | `"Failed to process request"`                | Unexpected critical server-side failure                                               | `{"status":"fail","error":"Failed to process request","code":500}`                |
+| 503         | `"12 digit account ID mandatory."`           | `X-CleverTap-Account-Id` header is missing from the request                           | `{"status":"fail","error":"12 digit account ID mandatory.","code":503}`           |
+| 503         | `"Please come back later"`                   | Server at global capacity limit, warming up, or async timeout. Retry after 2 minutes. | `{"status":"fail","error":"Please come back later","code":503}`                   |
+
 ## Notes
 
-The response will be a JSON object containing either the success or fail status.
+If no payload is provided and the request is successful, the response includes only the total `count` of active users in real-time with no breakdown.
 
-If no payload was provided and the request was successful, the response will include a count of active users in real-time.
+The following is a sample fail response.
 
 ```json
 {
-  "status": "success",
-  "count": 214
+  "status": "fail",
+  "error": "<error message>"
 }
 ```
 
-For more information on request limit, refer to [API Request Limit](doc:api-request-limit).
-
-To understand the common queries and concerns related to CleverTap APIs, refer to [API FAQs](doc:api-faqs).
+For more information on request limits, refer to [API Request Limit](doc:api-request-limit). To understand common queries and concerns about CleverTap APIs, refer to the [API FAQs](doc:api-faqs).
