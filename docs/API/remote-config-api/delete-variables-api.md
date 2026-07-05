@@ -12,117 +12,58 @@ next:
 ---
 # Overview
 
-The Delete Variables API endpoint allows you to delete variables individually or all at once.
+The Delete Variables API allows you to delete Remote Config variables individually by name, or all at once.
 
-# Endpoint
+## Base URL
 
-Here is a sample endpoint from the account in the India region:\
-[https://in1.api.clevertap.com/1/deleteVars](https://in1.api.clevertap.com/1/deleteVars)
+The following is a sample base URL:
 
-# Authentication
+`https://<region>.api.clevertap.com/1/deleteVars`
 
-Authentication is required using accountId and passcode headers.
+For region-specific endpoints, refer to [Region](https://developer.clevertap.com/docs/common-api-components#region).
 
-# Headers
+## HTTP Method
+
+POST
+
+## Headers
 
 Refer to [Headers](https://developer.clevertap.com/docs/common-api-components#headers) for more details.
 
-# Region
+## Body Parameters
 
-Refer to [Regions](https://developer.clevertap.com/docs/common-api-components#region) to view region-specific sample endpoints
+Provide either `deleteAllVars: true` to delete all variables, or a `variableNames` array to delete specific variables. You do not need to provide both.
 
-# HTTP Method
+If both are provided, `deleteAllVars: true` takes effect and all variables are deleted regardless of the `variableNames` list.
 
-The HTTP method is **POST** for the Delete Variables API
+The following table lists the body parameters.
 
-# Body Parameters
+| Parameter     | Description                                                                                                                                                                                                                                 | Type             | Example                                       | Required/Optional                           |
+| :------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :--------------- | :-------------------------------------------- | :------------------------------------------ |
+| deleteAllVars | When `true`, deletes all variables in your Remote Config. When `deleteAllVars: true` is set, `variableNames` is not needed.                                                                                                                 | boolean          | `{"deleteAllVars": true}`                     | Optional                                    |
+| variableNames | List of variable names to delete. Supports dot-notation names (for example, `"folder1.var2"`). Non-existent names are returned in `problematicVariables` rather than causing an error. Required when `deleteAllVars` is `false` or omitted. | array of strings | `{"variableNames": ["var1", "folder1.var2"]}` | Required when `deleteAllVars` is not `true` |
 
-<Table align={["left","left","left","left","left"]}>
-  <thead>
-    <tr>
-      <th>
-        Parameter
-      </th>
+<Callout icon="⚠️" theme="warning">
+  ### **All Names Non-Existent**
 
-      <th>
-        Description
-      </th>
+  If `deleteAllVars` is `false` or omitted and every name in `variableNames` does not exist, the API returns HTTP 400 with a `LIVE_VERSION_NOT_CHANGED` validation error. A caller sending a list of already-deleted variable names will receive a 400, not a 200 with all names in `problematicVariables`.
+</Callout>
 
-      <th>
-        Type
-      </th>
+## Example Request
 
-      <th>
-        Example
-      </th>
+The following is a sample request to the _Delete Variables_ API, showing the headers needed to authenticate the request.
 
-      <th>
-        Required/Optional
-      </th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr>
-      <td>
-        deleteAllVars
-      </td>
-
-      <td>
-        Determines whether you want to delete all variables in your Remote Config.
-      </td>
-
-      <td>
-        Boolean
-      </td>
-
-      <td>
-        \{\
-          "deleteAllVars": false\
-        }
-      </td>
-
-      <td>
-        Optional
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        variableNames
-      </td>
-
-      <td>
-        Contains a list of variable names you want to delete from your Remote Config.
-      </td>
-
-      <td>
-        String
-      </td>
-
-      <td>
-        \{\
-        "variableNames": ["var1", "folder1.var2", "non.existing"]\
-        }
-      </td>
-
-      <td>
-        Required
-      </td>
-    </tr>
-  </tbody>
-</Table>
-
-# Sample Request
-
-```json json
-curl -X POST -d '{"variableNames":["var1","folder1.var2"]}' "https://in1.api.clevertap.com/1/deleteVars" \
+```curl
+curl -X POST "https://<region>.api.clevertap.com/1/deleteVars" \
 -H "X-CleverTap-Account-Id: ACCOUNT_ID" \
 -H "X-CleverTap-Passcode: PASSCODE" \
--H "Content-Type: application/json; charset=utf-8"
+-H "Content-Type: application/json; charset=utf-8" \
+-d '{"variableNames":["var1","folder1.var2","non.existing"]}'
 ```
 
-# Sample Response
+## Example Response
+
+The following is a sample response.
 
 ```json
 {
@@ -135,5 +76,46 @@ curl -X POST -d '{"variableNames":["var1","folder1.var2"]}' "https://in1.api.cle
         "non.existing"
     ]
 }
-
 ```
+
+The following table describes the response fields.
+
+| Field                | Type             | Description                                                                                   |
+| :------------------- | :--------------- | :-------------------------------------------------------------------------------------------- |
+| status               | string           | `"success"` on a successful request.                                                          |
+| deletedVariables     | array of strings | Names of variables that were successfully deleted.                                            |
+| problematicVariables | array of strings | Names from `variableNames` that could not be deleted, for example, because they do not exist. |
+
+<Callout icon="📘" theme="info">
+  ### **Draft Only**
+
+  This API only modifies the current draft version of your Remote Config. Deleted variables remain live until the draft is published from the CleverTap dashboard.
+</Callout>
+
+<Callout icon="⚠️" theme="warning">
+  ### **Draft Conflict**
+
+  If another user already has an unpublished draft, the API returns the error "Draft of another user already exists." Only one draft can exist at a time. Publish or discard the existing draft before making further changes.
+</Callout>
+
+## Error Codes
+
+The following is the list of error codes that may be returned by the API:
+
+| HTTP Status | Error                                        | Description                                                                     | Example Error Response                                                            |
+| ----------- | -------------------------------------------- | ------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| 400         | `"Incomplete request body"`                  | Request body could not be read                                                  | `{"status":"fail","error":"Incomplete request body","code":400}`                  |
+| 400         | `"Failed to process request."`               | Unexpected error during request setup                                           | `{"status":"fail","error":"Failed to process request.","code":400}`               |
+| 401         | `"Invalid credentials"`                      | Account ID not found or passcode is incorrect                                   | `{"status":"fail","error":"Invalid credentials","code":401}`                      |
+| 403         | `"API access has been temporally suspended"` | Account's API access has been suspended                                         | `{"status":"fail","error":"API access has been temporally suspended","code":403}` |
+| 429         | `"Too many concurrent requests"`             | Per-account concurrent request limit exceeded. Retry after 120 seconds.         | `{"status":"fail","error":"Too many concurrent requests","code":429}`             |
+| 500         | `"Please try again"`                         | Dashboard service timed out after 3 retry attempts                              | `{"status":"fail","error":"Please try again","code":500}`                         |
+| 500         | `"Failed to process request"`                | Unexpected critical server-side failure                                         | `{"status":"fail","error":"Failed to process request","code":500}`                |
+| 503         | `"12 digit account ID mandatory."`           | `X-CleverTap-Account-Id` header is missing from the request                     | `{"status":"fail","error":"12 digit account ID mandatory.","code":503}`           |
+| 503         | `"Please come back later"`                   | Server at global capacity limit or warming up. Retry after at least 30 seconds. | `{"status":"fail","error":"Please come back later","code":503}`                   |
+
+<br />
+
+<br />
+
+<br />
