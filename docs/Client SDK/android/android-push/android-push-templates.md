@@ -424,7 +424,7 @@ For template outputs Android 11 and below, refer to [Push Templates on Android v
       </td>
 
       <td>
-        Specify the image scaling type for notifications.  Available values: <li>`fit_center` </li>  <li>`center_crop`</li><br />For more information on how it works, refer to [Image Scaling](doc:android-push-templates#image-scaling).
+        Specify the image scaling type for notifications.  Available values: <li>`fit_center` </li><li>`center_crop`</li><br />For more information on how it works, refer to [Image Scaling](doc:android-push-templates#image-scaling).
       </td>
     </tr>
 
@@ -876,7 +876,7 @@ Auto Carousel is an automatic revolving carousel push notification that automati
       </td>
 
       <td>
-        Specify the image scaling type for notifications.  Available values: <li>`fit_center` </li>  <li>`center_crop`</li><br />For more information on how it works, refer to [Image Scaling](doc:android-push-templates#image-scaling).
+        Specify the image scaling type for notifications.  Available values: <li>`fit_center` </li><li>`center_crop`</li><br />For more information on how it works, refer to [Image Scaling](doc:android-push-templates#image-scaling).
       </td>
     </tr>
 
@@ -1330,7 +1330,7 @@ If only a single image is available for download, this template falls back to th
       </td>
 
       <td>
-        Specify the image scaling type for notifications.  Available values: <li>`fit_center` </li>  <li>`center_crop`</li><br />For more information on how it works, refer to [Image Scaling](doc:android-push-templates#image-scaling).
+        Specify the image scaling type for notifications.  Available values: <li>`fit_center` </li><li>`center_crop`</li><br />For more information on how it works, refer to [Image Scaling](doc:android-push-templates#image-scaling).
       </td>
     </tr>
 
@@ -1463,7 +1463,7 @@ Timer notification is only supported for Android version 8 and above. For Androi
 |                  pt\_dismiss | Optional | Auto dismiss the notification after a set time (value in seconds)                                                                                                                                                                  |
 |        pt\_msg\_summary\_alt | Optional | Summary to display once the timer expires                                                                                                                                                                                          |
 |                     pt\_json | Optional | Above keys in JSON format                                                                                                                                                                                                          |
-|            pt\_chrono\_style | Optional | Controls styling mode. Available values: <code>solid</code> (default),  <code>gradient_linear</code> ,  <code>gradient_radial</code>                                                                                               |
+|            pt\_chrono\_style | Optional | Controls styling mode. Available values: <code>solid</code> (default),  <code>gradient\_linear</code> ,  <code>gradient\_radial</code>                                                                                             |
 |          pt\_chrono\_bg\_clr | Optional | Background color (HEX). Required if style = `solid`                                                                                                                                                                                |
 |      pt\_chrono\_border\_clr | Optional | Border color (HEX). No border if absent                                                                                                                                                                                            |
 |       pt\_chrono\_grad\_clr1 | Optional | Gradient start color (HEX)                                                                                                                                                                                                         |
@@ -1471,7 +1471,7 @@ Timer notification is only supported for Android version 8 and above. For Androi
 |        pt\_chrono\_grad\_dir | Optional | Angle in degrees (String). Default <code>"90"</code>                                                                                                                                                                               |
 |   pt\_chrono\_border\_radius | Optional | Corner radius in dp (Density-independent Pixels) (Default: 6)                                                                                                                                                                      |
 |    pt\_chrono\_border\_width | Optional | Border width in dp. No border if absent, even if `pt_chrono_border_clr` is set.                                                                                                                                                    |
-|       pt\_chrono\_title\_clr | Optional | Countdown text color (falls back to <code>pt_title_clr</code>)                                                                                                                                                                     |
+|       pt\_chrono\_title\_clr | Optional | Countdown text color (falls back to <code>pt\_title\_clr</code>)                                                                                                                                                                   |
 
 <Callout icon="📘" theme="info">
   ## Note
@@ -1757,7 +1757,7 @@ The library falls back to the Advanced Template if the image cannot be downloade
       </td>
 
       <td>
-        Specify the image scaling type for notifications.  Available values: <li>`fit_center` </li>  <li>`center_crop`</li><br />For more information on how it works, refer to [Image Scaling](doc:android-push-templates#image-scaling).
+        Specify the image scaling type for notifications.  Available values: <li>`fit_center` </li><li>`center_crop`</li><br />For more information on how it works, refer to [Image Scaling](doc:android-push-templates#image-scaling).
       </td>
     </tr>
 
@@ -2239,7 +2239,7 @@ Rating template lets your users give you feedback. This feedback is captured in 
       </td>
 
       <td>
-        Specify the image scaling type for notifications.  Available values: <li>`fit_center` </li>  <li>`center_crop`</li><br />For more information on how it works, refer to [Image Scaling](doc:push-templates-android#image-scaling).
+        Specify the image scaling type for notifications.  Available values: <li>`fit_center` </li><li>`center_crop`</li><br />For more information on how it works, refer to [Image Scaling](doc:push-templates-android#image-scaling).
       </td>
     </tr>
 
@@ -3125,6 +3125,7 @@ Ensure images for the following templates meet the specified resolution and file
 <Callout icon="📘" theme="info">
   ### Note
 
+  - These are recommended aspect ratios and file size limits.
   - Number of lines of text in `msg_summary` affects how an image renders for a particular aspect ratio. Adjust aspect ratios and layout accordingly based on message length.
   - Resolution limits do not change based on whether the push has CTA buttons or not.
   - Templates other than Auto Carousel, Manual Carousel, and Five Icons do not require specific image resolution guidelines as they use a single image.
