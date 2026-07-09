@@ -24,8 +24,8 @@ To use the CleverTap Push Templates SDK, you must integrate the CleverTap Androi
 
 The Android Push Templates SDK supports the following two integration options:
 
-* [Out-of-the-box Implementation](doc:android-push-templates#configure-out-of-the-box-push-notification-handling) : Uses CleverTap's default notification handling, where templates are rendered without additional customization or code changes in your app.
-* [Custom Implementation](doc:android-push-templates#customize-push-notification-handling): Allows you to control how push notifications are received and displayed.
+- [Out-of-the-box Implementation](doc:android-push-templates#configure-out-of-the-box-push-notification-handling) : Uses CleverTap's default notification handling, where templates are rendered without additional customization or code changes in your app.
+- [Custom Implementation](doc:android-push-templates#customize-push-notification-handling): Allows you to control how push notifications are received and displayed.
 
 ## Configure Out-of-the-Box Push Notification Handling
 
@@ -76,29 +76,31 @@ You can implement the following customizable push notification templates using t
 
 **Basic Templates**
 
-* [Standard Push Template](doc:android-push-templates#standard-push-template)
-* [Advanced Push Template](doc:android-push-templates#advanced-push-template)
+- [Standard Push Template](doc:android-push-templates#standard-push-template)
+- [Advanced Push Template](doc:android-push-templates#advanced-push-template)
 
 **Carousel Templates**
 
-* [Auto Carousel Template](doc:android-push-templates#auto-carousel-template)
-* [Manual Carousel Template](doc:android-push-templates#manual-carousel-template)
+- [Auto Carousel Template](doc:android-push-templates#auto-carousel-template)
+- [Manual Carousel Template](doc:android-push-templates#manual-carousel-template)
 
 **Advanced Templates**
 
-* [Timer Template](doc:android-push-templates#timer-template)
-* [Text over Image Template](doc:android-push-templates#text-over-image-template)
-* [Five Icons Template](doc:android-push-templates#five-icons-template)
-* [Rating Template](doc:android-push-templates#rating-template)
-* [Product Catalog Template](doc:android-push-templates#product-catalog-template)
-* [Input Box Template](doc:android-push-templates#input-box-template)
-* [Vertical Image CTA](https://developer.clevertap.com/docs/android-push-templates#vertical-image-with-cta-template)
+- [Timer Template](doc:android-push-templates#timer-template)
+- [Text over Image Template](doc:android-push-templates#text-over-image-template)
+- [Five Icons Template](doc:android-push-templates#five-icons-template)
+- [Rating Template](doc:android-push-templates#rating-template)
+- [Product Catalog Template](doc:android-push-templates#product-catalog-template)
+- [Input Box Template](doc:android-push-templates#input-box-template)
+- [Vertical Image CTA](https://developer.clevertap.com/docs/android-push-templates#vertical-image-with-cta-template)
 
 # Standard Push Template
 
 Standard Template is a default template for push notifications received on apps that supports a simple layout with title, message, image, and optional buttons, ideal for quick, informative alerts. For example, an e-commerce business might want to inform customers that their order is on the way. To use a GIF in a standard push template, pass the key `wzrk_gif` with the value set to the URL of the GIF image.
 
-<Image align="center" alt="Standard Push Template" caption="Standard Push Template" src="https://files.readme.io/7a4e66924248b609d31ccdc200b05788c5a2b1b5e6550e58de559233caefe4b2-image.png" width="35% " />
+
+<Image src="https://files.readme.io/7a4e66924248b609d31ccdc200b05788c5a2b1b5e6550e58de559233caefe4b2-image.png" alt="Standard Push Template" align="center" width="35% " caption="Standard Push Template" />
+
 
 # Advanced Push Template
 
@@ -106,18 +108,20 @@ This template supports rich media, deep links, and enhanced customization for mo
 
 For template outputs Android 11 and below, refer to [Push Templates on Android v11 and below](https://github.com/CleverTap/clevertap-android-sdk/blob/master/docs/CTPUSHTEMPLATESANDROID12.md).
 
-<Image align="center" alt="Advanced Push Template" caption="Advanced Push Template" src="https://files.readme.io/65cc6bcd2523518ceab5cdc452022fbc4f4bce889e87469c883fd394b1fb18e4-image.png" width="35% " />
+
+<Image src="https://files.readme.io/65cc6bcd2523518ceab5cdc452022fbc4f4bce889e87469c883fd394b1fb18e4-image.png" alt="Advanced Push Template" align="center" width="35% " caption="Advanced Push Template" />
+
 
 ## Template Keys
 
 <Table align={["right","center","left"]}>
   <thead>
     <tr>
-      <th>
+      <th style={{ textAlign: "right" }}>
         Advanced Template Keys
       </th>
 
-      <th>
+      <th style={{ textAlign: "center" }}>
         Required
       </th>
 
@@ -129,11 +133,11 @@ For template outputs Android 11 and below, refer to [Push Templates on Android v
 
   <tbody>
     <tr>
-      <td>
-        pt_id
+      <td style={{ textAlign: "right" }}>
+        pt\_id
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Required
       </td>
 
@@ -143,11 +147,11 @@ For template outputs Android 11 and below, refer to [Push Templates on Android v
     </tr>
 
     <tr>
-      <td>
-        pt_title
+      <td style={{ textAlign: "right" }}>
+        pt\_title
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Required
       </td>
 
@@ -157,11 +161,11 @@ For template outputs Android 11 and below, refer to [Push Templates on Android v
     </tr>
 
     <tr>
-      <td>
-        pt_msg
+      <td style={{ textAlign: "right" }}>
+        pt\_msg
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Required
       </td>
 
@@ -171,11 +175,11 @@ For template outputs Android 11 and below, refer to [Push Templates on Android v
     </tr>
 
     <tr>
-      <td>
-        pt_msg_summary
+      <td style={{ textAlign: "right" }}>
+        pt\_msg\_summary
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Required
       </td>
 
@@ -185,11 +189,11 @@ For template outputs Android 11 and below, refer to [Push Templates on Android v
     </tr>
 
     <tr>
-      <td>
-        pt_subtitle
+      <td style={{ textAlign: "right" }}>
+        pt\_subtitle
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -199,11 +203,11 @@ For template outputs Android 11 and below, refer to [Push Templates on Android v
     </tr>
 
     <tr>
-      <td>
-        pt_bg
+      <td style={{ textAlign: "right" }}>
+        pt\_bg
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Required
       </td>
 
@@ -213,11 +217,11 @@ For template outputs Android 11 and below, refer to [Push Templates on Android v
     </tr>
 
     <tr>
-      <td>
-        pt_bg_dark
+      <td style={{ textAlign: "right" }}>
+        pt\_bg\_dark
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -227,11 +231,11 @@ For template outputs Android 11 and below, refer to [Push Templates on Android v
     </tr>
 
     <tr>
-      <td>
-        pt_big_img
+      <td style={{ textAlign: "right" }}>
+        pt\_big\_img
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -241,11 +245,11 @@ For template outputs Android 11 and below, refer to [Push Templates on Android v
     </tr>
 
     <tr>
-      <td>
-        pt_big_img_alt_text
+      <td style={{ textAlign: "right" }}>
+        pt\_big\_img\_alt\_text
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -255,11 +259,11 @@ For template outputs Android 11 and below, refer to [Push Templates on Android v
     </tr>
 
     <tr>
-      <td>
-        pt_gif
+      <td style={{ textAlign: "right" }}>
+        pt\_gif
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -269,11 +273,11 @@ For template outputs Android 11 and below, refer to [Push Templates on Android v
     </tr>
 
     <tr>
-      <td>
-        pt_gif_frames
+      <td style={{ textAlign: "right" }}>
+        pt\_gif\_frames
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -283,11 +287,11 @@ For template outputs Android 11 and below, refer to [Push Templates on Android v
     </tr>
 
     <tr>
-      <td>
-        pt_ico
+      <td style={{ textAlign: "right" }}>
+        pt\_ico
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -297,28 +301,27 @@ For template outputs Android 11 and below, refer to [Push Templates on Android v
     </tr>
 
     <tr>
-      <td>
-        wzrk_hide_large_icon
+      <td style={{ textAlign: "right" }}>
+        wzrk\_hide\_large\_icon
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
       <td>
-        Hide the large icon in Android notifications  
-        Values:
+        Hide the large icon in Android notifications<br />Values:
 
         <li> hide = `true` to hide the icon </li> <li> hide = `false` to show the icon (Default) </li>
       </td>
     </tr>
 
     <tr>
-      <td>
-        pt_dl1
+      <td style={{ textAlign: "right" }}>
+        pt\_dl1
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -328,11 +331,11 @@ For template outputs Android 11 and below, refer to [Push Templates on Android v
     </tr>
 
     <tr>
-      <td>
-        pt_title_clr
+      <td style={{ textAlign: "right" }}>
+        pt\_title\_clr
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -342,11 +345,11 @@ For template outputs Android 11 and below, refer to [Push Templates on Android v
     </tr>
 
     <tr>
-      <td>
-        pt_title_clr_dark
+      <td style={{ textAlign: "right" }}>
+        pt\_title\_clr\_dark
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -356,11 +359,11 @@ For template outputs Android 11 and below, refer to [Push Templates on Android v
     </tr>
 
     <tr>
-      <td>
-        pt_msg_clr
+      <td style={{ textAlign: "right" }}>
+        pt\_msg\_clr
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -370,11 +373,11 @@ For template outputs Android 11 and below, refer to [Push Templates on Android v
     </tr>
 
     <tr>
-      <td>
-        pt_msg_clr_dark
+      <td style={{ textAlign: "right" }}>
+        pt\_msg\_clr\_dark
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -384,11 +387,11 @@ For template outputs Android 11 and below, refer to [Push Templates on Android v
     </tr>
 
     <tr>
-      <td>
-        pt_small_icon_clr
+      <td style={{ textAlign: "right" }}>
+        pt\_small\_icon\_clr
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -398,11 +401,11 @@ For template outputs Android 11 and below, refer to [Push Templates on Android v
     </tr>
 
     <tr>
-      <td>
-        pt_small_icon_clr_dark
+      <td style={{ textAlign: "right" }}>
+        pt\_small\_icon\_clr\_dark
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -412,26 +415,25 @@ For template outputs Android 11 and below, refer to [Push Templates on Android v
     </tr>
 
     <tr>
-      <td>
-        pt_scale_type
+      <td style={{ textAlign: "right" }}>
+        pt\_scale\_type
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
       <td>
-        Specify the image scaling type for notifications.  Available values: <li>`fit_center` </li>  <li>`center_crop`</li>  
-        For more information on how it works, refer to [Image Scaling](doc:android-push-templates#image-scaling).
+        Specify the image scaling type for notifications.  Available values: <li>`fit_center` </li>  <li>`center_crop`</li><br />For more information on how it works, refer to [Image Scaling](doc:android-push-templates#image-scaling).
       </td>
     </tr>
 
     <tr>
-      <td>
-        pt_sticky
+      <td style={{ textAlign: "right" }}>
+        pt\_sticky
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -441,11 +443,11 @@ For template outputs Android 11 and below, refer to [Push Templates on Android v
     </tr>
 
     <tr>
-      <td>
-        pt_dismiss
+      <td style={{ textAlign: "right" }}>
+        pt\_dismiss
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -455,11 +457,11 @@ For template outputs Android 11 and below, refer to [Push Templates on Android v
     </tr>
 
     <tr>
-      <td>
-        pt_json
+      <td style={{ textAlign: "right" }}>
+        pt\_json
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -474,18 +476,20 @@ For template outputs Android 11 and below, refer to [Push Templates on Android v
 
 Auto Carousel is an automatic revolving carousel push notification that automatically cycles through multiple cards or slides within a single notification. Each card typically includes an image, title, description, and a CTA button, allowing users to view multiple offers, messages, or product highlights without leaving their device’s notification tray.
 
-<Image align="center" alt="Auto Carousel Template" caption="Auto Carousel Template" src="https://files.readme.io/b06f01f282ddb61ab6bca44b51c79e65c9735b224432fadaf0799eb6c1dd7a70-Screen_Recording_Jun_4_2025_from_Google_Drive.mp4_1.gif" width="35% " />
+
+<Image src="https://files.readme.io/b06f01f282ddb61ab6bca44b51c79e65c9735b224432fadaf0799eb6c1dd7a70-Screen_Recording_Jun_4_2025_from_Google_Drive.mp4_1.gif" alt="Auto Carousel Template" align="center" width="35% " caption="Auto Carousel Template" />
+
 
 ## Template Keys
 
 <Table align={["right","center","left"]}>
   <thead>
     <tr>
-      <th>
+      <th style={{ textAlign: "right" }}>
         Auto Carousel Template Keys
       </th>
 
-      <th>
+      <th style={{ textAlign: "center" }}>
         Required
       </th>
 
@@ -497,11 +501,11 @@ Auto Carousel is an automatic revolving carousel push notification that automati
 
   <tbody>
     <tr>
-      <td>
-        pt_id
+      <td style={{ textAlign: "right" }}>
+        pt\_id
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Required
       </td>
 
@@ -511,11 +515,11 @@ Auto Carousel is an automatic revolving carousel push notification that automati
     </tr>
 
     <tr>
-      <td>
-        pt_title
+      <td style={{ textAlign: "right" }}>
+        pt\_title
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Required
       </td>
 
@@ -525,11 +529,11 @@ Auto Carousel is an automatic revolving carousel push notification that automati
     </tr>
 
     <tr>
-      <td>
-        pt_msg
+      <td style={{ textAlign: "right" }}>
+        pt\_msg
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Required
       </td>
 
@@ -539,11 +543,11 @@ Auto Carousel is an automatic revolving carousel push notification that automati
     </tr>
 
     <tr>
-      <td>
-        pt_msg_summary
+      <td style={{ textAlign: "right" }}>
+        pt\_msg\_summary
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -553,11 +557,11 @@ Auto Carousel is an automatic revolving carousel push notification that automati
     </tr>
 
     <tr>
-      <td>
-        pt_subtitle
+      <td style={{ textAlign: "right" }}>
+        pt\_subtitle
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -567,11 +571,11 @@ Auto Carousel is an automatic revolving carousel push notification that automati
     </tr>
 
     <tr>
-      <td>
-        pt_dl1
+      <td style={{ textAlign: "right" }}>
+        pt\_dl1
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Required
       </td>
 
@@ -581,11 +585,11 @@ Auto Carousel is an automatic revolving carousel push notification that automati
     </tr>
 
     <tr>
-      <td>
-        pt_img1
+      <td style={{ textAlign: "right" }}>
+        pt\_img1
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Required
       </td>
 
@@ -595,11 +599,11 @@ Auto Carousel is an automatic revolving carousel push notification that automati
     </tr>
 
     <tr>
-      <td>
-        pt_img1_alt_text
+      <td style={{ textAlign: "right" }}>
+        pt\_img1\_alt\_text
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -609,11 +613,11 @@ Auto Carousel is an automatic revolving carousel push notification that automati
     </tr>
 
     <tr>
-      <td>
-        pt_img2
+      <td style={{ textAlign: "right" }}>
+        pt\_img2
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Required
       </td>
 
@@ -623,11 +627,11 @@ Auto Carousel is an automatic revolving carousel push notification that automati
     </tr>
 
     <tr>
-      <td>
-        pt_img2_alt_text
+      <td style={{ textAlign: "right" }}>
+        pt\_img2\_alt\_text
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -637,11 +641,11 @@ Auto Carousel is an automatic revolving carousel push notification that automati
     </tr>
 
     <tr>
-      <td>
-        pt_img3
+      <td style={{ textAlign: "right" }}>
+        pt\_img3
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Required
       </td>
 
@@ -651,11 +655,11 @@ Auto Carousel is an automatic revolving carousel push notification that automati
     </tr>
 
     <tr>
-      <td>
-        pt_img3_alt_text
+      <td style={{ textAlign: "right" }}>
+        pt\_img3\_alt\_text
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -665,11 +669,11 @@ Auto Carousel is an automatic revolving carousel push notification that automati
     </tr>
 
     <tr>
-      <td>
-        pt_img`n`
+      <td style={{ textAlign: "right" }}>
+        pt\_img`n`
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -679,11 +683,11 @@ Auto Carousel is an automatic revolving carousel push notification that automati
     </tr>
 
     <tr>
-      <td>
-        pt_img`n`_alt_text
+      <td style={{ textAlign: "right" }}>
+        pt _img_`n`alt\_text
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -693,11 +697,11 @@ Auto Carousel is an automatic revolving carousel push notification that automati
     </tr>
 
     <tr>
-      <td>
-        pt_bg
+      <td style={{ textAlign: "right" }}>
+        pt\_bg
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Required
       </td>
 
@@ -707,11 +711,11 @@ Auto Carousel is an automatic revolving carousel push notification that automati
     </tr>
 
     <tr>
-      <td>
-        pt_bg_dark
+      <td style={{ textAlign: "right" }}>
+        pt\_bg\_dark
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Required
       </td>
 
@@ -721,11 +725,11 @@ Auto Carousel is an automatic revolving carousel push notification that automati
     </tr>
 
     <tr>
-      <td>
-        pt_ico
+      <td style={{ textAlign: "right" }}>
+        pt\_ico
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -735,28 +739,27 @@ Auto Carousel is an automatic revolving carousel push notification that automati
     </tr>
 
     <tr>
-      <td>
-        wzrk_hide_large_icon
+      <td style={{ textAlign: "right" }}>
+        wzrk\_hide\_large\_icon
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
       <td>
-        Hide the large icon in Android notifications  
-        Values:
+        Hide the large icon in Android notifications<br />Values:
 
         <li> hide = `true` to hide the icon </li> <li> hide = `false` to show the icon (Default) </li>
       </td>
     </tr>
 
     <tr>
-      <td>
-        pt_title_clr
+      <td style={{ textAlign: "right" }}>
+        pt\_title\_clr
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -766,11 +769,11 @@ Auto Carousel is an automatic revolving carousel push notification that automati
     </tr>
 
     <tr>
-      <td>
-        pt_title_clr_dark
+      <td style={{ textAlign: "right" }}>
+        pt\_title\_clr\_dark
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -780,11 +783,11 @@ Auto Carousel is an automatic revolving carousel push notification that automati
     </tr>
 
     <tr>
-      <td>
-        pt_msg_clr
+      <td style={{ textAlign: "right" }}>
+        pt\_msg\_clr
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -794,11 +797,11 @@ Auto Carousel is an automatic revolving carousel push notification that automati
     </tr>
 
     <tr>
-      <td>
-        pt_msg_clr_dark
+      <td style={{ textAlign: "right" }}>
+        pt\_msg\_clr\_dark
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -808,11 +811,11 @@ Auto Carousel is an automatic revolving carousel push notification that automati
     </tr>
 
     <tr>
-      <td>
-        pt_small_icon_clr
+      <td style={{ textAlign: "right" }}>
+        pt\_small\_icon\_clr
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -822,11 +825,11 @@ Auto Carousel is an automatic revolving carousel push notification that automati
     </tr>
 
     <tr>
-      <td>
-        pt_small_icon_clr_dark
+      <td style={{ textAlign: "right" }}>
+        pt\_small\_icon\_clr\_dark
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -836,11 +839,11 @@ Auto Carousel is an automatic revolving carousel push notification that automati
     </tr>
 
     <tr>
-      <td>
-        pt_sticky
+      <td style={{ textAlign: "right" }}>
+        pt\_sticky
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -850,11 +853,11 @@ Auto Carousel is an automatic revolving carousel push notification that automati
     </tr>
 
     <tr>
-      <td>
-        pt_dismiss
+      <td style={{ textAlign: "right" }}>
+        pt\_dismiss
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -864,26 +867,25 @@ Auto Carousel is an automatic revolving carousel push notification that automati
     </tr>
 
     <tr>
-      <td>
-        pt_scale_type
+      <td style={{ textAlign: "right" }}>
+        pt\_scale\_type
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
       <td>
-        Specify the image scaling type for notifications.  Available values: <li>`fit_center` </li>  <li>`center_crop`</li>  
-        For more information on how it works, refer to [Image Scaling](doc:android-push-templates#image-scaling).
+        Specify the image scaling type for notifications.  Available values: <li>`fit_center` </li>  <li>`center_crop`</li><br />For more information on how it works, refer to [Image Scaling](doc:android-push-templates#image-scaling).
       </td>
     </tr>
 
     <tr>
-      <td>
-        pt_json
+      <td style={{ textAlign: "right" }}>
+        pt\_json
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -900,18 +902,20 @@ Manual Carousel is an interactive push notification format that allows users to 
 
 If only a single image is available for download, this template falls back to the Basic Template.
 
-<Image align="center" alt="Manual Carousel Template" border={true} caption="Manual Carousel Template" src="https://files.readme.io/314a341e4efcff60b16c13c2d9d89c91866ff0a66eb39458de68670c9d1d7ab7-Screen_Recording_Jun_4_2025_from_Google_Drive_1.mp4_1.gif" width="35% " />
+
+<Image src="https://files.readme.io/314a341e4efcff60b16c13c2d9d89c91866ff0a66eb39458de68670c9d1d7ab7-Screen_Recording_Jun_4_2025_from_Google_Drive_1.mp4_1.gif" alt="Manual Carousel Template" align="center" width="35% " caption="Manual Carousel Template" border={true} />
+
 
 ## Template Keys
 
 <Table align={["right","center","left"]}>
   <thead>
     <tr>
-      <th>
+      <th style={{ textAlign: "right" }}>
         Manual Carousel Template Keys
       </th>
 
-      <th>
+      <th style={{ textAlign: "center" }}>
         Required
       </th>
 
@@ -923,11 +927,11 @@ If only a single image is available for download, this template falls back to th
 
   <tbody>
     <tr>
-      <td>
-        pt_id
+      <td style={{ textAlign: "right" }}>
+        pt\_id
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Required
       </td>
 
@@ -937,11 +941,11 @@ If only a single image is available for download, this template falls back to th
     </tr>
 
     <tr>
-      <td>
-        pt_title
+      <td style={{ textAlign: "right" }}>
+        pt\_title
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Required
       </td>
 
@@ -951,11 +955,11 @@ If only a single image is available for download, this template falls back to th
     </tr>
 
     <tr>
-      <td>
-        pt_msg
+      <td style={{ textAlign: "right" }}>
+        pt\_msg
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Required
       </td>
 
@@ -965,11 +969,11 @@ If only a single image is available for download, this template falls back to th
     </tr>
 
     <tr>
-      <td>
-        pt_msg_summary
+      <td style={{ textAlign: "right" }}>
+        pt\_msg\_summary
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -979,11 +983,11 @@ If only a single image is available for download, this template falls back to th
     </tr>
 
     <tr>
-      <td>
-        pt_subtitle
+      <td style={{ textAlign: "right" }}>
+        pt\_subtitle
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -993,11 +997,11 @@ If only a single image is available for download, this template falls back to th
     </tr>
 
     <tr>
-      <td>
-        pt_dl1
+      <td style={{ textAlign: "right" }}>
+        pt\_dl1
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Required
       </td>
 
@@ -1007,11 +1011,11 @@ If only a single image is available for download, this template falls back to th
     </tr>
 
     <tr>
-      <td>
-        pt_dl2
+      <td style={{ textAlign: "right" }}>
+        pt\_dl2
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -1021,11 +1025,11 @@ If only a single image is available for download, this template falls back to th
     </tr>
 
     <tr>
-      <td>
-        pt_dl`n`
+      <td style={{ textAlign: "right" }}>
+        pt\_dl`n`
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -1035,11 +1039,11 @@ If only a single image is available for download, this template falls back to th
     </tr>
 
     <tr>
-      <td>
-        pt_img1
+      <td style={{ textAlign: "right" }}>
+        pt\_img1
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Required
       </td>
 
@@ -1049,11 +1053,11 @@ If only a single image is available for download, this template falls back to th
     </tr>
 
     <tr>
-      <td>
-        pt_img1_alt_text
+      <td style={{ textAlign: "right" }}>
+        pt\_img1\_alt\_text
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -1063,11 +1067,11 @@ If only a single image is available for download, this template falls back to th
     </tr>
 
     <tr>
-      <td>
-        pt_img2
+      <td style={{ textAlign: "right" }}>
+        pt\_img2
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Required
       </td>
 
@@ -1077,11 +1081,11 @@ If only a single image is available for download, this template falls back to th
     </tr>
 
     <tr>
-      <td>
-        pt_img2_alt_text
+      <td style={{ textAlign: "right" }}>
+        pt\_img2\_alt\_text
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -1091,11 +1095,11 @@ If only a single image is available for download, this template falls back to th
     </tr>
 
     <tr>
-      <td>
-        pt_img3
+      <td style={{ textAlign: "right" }}>
+        pt\_img3
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Required
       </td>
 
@@ -1105,11 +1109,11 @@ If only a single image is available for download, this template falls back to th
     </tr>
 
     <tr>
-      <td>
-        pt_img3_alt_text
+      <td style={{ textAlign: "right" }}>
+        pt\_img3\_alt\_text
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -1119,11 +1123,11 @@ If only a single image is available for download, this template falls back to th
     </tr>
 
     <tr>
-      <td>
-        pt_img`n`
+      <td style={{ textAlign: "right" }}>
+        pt\_img`n`
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -1133,11 +1137,11 @@ If only a single image is available for download, this template falls back to th
     </tr>
 
     <tr>
-      <td>
-        pt_img`n`_alt_text
+      <td style={{ textAlign: "right" }}>
+        pt _img_`n`alt\_text
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -1147,11 +1151,11 @@ If only a single image is available for download, this template falls back to th
     </tr>
 
     <tr>
-      <td>
-        pt_bg
+      <td style={{ textAlign: "right" }}>
+        pt\_bg
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Required
       </td>
 
@@ -1161,11 +1165,11 @@ If only a single image is available for download, this template falls back to th
     </tr>
 
     <tr>
-      <td>
-        pt_bg_dark
+      <td style={{ textAlign: "right" }}>
+        pt\_bg\_dark
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Required
       </td>
 
@@ -1175,11 +1179,11 @@ If only a single image is available for download, this template falls back to th
     </tr>
 
     <tr>
-      <td>
-        pt_ico
+      <td style={{ textAlign: "right" }}>
+        pt\_ico
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -1189,28 +1193,27 @@ If only a single image is available for download, this template falls back to th
     </tr>
 
     <tr>
-      <td>
-        wzrk_hide_large_icon
+      <td style={{ textAlign: "right" }}>
+        wzrk\_hide\_large\_icon
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
       <td>
-        Hide the large icon in Android notifications  
-        Values:
+        Hide the large icon in Android notifications<br />Values:
 
         <li> hide = `true` to hide the icon </li> <li> hide = `false` to show the icon (Default) </li>
       </td>
     </tr>
 
     <tr>
-      <td>
-        pt_title_clr
+      <td style={{ textAlign: "right" }}>
+        pt\_title\_clr
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -1220,11 +1223,11 @@ If only a single image is available for download, this template falls back to th
     </tr>
 
     <tr>
-      <td>
-        pt_title_clr_dark
+      <td style={{ textAlign: "right" }}>
+        pt\_title\_clr\_dark
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -1234,11 +1237,11 @@ If only a single image is available for download, this template falls back to th
     </tr>
 
     <tr>
-      <td>
-        pt_msg_clr
+      <td style={{ textAlign: "right" }}>
+        pt\_msg\_clr
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -1248,11 +1251,11 @@ If only a single image is available for download, this template falls back to th
     </tr>
 
     <tr>
-      <td>
-        pt_msg_clr_dark
+      <td style={{ textAlign: "right" }}>
+        pt\_msg\_clr\_dark
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -1262,11 +1265,11 @@ If only a single image is available for download, this template falls back to th
     </tr>
 
     <tr>
-      <td>
-        pt_small_icon_clr
+      <td style={{ textAlign: "right" }}>
+        pt\_small\_icon\_clr
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -1276,11 +1279,11 @@ If only a single image is available for download, this template falls back to th
     </tr>
 
     <tr>
-      <td>
-        pt_small_icon_clr_dark
+      <td style={{ textAlign: "right" }}>
+        pt\_small\_icon\_clr\_dark
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -1290,11 +1293,11 @@ If only a single image is available for download, this template falls back to th
     </tr>
 
     <tr>
-      <td>
-        pt_sticky
+      <td style={{ textAlign: "right" }}>
+        pt\_sticky
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -1304,11 +1307,11 @@ If only a single image is available for download, this template falls back to th
     </tr>
 
     <tr>
-      <td>
-        pt_dismiss
+      <td style={{ textAlign: "right" }}>
+        pt\_dismiss
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -1318,26 +1321,25 @@ If only a single image is available for download, this template falls back to th
     </tr>
 
     <tr>
-      <td>
-        pt_scale_type
+      <td style={{ textAlign: "right" }}>
+        pt\_scale\_type
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
       <td>
-        Specify the image scaling type for notifications.  Available values: <li>`fit_center` </li>  <li>`center_crop`</li>  
-        For more information on how it works, refer to [Image Scaling](doc:android-push-templates#image-scaling).
+        Specify the image scaling type for notifications.  Available values: <li>`fit_center` </li>  <li>`center_crop`</li><br />For more information on how it works, refer to [Image Scaling](doc:android-push-templates#image-scaling).
       </td>
     </tr>
 
     <tr>
-      <td>
-        pt_json
+      <td style={{ textAlign: "right" }}>
+        pt\_json
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -1347,11 +1349,11 @@ If only a single image is available for download, this template falls back to th
     </tr>
 
     <tr>
-      <td>
-        pt_manual_carousel_type
+      <td style={{ textAlign: "right" }}>
+        pt\_manual\_carousel\_type
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -1361,11 +1363,11 @@ If only a single image is available for download, this template falls back to th
     </tr>
 
     <tr>
-      <td>
-        pt_gif_frames
+      <td style={{ textAlign: "right" }}>
+        pt\_gif\_frames
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -1384,34 +1386,36 @@ The library does not notify if at least three icons are not retrieved. The bifur
 
 By default, if the user clicks on any notification area except the five and close icons, an activity intent launches.
 
-<Image align="center" border={true} width="50% " src="https://files.readme.io/563c039e56f135aea167f9fecda45c428087ada312e0013d1347567fcd8f724e-image.png" className="border" />
+
+<Image src="https://files.readme.io/563c039e56f135aea167f9fecda45c428087ada312e0013d1347567fcd8f724e-image.png" align="center" width="50% " border={true} />
+
 
 ## Template Keys
 
-| Five Icons Template Keys | Required | Description                                                       |
-| -----------------------: | :------: | :---------------------------------------------------------------- |
-|                    pt_id | Required | Indicates the type of template, for example,`pt_five_icons`       |
-|                  pt_img1 | Required | Icon One                                                          |
-|         pt_img1_alt_text | Optional | Alt Text for Icon One                                             |
-|                  pt_img2 | Required | Icon Two                                                          |
-|         pt_img2_alt_text | Optional | Alt Text for Icon Two                                             |
-|                  pt_img3 | Required | Icon Three                                                        |
-|         pt_img3_alt_text | Optional | Alt Text for Icon Three                                           |
-|                  pt_img4 | Optional | Icon Four                                                         |
-|         pt_img4_alt_text | Optional | Alt Text for Icon Four                                            |
-|                  pt_img5 | Optional | Icon Five                                                         |
-|         pt_img5_alt_text | Optional | Alt Text for Icon Five                                            |
-|                   pt_dl1 | Required | Deep Link for first icon                                          |
-|                   pt_dl2 | Required | Deep Link for second icon                                         |
-|                   pt_dl3 | Required | Deep Link for third icon                                          |
-|                   pt_dl4 | Optional | Deep Link for fourth icon                                         |
-|                   pt_dl5 | Optional | Deep Link for fifth icon                                          |
-|                    pt_bg | Required | Background Color in HEX                                           |
-|        pt_small_icon_clr | Optional | Small Icon Color in HEX                                           |
-|   pt_small_icon_clr_dark | Optional | Small Icon Color in HEX in dark mode                              |
-|                pt_sticky | Optional | Should the notification be sticky? ("true"/"false")               |
-|               pt_dismiss | Optional | Auto dismiss the notification after a set time (value in seconds) |
-|                  pt_json | Optional | Above keys in JSON format                                         |
+|   Five Icons Template Keys | Required | Description                                                       |
+| -------------------------: | :------: | :---------------------------------------------------------------- |
+|                     pt\_id | Required | Indicates the type of template, for example,`pt_five_icons`       |
+|                   pt\_img1 | Required | Icon One                                                          |
+|        pt\_img1\_alt\_text | Optional | Alt Text for Icon One                                             |
+|                   pt\_img2 | Required | Icon Two                                                          |
+|        pt\_img2\_alt\_text | Optional | Alt Text for Icon Two                                             |
+|                   pt\_img3 | Required | Icon Three                                                        |
+|        pt\_img3\_alt\_text | Optional | Alt Text for Icon Three                                           |
+|                   pt\_img4 | Optional | Icon Four                                                         |
+|        pt\_img4\_alt\_text | Optional | Alt Text for Icon Four                                            |
+|                   pt\_img5 | Optional | Icon Five                                                         |
+|        pt\_img5\_alt\_text | Optional | Alt Text for Icon Five                                            |
+|                    pt\_dl1 | Required | Deep Link for first icon                                          |
+|                    pt\_dl2 | Required | Deep Link for second icon                                         |
+|                    pt\_dl3 | Required | Deep Link for third icon                                          |
+|                    pt\_dl4 | Optional | Deep Link for fourth icon                                         |
+|                    pt\_dl5 | Optional | Deep Link for fifth icon                                          |
+|                     pt\_bg | Required | Background Color in HEX                                           |
+|       pt\_small\_icon\_clr | Optional | Small Icon Color in HEX                                           |
+| pt\_small\_icon\_clr\_dark | Optional | Small Icon Color in HEX in dark mode                              |
+|                 pt\_sticky | Optional | Should the notification be sticky? ("true"/"false")               |
+|                pt\_dismiss | Optional | Auto dismiss the notification after a set time (value in seconds) |
+|                   pt\_json | Optional | Above keys in JSON format                                         |
 
 # Timer Template
 
@@ -1419,605 +1423,55 @@ Timer template is a dynamic and time-sensitive push notification template design
 
 Timer notification is only supported for Android version 8 and above. For Android versions below 8, the library falls back to the _Basic Template_.
 
-<Image align="center" alt="Timer Template" caption="Timer Template" src="https://files.readme.io/a0dd4a50b5b7783a1f970928b1d13d16d660728b9afb935e4947fbd3c942fb00-Timer_12_Light_Live.mp4_1.gif" width="35% " />
+
+<Image src="https://files.readme.io/a0dd4a50b5b7783a1f970928b1d13d16d660728b9afb935e4947fbd3c942fb00-Timer_12_Light_Live.mp4_1.gif" alt="Timer Template" align="center" width="35% " caption="Timer Template" />
+
 
 ## Template Keys
 
-<Table align={["right","center","left"]}>
-  <thead>
-    <tr>
-      <th>
-        Timer Template Keys
-      </th>
-
-      <th>
-        Required
-      </th>
-
-      <th>
-        Description
-      </th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr>
-      <td>
-        pt_id
-      </td>
-
-      <td>
-        Required
-      </td>
-
-      <td>
-        Indicates the type of template, for example, `pt_timer`
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_title
-      </td>
-
-      <td>
-        Required
-      </td>
-
-      <td>
-        Maps to the campaign title, the main headline of your notification must be concise and attention-grabbing, defining the exact purpose of your campaign.
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_title_alt
-      </td>
-
-      <td>
-        Optional
-      </td>
-
-      <td>
-        Title to show after timer expires
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_msg
-      </td>
-
-      <td>
-        Required
-      </td>
-
-      <td>
-        Maps to the campaign message, the body text of your notification. The message should clearly convey the purpose of your campaign.
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_msg_alt
-      </td>
-
-      <td>
-        Optional
-      </td>
-
-      <td>
-        Message to show after timer expires
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_msg_summary
-      </td>
-
-      <td>
-        Optional
-      </td>
-
-      <td>
-        Message line when Notification is expanded
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_subtitle
-      </td>
-
-      <td>
-        Optional
-      </td>
-
-      <td>
-        Subtitle
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_dl1
-      </td>
-
-      <td>
-        Required
-      </td>
-
-      <td>
-        Deep Link
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_big_img
-      </td>
-
-      <td>
-        Optional
-      </td>
-
-      <td>
-        Image
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_big_img_alt
-      </td>
-
-      <td>
-        Optional
-      </td>
-
-      <td>
-        Image to show when timer expires
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_big_img_alt_text
-      </td>
-
-      <td>
-        Optional
-      </td>
-
-      <td>
-        Alt Text for Image
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_big_img_alt_alt_text
-      </td>
-
-      <td>
-        Optional
-      </td>
-
-      <td>
-        Alt Text for Image to show when timer expires
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_gif
-      </td>
-
-      <td>
-        Optional
-      </td>
-
-      <td>
-        GIF
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_gif_frames
-      </td>
-
-      <td>
-        Optional
-      </td>
-
-      <td>
-        Number of frames to extract from the GIF
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_bg
-      </td>
-
-      <td>
-        Required
-      </td>
-
-      <td>
-        Background Color in HEX
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_bg_dark
-      </td>
-
-      <td>
-        Required
-      </td>
-
-      <td>
-        Background Color in HEX in dark mode
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_chrono_title_clr
-      </td>
-
-      <td>
-        Optional
-      </td>
-
-      <td>
-        Color for timer text in HEX
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_chrono_title_clr_dark
-      </td>
-
-      <td>
-        Optional
-      </td>
-
-      <td>
-        Color for timer text in HEX in dark mode
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_timer_threshold
-      </td>
-
-      <td>
-        Required
-      </td>
-
-      <td>
-        Timer duration in seconds (minimum 10)
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_timer_end
-      </td>
-
-      <td>
-        Optional
-      </td>
-
-      <td>
-        Epoch Timestamp to countdown to (for example, $D_1595871380 or 1595871380). Not required if `pt_timer_threshold` is specified.
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_title_clr
-      </td>
-
-      <td>
-        Optional
-      </td>
-
-      <td>
-        Title Color in HEX
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_title_clr_dark
-      </td>
-
-      <td>
-        Optional
-      </td>
-
-      <td>
-        Title Color in HEX in dark mode
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_msg_clr
-      </td>
-
-      <td>
-        Optional
-      </td>
-
-      <td>
-        Message Color in HEX
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_msg_clr_dark
-      </td>
-
-      <td>
-        Optional
-      </td>
-
-      <td>
-        Message Color in HEX in dark mode
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_small_icon_clr
-      </td>
-
-      <td>
-        Optional
-      </td>
-
-      <td>
-        Small Icon Color in HEX
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_small_icon_clr_dark
-      </td>
-
-      <td>
-        Optional
-      </td>
-
-      <td>
-        Small Icon Color in HEX in dark mode
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_scale_type
-      </td>
-
-      <td>
-        Optional
-      </td>
-
-      <td>
-        Specify the image scaling type for notifications.  Available values: <li>`fit_center` </li>  <li>`center_crop`</li>  
-        For more information on how it works, refer to [Image Scaling](doc:android-push-templates#image-scaling).
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_render_terminal
-      </td>
-
-      <td>
-        Optional
-      </td>
-
-      <td>
-        Determines whether terminal notification is rendered  
-        Value- `true` or `false`
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_sticky
-      </td>
-
-      <td>
-        Optional
-      </td>
-
-      <td>
-        Should the notification be sticky? ("true"/"false")
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_dismiss
-      </td>
-
-      <td>
-        Optional
-      </td>
-
-      <td>
-        Auto dismiss the notification after a set time (value in seconds)
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_msg_summary_alt
-      </td>
-
-      <td>
-        Optional
-      </td>
-
-      <td>
-        Summary to display once the timer expires
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_json
-      </td>
-
-      <td>
-        Optional
-      </td>
-
-      <td>
-        Above keys in JSON format
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_chrono_style
-      </td>
-
-      <td>
-        Optional
-      </td>
-
-      <td>
-        Controls styling mode. Available values: <code>solid</code> (default),  <code>gradient_linear</code> ,  <code>gradient_radial</code>
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_chrono_bg_clr
-      </td>
-
-      <td>
-        Optional
-      </td>
-
-      <td>
-        Background color (HEX). Required if style = `solid`
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_chrono_border_clr
-      </td>
-
-      <td>
-        Optional
-      </td>
-
-      <td>
-        Border color (HEX). No border if absent
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_chrono_grad_clr1
-      </td>
-
-      <td>
-        Optional
-      </td>
-
-      <td>
-        Gradient start color (HEX)
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_chrono_grad_clr2
-      </td>
-
-      <td>
-        Optional
-      </td>
-
-      <td>
-        Gradient end color (HEX)
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_chrono_grad_dir
-      </td>
-
-      <td>
-        Optional
-      </td>
-
-      <td>
-        Angle in degrees (String). Default <code>"90"</code>
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_chrono_border_radius
-      </td>
-
-      <td>
-        Optional
-      </td>
-
-      <td>
-        Corner radius in dp (Density-independent Pixels) (Default: 6)
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_chrono_border_width
-      </td>
-
-      <td>
-        Optional
-      </td>
-
-      <td>
-        Border width in dp. No border if absent, even if `pt_chrono_border_clr` is set.
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_chrono_title_clr
-      </td>
-
-      <td>
-        Optional
-      </td>
-
-      <td>
-        Countdown text color (falls back to <code>pt_title_clr</code>)
-      </td>
-    </tr>
-  </tbody>
-</Table>
+|          Timer Template Keys | Required | Description                                                                                                                                                                                                                        |
+| ---------------------------: | :------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|                       pt\_id | Required | Indicates the type of template, for example, `pt_timer`                                                                                                                                                                            |
+|                    pt\_title | Required | Maps to the campaign title, the main headline of your notification must be concise and attention-grabbing, defining the exact purpose of your campaign.                                                                            |
+|               pt\_title\_alt | Optional | Title to show after timer expires                                                                                                                                                                                                  |
+|                      pt\_msg | Required | Maps to the campaign message, the body text of your notification. The message should clearly convey the purpose of your campaign.                                                                                                  |
+|                 pt\_msg\_alt | Optional | Message to show after timer expires                                                                                                                                                                                                |
+|             pt\_msg\_summary | Optional | Message line when Notification is expanded                                                                                                                                                                                         |
+|                 pt\_subtitle | Optional | Subtitle                                                                                                                                                                                                                           |
+|                      pt\_dl1 | Required | Deep Link                                                                                                                                                                                                                          |
+|                 pt\_big\_img | Optional | Image                                                                                                                                                                                                                              |
+|            pt\_big\_img\_alt | Optional | Image to show when timer expires                                                                                                                                                                                                   |
+|      pt\_big\_img\_alt\_text | Optional | Alt Text for Image                                                                                                                                                                                                                 |
+| pt\_big\_img\_alt\_alt\_text | Optional | Alt Text for Image to show when timer expires                                                                                                                                                                                      |
+|                      pt\_gif | Optional | GIF                                                                                                                                                                                                                                |
+|              pt\_gif\_frames | Optional | Number of frames to extract from the GIF                                                                                                                                                                                           |
+|                       pt\_bg | Required | Background Color in HEX                                                                                                                                                                                                            |
+|                 pt\_bg\_dark | Required | Background Color in HEX in dark mode                                                                                                                                                                                               |
+|       pt\_chrono\_title\_clr | Optional | Color for timer text in HEX                                                                                                                                                                                                        |
+| pt\_chrono\_title\_clr\_dark | Optional | Color for timer text in HEX in dark mode                                                                                                                                                                                           |
+|         pt\_timer\_threshold | Required | Timer duration in seconds (minimum 10)                                                                                                                                                                                             |
+|               pt\_timer\_end | Optional | Epoch Timestamp to countdown to (for example, $D\_1595871380 or 1595871380). Not required if `pt_timer_threshold` is specified.                                                                                                    |
+|               pt\_title\_clr | Optional | Title Color in HEX                                                                                                                                                                                                                 |
+|         pt\_title\_clr\_dark | Optional | Title Color in HEX in dark mode                                                                                                                                                                                                    |
+|                 pt\_msg\_clr | Optional | Message Color in HEX                                                                                                                                                                                                               |
+|           pt\_msg\_clr\_dark | Optional | Message Color in HEX in dark mode                                                                                                                                                                                                  |
+|         pt\_small\_icon\_clr | Optional | Small Icon Color in HEX                                                                                                                                                                                                            |
+|   pt\_small\_icon\_clr\_dark | Optional | Small Icon Color in HEX in dark mode                                                                                                                                                                                               |
+|              pt\_scale\_type | Optional | Specify the image scaling type for notifications.  Available values: <li>`fit_center` </li>  <li>`center_crop`</li><br />For more information on how it works, refer to [Image Scaling](doc:android-push-templates#image-scaling). |
+|         pt\_render\_terminal | Optional | Determines whether terminal notification is rendered<br />Value- `true` or `false`                                                                                                                                                 |
+|                   pt\_sticky | Optional | Should the notification be sticky? ("true"/"false")                                                                                                                                                                                |
+|                  pt\_dismiss | Optional | Auto dismiss the notification after a set time (value in seconds)                                                                                                                                                                  |
+|        pt\_msg\_summary\_alt | Optional | Summary to display once the timer expires                                                                                                                                                                                          |
+|                     pt\_json | Optional | Above keys in JSON format                                                                                                                                                                                                          |
+|            pt\_chrono\_style | Optional | Controls styling mode. Available values: <code>solid</code> (default),  <code>gradient_linear</code> ,  <code>gradient_radial</code>                                                                                               |
+|          pt\_chrono\_bg\_clr | Optional | Background color (HEX). Required if style = `solid`                                                                                                                                                                                |
+|      pt\_chrono\_border\_clr | Optional | Border color (HEX). No border if absent                                                                                                                                                                                            |
+|       pt\_chrono\_grad\_clr1 | Optional | Gradient start color (HEX)                                                                                                                                                                                                         |
+|       pt\_chrono\_grad\_clr2 | Optional | Gradient end color (HEX)                                                                                                                                                                                                           |
+|        pt\_chrono\_grad\_dir | Optional | Angle in degrees (String). Default <code>"90"</code>                                                                                                                                                                               |
+|   pt\_chrono\_border\_radius | Optional | Corner radius in dp (Density-independent Pixels) (Default: 6)                                                                                                                                                                      |
+|    pt\_chrono\_border\_width | Optional | Border width in dp. No border if absent, even if `pt_chrono_border_clr` is set.                                                                                                                                                    |
+|       pt\_chrono\_title\_clr | Optional | Countdown text color (falls back to <code>pt_title_clr</code>)                                                                                                                                                                     |
 
 <Callout icon="📘" theme="info">
   ## Note
@@ -2031,18 +1485,20 @@ Text over Image template is a visually immersive push notification format design
 
 The library falls back to the Advanced Template if the image cannot be downloaded.
 
-<Image align="center" alt="Text over Image Push Template" caption="Text over Image Push Template" src="https://files.readme.io/aca5987a4cff4a252167cf9c0c954a422b08bfd7cfa7860b6ebb2c7bd0bc40f9-image.png" width="35% " />
+
+<Image src="https://files.readme.io/aca5987a4cff4a252167cf9c0c954a422b08bfd7cfa7860b6ebb2c7bd0bc40f9-image.png" alt="Text over Image Push Template" align="center" width="35% " caption="Text over Image Push Template" />
+
 
 ## Template Keys
 
 <Table align={["right","center","left"]}>
   <thead>
     <tr>
-      <th>
+      <th style={{ textAlign: "right" }}>
         Text over Image Template Keys
       </th>
 
-      <th>
+      <th style={{ textAlign: "center" }}>
         Required
       </th>
 
@@ -2054,11 +1510,11 @@ The library falls back to the Advanced Template if the image cannot be downloade
 
   <tbody>
     <tr>
-      <td>
-        pt_id
+      <td style={{ textAlign: "right" }}>
+        pt\_id
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Required
       </td>
 
@@ -2068,11 +1524,11 @@ The library falls back to the Advanced Template if the image cannot be downloade
     </tr>
 
     <tr>
-      <td>
-        pt_title
+      <td style={{ textAlign: "right" }}>
+        pt\_title
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Required
       </td>
 
@@ -2082,11 +1538,11 @@ The library falls back to the Advanced Template if the image cannot be downloade
     </tr>
 
     <tr>
-      <td>
-        pt_msg
+      <td style={{ textAlign: "right" }}>
+        pt\_msg
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Required
       </td>
 
@@ -2096,11 +1552,11 @@ The library falls back to the Advanced Template if the image cannot be downloade
     </tr>
 
     <tr>
-      <td>
-        pt_msg_summary
+      <td style={{ textAlign: "right" }}>
+        pt\_msg\_summary
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -2110,11 +1566,11 @@ The library falls back to the Advanced Template if the image cannot be downloade
     </tr>
 
     <tr>
-      <td>
-        pt_subtitle
+      <td style={{ textAlign: "right" }}>
+        pt\_subtitle
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -2124,11 +1580,11 @@ The library falls back to the Advanced Template if the image cannot be downloade
     </tr>
 
     <tr>
-      <td>
-        pt_big_img
+      <td style={{ textAlign: "right" }}>
+        pt\_big\_img
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Required
       </td>
 
@@ -2138,11 +1594,11 @@ The library falls back to the Advanced Template if the image cannot be downloade
     </tr>
 
     <tr>
-      <td>
-        pt_big_img_alt_text
+      <td style={{ textAlign: "right" }}>
+        pt\_big\_img\_alt\_text
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -2152,11 +1608,11 @@ The library falls back to the Advanced Template if the image cannot be downloade
     </tr>
 
     <tr>
-      <td>
-        pt_gif
+      <td style={{ textAlign: "right" }}>
+        pt\_gif
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -2166,11 +1622,11 @@ The library falls back to the Advanced Template if the image cannot be downloade
     </tr>
 
     <tr>
-      <td>
-        pt_gif_frames
+      <td style={{ textAlign: "right" }}>
+        pt\_gif\_frames
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -2180,11 +1636,11 @@ The library falls back to the Advanced Template if the image cannot be downloade
     </tr>
 
     <tr>
-      <td>
-        pt_small_view
+      <td style={{ textAlign: "right" }}>
+        pt\_small\_view
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -2194,11 +1650,11 @@ The library falls back to the Advanced Template if the image cannot be downloade
     </tr>
 
     <tr>
-      <td>
-        pt_dl1
+      <td style={{ textAlign: "right" }}>
+        pt\_dl1
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -2208,11 +1664,11 @@ The library falls back to the Advanced Template if the image cannot be downloade
     </tr>
 
     <tr>
-      <td>
-        pt_title_clr
+      <td style={{ textAlign: "right" }}>
+        pt\_title\_clr
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -2222,11 +1678,11 @@ The library falls back to the Advanced Template if the image cannot be downloade
     </tr>
 
     <tr>
-      <td>
-        pt_title_clr_dark
+      <td style={{ textAlign: "right" }}>
+        pt\_title\_clr\_dark
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -2236,11 +1692,11 @@ The library falls back to the Advanced Template if the image cannot be downloade
     </tr>
 
     <tr>
-      <td>
-        pt_msg_clr
+      <td style={{ textAlign: "right" }}>
+        pt\_msg\_clr
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -2250,11 +1706,11 @@ The library falls back to the Advanced Template if the image cannot be downloade
     </tr>
 
     <tr>
-      <td>
-        pt_msg_clr_dark
+      <td style={{ textAlign: "right" }}>
+        pt\_msg\_clr\_dark
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -2264,11 +1720,11 @@ The library falls back to the Advanced Template if the image cannot be downloade
     </tr>
 
     <tr>
-      <td>
-        pt_small_icon_clr
+      <td style={{ textAlign: "right" }}>
+        pt\_small\_icon\_clr
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -2278,11 +1734,11 @@ The library falls back to the Advanced Template if the image cannot be downloade
     </tr>
 
     <tr>
-      <td>
-        pt_small_icon_clr_dark
+      <td style={{ textAlign: "right" }}>
+        pt\_small\_icon\_clr\_dark
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -2292,26 +1748,25 @@ The library falls back to the Advanced Template if the image cannot be downloade
     </tr>
 
     <tr>
-      <td>
-        pt_scale_type
+      <td style={{ textAlign: "right" }}>
+        pt\_scale\_type
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
       <td>
-        Specify the image scaling type for notifications.  Available values: <li>`fit_center` </li>  <li>`center_crop`</li>  
-        For more information on how it works, refer to [Image Scaling](doc:android-push-templates#image-scaling).
+        Specify the image scaling type for notifications.  Available values: <li>`fit_center` </li>  <li>`center_crop`</li><br />For more information on how it works, refer to [Image Scaling](doc:android-push-templates#image-scaling).
       </td>
     </tr>
 
     <tr>
-      <td>
-        pt_big_img_collapsed
+      <td style={{ textAlign: "right" }}>
+        pt\_big\_img\_collapsed
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -2321,11 +1776,11 @@ The library falls back to the Advanced Template if the image cannot be downloade
     </tr>
 
     <tr>
-      <td>
-        pt_gif_collapsed
+      <td style={{ textAlign: "right" }}>
+        pt\_gif\_collapsed
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -2335,11 +1790,11 @@ The library falls back to the Advanced Template if the image cannot be downloade
     </tr>
 
     <tr>
-      <td>
-        pt_gif_frames_collapsed
+      <td style={{ textAlign: "right" }}>
+        pt\_gif\_frames\_collapsed
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -2349,11 +1804,11 @@ The library falls back to the Advanced Template if the image cannot be downloade
     </tr>
 
     <tr>
-      <td>
-        pt_big_img_collapsed_alt_text
+      <td style={{ textAlign: "right" }}>
+        pt\_big\_img\_collapsed\_alt\_text
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -2363,25 +1818,25 @@ The library falls back to the Advanced Template if the image cannot be downloade
     </tr>
 
     <tr>
-      <td>
-        pt_scale_type_collapsed
+      <td style={{ textAlign: "right" }}>
+        pt\_scale\_type\_collapsed
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
       <td>
-        ScaleType for the image in the collapsed View ("center_crop"/"fit_center")
+        ScaleType for the image in the collapsed View ("center\_crop"/"fit\_center")
       </td>
     </tr>
 
     <tr>
-      <td>
-        pt_sticky
+      <td style={{ textAlign: "right" }}>
+        pt\_sticky
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -2391,11 +1846,11 @@ The library falls back to the Advanced Template if the image cannot be downloade
     </tr>
 
     <tr>
-      <td>
-        pt_dismiss
+      <td style={{ textAlign: "right" }}>
+        pt\_dismiss
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -2405,11 +1860,11 @@ The library falls back to the Advanced Template if the image cannot be downloade
     </tr>
 
     <tr>
-      <td>
-        pt_ico
+      <td style={{ textAlign: "right" }}>
+        pt\_ico
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -2419,28 +1874,27 @@ The library falls back to the Advanced Template if the image cannot be downloade
     </tr>
 
     <tr>
-      <td>
-        wzrk_hide_large_icon
+      <td style={{ textAlign: "right" }}>
+        wzrk\_hide\_large\_icon
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
       <td>
-        Hide the large icon in Android notifications  
-        Values:
+        Hide the large icon in Android notifications<br />Values:
 
         <li> hide = `true` to hide the icon </li> <li> hide = `false` to show the icon (Default) </li>
       </td>
     </tr>
 
     <tr>
-      <td>
-        pt_json
+      <td style={{ textAlign: "right" }}>
+        pt\_json
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -2455,18 +1909,20 @@ The library falls back to the Advanced Template if the image cannot be downloade
 
 Rating template lets your users give you feedback. This feedback is captured in the event _Rating Submitted_ within the property `wzrk_c2a`.
 
-<Image align="center" alt="Rating Template" caption="Rating Template" src="https://files.readme.io/e026a6e56be3574972ff15ae648e46be20699f55cd77eac60f318c3d77c3948e-image.png" width="35% " />
+
+<Image src="https://files.readme.io/e026a6e56be3574972ff15ae648e46be20699f55cd77eac60f318c3d77c3948e-image.png" alt="Rating Template" align="center" width="35% " caption="Rating Template" />
+
 
 ## Template Keys
 
 <Table align={["right","center","left"]}>
   <thead>
     <tr>
-      <th>
+      <th style={{ textAlign: "right" }}>
         Rating Template Keys
       </th>
 
-      <th>
+      <th style={{ textAlign: "center" }}>
         Required
       </th>
 
@@ -2478,11 +1934,11 @@ Rating template lets your users give you feedback. This feedback is captured in 
 
   <tbody>
     <tr>
-      <td>
-        pt_id
+      <td style={{ textAlign: "right" }}>
+        pt\_id
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Required
       </td>
 
@@ -2492,11 +1948,11 @@ Rating template lets your users give you feedback. This feedback is captured in 
     </tr>
 
     <tr>
-      <td>
-        pt_title
+      <td style={{ textAlign: "right" }}>
+        pt\_title
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Required
       </td>
 
@@ -2506,11 +1962,11 @@ Rating template lets your users give you feedback. This feedback is captured in 
     </tr>
 
     <tr>
-      <td>
-        pt_msg
+      <td style={{ textAlign: "right" }}>
+        pt\_msg
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Required
       </td>
 
@@ -2520,11 +1976,11 @@ Rating template lets your users give you feedback. This feedback is captured in 
     </tr>
 
     <tr>
-      <td>
-        pt_default_dl
+      <td style={{ textAlign: "right" }}>
+        pt\_default\_dl
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Required
       </td>
 
@@ -2534,11 +1990,11 @@ Rating template lets your users give you feedback. This feedback is captured in 
     </tr>
 
     <tr>
-      <td>
-        pt_dl1
+      <td style={{ textAlign: "right" }}>
+        pt\_dl1
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Required
       </td>
 
@@ -2548,11 +2004,11 @@ Rating template lets your users give you feedback. This feedback is captured in 
     </tr>
 
     <tr>
-      <td>
-        pt_bg
+      <td style={{ textAlign: "right" }}>
+        pt\_bg
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Required
       </td>
 
@@ -2562,11 +2018,11 @@ Rating template lets your users give you feedback. This feedback is captured in 
     </tr>
 
     <tr>
-      <td>
-        pt_bg_dark
+      <td style={{ textAlign: "right" }}>
+        pt\_bg\_dark
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Required
       </td>
 
@@ -2576,11 +2032,11 @@ Rating template lets your users give you feedback. This feedback is captured in 
     </tr>
 
     <tr>
-      <td>
-        pt_msg_summary
+      <td style={{ textAlign: "right" }}>
+        pt\_msg\_summary
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -2590,11 +2046,11 @@ Rating template lets your users give you feedback. This feedback is captured in 
     </tr>
 
     <tr>
-      <td>
-        pt_subtitle
+      <td style={{ textAlign: "right" }}>
+        pt\_subtitle
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -2604,11 +2060,11 @@ Rating template lets your users give you feedback. This feedback is captured in 
     </tr>
 
     <tr>
-      <td>
-        pt_dl2
+      <td style={{ textAlign: "right" }}>
+        pt\_dl2
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -2618,11 +2074,11 @@ Rating template lets your users give you feedback. This feedback is captured in 
     </tr>
 
     <tr>
-      <td>
-        pt_dl3
+      <td style={{ textAlign: "right" }}>
+        pt\_dl3
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -2632,11 +2088,11 @@ Rating template lets your users give you feedback. This feedback is captured in 
     </tr>
 
     <tr>
-      <td>
-        pt_dl4
+      <td style={{ textAlign: "right" }}>
+        pt\_dl4
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -2646,11 +2102,11 @@ Rating template lets your users give you feedback. This feedback is captured in 
     </tr>
 
     <tr>
-      <td>
-        pt_dl5
+      <td style={{ textAlign: "right" }}>
+        pt\_dl5
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -2660,11 +2116,11 @@ Rating template lets your users give you feedback. This feedback is captured in 
     </tr>
 
     <tr>
-      <td>
-        pt_ico
+      <td style={{ textAlign: "right" }}>
+        pt\_ico
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -2674,28 +2130,27 @@ Rating template lets your users give you feedback. This feedback is captured in 
     </tr>
 
     <tr>
-      <td>
-        wzrk_hide_large_icon
+      <td style={{ textAlign: "right" }}>
+        wzrk\_hide\_large\_icon
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
       <td>
-        Hide the large icon in Android notifications  
-        Values:
+        Hide the large icon in Android notifications<br />Values:
 
         <li> hide = `true` to hide the icon </li> <li> hide = `false` to show the icon (Default) </li>
       </td>
     </tr>
 
     <tr>
-      <td>
-        pt_title_clr
+      <td style={{ textAlign: "right" }}>
+        pt\_title\_clr
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -2705,11 +2160,11 @@ Rating template lets your users give you feedback. This feedback is captured in 
     </tr>
 
     <tr>
-      <td>
-        pt_title_clr_dark
+      <td style={{ textAlign: "right" }}>
+        pt\_title\_clr\_dark
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -2719,11 +2174,11 @@ Rating template lets your users give you feedback. This feedback is captured in 
     </tr>
 
     <tr>
-      <td>
-        pt_msg_clr
+      <td style={{ textAlign: "right" }}>
+        pt\_msg\_clr
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -2733,11 +2188,11 @@ Rating template lets your users give you feedback. This feedback is captured in 
     </tr>
 
     <tr>
-      <td>
-        pt_msg_clr_dark
+      <td style={{ textAlign: "right" }}>
+        pt\_msg\_clr\_dark
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -2747,11 +2202,11 @@ Rating template lets your users give you feedback. This feedback is captured in 
     </tr>
 
     <tr>
-      <td>
-        pt_small_icon_clr
+      <td style={{ textAlign: "right" }}>
+        pt\_small\_icon\_clr
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -2761,11 +2216,11 @@ Rating template lets your users give you feedback. This feedback is captured in 
     </tr>
 
     <tr>
-      <td>
-        pt_small_icon_clr_dark
+      <td style={{ textAlign: "right" }}>
+        pt\_small\_icon\_clr\_dark
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -2775,26 +2230,25 @@ Rating template lets your users give you feedback. This feedback is captured in 
     </tr>
 
     <tr>
-      <td>
-        pt_scale_type
+      <td style={{ textAlign: "right" }}>
+        pt\_scale\_type
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
       <td>
-        Specify the image scaling type for notifications.  Available values: <li>`fit_center` </li>  <li>`center_crop`</li>  
-        For more information on how it works, refer to [Image Scaling](doc:push-templates-android#image-scaling).
+        Specify the image scaling type for notifications.  Available values: <li>`fit_center` </li>  <li>`center_crop`</li><br />For more information on how it works, refer to [Image Scaling](doc:push-templates-android#image-scaling).
       </td>
     </tr>
 
     <tr>
-      <td>
-        pt_json
+      <td style={{ textAlign: "right" }}>
+        pt\_json
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -2804,11 +2258,11 @@ Rating template lets your users give you feedback. This feedback is captured in 
     </tr>
 
     <tr>
-      <td>
-        pt_big_img
+      <td style={{ textAlign: "right" }}>
+        pt\_big\_img
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -2818,11 +2272,11 @@ Rating template lets your users give you feedback. This feedback is captured in 
     </tr>
 
     <tr>
-      <td>
-        pt_big_img_alt_text
+      <td style={{ textAlign: "right" }}>
+        pt\_big\_img\_alt\_text
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -2832,11 +2286,11 @@ Rating template lets your users give you feedback. This feedback is captured in 
     </tr>
 
     <tr>
-      <td>
-        pt_gif
+      <td style={{ textAlign: "right" }}>
+        pt\_gif
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -2846,11 +2300,11 @@ Rating template lets your users give you feedback. This feedback is captured in 
     </tr>
 
     <tr>
-      <td>
-        pt_gif_frames
+      <td style={{ textAlign: "right" }}>
+        pt\_gif\_frames
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -2860,11 +2314,11 @@ Rating template lets your users give you feedback. This feedback is captured in 
     </tr>
 
     <tr>
-      <td>
-        pt_sticky
+      <td style={{ textAlign: "right" }}>
+        pt\_sticky
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -2874,11 +2328,11 @@ Rating template lets your users give you feedback. This feedback is captured in 
     </tr>
 
     <tr>
-      <td>
-        pt_dismiss
+      <td style={{ textAlign: "right" }}>
+        pt\_dismiss
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -2895,558 +2349,63 @@ The product catalog template lets you showcase different product images (or a pr
 
 ## Vertical View
 
-<Image align="center" alt="Product Catalog Template- Vertical View" border={true} caption="Product Catalog Template- Vertical View" src="https://files.readme.io/21393452affbcdbd00b8a7550c07b59db3a855a46f0746099529338ef5208a2f-image.png" width="35% " />
+
+<Image src="https://files.readme.io/21393452affbcdbd00b8a7550c07b59db3a855a46f0746099529338ef5208a2f-image.png" alt="Product Catalog Template- Vertical View" align="center" width="35% " caption="Product Catalog Template- Vertical View" border={true} />
+
 
 ## Linear View
 
 Use the following keys to enable the linear view variant of this template:
 
-|              Template Key | Required | Value  |
-| ------------------------: | :------: | :----- |
-| pt_product_display_linear | Optional | `true` |
+|                 Template Key | Required | Value  |
+| ---------------------------: | :------: | :----- |
+| pt\_product\_display\_linear | Optional | `true` |
 
-<Image align="center" alt="Product Catalog Template-Linear View" border={true} caption="Product Catalog Template-Linear View" src="https://files.readme.io/1e2e81891b1ce9faa0a12731f254d616dcf51818c28f14f6428c0a5d833855b8-image.png" width="35% " />
+
+<Image src="https://files.readme.io/1e2e81891b1ce9faa0a12731f254d616dcf51818c28f14f6428c0a5d833855b8-image.png" alt="Product Catalog Template-Linear View" align="center" width="35% " caption="Product Catalog Template-Linear View" border={true} />
+
 
 ## Template Keys
 
-<Table align={["right","center","left"]}>
-  <thead>
-    <tr>
-      <th>
-        Product Catalog Template Keys
-      </th>
-
-      <th>
-        Required
-      </th>
-
-      <th>
-        Description
-      </th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr>
-      <td>
-        pt_id
-      </td>
-
-      <td>
-        Required
-      </td>
-
-      <td>
-        Value - `pt_product_display`
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_msg
-      </td>
-
-      <td>
-        Required
-      </td>
-
-      <td>
-        Message
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_title
-      </td>
-
-      <td>
-        Required
-      </td>
-
-      <td>
-        Title
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_img1
-      </td>
-
-      <td>
-        Required
-      </td>
-
-      <td>
-        Image One
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_img1_alt_text
-      </td>
-
-      <td>
-        Optional
-      </td>
-
-      <td>
-        Alt Text for Image One
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_img2
-      </td>
-
-      <td>
-        Required
-      </td>
-
-      <td>
-        Image Two
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_img2_alt_text
-      </td>
-
-      <td>
-        Optional
-      </td>
-
-      <td>
-        Alt Text for Image Two
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_img3
-      </td>
-
-      <td>
-        Required
-      </td>
-
-      <td>
-        Image Three
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_img3_alt_text
-      </td>
-
-      <td>
-        Optional
-      </td>
-
-      <td>
-        Alt Text for Image Three
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_bt1
-      </td>
-
-      <td>
-        Required
-      </td>
-
-      <td>
-        Big text for first image
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_bt2
-      </td>
-
-      <td>
-        Required
-      </td>
-
-      <td>
-        Big text for second image
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_bt3
-      </td>
-
-      <td>
-        Required
-      </td>
-
-      <td>
-        Big text for third image
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_st2
-      </td>
-
-      <td>
-        Required
-      </td>
-
-      <td>
-        Small text for second image
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_st1
-      </td>
-
-      <td>
-        Required
-      </td>
-
-      <td>
-        Small text for first image
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_st3
-      </td>
-
-      <td>
-        Required
-      </td>
-
-      <td>
-        Small text for third image
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_dl1
-      </td>
-
-      <td>
-        Required
-      </td>
-
-      <td>
-        Deep Link for first image
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_dl2
-      </td>
-
-      <td>
-        Required
-      </td>
-
-      <td>
-        Deep Link for second image
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_dl3
-      </td>
-
-      <td>
-        Required
-      </td>
-
-      <td>
-        Deep Link for third image
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_price1
-      </td>
-
-      <td>
-        Required
-      </td>
-
-      <td>
-        Price for first image
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_price2
-      </td>
-
-      <td>
-        Required
-      </td>
-
-      <td>
-        Price for second image
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_price3
-      </td>
-
-      <td>
-        Required
-      </td>
-
-      <td>
-        Price for third image
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_bg
-      </td>
-
-      <td>
-        Required
-      </td>
-
-      <td>
-        Background Color in HEX
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_bg_dark
-      </td>
-
-      <td>
-        Required
-      </td>
-
-      <td>
-        Background Color in HEX in dark mode
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_product_display_action
-      </td>
-
-      <td>
-        Required
-      </td>
-
-      <td>
-        Action Button Label Text
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_product_display_action_clr
-      </td>
-
-      <td>
-        Required
-      </td>
-
-      <td>
-        Action Button Background Color in HEX
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_subtitle
-      </td>
-
-      <td>
-        Optional
-      </td>
-
-      <td>
-        Subtitle
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_product_display_linear
-      </td>
-
-      <td>
-        Optional
-      </td>
-
-      <td>
-        Linear Layout Template ("true"/"false")
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_title_clr
-      </td>
-
-      <td>
-        Optional
-      </td>
-
-      <td>
-        Title Color in HEX
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_title_clr_dark
-      </td>
-
-      <td>
-        Optional
-      </td>
-
-      <td>
-        Title Color in HEX in dark mode.
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_msg_clr
-      </td>
-
-      <td>
-        Optional
-      </td>
-
-      <td>
-        Message Color in HEX
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_msg_clr_dark
-      </td>
-
-      <td>
-        Optional
-      </td>
-
-      <td>
-        Message Color in HEX in dark mode
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_small_icon_clr
-      </td>
-
-      <td>
-        Optional
-      </td>
-
-      <td>
-        Small Icon Color in HEX
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_small_icon_clr_dark
-      </td>
-
-      <td>
-        Optional
-      </td>
-
-      <td>
-        Small Icon Color in HEX in dark mode
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_sticky
-      </td>
-
-      <td>
-        Optional
-      </td>
-
-      <td>
-        Should the notification be sticky? ("true"/"false")
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_dismiss
-      </td>
-
-      <td>
-        Optional
-      </td>
-
-      <td>
-        Auto dismiss the notification after a set time (value in seconds)
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_scale_type
-      </td>
-
-      <td>
-        Optional
-      </td>
-
-      <td>
-        Specify the image scaling type for notifications.  Available values: <li>`fit_center` </li>  <li>`center_crop`</li>  
-        For more information on how it works, refer to [Image Scaling](doc:android-push-templates#image-scaling).
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        pt_json
-      </td>
-
-      <td>
-        Optional
-      </td>
-
-      <td>
-        Above keys in JSON format
-      </td>
-    </tr>
-  </tbody>
-</Table>
+|     Product Catalog Template Keys | Required | Description                                                                                                                                                                                                                        |
+| --------------------------------: | :------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|                            pt\_id | Required | Value - `pt_product_display`                                                                                                                                                                                                       |
+|                           pt\_msg | Required | Message                                                                                                                                                                                                                            |
+|                         pt\_title | Required | Title                                                                                                                                                                                                                              |
+|                          pt\_img1 | Required | Image One                                                                                                                                                                                                                          |
+|               pt\_img1\_alt\_text | Optional | Alt Text for Image One                                                                                                                                                                                                             |
+|                          pt\_img2 | Required | Image Two                                                                                                                                                                                                                          |
+|               pt\_img2\_alt\_text | Optional | Alt Text for Image Two                                                                                                                                                                                                             |
+|                          pt\_img3 | Required | Image Three                                                                                                                                                                                                                        |
+|               pt\_img3\_alt\_text | Optional | Alt Text for Image Three                                                                                                                                                                                                           |
+|                           pt\_bt1 | Required | Big text for first image                                                                                                                                                                                                           |
+|                           pt\_bt2 | Required | Big text for second image                                                                                                                                                                                                          |
+|                           pt\_bt3 | Required | Big text for third image                                                                                                                                                                                                           |
+|                           pt\_st2 | Required | Small text for second image                                                                                                                                                                                                        |
+|                           pt\_st1 | Required | Small text for first image                                                                                                                                                                                                         |
+|                           pt\_st3 | Required | Small text for third image                                                                                                                                                                                                         |
+|                           pt\_dl1 | Required | Deep Link for first image                                                                                                                                                                                                          |
+|                           pt\_dl2 | Required | Deep Link for second image                                                                                                                                                                                                         |
+|                           pt\_dl3 | Required | Deep Link for third image                                                                                                                                                                                                          |
+|                        pt\_price1 | Required | Price for first image                                                                                                                                                                                                              |
+|                        pt\_price2 | Required | Price for second image                                                                                                                                                                                                             |
+|                        pt\_price3 | Required | Price for third image                                                                                                                                                                                                              |
+|                            pt\_bg | Required | Background Color in HEX                                                                                                                                                                                                            |
+|                      pt\_bg\_dark | Required | Background Color in HEX in dark mode                                                                                                                                                                                               |
+|      pt\_product\_display\_action | Required | Action Button Label Text                                                                                                                                                                                                           |
+| pt\_product\_display\_action\_clr | Required | Action Button Background Color in HEX                                                                                                                                                                                              |
+|                      pt\_subtitle | Optional | Subtitle                                                                                                                                                                                                                           |
+|      pt\_product\_display\_linear | Optional | Linear Layout Template ("true"/"false")                                                                                                                                                                                            |
+|                    pt\_title\_clr | Optional | Title Color in HEX                                                                                                                                                                                                                 |
+|              pt\_title\_clr\_dark | Optional | Title Color in HEX in dark mode.                                                                                                                                                                                                   |
+|                      pt\_msg\_clr | Optional | Message Color in HEX                                                                                                                                                                                                               |
+|                pt\_msg\_clr\_dark | Optional | Message Color in HEX in dark mode                                                                                                                                                                                                  |
+|              pt\_small\_icon\_clr | Optional | Small Icon Color in HEX                                                                                                                                                                                                            |
+|        pt\_small\_icon\_clr\_dark | Optional | Small Icon Color in HEX in dark mode                                                                                                                                                                                               |
+|                        pt\_sticky | Optional | Should the notification be sticky? ("true"/"false")                                                                                                                                                                                |
+|                       pt\_dismiss | Optional | Auto dismiss the notification after a set time (value in seconds)                                                                                                                                                                  |
+|                   pt\_scale\_type | Optional | Specify the image scaling type for notifications.  Available values: <li>`fit_center` </li>  <li>`center_crop`</li><br />For more information on how it works, refer to [Image Scaling](doc:android-push-templates#image-scaling). |
+|                          pt\_json | Optional | Above keys in JSON format                                                                                                                                                                                                          |
 
 # Input Box Template
 
@@ -3458,15 +2417,19 @@ The CTA variant of the Input Box Template uses action buttons on the notificatio
 
 To set the CTAs, use the Advanced Options when setting up the campaign on the dashboard.
 
-<Image align="center" alt={618} border={true} caption="Input Box Template-With CTAs" title="Input Box Template-With CTAs" src="https://github.com/CleverTap/clevertap-android-sdk/raw/master/static/inputctabasicdismiss.gif" width="35% " />
 
-|        Template Key | Required | Value                                                        |
-| ------------------: | :------: | :----------------------------------------------------------- |
-| pt_dismiss_on_click | Optional | `true` (Dismisses the notification without opening the app). |
+<Image src="https://github.com/CleverTap/clevertap-android-sdk/raw/master/static/inputctabasicdismiss.gif" alt="618" align="center" width="35% " caption="Input Box Template-With CTAs" border={true} />
 
-> 📘 **Display the Notification in the tray (for Android 12 and above)**
->
-> To keep the notification in the notification tray even after clicking the CTA, set the value for the `pt_dismiss_on_click` payload key as `false` and add the `dismissNotification` function to your code.
+
+|           Template Key | Required | Value                                                        |
+| ---------------------: | :------: | :----------------------------------------------------------- |
+| pt\_dismiss\_on\_click | Optional | `true` (Dismisses the notification without opening the app). |
+
+<Callout icon="📘" theme="info">
+  ### **Display the Notification in the tray (for Android 12 and above)**
+
+  To keep the notification in the notification tray even after clicking the CTA, set the value for the `pt_dismiss_on_click` payload key as `false` and add the `dismissNotification` function to your code.
+</Callout>
 
 Following is a sample code for adding the `dismissNotification` function:
 
@@ -3503,14 +2466,16 @@ This variant of the Input Box Template is advantageous if the user wants to be r
 
 Ensure to set one of the CTAs as a Remind Later button. Set the action ID to `remind` from the dashboard.
 
-|                         Template Key | Required | Value                                                                                                                                                                  |
-| -----------------------------------: | :------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                        pt_event_name | Required | For example: `Remind Later`,                                                                                                                                           |
-| pt_event_property_\<property_name_1> | Optional | For example: `<property_value>`,                                                                                                                                       |
-| pt_event_property_\<property_name_2> | Optional | future epoch timestamp. For example: `\$D_1592503813`                                                                                                                  |
-|                  pt_dismiss_on_click | Required | Value should be `true`. It dismisses the notification without opening the app and raises a required event to the user profile, needed to send a reminder notification. |
+|                                      Template Key | Required | Value                                                                                                                                                                  |
+| ------------------------------------------------: | :------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|                                   pt\_event\_name | Required | For example: `Remind Later`,                                                                                                                                           |
+| pt\_even&#x74;_&#x70;roperty_\<property\_name\_1> | Optional | For example: `<property_value>`,                                                                                                                                       |
+| pt\_even&#x74;_&#x70;roperty_\<property\_name\_2> | Optional | future epoch timestamp. For example: `\$D_1592503813`                                                                                                                  |
+|                            pt\_dismiss\_on\_click | Required | Value should be `true`. It dismisses the notification without opening the app and raises a required event to the user profile, needed to send a reminder notification. |
 
-<Image align="center" alt={618} border={true} caption="Input Box Template-CTAs with Remind Later option" title="Input Box Template-CTAs with Remind Later option" src="https://github.com/CleverTap/clevertap-android-sdk/raw/master/static/inputCtaRemind.gif" width="35% " />
+
+<Image src="https://github.com/CleverTap/clevertap-android-sdk/raw/master/static/inputCtaRemind.gif" alt="618" align="center" width="35% " caption="Input Box Template-CTAs with Remind Later option" border={true} />
+
 
 ## Reply as an Event
 
@@ -3518,15 +2483,17 @@ This variant raises an event capturing the user's input as an event property. Th
 
 To use this variant, use the following values for the keys.
 
-|                         Template Key | Required | Value                                   |
-| -----------------------------------: | :------: | :-------------------------------------- |
-|                       pt_input_label | Required | for example, `Search`                   |
-|                    pt_input_feedback | Required | for example, `Thanks for your feedback` |
-|                        pt_event_name | Required | for example. `Searched`,                |
-| pt_event_property_\<property_name_2> | Required | fixed value - `pt_input_reply`          |
-| pt_event_property_\<property_name_1> | Optional | for example. `<property_value>`,        |
+|                                      Template Key | Required | Value                                   |
+| ------------------------------------------------: | :------: | :-------------------------------------- |
+|                                  pt\_input\_label | Required | for example, `Search`                   |
+|                               pt\_input\_feedback | Required | for example, `Thanks for your feedback` |
+|                                   pt\_event\_name | Required | for example. `Searched`,                |
+| pt\_even&#x74;_&#x70;roperty_\<property\_name\_2> | Required | fixed value - `pt_input_reply`          |
+| pt\_even&#x74;_&#x70;roperty_\<property\_name\_1> | Optional | for example. `<property_value>`,        |
 
-<Image align="center" alt={618} border={true} caption="Input Box Template-Reply as an Event" title="Input Box Template-Reply as an Event" src="https://github.com/CleverTap/clevertap-android-sdk/raw/master/static/inputCtaNoOpen.gif" width="35% " />
+
+<Image src="https://github.com/CleverTap/clevertap-android-sdk/raw/master/static/inputCtaNoOpen.gif" alt="618" align="center" width="35% " caption="Input Box Template-Reply as an Event" border={true} />
+
 
 ## Reply as an Intent
 
@@ -3534,26 +2501,28 @@ This variant passes the reply to the app as an Intent. The app can then process 
 
 To use this variant, use the following values for the keys.
 
-|       Template Key | Required | Value                                    |
-| -----------------: | :------: | :--------------------------------------- |
-|     pt_input_label | Required | for example, `Search`                    |
-|  pt_input_feedback | Required | for example., `Thanks for your feedback` |
-| pt_input_auto_open | Required | fixed value - `true`                     |
+|          Template Key | Required | Value                                    |
+| --------------------: | :------: | :--------------------------------------- |
+|      pt\_input\_label | Required | for example, `Search`                    |
+|   pt\_input\_feedback | Required | for example., `Thanks for your feedback` |
+| pt\_input\_auto\_open | Required | fixed value - `true`                     |
 
 To capture the input, the app can get the `pt_input_reply` key from the Intent extras.
 
-<Image align="center" alt={618} border={true} caption="Input Box Template-Reply as an Intent" title="Input Box Template-Reply as an Intent" src="https://github.com/CleverTap/clevertap-android-sdk/raw/master/static/inputCtaWithOpen.gif" width="35% " />
+
+<Image src="https://github.com/CleverTap/clevertap-android-sdk/raw/master/static/inputCtaWithOpen.gif" alt="618" align="center" width="35% " caption="Input Box Template-Reply as an Intent" border={true} />
+
 
 ## Template Keys
 
 <Table align={["right","center","left"]}>
   <thead>
     <tr>
-      <th>
+      <th style={{ textAlign: "right" }}>
         Input Box Template Keys
       </th>
 
-      <th>
+      <th style={{ textAlign: "center" }}>
         Required
       </th>
 
@@ -3565,11 +2534,11 @@ To capture the input, the app can get the `pt_input_reply` key from the Intent e
 
   <tbody>
     <tr>
-      <td>
-        pt_id
+      <td style={{ textAlign: "right" }}>
+        pt\_id
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Required
       </td>
 
@@ -3579,11 +2548,11 @@ To capture the input, the app can get the `pt_input_reply` key from the Intent e
     </tr>
 
     <tr>
-      <td>
-        pt_title
+      <td style={{ textAlign: "right" }}>
+        pt\_title
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Required
       </td>
 
@@ -3593,11 +2562,11 @@ To capture the input, the app can get the `pt_input_reply` key from the Intent e
     </tr>
 
     <tr>
-      <td>
-        pt_msg
+      <td style={{ textAlign: "right" }}>
+        pt\_msg
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Required
       </td>
 
@@ -3607,11 +2576,11 @@ To capture the input, the app can get the `pt_input_reply` key from the Intent e
     </tr>
 
     <tr>
-      <td>
-        pt_big_img
+      <td style={{ textAlign: "right" }}>
+        pt\_big\_img
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Required
       </td>
 
@@ -3621,11 +2590,11 @@ To capture the input, the app can get the `pt_input_reply` key from the Intent e
     </tr>
 
     <tr>
-      <td>
-        pt_big_img_alt
+      <td style={{ textAlign: "right" }}>
+        pt\_big\_img\_alt
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -3635,11 +2604,11 @@ To capture the input, the app can get the `pt_input_reply` key from the Intent e
     </tr>
 
     <tr>
-      <td>
-        pt_input_label
+      <td style={{ textAlign: "right" }}>
+        pt\_input\_label
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Required
       </td>
 
@@ -3649,11 +2618,11 @@ To capture the input, the app can get the `pt_input_reply` key from the Intent e
     </tr>
 
     <tr>
-      <td>
-        pt_input_feedback
+      <td style={{ textAlign: "right" }}>
+        pt\_input\_feedback
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Required
       </td>
 
@@ -3663,11 +2632,11 @@ To capture the input, the app can get the `pt_input_reply` key from the Intent e
     </tr>
 
     <tr>
-      <td>
-        pt_dl1
+      <td style={{ textAlign: "right" }}>
+        pt\_dl1
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Required
       </td>
 
@@ -3677,11 +2646,11 @@ To capture the input, the app can get the `pt_input_reply` key from the Intent e
     </tr>
 
     <tr>
-      <td>
-        pt_msg_summary
+      <td style={{ textAlign: "right" }}>
+        pt\_msg\_summary
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -3691,11 +2660,11 @@ To capture the input, the app can get the `pt_input_reply` key from the Intent e
     </tr>
 
     <tr>
-      <td>
-        pt_subtitle
+      <td style={{ textAlign: "right" }}>
+        pt\_subtitle
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -3705,11 +2674,11 @@ To capture the input, the app can get the `pt_input_reply` key from the Intent e
     </tr>
 
     <tr>
-      <td>
-        pt_event_name
+      <td style={{ textAlign: "right" }}>
+        pt\_event\_name
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -3719,53 +2688,53 @@ To capture the input, the app can get the `pt_input_reply` key from the Intent e
     </tr>
 
     <tr>
-      <td>
-        pt_event_property_\<property_name_1>
+      <td style={{ textAlign: "right" }}>
+        pt\_even&#x74;_&#x70;roperty_\<property\_name\_1>
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
       <td>
-        Value for event property \<property_name_1>
+        Value for event property \<property\_name\_1>
       </td>
     </tr>
 
     <tr>
-      <td>
-        pt_event_property_\<property_name_2>
+      <td style={{ textAlign: "right" }}>
+        pt\_even&#x74;_&#x70;roperty_\<property\_name\_2>
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
       <td>
-        Value for event property \<property_name_2>
+        Value for event property \<property\_name\_2>
       </td>
     </tr>
 
     <tr>
-      <td>
-        pt_event_property_\<property_name_n>
+      <td style={{ textAlign: "right" }}>
+        pt\_even&#x74;_&#x70;roperty_\<property\_name\_n>
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
       <td>
-        Value for event property \<property_name_n>
+        Value for event property \<property\_name\_n>
       </td>
     </tr>
 
     <tr>
-      <td>
-        pt_input_auto_open
+      <td style={{ textAlign: "right" }}>
+        pt\_input\_auto\_open
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -3775,11 +2744,11 @@ To capture the input, the app can get the `pt_input_reply` key from the Intent e
     </tr>
 
     <tr>
-      <td>
-        pt_title_clr
+      <td style={{ textAlign: "right" }}>
+        pt\_title\_clr
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -3789,11 +2758,11 @@ To capture the input, the app can get the `pt_input_reply` key from the Intent e
     </tr>
 
     <tr>
-      <td>
-        pt_title_clr_dark
+      <td style={{ textAlign: "right" }}>
+        pt\_title\_clr\_dark
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -3803,11 +2772,11 @@ To capture the input, the app can get the `pt_input_reply` key from the Intent e
     </tr>
 
     <tr>
-      <td>
-        pt_msg_clr
+      <td style={{ textAlign: "right" }}>
+        pt\_msg\_clr
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -3817,11 +2786,11 @@ To capture the input, the app can get the `pt_input_reply` key from the Intent e
     </tr>
 
     <tr>
-      <td>
-        pt_msg_clr_dark
+      <td style={{ textAlign: "right" }}>
+        pt\_msg\_clr\_dark
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -3831,11 +2800,11 @@ To capture the input, the app can get the `pt_input_reply` key from the Intent e
     </tr>
 
     <tr>
-      <td>
-        pt_small_icon_clr
+      <td style={{ textAlign: "right" }}>
+        pt\_small\_icon\_clr
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -3845,11 +2814,11 @@ To capture the input, the app can get the `pt_input_reply` key from the Intent e
     </tr>
 
     <tr>
-      <td>
-        pt_small_icon_clr_dark
+      <td style={{ textAlign: "right" }}>
+        pt\_small\_icon\_clr\_dark
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -3859,11 +2828,11 @@ To capture the input, the app can get the `pt_input_reply` key from the Intent e
     </tr>
 
     <tr>
-      <td>
-        pt_ico
+      <td style={{ textAlign: "right" }}>
+        pt\_ico
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -3873,28 +2842,27 @@ To capture the input, the app can get the `pt_input_reply` key from the Intent e
     </tr>
 
     <tr>
-      <td>
-        wzrk_hide_large_icon
+      <td style={{ textAlign: "right" }}>
+        wzrk\_hide\_large\_icon
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
       <td>
-        Hide the large icon in Android notifications  
-        Values:
+        Hide the large icon in Android notifications<br />Values:
 
         <li> hide = `true` to hide the icon </li> <li> hide = `false` to show the icon (Default) </li>
       </td>
     </tr>
 
     <tr>
-      <td>
-        pt_dismiss_on_click
+      <td style={{ textAlign: "right" }}>
+        pt\_dismiss\_on\_click
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -3904,11 +2872,11 @@ To capture the input, the app can get the `pt_input_reply` key from the Intent e
     </tr>
 
     <tr>
-      <td>
-        pt_json
+      <td style={{ textAlign: "right" }}>
+        pt\_json
       </td>
 
-      <td>
+      <td style={{ textAlign: "center" }}>
         Optional
       </td>
 
@@ -3925,21 +2893,29 @@ The Vertical Image with CTA template is designed for displaying portrait-oriente
 
 This template ensures that vertical-first designs appear exactly as intended, reducing the need to redesign assets for square or landscape formats. It supports expanded and collapsed views on Android. You can also include additional text fields for richer layouts and an optional CTA button with customizable styles.
 
-> 📘 Private Beta
->
-> Vertical Image with CTA is available in Private Beta. To enable this feature, contact your Customer Success Manager.
+<Callout icon="📘" theme="info">
+  ### Private Beta
 
-<Image align="center" border={true} caption="Vertical Image with CTA Template" src="https://files.readme.io/6170b638867cb0457a6744586cdf70a8df6250759cb0b828c3c90923bbb66d95-ChatGPT_Image_Apr_20_2026_at_12_27_11_PM.png" width="35% " />
+  Vertical Image with CTA is available in Private Beta. To enable this feature, contact your Customer Success Manager.
+</Callout>
 
-> 📘 Note
->
-> The minimum SDK version required for the Vertical Image with CTA Template is Push Templates SDK v2.4.0.
+
+<Image src="https://files.readme.io/6170b638867cb0457a6744586cdf70a8df6250759cb0b828c3c90923bbb66d95-ChatGPT_Image_Apr_20_2026_at_12_27_11_PM.png" align="center" width="35% " caption="Vertical Image with CTA Template" border={true} />
+
+
+<Callout icon="📘" theme="info">
+  ### Note
+
+  The minimum SDK version required for the Vertical Image with CTA Template is Push Templates SDK v2.4.0.
+</Callout>
 
 # GIF Support
 
 CleverTap supports GIFs in push templates starting with SDK version 7.5.0 on devices running Android 14 or later. This allows you to add animated media to push notifications, enhancing user engagement through dynamic visuals.
 
-<Image align="center" width="35% " src="https://files.readme.io/47c076dffe3d89c693a3fc4aeac5117649dc0a28af5e2b820157f86d7919ed29-Screen_Recording_Jul_28_2025_1.gif" />
+
+<Image src="https://files.readme.io/47c076dffe3d89c693a3fc4aeac5117649dc0a28af5e2b820157f86d7919ed29-Screen_Recording_Jul_28_2025_1.gif" align="center" width="35% " />
+
 
 ## Supported Templates
 
@@ -3954,9 +2930,11 @@ GIFs are supported in the following templates:
 | Rating Template          | `pt_gif`      | SDK v7.5.0     | Optional; static fallback if unsupported                                      |
 | Vertical Image with CTA  | `pt_gif`      | SDK v7.5.0     | Supports GIFs in expanded (`pt_gif`) and collapsed (`pt_gif_collapsed`) views |
 
-> 📘 Note:
->
-> For templates other than _Standard Push Template_, Refer to the [GIF Size Guidelines](doc:android-push-templates-v2#gif-size-guidelines) for smooth rendering.
+<Callout icon="📘" theme="info">
+  ### Note:
+
+  For templates other than _Standard Push Template_, Refer to the [GIF Size Guidelines](doc:android-push-templates-v2#gif-size-guidelines) for smooth rendering.
+</Callout>
 
 ## GIF Size Guidelines
 
@@ -3998,21 +2976,21 @@ For templates using `pt_gif`, specify the key as:
 
 ## Limitations
 
-* Devices running Android 13 and below do not support GIF playback; a static fallback image is shown.
-* Some OEMs may not fully support GIF rendering, even on Android 14 and above.
-* On certain devices, the heads-up notification may display only the first frame, while the full GIF appears when the notification tray is expanded.
-* GIFs may not loop smoothly if the frame count is high or the file size exceeds 1 MB.
+- Devices running Android 13 and below do not support GIF playback; a static fallback image is shown.
+- Some OEMs may not fully support GIF rendering, even on Android 14 and above.
+- On certain devices, the heads-up notification may display only the first frame, while the full GIF appears when the notification tray is expanded.
+- GIFs may not loop smoothly if the frame count is high or the file size exceeds 1 MB.
 
 # Template Variations
 
 Users can preview and render different variations of outputs for each Push template type based on the following factors:
 
-* **Version-based Output**: Notifications render differently for Android version 12 and above and version 11 and below. Key considerations include the following:
-  * **Android 13 and above**: Use images no larger than 450x450 px for optimal rendering.
-  * **Android 12 and above**: Center-align any text within images is centered for to ensure better visibility.
-  * **Android 11 and 12**: Use image file size below 100 KB to prevent rendering issues.
-  * **Android 11 and below**: Use images of under 3 MB or lower is recommended for better to maintain optimal performance.
-* **CTA-based Output**: Notification renders based on whether CTA buttons are included in the payload.
+- **Version-based Output**: Notifications render differently for Android version 12 and above and version 11 and below. Key considerations include the following:
+  - **Android 13 and above**: Use images no larger than 450x450 px for optimal rendering.
+  - **Android 12 and above**: Center-align any text within images is centered for to ensure better visibility.
+  - **Android 11 and 12**: Use image file size below 100 KB to prevent rendering issues.
+  - **Android 11 and below**: Use images of under 3 MB or lower is recommended for better to maintain optimal performance.
+- **CTA-based Output**: Notification renders based on whether CTA buttons are included in the payload.
 
 # Dark Mode
 
@@ -4023,13 +3001,17 @@ Push templates automatically adapt to the device's theme settings, rendering not
 | **Dark mode enabled**  | Notification renders with a **dark background**   | ![](https://files.readme.io/37884bc08c5375da82457ffc4f54c7b31d3dc1591e0430f65949b73003df5e35-image.png) |
 | **Dark mode disabled** | Notification renders with a **light background**. | ![](https://files.readme.io/e5e9256facd596cdea7b325ad9945868ed3a4d3c5527ef09d46ae64ae350fc5d-image.png) |
 
-> 📘 **Custom Color Definitions**
->
-> Templates support **custom color definitions** that adapt to both themes for visual consistency.
+<Callout icon="📘" theme="info">
+  ### **Custom Color Definitions**
 
-> 🚧 **SDK Version Requirement**
->
-> To use the Dark mode feature, ensure you are using Push Templates SDK version 2.1.0 and above.
+  Templates support **custom color definitions** that adapt to both themes for visual consistency.
+</Callout>
+
+<Callout icon="🚧" theme="warn">
+  ### **SDK Version Requirement**
+
+  To use the Dark mode feature, ensure you are using Push Templates SDK version 2.1.0 and above.
+</Callout>
 
 # Image Scaling
 
@@ -4089,228 +3071,64 @@ The following table lists the different scaling settings in Push templates:
   </tbody>
 </Table>
 
-> 🚧 **SDK Version Requirement**
->
-> To use the Image scaling feature, ensure you are using Push Templates SDK version 2.1.0 and above.
+<Callout icon="🚧" theme="warn">
+  ### **SDK Version Requirement**
+
+  To use the Image scaling feature, ensure you are using Push Templates SDK version 2.1.0 and above.
+</Callout>
 
 # Image Specifications
 
-The following are the image specifications and guidelines for the Push Templates:
+The following table shows image specifications, including both standard aspect ratios and CTA-specific variations. Aspect ratios may differ when Call-to-Action buttons are included in the payload.
 
-<Table align={["right","left","left"]}>
-  <thead>
-    <tr>
-      <th>
-        Template
-      </th>
-
-      <th>
-        Aspect Ratios (Approx.)
-      </th>
-
-      <th>
-        Maximum File Size
-
-        (OS version 12 and above)
-      </th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr>
-      <td>
-        **Standard**
-      </td>
-
-      <td>
-        * OS version 12 and above: **3:2**
-        * OS version 11 and below: **5:3**
-      </td>
-
-      <td>
-
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        **Advanced**
-      </td>
-
-      <td>
-        * OS version 12 and above: **3:2**
-        * OS version 11 and below: **5:3**
-      </td>
-
-      <td>
-        500 KB
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        **Auto Carousel**
-      </td>
-
-      <td>
-        * OS version 12 and above: **3:2**
-        * OS version 11 and below: **5:3**
-      </td>
-
-      <td>
-        86 KB
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        **Manual Carousel**
-      </td>
-
-      <td>
-        * OS version 12 and above: **3:2**
-        * OS version 11 and below: **5:3**
-      </td>
-
-      <td>
-        86 KB
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        **Five Icon**
-      </td>
-
-      <td>
-        * OS version 12 and above: **1:1**
-        * OS version 11 and below: **1:1**
-      </td>
-
-      <td>
-        50 KB
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        **Text over Image**
-      </td>
-
-      <td>
-        * OS version 12 and above: **1:1**
-        * OS version 11 and below: **2:1**
-      </td>
-
-      <td>
-        500 KB
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        **Timer**
-      </td>
-
-      <td>
-        * OS version 12 and above: **3:2**
-        * OS version 11 and below: **5:3**
-      </td>
-
-      <td>
-        326 KB
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        **Product Catalogue Linear View**
-      </td>
-
-      <td>
-        * OS version 12 and above - **3:2**
-        * OS version 11 and below- **2:1**
-      </td>
-
-      <td>
-        86 KB
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        **Product Catalogue Vertical View**
-      </td>
-
-      <td>
-        * OS version 12 and above - **3:4**
-        * OS version 11 and below- **1:1**
-      </td>
-
-      <td>
-        86 KB
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        **Input Box**
-      </td>
-
-      <td>
-        * OS version 12 and above - **3:2**
-        * OS version 11 and below- **5:3**
-      </td>
-
-      <td>
-        500 KB
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        **Ratings**
-      </td>
-
-      <td>
-        * OS version 12 and above - **3:1**
-        * OS version 11 and below- **5:3**
-      </td>
-
-      <td>
-        500 KB
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        **Vertical Image with CTA**
-      </td>
-
-      <td>
-        * OS version 12 and above - **3:2**
-        * OS version 11 and below - **3:2**
-      </td>
-
-      <td>
-        500 KB
-      </td>
-    </tr>
-  </tbody>
-</Table>
+| Template                     | OS Version         | Aspect Ratio (Without CTA) | Aspect Ratio (With CTA) | Max File Size |
+| :--------------------------- | :----------------- | :------------------------- | :---------------------- | :------------ |
+| Standard                     | Android 11 & below | 5:3                        | 2:1                     | -             |
+|                              | Android 12+        | 3:2                        | 2:1                     | -             |
+| Advanced                     | Android 11 & below | 5:3                        | 2:1                     | 500 KB        |
+|                              | Android 12+        | 3:2                        | 2:1                     | 500 KB        |
+| Auto Carousel                | Android 11 & below | 5:3                        | 2:1                     | 86 KB         |
+|                              | Android 12+        | 3:2                        | 2:1                     | 86 KB         |
+| Manual Carousel              | Android 11 & below | 5:3                        | 2:1                     | 86 KB         |
+|                              | Android 12+        | 3:2                        | 2:1                     | 86 KB         |
+| Five Icon                    | Android 11 & below | 1:1                        | N/A                     | 50 KB         |
+|                              | Android 12+        | 1:1                        | N/A                     | 50 KB         |
+| Text over Image              | Android 11 & below | 2:1                        | 4:3                     | 500 KB        |
+|                              | Android 12+        | 1:1                        | 4:3                     | 500 KB        |
+| Timer                        | Android 11 & below | 5:3                        | 2:1                     | 326 KB        |
+|                              | Android 12+        | 3:2                        | 2:1                     | 326 KB        |
+| Rating                       | Android 11 & below | 5:3                        | N/A                     | 500 KB        |
+|                              | Android 12+        | 3:2                        | N/A                     | 500 KB        |
+| Product Catalogue (Linear)   | Android 11 & below | 2:1                        | N/A                     | 86 KB         |
+|                              | Android 12+        | 3:2                        | N/A                     | 86 KB         |
+| Product Catalogue (Vertical) | Android 11 & below | 1:1                        | N/A                     | 86 KB         |
+|                              | Android 12+        | 3:4                        | N/A                     | 86 KB         |
+| Input Box                    | Android 11 & below | 5:3                        | N/A                     | 500 KB        |
+|                              | Android 12+        | 3:2                        | N/A                     | 500 KB        |
+| Vertical Image with CTA      | Android 11 & below | 2:3                        | 2:3                     | 500 KB        |
+|                              | Android 12+        | 2:3                        | 2:3                     | 500 KB        |
 
 # Image Guidelines
 
-Ensure images for the following templates meet the specified size guidelines:
+Ensure images for the following templates meet the specified resolution and file size guidelines:
 
-| Template Name            | Recommended Resolution |
-| :----------------------- | :--------------------- |
-| Auto Carousel Template   | 400 x 300 px           |
-| Manual Carousel Template | 240 x 180 px           |
-| Five Icon  Template      | 300 x 300 px           |
-| Product Catalogue        | 225 x 225 px           |
+| Template Name              | Recommended Resolution | Additional Guidelines                                                                            |
+| -------------------------- | ---------------------- | ------------------------------------------------------------------------------------------------ |
+| Standard Template          | -                      | No specific guidelines; single image template                                                    |
+| Auto Carousel Template     | 400 x 300 px           | File size per image: 86 KB max                                                                   |
+| Manual Carousel Template   | 240 x 180 px           | File size per image: 86 KB max                                                                   |
+| Five Icon Template         | 300 x 300 px           | Square aspect ratio (1:1); 5 icons total; file size per icon: 50 KB max                          |
+| Product Catalogue Template | 225 x 225 px           | File size per product: 86 KB max; Vertical variant uses 3:4 aspect ratio (Android 12+)           |
+| Standard Template with GIF | 240 x 140 px           | 5 frames max; Android 14+ recommended; size limits do not apply to Standard template GIFs        |
+| Text over Image Template   | -                      | Center-align text within image for Android 12+; no specific guidelines for single image template |
 
-For Text over Image Template, ensure the text is center-aligned within the image for devices running OS version 12 and above.
+<Callout icon="📘" theme="info">
+  ### Note
+
+  - Number of lines of text in `msg_summary` affects how an image renders for a particular aspect ratio. Adjust aspect ratios and layout accordingly based on message length.
+  - Resolution limits do not change based on whether the push has CTA buttons or not.
+  - Templates other than Auto Carousel, Manual Carousel, and Five Icons do not require specific image resolution guidelines as they use a single image.
+</Callout>
 
 # FAQs
 
