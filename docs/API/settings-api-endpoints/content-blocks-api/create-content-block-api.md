@@ -2,7 +2,7 @@
 title: Create Content Block
 excerpt: Learn how to create a new content block with API.
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   title: ''
   description: ''

@@ -2,7 +2,7 @@
 title: Get Content Block List
 excerpt: Learn how to use the Get Content Block List API.
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   title: ''
   description: ''

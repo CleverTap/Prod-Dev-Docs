@@ -2,7 +2,7 @@
 title: Get Specific Content Block
 excerpt: Learn how to use the Get Specific Content Block API.
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   title: ''
   description: ''

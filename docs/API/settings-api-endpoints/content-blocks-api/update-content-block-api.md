@@ -2,7 +2,7 @@
 title: Update Content Block
 excerpt: Learn how to update an existing Content Block.
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   title: ''
   description: ''
