@@ -2,7 +2,7 @@
 title: Content Blocks API
 excerpt: Learn how to use the Content Block API.
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   title: ''
   description: ''
