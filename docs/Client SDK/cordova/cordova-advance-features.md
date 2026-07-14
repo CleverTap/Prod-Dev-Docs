@@ -22,30 +22,36 @@ During integration, we recommend that you set the SDK to DEBUG mode, to log warn
 
 Debug level can be one of the following:
 
-* `-1`: Disables all debugging. You can set the `debugLevel` to `-1` if you want to disable CleverTap logs for the production environment.
-* `0`: Default, shows minimal SDK integration-related logging.
-* `2`: Shows debug output.
-* `3`: Shows verbose output.
+- `-1`: Disables all debugging. You can set the `debugLevel` to `-1` if you want to disable CleverTap logs for the production environment.
+- `0`: Default, shows minimal SDK integration-related logging.
+- `2`: Shows debug output.
+- `3`: Shows verbose output.
 
 ```javascript JavaScript
 CleverTap.setDebugLevel(debugLevel);
 ```
 
-## Custom Push Notifications (Android Only)
+<Callout icon="📘" theme="info">
+  ### Note
 
-CleverTap's Cordova SDK provides a built-in mechanism for receiving push notifications via FCM. However, if you have your own custom Service for managing push notifications, you can inform CleverTap about the service’s token ID whenever available. The following are the APIs for supported Platforms:
+  FCM Token, HPS Token, and BPS Token should be fetched from respective push providers after user permissions are granted.
+</Callout>
 
-> 📘 Note
->
-> FCM Token, HPS Token, and BPS Token should be fetched from respective push providers after user permissions are granted.
+## Custom Push Token Registration
 
-### Registering FCM Token
+CleverTap's Cordova SDK provides a built-in mechanism for receiving push notifications. However, if you have your own custom Service for managing push notifications, you can inform CleverTap about the service’s token ID whenever available. The following are the APIs for supported Platforms:&#x20;
+
+### Android
+
+If you have your own custom Service for managing push notifications on Android, use the following APIs to inform CleverTap of the token whenever it is available.
+
+#### Register FCM Token&#x20;
 
 ```javascript JavaScript
 CleverTap.setPushToken("<Your FCM Token>")
 ```
 
-### Registering Huawei Token
+#### Register Huawei Token
 
 ```javascript
 CleverTap.registerPushToken("<Your HMS Token>", {
@@ -56,7 +62,7 @@ CleverTap.registerPushToken("<Your HMS Token>", {
 });
 ```
 
-### Registering Baidu Token
+#### Register Baidu Token
 
 ```javascript
 CleverTap.registerPushToken("<Your BPS Token>", {
@@ -66,6 +72,36 @@ CleverTap.registerPushToken("<Your BPS Token>", {
   messagingSDKClassName: 'com.baidu.android.pushservice.PushMessageReceiver'
 });
 ```
+
+### iOS (Capacitor)
+
+This section applies to apps using `@awesome-cordova-plugins/clevertap` in a Capacitor iOS project alongside another push SDK (such as OneSignal, Firebase Messaging, or Braze).
+
+#### Manual token forwarding
+
+In Capacitor iOS apps that use multiple push SDKs, CleverTap will not receive the APNs token. The device profile initialises correctly, but the APNs token stays blank with no error surfaced. This happens because the CleverTap Cordova plugin registers APNs tokens via an Objective-C category (`AppDelegate+CleverTapPlugin.m`) that is silently bypassed by Capacitor's Swift-first AppDelegate. When a second push SDK such as OneSignal is also present and installs its own method swizzling hooks, CleverTap loses the delegate race entirely.
+
+To fix this, add the following method to your `AppDelegate.swift`. It explicitly passes the APNs token to CleverTap, posts the `CTRemoteNotificationDidRegister` notification the plugin listens for, and forwards the token to Capacitor so other plugins receive it as expected.
+
+```swift
+func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+    // Forward token to CleverTap
+    CleverTap.sharedInstance()?.setPushToken(deviceToken)
+
+    // Notify CleverTap Cordova plugin
+    let tokenString = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
+    NotificationCenter.default.post(name: Notification.Name("CTRemoteNotificationDidRegister"), object: tokenString)
+
+    // Notify Capacitor (required for other push SDKs)
+    NotificationCenter.default.post(name: .capacitorDidRegisterForRemoteNotifications, object: deviceToken)
+}
+```
+
+<Callout icon="📘" theme="info">
+  ### Note
+
+  If you omit this method, CleverTap will not receive the APNs token in Capacitor iOS apps that use multiple push SDKs. The device profile will appear to initialize correctly, but the APNs token field will remain blank and push notifications will not be delivered.
+</Callout>
 
 ## Native Display
 
@@ -100,9 +136,11 @@ CleverTap.pushDisplayUnitClickedEventForID("unitID");
 
 ## Product Config
 
-> 📘 Feature Availability
->
-> A new and enhanced version of Product Experiences is coming soon. New customers (CleverTap for Enterprise or CleverTap for Startups) who have not enabled the current functionalities can use this feature only when the new version is released. However, the existing users can continue to use it. The [methods](https://developer.clevertap.com/docs/august-2023#cordova-270) for the Product Experiences feature have been deprecated and will be removed from the code by September 2024.
+<Callout icon="📘" theme="info">
+  ### Feature Availability
+
+  A new and enhanced version of Product Experiences is coming soon. New customers (CleverTap for Enterprise or CleverTap for Startups) who have not enabled the current functionalities can use this feature only when the new version is released. However, the existing users can continue to use it. The [methods](https://developer.clevertap.com/docs/august-2023#cordova-270) for the Product Experiences feature have been deprecated and will be removed from the code by September 2024.
+</Callout>
 
 ### Set Product Configuration to Default
 
@@ -264,8 +302,8 @@ PII data is stored across the SDK and could be sensitive information. From `Cord
 
 Currently, two levels of encryption are supported, i.e., None(0) and Medium(1). The encryption level is **None** by default.
 
-* **None**: All stored data is in plaintext
-* **Medium**: PII data is encrypted completely
+- **None**: All stored data is in plaintext
+- **Medium**: PII data is encrypted completely
 
 ### Android
 
@@ -289,5 +327,7 @@ From CleverTap Android SDK v7.5.0 and iOS SDK v7.3.1 onwards, this feature is su
 
 To learn more, refer to:
 
-* [Encryption in Transit for Android](doc:android-advanced-features#encryption-in-transit)
-* [Encryption in Transit for iOS](doc:advanced-options-ios#encryption-in-transit)
+- [Encryption in Transit for Android](doc:android-advanced-features#encryption-in-transit)
+- [Encryption in Transit for iOS](doc:advanced-options-ios#encryption-in-transit)
+
+<br />
