@@ -49,15 +49,17 @@ import 'package:clevertap_plugin/clevertap_plugin.dart';
 
 # Android Integration
 
-> ❗️ Note
->
-> As of Flutter SDK 4.0.0, the minimum supported Android version is Android 6.0. Devices running Android 5.x (API levels 21–22) are no longer supported. Update your app's minSdkVersion to 23 or higher before upgrading.
+<Callout icon="❗️" theme="error">
+  ### Note
+
+  As of Flutter SDK 4.0.0, the minimum supported Android version is Android 6.0. Devices running Android 5.x (API levels 21–22) are no longer supported. Update your app's minSdkVersion to 23 or higher before upgrading.
+</Callout>
 
 ## Add CleverTap Credentials
 
 To associate your Android app with your CleverTap account, you must add your CleverTap credentials to the application's `AndroidManifest.xml` file. Follow the steps to add CleverTap credentials:
 
-Add your CleverTap Account ID and Token to your AndroidManifest.xml within the <application /> tags.
+Add your CleverTap Account ID and Token to your AndroidManifest.xml within the <application></application> tags.
 
 ```xml
 <meta-data
@@ -72,9 +74,11 @@ Add your CleverTap Account ID and Token to your AndroidManifest.xml within the <
     android:value="1"/>
 ```
 
-> 🚧 Credentials and Access
->
-> The **CleverTap Account ID** and **CleverTap Token** are available as **Project ID** and **Project Token** respectively on the CleverTap dashboard. Member and Creator roles in the project don't have access to view the Passcode and Project Token of the account on the dashboard.
+<Callout icon="🚧" theme="warn">
+  ### Credentials and Access
+
+  The **CleverTap Account ID** and **CleverTap Token** are available as **Project ID** and **Project Token** respectively on the CleverTap dashboard. Member and Creator roles in the project don't have access to view the Passcode and Project Token of the account on the dashboard.
+</Callout>
 
 ### Add Region Code
 
@@ -93,12 +97,13 @@ Add the snippet below in the `AndroidManifest.xml` file so the CleverTap SDK can
 
 ## Add Dependencies
 
-> 📘 Plugin Domain-Specific Language (DSL)
->
-> To build a Flutter app for Android, you must apply Flutter's Gradle plugins. Previously, you would be required to use Gradle's legacy imperative `apply` script method to build a Flutter app for Android.  
-> However, since the release of Flutter 3.16, you can apply these plugins using Gradle's declarative `plugins {} `block which simplifies and standardizes the configuration process, reducing the chances of errors.
->
-> For more information, refer to the [official Flutter documentation](https://docs.flutter.dev/release/breaking-changes/flutter-gradle-plugin-apply) and check out the [CleverTap-Flutter sample app](https://github.com/CleverTap/clevertap-flutter/tree/master/example/android) for guidance on migration.
+<Callout icon="📘" theme="info">
+  ### Plugin Domain-Specific Language (DSL)
+
+  To build a Flutter app for Android, you must apply Flutter's Gradle plugins. Previously, you would be required to use Gradle's legacy imperative `apply` script method to build a Flutter app for Android.<br />However, since the release of Flutter 3.16, you can apply these plugins using Gradle's declarative `plugins {} `block which simplifies and standardizes the configuration process, reducing the chances of errors.
+
+  For more information, refer to the [official Flutter documentation](https://docs.flutter.dev/release/breaking-changes/flutter-gradle-plugin-apply) and check out the [CleverTap-Flutter sample app](https://github.com/CleverTap/clevertap-flutter/tree/master/example/android) for guidance on migration.
+</Callout>
 
 1. Add the following to your `dependencies` section in `project/build.gradle`:
 
@@ -111,9 +116,11 @@ dependencies {
 
 2. Add the following to your `dependencies` section in `app/build.gradle`:
 
-> 📘 Migrating from ExoPlayer to AndroidX Media3
->
-> Starting from CleverTap Flutter SDK v2.5.0, CleverTap supports [AndroidX Media3](https://developer.android.com/media/media3/exoplayer/migration-guide) replacing the old ExoPlayer libraries (from Android SDK v8.1.0). [ExoPlayer](https://github.com/google/ExoPlayer) support will end in v5.0.0. To switch to AndroidX Media3, update these dependencies:
+<Callout icon="📘" theme="info">
+  ### Migrating from ExoPlayer to AndroidX Media3
+
+  Starting from CleverTap Flutter SDK v2.5.0, CleverTap supports [AndroidX Media3](https://developer.android.com/media/media3/exoplayer/migration-guide) replacing the old ExoPlayer libraries (from Android SDK v8.1.0). [ExoPlayer](https://github.com/google/ExoPlayer) support will end in v5.0.0. To switch to AndroidX Media3, update these dependencies:
+</Callout>
 
 ```groovy Dependencies with AndroidX Media3
 implementation 'com.google.firebase:firebase-messaging:21.0.0'
@@ -205,7 +212,9 @@ Perform the following steps:
 
 1. Navigate to the` Info.plist` file in your project navigator.
 
-<Image align="center" alt={574} border={true} caption="Information Property List in Info.plist File" title="Information Property List in Info.plist File" src="https://files.readme.io/19c6c39-image4.png" />
+
+<Image src="https://files.readme.io/19c6c39-image4.png" alt="574" align="center" caption="Information Property List in Info.plist File" border={true} />
+
 
 2. Create a key called _CleverTapAccountID_ with the type _string_.
 3. Create a key called _CleverTapToken_ with the type _string_.
@@ -239,9 +248,11 @@ CleverTap.autoIntegrate() // integrate CleverTap SDK using the autoIntegrate opt
 CleverTapPlugin.sharedInstance()?.applicationDidLaunch(options: launchOptions)
 ```
 
-> 🚧 Note
->
-> If you want to handle the clicks on the iOS Push notifications manually, remove the `[CleverTap autoIntegrate];` line from your integration.
+<Callout icon="🚧" theme="warn">
+  ### Note
+
+  If you want to handle the clicks on the iOS Push notifications manually, remove the `[CleverTap autoIntegrate];` line from your integration.
+</Callout>
 
 # Web Integration
 
@@ -258,19 +269,57 @@ CleverTapPlugin.sharedInstance()?.applicationDidLaunch(options: launchOptions)
 
 Following are the parameter details:
 
-* **CLEVERTAP_ACCOUNT_ID** (Mandatory): Obtain this value from the Projects page on the CleverTap dashboard.
-* **CLEVERTAP_REGION** (Optional): This should match the region of the CleverTap dashboard. Possible values include **in1**, **us1**, **sg1**, **aps3** and **mec1**.
-* **CLEVERTAP_TARGET_DOMAIN** (Optional): The domain of the proxy server.
+| Parameter                 | Required  | Description                                                                                                      |
+| ------------------------- | --------- | ---------------------------------------------------------------------------------------------------------------- |
+| `CLEVERTAP_ACCOUNT_ID`    | Mandatory | Obtain this value from the Projects page on the CleverTap dashboard.                                             |
+| `CLEVERTAP_REGION`        | Optional  | Should match the region of the CleverTap dashboard. Possible values: `in1`, `us1`, `sg1`, `aps3`, `mec1`.        |
+| `CLEVERTAP_TARGET_DOMAIN` | Optional  | The domain of the proxy server.                                                                                  |
+| `token`                   | Optional  | Token for identity verification.                                                                                 |
+| `options`                 | Optional  | A map of additional configuration options. Web platform only. See [Supported options](#supported-options) below. |
+
+### Supported Options
+
+The `options` parameter accepts the following keys. These are passed through directly to the underlying CleverTap Web JS SDK, the Flutter layer does not validate them.
+
+| Key                         | Type    | Description                                    |
+| --------------------------- | ------- | ---------------------------------------------- |
+| `enableEncryptionInTransit` | boolean | Enables encryption for data sent to CleverTap. |
+| `customId`                  | String  | Sets a custom CleverTap ID for the user.       |
+
+### Example
+
+Basic initialization:
+
+```dart
+CleverTapPlugin.init("CLEVERTAP_ACCOUNT_ID", "CLEVERTAP_REGION", "CLEVERTAP_TARGET_DOMAIN");
+```
+
+With all parameters:
+
+```dart
+CleverTapPlugin.init(
+  "CLEVERTAP_ACCOUNT_ID",
+  "CLEVERTAP_REGION",
+  "CLEVERTAP_TARGET_DOMAIN",
+  "CLEVERTAP_TOKEN",
+  {
+    "enableEncryptionInTransit": true,
+    "customId": "my-id",
+  },
+);
+```
 
 ### Add Region Code
 
-To know how to add region code for Web in Flutter SDK, refer to [Region Codes.](doc:idc#web)
+To know how to add region code for Web in Flutter SDK, refer to [Region Codes](doc:idc#web).
 
 # Run Your Application
 
 Run your Flutter application and navigate to your CleverTap dashboard. If you integrate the CleverTap SDK successfully, you will see a new active user on the dashboard.
 
-<Image align="center" alt={1405} border={true} caption="View Active User on the Dashboard" title="View Active User on the Dashboard" src="https://files.readme.io/f8a92ef-135b863-1_New_mobile_users.png" />
+
+<Image src="https://files.readme.io/f8a92ef-135b863-1_New_mobile_users.png" alt="1405" align="center" caption="View Active User on the Dashboard" border={true} />
+
 
 # Flutter Integration
 
@@ -299,11 +348,15 @@ To see how this information displays within the CleverTap dashboard:
 1. Log in to the CleverTap dashboard.
 2. Click `Find People` under the `Segment` tab. In the By Identity box, enter the email you set on the user profile record and click Find.
 
-<Image align="center" alt={1407} border={true} caption="Find People" title="Find People" src="https://files.readme.io/8e785f5-eac3675-2_By_identity_search_box.png" />
+
+<Image src="https://files.readme.io/8e785f5-eac3675-2_By_identity_search_box.png" alt="1407" align="center" caption="Find People" border={true} />
+
 
 If CleverTap finds a user profile with this email, the user record is displayed. On that page, you will see name and email as pre-defined fields and any other custom fields.
 
-<Image align="center" alt={2912} border={true} caption="CleverTap User Profile" title="CleverTap User Profile" src="https://files.readme.io/ab96437-7bdfec6-3__User_Profile.png" />
+
+<Image src="https://files.readme.io/ab96437-7bdfec6-3__User_Profile.png" alt="2912" align="center" caption="CleverTap User Profile" border={true} />
+
 
 ## Update the User Profile
 
@@ -313,14 +366,15 @@ The `Onuserlogin()` method identifies the individual users on the device. Howeve
 
 After you integrate the CleverTap SDK, we automatically start tracking events, such as App Launch and Notification Viewed. In addition to the [default events tracked](https://developer.clevertap.com/docs/events) by CleverTap, you can also track custom events.
 
-To send custom events to CleverTap using our Flutter SDK, you will have to call the recordEvent method with the name of the custom event you want to track.  
-Record an event without event data:
+To send custom events to CleverTap using our Flutter SDK, you will have to call the recordEvent method with the name of the custom event you want to track.<br />Record an event without event data:
 
 ```javascript Dart
 CleverTapPlugin.recordEvent("Product Viewed",{});
 ```
 
-<Image align="center" alt={2722} border={true} caption="Track User Events" title="Track User Events" src="https://files.readme.io/8759e00-ae28962-Screenshot_2022-08-02_at_1.44.51_PM.png" />
+
+<Image src="https://files.readme.io/8759e00-ae28962-Screenshot_2022-08-02_at_1.44.51_PM.png" alt="2722" align="center" caption="Track User Events" border={true} />
+
 
 Record an event with event data:
 
