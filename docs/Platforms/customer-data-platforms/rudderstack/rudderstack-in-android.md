@@ -14,17 +14,17 @@ next:
 
 The RudderStack Android SDK allows the following from your Android applications and sends it to CleverTap via RudderStack:
 
-* Push User Profiles
-* Push Events
-* Integrate Push Notifications
+- Push User Profiles
+- Push Events
+- Integrate Push Notifications
 
 # Prerequisites
 
 The following are the prerequisites for performing this integration:
 
-* A CleverTap account
-* A RudderStack account
-* A functional React Native app
+- A CleverTap account
+- A RudderStack account
+- A functional Android app
 
 # Integration
 
@@ -40,24 +40,28 @@ For CleverTap RudderStack Android integration, the following are the major steps
 To set up the source and destination at RudderStack:
 
 1. Navigate to _Connect_ > _Sources_ from the RudderStack dashboard.
-2. Click **New source** to add a new source and then select _React native_ from the list of sources.
+2. Click **New source** to add a new source and then select _Android_ from the list of sources.
 
-<Image align="center" alt={2876} border={true} caption="Add New Android Source" title="Add New Android Source" src="https://files.readme.io/6c8ba2f-Add_New_Source_Android.png" />
+
+<Image src="https://files.readme.io/6c8ba2f-Add_New_Source_Android.png" alt="2876" align="center" caption="Add New Android Source" border={true} />
+
 
 3. Enter the source name under _Name this source_ field to identify it within your workspace and click **Continue**. The _Write Key_ for this source displays, as shown in the following figure:
 
-<Image align="center" alt={2334} border={true} caption="Obtain Write Key Android" title="Obtain Write Key" src="https://files.readme.io/2d733fd-Write_Key.png" />
+
+<Image src="https://files.readme.io/2d733fd-Write_Key.png" alt="2334" align="center" caption="Obtain Write Key Android" border={true} />
+
 
 4. Click **Add Destination** and select the following options from the dropdown as per your requirement:
-   * _Use Existing Destination_: Select from the list of available destinations.
-   * _Create new Destination_: Create a new destination for your source.
+   - _Use Existing Destination_: Select from the list of available destinations.
+   - _Create new Destination_: Create a new destination for your source.
 5. Select _CleverTap_ from the destination list and click **Continue**.
 6. Enter the destination name under _Name the destination_ field to identify it in your workspace and click **Continue**. The _Connection Settings_ page displays.
 7. Enter the following CleverTap details:
-   * **Account ID**: A unique ID generated for your account. It is available under _Settings_ > _Project_ as the _Project ID_.
-   * **Passcode**: A unique code generated for your account. It is available under _Settings_ > _Project_ as the _Passcode_.
-   * **Token**: A unique code generated for your account. It is available under _Settings_ > _Project_ as _Token_.
-   * **Region**: Server Only. This is the region assigned to your CleverTap account. Refer to the following table to identify it:
+   - **Account ID**: A unique ID generated for your account. It is available under _Settings_ > _Project_ as the _Project ID_.
+   - **Passcode**: A unique code generated for your account. It is available under _Settings_ > _Project_ as the _Passcode_.
+   - **Token**: A unique code generated for your account. It is available under _Settings_ > _Project_ as _Token_.
+   - **Region**: Server Only. This is the region assigned to your CleverTap account. Refer to the following table to identify it:
 
 | CleverTap Dashboard URL                                                                                | Region            |
 | :----------------------------------------------------------------------------------------------------- | :---------------- |
@@ -69,106 +73,140 @@ To set up the source and destination at RudderStack:
 | [https://aps3.dashboard.clevertap.com/login.html#/](https://aps3.dashboard.clevertap.com/login.html#/) | Indonesia         |
 | [https://mec1.dashboard.clevertap.com/login.html#/](https://mec1.dashboard.clevertap.com/login.html#/) | Middle East (UAE) |
 
-<Image align="center" alt={512} border={true} caption="Enter CleverTap Details" title="Enter CleverTap Details" src="https://files.readme.io/ca666fe-Connection_Settings_-_1.png" width="smart" />
+
+<Image src="https://files.readme.io/ca666fe-Connection_Settings_-_1.png" alt="512" align="center" width="smart" caption="Enter CleverTap Details" border={true} />
+
 
 8. Select the **Enable tracking for anonymous user** option to track anonymous users in CleverTap.
-9. Select the **Use Clevertap ObjectId for Mapping** option under _React Native SDK settings_ section.  
-   This option enables both CleverTap `objectId` and `identity` to map events from RudderStack to CleverTap.
+9. Select the **Use Clevertap ObjectId for Mapping** option under _React Native SDK settings_ section.<br />This option enables both CleverTap `objectId` and `identity` to map events from RudderStack to CleverTap.
 10. Click **Continue**. The _Transformation_ settings page displays.
 11. Select _No transformation needed_ if you do not want to customize JavaScript code functions to implement specific use cases on your event data.
 
-<Image align="center" alt={1788} border={true} caption="Select Transformations" title="Select Transformations" src="https://files.readme.io/aeb7595-No_transformation_needed.png" />
+
+<Image src="https://files.readme.io/aeb7595-No_transformation_needed.png" alt="1788" align="center" caption="Select Transformations" border={true} />
+
 
 12. Click **Continue**. The connection is now established between source and destination. You can check if the connection is enabled under _Connect_ > _Connections_.
 
-<Image align="center" alt={2346} border={true} caption="View the Connection" title="View the Connection" src="https://files.readme.io/cf807be-Connection_Enabled.png" />
 
-## Install SDK in React Native Application
+<Image src="https://files.readme.io/cf807be-Connection_Enabled.png" alt="2346" align="center" caption="View the Connection" border={true} />
 
-We recommend installing the React Native SDK through `npm`. To add the SDK as a dependency, perform the following steps:
 
-1. Navigate to the root of your application and add `@rudderstack/rudder-sdk-react-native` to your application as a dependency with:
+## Configure CleverTap within the Application
 
-```shell
-npm install @rudderstack/rudder-sdk-react-native --save
+To configure:
+
+1. Add your CleverTap Account ID and Token to your `AndroidManifest.xml` within the tags.
+
+```java
+<meta-data
+    android:name="CLEVERTAP_ACCOUNT_ID"
+    android:value="Your CleverTap Account ID"/>
+<meta-data
+    android:name="CLEVERTAP_TOKEN"
+    android:value="Your CleverTap Account Token"/>
 ```
 
-Or
+2. Add the region tag based on the region of your account. Refer to the above table listed under [Set Up Source and Destination at RudderStack](doc:rudderstack-in-android#set-up-source-and-destination-at-rudderstack) to identify the region of your account. Based on the region of your account, add the tag as follows:
 
-```shell
-yarn add @rudderstack/rudder-sdk-react-native
-```
+<Tabs>
+  <Tab title="India Region">
+    `<br />
+`<meta-data android:name="CLEVERTAP_REGION" android:value="in1"/>`
+  </Tab>
 
-2. Add the RudderStack-CleverTap module to your app using the following code:
+  <Tab title="Singapore Region">
+    <meta-data 
+android:name="CLEVERTAP_REGION" 
+android:value="sg1"/>
+  </Tab>
 
-```shell
-npm install @rudderstack/rudder-integration-clevertap-react-native
-```
+  <Tab title="U.S. Region">
+    <meta-data 
+android:name="CLEVERTAP_REGION" 
+android:value="us1"/>
+  </Tab>
+</Tabs>
 
-Or
 
-```shell
-yarn add @rudderstack/rudder-integration-clevertap-react-native
-```
+3. Register CleverTap’s ActivityLifecycleCallback methods. To do so, you can either set the `android:name` in your `AndroidManifest.xml` tag to `com.clevertap.android.sdk.Application`. Or, if you have a custom Application class, call `ActivityLifecycleCallback.register(this)`; before super.onCreate()\` in your application class.
 
-3. Navigate to your **Android/App** folder and add the following dependency to your `app/build.gradle` file:
+This is important for tracking lifecycle events on CleverTap, such as App Installed and App Launched, and for the appropriate functioning of push notifications from CleverTap.
+
+## Install SDK in Native application
+
+To install Android SDK within the application:
+
+1. Add the following lines of code to your `app/build.gradle` file:
 
 ```groovy
-implementation 'com.clevertap.android:clevertap-android-sdk:4.4.0'
+repositories {  
+  mavenCentral()
+}
+```
+
+2. Add the following dependencies under `dependencies` within `app/build.gradle` file:
+
+```groovy
+implementation 'com.rudderstack.android.sdk:core:1+'
+implementation 'com.rudderstack.android.integration:clevertap:1+'
+
+implementation 'com.clevertap.android:clevertap-android-sdk:4.0.0'
 implementation 'com.google.android.gms:play-services-base:17.4.0'
-implementation 'com.android.installreferrer:installreferrer:2.1'
-implementation 'com.google.firebase:firebase-messaging:20.2.4'
-implementation project(':clevertap-react-native')
-implementation 'com.github.bumptech.glide:glide:4.11.0' //Mandatory for App Inbox
-implementation 'androidx.recyclerview:recyclerview:1.1.0' //Mandatory for App Inbox
-implementation 'androidx.viewpager:viewpager:1.0.0' //Mandatory for App Inbox
-implementation 'com.google.android.material:material:1.3.0' //Mandatory for App Inbox
-implementation 'androidx.appcompat:appcompat:1.2.0' //Mandatory for App Inbox
-implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
-implementation 'androidx.core:core:1.3.0'
-implementation 'androidx.fragment:fragment:1.1.0' // InApp
+
 implementation 'com.google.android.exoplayer:exoplayer:2.11.5' //Optional for Audio/Video
 implementation 'com.google.android.exoplayer:exoplayer-hls:2.11.5' //Optional for Audio/Video
 implementation 'com.google.android.exoplayer:exoplayer-ui:2.11.5' //Optional for Audio/Video
-implementation 'com.android.support:multidex:1.0.3'
-```
-
-4. Open the `iOS folder` from your terminal and install all the pod files with the following command:
-
-```shell
-pod install
+implementation 'com.github.bumptech.glide:glide:4.11.0' //Mandatory for App Inbox
+implementation 'androidx.recyclerview:recyclerview:1.1.0' //Mandatory for App Inbox
+implementation 'androidx.viewpager:viewpager:1.0.0' //Mandatory for App Inbox
+implementation 'com.google.android.material:material:1.2.1' //Mandatory for App Inbox
+implementation 'androidx.appcompat:appcompat:1.2.0' //Mandatory for App Inbox
+implementation 'androidx.core:core:1.3.0'
+implementation 'androidx.fragment:fragment:1.1.0' // InApp
+//Mandatory for React Native SDK v0.3.9 and above add the following -
+implementation 'com.android.installreferrer:installreferrer:2.1'
 ```
 
 ## Initialize RudderStack Client
 
 To initialize the RudderStack client:
 
-1. Import the module you added above as shown below:
+1. Import the library for the classes you desire to use in the `RudderClient` library.
 
-```javascript
-import rudderClient from '@rudderstack/rudder-sdk-react-native';
-import clevertap from "@rudderstack/rudder-integration-clevertap-react-native";
-const CleverTap = require('clevertap-react-native');
+```java
+import com.rudderstack.android.sdk.core.*;
 ```
 
 2. Initialize the CleverTap-RudderStack SDK as follows:
 
-```javascript
-const config = {
-  dataPlaneUrl : "YOUR_DATA_PLANE_URL", 
-  logLevel: 3,
-  trackAppLifecycleEvents: true,
-  recordScreenViews:true,
-  withFactories: [clevertap]
-};
-rudderClient.setup("YOUR_WRITE_KEY", config);
+```java
+crudderClient = RudderClient.getInstance(
+                    this,
+                    <YOUR_WRITE_KEY>,
+                    new RudderConfig.Builder()
+                            //.withDataPlaneUrl(<YOUR_DATA_PLANE_URL>)
+                            .withTrackLifecycleEvents(true)
+                            .withLogLevel(RudderLogger.RudderLogLevel.DEBUG) 
+                            .withFactory(CleverTapIntegrationFactory.FACTORY)
+                            .build()
+            );
 ```
-* `trackAppLifecycleEvents`: This method allows the Rudderstack SDK to capture the Lifecycle events.
-* `logLevel` → This method allows you to go through the application log when developing the application.
 
-<Image align="center" alt={2880} border={true} caption="Obtain Data Plane URL" title="Data Plane URL" src="https://files.readme.io/3c8b00f-data_plane_URL.png" />
+| **Parameter**             | **Description**                                                                                                         |
+| ------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `YOUR_DATA_PLANE_URL`     | Navigate to _Connect_ > _Connections._ page from the RudderStack dashboard to get this data plane URL.                  |
+| `YOUR_WRITE_KEY`          | Navigate to the _Connect_ > _Source_ page from the RudderStack dashboard and click **Details** to get this information. |
+| `trackAppLifecycleEvents` | Allows you to track Rudderstack SDK to capture their Lifecycle events.                                                  |
+| `logLevel`                | Allows you to check the application log when developing the application.                                                |
 
-<Image align="center" alt={1570} border={true} caption="Obtain RudderStack Write Key" title="RudderStack Write Key.png" src="https://files.readme.io/699ad16-Rudderstack_write_key.png" />
+
+<Image src="https://files.readme.io/3c8b00f-data_plane_URL.png" alt="2880" align="center" caption="Obtain Data Plane URL" border={true} />
+
+
+
+<Image src="https://files.readme.io/699ad16-Rudderstack_write_key.png" alt="1570" align="center" caption="Obtain RudderStack Write Key" border={true} />
+
 
 # Push User Profiles
 
@@ -198,19 +236,21 @@ Replace `userID` with the unique identifier for your application. This identifie
 
 You can call rudderClient.track() for pushing events whenever you want to capture any user action in your application. For example, when a user adds any product, and you want to capture this event, then call this method and pass the following parameters:
 
-* Event: For example, Product Added
-* Event Properties: _product id_ or any other property that you want to pass
+- Event: For example, Product Added
+- Event Properties: _product id_ or any other property that you want to pass
 
 For more information, refer to [Rudderstack Track](https://docs.rudderstack.com/destinations/marketing/clevertap#track).
 
-> 🚧 Event Property Data Types
->
-> * The value of a property can be of type Integer, Long, Double, Float, Character, String, a Boolean.
-> * The Date value must always be passed as $D_EPOCH value only.
+<Callout icon="🚧" theme="warn">
+  ### Event Property Data Types
+
+  - The value of a property can be of type Integer, Long, Double, Float, Character, String, a Boolean.
+  - The Date value must always be passed as $D_EPOCH value only.
+</Callout>
 
 Calling a push method may vary based on the type of event as follows:
 
-* All events except the Order Completed event:
+- All events except the Order Completed event:
 
 ```java
 rudderClient.track(
@@ -220,7 +260,7 @@ rudderClient.track(
                 );
 ```
 
-* Order Completed (equivalent to the Charged event in CleverTap)
+- Order Completed (equivalent to the Charged event in CleverTap)
 
 ```java
 rudderClient.track("Order Completed", {
@@ -422,12 +462,13 @@ For more information, refer to [Handling custom push notifications in Android](d
 ## Debugging
 
 1. To view CleverTap debug logs, you need Android Studio.
-2. Enable debug logs by adding the following line of code in your app's build:  
-   `CleverTapAPI.setDebugLevel(CleverTapAPI.LogLevel.DEBUG);`
-3. After running the application, navigate to _Android Studio > Logcat and search by _CleverTap*. The printed logs display all information associated with CleverTap. You can use this log to identify your CleverTap ID, check the events and user information that are getting pushed to CleverTap, etc.
+2. Enable debug logs by adding the following line of code in your app's build:<br />`CleverTapAPI.setDebugLevel(CleverTapAPI.LogLevel.DEBUG);`
+3. After running the application, navigate to _Android Studio > Logcat and search by_ CleverTap\*. The printed logs display all information associated with CleverTap. You can use this log to identify your CleverTap ID, check the events and user information that are getting pushed to CleverTap, etc.
 
 The following is a sample screenshot of the Logcat in your Android Studio:
 
-<Image align="center" alt={2808} border={false} caption="Logcat in Android Studio" title="Logcat in Android Studio" src="https://files.readme.io/928dfed-Rudderstack_debugging.png" />
+
+<Image src="https://files.readme.io/928dfed-Rudderstack_debugging.png" alt="2808" align="center" caption="Logcat in Android Studio" />
+
 
 For more information, refer to [Debugging in Android](https://developer.clevertap.com/docs/android#section-debugging).
