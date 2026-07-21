@@ -111,7 +111,6 @@ To configure:
 
 <Tabs>
   <Tab title="India Region">
-    `<br />
 `<meta-data android:name="CLEVERTAP_REGION" android:value="in1"/>`
   </Tab>
 
@@ -127,7 +126,6 @@ android:name="CLEVERTAP_REGION"
 android:value="us1"/>
   </Tab>
 </Tabs>
-
 
 3. Register CleverTap’s ActivityLifecycleCallback methods. To do so, you can either set the `android:name` in your `AndroidManifest.xml` tag to `com.clevertap.android.sdk.Application`. Or, if you have a custom Application class, call `ActivityLifecycleCallback.register(this)`; before super.onCreate()\` in your application class.
 
@@ -203,6 +201,8 @@ crudderClient = RudderClient.getInstance(
 
 <Image src="https://files.readme.io/3c8b00f-data_plane_URL.png" alt="2880" align="center" caption="Obtain Data Plane URL" border={true} />
 
+
+<br />
 
 
 <Image src="https://files.readme.io/699ad16-Rudderstack_write_key.png" alt="1570" align="center" caption="Obtain RudderStack Write Key" border={true} />
