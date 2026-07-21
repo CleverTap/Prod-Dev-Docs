@@ -112,18 +112,21 @@ To configure:
 <Tabs>
   <Tab title="India Region">
 `<meta-data android:name="CLEVERTAP_REGION" android:value="in1"/>`
+
   </Tab>
 
   <Tab title="Singapore Region">
-    <meta-data 
+    `<meta-data 
 android:name="CLEVERTAP_REGION" 
-android:value="sg1"/>
+android:value="sg1"/>`
+
   </Tab>
 
   <Tab title="U.S. Region">
-    <meta-data 
+    `<meta-data 
 android:name="CLEVERTAP_REGION" 
-android:value="us1"/>
+android:value="us1"/>`
+
   </Tab>
 </Tabs>
 
