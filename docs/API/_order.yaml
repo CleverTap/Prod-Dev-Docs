@@ -15,6 +15,7 @@
 - settings-api-endpoints
 - create-segment-api
 - update-segment-api
+- get-segment-details-api
 - list-segments-api
 - promo-apis
 - generic-rcs-api
@@ -22,4 +23,3 @@
 - custom-list-api-teams
 - token-vault-apis
 - api-encryption
-- get-segment-details-api
