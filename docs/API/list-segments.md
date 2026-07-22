@@ -15,7 +15,7 @@ The following is a sample base URL:
 
 `https://<region>.api.clevertap.com/1/segments/list.json`
 
-For region-specific endpoints, refer to [Region](https://developer.clevertap.com/docs/common-api-components#region).
+For region-specific endpoints, refer to [Region](doc:common-api-components#region).
 
 # HTTP Method
 
@@ -23,7 +23,7 @@ POST
 
 # Headers
 
-Refer to [Headers](https://developer.clevertap.com/docs/common-api-components#headers) for more details.
+Refer to [Headers](doc:common-api-components#headers) for more details.
 
 # Segment Types
 
