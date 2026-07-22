@@ -23,7 +23,7 @@ POST
 
 # Headers
 
-Refer to [Headers](doc:common-api-components#headers) for more details.
+Refer to [Headers](doc:common-api-components#api-headers) for more details.
 
 # Body Parameters
 
