@@ -15,11 +15,11 @@
 - settings-api-endpoints
 - create-segment-api
 - update-segment-api
+- list-segments-api
 - promo-apis
 - generic-rcs-api
 - notify-api
 - custom-list-api-teams
 - token-vault-apis
 - api-encryption
-- list-segments-api
 - get-segment-details-api
