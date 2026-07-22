@@ -248,10 +248,10 @@ The following table describes the response fields.
 
 The following table lists the rate limits for this endpoint.
 
-| Limit                            | Scope                                               | On Breach                                   |
-| :------------------------------- | :-------------------------------------------------- | :------------------------------------------ |
-| 3 concurrent in-flight requests  | Per account, shared across CleverTap data-push APIs | HTTP 429 — `"Too many concurrent requests"` |
-| 60 concurrent in-flight requests | Global                                              | HTTP 503 — `"Please come back later"`       |
+| Limit                            | Scope                                               |
+| :------------------------------- | :-------------------------------------------------- |
+| 3 concurrent in-flight requests  | Per account, shared across CleverTap data-push APIs |
+| 60 concurrent in-flight requests | Global                                              |
 
 <Callout icon="📘" theme="info">
   ### **Concurrency Limits**
