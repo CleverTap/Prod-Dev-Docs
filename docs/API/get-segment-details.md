@@ -1,5 +1,5 @@
 ---
-title: Get Segment Details
+title: Get Segment Details API
 deprecated: false
 hidden: true
 metadata:
