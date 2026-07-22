@@ -1,5 +1,5 @@
 ---
-title: List Segments
+title: List Segments API
 deprecated: false
 hidden: true
 metadata:
