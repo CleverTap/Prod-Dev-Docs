@@ -31,17 +31,16 @@ The `type` filter accepts the following values. All values are case-sensitive.
 
 The following table lists the valid segment type values.
 
-| Value                   | Description                             |
-| :---------------------- | :-------------------------------------- |
-| `batch`                 | Past-behavior (batch-computed) segment. |
-| `stream`                | Live-behavior (streaming) segment.      |
-| `custom_list`           | Custom list segment.                    |
-| `MIXPANEL`              | Mixpanel partner segment.               |
-| `MPARTICLE`             | mParticle partner segment.              |
-| `AMPLITUDE`             | Amplitude partner segment.              |
-| `PRECOMPUTED_SEGMENT`   | Precomputed segment.                    |
-| `CLEVERTAP_API_SEGMENT` | Segment created via the CleverTap API.  |
-| `PARTNER_SEGMENT`       | Generic partner segment.                |
+| Value               | Description                                  |
+| :------------------ | :------------------------------------------- |
+| `batch`             | Past-behavior (batch-computed) segment.      |
+| `stream`            | Live-behavior (streaming) segment.           |
+| `custom_list`       | Custom list segment, `CLEVERTAP_API_SEGMENT` |
+| `partner_mixpanel`  | Mixpanel partner segment.                    |
+| `partner_mparticle` | mParticle partner segment.                   |
+| `partner_amplitude` | Amplitude partner segment.                   |
+| `precomputed`       | Precomputed segment.                         |
+| `partner_segment`   | Generic partner segment.                     |
 
 # Body Parameters
 
@@ -226,23 +225,22 @@ The following is a sample success response.
 
 The following table describes the response fields.
 
-| Field                                | Type             | Description                                                                                                                                                                                          |
-| :----------------------------------- | :--------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| page                                 | integer          | The page number returned, echoed from the request.                                                                                                                                                   |
-| limit                                | integer          | The effective page size after the 500-record cap is applied.                                                                                                                                         |
-| total_pages                          | integer          | Total number of pages for the filtered result set.                                                                                                                                                   |
-| total_count                          | integer          | Total number of segments matching the filter criteria.                                                                                                                                               |
-| segments                             | array of objects | Segment summaries for the current page.                                                                                                                                                              |
-| segments\[].type                     | string           | Segment type as a raw enum name. See the Segment Types table for valid values. Note: this differs from the `segment.segment_type` field in Get Segment Details, which returns friendly mapped names. |
-| segments\[].id                       | integer          | Unique segment ID.                                                                                                                                                                                   |
-| segments\[].name                     | string           | Segment name.                                                                                                                                                                                        |
-| segments\[].created_on               | integer          | Timestamp of when the segment was created, as a numeric long in `yyyyMMddHHmm` format (account timezone), for example `202605021431`. Null if not available.                                         |
-| segments\[].updated_on               | integer          | Timestamp of the last update, as a numeric long in `yyyyMMddHHmm` format (account timezone), for example `202606180905`. Null if not available.                                                      |
-| segments\[].created_by               | string           | Email or identifier of the user who created the segment.                                                                                                                                             |
-| segments\[].updated_by               | string           | Email or identifier of the user who last updated the segment.                                                                                                                                        |
-| segments\[].engagement_count         | integer          | Number of campaigns or engagements using this segment. Sourced from precomputed counters in MongoDB, not computed live per request.                                                                  |
-| segments\[].dependent_segments_count | integer          | Number of other segments that depend on this segment.                                                                                                                                                |
-| segments\[].status                   | string           | Segment status. One of `active`, `precomputed`, or `inactive`.                                                                                                                                       |
+| Field                                | Type             | Description                                                                                                                                                  |
+| :----------------------------------- | :--------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| page                                 | integer          | The page number returned, echoed from the request.                                                                                                           |
+| limit                                | integer          | The effective page size after the 500-record cap is applied.                                                                                                 |
+| total_pages                          | integer          | Total number of pages for the filtered result set.                                                                                                           |
+| total_count                          | integer          | Total number of segments matching the filter criteria.                                                                                                       |
+| segments                             | array of objects | Segment summaries for the current page.                                                                                                                      |
+| segments\[].id                       | integer          | Unique segment ID.                                                                                                                                           |
+| segments\[].name                     | string           | Segment name.                                                                                                                                                |
+| segments\[].created_on               | integer          | Timestamp of when the segment was created, as a numeric long in `yyyyMMddHHmm` format (account timezone), for example `202605021431`. Null if not available. |
+| segments\[].updated_on               | integer          | Timestamp of the last update, as a numeric long in `yyyyMMddHHmm` format (account timezone), for example `202606180905`. Null if not available.              |
+| segments\[].created_by               | string           | Email or identifier of the user who created the segment.                                                                                                     |
+| segments\[].updated_by               | string           | Email or identifier of the user who last updated the segment.                                                                                                |
+| segments\[].engagement_count         | integer          | Number of campaigns or engagements using this segment. Sourced from precomputed counters in MongoDB, not computed live per request.                          |
+| segments\[].dependent_segments_count | integer          | Number of other segments that depend on this segment.                                                                                                        |
+| segments\[].status                   | string           | Segment status. One of `active`, `precomputed`, or `inactive`.                                                                                               |
 
 # Rate Limits
 
@@ -278,5 +276,3 @@ The following table lists the error codes returned by this endpoint.
 | 500         | `"Internal server error"`                                                                                                   | Segment list could not be loaded from cache.                                                                                                |
 | 500         | `"Failed to process request"`                                                                                               | Unexpected uncaught exception in the base servlet. Catch-all for any other server-side failure.                                             |
 | 503         | `"Please come back later"`                                                                                                  | Global capacity limit reached, async timeout, or account worker not ready. All 503 conditions return this same string. Retry after a delay. |
-
-<br />
