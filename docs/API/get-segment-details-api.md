@@ -192,7 +192,7 @@ The following table describes the response fields.
 | segment              | object           | Object containing the complete metadata for the requested segment, including its type, status, definition, creation details, and audit information.                                                                      |
 | segment.id           | integer          | The unique numeric identifier for this segment. This matches the `segment_id` value passed in the request.                                                                                                               |
 | segment.name         | string           | The display name of the segment as configured in the CleverTap dashboard.                                                                                                                                                |
-| segment.segment_type | string           | Human-readable label describing how the segment is computed. Refer to the Map segment_type Values section below for the full list of possible values and their mappings.                                                 |
+| segment.segment_type | string           | Human-readable label describing how the segment is computed.                                                                                                                                                             |
 | segment.status       | string           | The current operational status of the segment. `active` means the segment is live and in use. `inactive` means the segment is disabled. `precomputed` means the segment uses a precomputed membership list.              |
 | segment.definition   | string           | Segment definition string passed through verbatim from the data store. Describes the rules or criteria used to compute segment membership. Null if not set or not available.                                             |
 | segment.created_at   | integer          | Timestamp of when the segment was created, as a numeric long in `yyyyMMddHHmm` format (account timezone), for example `202605021431`. Null if not available.                                                             |
@@ -204,22 +204,6 @@ The following table describes the response fields.
 | trend.to             | string           | The resolved end date of the trend window in `YYYY-MM-DD` format. Reflects the actual end date used, defaulting to today if not specified in the request.                                                                |
 | trend.granularity    | string           | The bucket size used to group trend data points, echoed from the request. One of `day`, `week`, or `month`.                                                                                                              |
 | trend.data           | array of objects | Array of data points representing segment membership over time. Each entry contains `date` (string, `YYYY-MM-DD`, the start of the bucket) and `user_count` (integer, the number of users in the segment at that point). |
-
-## Map `segment_type` Values
-
-The following table lists how internal segment types map to the `segment_type` values returned in the response.
-
-| Returned Value      | Maps From                               |
-| :------------------ | :-------------------------------------- |
-| `past_behavior`     | `batch`                                 |
-| `live_behavior`     | `stream`                                |
-| `custom_list`       | `custom_list`, `CLEVERTAP_API_SEGMENT`  |
-| `partner_mixpanel`  | `MIXPANEL`                              |
-| `partner_mparticle` | `MPARTICLE`                             |
-| `partner_amplitude` | `AMPLITUDE`                             |
-| `precomputed`       | `PRECOMPUTED_SEGMENT`                   |
-| `partner_segment`   | `PARTNER_SEGMENT` (default fallthrough) |
-| `unknown`           | Any unrecognized type                   |
 
 # Rate Limits
 
@@ -253,5 +237,3 @@ The following table lists the error codes returned by this endpoint.
 | 404         | `"Segment not found"`                                                                                 | No segment exists with the given `segment_id`.                                                                                                | `{"status":"fail","error":"Segment not found","code":404}`                                                                         |
 | 429         | `"Too many concurrent requests"`                                                                      | Per-account concurrent request limit exceeded. Retry after a short delay.                                                                     | `{"status":"fail","error":"Too many concurrent requests","code":429}`                                                              |
 | 503         | `"Please come back later"`                                                                            | Global capacity limit reached. Retry after a delay.                                                                                           | `{"status":"fail","error":"Please come back later","code":503}`                                                                    |
-
-<br />
