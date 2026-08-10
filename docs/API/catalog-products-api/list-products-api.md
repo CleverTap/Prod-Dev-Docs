@@ -47,13 +47,14 @@ The following path parameter is required to identify the catalog:
 
 The following query parameters control pagination, sorting, and filtering for product listing:
 
-| Parameter   | Type    | Required | Default   | Description                                                                                              |
-| ----------- | ------- | -------- | --------- | -------------------------------------------------------------------------------------------------------- |
-| `page`      | integer | No       | 0         | Page number to return. Page numbering starts at 0.                                                       |
-| `size`      | integer | No       | 20        | Number of products to return per page. Allowed range is 1 to 100.                                        |
-| `sortBy`    | string  | No       | createdAt | Field used to sort the results. Allowed values are `createdAt`, `name`, and `identity`.                  |
-| `sortOrder` | string  | No       | DESC      | Sort direction. Allowed values are `ASC` and `DESC`.                                                     |
-| `search`    | string  | No       |           | Search text used to match products by `name` and `identity`. If not provided, all products are returned. |
+| Parameter   | Type    | Required | Default   | Description                                                                                                                                           |
+| ----------- | ------- | -------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `page`      | integer | No       | 0         | Page number to return. Page numbering starts at 0.                                                                                                    |
+| `size`      | integer | No       | 20        | Number of products to return per page. Allowed range is 1 to 100.                                                                                     |
+| `sortBy`    | string  | No       | createdAt | Field used to sort the results. Allowed values are `createdAt`, `name`, and `identity`.                                                               |
+| `sortOrder` | string  | No       | DESC      | Sort direction. Allowed values are `ASC` and `DESC`.                                                                                                  |
+| `search`    | string  | No       |           | Search text used to match products by `name` and `identity`. If not provided, all products are returned.                                              |
+| filters     | string  | No       |           | JSON string used to filter results by catalog attributes. Only attributes marked as filterable can be used. Example: `{"brand":"Nike","price_gt":50}` |
 
 <Callout icon="📘" theme="info">
   **Note**
