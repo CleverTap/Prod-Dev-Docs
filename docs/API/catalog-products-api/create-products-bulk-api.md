@@ -52,7 +52,7 @@ The following parameters define the products to be created in the catalog:
 | `products`                  | array  | Yes      | List of products to be added to the catalog.                                                            |
 | `products.identity`         | string | Yes      | Unique identifier of the product within the catalog, for example, a SKU.                                |
 | `products.name`             | string | Yes      | Name of the product.                                                                                    |
-| `products.imageUrl`         | string | Yes      | Public URL of the product image.                                                                        |
+| `products.imageUrl`         | string | No       | Public URL of the product image.                                                                        |
 | `products.attributes`       | object | Yes      | Key-value pairs representing the product attributes defined in the catalog schema.                      |
 | `products.attributes.field` | varies | Yes      | Value of a specific catalog attribute. The data type must match the type defined in the catalog schema. |
 | `createdBy`                 | string | Yes      | Email address of the user or system creating these products.                                            |
