@@ -56,11 +56,6 @@ The following query parameters control pagination, sorting, and filtering for pr
 | `search`    | string  | No       |           | Search text used to match products by `name` and `identity`. If not provided, all products are returned.                                              |
 | filters     | string  | No       |           | JSON string used to filter results by catalog attributes. Only attributes marked as filterable can be used. Example: `{"brand":"Nike","price_gt":50}` |
 
-<Callout icon="📘" theme="info">
-  **Note**
-  Only attributes configured as filterable can be used in `filters`. Invalid JSON in `filters` may result in a request validation error.
-</Callout>
-
 # Example Request
 
 This example retrieves the first page of products sorted by creation time and filters the results by a search term.
