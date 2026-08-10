@@ -59,6 +59,12 @@ The following request body parameters define the products to be updated:
 | `products.attributes.field` | varies | No       | Value of a specific product attribute. The data type must match the catalog schema. |
 | `updatedBy`                 | string | Yes      | Email address of the user performing the update.                                    |
 
+<Callout icon="📘" theme="info">
+  ### Note
+
+  When the attributes field is included in an update, it replaces the entire attributes object rather than merging individual keys. To update a single attribute without affecting others, include all attributes you want to keep in the request.
+</Callout>
+
 # Example Request
 
 This example updates product details for two existing products in the catalog.
