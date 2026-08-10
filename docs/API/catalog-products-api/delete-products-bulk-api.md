@@ -29,11 +29,11 @@ Refer [Region](doc:https://developer.clevertap.com/docs/common-api-components#re
 
 These headers must be included with every API request to ensure authentication and correct request handling.
 
-| Header              | Description                                                      | Required |
-| ------------------- | ---------------------------------------------------------------- | -------- |
-| `Content-Type`      | Content type of the request payload. Must be `application/json`. | Yes      |
-| `X-Account-Id`      | CleverTap account ID associated with the catalog.                | Yes      |
-| `X-CleverTap-Token` | API token used to authenticate the request.                      | Ye       |
+| Header                 | Description                                            | Required |
+| ---------------------- | ------------------------------------------------------ | -------- |
+| Content-Type           | Content type of the request. Must be application/json. | Yes      |
+| X-CleverTap-Account-Id | CleverTap account ID associated with the catalog.      | Yes      |
+| X-CleverTap-Passcode   | API passcode used to authenticate the request.         | Yes      |
 
 # Path Parameter
 
@@ -119,8 +119,8 @@ The response includes the results of the bulk operation for the delete request.
 
 # Limitations
 
-* Maximum 100 identities per request
-* Maximum payload size: 500KB (512,000 bytes)
+- Maximum 100 identities per request
+- Maximum payload size: 500KB (512,000 bytes)
 
 # Error Codes
 
