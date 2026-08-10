@@ -70,7 +70,7 @@ GET /v2/catalogs/123/products?page=0&size=20&sortBy=createdAt&sortOrder=DESC&sea
 
 # Example Response
 
-This example response shows a paginated set of products. (@Meea: add more products and update this upload - use GPT).
+This example response shows a paginated set of products.
 
 ```json
 {
