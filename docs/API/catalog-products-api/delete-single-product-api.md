@@ -33,7 +33,7 @@ These headers must be included with every API request to ensure authentication a
 | ------------------- | ---------------------------------------------------------------- | -------- |
 | `Content-Type`      | Content type of the request payload. Must be `application/json`. | Yes      |
 | `X-Account-Id`      | CleverTap account ID associated with the catalog.                | Yes      |
-| `X-CleverTap-Token` | API token used to authenticate the request.                      | Ye       |
+| `X-CleverTap-Token` | API token used to authenticate the request.                      | Yes      |
 
 # Path Parameters
 
