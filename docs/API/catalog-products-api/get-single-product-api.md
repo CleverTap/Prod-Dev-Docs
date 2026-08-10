@@ -88,12 +88,13 @@ The response includes additional system-generated fields returned for the produc
 
 # Error Codes
 
-The following error codes may be returned by this API:
+This API returns a standard HTTP status code along with a plain-text message describing the issue. Common status codes include:
 
-| Error Code              | Description                                                    |
-| ----------------------- | -------------------------------------------------------------- |
-| `PRODUCT_NOT_FOUND`     | No product exists with the specified identity in this catalog. |
-| `CATALOG_NOT_FOUND`     | The specified catalog does not exist.                          |
-| `AUTHENTICATION_FAILED` | Authentication failed due to an invalid or missing token.      |
-| `AUTHORIZATION_FAILED`  | The caller does not have permission to access this product.    |
-| `INTERNAL_ERROR`        | An unexpected server-side error occurred.                      |
+| HTTP Status | Description                                                                                               |
+| ----------- | --------------------------------------------------------------------------------------------------------- |
+| 400         | The request is invalid, missing required fields, or exceeds a bulk limit (product count or payload size). |
+| 403         | The caller lacks permission, or the catalog feature is not enabled for this account.                      |
+| 404         | The specified catalog or product does not exist.                                                          |
+| 409         | A conflicting resource already exists.                                                                    |
+| 413         | The request payload exceeds the maximum allowed size.                                                     |
+| 500         | An unexpected server-side error occurred.                                                                 |
