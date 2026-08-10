@@ -78,7 +78,7 @@ The following error codes may be returned by this API:
 | ------------------------- | ----------------------------------------------------------------------- |
 | `CATALOG_NOT_FOUND`       | The specified catalog does not exist.                                   |
 | `PRODUCT_NOT_FOUND`       | Product specified by `identity` does not exist.                         |
-| `PRODUCT_INVALID_REQUEST` | The request payload is invalid (for example, empty identities list).    |
+| `PRODUCT_INVALID_REQUEST` | The request is invalid (for example, a missing or malformed productId). |
 | `CATALOG_INVALID_REQUEST` | The request payload is invalid or exceeds size limits.                  |
 | `AUTHENTICATION_FAILED`   | Authentication failed due to an invalid or missing token.               |
 | `AUTHORIZATION_FAILED`    | The caller does not have permission to delete products in this catalog. |
