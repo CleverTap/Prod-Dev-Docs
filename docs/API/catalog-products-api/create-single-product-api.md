@@ -7,7 +7,7 @@ metadata:
 ---
 # Overview
 
-Creates a single product in a catalog. Each product must include the mandatory fields `identity`, `name`, and `imageUrl`. Validation errors for individual products do not prevent the entire request from being successful.
+Creates a single product in a catalog. Each product must include the mandatory fields `identity`, `name`, and `imageUrl`.
 
 # Method
 
