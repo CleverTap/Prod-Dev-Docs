@@ -48,13 +48,13 @@ The following path parameters are required to identify the product to update.
 
 The following request body parameters define the product fields to update:
 
-| Parameter          | Type   | Required | Description                                                                                             |
-| ------------------ | ------ | -------- | ------------------------------------------------------------------------------------------------------- |
-| `name`             | string | No       | Updated name of the product.                                                                            |
-| `imageUrl`         | string | No       | Public URL of the product image.                                                                        |
-| `attributes`       | object | No       | Key-value pairs representing the product attributes to update.                                          |
-| `attributes.field` | varies | No       | Value of a specific product attribute. The data type must match the type defined in the catalog schema. |
-| `updatedBy`        | string | Yes      | Email address of the user who last updated the product.                                                 |
+| Parameter          | Type   | Required | Description                                                                                                                                                                       |
+| ------------------ | ------ | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `name`             | string | No       | Updated name of the product.                                                                                                                                                      |
+| `imageUrl`         | string | No       | Public URL of the product image.                                                                                                                                                  |
+| `attributes`       | object | No       | Key-value pairs representing the product attributes to update.                                                                                                                    |
+| `attributes.field` | varies | No       | Value of a specific product attribute. The data type must match the type defined in the catalog schema.                                                                           |
+| `updatedBy`        | string | No       | Email address of the user who last updated the product. <br />**Note:** This field is not currently required by this endpoint, though it is required on the bulk update endpoint. |
 
 # Example Request
 
