@@ -7,8 +7,6 @@ metadata:
 ---
 # Overview
 
-Deletes multiple products from a catalog in a single request. This API removes products by their `identity` values and reports per-product failures without failing the entire request.
-
 Deletes multiple products from a catalog in a single request. This API removes products by their identity values and reports per-product failures without failing the entire request. This operation permanently removes the specified products from the catalog. Unlike single product deletion, which marks products as inactive, bulk deletion cannot be undone.
 
 # Method
