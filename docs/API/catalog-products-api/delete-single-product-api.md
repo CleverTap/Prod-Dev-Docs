@@ -7,7 +7,7 @@ metadata:
 ---
 # Overview
 
-Deletes a single product by identity.
+Deletes a single product by identity. This operation marks the product as inactive rather than permanently removing it from the catalog.
 
 # Method
 
