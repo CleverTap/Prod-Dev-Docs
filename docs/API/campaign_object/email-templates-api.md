@@ -79,25 +79,19 @@ The following are the body parameters included in the JSON request payload:
 
 ```json Without Personalization
 {
-  "templateName": "template-01",
+  "templateName": "Promotional Offer",
   "description": "description of template",
   "templateData": {
     "subType": "",
     "body": "<html></html>",
     "senderDetail": {
       "fromName": "from-name",
-      "fromEmail": "from@email.com",
-      "replyToName": "reply-name",
+      "fromEmail": "hello@gmail.com",
       "replyToEmail": "no-reply@email.com",
       "subject": "Subject 101",
       "preheader": "Learn about emails",
-      "ccEmails": [
-        "email1"
-      ],
-      "bccEmails": [
-        "email2"
-      ],
-      "annotationMeta": "<div itemscope itemtype=\"http://schema.org/DiscountOffer\"><meta itemprop=\"description\" content=\"200OFF\"><meta itemprop=\"discountCode\" content=\"200OFF\"></div>"
+      "ccEmails": ["email1"],
+      "bccEmails": ["email2"]
     }
   },
   "partner": "taxi-for-email",
@@ -109,15 +103,9 @@ The following are the body parameters included in the JSON request payload:
 {
     "templateName": "July Statement Template",
     "description": "Monthly billing statement email",
-    "path": "billing/monthly",
-    "thumbnailKey": "thumbnails/july-statement.png",
     "partner": "internal",
     "teamName": "Email Pod",
-
-    "createdBy": "arjun@clevertap.com",
-    "updatedBy": "arjun@clevertap.com",
-    "templateId": 1234567890,
-    "source": 0,
+    "createdBy": "hello@gmail.com",
 
     "templateData": {
       "subType": "html",
@@ -134,22 +122,23 @@ The following are the body parameters included in the JSON request payload:
         "ccEmails": ["team@yourdomain.com"],
         "bccEmails": ["archive@yourdomain.com"],
         "attachments": [
-          { "fileName": "statement.pdf", "fileUrl": "https://cdn.yourdomain.com/statement.pdf" }
+          { "fileName": "statement.pdf", 
+            "fileUrl": "https://cdn.yourdomain.com/statement.pdf" 
+          }
         ]
       }
     }
-  }
+}
 ```
 
 ## Example Response
 
 ```json
 {
-"templateId": 176050815737031,
-"Name": "Promotional Offer",
-"result": "Template with name Promotional Offer created",
-"status". "success"
-
+  "templateId": 176050815737031,
+  "Name": "Promotional Offer",
+  "result": "Template with name Promotional Offer created",
+  "status": "success"
 }
 ```
 
@@ -157,25 +146,25 @@ The following are the body parameters included in the JSON request payload:
 
 If there are errors, you will receive a response in the following format:
 
-| Error Code | Error Message                                                                                                                   | Description                                                                                      |
-| :--------- | :------------------------------------------------------------------------------------------------------------------------------ | :----------------------------------------------------------------------------------------------- |
-| 400        | An unexpected error occurred while processing the template. Please try again.                                                   | This error occurs when the payload is incorrect.                                                 |
-| 400        | Please check if mandatory properties are present. (templateName/templateData<br />/body/templateId(update)/createdBy/updatedBy) | An error occurs when mandatory properties mentioned in the message are missing from the payload. |
-| 401        | Invalid Credentials.                                                                                                            | Check the Account Credentials                                                                    |
-| 429        | Too many requests.                                                                                                              | API Request limit exceeded                                                                       |
+| Error Code | Error Message                                                                                       | Description                                                                                   |
+| :--------- | :-------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------- |
+| 400        | An unexpected error occurred while processing the template. Please try again.                       | This error occurs when the payload is incorrect.                                              |
+| 400        | Please check if mandatory properties are present. `templateName`, `templateData.body`, `createdBy`) | An error occurs when the specified mandatory properties are missing during template creation. |
+| 401        | Invalid Credentials.                                                                                | Check the Account Credentials                                                                 |
+| 429        | Too many requests.                                                                                  | API Request limit exceeded                                                                    |
 
 # Get Template
 
 The Get Template API enables partners to efficiently manage and retrieve email templates stored in CleverTap CMS.<br />This API serves two primary use cases:
 
-- [Get a List of Templates](doc:email-templates-api#get-a-list-of-templates)
+- [Get List of Templates](doc:email-templates-api#get-list-of-templates)
 - [Get a Specific Template](doc:email-templates-api#get-template-by-id)
 
 You can either fetch a list of available templates (for browsing or filtering) or retrieve a specific template by the `templateId`.
 
-## Get a List of Templates
+## Get List of Templates
 
-The `email/templates` API retrieves a paginated list of email templates available within your CleverTap account or through a third-party tool. It provides an overview of the existing templates,  helping users easily choose from pre-built templates for their email campaigns, eliminating the need for manual tracking.
+The `email/templates` API retrieves a paginated list of email templates available in your CleverTap account or via a third-party tool. It provides an overview of existing templates, helping users easily choose from pre-built templates for their email campaigns and eliminating the need for manual tracking.
 
 When the request is made, it sends a payload with all the template properties.
 
@@ -217,12 +206,7 @@ curl -X GET "https://in1.api.clevertap.com/v1/email/templates?pageNumber=1&pageS
       "type": "HTML",
       "path": "folder1/folder12/Promotion_Email1.html",
       "teamId": [101],
-
-      "labels": [
-        "label1",
-				"label2"
-      ],
-
+      "labels": ["label1", "label2"],
       "createdBy": "hello@email.com",
       "createdAt": "2024-02-01T06:29:48.965Z",
       "updatedBy": "hello@email.com",
@@ -235,11 +219,7 @@ curl -X GET "https://in1.api.clevertap.com/v1/email/templates?pageNumber=1&pageS
       "type": "HTML",
       "path": "folder1/folder11/Promotion_Email.html",
       "teamId": [203],
-      "labels": [
-        "label2",
-        "label3"
-      ],
-
+      "labels": ["label2", "label3"],
       "createdBy": "hello@email.com",
       "createdAt": "2024-02-01T06:29:48.965Z",
       "updatedBy": "hello@email.com",
@@ -257,23 +237,23 @@ curl -X GET "https://in1.api.clevertap.com/v1/email/templates?pageNumber=1&pageS
 
 The following are the response parameters returned for a template:
 
-| **Parameter**              | **Description**                                                                 | **Type**       | **Sample Value**                        |
-| -------------------------- | ------------------------------------------------------------------------------- | -------------- | --------------------------------------- |
-| `templates`                | An array containing template objects returned from the API.                     | Array\[Object] | —                                       |
-| `templates[].templateId`   | Unique identifier of the template.                                              | Number         | `123`                                   |
-| `templates[].templateName` | Name of the template.                                                           | String         | `Welcome Email`                         |
-| `templates[].type`         | Template type. for example, HTML                                                | String         | `HTML`                                  |
-| `templates[].path`         | File path or folder location of the template in CMS.                            | String         | `folder1/folder11/Promotion_Email.html` |
-| `templates[].teamId`       | Team ID associated with the template. Each Template can belong to only one team | Array\[Number] | `[101]`                                 |
-| `templates[].labels`       | Labels linked with the template.                                                | Array\[String] | `["label1", "label2"]`                  |
-| `templates[].labelIds`     | Internal CleverTap label identifiers.                                           | Array\[Number] | `[125, 126]`                            |
-| `templates[].createdBy`    | Email address of the user who created the template.                             | String         | `hello@email.com`                       |
-| `templates[].createdAt`    | Timestamp of template creation (ISO 8601 format).                               | String         | `2024-02-01T06:29:48.965Z`              |
-| `templates[].updatedBy`    | Email address of the last user who modified the template.                       | String         | `hello@email.com`                       |
-| `templates[].updatedAt`    | Timestamp of the last template update (ISO 8601 format).                        | String         | `2024-03-01T06:29:48.965Z`              |
-| `total`                    | Total number of templates matching the query.                                   | Number         | `25`                                    |
-| `pageNumber`               | Current page number in the paginated response.                                  | Number         | `1`                                     |
-| `pageSize`                 | Number of records returned in the current page.                                 | Number         | `20`                                    |
+| **Parameter**              | **Description**                                                                                                                       | **Type**       | **Sample Value**                        |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | -------------- | --------------------------------------- |
+| `templates`                | An array containing template objects returned from the API.                                                                           | Array\[Object] | —                                       |
+| `templates[].templateId`   | Team ID associated with the template.  Email templates always contain exactly one element; each template belongs to exactly one team. | Number         | `123`                                   |
+| `templates[].templateName` | Name of the template.                                                                                                                 | String         | `Welcome Email`                         |
+| `templates[].type`         | Template type. for example, HTML                                                                                                      | String         | `HTML`                                  |
+| `templates[].path`         | File path or folder location of the template in CMS.                                                                                  | String         | `folder1/folder11/Promotion_Email.html` |
+| `templates[].teamId`       | Team ID associated with the template. Each Template can belong to only one team                                                       | Array\[Number] | `[101]`                                 |
+| `templates[].labels`       | Labels linked with the template.                                                                                                      | Array\[String] | `["label1", "label2"]`                  |
+| `templates[].labelIds`     | Internal CleverTap label identifiers.                                                                                                 | Array\[Number] | `[125, 126]`                            |
+| `templates[].createdBy`    | Email address of the user who created the template.                                                                                   | String         | `hello@email.com`                       |
+| `templates[].createdAt`    | Timestamp of template creation (ISO 8601 format).                                                                                     | String         | `2024-02-01T06:29:48.965Z`              |
+| `templates[].updatedBy`    | Email address of the last user who modified the template.                                                                             | String         | `hello@email.com`                       |
+| `templates[].updatedAt`    | Timestamp of the last template update (ISO 8601 format).                                                                              | String         | `2024-03-01T06:29:48.965Z`              |
+| `total`                    | Total number of templates matching the query.                                                                                         | Number         | `25`                                    |
+| `pageNumber`               | Current page number in the paginated response.                                                                                        | Number         | `1`                                     |
+| `pageSize`                 | Number of records returned in the current page.                                                                                       | Number         | `20`                                    |
 
 ### Error Codes
 
@@ -308,7 +288,7 @@ This API is commonly used when a user needs to preview, edit, or reuse a previou
 
 Here is an example base URL from the account in the India region:
 
-[https://in1.api.clevertap.com/v1/email/templates/\<templateID>](https://in1.api.clevertap.com/v1/email/templates/\<templateID>)
+[https://in1.api.clevertap.com/v1/email/templates/\<templateId>](https://in1.api.clevertap.com/v1/email/templates/\<templateId>)
 
 ### Region
 
@@ -332,7 +312,7 @@ The following parameters must be passed to retrieve a specific email template:
 
 ### Example Request
 
-```
+```curl
 curl -X GET "https://in1.api.clevertap.com/v1/email/templates/123456789" \
 -H "X-CleverTap-Account-Id: <ACCOUNT-ID>" \
 -H "X-CleverTap-Passcode: <ACCOUNT-PASSCODE>" \
@@ -341,7 +321,7 @@ curl -X GET "https://in1.api.clevertap.com/v1/email/templates/123456789" \
 
 ### Example Response
 
-```
+```json
 {
   "templateId": 123456789,
   "templateName": "string",
@@ -385,21 +365,22 @@ curl -X GET "https://in1.api.clevertap.com/v1/email/templates/123456789" \
 
 The following parameters are returned for the template:
 
-| Parameter    | Sub-Parameter | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Type   | Sample Value                                |
-| :----------- | :------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----- | :------------------------------------------ |
-| templateId   |               | Uniquely identifies the template                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Number | 123455678                                   |
-| templateName |               | Indicates the template name                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | String | template-01                                 |
-| description  |               | Provides more information about the template you want to create                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | String | template-desc                               |
-| path         |               | Indicates the directory in CMS where the template is located.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | String | f1/f2                                       |
-| teamId       |               | Team ID that the template belongs to. Each Template can belong to only one team.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Number | \[101]                                      |
-| templateData |               |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Object |                                             |
-|              | subType       | Specifies the email subtype, for example, `amp` for AMP emails.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | String | amp or blank                                |
-|              | body          | The HTML content of the email template.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | String | HTML                                        |
-|              | senderDetail  | <ul><li> fromName: A string that indicates the name of the sender </li> <li> fromEmail: A string that indicates the email address of the sender </li><li>replyToEmail: A string that indicates the email address of the recipient. </li> <li> repolyToName: A string that indicates the name of the recipient.</li><li>subject: A string that indicates the subject of the email.</li><li> Preheader: A string that indicates the email preheader text.</li><li> ccEmails: Indicates a list (an array) of email addresses to be included in the CC field.</li><li>bccEmails: Indicates a list (an array) of email addresses to be included in the BCC field. </li><li> gmail annotation in HTML</li></ul> | Object | Check the payload given below               |
-| createdAt    |               | Indicates the date and time of template creation in 8086 ISO format.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | String | 2024-02-01T06:29:48.965Z                    |
-| createdBy    |               | Indicates the email address of the email template creator.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | String | [email1@email.com](mailto:email1@email.com) |
-| updatedBy    |               | Indicates the email address of the person who last updated the email template.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | String | [email2@email.com](mailto:email2@email.com) |
-| updatedAt    |               | Indicates the date and time when the email template was last updated in 8086 ISO format.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | String | 2024-02-01T06:29:48.965Z                    |
+| Parameter      | Sub-Parameter  | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Type           | Sample Value                                |
+| :------------- | :------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------- | :------------------------------------------ |
+| `templateId`   |                | Uniquely identifies the template                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Number         | 123455678                                   |
+| `templateName` |                | Indicates the template name                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | String         | template-01                                 |
+| `description`  |                | Provides more information about the template you want to create                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | String         | template-desc                               |
+| `path`         |                | Indicates the directory in CMS where the template is located.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | String         | f1/f2                                       |
+| `teamId`       |                | Team ID that the template belongs to. Each Template can belong to only one team.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Array\[Number] | \[101]                                      |
+| `templateData` |                |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Object         |                                             |
+|                | `subType`      | Specifies the email subtype, for example, `amp` for AMP emails.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | String         | amp or blank                                |
+|                | `body`         | The HTML content of the email template.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | String         | HTML                                        |
+|                | `senderDetail` | <ul><li> `fromName`: A string that indicates the name of the sender </li> <li> `fromEmail`: A string that indicates the email address of the sender </li><li>`replyToEmai`l: A string that indicates the email address of the recipient. </li> <li> `replyToName`: A string that indicates the name of the recipient.</li><li>`subject` : A string that indicates the subject of the email.</li><li> `preheader`: A string that indicates the email preheader text.</li><li> `ccEmails`: Indicates a list (an array) of email addresses to be included in the CC field.</li><li>`bccEmails`: Indicates a list (an array) of email addresses to be included in the BCC field. </li></ul> | Object         | Check the payload given below               |
+| `labels`       |                | Labels linked with the template.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Array\[String] | \["label1", "label2"]                       |
+| `createdAt`    |                | Indicates the date and time of template creation in ISO 8601 format.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | String         | 2024-02-01T06:29:48.965Z                    |
+| `createdBy`    |                | Indicates the email address of the email template creator.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | String         | [email1@email.com](mailto:email1@email.com) |
+| `updatedBy`    |                | Indicates the email address of the person who last updated the email template.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | String         | [email2@email.com](mailto:email2@email.com) |
+| `updatedAt`    |                | Indicates the date and time when the email template was last updated in ISO 8601 format.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | String         | 2024-02-01T06:29:48.965Z                    |
 
 ### Error Codes
 
