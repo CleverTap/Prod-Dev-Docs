@@ -743,20 +743,20 @@ If there are errors, you will receive a response in the following format:
 
 The following are the possible error codes:
 
-| Error Code | **Error Message**                                 | **Description**                                                                                                |
-| ---------: | ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-|    **400** | `Invalid request. Missing or invalid templateId.` | The request payload is invalid, contains incorrect parameters, or the `templateId` does not exist.             |
-|    **401** | `Authentication failure.`                         | The provided `X-CleverTap-Account-Id` or `X-CleverTap-Passcode` is incorrect or missing.                       |
-|    **403** | `Access denied. Partner not whitelisted.`         | The requesting partner does not have permission to access this endpoint for the account.                       |
-|    **429** | `Too many requests.`                              | The account has exceeded the allowed number of concurrent or rate-limited API requests (limit: 3 per account). |
-|    **503** | `Service unavailable. Please retry later.`        | Temporary service interruption. Retry with exponential backoff.                                                |
-|    **504** | `Gateway timeout. Please retry later.`            | The request could not be completed in time. Retry after a short delay.                                         |
+| Error Code | **Error Message**                               | **Description**                                                                                                |
+| ---------: | ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+|    **400** | Invalid request. Missing or invalid templateId. | The request payload is invalid, contains incorrect parameters, or the `templateId` does not exist.             |
+|    **401** | Authentication failure.                         | The provided `X-CleverTap-Account-Id` or `X-CleverTap-Passcode` is incorrect or missing.                       |
+|    **403** | Access denied. Partner not whitelisted.         | The requesting partner does not have permission to access this endpoint for the account.                       |
+|    **429** | Too many requests.                              | The account has exceeded the allowed number of concurrent or rate-limited API requests (limit: 3 per account). |
+|    **503** | Service unavailable. Please retry later.        | Temporary service interruption. Retry with exponential backoff.                                                |
+|    **504** | Gateway timeout. Please retry later.            | The request could not be completed in time. Retry after a short delay.                                         |
 
 # Update Template by ID
 
-The `email/templates/update` API helps modify an existing email template by providing its unique template ID. This feature is ideal for making adjustments to a specific template. If the template ID is unknown, users can first retrieve the list of available templates using the Get Template API, identify the correct template, and then use the ID to update it. This API ensures that templates remain up-to-date and aligned with the latest campaign requirements.
+The `email/templates/update` API helps modify an existing email template by providing its unique template ID. This feature is ideal for making adjustments to a specific template. If the template ID is unknown, users can first retrieve the list of available templates using the Get Template API, identify the correct template, and then update it using the ID. This API ensures that templates remain up to date and aligned with the latest campaign requirements.
 
-The payload must include the `templateId`  and `updatedBy` as a mandatory field along with fields that need to be updated.
+The payload must include `templateId`, `updatedBy`, `templateName`, and `templateData.body` as mandatory fields, along with any other fields that need to be updated.
 
 ### Base URL
 
@@ -796,7 +796,7 @@ Send only the fields you want to update. If updating content, the `templateData.
 |                | `senderDetail.replyToEmail`   | Reply-to email address.                                                               | String          | `support@clevertap.com`                                               | Optional                           |          |
 |                | `senderDetail.subject`        | Subject of the email.                                                                 | String          | `Your Spring Offers Are Here!`                                        | Optional                           |          |
 |                | `senderDetail.preheader`      | Preheader text of the email.                                                          | String          | `Exclusive savings inside`                                            | Optional                           |          |
-|                | `senderDetail.plainText`      | Plain-text version of the email.                                                      | String          | \`Hello \{\{ Profile.name                                             | default: "User" \}\}\`             | Optional |
+|                | `senderDetail.plainText`      | Plain-text version of the email.                                                      | String          | Hello {{ Profile.name \| default: "User" }}\`                         | default: "User" \}\}\`             | Optional |
 |                | `senderDetail.ccEmails`       | List of CC recipients.                                                                | Array of String | `["team@clevertap.com"]`                                              | Optional                           |          |
 |                | `senderDetail.bccEmails`      | List of BCC recipients.                                                               | Array of String | `["analytics@clevertap.com"]`                                         | Optional                           |          |
 |                | `senderDetail.annotationMeta` | Gmail annotation metadata in HTML format.                                             | String          | `<div itemscope itemtype="http://schema.org/DiscountOffer">...</div>` | Optional                           |          |
