@@ -325,7 +325,7 @@ curl -X GET "https://in1.api.clevertap.com/v1/email/templates/123456789" \
 {
   "templateId": 123456789,
   "templateName": "string",
-  "type": "drag-and-drop",
+  "type": "html",
   "description": "description of template",
   "path": "/folder1/folder11",
   "teamId": [101],
@@ -342,10 +342,13 @@ curl -X GET "https://in1.api.clevertap.com/v1/email/templates/123456789" \
       "ccEmails": [
         "string"
       ],
-      "bccEmails": [
-        "string"
-      ],
-      "annotationMeta": "<div itemscope itemtype=\"http://schema.org/DiscountOffer\"><meta itemprop=\"description\" content=\"200OFF\"><meta itemprop=\"discountCode\" content=\"200OFF\"></div>"
+      "plainText": "string",
+      "bccEmails": ["string"],
+      "attachments": [
+        { "fileName": "string", 
+          "fileUrl": "string" 
+        }
+      ]
     }
   },
 
@@ -365,22 +368,366 @@ curl -X GET "https://in1.api.clevertap.com/v1/email/templates/123456789" \
 
 The following parameters are returned for the template:
 
-| Parameter      | Sub-Parameter  | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Type           | Sample Value                                |
-| :------------- | :------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------- | :------------------------------------------ |
-| `templateId`   |                | Uniquely identifies the template                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Number         | 123455678                                   |
-| `templateName` |                | Indicates the template name                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | String         | template-01                                 |
-| `description`  |                | Provides more information about the template you want to create                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | String         | template-desc                               |
-| `path`         |                | Indicates the directory in CMS where the template is located.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | String         | f1/f2                                       |
-| `teamId`       |                | Team ID that the template belongs to. Each Template can belong to only one team.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Array\[Number] | \[101]                                      |
-| `templateData` |                |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Object         |                                             |
-|                | `subType`      | Specifies the email subtype, for example, `amp` for AMP emails.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | String         | amp or blank                                |
-|                | `body`         | The HTML content of the email template.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | String         | HTML                                        |
-|                | `senderDetail` | <ul><li> `fromName`: A string that indicates the name of the sender </li> <li> `fromEmail`: A string that indicates the email address of the sender </li><li>`replyToEmai`l: A string that indicates the email address of the recipient. </li> <li> `replyToName`: A string that indicates the name of the recipient.</li><li>`subject` : A string that indicates the subject of the email.</li><li> `preheader`: A string that indicates the email preheader text.</li><li> `ccEmails`: Indicates a list (an array) of email addresses to be included in the CC field.</li><li>`bccEmails`: Indicates a list (an array) of email addresses to be included in the BCC field. </li></ul> | Object         | Check the payload given below               |
-| `labels`       |                | Labels linked with the template.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Array\[String] | \["label1", "label2"]                       |
-| `createdAt`    |                | Indicates the date and time of template creation in ISO 8601 format.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | String         | 2024-02-01T06:29:48.965Z                    |
-| `createdBy`    |                | Indicates the email address of the email template creator.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | String         | [email1@email.com](mailto:email1@email.com) |
-| `updatedBy`    |                | Indicates the email address of the person who last updated the email template.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | String         | [email2@email.com](mailto:email2@email.com) |
-| `updatedAt`    |                | Indicates the date and time when the email template was last updated in ISO 8601 format.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | String         | 2024-02-01T06:29:48.965Z                    |
+<Table align={["left","left","left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Parameter
+      </th>
+
+      <th>
+        Sub-Parameter
+      </th>
+
+      <th>
+        Description
+      </th>
+
+      <th>
+        Type
+      </th>
+
+      <th>
+        Sample Value
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        `templateId`
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+        Uniquely identifies the template
+      </td>
+
+      <td>
+        Number
+      </td>
+
+      <td>
+        123455678
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `templateName`
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+        Indicates the template name
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        template-01
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        type
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+        Template type.&#x20;
+
+        - `html` for templates created via this API.
+        - `Drag & Drop` for templates built in the dashboard's drag-and-drop editor.
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        html
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `description`
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+        Provides more information about the template you want to create
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        template-desc
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `path`
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+        Indicates the directory in CMS where the template is located.
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        f1/f2
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `teamId`
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+        Team ID that the template belongs to. Each Template can belong to only one team.
+      </td>
+
+      <td>
+        Array\[Number]
+      </td>
+
+      <td>
+        \[101]
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `templateData`
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+        Object
+      </td>
+
+      <td>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+
+      </td>
+
+      <td>
+        `subType`
+      </td>
+
+      <td>
+        Specifies the email subtype, for example, `amp` for AMP emails.
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        amp or blank
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+
+      </td>
+
+      <td>
+        `body`
+      </td>
+
+      <td>
+        The HTML content of the email template.
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        HTML
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+
+      </td>
+
+      <td>
+        `senderDetail`
+      </td>
+
+      <td>
+        <ul><li> `fromName`: A string that indicates the name of the sender </li> <li> `fromEmail`: A string that indicates the email address of the sender </li><li>`replyToEmai`l: A string that indicates the email address of the recipient. </li><li>`subject` : A string that indicates the subject of the email.</li><li>`plainText`:  Plain-text fallback version of the email body.</li><li> `preheader`: A string that indicates the email preheader text.</li><li> `ccEmails`: Indicates a list (an array) of email addresses to be included in the CC field.</li><li>`bccEmails`: Indicates a list (an array) of email addresses to be included in the BCC field. </li><li>attachments: Array of file objects (fileName, fileUrl) attached to the email.</li> </ul>
+      </td>
+
+      <td>
+        Object
+      </td>
+
+      <td>
+        Check the payload given below
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `labels`
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+        Labels linked with the template.
+      </td>
+
+      <td>
+        Array\[String]
+      </td>
+
+      <td>
+        \["label1", "label2"]
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `createdAt`
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+        Indicates the date and time of template creation in ISO 8601 format.
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        2024-02-01T06:29:48.965Z
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `createdBy`
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+        Indicates the email address of the email template creator.
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        [email1@email.com](mailto:email1@email.com)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `updatedBy`
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+        Indicates the email address of the person who last updated the email template.
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        [email2@email.com](mailto:email2@email.com)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `updatedAt`
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+        Indicates the date and time when the email template was last updated in ISO 8601 format.
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        2024-02-01T06:29:48.965Z
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 ### Error Codes
 
