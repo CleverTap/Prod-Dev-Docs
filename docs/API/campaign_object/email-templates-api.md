@@ -780,37 +780,37 @@ Refer to [Headers](doc:common-api-components#headers) for more details.
 
 Send only the fields you want to update. If updating content, the `templateData.body` parameter must be a JSON-escaped HTML string.
 
-| **Parameter**  | Sub-Parameter                 | **Description**                                                                       | **Type**        | **Sample Value**                                                      | **Required / Optional**            |          |
-| -------------- | :---------------------------- | ------------------------------------------------------------------------------------- | --------------- | --------------------------------------------------------------------- | ---------------------------------- | -------- |
-| `templateId`   |                               | Unique identifier of the template to update.                                          | Number          | `123456789`                                                           | **Required**                       |          |
-| `templateName` |                               | Updated name of the template.                                                         | String          | `template-01`                                                         | **Required**                       |          |
-| `description`  |                               | Updated description of the template.                                                  | String          | `Updated promotional email`                                           | Optional                           |          |
-| `path`         |                               | Updated CMS folder path for the template.                                             | String          | `/folder1/folder11`                                                   | Optional                           |          |
-| `templateData` |                               | Contains the content and sender metadata. Include only the fields you want to update. | Object          | —                                                                     | Optional                           |          |
-|                | `subType`                     | Specifies the email subtype, for example, `amp` for AMP emails.                       | String          | blank or `amp`                                                        | Optional                           |          |
-|                | `body`                        | The HTML content of the email template.                                               | String          | `<html><body>Updated content</body></html>`                           | **Required** (if updating content) |          |
-|                | `senderDetail`                | Object containing sender information.                                                 | Object          | —                                                                     | Optional                           |          |
-|                | `senderDetail.fromName`       | Name of the sender.                                                                   | String          | `CleverTap Marketing`                                                 | Optional                           |          |
-|                | `senderDetail.fromEmail`      | Sender’s email address.                                                               | String          | `noreply@clevertap.com`                                               | Optional                           |          |
-|                | `senderDetail.replyToName`    | Display name for reply-to.                                                            | String          | `Support Team`                                                        | Optional                           |          |
-|                | `senderDetail.replyToEmail`   | Reply-to email address.                                                               | String          | `support@clevertap.com`                                               | Optional                           |          |
-|                | `senderDetail.subject`        | Subject of the email.                                                                 | String          | `Your Spring Offers Are Here!`                                        | Optional                           |          |
-|                | `senderDetail.preheader`      | Preheader text of the email.                                                          | String          | `Exclusive savings inside`                                            | Optional                           |          |
-|                | `senderDetail.plainText`      | Plain-text version of the email.                                                      | String          | Hello {{ Profile.name \| default: "User" }}\`                         | default: "User" \}\}\`             | Optional |
-|                | `senderDetail.ccEmails`       | List of CC recipients.                                                                | Array of String | `["team@clevertap.com"]`                                              | Optional                           |          |
-|                | `senderDetail.bccEmails`      | List of BCC recipients.                                                               | Array of String | `["analytics@clevertap.com"]`                                         | Optional                           |          |
-|                | `senderDetail.annotationMeta` | Gmail annotation metadata in HTML format.                                             | String          | `<div itemscope itemtype="http://schema.org/DiscountOffer">...</div>` | Optional                           |          |
-| `partner`      |                               | Identifier for the partner tool updating the template.                                | String          | `taxi-for-email`                                                      | Optional                           |          |
-| `updatedBy`    |                               | Email address of the user performing the update.                                      | String          | `editor@partner.com`                                                  | **Required**                       |          |
+| **Parameter**  | Sub-Parameter               | **Description**                                                                                                                                                             | **Type**        | **Sample Value**                            | **Required / Optional**            |
+| -------------- | :-------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | ------------------------------------------- | ---------------------------------- |
+| `templateId`   |                             | Unique identifier of the template to update.                                                                                                                                | Number          | `123456789`                                 | **Required**                       |
+| `templateName` |                             | Updated name of the template.                                                                                                                                               | String          | `template-01`                               | **Required**                       |
+| `description`  |                             | Updated description of the template.                                                                                                                                        | String          | `Updated promotional email`                 | Optional                           |
+| `path`         |                             | Updated CMS folder path for the template.                                                                                                                                   | String          | `/folder1/folder11`                         | Optional                           |
+| `templateData` |                             | Contains the content and sender metadata. Include only the fields you want to update.                                                                                       | Object          | —                                           | Optional                           |
+|                | `subType`                   | Specifies the email subtype, for example, `amp` for AMP emails.                                                                                                             | String          | blank or `amp`                              | Optional                           |
+|                | `body`                      | The HTML content of the email template.                                                                                                                                     | String          | `<html><body>Updated content</body></html>` | **Required** (if updating content) |
+|                | `senderDetail`              | Object containing sender information.                                                                                                                                       | Object          | —                                           | Optional                           |
+|                | `senderDetail.fromName`     | Name of the sender.                                                                                                                                                         | String          | `CleverTap Marketing`                       | Optional                           |
+|                | `senderDetail.fromEmail`    | Sender’s email address.                                                                                                                                                     | String          | `noreply@clevertap.com`                     | Optional                           |
+|                | `senderDetail.replyToEmail` | Reply-to email address.                                                                                                                                                     | String          | `support@clevertap.com`                     | Optional                           |
+|                | `senderDetail.subject`      | Subject of the email.                                                                                                                                                       | String          | `Your Spring Offers Are Here!`              | Optional                           |
+|                | `senderDetail.preheader`    | Preheader text of the email.                                                                                                                                                | String          | `Exclusive savings inside`                  | Optional                           |
+|                | `senderDetail.plainText`    | Plain-text version of the email.                                                                                                                                            | String          | Hello {{ Profile.name | default: "User" }}  | Optional                           |
+|                | `senderDetail.ccEmails`     | List of CC recipients.                                                                                                                                                      | Array of String | `["team@clevertap.com"]`                    | Optional                           |
+|                | `senderDetail.bccEmails`    | List of BCC recipients.                                                                                                                                                     | Array of String | `["analytics@clevertap.com"]`               | Optional                           |
+| `partner`      |                             | Identifier for the partner tool updating the template.                                                                                                                      | String          | `taxi-for-email`                            | Optional                           |
+| `teamName`     |                             | Name of the team the template belongs to. If provided, it is validated against the template's current team; a mismatch fails the request. Omit to leave the team unchanged. | String          | Growth Marketing                            | Optional                           |
+| `updatedBy`    |                             | Email address of the user performing the update.                                                                                                                            | String          | `editor@partner.com`                        | **Required**                       |
 
 ## Example Request
 
 ```curl
 curl -X POST "https://in1.api.clevertap.com/v1/email/templates/update" \
 -H "X-CleverTap-Account-Id: <ACCOUNT-ID>" \
--H "X-CleverTap-Passcode: <ACCOUNT PASSCODE>" \
+-H "X-CleverTap-Passcode: <ACCOUNT-PASSCODE>" \
 -H "Content-Type: application/json" \
 -d '{
+  "templateId": 176050758737905,
   "templateName": "template-01",
   "description": "description of template",
   "templateData": {
@@ -819,28 +819,18 @@ curl -X POST "https://in1.api.clevertap.com/v1/email/templates/update" \
     "senderDetail": {
       "fromName": "from-name",
       "fromEmail": "from@email.com",
-      "replyToName": "reply-name",
       "replyToEmail": "no-reply@email.com",
       "subject": "Subject 101",
       "preheader": "Learn about emails",
-      "ccEmails": [
-        "email1"
-      ],
-      "bccEmails": [
-        "email2"
-      ],
-      "annotationMeta": "<div itemscope itemtype=\"http://schema.org/DiscountOffer\"><meta itemprop=\"description\" content=\"200OFF\"><meta itemprop=\"discountCode\" content=\"200OFF\"></div>"
+      "ccEmails": ["email1"],
+      "bccEmails": ["email2"]
     }
   },
-
-  "labels": [
-    "label1",
-    "label2"
-  ],
-
+  "labels": ["label1", "label2"],
   "partner": "taxi-for-email",
-  "createdBy": "partneremail@email.com"
-  }'
+  "teamName": "Growth Marketing",
+  "updatedBy": "editor@partner.com"
+  }
 ```
 
 ## Example Response
@@ -858,15 +848,16 @@ curl -X POST "https://in1.api.clevertap.com/v1/email/templates/update" \
 
 If there are errors, you will receive a response in the following format:
 
-| **HTTP Status** | **Error Message**      | **Description**                                                                                                                             |
-| --------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| **400**         | Invalid request        | Invalid ID or payload. Examples include missing or invalid HTML, missing or duplicate `templateName` (if provided), or missing `updatedBy`. |
-| **401**         | Authentication failure | Invalid or missing `X-CleverTap-Account-Id` or `X-CleverTap-Passcode`.                                                                      |
-| **429**         | Too many requests      | Rate limit exceeded. A maximum of **3 concurrent requests per account** is allowed.                                                         |
+| **HTTP Status** | **Error Message**                                                                                                 | **Description**                                                                                                                             |
+| --------------- | ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| 400             | Invalid request                                                                                                   | Invalid ID or payload. Examples include missing or invalid HTML, missing or duplicate `templateName` (if provided), or missing `updatedBy`. |
+| 400             | Please check if mandatory properties are present. `templateId`, `templateName`, `templateData.body`, `updatedBy`) | Missing mandatory properties for a template update.                                                                                         |
+| 401             | Authentication failure                                                                                            | Invalid or missing `X-CleverTap-Account-Id` or `X-CleverTap-Passcode`.                                                                      |
+| 429             | Too many requests                                                                                                 | Rate limit exceeded. A maximum of **3 concurrent requests per account** is allowed.                                                         |
 
 # Delete Template API
 
-The Delete Template API enables you to remove expired or obsolete email templates from CleverTap CMS. Once deleted, templates are permanently removed from the CMS section and the Saved Templates section in the Email Campaign on the CleverTap dashboard. If the template ID is unknown, users can first retrieve the list of available templates using the Get Template API, identify the correct template, and then use the ID to delete it.
+The Delete Template API enables you to remove expired or obsolete email templates from CleverTap CMS. Once deleted, templates are permanently removed from the CMS section and the Saved Templates section in the Email Campaign on the CleverTap dashboard. If the template ID is unknown, users can first retrieve the list of available templates using the Get Template API, identify the correct template, and then delete it using the ID.
 
 Campaigns or journeys that already use a deleted template remain unaffected.
 
@@ -895,6 +886,8 @@ Refer to [Headers](doc:common-api-components#headers) for more details.
 | `_id`         | The unique identifier(s) of the template(s) is to be deleted. Can accept a single ID or an array of IDs. | Number or Array of Numbers | `[173885007188151, 173885007188152]` | Required                |
 
 ## Example Request
+
+(@arjun: here the request includes "\_id" - is the parameter correct? or shd it be changed to templateId / templateIds?)
 
 ```curl
 curl -X POST "https://in1.api.clevertap.com/v1/email/templates/delete" \
