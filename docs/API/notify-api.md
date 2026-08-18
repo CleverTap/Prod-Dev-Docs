@@ -245,7 +245,7 @@ curl --location 'https://api.clevertap.com/v1/notify' \
   - Supported file formats: PDF, DOC, DOCX, ICS, EML, PNG, JPEG, JPG, MP4, and MP3.
   - Only supported for the Email channel.
   - Only 1 attachment is allowed per request.
-  - Only supported when your Notify setup uses SendGrid or Infobip as the email provider.
+  - Only supported when your Notify setup uses SendGrid or Infobip (with the Advanced Email Add-on) as the email provider.
   - Requires attachments to be enabled for your account. To enable this feature, contact your Customer Success Manager.
 </Callout>
 
@@ -489,7 +489,7 @@ In case of an error in the Notify delivery, the following error codes indicate t
 
       <td>
         `{"status": "fail", "error": "The payload length exceeds the 
-                                                permissible limit", "code": 116}`
+                                                        permissible limit", "code": 116}`
       </td>
     </tr>
   </tbody>
