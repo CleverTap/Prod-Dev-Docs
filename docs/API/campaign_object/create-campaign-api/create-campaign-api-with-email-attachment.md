@@ -47,7 +47,7 @@ POST
 Refer [Headers](https://developer.clevertap.com/docs/common-api-components#headers) for more details.
 
 <Callout icon="📘" theme="info">
-  **Note**
+  #### **Note**
 
   CleverTap supports Liquid personalization for Push Campaigns sent via Create Campaign API. For more information refer [Liquid Personalization in Campaign APIs](https://docs.clevertap.com/docs/personalize-messages-push#liquid-personalization-in-campaign-apis).
 </Callout>
@@ -55,7 +55,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
 ## Body Parameters - Target User Events & Properties
 
 <Callout icon="📘" theme="info">
-  **Mobile Push Notification Parameters**
+  #### **Mobile Push Notification Parameters**
 
   The parameters in bold and marked with \* provide additional functionality for creating a push campaign.
 </Callout>
@@ -158,7 +158,7 @@ Refer [Headers](https://developer.clevertap.com/docs/common-api-components#heade
       </td>
 
       <td>
-        Allows you to specify which vendor/provider to use for your campaign. For each target_mode, you can have multiple providers integrated with CleverTap, and this parameter allows you to select which provider to use for the campaign. For example, you select target_mode = email and you have integrated both SendGrid and Amazon SNS with CleverTap to send emails. In this scenario, you can set provider_nick_name = SendGrid to send the campaign through SendGrid. This parameter is only for Email, WhatsApp, and SMS.
+        Allows you to specify which vendor/provider to use for your campaign. For each target_mode, you can have multiple providers integrated with CleverTap, and this parameter allows you to select which provider to use for the campaign. For example, you select target_mode = email, and you have integrated both SendGrid and Amazon SNS with CleverTap to send emails. In this scenario, you can set provider_nick_name = SendGrid to send the campaign through SendGrid. This parameter is only for Email, WhatsApp, and SMS.
       </td>
 
       <td>
