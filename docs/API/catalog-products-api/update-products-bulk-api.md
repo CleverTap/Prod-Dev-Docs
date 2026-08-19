@@ -1,7 +1,7 @@
 ---
 title: Update Products (Bulk) API
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---

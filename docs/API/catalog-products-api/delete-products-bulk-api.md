@@ -1,7 +1,7 @@
 ---
 title: Delete Products (Bulk) API
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
