@@ -16,24 +16,26 @@ With the CleverTap SDK, you can create variables on your client that take on new
 
 You can define variables in the platform-specific call in our SDK. When you define a variable in your code, you can sync it to the Dashboard via the provided SDK method.
 
-> 📘 SDK Prerequisite
->
-> Before you proceed, check that you are using iOS SDK v5.0.0 or higher to use the Remote Config feature.
+<Callout icon="📘" theme="info">
+  ### SDK Prerequisite
+
+  Before you proceed, check that you are using iOS SDK v5.0.0 or higher to use the Remote Config feature.
+</Callout>
 
 # Supported Variable Types
 
 Currently, CleverTap SDK supports the following variable types:
 
-* String
-* Boolean
-* Dictionary
-* Int
-* Float
-* Double
-* Short
-* Long
-* Number
-* File (supported for CleverTap SDK **v7.0.0 and above**)
+- String
+- Boolean
+- Dictionary
+- Int
+- Float
+- Double
+- Short
+- Long
+- Number
+- File (supported for CleverTap SDK **v7.0.0 and above**)
 
 # Define Variables
 
@@ -131,12 +133,14 @@ CleverTap.sharedInstance()?.syncVariables();
 [[CleverTap sharedInstance] syncVariables];
 ```
 
-> 📘 Key Points to Remember
->
-> * If another user profile has already created a draft in the dashboard, the sync call will fail to avoid overwriting important changes. In such a case, you should either Publish or Dismiss the existing draft before proceeding with syncing variables again. However, if you have created a draft previously using the sync method, you can override this draft to enhance the integration experience.
->   * You may receive the following console logs from the CleverTap SDK:
->     * Variables synced successfully.
->     * Unauthorised access from a non-test profile. To address this, mark the profile as a test profile from the CleverTap dashboard.
+<Callout icon="📘" theme="info">
+  ### Key Points to Remember
+
+  - If another user profile has already created a draft in the dashboard, the sync call will fail to avoid overwriting important changes. In such a case, you should either Publish or Dismiss the existing draft before proceeding with syncing variables again. However, if you have created a draft previously using the sync method, you can override this draft to enhance the integration experience.
+    - You may receive the following console logs from the CleverTap SDK:
+      - Variables synced successfully.
+      - Unauthorised access from a non-test profile. To address this, mark the profile as a test profile from the CleverTap dashboard.
+</Callout>
 
 # Fetch Variables During a Session
 
@@ -200,7 +204,7 @@ If a user property (for example, Customer Type) is used in Product Experience se
 
 Follow this sequence to ensure that user property changes trigger Product Experience re-evaluation:
 
-1. Update user properties using any of the [supported method](https://developer.clevertap.com/docs/user-profiles-ios#updating-user-profilepush-profile-method). 
+1. Update user properties using any of the [supported method](https://developer.clevertap.com/docs/user-profiles-ios#updating-user-profilepush-profile-method).
 2. Call `fetchVariables()` to trigger re-evaluation of segments using the updated data.
 
 ### Example Re-evaluation
@@ -236,18 +240,20 @@ NSDictionary *profile = @{
 }];
 ```
 
-> 📘 Note
->
-> * Always call `fetchVariables()` immediately after any user property updates used in Product Experience segments.
-> * The fetch call is asynchronous; use the callback to confirm success.
-> * Existing `VariableCallback` instances are automatically triggered when variables change.
+<Callout icon="📘" theme="info">
+  ### Note
+
+  - Always call `fetchVariables()` immediately after any user property updates used in Product Experience segments.
+  - The fetch call is asynchronous; use the callback to confirm success.
+  - Existing `VariableCallback` instances are automatically triggered when variables change.
+</Callout>
 
 ## Access Variable Values
 
 You can access the fetched values in the following ways:
 
-* [From `Var` Instance](doc:ios-remote-config#from-var-instance) 
-* [Using `CleverTap` Instance Method](doc:ios-remote-config#using-clevertap-instance-method) 
+- [From `Var` Instance](doc:ios-remote-config#from-var-instance)
+- [Using `CleverTap` Instance Method](doc:ios-remote-config#using-clevertap-instance-method)
 
 ### From `Var` Instance
 
@@ -284,7 +290,7 @@ var_file.fileValue // returns file downloaded path
 
 ### Using `CleverTap` Instance Method
 
-You can use the `CleverTap` instance method to get the current value of a variable. If the variable is non-existent, the method returns `null`. 
+You can use the `CleverTap` instance method to get the current value of a variable. If the variable is non-existent, the method returns `null`.
 
 ```swift Swift
 CleverTap.sharedInstance()?.getVariableValue("variable name")
@@ -297,12 +303,12 @@ CleverTap.sharedInstance()?.getVariableValue("variable name")
 
 CleverTap iOS SDK provides several callbacks for the developer to receive feedback from the SDK. You can use them as per your requirement, using all of them is not mandatory. They are as follows:
 
-* All Variables Callbacks 
-* Individual Variable Callback
-* Variables Delegate
-* All File variables Callback
-* File variables individual Callback
-* File variables Delegates
+- All Variables Callbacks
+- Individual Variable Callback
+- Variables Delegate
+- All File variables Callback
+- File variables individual Callback
+- File variables Delegates
 
 ## All Variables Callbacks
 
@@ -487,6 +493,45 @@ CTVarDelegateImpl *del = [[CTVarDelegateImpl alloc] init];
 [var_file setDelegate:del];
 ```
 
+## Fetch A/B Experiment Variants
+
+From CleverTap iOS SDK v7.4.1 onwards, you can retrieve the active A/B experiment variants for the current user. This is useful when you need to access variant data for custom implementations or analytics, independent of Remote Config variables.
+
+<Callout icon="📘" theme="info">
+  ### SDK Prerequisite
+
+  Before you proceed, check that you are using iOS SDK v7.4.1 or higher to use this method.
+</Callout>
+
+The variants method returns a list of the user's active variants. If no experiment variants are active for the current user, variants() returns an empty list.
+
+### Sample response
+
+```json
+"abVariantInfo": [
+        {
+            "abTestId": 224197,
+            "abTestName": "first test",
+            "name": "Control"
+        },
+        {
+            "abTestId": 623794,
+            "abTestName": "second test",
+            "name": "Control"
+        },
+        {
+            "abTestId": 962480,
+            "abTestName": "Android users",
+            "name": "A"
+        },
+        {
+            "abTestId": 453537,
+            "abTestName": "String Vars2",
+            "name": "A"
+        }
+    ]
+```
+
 # Troubleshooting
 
 For troubleshooting, enable CleverTap SDK logs and set the log level to [Debug/Verbose](https://developer.clevertap.com/docs/advanced-options-ios#debugging).
@@ -505,26 +550,28 @@ For troubleshooting, enable CleverTap SDK logs and set the log level to [Debug/V
 
 **Cause**: A draft of Variables created by a different user already exists.
 
-**Solution**: 
+**Solution**:
 
 1. Access the dashboard.
 2. Publish or dismiss the existing draft.
 3. Attempt to sync variables again.
 
-> 📘 Note
->
-> You can override a draft you previously created via the sync method.
+<Callout icon="📘" theme="info">
+  ### Note
+
+  You can override a draft you previously created via the sync method.
+</Callout>
 
 # Verifying Successful Sync
 
-Check the log message *Variables synced successfully* in the console output.
+Check the log message _Variables synced successfully_ in the console output.
 
 ### Important Considerations
 
 1. **Variable Definition**: Ensure variables are defined before calling `SyncVariables`.
-   * If variables are defined in different parts of the app, navigate through those screens before calling `SyncVariables`.
+   - If variables are defined in different parts of the app, navigate through those screens before calling `SyncVariables`.
 
 2. **Instance-Specific**: Variables are defined per CleverTap instance.
-   * Use the default/shared instance if you have only one CleverTap instance.
+   - Use the default/shared instance if you have only one CleverTap instance.
 
 3. **Production Builds**: Remove the `SyncVariables` method call from release/production builds as it will not function in those environments.
