@@ -29,11 +29,11 @@ Refer [Region](doc:https://developer.clevertap.com/docs/common-api-components#re
 
 These headers must be included with this API request to ensure proper authentication and content handling.
 
-| Header              | Description                                                      | Required |
-| ------------------- | ---------------------------------------------------------------- | -------- |
-| `Content-Type`      | Content type of the request payload. Must be `application/json`. | Yes      |
-| `X-Account-Id`      | CleverTap account ID associated with the catalog.                | Yes      |
-| `X-CleverTap-Token` | API token used to authenticate the request.                      | Yes      |
+| Header                 | Description                                            | Required |
+| ---------------------- | ------------------------------------------------------ | -------- |
+| Content-Type           | Content type of the request. Must be application/json. | Yes      |
+| X-CleverTap-Account-Id | CleverTap account ID associated with the catalog.      | Yes      |
+| X-CleverTap-Passcode   | API passcode used to authenticate the request.         | Yes      |
 
 # Path Parameter
 
@@ -49,8 +49,8 @@ This request fetches details for the catalog with ID 123.
 
 If you do not have the catalog ID, you can retrieve it in either of the following ways:
 
-* Use the List Catalogs API to fetch all catalogs associated with your account
-* Copy the catalog ID from the CleverTap dashboard
+- Use the List Catalogs API to fetch all catalogs associated with your account
+- Copy the catalog ID from the CleverTap dashboard
 
 ```
 GET /v2/catalogs/123
