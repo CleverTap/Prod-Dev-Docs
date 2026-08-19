@@ -50,12 +50,18 @@ The following parameters define the products to be created in the catalog:
 | Parameter                   | Type   | Required | Description                                                                                             |
 | --------------------------- | ------ | -------- | ------------------------------------------------------------------------------------------------------- |
 | `products`                  | array  | Yes      | List of products to be added to the catalog.                                                            |
-| `products.identity`         | string | Yes      | Unique identifier of the product within the catalog, for example, a SKU.                                |
-| `products.name`             | string | Yes      | Name of the product.                                                                                    |
-| `products.imageUrl`         | string | No       | Public URL of the product image.                                                                        |
-| `products.attributes`       | object | Yes      | Key-value pairs representing the product attributes defined in the catalog schema.                      |
-| `products.attributes.field` | varies | Yes      | Value of a specific catalog attribute. The data type must match the type defined in the catalog schema. |
+| `products.identity`         | string | Yes      | Unique identifier of the product within the catalog, for example, a SKU. Allowed: 1–500 characters.     |
+| `products.name`             | string | Yes      | Name of the product. Allowed: 1-1000 characters.                                                        |
+| `products.imageUrl`         | string | No       | Public URL of the product image.Allowed a maximum of 2000 characters.                                   |
+| `products.attributes`       | object | No       | Key-value pairs representing the product attributes defined in the catalog schema.                      |
+| `products.attributes.field` | varies | No       | Value of a specific catalog attribute. The data type must match the type defined in the catalog schema. |
 | `createdBy`                 | string | Yes      | Email address of the user or system creating these products.                                            |
+
+<Callout icon="📘" theme="info">
+  ### &#x20;`imageUrl` is optional here, but required on the single-product endpoint
+
+  The[ Create Single Product API ](doc:create-single-product-api)requires imageUrl, this bulk endpoint does not. A product created in bulk without an image will render with an empty image slot wherever it is surfaced, so supply it unless you are deliberately backfilling.
+</Callout>
 
 # Example Request
 
@@ -92,7 +98,8 @@ This example creates multiple products in the specified catalog:
 ```
 
 <Callout icon="📘" theme="info">
-  **Note**
+  ### **Note**
+
   If a product fails validation, the error is reported for that product while other valid products continue to be processed.
 </Callout>
 
@@ -185,18 +192,26 @@ The response includes bulk operation results along with system-generated fields 
 
 # Limitations
 
-- Maximum 100 products per request
-- Maximum payload size: 500KB (512,000 bytes)
+The following limits apply to a single request:
+
+| Limit                        | Value  | Response on breach                                                                 |
+| ---------------------------- | ------ | ---------------------------------------------------------------------------------- |
+| Maximum products per request | 100    | 400, CleverTap code 110, _Maximum 100 products/identities allowed in bulk request_ |
+| Maximum payload size         | 500 KB | 413, CleverTap code 111, _The payload size exceeds the permissible limit of 500KB_ |
+
+The payload cap is checked against the request's Content-Length before the body is parsed, so an oversized request is rejected without creating any products.
 
 # Error Codes
 
-This API returns a standard HTTP status code along with a plain-text message describing the issue. Common status codes include:
+This API returns a standard HTTP status code along with a plain-text message describing the issue.
 
-| HTTP Status | Description                                                                                               |
-| ----------- | --------------------------------------------------------------------------------------------------------- |
-| 400         | The request is invalid, missing required fields, or exceeds a bulk limit (product count or payload size). |
-| 403         | The caller lacks permission, or the catalog feature is not enabled for this account.                      |
-| 404         | The specified catalog or product does not exist.                                                          |
-| 409         | A conflicting resource already exists.                                                                    |
-| 413         | The request payload exceeds the maximum allowed size.                                                     |
-| 500         | An unexpected server-side error occurred.                                                                 |
+| HTTP Status | When                                                                                                                |
+| ----------- | ------------------------------------------------------------------------------------------------------------------- |
+| 400         | catalogId, products, or createdBy is missing; the body is not valid JSON; or the request exceeds 100 products.      |
+| 401         | Authentication failed, or the catalogs feature is not enabled on the account's plan.                                |
+| 403         | Catalog feature is not enabled for this account (CleverTap code 101).                                               |
+| 404         | The specified catalog does not exist.                                                                               |
+| 409         | A conflicting resource already exists. Per-product conflicts are reported in errors rather than as a top-level 409. |
+| 413         | Request payload exceeds 500 KB (CleverTap code 111).                                                                |
+| 500         | Unexpected server-side error.                                                                                       |
+| 503         | The account is not ready to serve requests yet. Retry shortly.                                                      |
