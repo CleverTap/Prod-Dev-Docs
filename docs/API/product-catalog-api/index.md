@@ -1,7 +1,7 @@
 ---
 title: Product Catalog API
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
