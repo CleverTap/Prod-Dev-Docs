@@ -18,7 +18,7 @@ Follow these steps to upload a catalog file:
 3. [Complete the upload using the Complete Multipart API](doc:pre-signed-url-api#complete-multipart-upload-using-the-complete-multipart-api)
 
 <Callout icon="📘" theme="info">
-  **Availability**
+  ### **Availability**
 
   The Catalog v2 endpoints require the Catalogs feature to be enabled on your account and plan. If it is not enabled, requests fail with 401 or 403. To enable the feature, contact your Customer Success Manager.
 </Callout>
