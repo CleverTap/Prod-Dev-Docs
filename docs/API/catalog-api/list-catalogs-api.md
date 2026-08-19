@@ -29,11 +29,11 @@ Refer [Region](doc:https://developer.clevertap.com/docs/common-api-components#re
 
 These headers must be included with every API request to ensure successful authentication and correct payload handling.
 
-| Header              | Description                                                      | Required |
-| ------------------- | ---------------------------------------------------------------- | -------- |
-| `Content-Type`      | Content type of the request payload. Must be `application/json`. | Yes      |
-| `X-Account-Id`      | CleverTap account ID for which catalogs are being queried.       | Yes      |
-| `X-CleverTap-Token` | API token used to authenticate the request.                      | Yes      |
+| Header                 | Description                                            | Required |
+| ---------------------- | ------------------------------------------------------ | -------- |
+| Content-Type           | Content type of the request. Must be application/json. | Yes      |
+| X-CleverTap-Account-Id | CleverTap account ID associated with the catalog.      | Yes      |
+| X-CleverTap-Passcode   | API passcode used to authenticate the request.         | Yes      |
 
 # Query Parameters
 
