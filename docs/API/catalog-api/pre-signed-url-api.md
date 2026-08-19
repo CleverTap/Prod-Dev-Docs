@@ -7,7 +7,7 @@ metadata:
 ---
 # Overview
 
-Upload catalog files to CleverTap managed storage using a secure, scalable mechanism. The process involves generating pre-signed URLs, uploading the file (single or multipart), and completing the upload when required.
+Upload catalog files to CleverTap managed storage using a secure, scalable mechanism. The process involves generating _pre-signed URLs_, _uploading the file (single or multipart)_, and _completing the upload when required_. Both single-file and multipart uploads require this completion step. Skipping it for a single-file upload leaves the catalog inactive on the dashboard, and its products are never processed.
 
 This flow is designed for efficient bulk ingestion of catalog data, such as CSV or XML files. You must reference an existing catalog by its ID or name.
 
@@ -16,6 +16,12 @@ Follow these steps to upload a catalog file:
 1. [Generate upload URLs using the Get Signed URL API](doc:pre-signed-url-api#generate-upload-urls-using-the-get-signed-url-api)
 2. [Upload the file using the returned pre-signed URLs](doc:pre-signed-url-api#upload-file-using-the-returned-pre-signed-urls)
 3. [Complete the upload using the Complete Multipart API](doc:pre-signed-url-api#complete-multipart-upload-using-the-complete-multipart-api)
+
+<Callout icon="📘" theme="info">
+  **Availability**
+
+  The Catalog v2 endpoints require the Catalogs feature to be enabled on your account and plan. If it is not enabled, requests fail with 401 or 403. To enable the feature, contact your Customer Success Manager.
+</Callout>
 
 # Method
 
@@ -33,11 +39,11 @@ Refer [Region](doc:https://developer.clevertap.com/docs/common-api-components#re
 
 These headers must be included with every API request to ensure authentication and authorization.
 
-| Header              | Description                                              | Required |
-| ------------------- | -------------------------------------------------------- | -------- |
-| `Content-Type`      | Content type of the request. Must be `application/json`. | Yes      |
-| `X-Account-Id`      | CleverTap account ID associated with the catalog.        | Yes      |
-| `X-CleverTap-Token` | API token used to authenticate the request.              | Yes      |
+| Header                 | Description                                            | Required |
+| ---------------------- | ------------------------------------------------------ | -------- |
+| Content-Type           | Content type of the request. Must be application/json. | Yes      |
+| X-CleverTap-Account-Id | CleverTap account ID associated with the catalog.      | Yes      |
+| X-CleverTap-Passcode   | API passcode used to authenticate the request.         | Yes      |
 
 # Generate Upload URLs using the Get Signed URL API
 
@@ -57,14 +63,14 @@ Choose from the upload methods based on the size of the file you want to upload:
 
     ### Query Parameters
 
-    | Parameter   | Type    | Required    | Description                                                                                                                                                                   |
-    | ----------- | ------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-    | catalogId   | long    | Yes         | Unique identifier of the catalog where the product file will be uploaded.                                                                                                     |
-    | fileName    | string  | Yes         | Name of the file to upload. Maximum length is 500 characters.                                                                                                                 |
-    | contentType | string  | Yes         | MIME type of the file being uploaded. Use text/csv for FILE\_BASED\_UPLOAD and CLOUD\_BUCKET integrations, and text/xml or application/xml for GOOGLE\_MERCHANT integrations. |
-    | multiPart   | boolean | Yes         | Indicates whether the upload will use a multipart upload. Set to `true` to generate multiple upload URLs, or `false` for a single file upload.                                |
-    | totalParts  | integer | Conditional | Total number of parts for multipart upload. Required when `multiPart` is set to `true`. The minimum value is 1, and the maximum value is 10000.                               |
-    | createdBy   | string  | Yes         | Identifier of the user or system requesting the signed URL. Maximum length is 100 characters. The identifier must be an email ID.                                             |
+    | Parameter   | Type    | Required    | Description                                                                                                                                                                                                                 |
+    | ----------- | ------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+    | catalogId   | long    | Yes         | Unique identifier of the catalog where the product file will be uploaded.                                                                                                                                                   |
+    | fileName    | string  | Yes         | Name of the file to upload. Maximum length is 500 characters.                                                                                                                                                               |
+    | contentType | string  | Yes         | MIME type of the file being uploaded. Use text/csv for FILE_BASED_UPLOAD and CLOUD_BUCKET integrations, and text/xml or application/xml for GOOGLE_MERCHANT integrations.                                                   |
+    | multiPart   | boolean | Yes         | Indicates whether the upload will use a multipart upload. Set to `true` to generate multiple upload URLs, or `false` for a single file upload.                                                                              |
+    | totalParts  | integer | Conditional | Total number of parts for multipart upload. Required when multiPart is set to true. The minimum value is 1. There is currently no enforced maximum, but very large values are discouraged for practical upload performance. |
+    | createdBy   | string  | Yes         | Identifier of the user or system requesting the signed URL. Maximum length is 100 characters. The identifier must be an email ID.                                                                                           |
 
     ### Example Request
 
@@ -110,13 +116,14 @@ Choose from the upload methods based on the size of the file you want to upload:
 
     ### Query Parameters
 
-    | Parameter        | Type    | Required | Description                                                                                                   |
-    | ---------------- | ------- | -------- | ------------------------------------------------------------------------------------------------------------- |
-    | requestId        | string  | Yes      | Unique identifier received when generating the signed URLs. Used to complete the multipart upload.            |
-    | updatedBy        | string  | Yes      | Email address of the user or system completing the upload.                                                    |
-    | parts            | array   | Yes      | List of uploaded parts that need to be combined to complete the file upload.                                  |
-    | parts.partNumber | integer | Yes      | Part number of the uploaded file segment. Must match the part number used during upload.                      |
-    | parts.etag       | string  | Yes      | ETag value returned by the storage service after uploading each part. Used to verify and finalize the upload. |
+    | Parameter   | Type    | Required | Description                                                                      |
+    | ----------- | ------- | -------- | -------------------------------------------------------------------------------- |
+    | catalogId   | long    | Yes      | Unique identifier of the catalog where the product file will be uploaded.        |
+    | fileName    | string  | Yes      | Name of the file to upload. Maximum length is 500 characters.                    |
+    | contentType | string  | Yes      | MIME type of the file being uploaded.                                            |
+    | multiPart   | boolean | Yes      | Set to true to generate multiple upload URLs.                                    |
+    | totalParts  | integer | Yes      | Total number of parts for the multipart upload. Minimum value is 1.              |
+    | createdBy   | string  | Yes      | Identifier of the user or system requesting the signed URL. Must be an email ID. |
 
     ### Example Request
 
@@ -163,21 +170,24 @@ Choose from the upload methods based on the size of the file you want to upload:
 
 Use the returned pre-signed URLs to upload the file directly to storage.
 
-* Use HTTP PUT requests on each pre-signed URL
-* Do not add authentication headers to these requests
-* For multipart uploads:
+- Use HTTP PUT requests on each pre-signed URL
+- Do not add authentication headers to these requests
+- For multipart uploads:
 
-  * Upload each part separately
-  * Capture the ETag from each upload response
-  * Store partNumber and corresponding ETag
+  - Upload each part separately
+  - Capture the ETag from each upload response
+  - Store partNumber and corresponding ETag
 
 <Callout icon="📘" theme="info">
-  **File Upload Guidelines**
+  ### **File Upload Guidelines**
 
-  * Single file uploads are recommended for files under 100 MB
-  * Multipart uploads should be used for files larger than 100 MB
-  * Each presigned URL expires after 60 minutes by default
-  * The generated URLs must be used to upload the file using PUT requests
+  - Single file uploads are recommended for files under 100 MB, and multipart uploads for files larger than 100 MB. This is a recommendation, not an enforced limit, the API accepts either upload type regardless of file size.
+  - Multipart uploads should be used for files larger than 100 MB.
+  - Each presigned URL expires after 60 minutes by default.
+  - The upload must be completed within that window. If the URLs expire, start again from step 1.
+  - If a longer expiry is requested, it is capped at a maximum of 24 hours.
+  - Pre-signed URLs expire 60 minutes after they are generated.&#x20;
+  - The generated URLs must be used to upload the file using PUT requests
 </Callout>
 
 # Complete Multipart Upload using the Complete Multipart API
@@ -249,6 +259,7 @@ The following is the sample response:
 
 ```json
 {
+  "accountId": 12345,
   "requestId": "550e8400-e29b-41d4-a716-446655440001",
   "catalogId": 123,
   "fileName": "large_products.csv",
@@ -267,6 +278,7 @@ The following parameters are returned when the upload completion request is acce
 
 | Parameter       | Type    | Description                                                                                 |
 | --------------- | ------- | ------------------------------------------------------------------------------------------- |
+| accountId       | integer | CleverTap account ID for which the request was made.                                        |
 | requestId       | string  | Unique identifier for the upload request.                                                   |
 | catalogId       | integer | Unique identifier of the catalog where the file was uploaded.                               |
 | fileName        | string  | Name of the uploaded file.                                                                  |
@@ -278,11 +290,11 @@ The following parameters are returned when the upload completion request is acce
 | createdAt       | string  | Date and time when the upload request was created.                                          |
 
 <Callout icon="📘" theme="info">
-  **Guidelines for Complete Multipart Upload**
+  ### **Guidelines for Complete Multipart Upload**
 
-  * Parts must be provided in order by partNumber
-  * ETags are returned by S3 in the response headers after uploading each part
-  * The upload must be completed within the expiry time of the presigned URLs
+  - Parts must be provided in order by partNumber
+  - ETags are returned by S3 in the response headers after uploading each part
+  - The upload must be completed within the expiry time of the presigned URLs
 </Callout>
 
 # Error Handling
@@ -305,11 +317,11 @@ The following error codes may be returned by this API:
 
 The following error codes may be returned by this API:
 
-| Error Code         | Description                                                                                                                                                        |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| INVALID_REQUEST    | The request is invalid or missing required parameters. For example, `catalogId`, `attributeName`, `filterable`, or `updatedBy` is missing or has an invalid value. |
-| NOT_FOUND          | The specified catalog or attribute does not exist.                                                                                                                 |
-| UPDATE_NOT_ALLOWED | The attribute cannot be updated due to a business rule. For example, the catalog is inactive or locked.                                                            |
-| UNAUTHORIZED       | The user is not authorized to perform this update.                                                                                                                 |
-| FORBIDDEN          | The user does not have permission to modify this catalog.                                                                                                          |
-| INTERNAL_ERROR     | An unexpected error occurred on the server. Try again later.                                                                                                       |
+| Error Code              | Description                                                                                                      |
+| ----------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| REQUEST_NOT_FOUND       | The specified requestId does not exist or has expired.                                                           |
+| CATALOG_NOT_FOUND       | The specified catalog does not exist.                                                                            |
+| CATALOG_INVALID_REQUEST | The request payload is invalid or missing required fields (for example, missing requestId, updatedBy, or parts). |
+| AUTHENTICATION_FAILED   | Authentication failed due to an invalid or missing token.                                                        |
+| AUTHORIZATION_FAILED    | The caller does not have permission to complete this upload.                                                     |
+| INTERNAL_ERROR          | An unexpected server-side error occurred.                                                                        |
