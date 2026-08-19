@@ -1,5 +1,5 @@
 ---
-title: Catalog API
+title: Product Catalog API
 deprecated: false
 hidden: true
 metadata:
