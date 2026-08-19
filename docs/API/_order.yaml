@@ -4,7 +4,7 @@
 - external-trigger-api
 - campaign_object
 - catalog-api-endpoints
-- catalog-api
+- product-catalog-api
 - catalog-products-api
 - recommendations-api
 - custom-list-endpoints
