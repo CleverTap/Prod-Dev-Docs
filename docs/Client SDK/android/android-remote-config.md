@@ -16,35 +16,37 @@ CleverTap's Remote Config feature enables you to modify your app's functionality
 
 To define variables, developers can use the platform-specific call within CleverTap SDK. After defining the variables in the code, you must sync the variables to the dashboard through the provided SDK method.
 
-> 📘 SDK Prerequisite
->
-> Before you proceed, check that you are using Android SDK v5.0.0 or higher to use the Remote Config feature.
+<Callout icon="📘" theme="info">
+  ### SDK Prerequisite
+
+  Before you proceed, check that you are using Android SDK v5.0.0 or higher to use the Remote Config feature.
+</Callout>
 
 # Supported Variable Types
 
 Currently, CleverTap SDK supports the following variable types:
 
-* boolean
-* byte
-* short
-* int
-* long
-* float
-* double
-* String
-* File (supported for CleverTap SDK **v7.0.0 and above**)
+- boolean
+- byte
+- short
+- int
+- long
+- float
+- double
+- String
+- File (supported for CleverTap SDK **v7.0.0 and above**)
 
 # Define Variables
 
 One can define variables using the following three methods:
 
-* Using the `defineVariable(...)` method. 
-* Using the `@Variable` annotation on a static field of a class
-* Using the `@Variable` annotation on an instance field of a class
+- Using the `defineVariable(...)` method.
+- Using the `@Variable` annotation on a static field of a class
+- Using the `@Variable` annotation on an instance field of a class
 
 ## Use`defineVariable(...)` Method
 
-When calling the `defineVariable(...)` method, you can provide the variable's name and default value. 
+When calling the `defineVariable(...)` method, you can provide the variable's name and default value.
 
 ```java
 Var<Byte> var1 = cleverTap.defineVariable("var_byte", (byte) 1);
@@ -124,15 +126,17 @@ cleverTap.parseVariablesForClasses(MyClass.class);
 
 ```
 
-> 🚧 Proguard
->
-> It is mandatory to skip your classes from Proguard when using the `@Variable` annotation because changing the names of the fields leads to runtime errors
->
-> ```groovy
-> -keep class com.package.MyClass {
->     *;
-> }
-> ```
+<Callout icon="🚧" theme="warn">
+  ### Proguard
+
+  It is mandatory to skip your classes from Proguard when using the `@Variable` annotation because changing the names of the fields leads to runtime errors
+
+  ```groovy
+  -keep class com.package.MyClass {
+      *;
+  }
+  ```
+</Callout>
 
 ## Use `@Variable` Annotation on Instance Variable
 
@@ -174,15 +178,17 @@ cleverTap.parseVariables(instance);
 // It will be added in a future release.
 ```
 
-> ❗️ Proguard
->
-> It is mandatory to skip your classes from Proguard when using the `@Variable` annotation, because changing the names of the fields lead to runtime errors:
->
-> ```groovy
-> -keep class com.package.MyClass {
->     *;
-> }
-> ```
+<Callout icon="❗️" theme="error">
+  ### Proguard
+
+  It is mandatory to skip your classes from Proguard when using the `@Variable` annotation, because changing the names of the fields lead to runtime errors:
+
+  ```groovy
+  -keep class com.package.MyClass {
+      *;
+  }
+  ```
+</Callout>
 
 ## Define File Type Variables
 
@@ -197,9 +203,11 @@ val fileVar: Var<String> = cleverTap.defineFileVariable("var_file")
 Var<String> fileVar = cleverTap.defineFileVariable("var_file");
 ```
 
-> 📘 Note
->
-> Using the `@Variable` annotation for file type variables is not currently supported.
+<Callout icon="📘" theme="info">
+  ### Note
+
+  Using the `@Variable` annotation for file type variables is not currently supported.
+</Callout>
 
 # Sync Defined Variables
 
@@ -215,12 +223,14 @@ cleverTap.syncVariables()
 cleverTap.syncVariables();
 ```
 
-> 📘 Key Points to Remember
->
-> * In a scenario where a draft is already created by another user profile in the dashboard, the sync call will fail to avoid overriding important changes made by someone else. In this case, Publish or Dismiss the existing draft before you proceed with syncing variables again. However, you can override a draft you created via the sync method previously to optimize the integration experience.
-> * You can receive the following Logcat logs from the CleverTap SDK:
->   * Variables synced successfully.
->   * Unauthorized access from a non-test profile. To address this, mark the profile as a test profile from the CleverTap dashboard.
+<Callout icon="📘" theme="info">
+  ### Key Points to Remember
+
+  - In a scenario where a draft is already created by another user profile in the dashboard, the sync call will fail to avoid overriding important changes made by someone else. In this case, Publish or Dismiss the existing draft before you proceed with syncing variables again. However, you can override a draft you created via the sync method previously to optimize the integration experience.
+  - You can receive the following Logcat logs from the CleverTap SDK:
+    - Variables synced successfully.
+    - Unauthorized access from a non-test profile. To address this, mark the profile as a test profile from the CleverTap dashboard.
+</Callout>
 
 # Fetch Variables During a Session
 
@@ -298,7 +308,7 @@ If a user property (for example, Customer Type) is used in Product Experience se
 
 Follow this sequence to ensure that user property changes trigger Product Experience re-evaluation:
 
-1. Update user properties using any of the [supported method](https://developer.clevertap.com/docs/user-profiles-android#update-the-user-profile). 
+1. Update user properties using any of the [supported method](https://developer.clevertap.com/docs/user-profiles-android#update-the-user-profile).
 2. Call `fetchVariables()` to trigger re-evaluation of segments using the updated data.
 
 ### Example Re-evaluation
@@ -333,19 +343,21 @@ cleverTap.fetchVariables(new FetchVariablesCallback() {
 });
 ```
 
-> 📘 Note
->
-> * Always call `fetchVariables()` immediately after any user property updates used in Product Experience segments.
-> * The fetch call is asynchronous; use the callback to confirm success.
-> * Existing `VariableCallback` instances are automatically triggered when variables change.
+<Callout icon="📘" theme="info">
+  ### Note
+
+  - Always call `fetchVariables()` immediately after any user property updates used in Product Experience segments.
+  - The fetch call is asynchronous; use the callback to confirm success.
+  - Existing `VariableCallback` instances are automatically triggered when variables change.
+</Callout>
 
 ## Access Variable Values
 
 You can access the fetched values in the following three ways:
 
-* [From Annotated @Variable field](doc:android-remote-config#from-annotated-variable-field) 
-* [From `Var` instance](doc:android-remote-config#from-var-instance) 
-* [Using `CleverTapAPI` Class](doc:android-remote-config#use-clevertapapi-class) 
+- [From Annotated @Variable field](doc:android-remote-config#from-annotated-variable-field)
+- [From `Var` instance](doc:android-remote-config#from-var-instance)
+- [Using `CleverTapAPI` Class](doc:android-remote-config#use-clevertapapi-class)
 
 ### From Annotated @Variable field
 
@@ -385,16 +397,18 @@ cleverTap.getVariableValue(“variable name”);
 
 CleverTap Android SDK provides several callbacks for developers to receive feedback from the SDK. You can use them per your requirement; using all of them is not mandatory. They are as follows:
 
-* Change in individual variable value.
-* Initialize or change all variables.
-* Individual Callback
-* Change all variable values.
-  * File for a variable is downloaded and ready.
-  * Change in variable value and no download pending.
+- Change in individual variable value.
+- Initialize or change all variables.
+- Individual Callback
+- Change all variable values.
+  - File for a variable is downloaded and ready.
+  - Change in variable value and no download pending.
 
-> 📘 Retrieving Variables
->
-> The retrieval of variables is limited to a single callback, meaning subsequent calls to the method overwrite the previous callback internally. As a result, only the most recent callback is triggered when the variables are retrieved.
+<Callout icon="📘" theme="info">
+  ### Retrieving Variables
+
+  The retrieval of variables is limited to a single callback, meaning subsequent calls to the method overwrite the previous callback internally. As a result, only the most recent callback is triggered when the variables are retrieved.
+</Callout>
 
 ## Change Individual Variable Value
 
@@ -482,9 +496,11 @@ fileVar.addFileReadyHandler(new VariableCallback<String>() {
 
 ```
 
-> 🚧 Note
->
-> You might have to call the`fetchVariables()` method again after registering variable if they are not registered at app startup.
+<Callout icon="🚧" theme="warn">
+  ### Note
+
+  You might have to call the`fetchVariables()` method again after registering variable if they are not registered at app startup.
+</Callout>
 
 ## Change All Variable Values
 
@@ -530,9 +546,50 @@ cleverTapAPI.onceVariablesChangedAndNoDownloadsPending(new VariablesChangedCallb
 
 ```
 
-> 🚧 Note
->
-> These callbacks guarantee that all variables, except file type variables, are initialized.
+<Callout icon="🚧" theme="warn">
+  ### Note
+
+  These callbacks guarantee that all variables, except file type variables, are initialized.
+</Callout>
+
+## Fetch A/B Experiment Variants
+
+From CleverTap Android SDK v7.7.1 onwards, you can retrieve the active A/B experiment variants for the current user. This is useful when you need to access variant data for custom implementations or analytics, independent of Remote Config variables.
+
+<Callout icon="📘" theme="info">
+  ### SDK Prerequisite
+
+  Before you proceed, check that you are using Android SDK v7.7.1 or higher to use this method.
+</Callout>
+
+The variants() method returns a list of the user's active variants. If no experiment variants are active for the current user, variants() returns an empty list.
+
+### Sample response:
+
+```java
+"abVariantInfo": [
+        {
+            "abTestId": 224197,
+            "abTestName": "first test",
+            "name": "Control"
+        },
+        {
+            "abTestId": 623794,
+            "abTestName": "second test",
+            "name": "Control"
+        },
+        {
+            "abTestId": 962480,
+            "abTestName": "Android users",
+            "name": "A"
+        },
+        {
+            "abTestId": 453537,
+            "abTestName": "String Vars2",
+            "name": "A"
+        }
+    ]
+```
 
 # Troubleshooting
 
@@ -554,15 +611,17 @@ For troubleshooting, enable CleverTap SDK logs and set the log level to [Debug/V
 
 **Cause**: A draft of Variables created by a different user already exists.
 
-**Solution**: 
+**Solution**:
 
 1. Access the dashboard.
 2. Publish or dismiss the existing draft.
 3. Attempt to sync variables again.
 
-> 📘 Note
->
-> You can override a draft you previously created via the sync method.
+<Callout icon="📘" theme="info">
+  ### Note
+
+  You can override a draft you previously created via the sync method.
+</Callout>
 
 ## Verify Successful Sync
 
@@ -570,7 +629,6 @@ Look for the log message "Variables synced successfully" in the console output.
 
 ### Important Considerations
 
-* **Variable Definition**: Ensure variables are defined before calling `SyncVariables`.\
-  If variables are defined in different parts of the app, navigate through those screens before calling SyncVariables.
-* **Instance-Specific**: Variables are defined per CleverTap instance. Use the default/shared instance if you have only one CleverTap instance.
-* **Production Builds**: Remove the `SyncVariables` method call from release/production builds as it will not function in those environments.
+- **Variable Definition**: Ensure variables are defined before calling `SyncVariables`.<br />If variables are defined in different parts of the app, navigate through those screens before calling SyncVariables.
+- **Instance-Specific**: Variables are defined per CleverTap instance. Use the default/shared instance if you have only one CleverTap instance.
+- **Production Builds**: Remove the `SyncVariables` method call from release/production builds as it will not function in those environments.
