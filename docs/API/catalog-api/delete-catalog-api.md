@@ -10,7 +10,7 @@ metadata:
 Deletes an existing catalog. This API permanently removes the catalog from the system.
 
 <Callout icon="📘" theme="info">
-  ### **This is a soft delete**
+  ### **This is a Soft Delete**
 
   The catalog's status is set to DELETED, so it no longer appears in the catalog list or in campaign catalog pickers. The underlying record is retained, and the catalog's name is released for reuse; you can create a new catalog with the same name afterward.
 
