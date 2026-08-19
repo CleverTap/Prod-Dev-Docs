@@ -1,7 +1,7 @@
 ---
 title: Mark a Signed URL API
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---

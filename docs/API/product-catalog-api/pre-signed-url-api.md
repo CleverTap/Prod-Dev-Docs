@@ -1,7 +1,7 @@
 ---
 title: Pre-Signed URL API
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
