@@ -14,9 +14,11 @@ next:
 
 CleverTap provides the capability to send In-App messages with images, GIFs, video, and audio. You can also do A/B testing on your In-App.
 
-> 📘 Note
->
-> Ensure your activities extend FragmentActivity.
+<Callout icon="📘" theme="info">
+  ### Note
+
+  Ensure your activities extend FragmentActivity.
+</Callout>
 
 ## Exclude In-App from Android Activity
 
@@ -60,9 +62,9 @@ From CleverTap Android SDK version 7.7.0 and above, you can optionally pass a pa
 
 #### Parameters
 
-* `dismissInAppIfVisible`
-  * If `true`: Immediately dismisses the currently visible In-App notification (if any).
-  * If `false`: Allows the currently visible In-App notification to remain on the screen.
+- `dismissInAppIfVisible`
+  - If `true`: Immediately dismisses the currently visible In-App notification (if any).
+  - If `false`: Allows the currently visible In-App notification to remain on the screen.
 
 ```kotlin
 fun discardInAppNotifications(dismissInAppIfVisible: Boolean) {
@@ -74,6 +76,12 @@ public void discardInAppNotifications(boolean dismissInAppIfVisible) {
     // Implementation to suspend In-App notifications
 }
 ```
+
+<Callout icon="📘" theme="info">
+  ### Note
+
+  Dismissing a PIP In-App frees the in-app display slot, so the next queued in-app (if any) may show immediately. To keep a screen clear of all in-apps, pair this with `suspendInAppNotifications()` on screen entry and `resumeInAppNotifications()` on exit.
+</Callout>
 
 ### Resume
 
@@ -170,9 +178,13 @@ void onDismissed(Map<String, Object> extras, @Nullable Map<String, Object> actio
 
 Android SDK v3.5.0 and above supports embedding JavaScript code inside custom In-Apps. To ensure your JavaScript code works on the app while creating the In-App campaign, select the checkbox for _Enabling JavaScript during the In-App campaign_ creation.
 
-<Image align="center" alt="Custom HTML Template in In-App Notifications" border={true} caption="Custom HTML Template in In-App Notifications" title="Custom HTML Template in In-App Notifications" src="https://files.readme.io/185fa3f-image_1.png" />
 
-<Image align="center" alt="Include JavaScript in In-App Notifications" border={true} caption="Include JavaScript in In-App Notifications" title="Include JavaScript in In-App Notifications" src="https://files.readme.io/3edcde1-image_2.png" />
+<Image src="https://files.readme.io/185fa3f-image_1.png" alt="Custom HTML Template in In-App Notifications" align="center" caption="Custom HTML Template in In-App Notifications" border={true} />
+
+
+
+<Image src="https://files.readme.io/3edcde1-image_2.png" alt="Include JavaScript in In-App Notifications" align="center" caption="Include JavaScript in In-App Notifications" border={true} />
+
 
 Consider the following methods explained with examples:
 
@@ -304,8 +316,8 @@ window.CleverTap.triggerInAppAction(actionJson, callToAction, buttonId); // Alwa
 
 A _Push Primer_ can explain to your users the need for push notifications and help improve your engagement rates. It is an In-App notification that shows your users the details of message types they can expect before requesting notification permission. It helps with the following:
 
-* Educates your users about the purpose of requesting this permission before invoking a system dialog that asks the user to allow/deny this permission.
-* Acts as a precursor to the hard system dialog and thus allows you to ask for permission multiple times if previously denied without making your users search the device settings.
+- Educates your users about the purpose of requesting this permission before invoking a system dialog that asks the user to allow/deny this permission.
+- Acts as a precursor to the hard system dialog and thus allows you to ask for permission multiple times if previously denied without making your users search the device settings.
 
 For more information on push primer, refer to [Push Notification Permission](https://developer.clevertap.com/docs/android-push#push-notification-permission).
 
@@ -313,7 +325,9 @@ For more information on push primer, refer to [Push Notification Permission](htt
 
 This template can send a customized push primer notification, such as displaying an image and modifying the text, button, and background color.
 
-<Image align="center" alt={398} border={true} caption="Push Primer Using Half-Interstitial InApp" title="Push Primer Using Half-Interstitial InApp" src="https://files.readme.io/1919d3a-push_primer_half_interstitial.png" width="smart" />
+
+<Image src="https://files.readme.io/1919d3a-push_primer_half_interstitial.png" alt="398" align="center" width="smart" caption="Push Primer Using Half-Interstitial InApp" border={true} />
+
 
 Use the following to create your template:
 
@@ -358,7 +372,9 @@ cleverTapAPI.promptPushPrimer(jsonObject);
 
 You can use this template to send a basic push primer notification with a title, message, and two buttons.
 
-<Image align="center" alt={398} border={true} caption="Push Primer Using Alert In-App" title="Push Primer Using Alert InApp" src="https://files.readme.io/682aa29-Alert_push_primer.png" width="smart" />
+
+<Image src="https://files.readme.io/682aa29-Alert_push_primer.png" alt="398" align="center" width="smart" caption="Push Primer Using Alert In-App" border={true} />
+
 
 Use the following to create your template:
 
@@ -484,10 +500,10 @@ window.CleverTap.promptPushPermission(shouldShowFallbackSettings);
 
 #### Parameters:
 
-* `shouldShowFallbackSettings` _(Boolean)_:
+- `shouldShowFallbackSettings` _(Boolean)_:
 
-  * `true`: If permission was denied, opens the app’s notification settings screen.
-  * `false`: It does not open settings; it logs the denial silently.
+  - `true`: If permission was denied, opens the app’s notification settings screen.
+  - `false`: It does not open settings; it logs the denial silently.
 
 #### Example:
 
@@ -527,8 +543,8 @@ The CleverTap Android SDK 7.7.0 and above supports Delayed In-App.
 
 This feature allows you to configure a delay of _1 - 1200 seconds_ before displaying an In-App message after a trigger event. Delayed delivery helps you present messages at more meaningful moments. For example:
 
-* Show a discount offer _5 seconds_ after a user views a product.
-* Display an upgrade prompt _15 seconds_ after content consumption begins.
+- Show a discount offer _5 seconds_ after a user views a product.
+- Display an upgrade prompt _15 seconds_ after content consumption begins.
 
 For details on creating and managing campaigns using Delayed In-App, refer to [Create In-App Message](https://docs.clevertap.com/docs/create-message-inapp#in-app-delay).
 
@@ -562,6 +578,8 @@ dependencies {
 }
 ```
 
-> 📘 Note
->
-> For more information on testing In-App reviews, refer to  [Testing Google In-App reviews](https://developer.android.com/guide/playcore/in-app-review) . Prompts are rate-limited and not always guaranteed to show.
+<Callout icon="📘" theme="info">
+  ### Note
+
+  For more information on testing In-App reviews, refer to  [Testing Google In-App reviews](https://developer.android.com/guide/playcore/in-app-review) . Prompts are rate-limited and not always guaranteed to show.
+</Callout>
