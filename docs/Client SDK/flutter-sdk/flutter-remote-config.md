@@ -16,27 +16,29 @@ With the CleverTap Flutter SDK, you can create variables on your app that take o
 
 You can define variables using the CleverTap Flutter SDK. When you define a variable in your code, you can sync it to the CleverTap Dashboard via the provided SDK methods.
 
-> 📘 SDK Prerequisite
->
-> Before you proceed, check that you are using Flutter SDK v1.7.0 or higher to use the Flutter Product Experiences feature.
+<Callout icon="📘" theme="info">
+  ### SDK Prerequisite
+
+  Before you proceed, check that you are using Flutter SDK v1.7.0 or higher to use the Flutter Product Experiences feature.
+</Callout>
 
 # Supported Variable Types
 
 Currently, CleverTap SDK supports the following variable types:
 
-* String
-* boolean
-* Map Object
-* Number
-* int
-* float
-* double
+- String
+- boolean
+- Map Object
+- Number
+- int
+- float
+- double
 
 Web platform only supports primitive data types: String, Number, and Boolean
 
 # Define Variables
 
-Variables can be defined using the `defineVariables` method. You must provide the names and default values of the variables using a Map Object. 
+Variables can be defined using the `defineVariables` method. You must provide the names and default values of the variables using a Map Object.
 
 ```javascript Dart
 const variables = {
@@ -69,9 +71,9 @@ CleverTap Flutter SDK provides several callbacks for the developer to receive fe
 
 The CleverTap Flutter SDK 3.0.0 and lower supports the following callbacks:
 
-* Status of fetch variables request
-* `onVariablesChanged`
-* `onValueChanged`
+- Status of fetch variables request
+- `onVariablesChanged`
+- `onValueChanged`
 
 ## Status of Variables Fetch Request
 
@@ -108,10 +110,10 @@ CleverTapPlugin.onValueChanged('flutter_var_string', (variable) {
 
 The following callbacks are supported for the Flutter SDK version 3.3.0 and above:
 
-* `onOneTimeVariablesChanged`
-* `onVariablesChangedAndNoDownloadsPending`
-* `onceVariablesChangedAndNoDownloadsPending`
-* `onFileValueChanged`
+- `onOneTimeVariablesChanged`
+- `onVariablesChangedAndNoDownloadsPending`
+- `onceVariablesChangedAndNoDownloadsPending`
+- `onFileValueChanged`
 
 ### `onOneTimeVariablesChanged`
 
@@ -168,12 +170,14 @@ After marking the profile as a test profile, you must sync the app variables in 
 CleverTapPlugin.syncVariables();
 ```
 
-> 📘 Key Points to Remember
->
-> * In a scenario where there is already a draft created by another user profile in the dashboard, the sync call will fail to avoid overriding important changes made by someone else. In this case, Publish or Dismiss the existing draft before you proceed with syncing variables again. However, you can override a draft you created via the sync method previously to optimize the integration experience.
-> * You can receive the following Logcat logs from the CleverTap SDK:
->   * Variables synced successfully.
->   * Unauthorized access from a non-test profile. To address this, mark the profile as a test profile from the CleverTap dashboard.
+<Callout icon="📘" theme="info">
+  ### Key Points to Remember
+
+  - In a scenario where there is already a draft created by another user profile in the dashboard, the sync call will fail to avoid overriding important changes made by someone else. In this case, Publish or Dismiss the existing draft before you proceed with syncing variables again. However, you can override a draft you created via the sync method previously to optimize the integration experience.
+  - You can receive the following Logcat logs from the CleverTap SDK:
+    - Variables synced successfully.
+    - Unauthorized access from a non-test profile. To address this, mark the profile as a test profile from the CleverTap dashboard.
+</Callout>
 
 # Fetch Variables During a Session
 
@@ -210,7 +214,7 @@ If a user property (for example, Customer Type) is used in Product Experience se
 
 Follow this sequence to ensure that user property changes trigger Product Experience re-evaluation:
 
-1. Update user properties using any of the [supported method](doc:user-profiles-flutter#updating-user-profileprofile-set-method). 
+1. Update user properties using any of the [supported method](doc:user-profiles-flutter#updating-user-profileprofile-set-method).
 2. Call `fetchVariables()` to trigger re-evaluation of segments using the updated data.
 
 #### Example Re-evaluation
@@ -231,11 +235,13 @@ CleverTapPlugin.fetchVariables().then((success) => {
 });
 ```
 
-> 📘 Note
->
-> * Always call `fetchVariables()` immediately after any user property updates used in Product Experience segments.
-> * The fetch call is asynchronous; use the callback to confirm success.
-> * Existing `VariableCallback` instances are automatically triggered when variables change.
+<Callout icon="📘" theme="info">
+  ### Note
+
+  - Always call `fetchVariables()` immediately after any user property updates used in Product Experience segments.
+  - The fetch call is asynchronous; use the callback to confirm success.
+  - Existing `VariableCallback` instances are automatically triggered when variables change.
+</Callout>
 
 ## Access Variable Values
 
@@ -260,3 +266,46 @@ CleverTapPlugin.getVariable('flutter_var_string').then((variable) => {
       print('variable value for key \'flutter_var_string\': ' + variable.toString())
 });
 ```
+
+### Fetch A/B Experiment Variants
+
+From CleverTap Flutter SDK v3.7.0 onwards, you can retrieve the active A/B experiment variants for the current user. This is useful when you need to access variant data for custom implementations or analytics, independent of Remote Config variables.
+
+<Callout icon="📘" theme="info">
+  ### SDK Prerequisite
+
+  Before you proceed, check that you are using Flutter SDK v3.7.0 or higher to use this method.
+</Callout>
+
+The getVariants() method returns a list of the user's active variants. If no experiment variants are active for the current user, getVariants() returns an empty list.
+
+Sample response:
+
+```json
+"abVariantInfo": [
+        {
+            "abTestId": 224197,
+            "abTestName": "first test",
+            "name": "Control"
+        },
+        {
+            "abTestId": 623794,
+            "abTestName": "second test",
+            "name": "Control"
+        },
+        {
+            "abTestId": 962480,
+            "abTestName": "Android users",
+            "name": "A"
+        },
+        {
+            "abTestId": 453537,
+            "abTestName": "String Vars2",
+            "name": "A"
+        }
+    ]
+```
+
+<br />
+
+<br />
