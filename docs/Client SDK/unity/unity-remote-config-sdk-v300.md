@@ -22,16 +22,16 @@ You can define variables using the CleverTap Unity SDK. When you define a variab
 
 Currently, CleverTap SDK supports the following variable types:
 
-* `string`
-* `boolean`
-* `byte`
-* `short`
-* `int`
-* `long`
-* `char`
-* `float`
-* `double`
-* `decimal`
+- `string`
+- `boolean`
+- `byte`
+- `short`
+- `int`
+- `long`
+- `char`
+- `float`
+- `double`
+- `decimal`
 
 # Define Variables
 
@@ -45,20 +45,22 @@ Var<double> doubleVariable = CleverTap.Define("double_variable", 11.5);
 Var<string> stringVariable = CleverTap.Define("string_variable", "hello, world");
 ```
 
-> 📘 Note
->
-> You can define and sync File Variables in the Unity Editor and other platforms. However, File Variables function only on mobile platforms (iOS and Android).
->
-> On unsupported platforms (such as the Unity Editor), File Variable behavior is limited—the variable returns a string representing the file URL, and the file is not downloaded.
+<Callout icon="📘" theme="info">
+  ### Note
+
+  You can define and sync File Variables in the Unity Editor and other platforms. However, File Variables function only on mobile platforms (iOS and Android).
+
+  On unsupported platforms (such as the Unity Editor), File Variable behavior is limited—the variable returns a string representing the file URL, and the file is not downloaded.
+</Callout>
 
 # Setup Callbacks
 
 CleverTap Unity SDK provides several callbacks for the developer to receive feedback from the SDK. You can use them as per your requirements. Using all of them is not mandatory. They are as follows:
 
-* [Status of fetch variables request](doc:unity-remote-config-sdk-v300#status-of-variables-fetch-request)
-* [`onVariablesChanged`](doc:unity-remote-config#onvariableschanged)
-* [`onceVariablesChanged`](doc:unity-remote-config#oncevariableschanged)
-* [`onValueChanged`](doc:unity-remote-config#onvaluechanged)
+- [Status of fetch variables request](doc:unity-remote-config-sdk-v300#status-of-variables-fetch-request)
+- [`onVariablesChanged`](doc:unity-remote-config#onvariableschanged)
+- [`onceVariablesChanged`](doc:unity-remote-config#oncevariableschanged)
+- [`onValueChanged`](doc:unity-remote-config#onvaluechanged)
 
 ## Status of Variables Fetch Request
 
@@ -122,12 +124,14 @@ Follow these steps to sync variables:
 CleverTap.SyncVariables();
 ```
 
-> 📘 Key Points to Remember
->
-> * In a scenario where there is already a draft created by another user profile in the dashboard, the sync call will fail to avoid overriding important changes made by someone else. In this case, **Publish** or **Dismiss** the existing draft before you proceed with syncing variables again. However, you can override a draft you created via the sync method previously to optimize the integration experience.
-> * You can receive the following logs from the CleverTap SDK:
->   * Variables synced successfully.
->   * Unauthorized access from a non-test profile. To address this, mark the profile as a test profile from the CleverTap dashboard.
+<Callout icon="📘" theme="info">
+  ### Key Points to Remember
+
+  - In a scenario where there is already a draft created by another user profile in the dashboard, the sync call will fail to avoid overriding important changes made by someone else. In this case, **Publish** or **Dismiss** the existing draft before you proceed with syncing variables again. However, you can override a draft you created via the sync method previously to optimize the integration experience.
+  - You can receive the following logs from the CleverTap SDK:
+    - Variables synced successfully.
+    - Unauthorized access from a non-test profile. To address this, mark the profile as a test profile from the CleverTap dashboard.
+</Callout>
 
 # Fetch Variables During a Session
 
@@ -144,8 +148,8 @@ void OnFetchVariablesCallback(bool isSuccess) {
 
 This process involves the following two major steps:
 
-* [Fetch variable values](doc:unity-remote-config#fetch-variable-values)
-* [Access variable values](doc:unity-remote-config#access-variable-values)
+- [Fetch variable values](doc:unity-remote-config#fetch-variable-values)
+- [Access variable values](doc:unity-remote-config#access-variable-values)
 
 ## Fetch Variable Values
 
@@ -167,7 +171,7 @@ If a user property (for example, Customer Type) is used in Product Experience se
 
 Follow this sequence to ensure that user property changes trigger Product Experience re-evaluation:
 
-1. Update user properties using any of the [supported method](https://developer.clevertap.com/docs/unity-user-profiles#update-user-profile-pushprofile). 
+1. Update user properties using any of the [supported method](https://developer.clevertap.com/docs/unity-user-profiles#update-user-profile-pushprofile).
 2. Call `fetchVariables()` to trigger re-evaluation of segments using the updated data.
 
 #### Example Re-evaluation
@@ -189,11 +193,13 @@ void OnFetchVariablesCallback(bool isSuccess) {
 }
 ```
 
-> 📘 Note
->
-> * Always call `fetchVariables()` immediately after any user property updates used in Product Experience segments.
-> * The fetch call is asynchronous; use the callback to confirm success.
-> * Existing `VariableCallback` instances are automatically triggered when variables change.
+<Callout icon="📘" theme="info">
+  ### Note
+
+  - Always call `fetchVariables()` immediately after any user property updates used in Product Experience segments.
+  - The fetch call is asynchronous; use the callback to confirm success.
+  - Existing `VariableCallback` instances are automatically triggered when variables change.
+</Callout>
 
 ## Access Variable Values
 
@@ -222,3 +228,48 @@ var doubleVariable = CleverTap.Define("double_variable", 11.5);
 // Get the variable instance for already defined variable  
 var doubleVariable = CleverTap.GetVariable<double>("double_variable");
 ```
+
+## Fetch A/B Experiment Variants
+
+From CleverTap Unity SDK v5.5.1 onwards, you can retrieve the active A/B experiment variants for the current user. This is useful when you need to access variant data for custom implementations or analytics, independent of Remote Config variables.
+
+<Callout icon="📘" theme="info">
+  ### SDK Prerequisite
+
+  Before you proceed, check that you are using Unity SDK v5.5.1 or higher to use this method.
+</Callout>
+
+The GetVariants() method returns a list of the user's active variants. If no experiment variants are active for the current user, GetVariants() returns an empty list.
+
+Sample response:
+
+```json
+"abVariantInfo": [
+        {
+            "abTestId": 224197,
+            "abTestName": "first test",
+            "name": "Control"
+        },
+        {
+            "abTestId": 623794,
+            "abTestName": "second test",
+            "name": "Control"
+        },
+        {
+            "abTestId": 962480,
+            "abTestName": "Android users",
+            "name": "A"
+        },
+        {
+            "abTestId": 453537,
+            "abTestName": "String Vars2",
+            "name": "A"
+        }
+    ]
+```
+
+<br />
+
+<br />
+
+<br />
