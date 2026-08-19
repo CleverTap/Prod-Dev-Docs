@@ -10,7 +10,7 @@ metadata:
 Retrieves a paginated list of products for a specific catalog. This API supports pagination and sorting. It does not support filtering by attribute value.
 
 <Callout icon="📘" theme="info">
-  ### **Filtering by attribute value is not available on this endpoint**
+  ### **Filtering by Attribute Value is not Available on this Endpoint**
 
   This API has no attribute-filter parameter. Use search for free-text matching on product name, identity, and image URL, then filter client-side if you need attribute-level conditions.
 
