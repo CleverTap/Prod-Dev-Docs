@@ -20,15 +20,15 @@ Before starting, refer to [React Native Quick Start Guide](doc:react-native-quic
 
 Ensure you have the following prerequisites to integrate CleverTap React Native SDK with your app:
 
-* CleverTap account
-* React Native Integrated Development Environment (IDE) such as VS Code, Atom, WebStorm
-* Android Studio IDE
-* Apple Xcode IDE
+- CleverTap account
+- React Native Integrated Development Environment (IDE) such as VS Code, Atom, WebStorm
+- Android Studio IDE
+- Apple Xcode IDE
 
 # Supported Versions
 
-* For [Android 15](https://developer.android.com/about/versions/15/summary), we recommend using the CleverTap React Native SDK v3.3.0 or higher.
-* For [Android 14](https://developer.android.com/about/versions/14/summary), we recommend using the CleverTap React Native SDK v3.2.0 or below.
+- For [Android 15](https://developer.android.com/about/versions/15/summary), we recommend using the CleverTap React Native SDK v3.3.0 or higher.
+- For [Android 14](https://developer.android.com/about/versions/14/summary), we recommend using the CleverTap React Native SDK v3.2.0 or below.
 
 The following table outlines the minimum React Native versions required and the compatibility of each CleverTap SDK version with the new architecture:
 
@@ -43,7 +43,7 @@ For React Native SDK versions and React Native SDK code size, refer to the follo
 
 | SDK          | Version | Code Size |
 | :----------- | :------ | :-------- |
-| React Native | 4.2.0   | 3.5 MB    |
+| React Native | 4.3.0   | 3.5 MB    |
 
 # Integrate the React Native SDK
 
