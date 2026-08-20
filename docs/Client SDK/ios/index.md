@@ -18,15 +18,15 @@ This section shows you how to track custom events, enrich user profiles, and sen
 
 Ensure you have the following prerequisites to start the iOS integration:
 
-* CleverTap account
-* Apple Xcode IDE
+- CleverTap account
+- Apple Xcode IDE
 
 # Supported Versions
 
 The CleverTap iOS SDK supports the following versions:
 
-* iOS 9.0 or later
-* tvOS 9.0 or later
+- iOS 9.0 or later
+- tvOS 9.0 or later
 
 # iOS SDK Versions and Size
 
@@ -34,7 +34,7 @@ Refer to the following table for iOS SDK versions and iOS SDK code sizes:
 
 | SDK                                                           | Version | Code Size |
 | :------------------------------------------------------------ | :------ | :-------- |
-| Core iOS                                                      | 7.7.1   | 1.1 MB    |
+| Core iOS                                                      | 7.8.0   | 1.1 MB    |
 | [Geofence](https://developer.clevertap.com/docs/geofence-ios) | 1.0.6   | 4.6 MB    |
 | CTNotificationService                                         | 0.1.7   | 13.4 KB   |
 | CTNotificationContent                                         | 1.2.0   | 242 KB    |
