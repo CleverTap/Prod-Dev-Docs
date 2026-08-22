@@ -12,7 +12,6 @@
 - remote-config-api
 - report-object
 - settings-api-endpoints
-- get-segment-details-api
 - list-segments-api
 - promo-apis
 - generic-rcs-api
