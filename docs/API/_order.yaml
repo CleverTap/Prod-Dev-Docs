@@ -12,7 +12,6 @@
 - remote-config-api
 - report-object
 - settings-api-endpoints
-- create-segment-api
 - update-segment-api
 - get-segment-details-api
 - list-segments-api
