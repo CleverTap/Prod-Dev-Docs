@@ -22,6 +22,6 @@ A business can use these APIs to manage reward points, enabling their customers 
 
 The Wallet APIs suite consists of the following Wallet APIs:
 
-* [Get Wallet Details](doc:get-wallet-details) 
-* [Get Wallet Transactions](doc:get-wallet-transactions) 
-* [Debit/Credit Wallet](doc:debitcredit-wallet)
+* [Get Wallet Details](/docs/get-wallet-details)
+* [Get Wallet Transactions](/docs/get-wallet-transactions)
+* [Debit/Credit Wallet](/docs/debitcredit-wallet)
