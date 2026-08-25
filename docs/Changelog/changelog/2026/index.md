@@ -10,9 +10,11 @@ metadata:
 ---
 Welcome to the CleverTap SDK changelog for 2026. This document provides a month-by-month changelog with links to the detailed changelog for that month. This ensures you can easily track all the improvements and changes made to an SDK.
 
-* [January 2026](doc:january-2026)
-* [February 2026](doc:february-2026)
-* [March 2026](https://developer.clevertap.com/docs/copy-of-february-2026)
-* [April 2026](https://developer.clevertap.com/docs/april-2026)
-* [May 2026](https://developer.clevertap.com/docs/may-2026)
-* [June 2026](https://developer.clevertap.com/docs/june-2026)
+- [January 2026](doc:january-2026)
+- [February 2026](doc:february-2026)
+- [March 2026](https://developer.clevertap.com/docs/copy-of-february-2026)
+- [April 2026](https://developer.clevertap.com/docs/april-2026)
+- [May 2026](https://developer.clevertap.com/docs/may-2026)
+- [June 2026](https://developer.clevertap.com/docs/june-2026)
+- July 2026
+- [August 2026](https://developer.clevertap.com/docs/august-2026)
