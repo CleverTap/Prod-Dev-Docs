@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Events represent the actions users take with your product. Examples are standard events like app launches and custom events you define like product views.
+Events represent the actions users take with your product. Examples are standard events like app launches and custom events you define, such as product views.
 
 <Callout icon="📘" theme="info">
   ### **Events Used for Live Campaigns**
