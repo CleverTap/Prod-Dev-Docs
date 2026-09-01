@@ -4,7 +4,9 @@ excerpt: >-
   Learn how to use the Reverse/Refund Points API to update the points in loyalty
   wallets, ensuring accurate application and reversals during transactions.
 deprecated: false
-hidden: true
+hidden: false
+link:
+  new_tab: false
 metadata:
   robots: index
 ---
@@ -14,14 +16,14 @@ The promotions platform credits loyalty points to users when they complete trans
 
 In cases where an order is returned or canceled, two problems can occur:
 
-* **Reward leakage**: The user keeps points they earned from a purchase they returned.
-* **Unfair forfeiture**: The user loses points they spent on a purchase that was later canceled.
+- **Reward leakage**: The user keeps points they earned from a purchase they returned.
+- **Unfair forfeiture**: The user loses points they spent on a purchase that was later canceled.
 
 The Points Refund Management feature solves both these problems. It introduces a Reverse/Refund Points API that your system calls when a return occurs. Using this API, you can:
 
-* Reverse earned points that are still in the promised points bucket.
-* Reverse earned points from the active bucket (if the user has sufficient balance).
-* Refund points the user redeemed in the returned transaction.
+- Reverse earned points that are still in the promised points bucket.
+- Reverse earned points from the active bucket (if the user has sufficient balance).
+- Refund points the user redeemed in the returned transaction.
 
 This document explains how the API works and how to integrate it.
 
@@ -44,16 +46,16 @@ Before you integrate this API, understand the two-point buckets CleverTap uses:
 
 Before you use this API, make sure you have the following:
 
-* A CleverTap account with the Promotions feature enabled.
-* API credentials (Account ID and Passcode) from your CleverTap dashboard.
-* The original wallet transaction ID (`txnId`) for the transaction you want to reverse or refund. CleverTap records this ID when points are credited or debited. You must store it on your side at the time of the original transaction.
-* The user's identity value, which can be their identity string, email address, or phone number.
+- A CleverTap account with the Promotions feature enabled.
+- API credentials (Account ID and Passcode) from your CleverTap dashboard.
+- The original wallet transaction ID (`txnId`) for the transaction you want to reverse or refund. CleverTap records this ID when points are credited or debited. You must store it on your side at the time of the original transaction.
+- The user's identity value, which can be their identity string, email address, or phone number.
 
 # How API Processing Works?
 
 When CleverTap receives a Reverse/Refund Points API call, it performs the following steps:
 
-1. **Validates the `txnId`**: CleverTap checks that the transaction ID exists in the points ledger against a credit, promised points, or debit transaction type. If the ID is not found, the API returns an error.
+1. **Validates the&#x20;**`txnId`: CleverTap checks that the transaction ID exists in the points ledger against a credit, promised points, or debit transaction type. If the ID is not found, the API returns an error.
 
 2. **Resolves reward records**: CleverTap identifies all credit ledger entries (earned points) and debit ledger entries (redeemed points) linked to the original transaction ID.
 
@@ -61,9 +63,9 @@ When CleverTap receives a Reverse/Refund Points API call, it performs the follow
 
 4. **Determines the action based on the following transaction type**:
 
-   * **Promised points bucket**: If earned points exist in the promised points bucket and `points_balance > 0`, CleverTap posts a `points_reversal` ledger entry with `type = REVERSE`. The scheduled cron job that moves these points to the active bucket is canceled.
-   * **Active bucket points**: If earned points exist in the active bucket and `points_balance > 0`, CleverTap posts a `points_reversal` ledger entry with `type = REVERSE` and reduces the active wallet balance.
-   * **Redeemed (debited) points**: If the user redeemed points in the original transaction and `points_balance > 0`, CleverTap posts a `refund` ledger entry with `type = REFUND` and credits the points back to the user's active wallet.
+   - **Promised points bucket**: If earned points exist in the promised points bucket and `points_balance > 0`, CleverTap posts a `points_reversal` ledger entry with `type = REVERSE`. The scheduled cron job that moves these points to the active bucket is canceled.
+   - **Active bucket points**: If earned points exist in the active bucket and `points_balance > 0`, CleverTap posts a `points_reversal` ledger entry with `type = REVERSE` and reduces the active wallet balance.
+   - **Redeemed (debited) points**: If the user redeemed points in the original transaction and `points_balance > 0`, CleverTap posts a `refund` ledger entry with `type = REFUND` and credits the points back to the user's active wallet.
 
 5. **Updates the ledger balance**: CleverTap updates the `points_balance` field in the original ledger record using the following formula:
 
@@ -150,7 +152,9 @@ curl -X POST "https://in1.api.clevertap.com/1/promo/wallet/adjust?identity=user_
 
 You can find the CleverTap Account ID and Passcode from the CleverTap dashboard by navigating to the _Settings > Project_ page on the CleverTap dashboard.
 
-<Image align="center" border={true} caption="Find CleverTap Project Details" src="https://files.readme.io/8e35f658c5411cc55839727fd557e2e89fe5ed7db9e032d9c40ffb518088d096-image.png" />
+
+<Image src="https://files.readme.io/8e35f658c5411cc55839727fd557e2e89fe5ed7db9e032d9c40ffb518088d096-image.png" align="center" caption="Find CleverTap Project Details" border={true} />
+
 
 ## Query Parameters
 
@@ -259,9 +263,9 @@ The table below provides a detailed breakdown of the response payload for the Po
 
 You need the original wallet transaction ID (`txnId`) to call this API. Use one of the following methods to locate it:
 
-* **Method 1 — GET Wallet Transaction API**: Use the GET wallet transaction API with or without filters to find the right wallet transaction ID.
-* **Method 2 — CleverTap Dashboard**: Search for the points transaction directly in the CleverTap dashboard.
-* **Method 3 — Points Transaction Report**: Use the CleverTap points transaction report to identify the correct transaction.
+- **Method 1 — GET Wallet Transaction API**: Use the GET wallet transaction API with or without filters to find the right wallet transaction ID.
+- **Method 2 — CleverTap Dashboard**: Search for the points transaction directly in the CleverTap dashboard.
+- **Method 3 — Points Transaction Report**: Use the CleverTap points transaction report to identify the correct transaction.
 
 ## Supported API Scenarios
 
@@ -280,8 +284,8 @@ The following table outlines the scenarios this API supports:
 
 The following applies to every reverse and refund activity:
 
-* Every reverse activity is linked to its parent credit or reverse transaction ID via the `parentTxnId` field.
-* Every refund activity is linked to its parent debit transaction ID via the `parentTxnId` field.
+- Every reverse activity is linked to its parent credit or reverse transaction ID via the `parentTxnId` field.
+- Every refund activity is linked to its parent debit transaction ID via the `parentTxnId` field.
 
 ## API Behavior
 
@@ -325,12 +329,12 @@ The following table lists the error cases and their corresponding messages:
 
 Follow these best practices to get the most out of the Points Refund Management feature:
 
-* **Store wallet transaction IDs at the time of the original transaction.** The API requires the original `txnId` to process any reversal or refund. If you do not store this value, you cannot call the API.
-* **Set your pending lock period to match your return policy window.** If your return window is 30 days, configure the pending period to be at least 30 days. This ensures that earned points remain in the promised points bucket when a return is filed.
-* **Use the `description` field for auditing.** Pass a meaningful value such as `CUSTOMER_RETURN` or a reason code. This value is stored in the ledger and appears in transaction reports.
-* **Use the `metadata` field for additional context.** Pass store IDs, agent IDs, or return reference numbers to improve traceability.
-* **Handle idempotency on your side.** Before calling the API, verify that you have not already submitted a reversal or refund for the same `txnId`. The API returns an error if `points_balance` for that transaction is already `0`.
-* **Do not rely on this API to handle negative balances.** The API does not allow wallets to go below zero. Design your return workflows accordingly.
+- **Store wallet transaction IDs at the time of the original transaction.** The API requires the original `txnId` to process any reversal or refund. If you do not store this value, you cannot call the API.
+- **Set your pending lock period to match your return policy window.** If your return window is 30 days, configure the pending period to be at least 30 days. This ensures that earned points remain in the promised points bucket when a return is filed.
+- **Use the&#x20;**`description`**&#x20;field for auditing.** Pass a meaningful value such as `CUSTOMER_RETURN` or a reason code. This value is stored in the ledger and appears in transaction reports.
+- **Use the&#x20;**`metadata`**&#x20;field for additional context.** Pass store IDs, agent IDs, or return reference numbers to improve traceability.
+- **Handle idempotency on your side.** Before calling the API, verify that you have not already submitted a reversal or refund for the same `txnId`. The API returns an error if `points_balance` for that transaction is already `0`.
+- **Do not rely on this API to handle negative balances.** The API does not allow wallets to go below zero. Design your return workflows accordingly.
 
 ## FAQs
 
