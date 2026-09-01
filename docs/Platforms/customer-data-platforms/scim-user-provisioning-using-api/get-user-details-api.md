@@ -10,8 +10,8 @@ metadata:
 
 This API retrieves CleverTap user details. You can:
 
-* Fetch a specific user by email address, or
-* Retrieve a paginated list of users with optional SCIM-compliant filtering.
+- Fetch a specific user by email address, or
+- Retrieve a paginated list of users with optional SCIM-compliant filtering.
 
 # HTTP Method
 
@@ -19,8 +19,8 @@ This API retrieves CleverTap user details. You can:
 
 # Endpoint
 
-* List users: `/nx/v2/scim/v2/Users`
-* Get user by email: `/nx/v2/scim/v2/Users/{email}`
+- List users: `/nx/v2/scim/v2/Users`
+- Get user by email: `/nx/v2/scim/v2/Users/{email}`
 
 # Base URL
 
@@ -40,54 +40,10 @@ Example: `https://us1.dashboard.clevertap.com/nx/v2/scim/v2/Users`
 
 The following headers must be included with every API request:
 
-<Table align={["left","left","left"]}>
-  <thead>
-    <tr>
-      <th>
-        Header
-      </th>
-
-      <th>
-        Description
-      </th>
-
-      <th>
-        Required
-      </th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr>
-      <td>
-        `Content-Type`
-      </td>
-
-      <td>
-        Content type of the request payload.  
-        Must be `application/scim+json`
-      </td>
-
-      <td>
-        Yes
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        `Authorization`
-      </td>
-
-      <td>
-        `Bearer <SCIM_TOKEN>`
-      </td>
-
-      <td>
-        Yes
-      </td>
-    </tr>
-  </tbody>
-</Table>
+| Header          | Description                                                               | Required |
+| :-------------- | :------------------------------------------------------------------------ | :------- |
+| `Content-Type`  | Content type of the request payload.<br />Must be `application/scim+json` | Yes      |
+| `Authorization` | `Bearer <SCIM_TOKEN>`                                                     | Yes      |
 
 Replace `<SCIM_TOKEN>` with a valid SCIM Bearer token generated from the CleverTap dashboard. Refer to [Generate SCIM Token for API-Based Provisioning](doc:scim-user-provisioning-using-api#generate-scim-token-for-api-based-provisioning).
 
@@ -128,7 +84,8 @@ The following is the sample response:
       "accountId": "CLEVERTAP_ACCOUNT_ID",
       "roles": "Admin,Editor",
       "teams": "Engineering,Product",
-      "status": "Active"
+      "status": "Active",
+      "lastAccessed": 1735689600000
     }
   ],
   "invitedBy": "admin@example.com"
@@ -180,7 +137,8 @@ The following is the sample response:
           "accountId": "CLEVERTAP_ACCOUNT_ID",
           "roles": "Admin,Editor",
           "teams": "Engineering,Product",
-          "status": "Active"
+          "status": "Active",
+          "lastAccessed": 1735689600000
         }
       ],
       "invitedBy": "admin@example.com"
