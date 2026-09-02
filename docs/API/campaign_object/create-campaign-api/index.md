@@ -3101,7 +3101,7 @@ You can associate one or more labels with a campaign when creating it. Labels ma
 }
 ```
 
-# SMS
+## SMS
 
 The Generic Sample Campaign API includes configurations for without Key Values, Key Value in Header Body, Key Value in Message Body, Target Level Key Value & Template ID, with payloads added below.
 
@@ -3260,15 +3260,15 @@ The Generic Sample Campaign API includes configurations for without Key Values, 
 
       <td>
         `{
-                                                                                                                                                                                                                                                  "event_name": "Charged",
-                                                                                                                                                                                                                                                  "from": 20251001,
-                                                                                                                                                                                                                                                  "to": 20251220,
-                                                                                                                                                                                                                                                  "common_profile_properties": {
-                                                                                                                                                                                                                                                    "profile_fields": {
-                                                                                                                                                                                                                                                      "field_name": "value"
-                                                                                                                                                                                                                                                    }
-                                                                                                                                                                                                                                                  }
-                                                                                                                                                                                                                                                }`
+                                                                                                                                                                                                                                                          "event_name": "Charged",
+                                                                                                                                                                                                                                                          "from": 20251001,
+                                                                                                                                                                                                                                                          "to": 20251220,
+                                                                                                                                                                                                                                                          "common_profile_properties": {
+                                                                                                                                                                                                                                                            "profile_fields": {
+                                                                                                                                                                                                                                                              "field_name": "value"
+                                                                                                                                                                                                                                                            }
+                                                                                                                                                                                                                                                          }
+                                                                                                                                                                                                                                                        }`
       </td>
     </tr>
 
