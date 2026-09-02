@@ -3260,15 +3260,15 @@ The Generic Sample Campaign API includes configurations for without Key Values, 
 
       <td>
         `{
-                                                                                                                                                                                                                                          "event_name": "Charged",
-                                                                                                                                                                                                                                          "from": 20251001,
-                                                                                                                                                                                                                                          "to": 20251220,
-                                                                                                                                                                                                                                          "common_profile_properties": {
-                                                                                                                                                                                                                                            "profile_fields": {
-                                                                                                                                                                                                                                              "field_name": "value"
-                                                                                                                                                                                                                                            }
-                                                                                                                                                                                                                                          }
-                                                                                                                                                                                                                                        }`
+                                                                                                                                                                                                                                                  "event_name": "Charged",
+                                                                                                                                                                                                                                                  "from": 20251001,
+                                                                                                                                                                                                                                                  "to": 20251220,
+                                                                                                                                                                                                                                                  "common_profile_properties": {
+                                                                                                                                                                                                                                                    "profile_fields": {
+                                                                                                                                                                                                                                                      "field_name": "value"
+                                                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                                                  }
+                                                                                                                                                                                                                                                }`
       </td>
     </tr>
 
@@ -3406,6 +3406,8 @@ The Generic Sample Campaign API includes configurations for without Key Values, 
   </tbody>
 </Table>
 
+<br />
+
 ```json Basic SMS Campaign Payload
 {
     "name": "Sms Campaign API",
@@ -3425,7 +3427,7 @@ The Generic Sample Campaign API includes configurations for without Key Values, 
             ]
         }
     },
-    "provider_nick_name": "Nick Name",
+    "provider_nick_name": "Acme Digital",
     "respect_frequency_caps": false,
     "when": "now",
     "content": {
@@ -3452,13 +3454,13 @@ The Generic Sample Campaign API includes configurations for without Key Values, 
             ]
         }
     },
-    "provider_nick_name": "Nick Name",
+    "provider_nick_name": "Acme Digital",
     "respect_frequency_caps": false,
     "when": "now",
     "content": {
         "body": "Hello User",
         "message_info": {
-            "1726821834": {
+            "1797821879": { // Provider ID for the Provider/Provider Nickname, for example Acme Digital
                 "header_kvs": {
                     "$$header1": "Header 1",
                     "$$header2": "Header 2"
@@ -3487,13 +3489,13 @@ The Generic Sample Campaign API includes configurations for without Key Values, 
             ]
         }
     },
-    "provider_nick_name": "Nick Name",
+    "provider_nick_name": "Acme Digital",
     "respect_frequency_caps": false,
     "when": "now",
     "content": {
         "body": "Hello User",
         "message_info": {
-            "1726822153": {
+            "1797821879": { // Provider ID for the Provider/Provider Nickname, for example Acme Digital
                 "message_kvs": {
                     "$$message1": "Message 1",
                     "$$message2": "Message 2"
@@ -3521,11 +3523,11 @@ The Generic Sample Campaign API includes configurations for without Key Values, 
         }
     },
     "respect_frequency_caps": false,
-    "provider_nick_name": "Nick Name",
+    "provider_nick_name": "Acme Digital",
     "content": {
         "body": "Hello user",
         "message_info": {
-            "1726823920": {
+            "1797821879": { // Provider ID for the Provider/Provider Nickname, for example Acme Digital
                 "template_id": "TEMPLATE ID",
                 "header_kvs": {
                     "$$header1": "Header 1",
@@ -3540,6 +3542,81 @@ The Generic Sample Campaign API includes configurations for without Key Values, 
         }
     }
 }'
+```
+
+## RCS
+
+RCS (Rich Communication Services) messages are sent using the same `target_mode: "sms"` payload, with the RCS content defined under `content.rcs_body`. The following payloads cover a freeform text message, a freeform card, a freeform carousel, and a carousel with an SMS fallback plus key-value pairs for both channels.
+
+If `"orientation": "HORIZONTAL"`, then `"alignment"` can be `"LEFT"` or `"RIGHT"`. If `"orientation": "VERTICAL"`, then there is no condition for `"alignment"`.
+
+`mediaType` - `1` is Image, `2` is Audio, `3` is Video, `4` is PDF.
+
+```json Freeform TEXT without SMS fallback
+{
+    "name": "RCS API Basic",
+    "target_mode": "sms",
+    "estimate_only": false,
+    "provider_nick_name": "Acme Digital",
+    "where": {
+        "event_name": "App Launched",
+        "from": 20260819,
+        "to": 20260819
+    },
+    "respect_frequency_caps": false,
+    "content": {
+        "rcs_body": {
+            "type": "TEXT",
+            "content": {
+                "text": "Your order #90210 has shipped and arrives tomorrow.",
+                "suggestions": [
+                    {
+                        "type": "REPLY",
+                        "text": "Track order",
+                        "postbackData": "track_90210"
+                    },
+                    {
+                        "type": "REPLY",
+                        "text": "STOP",
+                        "postbackData": "stop_promotions"
+                    },
+                    {
+                        "type": "OPEN_URL",
+                        "text": "Claim reward",
+                        "url": "https://clevertap.com/rewards",
+                        "urlType": "CT_RCS_LINK_TRACK",
+                        "postbackData": "claim_reward"
+                    },
+                    {
+                        "type": "SHOW_LOCATION",
+                        "text": "Directions",
+                        "latitude": 19.0760,
+                        "longitude": 72.8777,
+                        "label": "CleverTap Clinic, Mumbai",
+                        "postbackData": "show_clinic"
+                    },
+                    {
+                        "type": "DIAL_PHONE",
+                        "text": "Call clinic",
+                        "phoneNumber": "+919930079420",
+                        "postbackData": "dial_clinic"
+                    },
+                    {
+                        "type": "CREATE_CALENDAR_EVENT",
+                        "text": "Add to calendar",
+                        "title": "Dental check-up",
+                        "description": "Annual check-up at CleverTap Clinic",
+                        "startTime": "2026-09-01T10:00:00Z",
+                        "endTime": "2026-09-01T10:30:00Z",
+                        "calendarEventTimezone": "Asia/Kolkata",
+                        "postbackData": "add_calendar"
+                    }
+                ]
+            }
+        }
+    },
+    "when": "now"
+}
 ```
 
 ## Example Request - Target User Events & Properties
@@ -4391,8 +4468,6 @@ The to parameter is an object that has the following child properties: FBID, Ema
 
       <td>
         Platform specific key that can be used while targeting users on devices running Android O – can be used to determine which icon should be used. Accepted values:
-
-
 
         <code>app icon</code>, <code>notification icon</code>
       </td>
