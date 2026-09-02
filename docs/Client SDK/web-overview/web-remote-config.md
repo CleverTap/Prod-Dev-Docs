@@ -18,17 +18,19 @@ CleverTap's Remote Config feature lets you modify your website's functionality a
 
 To use Remote Config, define variables in your code using the SDK, then sync them to the dashboard during a one-time setup. Once synced, you can manage and update variable values directly from the CleverTap dashboard without any code changes.
 
-> 📘 Prerequisite
->
-> To use the Remote Config feature, ensure that you are using Web SDK v1.11.10 or higher.
+<Callout icon="📘" theme="info">
+  ### Prerequisite
+
+  To use the Remote Config feature, ensure that you are using Web SDK v1.11.10 or higher.
+</Callout>
 
 # Supported Variable Types
 
 Currently, CleverTap Web SDK supports the following variable types:
 
-* Number
-* String
-* Boolean
+- Number
+- String
+- Boolean
 
 # Update to CleverTap Initialize Method
 
@@ -78,9 +80,9 @@ const var2 = clevertap.defineVariable("var_boolean", true)
 
 CleverTap SDK provides several callbacks for the developer to receive feedback from the SDK. The following are a few instances where developers can set up callbacks:
 
-* [Status of Fetch Variables request](https://staging.docs.dev.clevertap.net/docs/web-remote-config#status-of-fetch-variables-request)
-* [Change of individual variable value](https://staging.docs.dev.clevertap.net/docs/web-remote-config#change-in-individual-variable-value)
-* [Initialize all variables or change variables](https://staging.docs.dev.clevertap.net/docs/web-remote-config#initialize-all-variables-or-change-all-variable-values)
+- [Status of Fetch Variables request](https://staging.docs.dev.clevertap.net/docs/web-remote-config#status-of-fetch-variables-request)
+- [Change of individual variable value](https://staging.docs.dev.clevertap.net/docs/web-remote-config#change-in-individual-variable-value)
+- [Initialize all variables or change variables](https://staging.docs.dev.clevertap.net/docs/web-remote-config#initialize-all-variables-or-change-all-variable-values)
 
 ## Status of Fetch Variables Request
 
@@ -93,9 +95,11 @@ clevertap.fetchVariables(
 );
 ```
 
-> 📘 Retrieving Variables
->
-> The retrieval of variables is limited to only one callback, meaning that any subsequent calls to the method overrides the existing callback. As a result, only the most recent callback is triggered when the variables are retrieved.
+<Callout icon="📘" theme="info">
+  ### Retrieving Variables
+
+  The retrieval of variables is limited to only one callback, meaning that any subsequent calls to the method overrides the existing callback. As a result, only the most recent callback is triggered when the variables are retrieved.
+</Callout>
 
 ## Change in Individual Variable Value
 
@@ -127,8 +131,6 @@ cleverTap.addOneTimeVariablesChangedCallback(() => {
 
 # Sync Defined Variables
 
-<br />
-
 After defining your variables in the code, you must send/sync variables to the server. The log level must be set to 4. From the CleverTap dashboard, mark a required CleverTap user profile as a test profile. For more information, refer to [Mark a User Profile as a Test Profile](https://docs.clevertap.com/docs/user-profiles#mark-a-user-profile-as-a-test-profile).
 
 After marking the profile as a test profile, you must sync the app variables in DEBUG mode:
@@ -147,9 +149,11 @@ clevertap.syncVariables(
 );
 ```
 
-> 📘 Key Points
->
-> In case, if another user profile has already created a draft in the dashboard, syncing variables will fail to prevent overriding their changes. Before syncing variables again, either publish or dismiss the existing draft. However, if you have created a draft previously, you can override it using the sync method to optimize the integration experience.
+<Callout icon="📘" theme="info">
+  ### Key Points
+
+  In case, if another user profile has already created a draft in the dashboard, syncing variables will fail to prevent overriding their changes. Before syncing variables again, either publish or dismiss the existing draft. However, if you have created a draft previously, you can override it using the sync method to optimize the integration experience.
+</Callout>
 
 # Fetch Variables During a Session
 
@@ -175,4 +179,39 @@ To access the value from `Var` instance, you can use several methods on the `Var
 ```javascript
 variable.getdefaultValue(); // returns default value  
 variable.getValue(); // returns current value
+```
+
+## Fetch A/B Experiment Variants
+
+From CleverTap Web SDK v2.7.2 onwards, you can retrieve the active A/B experiment variants for the current user. This is useful when you need to access variant data for custom implementations or analytics, independent of Remote Config variables.
+
+<Callout icon="📘" theme="info">
+  ### Prerequisite
+
+  To use this method, ensure that you are using Web SDK v2.7.2 or higher.
+</Callout>
+
+The `getVariants()` method returns a list of the user's active variants. If no experiment variants are active for the current user, getVariants() returns an empty list.
+
+Sample response:
+
+```javascript
+ "abVariantInfo": [{
+    "abTestId": 224197,
+    "abTestName": "first test",
+    "name": "Control"
+}, {
+    "abTestId": 623794,
+    "abTestName": "second test",
+    "name": "Control"
+}, {
+    "abTestId": 962480,
+    "abTestName": "Android users",
+    "name": "A"
+}, {
+    "abTestId": 453537,
+    "abTestName": "String Vars2",
+    "name": "A"
+}
+]
 ```
