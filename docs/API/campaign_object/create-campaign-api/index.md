@@ -3260,15 +3260,15 @@ The Generic Sample Campaign API includes configurations for without Key Values, 
 
       <td>
         `{
-                                                                                                                                                                                                                                                          "event_name": "Charged",
-                                                                                                                                                                                                                                                          "from": 20251001,
-                                                                                                                                                                                                                                                          "to": 20251220,
-                                                                                                                                                                                                                                                          "common_profile_properties": {
-                                                                                                                                                                                                                                                            "profile_fields": {
-                                                                                                                                                                                                                                                              "field_name": "value"
-                                                                                                                                                                                                                                                            }
-                                                                                                                                                                                                                                                          }
-                                                                                                                                                                                                                                                        }`
+                                                                                                                                                                                                                                                                  "event_name": "Charged",
+                                                                                                                                                                                                                                                                  "from": 20251001,
+                                                                                                                                                                                                                                                                  "to": 20251220,
+                                                                                                                                                                                                                                                                  "common_profile_properties": {
+                                                                                                                                                                                                                                                                    "profile_fields": {
+                                                                                                                                                                                                                                                                      "field_name": "value"
+                                                                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                                                                  }
+                                                                                                                                                                                                                                                                }`
       </td>
     </tr>
 
@@ -3613,6 +3613,224 @@ If `"orientation": "HORIZONTAL"`, then `"alignment"` can be `"LEFT"` or `"RIGHT"
                     }
                 ]
             }
+        }
+    },
+    "when": "now"
+}
+```
+```json Freeform CARD without SMS fallback
+{
+    "name": "RCS API Basic",
+    "target_mode": "sms",
+    "estimate_only": false,
+    "provider_nick_name": "Acme Digital",
+    "where": {
+        "event_name": "App Launched",
+        "from": 20260819,
+        "to": 20260819
+    },
+    "respect_frequency_caps": false,
+    "content": {
+        "rcs_body": {
+            "type": "CARD",
+            "orientation": "HORIZONTAL",
+            "alignment": "LEFT",
+            "content": {
+                "title": "Autumn collection",
+                "description": "40% off for the next 24 hours. Free returns on everything.",
+                "media": {
+                    "file": {
+                        "url": "https://i.imgur.com/Lem2Nya.jpeg",
+                        "urlType": "STATIC",
+                        "mediaType": 1
+                    },
+                    "thumbnail": {
+                        "url": "https://i.imgur.com/Lem2Nya.jpeg",
+                        "urlType": "STATIC"
+                    },
+                    "height": "TALL"
+                },
+                "suggestions": [
+                    {
+                        "type": "REPLY",
+                        "text": "Track order",
+                        "postbackData": "track_90210"
+                    },
+                    {
+                        "type": "REPLY",
+                        "text": "STOP",
+                        "postbackData": "stop_promotions"
+                    },
+                    {
+                        "type": "OPEN_URL",
+                        "text": "Claim reward",
+                        "url": "https://clevertap.com/rewards",
+                        "urlType": "CT_RCS_LINK_TRACK",
+                        "postbackData": "claim_reward"
+                    },
+                    {
+                        "type": "SHOW_LOCATION",
+                        "text": "Directions",
+                        "latitude": 19.0760,
+                        "longitude": 72.8777,
+                        "label": "CleverTap Clinic, Mumbai",
+                        "postbackData": "show_clinic"
+                    },
+                    {
+                        "type": "DIAL_PHONE",
+                        "text": "Call clinic",
+                        "phoneNumber": "+919930079420",
+                        "postbackData": "dial_clinic"
+                    },
+                    {
+                        "type": "CREATE_CALENDAR_EVENT",
+                        "text": "Add to calendar",
+                        "title": "Dental check-up",
+                        "description": "Annual check-up at CleverTap Clinic",
+                        "startTime": "2026-09-01T10:00:00Z",
+                        "endTime": "2026-09-01T10:30:00Z",
+                        "calendarEventTimezone": "Asia/Kolkata",
+                        "postbackData": "add_calendar"
+                    }
+                ]
+            }
+        }
+    },
+    "when": "now"
+}
+```
+```json Freeform CAROUSEL without SMS fallback
+{
+    "name": "RCS API Basic",
+    "target_mode": "sms",
+    "estimate_only": false,
+    "provider_nick_name": "Acme Digital",
+    "where": {
+        "event_name": "App Launched",
+        "from": 20260819,
+        "to": 20260819
+    },
+    "respect_frequency_caps": false,
+    "content": {
+        "rcs_body": {
+            "type": "CAROUSEL",
+            "cardWidth": "SMALL",
+            "contents": [
+                {
+                    "title": "Running shoes",
+                    "description": "Lightweight, 30% off this week.",
+                    "media": {
+                        "file": {
+                            "url": "https://i.imgur.com/Lem2Nya.jpeg",
+                            "urlType": "STATIC",
+                            "mediaType": 1
+                        },
+                        "height": "MEDIUM"
+                    },
+                    "suggestions": [
+                        {
+                            "type": "REPLY",
+                            "text": "Show sizes",
+                            "postbackData": "sizes_shoes"
+                        }
+                    ]
+                },
+                {
+                    "title": "Trail jackets",
+                    "description": "Waterproof, rated for -5C.",
+                    "media": {
+                        "file": {
+                            "url": "https://pdfobject.com/pdf/sample.pdf",
+                            "urlType": "STATIC",
+                            "mediaType": 2
+                        },
+                        "height": "MEDIUM"
+                    },
+                    "suggestions": [
+                        {
+                            "type": "REPLY",
+                            "text": "Show sizes",
+                            "postbackData": "sizes_jackets"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "when": "now"
+}
+```
+```json Carousel with SMS Fallback and KV Pairs
+{
+    "name": "RCS API Basic",
+    "target_mode": "sms",
+    "estimate_only": false,
+    "provider_nick_name": "Acme Digital",
+    "where": {
+        "event_name": "App Launched",
+        "from": 20260819,
+        "to": 20260819
+    },
+    "respect_frequency_caps": false,
+    "content": {
+        "message_info": {
+            "1797821879": { // Provider ID for the Provider/Provider Nickname, for example Acme Digital
+                "rcs_message_kvs": {
+                    "$$RCSMessage1": "order_shipped",
+                    "$$RCSMessage2": "Order_ID"
+                },
+                "message_kvs":{
+                    "$$CMessage1": "Message1"
+                },
+                "header_kvs":{
+                    "$$Header1":"Header1"
+                }
+            }
+        },
+        "body": "Your order has shipped. Reply STOP to opt out.",
+        "rcs_body": {
+            "type": "CAROUSEL",
+            "cardWidth": "SMALL",
+            "contents": [
+                {
+                    "title": "Running shoes",
+                    "description": "Lightweight, 30% off this week.",
+                    "media": {
+                        "file": {
+                            "url": "https://i.imgur.com/Lem2Nya.jpeg",
+                            "urlType": "STATIC",
+                            "mediaType": 1
+                        },
+                        "height": "MEDIUM"
+                    },
+                    "suggestions": [
+                        {
+                            "type": "REPLY",
+                            "text": "Show sizes",
+                            "postbackData": "sizes_shoes"
+                        }
+                    ]
+                },
+                {
+                    "title": "Trail jackets",
+                    "description": "Waterproof, rated for -5C.",
+                    "media": {
+                        "file": {
+                            "url": "https://pdfobject.com/pdf/sample.pdf",
+                            "urlType": "STATIC",
+                            "mediaType": 4
+                        },
+                        "height": "MEDIUM"
+                    },
+                    "suggestions": [
+                        {
+                            "type": "REPLY",
+                            "text": "Show sizes",
+                            "postbackData": "sizes_jackets"
+                        }
+                    ]
+                }
+            ]
         }
     },
     "when": "now"
