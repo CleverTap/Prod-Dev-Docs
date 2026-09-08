@@ -5,6 +5,7 @@
 - web-push
 - web-native-display
 - web-inbox
+- multi-instance-support-web
 - web-custom-proxy-domain
 - web-remote-config
 - advanced-configurations
@@ -12,4 +13,3 @@
 - manifest-file
 - samsung-tizen-tv-integration-with-web-sdk
 - lg-webos-tv-integration-with-web-sdk
-- multi-instance-support-web
