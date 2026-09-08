@@ -2,7 +2,9 @@
 title: Multi-Instance Support Web
 excerpt: Learn how to use multiple CleverTap accounts on a single website.
 deprecated: false
-hidden: false
+hidden: true
+link:
+  new_tab: false
 metadata:
   robots: index
 ---
