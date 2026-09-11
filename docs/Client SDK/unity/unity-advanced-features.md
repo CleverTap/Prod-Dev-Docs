@@ -41,12 +41,14 @@ Set the debug level to control the verbosity of CleverTap logs during developmen
 CleverTap.SetDebugLevel(debugLevel);
 ```
 
-> 🚧 Platform Specific Logs
->
-> To view SDK logs when the app is in the killed state, refer to:
->
-> * For Android platform, refer to [Android Debugging](doc:android-advanced-features#debugging).
-> * For iOS platform, refer to [iOS Debugging](doc:advanced-options-ios#debugging).
+<Callout icon="🚧" theme="warn">
+  ### Platform Specific Logs
+
+  To view SDK logs when the app is in the killed state, refer to:
+
+  * For Android platform, refer to [Android Debugging](doc:android-advanced-features#debugging).
+  * For iOS platform, refer to [iOS Debugging](doc:advanced-options-ios#debugging).
+</Callout>
 
 ## Native Display
 
@@ -110,9 +112,11 @@ Turns off personalized recommendations and message targeting for the current use
 CleverTap.DisablePersonalization();
 ```
 
-> 📘 Note
->
-> Toggle this setting after login, logout, or consent updates.
+<Callout icon="📘" theme="info">
+  ### Note
+
+  Toggle this setting after login, logout, or consent updates.
+</Callout>
 
 ## Install Attribution
 
@@ -143,13 +147,7 @@ To completely disable event tracking and stop sending any communication (persona
 CleverTap.SetOptOut(true); // Will opt out the user to send data to CleverTap
 ```
 
-#### Opt Out from Tracking Only, but Allow Generic Communication
-
-To disable event tracking, but still allow you to send non-personalized messages (such as broadcast announcements) to the user.
-
-```csharp
-CleverTap.SetOptOut(true, true); // Only stop tracking, allow generic communication
-```
+####
 
 #### Opt In to Tracking and Communication
 
