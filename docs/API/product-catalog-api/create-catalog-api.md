@@ -58,8 +58,8 @@ The following table lists and describes the fields accepted by this API:
 <Callout icon="📘" theme="info">
   ### Catalog Schema Constraints
 
-  - A catalog can include 0 to 197 custom attributes in catalogSchema.
-  - The total number of columns, 3 fixed fields plus all custom attributes, must not exceed 200.
+  - A catalog can include 0 to 97 custom attributes in catalogSchema.
+  - The total number of columns, 3 fixed fields plus all custom attributes, must not exceed 100.
   - The built-in fields identity, name, and imageUrl are always present and must not appear inside catalogSchema.
   - identity, name, image_url, and imageurl are reserved. Using any of them as a custom attribute name returns 400 with Attribute name 'X' is reserved and cannot be used.
   - Attribute names must be unique within the catalog. Comparison is case-insensitive, so Brand and brand collide and return 400 with Duplicate attribute name 'X' found in schema.
