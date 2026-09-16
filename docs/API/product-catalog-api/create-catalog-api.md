@@ -186,7 +186,7 @@ Attribute names must:
 
 - Start with a letter or underscore (\_)
 - Contain only alphanumeric characters, underscores (\_), dashes (-), spaces, or parentheses ()
-- The total number of columns, including 3 fixed attributes and all custom attributes, must not exceed 200.
+- The total number of columns, including 3 fixed attributes and all custom attributes, must not exceed 100.
 
 # Errors
 
