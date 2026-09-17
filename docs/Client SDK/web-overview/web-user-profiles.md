@@ -62,7 +62,7 @@ For more information, refer to the [Quick Start Guide](https://developer.clevert
 
 The `Onuserlogin` method identifies the individual users on the device. However, you may need to add additional user properties to the user profile, such as gender, date of birth, etc.
 
-When you use `profile.push`, all the details sent are added to the current profile. Whereas, using `onuserlogin` assigns request details to the current profile if the user is unidentified. If the current profile is identified and belongs to the same user, the details are appended to the user's profile. If the current profile is for a different user, a new profile is created for the current user with the properties sent in the request.
+When you use `profile.push`, all the details sent are added to the current profile. Whereas, using `onuserlogin` assigns request details to the current profile if the user is unidentified. If the current profile is identified and belongs to the same user, the details are updated to the user's profile. If the current profile is for a different user, a new profile is created for the current user with the properties sent in the request.
 
 Below are examples of updating these types of properties:
 
@@ -84,9 +84,11 @@ clevertap.profile.push({
  */
 ```
 
-> 📘 Note
->
-> You do not require to pass _Age_ as a profile property in the API because it is automatically calculated and stored.
+<Callout icon="📘" theme="info">
+  ### Note
+
+  You do not require to pass _Age_ as a profile property in the API because it is automatically calculated and stored.
+</Callout>
 
 CleverTap provides easy ways to enrich the user profile with data from sources such as Facebook. You can also store custom attributes in a user profile, which can be used to segment users later.
 
@@ -121,17 +123,21 @@ clevertap.getLocation(37.7749, -122.4194);
 clevertap.getLocation();
 ```
 
-> 📘 Note
->
-> If the browser blocks access to geolocation or the user denies permission, automatic location detection will fail silently.
+<Callout icon="📘" theme="info">
+  ### Note
+
+  If the browser blocks access to geolocation or the user denies permission, automatic location detection will fail silently.
+</Callout>
 
 ## Increment/Decrement Operator in Web
 
 Increment or decrement a user profile property by using the `handleIncrementValue(propName, propValue)` or `handleDecrementValue(propName, propValue)` methods for Clevertap Web SDK 1.3.0 version and above.
 
-> 📘 Note
->
-> The applicable user properties are of type Integer, Float, or Double. The value can be zero or greater than zero.
+<Callout icon="📘" theme="info">
+  ### Note
+
+  The applicable user properties are of type Integer, Float, or Double. The value can be zero or greater than zero.
+</Callout>
 
 ```javascript
 clevertap.handleIncrementValue('price', 10)
