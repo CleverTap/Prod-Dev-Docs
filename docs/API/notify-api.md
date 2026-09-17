@@ -14,7 +14,7 @@ next:
 ---
 # Overview
 
-The Notify API enables you to send a user real-time, personalized transactional messages through a predefined Notify setup created on the CleverTap dashboard. For more information about the feature and how to set up a notify campaign on the CleverTap dashboard, refer to [Notify User Guide](doc:notify).
+The Notify API enables you to send a user real-time, personalized transactional messages through a predefined Notify setup created on the CleverTap dashboard. For more information about the feature and how to set up a notify campaign on the CleverTap dashboard, refer to [Notify User Guide for Email](doc:notify-email).
 
 <Callout icon="📘" theme="info">
   ### Private Beta
