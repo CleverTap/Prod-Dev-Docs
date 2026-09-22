@@ -48,15 +48,15 @@ All body parameters are optional. Send an empty object `{}` to retrieve the defa
 
 The following table lists the body parameters:
 
-| Parameter      | Description                                                                                                                                                    | Required/Optional | Type    | Example Value |
-| :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------- | :------ | :------------ |
-| from           | Include segments created on or after this date. Must be an integer in YYYYMMDD format. Defaults to today minus 30 days.                                        | Optional          | integer | `20260101`    |
-| to             | Include segments created on or before this date. Must be an integer in YYYYMMDD format. The range `from` and `to` must not exceed 365 days. Defaults to today. | Optional          | integer | `20260713`    |
-| type           | Filter results by segment type. Must be one of the values in the Segment Types table above. Case-sensitive. Defaults to all types.                             | Optional          | string  | `"batch"`     |
-| status         | Filter results by segment status. Accepted values: `active`, `precomputed`, `inactive`. Defaults to all statuses.                                              | Optional          | string  | `"active"`    |
-| page           | The page number to retrieve. Must be 1 or greater. Defaults to 1.                                                                                              | Optional          | integer | `1`           |
-| limit          | The number of results per page. Must be 1 or greater. Maximum 500. Defaults to 100.                                                                            | Optional          | integer | `50`          |
-| sort_direction | Sort order for results. Accepted values: `DESC` (newest first) or `ASC`. Defaults to `DESC`.                                                                   | Optional          | string  | `"DESC"`      |
+| Parameter      | Description                                                                                                                        | Required/Optional | Type    | Example Value |
+| :------------- | :--------------------------------------------------------------------------------------------------------------------------------- | :---------------- | :------ | :------------ |
+| from           | Include segments created on or after this date. Must be an integer in YYYYMMDD format. Defaults to today minus 30 days.            | Optional          | integer | `20260101`    |
+| to             | Include segments created on or before this date. Must be an integer in YYYYMMDD format. Defaults to today.                         | Optional          | integer | `20260713`    |
+| type           | Filter results by segment type. Must be one of the values in the Segment Types table above. Case-sensitive. Defaults to all types. | Optional          | string  | `"batch"`     |
+| status         | Filter results by segment status. Accepted values: `active`, `precomputed`, `inactive`. Defaults to all statuses.                  | Optional          | string  | `"active"`    |
+| page           | The page number to retrieve. Must be 1 or greater. Defaults to 1.                                                                  | Optional          | integer | `1`           |
+| limit          | The number of results per page. Must be 1 or greater. Maximum 500. Defaults to 100.                                                | Optional          | integer | `50`          |
+| sort_direction | Sort order for results. Accepted values: `DESC` (newest first) or `ASC`. Defaults to `DESC`.                                       | Optional          | string  | `"DESC"`      |
 
 The following is a sample payload.
 
@@ -271,7 +271,6 @@ The following table lists the error codes returned by this endpoint.
 | 400         | `"Invalid \"status\" (it must be a string)"`                                                                                | `status` is present but not a string type.                                                                                                  |
 | 400         | `"Invalid \"page\" value: must be >= 1"` / `"Invalid \"limit\" value: must be greater than 1"`                              | `page` is less than 1, or `limit` is less than 1.                                                                                           |
 | 400         | `"invalid_sort_direction"`                                                                                                  | `sort_direction` is not `ASC` or `DESC`.                                                                                                    |
-| 400         | `"invalid_range"`                                                                                                           | `from` is greater than `to`, or the date range exceeds 365 days.                                                                            |
 | 401         | `"Invalid Credentials"`                                                                                                     | Credentials are missing or incorrect.                                                                                                       |
 | 429         | `"Too many concurrent requests"`                                                                                            | Per-account concurrent request limit exceeded. Retry after a short delay.                                                                   |
 | 500         | `"Internal server error"`                                                                                                   | Segment list could not be loaded from cache.                                                                                                |
