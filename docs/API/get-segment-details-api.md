@@ -29,12 +29,12 @@ Refer to [Headers](doc:common-api-components#api-headers) for more details.
 
 The following table lists the body parameters.
 
-| Parameter   | Description                                                                                                                                           | Type    | Required/Optional | Example Value |
-| :---------- | :---------------------------------------------------------------------------------------------------------------------------------------------------- | :------ | :---------------- | :------------ |
-| segment_id  | The ID of the segment to fetch.                                                                                                                       | integer | Required          | `12345`       |
-| from        | Start of the membership trend window. Must be an integer in YYYYMMDD format. Must be less than or equal to `to`. Defaults to today minus 30 days.     | integer | Optional          | `20260601`    |
-| to          | End of the membership trend window. Must be an integer in YYYYMMDD format. The range from `from` to `to` must not exceed 365 days. Defaults to today. | integer | Optional          | `20260713`    |
-| granularity | The bucket size for the membership trend data. Accepted values: `day`, `week`, `month`. Defaults to `day`.                                            | string  | Optional          | `"week"`      |
+| Parameter   | Description                                                                                                                                       | Type    | Required/Optional | Example Value |
+| :---------- | :------------------------------------------------------------------------------------------------------------------------------------------------ | :------ | :---------------- | :------------ |
+| segment_id  | The ID of the segment to fetch.                                                                                                                   | integer | Required          | `12345`       |
+| from        | Start of the membership trend window. Must be an integer in YYYYMMDD format. Must be less than or equal to `to`. Defaults to today minus 30 days. | integer | Optional          | `20260601`    |
+| to          | End of the membership trend window. Must be an integer in YYYYMMDD format. Defaults to today.                                                     | integer | Optional          | `20260713`    |
+| granularity | The bucket size for the membership trend data. Accepted values: `day`, `week`, `month`. Defaults to `day`.                                        | string  | Optional          | `"week"`      |
 
 The following is a sample payload.
 
