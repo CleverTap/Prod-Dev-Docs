@@ -109,7 +109,7 @@ When clevertap.spa is set to `true`, active Web pop-ups are automatically dismis
 
 If the user navigates to a route that matches the campaign conditions again, the pop-up can appear again.
 
-For a full walkthrough of configuring SPA mode, including what the flag does, what happens without it, and version requirements, see Single Page Applications in the Web SDK Quick Start Guide.
+For a full walkthrough of configuring SPA mode, including what the flag does, what happens without it, and version requirements, see [Single Page Applications](doc:) in the Web SDK Quick Start Guide.
 
 ## Adding Close Buttons to Web Pop-ups
 
