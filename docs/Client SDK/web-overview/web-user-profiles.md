@@ -126,7 +126,8 @@ clevertap.getLocation();
 <Callout icon="📘" theme="info">
   ### Note
 
-  If the browser blocks access to geolocation or the user denies permission, automatic location detection will fail silently.
+  - If the browser blocks access to geolocation or the user denies permission, automatic location detection will fail silently.
+  - On Safari, CleverTap stores the user's geolocation permission response in `localStorage`. The permission prompt appears only once. To display the prompt again, clear the `WZRK_GEO` key from `localStorage`. This behaviour does not affect other browsers.
 </Callout>
 
 ## Increment/Decrement Operator in Web
