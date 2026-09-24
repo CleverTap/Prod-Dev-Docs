@@ -103,6 +103,14 @@ The PIP pop-up supports the following user-facing controls:
 | Open in new tab   | Open the popup's linked URL in a new browser tab                                                            |
 | Close             | Dismiss the popup                                                                                           |
 
+## Single-page applications
+
+When clevertap.spa is set to `true`, active Web pop-ups are automatically dismissed when the user navigates to a new route. This applies to Box, Banner, and Image Only pop-ups.
+
+If the user navigates to a route that matches the campaign conditions again, the pop-up can appear again.
+
+For a full walkthrough of configuring SPA mode, including what the flag does, what happens without it, and version requirements, see Single Page Applications in the Web SDK Quick Start Guide.
+
 ## Adding Close Buttons to Web Pop-ups
 
 You can add a close button to your web pop-up by using the following:
