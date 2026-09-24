@@ -29,16 +29,18 @@ There are two ways to integrate CleverTap Web SDK:
 
 To get started, use the following steps:
 
-1. Copy and paste the code snippet below inside the <head /> section of your website.
+1. Copy and paste the code snippet below inside the <head></head> section of your website.
 2. Replace CLEVERTAP_ACCOUNT_ID with your CleverTap Account ID. You can find your CleverTap Account ID on the _Settings_ page of the CleverTap dashboard.
 3. Setting the region is optional. You can get the region code from the CleverTap Dashboard. For more information, refer to [Region Codes](https://developer.clevertap.com/docs/idc). If no region is provided, the default region _eu1_, is used.
 4. Setting the _Target Domain_ is optional. If no target domain is provided, the default target domain, _clevertap-prod.com_, is used.
 
 <br />
 
-> 📘 Note
->
-> If you are upgrading from Legacy SDK, we strongly recommend testing for event/user properties instrumentation with all integrated platforms like Website, App WebViews, and TVs.
+<Callout icon="📘" theme="info">
+  ### Note
+
+  If you are upgrading from Legacy SDK, we strongly recommend testing for event/user properties instrumentation with all integrated platforms like Website, App WebViews, and TVs.
+</Callout>
 
 ```javascript
 <script type="text/javascript">
@@ -60,7 +62,7 @@ clevertap.privacy.push({useIP: false}); //set the flag to true, if the user agre
 
 ## Option B - Using the Package Manager (Recommended)
 
-CleverTap Web SDK is available as an **[npm](https://github.com/CleverTap/clevertap-web-sdk/?tab=readme-ov-file#-installation)** package for adding to your website.
+CleverTap Web SDK is available as an [npm](https://github.com/CleverTap/clevertap-web-sdk/?tab=readme-ov-file#-installation) package for adding to your website.
 Use the following npm command for the node package manager:
 
 ```javascript
@@ -77,14 +79,14 @@ yarn add clevertap-web-sdk
 
 Refer to the following table to identify the region for your account:
 
-| CleverTap Dashboard URL                                                                                  | Region            |
-| :------------------------------------------------------------------------------------------------------- | :---------------- |
-| [https://eu1.dashboard.clevertap.com/login.html#/](https://eu1.dashboard.clevertap.com/login.html#/)     | EU                |
-| [https://in1.dashboard.clevertap.com/login.html#/](https://in1.dashboard.clevertap.com/login.html#/)     | India             |
-| [https://us1.dashboard.clevertap.com/login.html#/](https://us1.dashboard.clevertap.com/login.html#/)     | US                |
-| [https://sg1.dashboard.clevertap.com/login.html#/](https://sg1.dashboard.clevertap.com/login.html#/)     | Singapore         |
-| [[https://aps3.dashboard.clevertap.com/login.html#/](https://aps3.dashboard.clevertap.com/login.html#/)] | Indonesia         |
-| [[https://mec1.dashboard.clevertap.com/login.html#/](https://mec1.dashboard.clevertap.com/login.html#/)] | Middle East (UAE) |
+| CleverTap Dashboard URL                                                                                   | Region            |
+| :-------------------------------------------------------------------------------------------------------- | :---------------- |
+| [https://eu1.dashboard.clevertap.com/login.html#/](https://eu1.dashboard.clevertap.com/login.html#/)      | EU                |
+| [https://in1.dashboard.clevertap.com/login.html#/](https://in1.dashboard.clevertap.com/login.html#/)      | India             |
+| [https://us1.dashboard.clevertap.com/login.html#/](https://us1.dashboard.clevertap.com/login.html#/)      | US                |
+| [https://sg1.dashboard.clevertap.com/login.html#/](https://sg1.dashboard.clevertap.com/login.html#/)      | Singapore         |
+| \[[https://aps3.dashboard.clevertap.com/login.html#/](https://aps3.dashboard.clevertap.com/login.html#/)] | Indonesia         |
+| \[[https://mec1.dashboard.clevertap.com/login.html#/](https://mec1.dashboard.clevertap.com/login.html#/)] | Middle East (UAE) |
 
 Refer the following table for `region` key values:
 
@@ -248,9 +250,11 @@ npm install clevertap-web-sdk --save
 
 Please feel free to reach out to our customer support in case you face any issues.
 
-> 📘 Endpoint Change
->
-> The CleverTap Web SDK endpoint is now also configured with domains and sub-domains of `clevertap-prod.com`.
+<Callout icon="📘" theme="info">
+  ### Endpoint Change
+
+  The CleverTap Web SDK endpoint is now also configured with domains and sub-domains of `clevertap-prod.com`.
+</Callout>
 
 ## Add Region Code
 
@@ -258,7 +262,7 @@ To know how to add region code in Web SDK, refer to [Region Codes](doc:idc#web).
 
 # Single Page Applications
 
-SPA (Single Page Application) is a web app implementation that loads only a single web document, and then updates the body content of that single document via JavaScript APIs when dynamic content is to be shown. It, therefore, allows users to use websites without loading whole new pages from the server, which can result in performance gains and a more dynamic experience.
+SPA (Single Page Application) is a web app implementation that loads only a single web document and updates its body content via JavaScript APIs when dynamic content is to be shown. It therefore allows users to access websites without loading whole new pages from the server, which can result in performance gains and a more dynamic experience.
 
 For SPAs, it is recommended as a best practice to set the following:
 
@@ -266,16 +270,18 @@ For SPAs, it is recommended as a best practice to set the following:
 clevertap.spa = true
 ```
 
-> 📘 Progressive Web Applications
->
-> In the case of a PWA (Progressive Web Application), all the functionalities similar to the standard website are available.
+<Callout icon="📘" theme="info">
+  ### Progressive Web Applications
+
+  - In the case of a PWA (Progressive Web Application), all the functionalities similar to the standard website are available.
+  - SPA popup dismissal and automatic page view tracking are available from Web SDK v2.6.1 onwards.
+</Callout>
 
 # Identify Users
 
 CleverTap automatically creates a user profile for each person visiting your website. At first, the user profile starts out as anonymous which means the user profile does not contain any identifiable information.
 
-1. Enrich the user profile with information, such as the user’s name or email, by calling `clevertap.onuserlogin`.  
-   Here is an example showing how to add a name and an email to a user’s profile:
+1. Enrich the user profile with information, such as the user’s name or email, by calling `clevertap.onuserlogin`.<br />Here is an example showing how to add a name and an email to a user’s profile:
 
 ```javascript
 // with the exception of one of Identity, Email, or FBID
@@ -323,8 +329,7 @@ clevertap.onUserLogin.push({
 
 CleverTap provides the ability to track custom events that are specific to your website. For example, if you are an e-commerce company, you most likely want to track what products were viewed.
 
-1. Track custom events by calling `clevertap.event.push("EVENT_NAME")`.  
-   Here is an example to track that a product was viewed:
+1. Track custom events by calling `clevertap.event.push("EVENT_NAME")`.<br />Here is an example to track that a product was viewed:
 
 ```javascript
 clevertap.event.push("Product Viewed");
@@ -367,8 +372,7 @@ clevertap.setLogLevel(LOG_LEVEL)
 
 # Offline Mode
 
-The offline mode allows setting CleverTap SDK to offline state. The `setOffline` method determines the SDK's online state. By default, the offline state of the SDK is set to false.  
-However, once the `setoffline` method is passed with `true` as described below, the CleverTap SDK goes offline. All the events are recorded and queued locally, but they are not sent to the CleverTap server.
+The offline mode allows setting CleverTap SDK to offline state. The `setOffline` method determines the SDK's online state. By default, the offline state of the SDK is set to false.<br />However, once the `setoffline` method is passed with `true` as described below, the CleverTap SDK goes offline. All the events are recorded and queued locally, but they are not sent to the CleverTap server.
 
 If the `setoffline` method is passed with `false` as described below, the CleverTap SDK is set to online mode, and the queued events are sent to the CleverTap server immediately.
 
