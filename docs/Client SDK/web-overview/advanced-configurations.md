@@ -44,11 +44,12 @@ We have implemented a separate encryption mechanism for local storage data to en
 
 The following keys contain PII data and will be encrypted.
 
-| Keys    | Description                                                    |
-| :------ | :------------------------------------------------------------- |
-| WZRK_K  | Contains information about the latest logged-in user.          |
-| WZRK_X  | Stores a cache of all users logged in from a specific machine. |
-| WZRK_PR | Contains user profile details.                                 |
+| Keys     | Description                                                                                                          |
+| :------- | :------------------------------------------------------------------------------------------------------------------- |
+| WZRK_K   | Contains information about the latest logged-in user.                                                                |
+| WZRK_X   | Stores a cache of all users logged in from a specific machine.                                                       |
+| WZRK_PR  | Contains user profile details.                                                                                       |
+| WZRK_GEO | Caches geolocation permission response on Safari (values: true/false). Used to prevent repeated geolocation prompts. |
 
 We support an opt-in encryption mechanism, allowing users to choose whether to enable encryption for their local storage data. To enable encryption, use the following method:
 
@@ -56,7 +57,7 @@ We support an opt-in encryption mechanism, allowing users to choose whether to e
 
 # Encrypt Data in Transit
 
-CleverTap Web SDK always transmits request bodies in plain text (can be compressed if required).To comply with security and compliance requirements, CleverTap provides *Encryption in Transit * to protect sensitive customer data as it moves between the browser and CleverTap.
+CleverTap Web SDK always transmits request bodies in plain text (can be compressed if required).To comply with security and compliance requirements, CleverTap provides _Encryption in Transit_ to protect sensitive customer data as it moves between the browser and CleverTap.
 
 When this feature is enabled, all SDK requests are encrypted before being sent.
 
@@ -129,5 +130,3 @@ clevertap.init(
 
   Check that this feature is enabled for your account. If encryption in transit is not enabled at the billing level, SDK requests will continue to be sent in plain text even if `enableEncryptionInTransit` is set to `true`.
 </Callout>
-
-<br />
