@@ -51,7 +51,7 @@ The Advanced Web Popup Builder renders popups in a full-screen iframe managed by
 
 The PIP template renders as a draggable, floating video or image popup that stays on screen while the user continues browsing. It is well-suited for video promotions, product demos, or any content that users might want to view alongside the rest of the page.
 
-The PIP popup is implemented as the Web Custom Element `<ct-web-popup-pip>`. The SDK registers this element automatically — no additional setup is required from the developer.
+The PIP pop-up is implemented as a Web Custom Element `<ct-web-popup-pip>`. The SDK registers this element automatically — no additional setup is required from the developer.
 
 <Callout icon="📘" theme="info">
   ### PIP Version
@@ -61,7 +61,7 @@ The PIP popup is implemented as the Web Custom Element `<ct-web-popup-pip>`. The
 
 ### Anchor positions
 
-The popup can be anchored to one of nine positions on the screen. Set the anchor in your campaign payload:
+The pop-up can be anchored to one of nine positions on the screen. Set the anchor in your campaign payload:
 
 | Value          | Position               |
 | -------------- | ---------------------- |
