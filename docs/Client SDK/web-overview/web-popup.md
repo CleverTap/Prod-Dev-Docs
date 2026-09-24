@@ -75,7 +75,7 @@ The popup can be anchored to one of nine positions on the screen. Set the anchor
 | `bottom`       | Bottom center          |
 | `bottom-right` | Bottom-right corner    |
 
-If no anchor is configured, the popup snaps to the nearest anchor based on its current position on screen after the user releases a drag.
+If no anchor is configured, the popup snaps to the nearest anchor based on its current on-screen position after the user releases the drag.
 
 ### Click actions
 
@@ -85,14 +85,14 @@ Click behavior is configured separately for desktop and mobile viewports in the 
 * **Mobile (viewport ≤ 480px):** `display.mobile.pip.onClick` — falls back to `display.pip` if the mobile config is not set.
 
 <Callout icon="🚧" theme="warn">
-  ### Desktop vs. mobile breakpoint
+  ### Desktop vs. Mobile Breakpoint
 
   The SDK treats viewports wider than 480px (`window.innerWidth > 480`) as desktop. A viewport at exactly 480px is treated as mobile.
 </Callout>
 
 ### Interactive controls
 
-The PIP popup supports the following user-facing controls:
+The PIP pop-up supports the following user-facing controls:
 
 | Control           | Description                                                                                                 |
 | ----------------- | ----------------------------------------------------------------------------------------------------------- |
