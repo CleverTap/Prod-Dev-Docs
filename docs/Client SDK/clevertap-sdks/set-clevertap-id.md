@@ -16,13 +16,17 @@ next:
 
 Using the custom CleverTap ID capability, customers can generate and create their own unique identifiers for end-user devices. This allows you to have your own device identifier across all your systems without having to maintain a mapping of the device ID across different systems.
 
-> 📘 Platform Availability
->
-> Set CleverTap ID capability is only available on both Android and iOS versions **3.5.0 and above.**
+<Callout icon="📘" theme="info">
+  ### Platform Availability
 
-> 🚧 Custom ID Assignment
->
-> The custom CleverTap ID is only applied to new users or those without an existing ID.
+  Set CleverTap ID capability is only available on both Android and iOS versions **3.5.0 and above.**
+</Callout>
+
+<Callout icon="🚧" theme="warn">
+  ### Custom ID Assignment
+
+  The custom CleverTap ID is only applied to new users or those without an existing ID.
+</Callout>
 
 # Rules for setting the CleverTap ID
 
@@ -220,7 +224,9 @@ CleverTapAPI.getInstance(applicationContext)
 * In order to send a custom ID, client must set the flag CleverTapUseCustomId to TRUE in the Plist file.
 * Navigate to the Info.plist file in your project navigator, and then create a key called `CleverTapUseCustomId` with type Boolean and set the value to YES.
 
-<Image align="center" alt={1792} border={true} caption="Add a Custom Key" title="Add a Custom Key" src="https://files.readme.io/6f3cdef-Screenshot_2019-05-17_at_5.36.59_PM.png" />
+
+<Image src="https://files.readme.io/6f3cdef-Screenshot_2019-05-17_at_5.36.59_PM.png" alt="1792" align="center" caption="Add a Custom Key" border={true} />
+
 
 Additionally, you must call any of the following methods to pass the Custom CleverTap ID.
 
@@ -301,20 +307,24 @@ NSDictionary *profile = @{
 [[CleverTap sharedInstance] onUserLogin:profile withCleverTapID:@"CUSTOM-CLEVERTAP-ID"];
 ```
 
-> ❗️ Error Cases
->
-> * In case of invalid ID or ID not set, CleverTap will NOT create a profile from the device.
-> * No events will be logged against these profiles.
-> * All such errors will be logged with a profile created with the prefix _ _i.
-> * These profiles will be visible under the error stream under the _account/stream.html_ page on the dashboard.
+<Callout icon="❗️" theme="error">
+  ### Error Cases
+
+  * In case of invalid ID or ID not set, CleverTap will NOT create a profile from the device.
+  * No events will be logged against these profiles.
+  * All such errors will be logged with a profile created with the prefix \_ \_i.
+  * These profiles will be visible under the error stream under the _account/stream.html_ page on the dashboard.
+</Callout>
 
 # Web
 
 To send a custom ID via Web SDK, the `customId` parameter is required, because the `init()` function accepts `customId` as an optional parameter. Including this parameter enables you to set a Custom CleverTap ID for new users when initializing the SDK.
 
-> 📘 Platform Availability
->
-> Custom CleverTap ID capability is only available on Web SDK versions **1.15.0 and above**.
+<Callout icon="📘" theme="info">
+  ### Platform Availability
+
+  Custom CleverTap ID capability is only available on Web SDK versions **1.15.0 and above**.
+</Callout>
 
 All Custom IDs assigned through the Web SDK are stored with a `_w_` prefix. Example: `user_123` is stored as `_w_user_123`. This feature is available through both NPM and CDN integrations.
 
@@ -368,8 +378,18 @@ To use a custom ID with CDN-based integration:
 </script>
 ```
 
-> ❗️ Error Handling
->
-> * If `customId` fails validation or is not provided, CleverTap will default to generating a system GUID.
-> * This temporary ID is created and stored with the prefix `__i` for Android and `-i` for iOS.
-> * These profiles and errors can be monitored in the browser console.
+#### Using `onUserLogin`
+
+#### You can also set a custom CleverTap ID when you log in a user with `onUserLogin`.
+
+```javascript
+clevertap.onUserLogin.push({ Identity: 'user123', customId: 'my-custom-id', Name: 'John' });
+```
+
+<Callout icon="❗️" theme="error">
+  ### Error Handling
+
+  * If `customId` fails validation or is not provided, CleverTap will default to generating a system GUID.
+  * This temporary ID is created and stored with the prefix `__i` for Android and `-i` for iOS.
+  * These profiles and errors can be monitored in the browser console.
+</Callout>
