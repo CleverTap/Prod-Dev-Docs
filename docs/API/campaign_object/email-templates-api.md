@@ -55,18 +55,302 @@ For more information about API headers used while processing API requests, refer
 
 The following are the body parameters included in the JSON request payload:
 
-| **Parameter**  | **Sub-Parameter** | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | **Type** | **Sample Value**    | **Required / Optional**      |
-| :------------- | :---------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------- | :------------------ | :--------------------------- |
-| `templateName` | —                 | Unique name that identifies the email template. Must be unique within the CleverTap account.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | String   | `template-name-01`  | Required                     |
-| `description`  | —                 | A brief description of the template.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | String   | `description-01`    | Optional                     |
-| `templateData` |                   | Contains the HTML body, AMP subtype, and sender details of the template.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Object   | —                   | Required                     |
-|                | `subType`         | Specifies the email subtype, for example, `amp` for AMP emails.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | String   | `amp`               | Optional                     |
-|                | `body`            | The HTML content of the email template.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | String   | `<html>...</html>`  | Required                     |
-|                | `ampBody`         | The AMP HTML content of the email. **Mandatory** if `templateData.subType` is `amp`; must be left blank otherwise.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | String   | `<html>...</html>\` | Conditional                  |
-|                | `senderDetail`    | Object containing sender information: <ul><li>`fromName`: Name of the sender.</li><li>`fromEmail`: Sender’s email address.</li><li>`replyToEmail`: Reply-to email address.</li><li>`subject`: Email subject line.</li><li>`plainText`: Plain-text fallback version of the email body, used by clients that cannot render HTML.</li><li>`preheader`: Preheader text of the email.</li><li>`ccEmails`: Array of CC email addresses.</li><li>`bccEmails`: Array of BCC email addresses.</li><li>`attachments` : Array of file objects (fileName, fileUrl) to attach to the email.   (@amrita: explain keys for attachments)</li></ul> | Object   | See sample payload  | Optional                     |
-| `createdBy`    | —                 | Email address of the template creator (partner user).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | String   | `email@email.com`   | Required                     |
-| `teamName`     | —                 | Name of the team to which the template belongs. Team names are case-sensitive. Each template can belong to only one team.<br /><br />Note: This feature needs to be enabled. (@amrita: rephrase better)                                                                                                                                                                                                                                                                                                                                                                                                                            | String   | Growth Marketing    | Required                     |
-| `partner`      | —                 | Partner identifier (name of the third-party tool importing the template).<br /><br />Applicable only for Partners. (@amrita: rephrase better.)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | String   | `taxi-for-email`    | Optional (for partners only) |
+<Table align={["left","left","left","left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        **Parameter**
+      </th>
+
+      <th>
+        **Sub-Parameter**
+      </th>
+
+      <th>
+        **Description**
+      </th>
+
+      <th>
+        **Type**
+      </th>
+
+      <th>
+        **Sample Value**
+      </th>
+
+      <th>
+        **Required / Optional**
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        `templateName`
+      </td>
+
+      <td>
+        —
+      </td>
+
+      <td>
+        Unique name that identifies the email template. Must be unique within the CleverTap account.
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        `template-name-01`
+      </td>
+
+      <td>
+        Required
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `description`
+      </td>
+
+      <td>
+        —
+      </td>
+
+      <td>
+        A brief description of the template.
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        `description-01`
+      </td>
+
+      <td>
+        Optional
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `templateData`
+      </td>
+
+      <td>
+
+      </td>
+
+      <td>
+        Contains the HTML body, AMP subtype, and sender details of the template.
+      </td>
+
+      <td>
+        Object
+      </td>
+
+      <td>
+        —
+      </td>
+
+      <td>
+        Required
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+
+      </td>
+
+      <td>
+        `subType`
+      </td>
+
+      <td>
+        Specifies the email subtype, for example, `amp` for AMP emails.
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        `amp`
+      </td>
+
+      <td>
+        Optional
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+
+      </td>
+
+      <td>
+        `body`
+      </td>
+
+      <td>
+        The HTML content of the email template.
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        `<html>...</html>`
+      </td>
+
+      <td>
+        Required
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+
+      </td>
+
+      <td>
+        `ampBody`
+      </td>
+
+      <td>
+        The AMP HTML content of the email. **Mandatory** if `templateData.subType` is `amp`; must be left blank otherwise.
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        `<html>...</html>\`
+      </td>
+
+      <td>
+        Conditional
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+
+      </td>
+
+      <td>
+        `senderDetail`
+      </td>
+
+      <td>
+        Object containing sender information:<ul><li>`fromName`: Name of the sender.</li><li>`fromEmail`: Sender’s email address.</li><li>`replyToEmail`: Reply-to email address.</li><li>`subject`: Email subject line.</li><li>`plainText`: Plain-text fallback version of the email body, used by clients that cannot render HTML.</li><li>`preheader`: Preheader text of the email.</li><li>`ccEmails`: Array of CC email addresses.</li><li>`bccEmails`: Array of BCC email addresses.</li><li>`attachments`: Array of file objects to attach to the email.  Each object represents a file and contains the following:
+
+        - `fileName`: The display name of the attachment, including the file extension (for example, invoice.pdf).
+        - `fileUrl`: The publicly accessible URL from which the system fetches the file to include as an attachment in the campaign email.</li></ul>
+      </td>
+
+      <td>
+        Object
+      </td>
+
+      <td>
+        See sample payload
+      </td>
+
+      <td>
+        Optional
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `createdBy`
+      </td>
+
+      <td>
+        —
+      </td>
+
+      <td>
+        Email address of the template creator (partner user).
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        `email@email.com`
+      </td>
+
+      <td>
+        Required
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `teamName`
+      </td>
+
+      <td>
+        —
+      </td>
+
+      <td>
+        Name of the team to which the template belongs. Team names are case-sensitive. Each template can belong to only one team.<br /><br />Note: This parameter is available only if Teams is enabled for your account.
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        Growth Marketing
+      </td>
+
+      <td>
+        Required
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `partner`
+      </td>
+
+      <td>
+        —
+      </td>
+
+      <td>
+        Identifier of the third-party integration importing the template. Use the partner name registered with CleverTap, for example, taxi-for-email.
+
+        **Note**: This parameter is optional and is to be used for partner integrations only. If you pass a partner name that is not registered with CleverTap, the request fails with a 400 error.&#x20;
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        `taxi-for-email`
+      </td>
+
+      <td>
+        Optional (for partners only)
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 <Callout icon="📘" theme="info">
   #### **Key Points to Remember**
@@ -884,8 +1168,6 @@ Refer to [Headers](doc:common-api-components#headers) for more details.
 | `_id`         | The unique identifier(s) of the template(s) is to be deleted. Can accept a single ID or an array of IDs. | Number or Array of Numbers | `[173885007188151, 173885007188152]` | Required                |
 
 ## Example Request
-
-(@arjun: here the request includes "\_id" - is the parameter correct? or shd it be changed to templateId / templateIds?)
 
 ```curl
 curl -X POST "https://in1.api.clevertap.com/v1/email/templates/delete" \
