@@ -28,7 +28,7 @@ This section provides detailed instructions for configuring advanced CleverTap S
 
 The following features are covered:
 
-1. [SDK State Management (Gaming)](doc:unreal-advanced-features#encrypt-pii-data)
+1. [SDK State Management (Gaming)](doc:unreal-advanced-features#sdk-state-management-gaming)
 2. ​[Encrypt PII data](doc:unreal-advanced-features#encrypt-pii-data)
 3. [Handle Android Push Notification](doc:unreal-advanced-features#handle-android-push-notification)
 4. [Set Up Deep Linking (Android and iOS)](doc:unreal-advanced-features#set-up-deep-linking-android-and-ios)
@@ -37,8 +37,6 @@ The following features are covered:
 7. [Customize Android Notifications](doc:unreal-advanced-features#customize-android-notifications)
 
 ## SDK State Management (Gaming)
-
-Available from Unreal SDK v1.3.0 and above.
 
 The following methods let you control SDK behavior during performance-sensitive game sequences. They are Blueprint-callable under the `CleverTap|Gaming` category.
 
@@ -71,9 +69,10 @@ CleverTap.Unmute();
 ```
 
 <Callout icon="📘" theme="info">
-  ### Android only
+  #### Availability
 
-  `Unmute()` is a no-op on iOS — the iOS CleverTap SDK does not support a mute state. The call compiles on all platforms but only has effect on Android (SDK 8.1.0+).
+  - This feature is available from Unreal SDK v1.3.0 and above.
+  - `Unmute()` is a no-op on iOS — the iOS CleverTap SDK does not support a mute state. The call compiles on all platforms but only has effect on Android (SDK 8.1.0+).
 </Callout>
 
 ## Encrypt PII data
