@@ -20,16 +20,20 @@ This guide walks you through the step-by-step process of integrating CleverTap's
 
 To integrate CleverTap Web SDK with Samsung Tizen TV:
 
-1. Download the **Tizen Studio DMG** file on your system. 
+1. Download the **Tizen Studio DMG** file on your system.
 2. Open the installer and complete the installation.
 3. Open the **Package Manager** console extracted from **Tizen Studio**.
 4. From the **Extension SDK** tab, install **TV Extensions-7.0**.
 
-<Image align="center" className="border" width="80% " border={true} src="https://files.readme.io/068c0e9-TizenPackageManager.png" />
+
+<Image src="https://files.readme.io/068c0e9-TizenPackageManager.png" align="center" width="80% " border={true} />
+
 
 5. Create the sample project and update the `index.html` file as required. Add the CleverTap script in the `index.html` file.
 
-<Image align="center" className="border" width="90% " border={true} src="https://files.readme.io/08584b3-RunAsTizen.png" />
+
+<Image src="https://files.readme.io/08584b3-RunAsTizen.png" align="center" width="90% " border={true} />
+
 
 6. Click **Run As** > **Tizen Web Simulator Application(Samsung TV)**.
 
@@ -106,6 +110,18 @@ To remove the profile properties, add the following code snippet:
 cleverTapAPI.removeMultiValueForKey("userTVCount","1")
 ```
 
-> 📘 Note
->
-> CleverTap Push Notifications do not work on Tizen as the Service worker runs only on an HTTPS or a localhost connection. It does not work on `file://`.
+<Callout icon="📘" theme="info">
+  ### Note
+
+  CleverTap Push Notifications do not work on Tizen as the Service worker runs only on an HTTPS or a localhost connection. It does not work on `file://`.
+</Callout>
+
+### Smart TV support
+
+To enable D-pad remote navigation for CleverTap campaigns on Smart TV deployments, set `enableTVControls` to `true` in the config object passed to `init()`.&#x20;
+
+```javascript
+clevertap.init('ACCOUNT_ID', 'REGION', 'TARGET_DOMAIN', 'TOKEN', {
+  enableTVControls: true
+});
+```
