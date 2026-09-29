@@ -225,7 +225,7 @@ Unlike the Auto Carousel, this version allows users to navigate the content at t
 <Image src="https://files.readme.io/be9ecc9c923c45cf5922ffd0b8894c1cc31e65c56fc14c1d0949e9f0362f8b37-manualcarousel_video_1.gif" alt="Manual Carousel Template" align="center" width="35% " caption="Manual Carousel Template" border={true} />
 
 
-### Template Keys
+#### Template Keys
 
 | Key                 | Required | Description                                                                                                               |
 | :------------------ | :------- | :------------------------------------------------------------------------------------------------------------------------ |
