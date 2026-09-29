@@ -29,17 +29,19 @@ Ensure you have the following prerequisites to start the Unity integration:
 
 The CleverTap Unity SDK from 2.4.0 and above supports Unity LTS versions 2023.2.x and 2022.3.x.
 
-> 🚧 Need Help with Unity Version Support?
->
-> If you're unsure which Unity version is supported or are using a version earlier than v2022.2.13f1, refer to the [CleverTap Developer Documentation](doc:getting-started) or reach out to our Support team via the Support section on your CleverTap dashboard.
+<Callout icon="🚧" theme="warn">
+  ### Need Help with Unity Version Support?
+
+  If you're unsure which Unity version is supported or are using a version earlier than v2022.2.13f1, refer to the [CleverTap Developer Documentation](doc:getting-started) or reach out to our Support team via the Support section on your CleverTap dashboard.
+</Callout>
 
 # Unity SDK Versions and Size
 
 Refer to the following table for Unity SDK versions and Unity SDK code sizes:
 
-| SDK                 | Version | Code Size |
-| :------------------ | :------ | :-------- |
-| CleverTap Unity SDK | 5.5.3   | 2.9 MB    |
+| SDK                 | Version | Bundled Android SDK | Bundled iOS SDK | Code Size |
+| :------------------ | :------ | :------------------ | :-------------- | :-------- |
+| CleverTap Unity SDK | 5.5.5   | 8.4.1               | 7.8.1           | 2.9 MB    |
 
 # Integrate the Unity SDK
 
