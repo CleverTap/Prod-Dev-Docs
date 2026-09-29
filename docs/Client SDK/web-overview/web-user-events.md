@@ -14,14 +14,14 @@ next:
 
 A user event is an action a user takes on your website. CleverTap records the event on the user profile using an event name and optional associated key:value-based event properties. You can then segment users, target, and personalize messaging based on the event name and specific event properties.
 
-An example of recording a *Product Viewed* user event is shown as follows:
+An example of recording a _Product Viewed_ user event is shown as follows:
 
 ```Text web
 // event without properties
 clevertap.event.push("Product viewed");
 ```
 
-To record a list of items viewed, use the Items collection. Along with the product name, you can also add properties like size, color, category etc.  An example of recording a *Product Viewed* user event with properties is shown as follows:
+To record a list of items viewed, use the Items collection. Along with the product name, you can also add properties like size, color, category etc.  An example of recording a _Product Viewed_ user event with properties is shown as follows:
 
 ```Text web
 // event with properties
@@ -53,7 +53,7 @@ You should record transactions or purchases in CleverTap using a special event c
 
 ### Charged Special Event
 
-Charged is a special event as it allows you to capture key details, including items sold, categories, transaction amount, transaction ID, and user information. 
+Charged is a special event as it allows you to capture key details, including items sold, categories, transaction amount, transaction ID, and user information.
 
 Recording a purchase identifies a user as a customer in CleverTap, letting you compare funnel reports between customers and non-customers.
 
@@ -101,3 +101,9 @@ You can personalize the message for customers who purchase multiple items in a s
 * Get revenue insights like – total revenue, number of transactions, count of paying users and much more
 
 For a complete guide to recording events, refer to [Events](https://developer.clevertap.com/docs/events).
+
+# Discarded Events
+
+CleverTap dashboard administrators can mark specific event names as **discarded** via the Schema page. A discarded event name is permanently excluded from recording, all past data for that event is purged, and no future instances are stored.
+
+No action is required in your Web SDK integration to respect this setting. Discarding is an admin-only, dashboard-driven operation.
