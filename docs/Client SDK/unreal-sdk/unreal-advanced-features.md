@@ -28,12 +28,53 @@ This section provides detailed instructions for configuring advanced CleverTap S
 
 The following features are covered:
 
-1. [Encrypt PII data](doc:unreal-advanced-features#encrypt-pii-data)
-2. [Handle Android Push Notification](doc:unreal-advanced-features#handle-android-push-notification)
-3. [Set Up Deep Linking (Android and iOS)](doc:unreal-advanced-features#set-up-deep-linking-android-and-ios)
-4. [Configure iOS push notifications](doc:unreal-advanced-features#ios-push-notifications-and-patches)
-5. [Track Push Notification Clicks (Android and iOS)](doc:unreal-advanced-features#track-push-notification-clicks-android-and-ios)
-6. [Customize Android Notifications](doc:unreal-advanced-features#customize-android-notifications)
+1. [SDK State Management (Gaming)](doc:unreal-advanced-features#encrypt-pii-data)
+2. ​[Encrypt PII data](doc:unreal-advanced-features#encrypt-pii-data)
+3. [Handle Android Push Notification](doc:unreal-advanced-features#handle-android-push-notification)
+4. [Set Up Deep Linking (Android and iOS)](doc:unreal-advanced-features#set-up-deep-linking-android-and-ios)
+5. [Configure iOS push notifications](doc:unreal-advanced-features#ios-push-notifications-and-patches)
+6. [Track Push Notification Clicks (Android and iOS)](doc:unreal-advanced-features#track-push-notification-clicks-android-and-ios)
+7. [Customize Android Notifications](doc:unreal-advanced-features#customize-android-notifications)
+
+## SDK State Management (Gaming)
+
+Available from Unreal SDK v1.3.0 and above.
+
+The following methods let you control SDK behavior during performance-sensitive game sequences. They are Blueprint-callable under the `CleverTap|Gaming` category.
+
+### PauseSDK()
+
+Puts the CleverTap SDK into offline mode: event recording continues locally but no data is sent to CleverTap servers. Call this before latency-sensitive sequences such as boss fights or cutscenes.
+
+```cplusplus
+CleverTap.PauseSDK();
+```
+
+This is an alias for `SetOffline(true)`. Available on Android and iOS.
+
+### ResumeSDK()
+
+Takes the CleverTap SDK back online, flushing any locally queued events. Call this after the latency-sensitive sequence ends.
+
+```cplusplus
+CleverTap.ResumeSDK();
+```
+
+This is an alias for `SetOffline(false)`. Available on Android and iOS.
+
+### Unmute()
+
+Resumes event recording and network traffic after the underlying Android SDK has been muted (for example, by a server-side mute command). Blueprint-callable under the `CleverTap|System` category.
+
+```cplusplus
+CleverTap.Unmute();
+```
+
+<Callout icon="📘" theme="info">
+  ### Android only
+
+  `Unmute()` is a no-op on iOS — the iOS CleverTap SDK does not support a mute state. The call compiles on all platforms but only has effect on Android (SDK 8.1.0+).
+</Callout>
 
 ## Encrypt PII data
 
@@ -135,10 +176,11 @@ AndroidIntentFilterSlot3_PathPrefix=/unreal-sample
 AndroidIntentFilterSlot3_AutoVerify=True
 ```
 
-> 🚧 Digital Link Verification Required
->
-> HTTP/HTTPS schemes require digital verification via `assetlinks.json` hosted on the target domain.\
-> For more information, refer to [Verify Android App Links](https://developer.android.com/training/app-links/verify-android-applinks).
+<Callout icon="🚧" theme="warn">
+  ### Digital Link Verification Required
+
+  HTTP/HTTPS schemes require digital verification via `assetlinks.json` hosted on the target domain.<br />For more information, refer to [Verify Android App Links](https://developer.android.com/training/app-links/verify-android-applinks).
+</Callout>
 
 ### iOS Deep Linking
 
@@ -157,9 +199,11 @@ Use `RegisterCleverTapUrlHandler()` for custom filtering.
 
 Configure APNs support and foreground delivery behavior for iOS devices.
 
-> 📘 APNs Registration
->
-> Before configuring push notifications in Unreal, follow the [CleverTap APNs setup guide](https://developer.clevertap.com/docs/ios-push-notifications) to register your app with Apple Push Notification service (APNs).
+<Callout icon="📘" theme="info">
+  ### APNs Registration
+
+  Before configuring push notifications in Unreal, follow the [CleverTap APNs setup guide](https://developer.clevertap.com/docs/ios-push-notifications) to register your app with Apple Push Notification service (APNs).
+</Callout>
 
 ```ini ini
 [/Script/IOSRuntimeSettings.IOSRuntimeSettings]
@@ -181,9 +225,11 @@ This patch allows push messages to be delivered even when the application is clo
 patch -p1 -u -i /path/to/iOSSavedRemoteNotifications.patch
 ```
 
-> 📘 Patch File Path Instructions
->
-> Replace /path/to/ with the actual path to your patch file.
+<Callout icon="📘" theme="info">
+  ### Patch File Path Instructions
+
+  Replace /path/to/ with the actual path to your patch file.
+</Callout>
 
 #### Rich Push Support Patch
 
@@ -225,9 +271,11 @@ AndroidImagesDir=Config/Android/Images
 AndroidSoundsDir=Config/Android/Sounds
 ```
 
-> 📘 File Naming Rules
->
-> Filenames must follow Android naming conventions: lowercase, digits, underscores only.
+<Callout icon="📘" theme="info">
+  ### File Naming Rules
+
+  Filenames must follow Android naming conventions: lowercase, digits, underscores only.
+</Callout>
 
 ### Android Notification Channels and Groups
 
