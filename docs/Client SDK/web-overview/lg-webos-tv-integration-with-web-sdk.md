@@ -22,14 +22,16 @@ To integrate CleverTap Web SDK with LG webOS TV:
 
 1. Install LG webOS Command Line Interface (CLI). For more information, refer to the [LG CLI Installation](https://webostv.developer.lge.com/develop/tools/cli-installation) document.
 2. Add the extension for [webOS TV](https://marketplace.visualstudio.com/items?itemName=webOSTVSDK.webostv) in Visual Studio Code from the VSCode Extension Marketplace.
-3. Install the LG Simulator. For more information, refer to the [LG Simulator Installation](https://webostv.developer.lge.com/develop/tools/simulator-installation) document. 
-4. Create the sample application as follows: 
+3. Install the LG Simulator. For more information, refer to the [LG Simulator Installation](https://webostv.developer.lge.com/develop/tools/simulator-installation) document.
+4. Create the sample application as follows:
    * Using VSCode: [App Development](https://webostv.developer.lge.com/develop/tools/vsce-dev-guide#app-development)
    * Using CLI: [App Development ](https://webostv.developer.lge.com/develop/tools/cli-dev-guide)
 5. In the sample application, update the `index.html`file as required. Add the CleverTap script in the `index.html` file.
 6. Open the `simulator.app` file inside the **Simulator** folder, as mentioned in Step 2.
 
-<Image align="center" className="border" width="90% " border={true} src="https://files.readme.io/d5be1b0-WebOS.png" />
+
+<Image src="https://files.readme.io/d5be1b0-WebOS.png" align="center" width="90% " border={true} />
+
 
 7. In **Simulator**, go to **File** > **Launch App** and select the folder of sampleApp, which has `.ipk` file
 
@@ -104,4 +106,14 @@ To remove the profile properties, add the following code snippet:
 
 ```javascript
 cleverTapAPI.removeMultiValueForKey("userTVCount","1")
+```
+
+### Smart TV support
+
+To enable D-pad remote navigation for CleverTap campaigns on Smart TV deployments, set `enableTVControls` to `true` in the config object passed to `init()`.&#x20;
+
+```javascript
+clevertap.init('ACCOUNT_ID', 'REGION', 'TARGET_DOMAIN', 'TOKEN', {
+  enableTVControls: true
+});
 ```
