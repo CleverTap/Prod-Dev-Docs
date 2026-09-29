@@ -66,9 +66,11 @@ function _handleCleverTapEvent(eventName, event) {
 }
 ```
 
-> 📘 Note
->
-> `CleverTapInAppNotificationShowed` on iOS requires React Native SDK v4.0.0+. 
+<Callout icon="📘" theme="info">
+  ### Note
+
+  `CleverTapInAppNotificationShowed` on iOS requires React Native SDK v4.0.0+.
+</Callout>
 
 ## Control In-App Notifications
 
@@ -99,3 +101,22 @@ However, if you call the `resumeInAppNotifications` method after the `suspendInA
 ```javascript JavaScript
 CleverTap.resumeInAppNotifications();
 ```
+
+### Dismiss PIP In-App
+
+The `dismissPipInApp()` method programmatically dismisses the currently visible PIP (Picture-in-Picture) in-app notification. It is a no-op if no PIP in-app is currently visible, and does not affect other in-app types.
+
+```javascript JavaScript
+CleverTap.dismissPipInApp();
+```
+
+```typescript TypeScript
+CleverTap.dismissPipInApp(): void
+```
+
+<Callout icon="📘" theme="info">
+  #### PIP In-App Information
+
+  - Dismissing a PIP in-app frees the in-app display slot, so the next queued in-app (if any) may show immediately. To keep a screen clear of all in-apps, pair this call with `suspendInAppNotifications()` on screen entry and `resumeInAppNotifications()` on exit.
+  - Available from React Native SDK v4.3.0 and above.
+</Callout>
