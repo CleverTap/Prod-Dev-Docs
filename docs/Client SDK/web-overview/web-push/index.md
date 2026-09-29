@@ -12,13 +12,13 @@ next:
 ---
 # Overview
 
-Web push notifications are browser-based messages that allow you to reach users directly on their devices, even when they are not actively browsing your website. Using CleverTap’s advanced segmentation capabilities and powerful infrastructure, you can send time-sensitive, relevant, and personalized push messages at scale. 
+Web push notifications are browser-based messages that allow you to reach users directly on their devices, even when they are not actively browsing your website. Using CleverTap’s advanced segmentation capabilities and powerful infrastructure, you can send time-sensitive, relevant, and personalized push messages at scale.
 
 The latest Voluntary Application Server Identification (VAPID) protocol for Web Push enables secure communication between your server and CleverTap, by proving the server’s identity with VAPID keys.
 
 # Supported Browsers and Devices
 
-Web push notifications are supported on the following browsers: 
+Web push notifications are supported on the following browsers:
 
 | Browser         | Windows | Android | iOS (iPhone, iPad) | macOS |
 | --------------- | ------- | ------- | ------------------ | ----- |
@@ -34,116 +34,28 @@ Following are the supported browser versions:
 | Mozilla Firefox | v44 and above (desktop), v48 (android) |
 | Safari          | v16 and above (macOS), v16.4 (iOS)     |
 
-> 📘 Note
->
-> * **HTTPS Requirement:** Web push notifications function only on sites served over HTTPS.
->
-> * **Incognito/Private Browsing:** Web push does not operate in Incognito or Private Browsing mode.
->
-> * **In-App Browsers:** Browsers embedded within apps (such as Facebook, Instagram, etc.) do not support web push notifications.
->
-> * **Android WebViews:** Web push is not supported within Android WebViews.
+<Callout icon="📘" theme="info">
+  ### Note
+
+  * **HTTPS Requirement:** Web push notifications function only on sites served over HTTPS.
+
+  * **Incognito/Private Browsing:** Web push does not operate in Incognito or Private Browsing mode.
+
+  * **In-App Browsers:** Browsers embedded within apps (such as Facebook, Instagram, etc.) do not support web push notifications.
+
+  * **Android WebViews:** Web push is not supported within Android WebViews.
+</Callout>
 
 # Features Availability across Browsers
 
 Note the following features available across Chrome, Firefox, and Safari browsers:
 
-<Table align={["left","left","left","left"]}>
-  <thead>
-    <tr>
-      <th>
-        Feature
-      </th>
-
-      <th>
-        Chrome
-      </th>
-
-      <th>
-        Firefox
-      </th>
-
-      <th>
-        Safari
-      </th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr>
-      <td>
-        CTA
-      </td>
-
-      <td>
-        v53 and above (desktop, android)
-      </td>
-
-      <td>
-        No 
-      </td>
-
-      <td>
-        No
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        Icon
-      </td>
-
-      <td>
-        v33 and above (desktop),\
-        v42 and above (android)
-      </td>
-
-      <td>
-        v26 and above (desktop, android)
-      </td>
-
-      <td>
-        No
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        Image
-      </td>
-
-      <td>
-        v56 and above (desktop, android)
-      </td>
-
-      <td>
-        No
-      </td>
-
-      <td>
-        No
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        Requires Interaction
-      </td>
-
-      <td>
-        v47 and above (desktop, android)
-      </td>
-
-      <td>
-        v117 and above (desktop, android)
-      </td>
-
-      <td>
-        No
-      </td>
-    </tr>
-  </tbody>
-</Table>
+| Feature              | Chrome                                                | Firefox                           | Safari |
+| :------------------- | :---------------------------------------------------- | :-------------------------------- | :----- |
+| CTA                  | v53 and above (desktop, android)                      | No                                | No     |
+| Icon                 | v33 and above (desktop),<br />v42 and above (android) | v26 and above (desktop, android)  | No     |
+| Image                | v56 and above (desktop, android)                      | No                                | No     |
+| Requires Interaction | v47 and above (desktop, android)                      | v117 and above (desktop, android) | No     |
 
 For more information on the additional features, refer to [Notifications API](https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API).
 
@@ -156,21 +68,25 @@ Following are the four major steps involved in the Web Push configuration proces
 3. [Adding the Service Worker file ](doc:web-push#adding-the-service-worker-file)
 4. [Requesting User Permissions](doc:web-push#requesting-user-permissions)
 
-> 🚧 Note
->
-> If you are still using Chrome FCM or Safari APNS, refer to [Web Push (Legacy)](doc:web-push-legacy) for detailed steps. We recommend migrating to the latest protocols for enhanced functionality and support.
+<Callout icon="🚧" theme="warn">
+  ### Note
+
+  If you are still using Chrome FCM or Safari APNS, refer to [Web Push (Legacy)](doc:web-push-legacy) for detailed steps. We recommend migrating to the latest protocols for enhanced functionality and support.
+</Callout>
 
 ## Generating VAPID keys
 
 Generating VAPID keys is a one-time setup process. You can follow Legacy or VAPID protocol for generating VAPID keys.
 
-> ❗️ Version requirements for VAPID-based Web Push notifications
->
-> This feature is supported only in CleverTap Web SDK versions 1.1.0 and above. To check your Web SDK version, use the `clevertap.getSDKVersion` method.
+<Callout icon="❗️" theme="error">
+  ### Version requirements for VAPID-based Web Push notifications
+
+  This feature is supported only in CleverTap Web SDK versions 1.1.0 and above. To check your Web SDK version, use the `clevertap.getSDKVersion` method.
+</Callout>
 
 ### Using npm package web-push
 
-The VAPID keys can be generated using the npm package named web-push (recommended). 
+The VAPID keys can be generated using the npm package named web-push (recommended).
 
 For example, to add VAPID keys using the npm package, refer to `web-push generate-vapid-keys`:
 
@@ -183,14 +99,14 @@ dZq613Sfk_®_JCzqIFWhDtW6mabuR11VtEoBRXiSYA
 
 ### Using Firebase Console
 
-The public and private key pair can be generated from Firebase with the following steps: 
+The public and private key pair can be generated from Firebase with the following steps:
 
-1. In the Firebase console, navigate to your *Project* > *Project Settings* > *Cloud Messaging* > *Web Configuration*.
+1. In the Firebase console, navigate to your _Project_ > _Project Settings_ > _Cloud Messaging_ > _Web Configuration_.
 2. Click **Generate key pair**.
 
-<Image title="Generate Key Pair" alt={2880} align="center" border={true} src="https://files.readme.io/cd27210-New-New_API_Firebase.png">
-  Generating VAPID Keys
-</Image>
+
+<Image src="https://files.readme.io/cd27210-New-New_API_Firebase.png" alt="2880" align="center" border={true} />
+
 
 ## Uploading VAPID Keys in CleverTap
 
@@ -198,42 +114,42 @@ For all the browsers, user needs to enable the radio button to actually enable w
 
 #### Chrome
 
-1. In the CleverTap dashboard, navigate to *Settings* > *Engage* > *Channels* > *Web Push*. 
-2. Under the *Chrome Web Push* section, add your generated public and private key pairs.
+1. In the CleverTap dashboard, navigate to _Settings_ > _Engage_ > _Channels_ > _Web Push_.
+2. Under the _Chrome Web Push_ section, add your generated public and private key pairs.
 3. Click **Save**.
 
-<Image alt="Add Public and Private Key Pairs" align="center" width="80% " border={true} src="https://files.readme.io/9f34fdb7cfb7a2eb0788928c29e8c89303c12d65a11d8badb43c892ecf201bdd-image.png">
-  Add Public and Private Key Pairs for Chrome
-</Image>
+
+<Image src="https://files.readme.io/9f34fdb7cfb7a2eb0788928c29e8c89303c12d65a11d8badb43c892ecf201bdd-image.png" alt="Add Public and Private Key Pairs" align="center" width="80% " border={true} />
+
 
 #### Firefox
 
-1. In the CleverTap dashboard, navigate to *Settings* > *Engage* > *Channels* > *Web Push*. 
-2. Under the *Firefox Web Push* section, add your generated VAPID public and private key pairs. 
+1. In the CleverTap dashboard, navigate to _Settings_ > _Engage_ > _Channels_ > _Web Push_.
+2. Under the _Firefox Web Push_ section, add your generated VAPID public and private key pairs.
 3. Click **Save**.
 
-<Image title="Add VAPID Public and Private Key Pairs" alt={1448} align="center" width="80% " border={true} src="https://files.readme.io/d09620c-25.png">
-  Add Public and Private Key Pairs for Firefox
-</Image>
+
+<Image src="https://files.readme.io/d09620c-25.png" alt="1448" align="center" width="80% " border={true} />
+
 
 #### Safari
 
-1. In the CleverTap dashboard, navigate to *Settings* > *Engage* > *Channels* > *Web Push*. 
-2. Under the *Safari Web Push* section, add your generated public and private key pairs.
+1. In the CleverTap dashboard, navigate to _Settings_ > _Engage_ > _Channels_ > _Web Push_.
+2. Under the _Safari Web Push_ section, add your generated public and private key pairs.
 3. Click **Save**.
 
-<Image alt="Add Public and Private Keys for Safari" align="center" width="80% " border={true} src="https://files.readme.io/3f73fae16fd16cac26671c79b00dde290f507288f0c2726b6c6bec5f22d0353b-2025-01-23_21-15-19.png">
-  Add Public and Private Keys for Safari
-</Image>
+
+<Image src="https://files.readme.io/3f73fae16fd16cac26671c79b00dde290f507288f0c2726b6c6bec5f22d0353b-2025-01-23_21-15-19.png" alt="Add Public and Private Keys for Safari" align="center" width="80% " border={true} />
+
 
 ## Adding the Service Worker file
 
-This section applies to Chrome, Firefox, and Safari browsers. Browser push notifications uses 'Service Worker', a special script that listens for web pushes. Since the browser manages the execution of these scripts in the background, users can receive push notifications from your website even when they are not on your site. 
+This section applies to Chrome, Firefox, and Safari browsers. Browser push notifications uses 'Service Worker', a special script that listens for web pushes. Since the browser manages the execution of these scripts in the background, users can receive push notifications from your website even when they are not on your site.
 
 To get started, follow the steps below:
 
-1. Download the service worker file provided here - [clevertap\_sw.js](https://static.clevertap.com/docs/clevertap_sw.js) . 
-2. You must host this file in your document root. Keep the file name -  *clevertap\_sw\.js* to ensure all the functionalities work as expected.
+1. Download the service worker file provided here - [clevertap_sw.js](https://static.clevertap.com/docs/clevertap_sw.js) .
+2. You must host this file in your document root. Keep the file name -  _clevertap_sw\.js_ to ensure all the functionalities work as expected.
 3. Copy it to your website's document root to make it publicly accessible.
 
 ### Integration with Existing Service Worker File
@@ -244,9 +160,11 @@ Import CleverTap's service worker at the start of your existing service worker. 
 importScripts('https://s3-eu-west-1.amazonaws.com/static.wizrocket.com/js/sw_webpush.js');// remove CleverTap server worker from your root folder
 ```
 
-> 📘 Migrating Tokens with CleverTap
->
-> This script will also handle the migration of the tokens from your previous service provider. For more information about migration, refer to [Migrating from other services](https://developer.clevertap.com/docs/web-push#migrating-from-other-services).
+<Callout icon="📘" theme="info">
+  ### Migrating Tokens with CleverTap
+
+  This script will also handle the migration of the tokens from your previous service provider. For more information about migration, refer to [Migrating from other services](https://developer.clevertap.com/docs/web-push#migrating-from-other-services).
+</Callout>
 
 ## Requesting User Permissions
 
@@ -272,7 +190,7 @@ If a user blocks the native Chrome, Firefox, and Safari permissions pop-up, the 
 
 ### Permission Frequency
 
-To ensure that users are not asked for permission too frequently, our API ensures that calling `clevertap.notifications.push` does nothing if the user has rejected the dialog less than one week ago. Once a week has passed by, calling the function will display the dialog as expected. This eliminates the need for you to implement a separate check before calling the function. 
+To ensure that users are not asked for permission too frequently, our API ensures that calling `clevertap.notifications.push` does nothing if the user has rejected the dialog less than one week ago. Once a week has passed by, calling the function will display the dialog as expected. This eliminates the need for you to implement a separate check before calling the function.
 
 # Soft Prompt Setup
 
@@ -281,26 +199,36 @@ Before calling the Soft Prompt for Web Push, you must first enable it in the Cle
 1. From the CleverTap dashboard, go to Settings > Channels > Web push. Click Soft Prompt.
 2. Toggle the Card Popup radio button to enable the prompt.
 
-<Image alt="Soft Prompt" align="center" border={true} src="https://files.readme.io/920f9f1cc3d31ec0773c3e6dbc06d744785e610e3acbe45a5cf90a0cc9bbf6ac-image.png">
-  Soft Prompt
-</Image>
+
+<Image src="https://files.readme.io/920f9f1cc3d31ec0773c3e6dbc06d744785e610e3acbe45a5cf90a0cc9bbf6ac-image.png" alt="Soft Prompt" align="center" border={true} />
+
 
 3. Configure the prompt options as needed (title, body text, appearance, and so on).
 4. Save your changes.
 
 Once enabled, you can use the SDK to call the Soft Prompt in your app. For more information, refer to [Soft Prompt](https://docs.clevertap.com/docs/setup-web-push#soft-prompt).
 
-> 📘 Note
->
-> The setup step is required. If the Soft Prompt is not enabled in the dashboard, calling the prompt through the SDK will not display it.
+<Callout icon="📘" theme="info">
+  #### Note
+
+  The setup step is required. If the Soft Prompt is not enabled in the dashboard, calling the prompt through the SDK will not display it.
+</Callout>
+
+<Callout icon="🚧" theme="warn">
+  #### Custom VAPID key + soft prompt: requires Web SDK v2.7.1 or later
+
+  If you use a custom VAPID key with the soft prompt flow, upgrade to Web SDK v2.7.1 or later. Earlier versions may prevent the push permission prompt from appearing on retry. This issue does not apply if you do not use a custom VAPID key or use skipDialog: true.
+</Callout>
 
 # iOS/iPadOS Web Push Configurations
 
-Once you have completed the above steps, proceed with the following configurations to enable web push notifications on Safari for iOS and iPadOS devices. 
+Once you have completed the above steps, proceed with the following configurations to enable web push notifications on Safari for iOS and iPadOS devices.
 
-> 📘 Note
->
-> For Shopify Plugin customers, this feature is currently not supported out of the box. Please follow the steps below to enable web push for iOS and iPadOS.
+<Callout icon="📘" theme="info">
+  ### Note
+
+  For Shopify Plugin customers, this feature is currently not supported out of the box. Please follow the steps below to enable web push for iOS and iPadOS.
+</Callout>
 
 Following are the five major steps involved in the iOS/iPadOS Web Push configuration process:
 
@@ -347,21 +275,21 @@ Unlike significant browsers such as Chrome and Firefox, Safari on iOS/iPadOS req
 
 The "Add to Home Screen" feature allows users to bookmark your website and display your app’s icon on their home screen.
 
-<Image alt="Add to Home Screen" align="center" width="80% " border={true} src="https://files.readme.io/0195a67b0808b3b6d390b3a42645bed0daa2d0671fa0a633ade241d34c9489c6-76538E59-B9C5-4F89-B9F6-50C5338C7A17_1_201_a.jpeg">
-  Add to Home Screen
-</Image>
+
+<Image src="https://files.readme.io/0195a67b0808b3b6d390b3a42645bed0daa2d0671fa0a633ade241d34c9489c6-76538E59-B9C5-4F89-B9F6-50C5338C7A17_1_201_a.jpeg" alt="Add to Home Screen" align="center" width="80% " border={true} />
+
 
 ## Displaying the Native Push Prompt
 
 Web apps added to the Home Screen require direct user interaction to request push notification permissions.
 
-<Image alt="Native Prompt" align="center" width="40% " border={true} src="https://files.readme.io/48778db39d58dd75066fe0084272bdcec5f52b9ffad233428d8fa4cec8d6a851-F29AC9B4-B451-4165-9F4D-BB27B839665D_1_105_c.jpeg">
-  Native Prompt
-</Image>
 
-<Image alt="Push Notification Opt-In" align="center" width="40% " border={true} src="https://files.readme.io/2d6b2aa03765171747933b2e2a837a09671f911ccaa2d4cb8c820e7566b5a952-Image.jpeg">
-  Push Notification Opt-In
-</Image>
+<Image src="https://files.readme.io/48778db39d58dd75066fe0084272bdcec5f52b9ffad233428d8fa4cec8d6a851-F29AC9B4-B451-4165-9F4D-BB27B839665D_1_105_c.jpeg" alt="Native Prompt" align="center" width="40% " border={true} />
+
+
+
+<Image src="https://files.readme.io/2d6b2aa03765171747933b2e2a837a09671f911ccaa2d4cb8c820e7566b5a952-Image.jpeg" alt="Push Notification Opt-In" align="center" width="40% " border={true} />
+
 
 # Shopify Web Push Configurations for iOS/iPadOS
 
@@ -374,9 +302,9 @@ To configure Web Push for your Shopify website, follow these steps:
 
 You require a `manifest.json` file to enable Shopify web push configurations. Refer to the [manifest file](https://developer.clevertap.com/docs/web-push#creating-a-manifest-file) for iOS/iPadOS Web Push Configurations, and add it to your Shopify theme’s `assets` folder.
 
-<Image alt="Shopify Theme Folders" align="center" border={true} src="https://files.readme.io/4e3618f16bdb2cb6b4ebba11141f66634b33b69a73fe9631b0823fc81cd119dc-shopify_theme.png">
-  Shopify Theme Folders
-</Image>
+
+<Image src="https://files.readme.io/4e3618f16bdb2cb6b4ebba11141f66634b33b69a73fe9631b0823fc81cd119dc-shopify_theme.png" alt="Shopify Theme Folders" align="center" border={true} />
+
 
 ## Linking the Manifest File
 
@@ -386,15 +314,17 @@ Open the `theme.liquid` file in your Shopify folders. Add the following `<link>`
 <link rel="manifest" href="{{ 'manifest.json' | asset_url }}">
 ```
 
-<Image alt="Theme.Liquid File" align="center" border={true} src="https://files.readme.io/6adbdabdbb32a8a3c80340919982faa9430456ee2c784f8e236816b6e8f0e61e-theme.liquid_file.png">
-  Theme.Liquid File
-</Image>
 
-> 📘 Note
->
-> Beyond these two steps, no additional setup is required. Web Push prompts and permissions are handled during user interaction.
->
-> For more information about Shopify dashbaord, refer to [Shopify: Themes](https://shopify.dev/docs/storefronts/themes/tools/online-editor).
+<Image src="https://files.readme.io/6adbdabdbb32a8a3c80340919982faa9430456ee2c784f8e236816b6e8f0e61e-theme.liquid_file.png" alt="Theme.Liquid File" align="center" border={true} />
+
+
+<Callout icon="📘" theme="info">
+  ### Note
+
+  Beyond these two steps, no additional setup is required. Web Push prompts and permissions are handled during user interaction.
+
+  For more information about Shopify dashbaord, refer to [Shopify: Themes](https://shopify.dev/docs/storefronts/themes/tools/online-editor).
+</Callout>
 
 # Migrating from Other Services
 
@@ -406,11 +336,11 @@ The [parent service worker](https://developer.clevertap.com/docs/web#section-add
 
 **Case 1: Existing Users - Registered with the previous service provider**
 
-If a user has already accepted receiving Web Push notifications on your domain through previous service provider, calling clevertap.notifications.push will not display the soft-prompt to that particular user and the user token is migrated automatically to CleverTap. 
+If a user has already accepted receiving Web Push notifications on your domain through previous service provider, calling clevertap.notifications.push will not display the soft-prompt to that particular user and the user token is migrated automatically to CleverTap.
 
 **Case 2: Existing Users  - Not registered with the previous service provider**
 
-The user token is not generated if a user has declined to receive Web Push notifications on your domain through a previous service provider. Therefore, calling clevertap.notifications.push will not display the soft-prompt to that particular user. 
+The user token is not generated if a user has declined to receive Web Push notifications on your domain through a previous service provider. Therefore, calling clevertap.notifications.push will not display the soft-prompt to that particular user.
 
 **Case 3: New Users**
 
