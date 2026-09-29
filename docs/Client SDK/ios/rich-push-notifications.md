@@ -37,7 +37,9 @@ To configure rich push notifications, perform the following steps:
 1. Create a notification service extension in your Xcode project, and select _File_ > _New_ > _Target_.
 2. Select the _Notification Service Extension_ from the available extensions.
 
-<Image align="center" alt="Select Notification Service Extension" border={true} caption="Select Notification Service Extension" title="Notification Service Extension Template" src="https://files.readme.io/99f83fd-ios10.png" />
+
+<Image src="https://files.readme.io/99f83fd-ios10.png" alt="Select Notification Service Extension" align="center" caption="Select Notification Service Extension" border={true} />
+
 
 3. Install [CTNotificationService](https://github.com/CleverTap/CTNotificationService#configure-your-notification-service-extension-to-use-the-ctnotificationserviceextension-class) in the **Notification Service Extension**. You can install it manually via [CocoaPods](doc:ios-quickstart-guide#install-using-swift-package-manager)(recommended) or Carthage or SPM.
 
@@ -68,9 +70,11 @@ NSExtension > NSExtensionPrincipalClass = CTNotificationServiceExtension
 
 Alternatively, you can retain the `NSExtensionPrincipalClass` and extend `CTNotificationServiceExtension` in your `NotificationService class`. This allows you to override the default key names as required. In this case, override only the `didReceive(request:contentHandler:)` method, as shown in the example.
 
-> 🚧 Enable App Transport Security
->
-> If you plan to support non-SSL URLs, set _Allow Arbitrary Loads_ as **true** under _App Transport Security Settings_ in your `Info. list`. Since this reduces network security, you can use it only in trusted environments.
+<Callout icon="🚧" theme="warn">
+  ### Enable App Transport Security
+
+  If you plan to support non-SSL URLs, set _Allow Arbitrary Loads_ as **true** under _App Transport Security Settings_ in your `Info. list`. Since this reduces network security, you can use it only in trusted environments.
+</Callout>
 
 # Configure Notification Content Extension
 
@@ -93,7 +97,9 @@ To configure Notification Content Extension, perform the following steps:
 
 1. Create a Notification Content Extension in your Xcode project, select _File_ > _New_ > _Target_ and select the _Notification Content Extension_ template.
 
-<Image align="center" alt={1462} border={true} caption="Notification Content Extension Template" title="Notification Content Extension Template" src="https://files.readme.io/899cf2d-content_extension.png" />
+
+<Image src="https://files.readme.io/899cf2d-content_extension.png" alt="1462" align="center" caption="Notification Content Extension Template" border={true} />
+
 
 2. Run `pod install`.
 
@@ -127,9 +133,11 @@ UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotification
 
 For more information, refer to  [Sample plist](https://github.com/CleverTap/CTNotificationContent/blob/master/Example/NotificationContent/Info.plist).
 
-> 🚧 Downloading Media from Non-SSL URLs
->
-> If you plan to support non-SSL URLs, set _Allow Arbitrary Loads_ as **true** under _App Transport Security Settings_ in your `Info.plist`. You can use this only in trusted environments, since it reduces network security.
+<Callout icon="🚧" theme="warn">
+  ### Downloading Media from Non-SSL URLs
+
+  If you plan to support non-SSL URLs, set _Allow Arbitrary Loads_ as **true** under _App Transport Security Settings_ in your `Info.plist`. You can use this only in trusted environments, since it reduces network security.
+</Callout>
 
 # Send Rich Push Notifications from Dashboard
 
@@ -137,21 +145,29 @@ To create a Rich Push Notification campaign on the CleverTap dashboard, follow t
 
 1. Under the **WHAT** section, enter the required values in the **Title** and **Message** .
 
-<Image align="center" alt="Configure What Section" border={true} caption="Configure What Section" src="https://files.readme.io/5e7cbe693f836e822ffc6bcf7e0b5fb8d00446e970a50044d4c926b5808e5962-image.png" />
+
+<Image src="https://files.readme.io/5e7cbe693f836e822ffc6bcf7e0b5fb8d00446e970a50044d4c926b5808e5962-image.png" alt="Configure What Section" align="center" caption="Configure What Section" border={true} />
+
 
 2. Under _Rich media_, select either _Single Image_ or _Carousel_.
 
-> 🚧 Required Category Configuration
->
-> The category used while creating the campaign must match the category configured in the Notification Content target’s `Info.plist`. This step is mandatory.
+<Callout icon="🚧" theme="warn">
+  ### Required Category Configuration
 
-<Image align="center" alt="Configure Rich Push Notifications" border={true} caption="Configure Rich Push Notifications" src="https://files.readme.io/e5a8b402b185d436ca8feafb52a4ea58e8bec8775c226158606d5d515a250cb7-image.png" />
+  The category used while creating the campaign must match the category configured in the Notification Content target’s `Info.plist`. This step is mandatory.
+</Callout>
 
-> 📘 Custom Key-Value Pair
->
-> You can choose to add a custom key-value pair separately. To add the template keys separately or into one JSON object, use the `pt_json` key to fill in the values. For more information on template keys, refer to [Template Keys](https://github.com/CleverTap/CTNotificationContent#template-keys).
->
-> When using the CleverTap Server API to send push, include the **mutable-content**: **true** key-value pair in the platform-specific: iOS section of the request payload. For more information, refer to [Key-Value Pairs](doc:create-campaign-api#body-parameters---target-user-events--properties).
+
+<Image src="https://files.readme.io/e5a8b402b185d436ca8feafb52a4ea58e8bec8775c226158606d5d515a250cb7-image.png" alt="Configure Rich Push Notifications" align="center" caption="Configure Rich Push Notifications" border={true} />
+
+
+<Callout icon="📘" theme="info">
+  ### Custom Key-Value Pair
+
+  You can choose to add a custom key-value pair separately. To add the template keys separately or into one JSON object, use the `pt_json` key to fill in the values. For more information on template keys, refer to [Template Keys](https://github.com/CleverTap/CTNotificationContent#template-keys).
+
+  When using the CleverTap Server API to send push, include the **mutable-content**: **true** key-value pair in the platform-specific: iOS section of the request payload. For more information, refer to [Key-Value Pairs](doc:create-campaign-api#body-parameters---target-user-events--properties).
+</Callout>
 
 4. Schedule the Push Notification.
 
@@ -167,13 +183,17 @@ Rich Media templates allow you to include multimedia elements such as images, vi
 
 The Single Media template is designed for a focused notification experience. It displays a single image alongside your notification content, enhancing user engagement by providing a visually rich preview that complements the message. This template is ideal for promotions, announcements, product highlights, or event reminders.
 
-<Image align="center" alt="Rich Media - Single Image Template" border={true} caption="Rich Media - Single Image Template" src="https://files.readme.io/3c922ed781e4d576e5e37148b0e07044065e95a99a21dd716993a63721ce9058-image.png" width="35% " />
+
+<Image src="https://files.readme.io/3c922ed781e4d576e5e37148b0e07044065e95a99a21dd716993a63721ce9058-image.png" alt="Rich Media - Single Image Template" align="center" width="35% " caption="Rich Media - Single Image Template" border={true} />
+
 
 ### Content Slider
 
 The Content Slider template enables a dynamic and interactive notification experience by allowing users to swipe through a carousel of images, each with its unique messaging and call-to-action. This rich push format is ideal for showcasing multiple offers, features, or updates in a single notification, providing a multi-frame storytelling capability within the native iOS notification interface.
 
-<Image align="center" alt="Rich Media- Content Slider Template" border={true} caption="Rich Media- Content Slider Template" src="https://files.readme.io/d0f96e99f611aa88494ae96e9ec21e16b99345caa08928701c926501bdf47eeb-ContentSlider_Video_1.gif" width="35% " />
+
+<Image src="https://files.readme.io/d0f96e99f611aa88494ae96e9ec21e16b99345caa08928701c926501bdf47eeb-ContentSlider_Video_1.gif" alt="Rich Media- Content Slider Template" align="center" width="35% " caption="Rich Media- Content Slider Template" border={true} />
+
 
 ## Other Templates
 
@@ -183,13 +203,17 @@ Other Templates offer flexible notification formats beyond rich media, allowing 
 
 The Advanced Template is the most versatile notification format. It delivers an image-based message with optional text and background color customization. It is ideal for simple alerts, updates, or announcements that prioritize clarity and speed of delivery while still offering a branded look and feel through color customization.
 
-<Image align="center" alt="Advanced Template" border={true} caption="Advanced Template" src="https://files.readme.io/9b13568b7a332c96bf662eb7be98d65a674ac67ec8be93325f28c94bed89d039-image.png" width="35% " />
+
+<Image src="https://files.readme.io/9b13568b7a332c96bf662eb7be98d65a674ac67ec8be93325f28c94bed89d039-image.png" alt="Advanced Template" align="center" width="35% " caption="Advanced Template" border={true} />
+
 
 ### Auto Carousel Template
 
 The Auto Carousel template delivers an engaging and visually dynamic Push Notification through an automatic image slider. Unlike the manual content slider, this version cycles through multiple images automatically, drawing user attention without requiring interaction. Each slide can include custom text and background color options, directly allowing for a branded, animated storytelling format in the notification tray.
 
-<Image align="center" alt="Auto Carousel Template" border={true} caption="Auto Carousel Template" src="https://files.readme.io/4f0ade9accc6420cf683e1fbdfbb8e7b30bcf3686d1e387c981e6e789c31e875-autocarousel_video_1.gif" width="35% " />
+
+<Image src="https://files.readme.io/4f0ade9accc6420cf683e1fbdfbb8e7b30bcf3686d1e387c981e6e789c31e875-autocarousel_video_1.gif" alt="Auto Carousel Template" align="center" width="35% " caption="Auto Carousel Template" border={true} />
+
 
 ### Manual Carousel Template
 
@@ -197,30 +221,63 @@ The Manual Carousel template allows users to manually swipe or tap through image
 
 Unlike the Auto Carousel, this version allows users to navigate the content at their own pace, making it ideal for more detailed or exploratory messages.
 
-<Image align="center" alt="Manual Carousel Template" border={true} caption="Manual Carousel Template" src="https://files.readme.io/be9ecc9c923c45cf5922ffd0b8894c1cc31e65c56fc14c1d0949e9f0362f8b37-manualcarousel_video_1.gif" width="35% " />
+
+<Image src="https://files.readme.io/be9ecc9c923c45cf5922ffd0b8894c1cc31e65c56fc14c1d0949e9f0362f8b37-manualcarousel_video_1.gif" alt="Manual Carousel Template" align="center" width="35% " caption="Manual Carousel Template" border={true} />
+
+
+### Template Keys
+
+| Key                 | Required | Description                                                                                                               |
+| :------------------ | :------- | :------------------------------------------------------------------------------------------------------------------------ |
+| `pt_id`             | Required | Template type identifier. Value: `pt_manual_carousel`.                                                                    |
+| `pt_title`          | Required | Notification title.                                                                                                       |
+| `pt_msg`            | Required | Notification message.                                                                                                     |
+| `pt_msg_summary`    | Optional | Message line shown when the notification is expanded.                                                                     |
+| `pt_dl1`            | Required | Deep link for the first image. Used as the fallback deep link if `pt_dl2` or `pt_dl3` are not set.                        |
+| `pt_dl2`            | Optional | Deep link for the second image. Falls back to `pt_dl1` if not set. Available from CTNotificationContent v1.5.1 and above. |
+| `pt_dl3`            | Optional | Deep link for the third image. Falls back to `pt_dl1` if not set. Available from CTNotificationContent v1.5.1 and above.  |
+| `pt_img1`           | Required | URL of the first image.                                                                                                   |
+| `pt_img1_alt_text`  | Optional | Accessibility alt text for the first image.                                                                               |
+| `pt_img2`           | Required | URL of the second image.                                                                                                  |
+| `pt_img2_alt_text`  | Optional | Accessibility alt text for the second image.                                                                              |
+| `pt_img3`           | Required | URL of the third image.                                                                                                   |
+| `pt_img3_alt_text`  | Optional | Accessibility alt text for the third image.                                                                               |
+| `pt_bg`             | Optional | Background color in HEX.                                                                                                  |
+| `pt_bg_dark`        | Optional | Background color for dark mode in HEX.                                                                                    |
+| `pt_title_clr`      | Optional | Title color in HEX.                                                                                                       |
+| `pt_msg_clr`        | Optional | Message color in HEX.                                                                                                     |
+| `pt_title_clr_dark` | Optional | Title color for dark mode in HEX.                                                                                         |
+| `pt_msg_clr_dark`   | Optional | Message color for dark mode in HEX.                                                                                       |
+| `pt_json`           | Optional | All of the above keys in JSON format.                                                                                     |
 
 ### Timer Template
 
 This template features a live countdown timer. After the timer expires, you can show a different title, message, and background image.
 
-<Image align="center" alt="Timer Template" border={true} caption="Timer Template" src="https://files.readme.io/3b75c1c4f746501277267c9945b7f40dc480ab39e9a202c4ee1dc5f49f217cfe-timer_video_1.gif" width="35% " />
+
+<Image src="https://files.readme.io/3b75c1c4f746501277267c9945b7f40dc480ab39e9a202c4ee1dc5f49f217cfe-timer_video_1.gif" alt="Timer Template" align="center" width="35% " caption="Timer Template" border={true} />
+
 
 If the image is not downloaded, the template falls back to the basic template with only the Title and Message.
 
-> 👍 Theme-based Rendition
->
-> Push Notification appears dark or light based on the following settings in your iOS device:
->
-> * **Dark mode is enabled**- Notification renders in dark background.
-> * **Dark mode is disabled** - Notification renders in light background.
->
-> The templates also support custom color definitions that adapt to light and dark themes, ensuring visual consistency across modes.
+<Callout icon="👍" theme="okay">
+  ### Theme-based Rendition
+
+  Push Notification appears dark or light based on the following settings in your iOS device:
+
+  * **Dark mode is enabled**- Notification renders in dark background.
+  * **Dark mode is disabled** - Notification renders in light background.
+
+  The templates also support custom color definitions that adapt to light and dark themes, ensuring visual consistency across modes.
+</Callout>
 
 # GIF Support
 
 CleverTap supports GIFs in push templates starting with SDK version 1.2.0 on devices running iOS 10 or later. This allows you to add animated media to push notifications, enhancing user engagement through dynamic visuals.
 
-<Image align="center" border={true} width="35% " src="https://files.readme.io/97fee5e125d68f4efa6fd5c3010686239475d9d79a86a4b53f24972b0772244d-Screen_Recording_2026-03-05_at_4.11.41_PM_1.gif" className="border" />
+
+<Image src="https://files.readme.io/97fee5e125d68f4efa6fd5c3010686239475d9d79a86a4b53f24972b0772244d-Screen_Recording_2026-03-05_at_4.11.41_PM_1.gif" align="center" width="35% " border={true} />
+
 
 ## Specifications and Design Guidelines
 
@@ -239,7 +296,9 @@ CleverTap supports GIFs in push templates starting with SDK version 1.2.0 on dev
 
 Starting with v0.3.0, `CTNotificationContent` supports bold, italic, underline, and strikethrough HTML tags in **Title** and **Message** for rich push notifications. This allows you to format text and add visual emphasis to your rich push notifications.
 
-<Image align="center" alt="HTML Tags" border={true} caption="HTML Tags" src="https://files.readme.io/43b599b4f2e0d08ef65f92d2a53297f186e559e81d03e4bc769948a2b74a1eb3-Simulator_Screenshot_-_iPhone_16_Pro_-_2025-04-10_at_17.40.19.png" width="250px" />
+
+<Image src="https://files.readme.io/43b599b4f2e0d08ef65f92d2a53297f186e559e81d03e4bc769948a2b74a1eb3-Simulator_Screenshot_-_iPhone_16_Pro_-_2025-04-10_at_17.40.19.png" alt="HTML Tags" align="center" width="250px" caption="HTML Tags" border={true} />
+
 
 The following is a sample APN payload using the `pt_msg` key with HTML tags. The message supports bold, italic, underline, and font color styling.
 
