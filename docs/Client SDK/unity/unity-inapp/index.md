@@ -103,6 +103,22 @@ Resume paused In-App notifications. Use this to show notifications again when ap
 CleverTap.ResumeInAppNotifications();
 ```
 
+### Dismiss PIP In-App
+
+Available from Unity SDK v5.5.5 and above.
+
+Programmatically dismisses the currently visible PIP (Picture-in-Picture) in-app notification, freeing the display slot for the next queued in-app. This is a no-op on Native/Editor targets and when no PIP in-app is currently visible.
+
+```csharp C#
+CleverTap.DismissPipInApp();
+```
+
+<Callout icon="📘" theme="info">
+  ### Pairing with suspend/resume
+
+  Dismissing a PIP in-app frees the in-app display slot, so the next queued in-app (if any) may show immediately. To keep a screen clear of all in-apps, pair this call with `CleverTap.SuspendInAppNotifications()` on screen entry and `CleverTap.ResumeInAppNotifications()` on exit.
+</Callout>
+
 ## Header and Footer In-Apps for Android
 
 Unity generates Android apps using the`UnityPlayerActivity`, which extends the Android Activity class. However, CleverTap’s header and footer In-App notifications require the activity to extend `FragmentActivity`. This limitation prevents these In-App notifications from working by default in Unity-based Android apps.
@@ -115,7 +131,9 @@ To enable header and footer In-Apps in your Unity Android app, follow these step
 
 1. In the Unity Editor, go to _File_ >_Build Settings_, select the Android platform, and check the Export Project option. Click **Export**.
 
-<Image align="center" alt="Exporting Unity project for Android Studio" border={true} caption="Exporting Unity project for Android Studio" src="https://files.readme.io/f6e5759fd7b42d99f0756d71ac47da3f970bb178f1a2b1050bea83bcc29e031e-image.png" width="75% " />
+
+<Image src="https://files.readme.io/f6e5759fd7b42d99f0756d71ac47da3f970bb178f1a2b1050bea83bcc29e031e-image.png" alt="Exporting Unity project for Android Studio" align="center" width="75% " caption="Exporting Unity project for Android Studio" border={true} />
+
 
 2. Open the exported project in Android Studio and locate the `UnityPlayerActivity.java` file.
 3. Update the class to extend `FragmentActivity` instead of `Activity`, and add the required import:
