@@ -72,7 +72,7 @@ CleverTap.Unmute();
   #### Availability
 
   - This feature is available from Unreal SDK v1.3.0 and above.
-  - `Unmute()` is a no-op on iOS — the iOS CleverTap SDK does not support a mute state. The call compiles on all platforms but only has effect on Android (SDK 8.1.0+).
+  - `Unmute()` is a no-op on iOS, the iOS CleverTap SDK does not support a mute state. The call compiles on all platforms but only has effect on Android (SDK 8.1.0+).
 </Callout>
 
 ## Encrypt PII data
