@@ -18,7 +18,7 @@ App Inbox provides the ability to send permanent content directly to your app fr
 
 # App Inbox
 
-* The CleverTap SDK 3.4.0 and above, allows you to create App Inbox notifications for your users. 
+* The CleverTap SDK 3.4.0 and above, allows you to create App Inbox notifications for your users.
 * You can use the App Inbox provided by CleverTap or create your own
 * You can design App Inbox notifications right from the dashboard
 
@@ -213,7 +213,7 @@ func recordInboxNotificationViewedEventForID(messageId: String) {
 
 ### Notification Clicked Event
 
-You can raise the \_Notification Clicked \_event in the App Inbox using the `recordInboxNotificationClickedEventForID` method whenever the user clicks the App Inbox.
+You can raise the _Notification Clicked_ event in the App Inbox using the `recordInboxNotificationClickedEventForID` method whenever the user clicks the App Inbox.
 
 ```swift
 //Record Notification Clicked for App Inbox.
@@ -274,11 +274,11 @@ func messageDidSelect(_ message: CleverTapInboxMessage, at index: Int32, withBut
 }
 ```
 
-> 📘 Payload sent via`CleverTap.CleverTapInboxMessageTapped`
->
-> The `message` parameter represents the entire App Inbox Item object.\
-> The `contentPageIndex` parameter corresponds to the page index of the content, which ranges from 0 to n-1 (where n is the total number of pages for carousel templates). The non-carousel templates always have a value of 0, because they have only one page of content.\
-> The `buttonIndex` parameter corresponds to the App Inbox button (0, 1, or 2), that is clicked. A value of -1 in `buttonIndex` field indicates the entire App Inbox Item is clicked.
+<Callout icon="📘" theme="info">
+  ### Payload sent via`CleverTap.CleverTapInboxMessageTapped`
+
+  The `message` parameter represents the entire App Inbox Item object.<br />The `contentPageIndex` parameter corresponds to the page index of the content, which ranges from 0 to n-1 (where n is the total number of pages for carousel templates). The non-carousel templates always have a value of 0, because they have only one page of content.<br />The `buttonIndex` parameter corresponds to the App Inbox button (0, 1, or 2), that is clicked. A value of -1 in `buttonIndex` field indicates the entire App Inbox Item is clicked.
+</Callout>
 
 iOS SDK v3.7.1 and above supports callback on the click of App Inbox Notification Buttons by returning a map of Key-Value pairs. Use the following method:
 
@@ -326,3 +326,14 @@ if (url)
 [[CleverTap sharedInstance] dismissAppInbox];      
 }
 ```
+
+## Accessibility
+
+App Inbox messages include the following built-in accessibility improvements:
+
+- **VoiceOver labels**: All interactive elements in App Inbox cells carry descriptive accessibility labels for VoiceOver navigation.
+- **Image content descriptions**: Images in App Inbox messages expose accessibility descriptions for screen readers.
+
+<br />
+
+<br />
