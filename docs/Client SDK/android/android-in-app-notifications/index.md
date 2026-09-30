@@ -32,6 +32,39 @@ In these types of cases, the splash screen must be excluded. Mention the _Activi
     android:value="YourSplashActivity1, YourSplashActivity2" />
 ```
 
+## Fragmentless Banners (Game Engine Integration)
+
+By default, CleverTap renders the HTML header and footer banner in-apps as fragments inside the host `FragmentActivity`. If your integration uses a non-`FragmentActivity` host, for example, a Unity or Unreal Engine game engine wrapper that drives rendering via a `SurfaceView`, Fragments composited over a GL surface can render unreliably.
+
+The `CLEVERTAP_INAPP_FRAGMENTLESS_BANNERS` manifest flag switches the HTML header and footer banners to a `WindowManager` overlay instead of a content-view fragment, making them compatible with non-`FragmentActivity` hosts.
+
+<Callout icon="📘" theme="info">
+  #### Availability
+
+  Fragmentless Banners are available from Android SDK 8.4.0.
+</Callout>
+
+Add the following entry to your `AndroidManifest.xml`:
+
+```xml
+<meta-data
+    android:name="CLEVERTAP_INAPP_FRAGMENTLESS_BANNERS"
+    android:value="1" />
+```
+
+<Callout icon="📘" theme="info">
+  ### Scope
+
+  - This flag affects only HTML header and footer banner in-app types (`CTInAppTypeHeaderHTML`, `CTInAppTypeFooterHTML`). Cover, Interstitial, and Half-Interstitial HTML types are not affected and continue to render via `InAppNotificationActivity`.
+  - The flag is only activated by the string value `"1"`. Setting `android:value="true"` or a boolean will not enable it.
+</Callout>
+
+<Callout icon="🚧" theme="warn">
+  ### Regular Integrations
+
+  This flag is intended only for game-engine wrapper integrations that cannot use a `FragmentActivity` host. Do not set it for standard Android integrations.
+</Callout>
+
 ## Control In-App Notifications
 
 With CleverTap Android SDK 4.2.0 and above, you can control the rendering of In-App notifications by calling the following methods:
@@ -181,6 +214,8 @@ Android SDK v3.5.0 and above supports embedding JavaScript code inside custom In
 
 <Image src="https://files.readme.io/185fa3f-image_1.png" alt="Custom HTML Template in In-App Notifications" align="center" caption="Custom HTML Template in In-App Notifications" border={true} />
 
+
+<br />
 
 
 <Image src="https://files.readme.io/3edcde1-image_2.png" alt="Include JavaScript in In-App Notifications" align="center" caption="Include JavaScript in In-App Notifications" border={true} />
