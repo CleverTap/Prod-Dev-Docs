@@ -561,7 +561,21 @@ The [Push Permission function ](https://github.com/CleverTap/clevertap-ios-sdk/b
 The App Rating function invokes the native iOS app rating prompt. It helps gather user feedback within the app experience by prompting users at contextually relevant moments, such as after a successful transaction or a positive interaction. When displayed, it automatically records the _Notification Viewed_ event to measure user engagement with the prompt.
 
 <Callout icon="📘" theme="info">
-  ### Apple Rating Prompt Limits
+  #### Apple Rating Prompt Limits
 
   Apple limits rating prompts to three per user per year. Avoid prompting immediately on app launch.<br />For more information, refer to [Apple’s App Review documentation](https://developer.apple.com/documentation/storekit/requesting-app-store-reviews#Overview).
+</Callout>
+
+## Accessibility
+
+The in-app notifications include the following built-in accessibility improvements:
+
+- **VoiceOver labels**: All interactive elements in native in-app notifications have descriptive accessibility labels for VoiceOver navigation.
+- **Larger dismiss-button tap target**: The dismiss button has an enlarged tap area, improving usability for users with motor impairments.
+- **Image content descriptions**: Images in in-app notifications expose accessibility descriptions for screen readers.
+
+<Callout icon="📘" theme="info">
+  #### Availability
+
+  These accessibility improvements are available from iOS SDK v7.8.0. No integration changes are required.
 </Callout>
