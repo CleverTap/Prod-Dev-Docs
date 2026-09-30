@@ -334,6 +334,8 @@ App Inbox messages include the following built-in accessibility improvements:
 - **VoiceOver labels**: All interactive elements in App Inbox cells carry descriptive accessibility labels for VoiceOver navigation.
 - **Image content descriptions**: Images in App Inbox messages expose accessibility descriptions for screen readers.
 
-<br />
+<Callout icon="📘" theme="info">
+  #### Availability
 
-<br />
+  These accessibility improvements are available from iOS SDK v7.8.0. No integration changes are required.
+</Callout>
