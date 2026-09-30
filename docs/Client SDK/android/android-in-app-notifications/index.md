@@ -131,6 +131,27 @@ CleverTapAPI.getDefaultInstance(ctx)!!.resumeInAppNotifications()
 CleverTapSingleton.getDefaultInstance(ctx).resumeInAppNotifications();
 ```
 
+### Dismiss PIP In-App
+
+The `dismissPipInApp()` method programmatically dismisses the currently visible PIP (Picture-in-Picture) in-app notification. It is a no-op if no in-app is currently displayed or if the visible in-app is not a PIP type.
+
+```swift
+CleverTap.sharedInstance()?.dismissPipInApp()
+```
+```objectivec
+#import <CleverTapSDK/CleverTap+InAppNotifications.h>
+[[CleverTap sharedInstance] dismissPipInApp];
+```
+
+When called, the SDK fires a Notification Clicked event with `wzrk_element_id = "dismissApi"` and `wzrk_c2a = "Dismiss PiP API"`. This is the same Notification Clicked path used by the dismiss button and gesture-based dismissals, distinguished by the `wzrk_element_id` and `wzrk_c2a` values.
+
+<Callout icon="📘" theme="info">
+  #### PIP In-App Notes
+
+  - Dismissing a PIP in-app frees the in-app display slot, so the next queued in-app (if any) may show immediately. To keep a screen clear of all in-apps, pair this call with `suspendInAppNotifications()` on screen entry and `resumeInAppNotifications()` on exit.
+  - The `dismissPipInApp()` method is available from iOS SDK v7.8.1.
+</Callout>
+
 ## Callbacks for In-App Notifications
 
 Implement the `InAppNotificationListener` interface to control and respond to the In-App notification lifecycle. This includes rendering logic, display tracking, and dismissal handling.
