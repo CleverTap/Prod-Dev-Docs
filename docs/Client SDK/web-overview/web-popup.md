@@ -30,9 +30,9 @@ CleverTap web pop-ups come in two types:
 <Callout icon="📘" theme="info">
   ### Exit intent
 
-  You can use exit intent to trigger Advanced Web Pop-ups when a user moves the pointer outside the browser window.
-
-  Exit intent is supported for Advanced Web Pop-up Builder templates from Web SDK v2.6.4.
+  - You can use exit intent to trigger Advanced Web Pop-ups when a user moves the pointer outside the browser window.
+  - Exit intent is compatible with the following Web pop-up template types: Box, Banner, Image Only, and Advanced Web Popup Builder.
+  - Exit intent is supported for Advanced Web Pop-up Builder templates from Web SDK v2.6.4.
 </Callout>
 
 User clicks on a web notification can be silent, open a URL, or invoke a JavaScript function. Custom key-value pairs can also be passed to the invoked JavaScript function. You may also include a pre-set or custom image to be displayed in the notification.
