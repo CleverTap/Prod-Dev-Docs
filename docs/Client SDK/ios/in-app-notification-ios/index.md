@@ -16,14 +16,15 @@ next:
 
 The CleverTap iOS SDK allows you to show In-App notifications to your users, and it provides the capability to send In-App messages with images, GIFs, video, and audio. You can design In-App notifications directly from the dashboard, without writing a single line of code. You can also run A/B tests on your In-Apps.
 
-> 📘 Platform Limitation
->
-> In-App Notifications are not supported inside App Extensions, tvOS and watchOS apps.
+<Callout icon="📘" theme="info">
+  ### Platform Limitation
+
+  In-App Notifications are not supported inside App Extensions, tvOS and watchOS apps.
+</Callout>
 
 # In-App Notification Callbacks
 
-You can track user interactions with In-App Notifications using delegate methods provided by the CleverTap iOS SDK.  
-These callbacks notify your app when a user **views**, **dismisses**, or **taps** an In-App Notification.
+You can track user interactions with In-App Notifications using delegate methods provided by the CleverTap iOS SDK.<br />These callbacks notify your app when a user **views**, **dismisses**, or **taps** an In-App Notification.
 
 To use callbacks, implement the `CleverTapInAppNotificationDelegate` protocol in your class and define the following methods:
 
@@ -178,9 +179,11 @@ class MyViewController: UIViewController, CleverTapInAppNotificationDelegate {
 @end
 ```
 
-> ❗️ Warning
->
-> Always register the delegate **before** an In-App Notification is triggered. Otherwise, callbacks may not be received.
+<Callout icon="❗️" theme="error">
+  ### Warning
+
+  Always register the delegate **before** an In-App Notification is triggered. Otherwise, callbacks may not be received.
+</Callout>
 
 ### Troubleshooting
 
@@ -190,13 +193,56 @@ class MyViewController: UIViewController, CleverTapInAppNotificationDelegate {
 | Empty extras dictionary | No key–value pairs configured | Add custom key–value pairs when creating the campaign in the dashboard.              |
 | Button tap not detected | Using an older SDK version    | Upgrade to iOS SDK v3.7.1 or higher.                                                 |
 
+## Per-Element Click Attribution
+
+The Notification Clicked event for in-app notifications carries three new properties that identify exactly which element the user interacted with and what action it triggered. This enables per-element attribution across both native and custom HTML in-app types.
+
+### New Notification Clicked Properties
+
+| Property          | Type             | Description                                                                                                                                                                                                                                          |
+| ----------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `wzrk_element_id` | String           | Identifies the UI element that was tapped. Common values: `closeButton` (the dismiss button), `image-1` (an image element), `dismissApi` (a programmatic dismiss). For custom HTML in-apps, this is the `buttonId` you pass to `triggerInAppAction`. |
+| `wzrk_action`     | String           | The action type triggered. One of: `close`, `url`, `kv`, `custom-code`, `rfp`.                                                                                                                                                                       |
+| `wzrk_data`       | String or Object | The action payload, keyed off `wzrk_action`. For `url`: the destination URL string. For `kv`: a key-value dictionary. For `custom-code`: the template function name. For `close`: the literal string `"close"`.                                      |
+
+### Dismiss Gestures
+
+Users can dismiss in-app notifications by tapping outside the notification area or swiping down. Both gestures are **enabled by default** and fire a Notification Clicked event.
+
+To disable either gesture at the campaign level, set the corresponding JSON key in the campaign payload:
+
+| Gesture                | Campaign JSON key     | Default          |
+| ---------------------- | --------------------- | ---------------- |
+| Tap outside to dismiss | `tap_outside_dismiss` | `true` (enabled) |
+| Swipe to dismiss       | `swipe_to_dismiss`    | `true` (enabled) |
+
+Set the key to `false` to disable the gesture for a specific campaign.
+
+#### Distinguishing Dismissals in Analytics
+
+All gesture-based and button-based dismissals fire Notification Clicked, not a separate event type. To distinguish them in analytics, filter by `wzrk_c2a`:
+
+* `"Tap Outside to Dismiss"` - user tapped outside the notification
+* `"Swipe to Dismiss"` - user swiped to close
+* `"Dismiss Button"` - user tapped the explicit close button
+
+The CleverTap dashboard's **Split of Clicks** tab automatically groups these values.
+
+<Callout icon="📘" theme="info">
+  ### Per-Element Click Attribution Availability
+
+  This feature and Dismiss Gestures are available from iOS SDK v7.8.0 and later.
+</Callout>
+
 # Control In-App Notifications
 
 For CleverTap iOS SDK 3.10.0 and above, you can suspend, discard, or resume in-app notifications.
 
-> 📘 Note
->
-> The CleverTap SDK automatically resumes displaying the in-app notification after every new session.
+<Callout icon="📘" theme="info">
+  ### Note
+
+  The CleverTap SDK automatically resumes displaying the in-app notification after every new session.
+</Callout>
 
 You can control the in-app notifications in the following ways:
 
@@ -241,8 +287,7 @@ CleverTap.sharedInstance()?.discard(inAppNotifications: true)
 
 ### Resume
 
-The `resumeInAppNotifications` method resumes displaying in-app notifications.  
-If you call this method after the `discardInAppNotifications()` method, it resumes the in-app notifications for events raised after the call is performed.
+The `resumeInAppNotifications` method resumes displaying in-app notifications.<br />If you call this method after the `discardInAppNotifications()` method, it resumes the in-app notifications for events raised after the call is performed.
 
 However, if you call the resumeInAppNotifications method after the suspendInAppNotifications() method, then it displays all queued in-app notifications and also resumes in-app notifications for events raised after the call is performed.
 
@@ -254,9 +299,11 @@ CleverTap.sharedInstance()?.resumeInAppNotifications()
 [[CleverTap sharedInstance] resumeInAppNotifications];
 ```
 
-> 📘 Note
->
-> The `showInAppNotificationIfAny` method will be deprecated soon.  Use the `resumeInAppNotifications` method to manually display the pending in-app notifications.
+<Callout icon="📘" theme="info">
+  ### Note
+
+  The `showInAppNotificationIfAny` method will be deprecated soon.  Use the `resumeInAppNotifications` method to manually display the pending in-app notifications.
+</Callout>
 
 # Custom Handling Deeplink
 
@@ -292,9 +339,13 @@ public func shouldHandleCleverTap(_ url: URL?, for channel: CleverTapChannel) ->
 
 CleverTap iOS SDK v3.5.0 and above supports embedding JavaScript code inside Custom In-Apps. To make sure your JavaScript code works on the app, while creating the In-App campaign, select the checkbox for Enabling JavaScript during the In-App campaign creation
 
-<Image align="center" alt={2870} border={true} caption="Custom HTML Templates in In-App Notification" title="Custom HTML Templates in In-App Notification" src="https://files.readme.io/d45b488-185fa3f-image_1.png" />
 
-<Image align="center" alt="Include JavaScript in In-App Notifications" border={true} caption="Include JavaScript in In-App Notifications" src="https://files.readme.io/61ffc95-small-iOS_CustomHTML_inApp.png" />
+<Image src="https://files.readme.io/d45b488-185fa3f-image_1.png" alt="2870" align="center" caption="Custom HTML Templates in In-App Notification" border={true} />
+
+
+
+<Image src="https://files.readme.io/61ffc95-small-iOS_CustomHTML_inApp.png" alt="Include JavaScript in In-App Notifications" align="center" caption="Include JavaScript in In-App Notifications" border={true} />
+
 
 All methods are explained with examples below:
 
@@ -384,9 +435,11 @@ if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandl
 }
 ```
 
-> 📘 Inline Media
->
-> To add inline media support in custom HTML for in-app notifications, add the key playsinline with value as 1 or true as a query parameter in your media URL. For example, watch this [YouTube video](https://www.youtube.com/watch?v=RUvrypIAPbg?playsinline=1). This functionality is available for CleverTap iOS SDK 3.7.2 and above.
+<Callout icon="📘" theme="info">
+  ### Inline Media
+
+  To add inline media support in custom HTML for in-app notifications, add the key playsinline with value as 1 or true as a query parameter in your media URL. For example, watch this [YouTube video](https://www.youtube.com/watch?v=RUvrypIAPbg?playsinline=1). This functionality is available for CleverTap iOS SDK 3.7.2 and above.
+</Callout>
 
 ## JavaScript Button Actions in Custom HTML In-Apps
 
@@ -405,9 +458,11 @@ window.webkit.messageHandlers.clevertap.postMessage({
 });
 ```
 
-> 📘 Note
->
-> Always verify that `window.webkit.messageHandlers.clevertap` is available before invoking this method. To detect the iOS environment in a shared HTML template, check `window.cleverTapIOSSDKVersion`, which is injected by the iOS SDK.
+<Callout icon="📘" theme="info">
+  ### Note
+
+  Always verify that `window.webkit.messageHandlers.clevertap` is available before invoking this method. To detect the iOS environment in a shared HTML template, check `window.cleverTapIOSSDKVersion`, which is injected by the iOS SDK.
+</Callout>
 
 ### Parameters
 
@@ -505,7 +560,8 @@ The [Push Permission function ](https://github.com/CleverTap/clevertap-ios-sdk/b
 
 The App Rating function invokes the native iOS app rating prompt. It helps gather user feedback within the app experience by prompting users at contextually relevant moments, such as after a successful transaction or a positive interaction. When displayed, it automatically records the _Notification Viewed_ event to measure user engagement with the prompt.
 
-> 📘 Apple Rating Prompt Limits
->
-> Apple limits rating prompts to three per user per year. Avoid prompting immediately on app launch.  
-> For more information, refer to [Apple’s App Review documentation](https://developer.apple.com/documentation/storekit/requesting-app-store-reviews#Overview).
+<Callout icon="📘" theme="info">
+  ### Apple Rating Prompt Limits
+
+  Apple limits rating prompts to three per user per year. Avoid prompting immediately on app launch.<br />For more information, refer to [Apple’s App Review documentation](https://developer.apple.com/documentation/storekit/requesting-app-store-reviews#Overview).
+</Callout>
