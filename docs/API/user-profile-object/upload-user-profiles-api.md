@@ -19,7 +19,7 @@ Uploading user profiles to CleverTap requires a POST request with a JSON payload
 <Callout icon="📘" theme="info">
   ### **Concurrent Requests**
 
-  Concurrent requests to the _Upload User Profiles_ API are limited to 3 per account by default. Requests that exceed the limit will return a 429 HTTP response code.
+  Concurrent requests to the _Upload User Profiles_ API are limited to 15 per account by default. Requests that exceed the limit will return a 429 HTTP response code.
 </Callout>
 
 For more information on request limits, refer to [API Request Limit](doc:api-request-limit).
@@ -480,5 +480,3 @@ The following table lists the error codes returned by this API:
 | 200         | `"513 - Trying to raise a restricted system event"`           | Attempt to upload a reserved event            | `{"status":"fail","code":513,"error":"...","record":{...}}`                           |
 | 200         | `"512 - Only Items can have a nested structure..."`           | Nested object used in non-items field         | `{"status":"fail","code":512,"error":"...","record":{...}}`                           |
 | 200         | `"522 - Cannot have more than N properties."`                 | Event exceeds property limit (default: 100)   | `{"status":"fail","code":522,"error":"...","record":{...}}`                           |
-
-<br />
