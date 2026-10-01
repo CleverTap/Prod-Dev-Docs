@@ -671,15 +671,15 @@ For the message and code returned on a rejection, refer to the Errors section be
 
 The following table lists the errors specific to the Points Validation API:
 
-| Scenario                                                                                                | Message                                                                                                    |
-| ------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `pointsRequested` is missing, zero, negative, or a fractional value.                                    | pointsRequested must be a whole number                                                                     |
-| Request schema validation failure, including a missing or invalid `saleAmount` or a data type mismatch. | Varies by field. For example, saleAmount is required.                                                      |
-| The wallet exists but has no redemption rule configured.                                                | This wallet does not have redemption rules configured                                                      |
-| The points requested exceed the user's active balance.                                                  | Insufficient balance, you only have {activePoints} points available                                        |
-| The active balance is below the configured minimum points balance.                                      | You need at least {X} active points to redeem                                                              |
-| The calculated discount exceeds the configured maximum points discount per order.                       | You can redeem up to {maxPointsToDebit} points ({currency}{maxPointsDiscount}) on this order               |
-| A key configured on a qualification rule is missing from the payload.                                   | {property} is required. The API rejects the request on the first failure and returns only one missing key. |
+| Scenario                                                                                                | Message                                                                                               |
+| ------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `pointsRequested` is missing, zero, negative, or a fractional value.                                    | pointsRequested must be a whole number                                                                |
+| Request schema validation failure, including a missing or invalid `saleAmount` or a data type mismatch. | Varies by field. For example, saleAmount is required.                                                 |
+| The wallet exists but has no redemption rule configured.                                                | This wallet does not have redemption rules configured                                                 |
+| The points requested exceed the user's active balance.                                                  | Insufficient balance, you only have {activePoints} points available                                   |
+| The active balance is below the configured minimum points balance.                                      | You need at least {X} active points to redeem                                                         |
+| The calculated discount exceeds the configured maximum points discount per order.                       | You can redeem up to {maxPointsToDebit} points ({currency}{maxPointsDiscount}) on this order          |
+| A key configured on a qualification rule is missing from the payload.                                   | {property} is required. The API rejects the request on the first failure and returns the missing key. |
 
 For errors applicable to all CleverTap API requests, refer to [API Error Cases](doc:api-error-cases).
 
