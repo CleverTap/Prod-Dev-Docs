@@ -689,5 +689,5 @@ Cart and product qualification failures return one of two formats, depending on 
 
 | Number of Failing Conditions | Format                                                   | Example                                   |
 | ---------------------------- | -------------------------------------------------------- | ----------------------------------------- |
-| One                          | `{property} must {operator phrase} {configured value}`   | Enter a whole number                      |
-| More than one                | enter a value with up to {decimal_places} decimal places | Enter a value with up to 2 decimal places |
+| One                          | Enter a whole number                                     | Enter a whole number                      |
+| More than one                | Enter a value with up to {decimal_places} decimal places | Enter a value with up to 2 decimal places |
