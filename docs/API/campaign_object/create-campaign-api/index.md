@@ -2967,6 +2967,20 @@ Following is the JSON payload for WhatsApp interactive message templates:
 
 ```
 
+<Callout icon="🚧" theme="warn">
+  #### Empty values in  `profile_fields`
+
+  Avoid using empty or blank values (`""`) as targeting values in a `profile_fields` condition. Always set a specific value that matches who you intend to target. This applies across all profile attributes.
+
+  Leaving a value empty does not result into an error, but it changes the caondition for the target audience. The operators behave differently when the value is empty:
+
+  - `not_equals` with `value: ""` matches all users whose field value is anything other than an empty string.
+  - `contains` or `starts_with` with `value: ""` matches all users who have that field populated with any values.
+  - `equals` with `value: ""` matches no one.
+
+  For example, use a specific value such as `"value": "example@email.com"`, or a valid condition such as `"operator": "contains", "value": "@domain.com"`, never an empty string.
+</Callout>
+
 ## Time in User Property Object
 
 The `time_in_user_property` block can be added inside the `when` object for `later` and `recurring` campaign types. It instructs CleverTap to schedule message delivery for each user based on a time value stored in a user profile property, rather than a fixed send time.
@@ -3260,15 +3274,15 @@ The Generic Sample Campaign API includes configurations for without Key Values, 
 
       <td>
         `{
-                                                                                                                                                                                                                                                                          "event_name": "Charged",
-                                                                                                                                                                                                                                                                          "from": 20251001,
-                                                                                                                                                                                                                                                                          "to": 20251220,
-                                                                                                                                                                                                                                                                          "common_profile_properties": {
-                                                                                                                                                                                                                                                                            "profile_fields": {
-                                                                                                                                                                                                                                                                              "field_name": "value"
-                                                                                                                                                                                                                                                                            }
-                                                                                                                                                                                                                                                                          }
-                                                                                                                                                                                                                                                                        }`
+                                                                                                                                                                                                                                                                                  "event_name": "Charged",
+                                                                                                                                                                                                                                                                                  "from": 20251001,
+                                                                                                                                                                                                                                                                                  "to": 20251220,
+                                                                                                                                                                                                                                                                                  "common_profile_properties": {
+                                                                                                                                                                                                                                                                                    "profile_fields": {
+                                                                                                                                                                                                                                                                                      "field_name": "value"
+                                                                                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                                                                                  }
+                                                                                                                                                                                                                                                                                }`
       </td>
     </tr>
 
