@@ -161,9 +161,11 @@ It supports filtering on Operating System (OS) Version, Version (refers to app v
 * It supports querying custom profile fields.
 * It supports the following System Properties: Email and Phone
 
-> 📘 Note
->
-> Profile properties such as Name and Identity are not supported.
+<Callout icon="📘" theme="info">
+  ### Note
+
+  Profile properties such as Name and Identity are not supported.
+</Callout>
 
 To download based on email/identity, refer [here](https://developer.clevertap.com/docs/get-user-profiles-api#section-download-user-profiles-by-id).
 
@@ -180,6 +182,20 @@ To download based on email/identity, refer [here](https://developer.clevertap.co
     }
 }
 ```
+
+<Callout icon="🚧" theme="warn">
+  ### Empty values in  `profile_fields`
+
+  Avoid using empty or blank values (`""`) as targeting values in a `profile_fields` condition. Always set a specific value that matches who you intend to target. This applies across all profile attributes.
+
+  Leaving a value empty does not result into an error, but it changes the caondition for the target audience. The operators behave differently when the value is empty:
+
+  - `not_equals` with `value: ""` matches all users whose field value is anything other than an empty string.
+  - `contains` or `starts_with` with `value: ""` matches all users who have that field populated with any values.
+  - `equals` with `value: ""` matches no one.
+
+  For example, use a specific value such as `"value": "example@domain.com"`, or  `"operator": "contains", "value": "@domain.com"`, not an empty string.
+</Callout>
 
 ### demographics
 
@@ -277,7 +293,7 @@ It supports filtering on the following:
 
 ### geo_fields
 
-It supports filtering on geolocation information. It must be formatted as one or more Array(s) of Strings, each of size 1, 2, or 3, in [Country, Region, City] format.
+It supports filtering on geolocation information. It must be formatted as one or more Array(s) of Strings, each of size 1, 2, or 3, in \[Country, Region, City] format.
 
 ```json
 {
@@ -300,7 +316,7 @@ It supports filtering on geolocation information. It must be formatted as one or
 
 ### geo_radius
 
-It supports filtering on geo radius. It must be formatted as one or more Array(s) of numbers (Int/Double), each of size 3, in [Latitude, Longitude, Radius] format.
+It supports filtering on geo radius. It must be formatted as one or more Array(s) of numbers (Int/Double), each of size 3, in \[Latitude, Longitude, Radius] format.
 
 Radius is expressed in kilometers.
 
@@ -368,7 +384,8 @@ Use this to filter users based on their assigned bucket values. You can specify 
   }
   ```
 
-  <br />
+
+
 * **Range with Operator**
   ```json
   {
@@ -380,7 +397,8 @@ Use this to filter users based on their assigned bucket values. You can specify 
     }
   }
   ```
-  <br />
+
+
 * **Explicit List with Inversion**
   ```json
   {
@@ -392,7 +410,7 @@ Use this to filter users based on their assigned bucket values. You can specify 
     }
   }
   ```
-  <br />
+
 
 #### Rules
 
