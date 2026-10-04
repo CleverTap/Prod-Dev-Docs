@@ -184,7 +184,7 @@ To download based on email/identity, refer [here](https://developer.clevertap.co
 ```
 
 <Callout icon="🚧" theme="warn">
-  ### Empty values in  `profile_fields`
+  #### Empty values in  `profile_fields`
 
   Avoid using empty or blank values (`""`) as targeting values in a `profile_fields` condition. Always set a specific value that matches who you intend to target. This applies across all profile attributes.
 
