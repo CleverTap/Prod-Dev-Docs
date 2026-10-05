@@ -2976,7 +2976,7 @@ Following is the JSON payload for WhatsApp interactive message templates:
 
   - `not_equals` with `value: ""` matches all users whose field value is anything other than an empty string.
   - `contains` or `starts_with` with `value: ""` matches all users who have that field populated with any values.
-  - `equals` with `value: ""` matches no one.
+  - `equals` with `value: ""` matches all users.
 
   For example, use a specific value such as `"value": "example@email.com"`, or a valid condition such as `"operator": "contains", "value": "@domain.com"`, never an empty string.
 </Callout>
@@ -3274,15 +3274,15 @@ The Generic Sample Campaign API includes configurations for without Key Values, 
 
       <td>
         `{
-                                                                                                                                                                                                                                                                                  "event_name": "Charged",
-                                                                                                                                                                                                                                                                                  "from": 20251001,
-                                                                                                                                                                                                                                                                                  "to": 20251220,
-                                                                                                                                                                                                                                                                                  "common_profile_properties": {
-                                                                                                                                                                                                                                                                                    "profile_fields": {
-                                                                                                                                                                                                                                                                                      "field_name": "value"
-                                                                                                                                                                                                                                                                                    }
-                                                                                                                                                                                                                                                                                  }
-                                                                                                                                                                                                                                                                                }`
+                                                                                                                                                                                                                                                                                          "event_name": "Charged",
+                                                                                                                                                                                                                                                                                          "from": 20251001,
+                                                                                                                                                                                                                                                                                          "to": 20251220,
+                                                                                                                                                                                                                                                                                          "common_profile_properties": {
+                                                                                                                                                                                                                                                                                            "profile_fields": {
+                                                                                                                                                                                                                                                                                              "field_name": "value"
+                                                                                                                                                                                                                                                                                            }
+                                                                                                                                                                                                                                                                                          }
+                                                                                                                                                                                                                                                                                        }`
       </td>
     </tr>
 
