@@ -193,6 +193,7 @@ To download based on email/identity, refer [here](https://developer.clevertap.co
   - `not_equals` with `value: ""` matches all users whose field value is anything other than an empty string.
   - `contains` or `starts_with` with `value: ""` matches all users who have that field populated with any values.
   - `equals` with `value: ""` matches all users.
+  - This applies to Event properties as well.
 
   For example, use a specific value such as `"value": "example@domain.com"`, or  `"operator": "contains", "value": "@domain.com"`, not an empty string.
 </Callout>
