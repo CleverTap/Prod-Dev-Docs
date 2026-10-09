@@ -292,19 +292,19 @@ Nine editor templates over one shared shape: title, message, media, background c
 
 The following table lists the Basic template fields:
 
-| Field          | Type                                              | Required                | Default                     | Description                                                                                                                                 |
-| :------------- | :------------------------------------------------ | :---------------------- | :-------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------ |
-| type           | string                                            | Yes                     | \-                          | One of the nine Basic template types.                                                                                                       |
-| title          | string or `{ "text", "color" }`                   | No                      | Empty text, color `#434761` | Title text. Supports Liquid. Not accepted on `*-image` templates. `color` not accepted on `alert-template`. Length-capped per template.     |
-| message        | string or `{ "text", "color" }`                   | No                      | Empty text, color `#434761` | Body text. Same rules as `title`.                                                                                                           |
-| bg             | string                                            | No                      | `#ffffff`                   | Background color. Not accepted on `alert-template`.                                                                                         |
-| media          | string or `{ "url", "content_type", "alt_text" }` | No                      | None                        | Portrait media. `url` is required in the object form. Not accepted on `alert-template`.                                                     |
-| mediaLandscape | string or `{ "url", "content_type", "alt_text" }` | No                      | None                        | Landscape media. Requires `hasLandscape` to be on. Not accepted on `alert-template`.                                                        |
-| buttons        | array                                             | Depends on the template | `[]`                        | Action buttons. Shape depends on the template's button style. For more information, refer Button Styles.                                    |
-| close          | boolean                                           | No                      | `true`                      | Include a close button. Forced on when the creative has no buttons. Not accepted on `header-template`, `footer-template`, `alert-template`. |
-| hasPortrait    | boolean                                           | No                      | `true`                      | Portrait orientation enabled. At least one of `hasPortrait`/`hasLandscape` must stay on.                                                    |
-| hasLandscape   | boolean                                           | No                      | Per template                | Landscape orientation enabled. Default on for `interstitial`, `header-template`, `footer-template`, `alert-template`. Off for the others.   |
-| tablet         | boolean                                           | No                      | `false`                     | Tablet-specific layout flag.                                                                                                                |
+| Field          | Type                                              | Required                | Default                     | Description                                                                                                                                             |
+| :------------- | :------------------------------------------------ | :---------------------- | :-------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| type           | string                                            | Yes                     | \-                          | One of the nine Basic template types.                                                                                                                   |
+| title          | string or `{ "text", "color" }`                   | No                      | Empty text, color `#434761` | Title text. Supports Liquid. Not accepted on `*-image` templates. `color` not accepted on `alert-template`. Length-capped per template.                 |
+| message        | string or `{ "text", "color" }`                   | No                      | Empty text, color `#434761` | Body text. Same rules as `title`.                                                                                                                       |
+| bg             | string                                            | No                      | `#ffffff`                   | Background color. Not accepted on `alert-template`.                                                                                                     |
+| media          | string or `{ "url", "content_type", "alt_text" }` | No                      | None                        | Portrait media. `url` is required in the object form. Not accepted on `alert-template`.                                                                 |
+| mediaLandscape | string or `{ "url", "content_type", "alt_text" }` | No                      | None                        | Landscape media. Requires `hasLandscape` to be on. Not accepted on `alert-template`.                                                                    |
+| buttons        | array                                             | Depends on the template | `[]`                        | Action buttons. Shape depends on the template's button style. For more information, refer [Button Styles](doc:create-campaign-v2-in-app#button-styles). |
+| close          | boolean                                           | No                      | `true`                      | Include a close button. Forced on when the creative has no buttons. Not accepted on `header-template`, `footer-template`, `alert-template`.             |
+| hasPortrait    | boolean                                           | No                      | `true`                      | Portrait orientation enabled. At least one of `hasPortrait`/`hasLandscape` must stay on.                                                                |
+| hasLandscape   | boolean                                           | No                      | Per template                | Landscape orientation enabled. Default on for `interstitial`, `header-template`, `footer-template`, `alert-template`. Off for the others.               |
+| tablet         | boolean                                           | No                      | `false`                     | Tablet-specific layout flag.                                                                                                                            |
 
 ### **media and mediaLandscape Object Fields**
 
@@ -343,7 +343,7 @@ The following table lists the button styles and the fields each accepts:
 | Full        | `interstitial`, `cover`, `half-interstitial`                   | `text`, `color`, `bg`, `border`, `radius`, `actions` | text `"Button"`, color `#000000`, bg `#1EB858`, border `#1EB858`, radius `"4"` |
 | No-border   | `header-template`, `footer-template`                           | `text`, `color`, `bg`, `actions`                     | text `"Button"`, color `#000000`, bg `#1EB858`                                 |
 | Text-only   | `alert-template`                                               | `text`, `actions`                                    | text `"Button"`                                                                |
-| Action-only | `interstitial-image`, `cover-image`, `half-interstitial-image` | `actions`                                            | , (the image is the button)                                                    |
+| Action-only | `interstitial-image`, `cover-image`, `half-interstitial-image` | `actions`                                            | The image is the button.                                                       |
 
 The following table lists the button fields:
 
@@ -354,7 +354,7 @@ The following table lists the button fields:
 | bg      | string                      | Button background color.                                                                                                    |
 | border  | string                      | Border color.                                                                                                               |
 | radius  | string                      | Corner radius, an even number from 0 to 24, sent as a string (for example `"4"`, `"12"`). A numeric JSON value is rejected. |
-| actions | object                      | On-tap action. Default `{ "type": "close" }`. See Button Actions below.                                                     |
+| actions | object                      | On-tap action. Default `{ "type": "close" }`. For more information, [Button Actions]().                                     |
 
 ### **Button Actions**
 
