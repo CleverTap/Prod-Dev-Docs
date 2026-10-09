@@ -55,7 +55,7 @@ The following table lists the rate limit for this endpoint:
 
 | Limit                            | Scope       | On Breach                                   |
 | :------------------------------- | :---------- | :------------------------------------------ |
-| Concurrent in-flight requests: 3 | Per account | HTTP 429 — `"Too many concurrent requests"` |
+| Concurrent in-flight requests: 3 | Per account | HTTP 429 - `"Too many concurrent requests"` |
 
 # Supported Combinations
 
