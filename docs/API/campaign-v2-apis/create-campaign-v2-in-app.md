@@ -63,8 +63,6 @@ The following table lists the rate limits for this endpoint:
 | :------------------------------------------ | :----------------------------------------------- | :------------------------------------------------------ |
 | 50,000 campaign creations per day (default) | Per account, all API-created campaigns (v1 + v2) | HTTP 400, `"Daily API campaign creation limit reached"` |
 
-<br />
-
 # Supported Combinations
 
 The following table shows the supported `what.messageType` values for In-App. Every In-App campaign uses `segmentType: Live` and `when.dateTime.type: userAction`. Any other `when.dateTime.type` is rejected with `UNSUPPORTED_COMBINATION` on `$.when.dateTime.type`.
@@ -76,6 +74,12 @@ The following table shows the supported `what.messageType` values for In-App. Ev
 | `ab` (manual)           | Yes                                                   |
 | `ab` (automated)        | No, `UNSUPPORTED_COMBINATION` on `$.what.abTest.mode` |
 | `messageOnUserProperty` | Yes                                                   |
+
+<Callout icon="📘" theme="info">
+  ### **Test with Draft Mode**
+
+  Set `"draft": true` when testing a new campaign. The campaign is saved to your account and can be reviewed in the dashboard before you make it live. Set `"draft": false` or omit the field when you are ready to activate.
+</Callout>
 
 # Request Parameters
 
@@ -91,14 +95,6 @@ The following table lists the top-level request parameters:
 | when           | object  | Yes      | \-      | Display window and display policy. See when, Display Window and Display Policy below.                                                        |
 | draft          | boolean | No       | `false` | `true` saves the campaign in `DRAFT` status instead of activating it. A draft is not shown to users until it is launched from the dashboard. |
 | conversionGoal | object  | No       | \-      | Conversion tracking goal. See conversionGoal below.                                                                                          |
-
-<Callout icon="📘" theme="info">
-  ### **Test with Draft Mode**
-
-  Set `"draft": true` when testing a new campaign. The campaign is saved to your account and can be reviewed in the dashboard before you make it live. Set `"draft": false` or omit the field when you are ready to activate.
-</Callout>
-
-\|&#x20;
 
 <Callout icon="📘" theme="info">
   ### **isClientSide is Set Automatically**
