@@ -973,30 +973,40 @@ The following are sample responses from the Create Campaign v2, In-App API:
 
 ```json Success
 {
- "result": "success",
- "data": {
- "campaignId": 1490871,
- "url": "https://<dashboard-host>/<encoded-account-id>/campaigns/campaign/1490871/edit"
- },
- "status": "success"
+    "result": "success",
+    "data": {
+        "campaignId": 1490871,
+        "url": "https://<dashboard-host>/<encoded-account-id>/campaigns/campaign/1490871/edit"
+    },
+    "status": "success"
 }
 ```
 ```json Validation failure
 {
- "status": "fail",
- "error": "what.message (custom-html) must have layout_type, deliverTo.operatingSystems is required (select at least one operating system)",
- "errors": [
- { "code": "REQUIRED_FIELD_MISSING",
- "message": "what.message (custom-html) must have layout_type",
- "path": "$.what.message.layout_type", "suggestions": null },
- { "code": "REQUIRED_FIELD_MISSING",
- "message": "deliverTo.operatingSystems is required (select at least one operating system)",
- "path": "$.who.deliverTo.operatingSystems", "suggestions": null }
- ]
+    "status": "fail",
+    "error": "what.message (custom-html) must have layout_type, deliverTo.operatingSystems is required (select at least one operating system)",
+    "errors": [
+        {
+            "code": "REQUIRED_FIELD_MISSING",
+            "message": "what.message (custom-html) must have layout_type",
+            "path": "$.what.message.layout_type",
+            "suggestions": null
+        },
+        {
+            "code": "REQUIRED_FIELD_MISSING",
+            "message": "deliverTo.operatingSystems is required (select at least one operating system)",
+            "path": "$.who.deliverTo.operatingSystems",
+            "suggestions": null
+        }
+    ]
 }
 ```
 ```json Single-reason failure
-{ "result": "failure", "reason": "Daily API campaign creation limit reached", "status": "fail" }
+{
+    "result": "failure",
+    "reason": "Daily API campaign creation limit reached",
+    "status": "fail"
+}
 ```
 
 # Response Fields
