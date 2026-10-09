@@ -87,7 +87,7 @@ The following table lists the top-level request fields:
 | :------------- | :------ | :------- | :------ | :------------------------------------------------------------------------------------------------------------------------------------------- |
 | name           | string  | Yes      | ,       | Campaign name. Must be non-blank.                                                                                                            |
 | channel        | string  | Yes      | ,       | `NativeDisplay`. Case-insensitive.                                                                                                           |
-| segmentType    | string  | No       | `Live`  | Always `Live` for Native Display. We recommend omitting this field. If sent, must be `Live`, any other value is rejected.                    |
+| segmentType    | string  | No       | `Live`  | Always `Live` for Native Display. We recommend omitting this field. If sent, must be `Live` , any other value is rejected.                   |
 | who            | object  | Yes      | ,       | Trigger event, device targeting, optional profile filter, and control group. See who, Audience below.                                        |
 | what           | object  | Yes      | ,       | Creative and message-type strategy. See what, Content below.                                                                                 |
 | when           | object  | Yes      | ,       | Display window and display policy. See when, Display Window and Display Policy below.                                                        |
