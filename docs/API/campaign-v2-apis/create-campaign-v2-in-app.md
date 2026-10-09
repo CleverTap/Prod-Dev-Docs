@@ -51,11 +51,11 @@ Refer to [Headers](https://developer.clevertap.com/docs/common-api-components#he
 
 # Rate Limits
 
-The following table lists the rate limits for this endpoint:
+The following table lists the rate limit for this endpoint:
 
-| Limit                                       | Scope                                            | On Breach                                               |
-| :------------------------------------------ | :----------------------------------------------- | :------------------------------------------------------ |
-| 50,000 campaign creations per day (default) | Per account, all API-created campaigns (v1 + v2) | HTTP 400, `"Daily API campaign creation limit reached"` |
+| Limit                            | Scope       | On Breach                                   |
+| :------------------------------- | :---------- | :------------------------------------------ |
+| Concurrent in-flight requests: 3 | Per account | HTTP 429 — `"Too many concurrent requests"` |
 
 # Supported Combinations
 
