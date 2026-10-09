@@ -119,12 +119,12 @@ The following keys are rejected for Native Display with `INVALID_WHO` and the co
 
 The following table lists the `who.trigger` fields:
 
-| Field            | Type    | Required     | Description                                                                                                                                                                                     |
-| :--------------- | :------ | :----------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| event            | string  | Yes          | Name of the event that triggers the display. Must exist in the account. System events cannot be used.                                                                                           |
-| first_time       | boolean | No (`false`) | `true` fires only on the user's first ever occurrence of the event.                                                                                                                             |
-| property_filters | array   | No           | Event-property conditions on the trigger event. All entries are AND-ed. For more information, refer [Trigger Property Filters](doc:create-campaign-v2-native-display#trigger-property-filters). |
-| geo_filters      | array   | No           | Geo-fence(s), the trigger event must fall inside. Non-empty when present. For more information, refer [Trigger Geo Filters](doc:create-campaign-v2-native-display#trigger-geo-filters).         |
+| Field            | Type    | Required     | Description                                                                                                                                                                                  |
+| :--------------- | :------ | :----------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| event            | string  | Yes          | Name of the event that triggers the display. Must exist in the account. System events cannot be used.                                                                                        |
+| first_time       | boolean | No (`false`) | `true` fires only on the user's first ever occurrence of the event.                                                                                                                          |
+| property_filters | array   | No           | Event-property conditions on the trigger event. All entries are AND-ed. For more information, refer [Trigger Property Filters](doc:create-campaign-native-display#trigger-property-filters). |
+| geo_filters      | array   | No           | Geo-fence(s), the trigger event must fall inside. Non-empty when present. For more information, refer [Trigger Geo Filters](doc:create-campaign-v2-native-display#trigger-geo-filters).      |
 
 Any other key inside `trigger` is rejected by the structural schema.
 
