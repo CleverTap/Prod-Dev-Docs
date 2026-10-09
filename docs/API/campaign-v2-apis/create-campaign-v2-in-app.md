@@ -347,14 +347,14 @@ The following table lists the button styles and the fields each accepts:
 
 The following table lists the button fields:
 
-| Field   | Type                        | Description                                                                                                                 |
-| :------ | :-------------------------- | :-------------------------------------------------------------------------------------------------------------------------- |
-| text    | string or `{ "text": "…" }` | Button label. Supports Liquid.                                                                                              |
-| color   | string                      | Label color.                                                                                                                |
-| bg      | string                      | Button background color.                                                                                                    |
-| border  | string                      | Border color.                                                                                                               |
-| radius  | string                      | Corner radius, an even number from 0 to 24, sent as a string (for example `"4"`, `"12"`). A numeric JSON value is rejected. |
-| actions | object                      | On-tap action. Default `{ "type": "close" }`. For more information, [Button Actions]().                                     |
+| Field   | Type                        | Description                                                                                                                         |
+| :------ | :-------------------------- | :---------------------------------------------------------------------------------------------------------------------------------- |
+| text    | string or `{ "text": "…" }` | Button label. Supports Liquid.                                                                                                      |
+| color   | string                      | Label color.                                                                                                                        |
+| bg      | string                      | Button background color.                                                                                                            |
+| border  | string                      | Border color.                                                                                                                       |
+| radius  | string                      | Corner radius, an even number from 0 to 24, sent as a string (for example `"4"`, `"12"`). A numeric JSON value is rejected.         |
+| actions | object                      | On-tap action. Default `{ "type": "close" }`. For more information, [Button Actions](doc:create-campaign-v2-in-app#button-actions). |
 
 ### **Button Actions**
 
@@ -377,7 +377,7 @@ The following table lists the `image-interstitial` fields:
 
 | Field                       | Type                        | Required | Default               | Description                                                                                                                       |
 | :-------------------------- | :-------------------------- | :------- | :-------------------- | :-------------------------------------------------------------------------------------------------------------------------------- |
-| type                        | string                      | Yes      | \-                    | `image-interstitial`.                                                                                                             |
+| type                        | string                      | Yes      | \-                    | Template type. Must be `image-interstitial` for the image canvas family.                                                          |
 | content                     | object                      | Yes      | \-                    | The creative image and its settings.                                                                                              |
 | content.backgroundImage     | string or `{ "text": "…" }` | Yes      | \-                    | URL of the creative image, it is the whole creative. Supports Liquid.                                                             |
 | content.altText             | string                      | No       | `""`                  | Accessibility text, max 150 characters.                                                                                           |
@@ -485,10 +485,10 @@ An online campaign is never sent. `when` describes when the campaign is live (th
 
 The following table lists the `when` fields:
 
-| Field               | Type   | Required | Description                                                   |
-| :------------------ | :----- | :------- | :------------------------------------------------------------ |
-| dateTime            | object | Yes      | Trigger kind and display window. See dateTime below.          |
-| deliveryPreferences | object | No       | Display schedule and priority. See deliveryPreferences below. |
+| Field               | Type   | Required | Description                                                                                                                                  |
+| :------------------ | :----- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------- |
+| dateTime            | object | Yes      | Trigger kind and display window. For more information, refer [dateTime](doc:create-campaign-v2-native-display#datetime).                     |
+| deliveryPreferences | object | No       | Display schedule and priority. For more information, refer [deliveryPreferences](doc:create-campaign-v2-native-display#deliverypreferences). |
 
 ## dateTime
 
@@ -848,9 +848,9 @@ The following fields are present:
 
 **Common Structured Errors**
 
-The following table lists common structured errors sourced verbatim from the spec.
+The following table lists common structured errors:
 
-| Code                      | path                                         | Example message                                                                                                                                               |
+| Code                      | Path                                         | Example Message                                                                                                                                               |
 | :------------------------ | :------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `UNSUPPORTED_COMBINATION` | `$.segmentType`                              | `segmentType 'PBS' is not valid for the online channel InApp, it is always Live`                                                                              |
 | `UNSUPPORTED_COMBINATION` | `$.when.dateTime.type`                       | `when.dateTime.type 'userInaction' is not supported with segmentType 'Live' for this channel`                                                                 |
