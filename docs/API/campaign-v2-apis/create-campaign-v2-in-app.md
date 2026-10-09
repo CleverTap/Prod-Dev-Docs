@@ -85,16 +85,16 @@ The following table shows the supported `what.messageType` values for In-App. Ev
 
 The following table lists the top-level request parameters:
 
-| Field          | Type    | Required | Default | Description                                                                                                                                                                             |
-| :------------- | :------ | :------- | :------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| name           | string  | Yes      | \-      | Campaign name. Must be non-blank.                                                                                                                                                       |
-| channel        | string  | Yes      | \-      | `InApp`. Case-insensitive.                                                                                                                                                              |
-| segmentType    | string  | No       | `Live`  | Must be `Live` or omitted. Any other value is rejected.                                                                                                                                 |
-| who            | object  | Yes      | \-      | Trigger event, device targeting, optional profile filter, and control group. For more information, refer [who - Audience](doc:create-campaign-native-display#who---audience).           |
-| what           | object  | Yes      | \-      | Creative and message-type strategy. For more information, refer [what - Content](doc:create-campaign-v2-in-app#what---content).                                                         |
-| when           | object  | Yes      | \-      | Display window and display policy. For more information, refer [when - Display Window and Display Policy](doc:create-campaign-native-display#when---display-window-and-display-policy). |
-| draft          | boolean | No       | `false` | `true` saves the campaign in `DRAFT` status instead of activating it. A draft is not shown to users until it is launched from the dashboard.                                            |
-| conversionGoal | object  | No       | \-      | Conversion tracking goal. For more information, refer [conversionGoal](doc:create-campaign-native-display#conversiongoal).                                                              |
+| Field          | Type    | Required | Default | Description                                                                                                                                                                     |
+| :------------- | :------ | :------- | :------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| name           | string  | Yes      | \-      | Campaign name. Must be non-blank.                                                                                                                                               |
+| channel        | string  | Yes      | \-      | `InApp`. Case-insensitive.                                                                                                                                                      |
+| segmentType    | string  | No       | `Live`  | Must be `Live` or omitted. Any other value is rejected.                                                                                                                         |
+| who            | object  | Yes      | \-      | Trigger event, device targeting, optional profile filter, and control group. For more information, refer [who - Audience](doc:create-campaign-in-app#who---audience).           |
+| what           | object  | Yes      | \-      | Creative and message-type strategy. For more information, refer [what - Content](doc:create-campaign-v2-in-app#what---content).                                                 |
+| when           | object  | Yes      | \-      | Display window and display policy. For more information, refer [when - Display Window and Display Policy](doc:create-campaign-in-app#when---display-window-and-display-policy). |
+| draft          | boolean | No       | `false` | `true` saves the campaign in `DRAFT` status instead of activating it. A draft is not shown to users until it is launched from the dashboard.                                    |
+| conversionGoal | object  | No       | \-      | Conversion tracking goal. For more information, refer [conversionGoal](doc:create-campaign-in-app#conversiongoal).                                                              |
 
 <Callout icon="📘" theme="info">
   ### **isClientSide is Set Automatically**
@@ -114,12 +114,12 @@ The In-App audience is event-triggered. A user qualifies the instant they raise 
 
 The following table lists the `who` fields:
 
-| Field        | Type   | Required | Description                                                                                                                                                                        |
-| :----------- | :----- | :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| trigger      | object | Yes      | The trigger event and its filters. For more information, refer [who.trigger](doc:create-campaign-native-display#whotrigger).                                                       |
-| deliverTo    | object | Yes      | Operating systems and device types the campaign may be shown on. For more information, refer [who.deliverTo](doc:create-campaign-v2-in-app#whodeliverto).                          |
-| query        | object | No       | Mini-who profile filter, a CQL v2 rule tree evaluated at trigger time. For more information, refer [who.query](doc:create-campaign-native-display#whoquery---user-profile-filter). |
-| controlGroup | array  | No       | Control-group (holdout) settings. For more information, refer [who.controlGroup.](doc:/create-campaign-v2-native-display#whocontrolgroup)                                          |
+| Field        | Type   | Required | Description                                                                                                                                                                |
+| :----------- | :----- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| trigger      | object | Yes      | The trigger event and its filters. For more information, refer [who.trigger](doc:create-campaign-in-app#whotrigger).                                                       |
+| deliverTo    | object | Yes      | Operating systems and device types on which the campaign may be shown. For more information, refer [who.deliverTo](doc:create-campaign-v2-in-app#whodeliverto).            |
+| query        | object | No       | Mini-who profile filter, a CQL v2 rule tree evaluated at trigger time. For more information, refer [who.query](doc:create-campaign-in-app#whoquery---user-profile-filter). |
+| controlGroup | array  | No       | Control-group (holdout) settings. For more information, refer [who.controlGroup.](doc:/create-campaign-v2-in-app#whocontrolgroup)                                          |
 
 The following keys are rejected for In-App with `INVALID_WHO` and the corresponding JSON path: `exclusion`, `inaction`, `trigger_property`. `prompt` returns `501`.
 
@@ -127,12 +127,12 @@ The following keys are rejected for In-App with `INVALID_WHO` and the correspond
 
 The following table lists the `who.trigger` fields:
 
-| Field            | Type    | Required     | Description                                                                                                                                                                                     |
-| :--------------- | :------ | :----------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| event            | string  | Yes          | Name of the event that triggers the display. Must exist in the account. System events cannot be used.                                                                                           |
-| first_time       | boolean | No (`false`) | `true` fires only on the user's first ever occurrence of the event.                                                                                                                             |
-| property_filters | array   | No           | Event-property conditions on the trigger event. All entries are AND-ed. For more information, refer [Trigger Property Filters](doc:create-campaign-v2-native-display#trigger-property-filters). |
-| geo_filters      | array   | No           | Geo-fence(s), the trigger event must fall inside. Non-empty when present. For more information, refer [Trigger Geo Filters](doc:create-campaign-v2-native-display#trigger-geo-filters).         |
+| Field            | Type    | Required     | Description                                                                                                                                                                             |
+| :--------------- | :------ | :----------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| event            | string  | Yes          | Name of the event that triggers the display. Must exist in the account. System events cannot be used.                                                                                   |
+| first_time       | boolean | No (`false`) | `true` fires only on the user's first ever occurrence of the event.                                                                                                                     |
+| property_filters | array   | No           | Event-property conditions on the trigger event. All entries are AND-ed. For more information, refer [Trigger Property Filters](doc:create-campaign-v2-in-app#trigger-property-filters). |
+| geo_filters      | array   | No           | Geo-fence(s), the trigger event must fall inside. Non-empty when present. For more information, refer [Trigger Geo Filters](doc:create-campaign-v2-in-app#trigger-geo-filters).         |
 
 Restricted (system) trigger events that cannot be used: `Notification Sent`, `Notification Failed`, `Stayed`, `Identity Set`, `Identity Reset`, `Identity Error`, `Reachable By`, `State Transitioned`, `Recommendation Served`. Matching is case- and space-insensitive.
 
@@ -219,15 +219,15 @@ Optional array of control-group (holdout) entries. A `type` may appear at most o
 
 The following table lists the `what` fields:
 
-| Field                 | Type   | Required                                            | Default  | Description                                                                                                                                  |
-| :-------------------- | :----- | :-------------------------------------------------- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------- |
-| messageType           | string | No                                                  | `single` | `single`, `split`, `ab`, or `messageOnUserProperty`.                                                                                         |
-| message               | object | Required for `single`                               | \-       | The single template object. For more information, refer [Template Object](doc:create-campaign-v2-native-display#template-object).            |
-| variants              | array  | Required for `split`, `ab`, `messageOnUserProperty` | \-       | An array of template objects, each with a variant envelope key (`name` or `value`).                                                          |
-| distribution          | object | Required for `split`                                | \-       | `{ "<variantName>": <percent> }`.                                                                                                            |
-| abTest                | object | Required for `ab`                                   | \-       | A/B configuration. For more information, refer [messageType: ab](doc:create-campaign-v2-native-display#messagetype-single).                  |
-| userProperty          | object | Required for `messageOnUserProperty`                | \-       | `{ "property": "<profile property name>" }`.                                                                                                 |
-| personalizationConfig | object | No                                                  | \-       | Catalog and Recommendation 2.0 config. For more information, refer [Personalization](doc:create-campaign-v2-native-display#personalization). |
+| Field                 | Type   | Required                                            | Default  | Description                                                                                                                          |
+| :-------------------- | :----- | :-------------------------------------------------- | :------- | :----------------------------------------------------------------------------------------------------------------------------------- |
+| messageType           | string | No                                                  | `single` | `single`, `split`, `ab`, or `messageOnUserProperty`.                                                                                 |
+| message               | object | Required for `single`                               | \-       | The single template object. For more information, refer [Template Object](doc:create-campaign-v2-in-app#template-object).            |
+| variants              | array  | Required for `split`, `ab`, `messageOnUserProperty` | \-       | An array of template objects, each with a variant envelope key (`name` or `value`).                                                  |
+| distribution          | object | Required for `split`                                | \-       | `{ "<variantName>": <percent> }`.                                                                                                    |
+| abTest                | object | Required for `ab`                                   | \-       | A/B configuration. For more information, refer [messageType: ab](doc:create-campaign-v2-in-app#messagetype-single).                  |
+| userProperty          | object | Required for `messageOnUserProperty`                | \-       | `{ "property": "<profile property name>" }`.                                                                                         |
+| personalizationConfig | object | No                                                  | \-       | Catalog and Recommendation 2.0 config. For more information, refer [Personalization](doc:create-campaign-v2-in-app#personalization). |
 
 ## Template Object
 
@@ -259,7 +259,7 @@ The following table lists the `custom-html` fields:
 
 | Field       | Type    | Required | Default     | Description                                                                                                                                                                                                                       |
 | :---------- | :------ | :------- | :---------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type        | string  | Yes      | \-          | `custom-html`. For more information, refer [Template Types](doc:create-campaign-v2-native-display#personalization) table.                                                                                                         |
+| type        | string  | Yes      | \-          | `custom-html`. For more information, refer [Template Types](doc:create-campaign-v2-in-app#personalization) table.                                                                                                                 |
 | layout_type | string  | Yes      | \-          | The layout type.                                                                                                                                                                                                                  |
 | d           | object  | Yes      | \-          | The creative container.                                                                                                                                                                                                           |
 | d.html      | string  | Yes      | \-          | The complete inline HTML. Must be a non-blank string. Supports Liquid.                                                                                                                                                            |
@@ -485,10 +485,10 @@ An online campaign is never sent. `when` describes when the campaign is live (th
 
 The following table lists the `when` fields:
 
-| Field               | Type   | Required | Description                                                                                                                                  |
-| :------------------ | :----- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------- |
-| dateTime            | object | Yes      | Trigger kind and display window. For more information, refer [dateTime](doc:create-campaign-v2-native-display#datetime).                     |
-| deliveryPreferences | object | No       | Display schedule and priority. For more information, refer [deliveryPreferences](doc:create-campaign-v2-native-display#deliverypreferences). |
+| Field               | Type   | Required | Description                                                                                                                          |
+| :------------------ | :----- | :------- | :----------------------------------------------------------------------------------------------------------------------------------- |
+| dateTime            | object | Yes      | Trigger kind and display window. For more information, refer [dateTime](doc:create-campaign-v2-in-app#datetime).                     |
+| deliveryPreferences | object | No       | Display schedule and priority. For more information, refer [deliveryPreferences](doc:create-campaign-v2-in-app#deliverypreferences). |
 
 ## dateTime
 
