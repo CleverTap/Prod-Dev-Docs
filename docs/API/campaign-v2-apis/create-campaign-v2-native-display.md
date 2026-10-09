@@ -15,11 +15,11 @@ Unlike push or email, Native Display campaigns are displayed, not sent. The audi
 
 Every request is organized into three blocks.
 
-| Block  | What it Defines                                                                                                                      |
-| :----- | :----------------------------------------------------------------------------------------------------------------------------------- |
-| `who`  | The trigger event, optional event property filters, device targeting, and an optional user profile filter evaluated at trigger time. |
-| `what` | The creative, template type, and message strategy (single, split, A/B, or property-based).                                           |
-| `when` | The display window and optional display policy (schedule and priority).                                                              |
+| Block  | What it Defines                                                                                                                          |
+| :----- | :--------------------------------------------------------------------------------------------------------------------------------------- |
+| `who`  | The trigger event, optional event property filters, device targeting, and an optional user profile filter are evaluated at trigger time. |
+| `what` | The creative, template type, and message strategy (single, split, A/B, or property-based).                                               |
+| `when` | The display window and optional display policy (schedule and priority).                                                                  |
 
 <Callout icon="📘" theme="info">
   ### **Native Display is always a Live Campaign**
@@ -59,10 +59,9 @@ Refer to [Headers](doc:common-api-components#common-api-components#api-headers) 
 
 The following table lists the rate limits for this endpoint:
 
-| Limit                                       | Scope                                                                                             | On Breach                                               |
-| :------------------------------------------ | :------------------------------------------------------------------------------------------------ | :------------------------------------------------------ |
-| 60 concurrent in-flight requests            | Global                                                                                            | HTTP 503                                                |
-| 50,000 campaign creations per day (ceiling) | Per account, all API-created campaigns (v1 + v2). The actual limit may be lower for your account. | HTTP 402, `"Daily API campaign creation limit reached"` |
+| Limit                            | Scope       | On Breach                                   |
+| :------------------------------- | :---------- | :------------------------------------------ |
+| Concurrent in-flight requests: 3 | Per account | HTTP 429 - `"Too many concurrent requests"` |
 
 # Supported Combinations
 
