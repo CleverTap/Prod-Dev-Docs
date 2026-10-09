@@ -85,14 +85,14 @@ The following table lists the top-level request fields:
 
 | Field          | Type    | Required | Default | Description                                                                                                                                  |
 | :------------- | :------ | :------- | :------ | :------------------------------------------------------------------------------------------------------------------------------------------- |
-| name           | string  | Yes      | ,       | Campaign name. Must be non-blank.                                                                                                            |
-| channel        | string  | Yes      | ,       | `NativeDisplay`. Case-insensitive.                                                                                                           |
+| name           | string  | Yes      | \-      | Campaign name. Must be non-blank.                                                                                                            |
+| channel        | string  | Yes      | \-      | `NativeDisplay`. Case-insensitive.                                                                                                           |
 | segmentType    | string  | No       | `Live`  | Always `Live` for Native Display. We recommend omitting this field. If sent, must be `Live` , any other value is rejected.                   |
-| who            | object  | Yes      | ,       | Trigger event, device targeting, optional profile filter, and control group. See who, Audience below.                                        |
-| what           | object  | Yes      | ,       | Creative and message-type strategy. See what, Content below.                                                                                 |
-| when           | object  | Yes      | ,       | Display window and display policy. See when, Display Window and Display Policy below.                                                        |
+| who            | object  | Yes      | \-      | Trigger event, device targeting, optional profile filter, and control group. For more information, refer who - Audience.                     |
+| what           | object  | Yes      | \-      | Creative and message-type strategy. For more information, refer what - Content.                                                              |
+| when           | object  | Yes      | \-      | Display window and display policy. For more information, refer when - Display Window and Display Policy.                                     |
 | draft          | boolean | No       | `false` | `true` saves the campaign in `DRAFT` status instead of activating it. A draft is not shown to users until it is launched from the dashboard. |
-| conversionGoal | object  | No       | ,       | Conversion tracking goal. See conversionGoal below.                                                                                          |
+| conversionGoal | object  | No       | \-      | Conversion tracking goal.For more information, refer conversionGoal.                                                                         |
 
 <Callout icon="📘" theme="info">
   ### **Test with Draft Mode**
@@ -106,12 +106,12 @@ The Native Display audience is event-triggered. A user qualifies the instant the
 
 The following table lists the `who` fields:
 
-| Field        | Type   | Required | Description                                                                                                   |
-| :----------- | :----- | :------- | :------------------------------------------------------------------------------------------------------------ |
-| trigger      | object | Yes      | The trigger event and its filters. See who.trigger below.                                                     |
-| deliverTo    | object | Yes      | Operating systems and device types on which the campaign may be shown. See who.deliverTo below.               |
-| query        | object | No       | An optional user profile filter is evaluated at trigger time against the user's profile. See who.query below. |
-| controlGroup | array  | No       | Control-group (holdout) settings. See who.controlGroup below.                                                 |
+| Field        | Type   | Required | Description                                                                                                                         |
+| :----------- | :----- | :------- | :---------------------------------------------------------------------------------------------------------------------------------- |
+| trigger      | object | Yes      | The trigger event and its filters. For more information, refer [who.trigger](doc:create-campaign-native-display#whotrigger).        |
+| deliverTo    | object | Yes      | Operating systems and device types on which the campaign may be shown. For more information, refer [who.deliverTo]().               |
+| query        | object | No       | An optional user profile filter is evaluated at trigger time against the user's profile. For more information, refer [who.query](). |
+| controlGroup | array  | No       | Control-group (holdout) settings. For more information, refer [who.controlGroup.]()                                                 |
 
 The following keys are rejected for Native Display with `INVALID_WHO` and the corresponding JSON path: `exclusion`, `inaction`, `trigger_property`. `prompt` returns `501`.
 
@@ -119,12 +119,12 @@ The following keys are rejected for Native Display with `INVALID_WHO` and the co
 
 The following table lists the `who.trigger` fields:
 
-| Field            | Type    | Required     | Description                                                                                                       |
-| :--------------- | :------ | :----------- | :---------------------------------------------------------------------------------------------------------------- |
-| event            | string  | Yes          | Name of the event that triggers the display. Must exist in the account. System events cannot be used (see below). |
-| first_time       | boolean | No (`false`) | `true` fires only on the user's first ever occurrence of the event.                                               |
-| property_filters | array   | No           | Event-property conditions on the trigger event. All entries are AND-ed. See Trigger Property Filters below.       |
-| geo_filters      | array   | No           | Geo-fence(s) the trigger event must fall inside. Non-empty when present. See Trigger Geo Filters below.           |
+| Field            | Type    | Required     | Description                                                                                                                       |
+| :--------------- | :------ | :----------- | :-------------------------------------------------------------------------------------------------------------------------------- |
+| event            | string  | Yes          | Name of the event that triggers the display. Must exist in the account. System events cannot be used.                             |
+| first_time       | boolean | No (`false`) | `true` fires only on the user's first ever occurrence of the event.                                                               |
+| property_filters | array   | No           | Event-property conditions on the trigger event. All entries are AND-ed. For more information, refer [Trigger Property Filters](). |
+| geo_filters      | array   | No           | Geo-fence(s), the trigger event must fall inside. Non-empty when present. For more information, refer [Trigger Geo Filters]().    |
 
 Any other key inside `trigger` is rejected by the structural schema.
 
@@ -139,7 +139,7 @@ The following table lists the trigger property filter fields:
 | Field     | Type   | Required                                                | Description                                                                                                              |
 | :-------- | :----- | :------------------------------------------------------ | :----------------------------------------------------------------------------------------------------------------------- |
 | property  | string | Yes                                                     | Event property name. Must be a known property of the trigger event.                                                      |
-| operator  | string | No (`=`)                                                | See the table below.                                                                                                     |
+| operator  | string | No (`=`)                                                | For more information, refer the table below.                                                                             |
 | value     | any    | Required unless the operator is `exists` or `notExists` | Not needed for `exists`/`notExists`, required for every other operator.                                                  |
 | data_type | string | No                                                      | `string` (default), `number`, or `date`. `date` switches the filter to calendar-date comparison in the account timezone. |
 
@@ -154,8 +154,8 @@ The following table lists the supported trigger property filter operators:
 | `>`, `<`                  | number                  | Numeric comparison.                                        |
 | `between`                 | 2-element numeric array | Inclusive range.                                           |
 | `contains`, `notContains` | string                  | Substring match.                                           |
-| `exists`, `notExists`     | ,                       | Presence check. No `value` field.                          |
-| `>=`, `<=`                | ,                       | Not supported for a trigger filter. Returns `INVALID_WHO`. |
+| `exists`, `notExists`     | \-                      | Presence check. No `value` field.                          |
+| `>=`, `<=`                | \-                      | Not supported for a trigger filter. Returns `INVALID_WHO`. |
 
 With `"data_type": "date"`, values are ISO strings `YYYY-MM-DD`. Supported operators are `=`, `>`, `<`, `between`, `exists`, `notExists`. `!=`, `in`, `notIn`, `contains`, `notContains` are rejected for a date property.
 
@@ -190,8 +190,8 @@ The following table lists the supported user filter rules:
 | Rule            | Key Fields                                                                                     | Supported Operators                                                            | Notes                                                                                                                                                                                                                                                                    |
 | :-------------- | :--------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `event`         | `event_name`, `operator`, `value`, optional `when` and `occurrence`                            | `count =`, `count >`, `count >=`, `count between`                              | Lifetime count of the event on the profile. `count between` takes `[min, max]`. `count >= 0`, `count <`, `count <=`, `count !=` are rejected. `property_filters`, `session_filters`, `geo_filters` on a user filter events are rejected.                                 |
-| `event + when`  | `event_name`, `when: { "kind": "relative", "mode": "last", "days": N }`, optional `occurrence` | ,                                                                              | "Did the event in the last N units." `kind` must be `relative`, `mode` must be `last`. `unit` one of `minutes`, `hours`, `days`, `weeks`, `months`, `years` (default `days`). Cannot combine with a count operator.                                                      |
-| `event_did_not` | `event_name`                                                                                   | ,                                                                              | User never did the event. No `operator`, `value`, or `when` allowed.                                                                                                                                                                                                     |
+| `event + when`  | `event_name`, `when: { "kind": "relative", "mode": "last", "days": N }`, optional `occurrence` | \-                                                                             | "Did the event in the last N units." `kind` must be `relative`, `mode` must be `last`. `unit` one of `minutes`, `hours`, `days`, `weeks`, `months`, `years` (default `days`). Cannot combine with a count operator.                                                      |
+| `event_did_not` | `event_name`                                                                                   | \-                                                                             | User never did the event. No `operator`, `value`, or `when` allowed.                                                                                                                                                                                                     |
 | `user_property` | `property`, `operator`, `value`, `data_type`                                                   | `=`, `!=`, `>`, `<`, `contains`, `between`                                     | `>` / `<` need a numeric value, `between` a 2-element numeric array. With `data_type: "date"`: `=`, `>`, `<`, `between` on ISO `YYYY-MM-DD` strings. `>=`, `<=`, `in`, `notIn`, `notContains`, `exists`, `notExists` are not part of the user profile filter vocabulary. |
 | `user_bucket`   | `operator`, `value`                                                                            | `in` only                                                                      | `value` is a non-empty array of integers 0–999.                                                                                                                                                                                                                          |
 | `app_fields`    | `attribute`, `operator`, `value`                                                               | `=`, `!=`, `in`, `notIn`, `>`, `>=`, `<`, `contains`, `notContains`, `between` | `attribute` must be one of `OS Version`, `SDK Version`, `Make`, `Model`, `App Version`. `>`, `>=`, `<`, `between` apply to version attributes only. `<=` is rejected.                                                                                                    |
@@ -217,15 +217,15 @@ The following table lists the control group types:
 
 The following table lists the `what` fields:
 
-| Field                 | Type   | Required                                            | Default  | Description                                                                      |
-| :-------------------- | :----- | :-------------------------------------------------- | :------- | :------------------------------------------------------------------------------- |
-| messageType           | string | No                                                  | `single` | `single`, `split`, `ab`, or `messageOnUserProperty`.                             |
-| message               | object | Required for `single`                               | ,        | The single template object. See Template Object below.                           |
-| variants              | array  | Required for `split`, `ab`, `messageOnUserProperty` | ,        | Array of template objects, each with a variant envelope key (`name` or `value`). |
-| distribution          | object | Required for `split`                                | ,        | `{ "<variantName>": <percent> }`.                                                |
-| abTest                | object | Required for `ab`                                   | ,        | A/B configuration. See messageType: ab below.                                    |
-| userProperty          | object | Required for `messageOnUserProperty`                | ,        | `{ "property": "<profile property name>" }`.                                     |
-| personalizationConfig | object | No                                                  | ,        | Catalog and Recommendation 2.0 config. See Personalization below.                |
+| Field                 | Type   | Required                                            | Default  | Description                                                                             |
+| :-------------------- | :----- | :-------------------------------------------------- | :------- | :-------------------------------------------------------------------------------------- |
+| messageType           | string | No                                                  | `single` | `single`, `split`, `ab`, or `messageOnUserProperty`.                                    |
+| message               | object | Required for `single`                               | \-       | The single template object. For more information, refer [Template Object]().            |
+| variants              | array  | Required for `split`, `ab`, `messageOnUserProperty` | \-       | An array of template objects, each with a variant envelope key (`name` or `value`).     |
+| distribution          | object | Required for `split`                                | \-       | `{ "<variantName>": <percent> }`.                                                       |
+| abTest                | object | Required for `ab`                                   | \-       | A/B configuration. For more information, refer [messageType: ab]().                     |
+| userProperty          | object | Required for `messageOnUserProperty`                | \-       | `{ "property": "<profile property name>" }`.                                            |
+| personalizationConfig | object | No                                                  | \-       | Catalog and Recommendation 2.0 config. For more information, refer [Personalization](). |
 
 ## Template Object
 
@@ -235,10 +235,10 @@ The following table lists the template object fields:
 
 | Field         | Type   | Required                                         | Description                                                                                       |
 | :------------ | :----- | :----------------------------------------------- | :------------------------------------------------------------------------------------------------ |
-| type          | string | Yes                                              | Template type. See the Template Types table below.                                                |
-| content       | array  | Required for all types except `advanced-builder` | The creative items (slides). Item count depends on type.                                          |
+| type          | string | Yes                                              | Template type. For more information, refer [Template Types]() table.                              |
+| content       | array  | Required for all types except `advanced-builder` | The creative items (slides). Item count depends on the type.                                      |
 | customKVData  | array  | No                                               | Custom key-value pairs delivered with the creative: `[{ "key": "…", "value": { "text": "…" } }]`. |
-| builderConfig | object | Required for `advanced-builder`                  | The complete builder creative. See advanced-builder below.                                        |
+| builderConfig | object | Required for `advanced-builder`                  | The complete builder creative. For more information, refer [advanced-builder]().                  |
 | name          | string | Required for `split` and `ab` variants           | Unique, non-blank variant name. Used to key `distribution`.                                       |
 | value         | string | Required for `messageOnUserProperty` variants    | The profile-property value this variant targets. Unique across variants.                          |
 
@@ -318,7 +318,7 @@ The following table lists the `abTest` fields:
 | :------------------------- | :------ | :-------------------------- | :---------------------------------------------------------------------------------------------------------------------------------- |
 | mode                       | string  | No (default `manual`)       | Must be `manual`. `automated` is rejected.                                                                                          |
 | waitTime                   | integer | Yes, must be greater than 0 | Conversion window in minutes. Online A/B has no test sample, the winner is decided from this window alone, and it must be positive. |
-| userPercentage, sampleSize | ,       | No                          | Not used for an online channel. Ignored if sent.                                                                                    |
+| userPercentage, sampleSize | \-      | No                          | Not used for an online channel. Ignored if sent.                                                                                    |
 
 Variants count: 2–3. `abTest` is required when `messageType` is `ab`.
 
@@ -376,10 +376,10 @@ An online campaign is never sent. `when` describes when the campaign is live (th
 
 The following table lists the `when` fields:
 
-| Field               | Type   | Required | Description                                                   |
-| :------------------ | :----- | :------- | :------------------------------------------------------------ |
-| dateTime            | object | Yes      | Trigger kind and display window. See dateTime below.          |
-| deliveryPreferences | object | No       | Display schedule and priority. See deliveryPreferences below. |
+| Field               | Type   | Required | Description                                                                         |
+| :------------------ | :----- | :------- | :---------------------------------------------------------------------------------- |
+| dateTime            | object | Yes      | Trigger kind and display window. For more information, refer [dateTime]().          |
+| deliveryPreferences | object | No       | Display schedule and priority. For more information, refer [deliveryPreferences](). |
 
 ## dateTime
 
@@ -387,7 +387,7 @@ The following table lists the `dateTime` fields:
 
 | Field | Type   | Required | Default               | Description                                                                                                                  |
 | :---- | :----- | :------- | :-------------------- | :--------------------------------------------------------------------------------------------------------------------------- |
-| type  | string | Yes      | ,                     | Must be `userAction`. All other values are rejected.                                                                         |
+| type  | string | Yes      | \-                    | Must be `userAction`. All other values are rejected.                                                                         |
 | start | object | No       | `{ "type": "now" }`   | When the campaign goes live. `{ "type": "now" }` or `{ "type": "onDateTime", "date": "YYYY-MM-DD", "time": "hh:mm AM/PM" }`. |
 | end   | object | No       | `{ "type": "never" }` | When it stops. `{ "type": "never" }` or `{ "type": "onDateTime", "date": "YYYY-MM-DD", "time": "hh:mm AM/PM" }`.             |
 
@@ -418,7 +418,7 @@ The following table lists the supported `deliveryPreferences` fields:
 
 Keys are weekday tokens `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, `SUN` (case-insensitive). Each value is `{ "from", "to" }` in 12-hour format. A weekday that is not listed is not eligible for display. `from` equal to `to` means the whole day.
 
-**Rejected send-side blocks**
+**Rejected Send-Side Blocks**
 
 The following `deliveryPreferences` blocks have no meaning for a displayed campaign and are rejected with `INVALID_WHEN`, not silently dropped: `doNotDisturb`, `timeToLive`, `limits`, `globalMessageLimits`, `throttle`, `cutOff`.
 
@@ -433,7 +433,7 @@ The following table lists the `conversionGoal` fields:
 | eventName                | string | Yes      | The conversion event. Must exist in the account.                                                                                                                               |
 | revenueProperty          | string | No       | Numeric property of the conversion event to sum as revenue. Must be a known property of that event.                                                                            |
 | conversionTime           | object | Yes      | Attribution window: `{ "value": <int>, "unit": "<unit>" }`. `value` must be a whole number ≥ 1. `unit` one of `minutes`, `hours`, `days`, `weeks`, `months`. Maximum 5 months. |
-| filterType               | object | No       | Additional conditions on the conversion event. See filterType fields below.                                                                                                    |
+| filterType               | object | No       | Additional conditions on the conversion event. For more information, refer [filterType fields]().                                                                              |
 | filterType.eventProperty | array  | No       | `[{ "propertyName", "operator", "propertyValue" }]`. `operator` defaults to `=`. `propertyValue` is required except for `exists`/`notExists`.                                  |
 | filterType.firstTime     | string | No       | `"yes"`, only the user's first occurrence counts. `"no"` is a no-op.                                                                                                           |
 | filterType.lastTime      | string | No       | `"yes"` or `"no"`.                                                                                                                                                             |
@@ -709,7 +709,7 @@ All validation errors in the request are collected and returned in a single resp
 | status                | string         | `"fail"`                                                                                               |
 | error                 | string         | Semicolon-joined human-readable summary of every error.                                                |
 | errors\[]             | array          | Structured per-field errors.                                                                           |
-| errors\[].code        | string         | Stable machine-readable error code. See the table below.                                               |
+| errors\[].code        | string         | Stable machine-readable error code.                                                                    |
 | errors\[].message     | string         | Human-readable description.                                                                            |
 | errors\[].path        | string or null | JSON path of the offending element, for example `$.who.trigger.event`. Null when not element-specific. |
 | errors\[].suggestions | array or null  | Closest valid values for a mistyped token. Empty or absent when not applicable.                        |
@@ -718,16 +718,16 @@ All validation errors in the request are collected and returned in a single resp
 
 The following table lists the error codes:
 
-| Code                      | Meaning                                                                                                                                                                                                        |
-| :------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `REQUIRED_FIELD_MISSING`  | A mandatory field is absent or blank.                                                                                                                                                                          |
-| `INVALID_VALUE`           | Wrong type, or an unrecognized discriminator token. Carries `suggestions` where a close match exists.                                                                                                          |
-| `FEATURE_NOT_ENABLED`     | The request uses a feature not enabled for this account. See Account Feature Gates below.                                                                                                                      |
-| `UNSUPPORTED_COMBINATION` | A `segmentType` × `when.dateTime.type` × `what.messageType` combination this channel does not support, for example a non-`Live` `segmentType`, a non-`userAction` trigger, or automated A/B.                   |
-| `INVALID_WHO`             | Semantic problem in the audience, an unresolvable event, property, or segment name, a restricted trigger event, an unsupported user profile filter rule or operator, a bad geo filter, a disallowed `who` key. |
-| `INVALID_WHAT`            | Semantic problem in the content, bad distribution, invalid A/B config, unknown pivot property, a disallowed Liquid namespace, malformed `personalizationConfig`, or variant parsing.                           |
-| `INVALID_WHEN`            | Semantic problem in the display window or delivery preferences.                                                                                                                                                |
-| `INVALID_COMBINATION`     | An interdependency violation across `who`, `what`, and `when`.                                                                                                                                                 |
+| Code                      | Meaning                                                                                                                                                                                                           |
+| :------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `REQUIRED_FIELD_MISSING`  | A mandatory field is absent or blank.                                                                                                                                                                             |
+| `INVALID_VALUE`           | Wrong type, or an unrecognized discriminator token. Carries `suggestions` where a close match exists.                                                                                                             |
+| `FEATURE_NOT_ENABLED`     | The request uses a feature not enabled for this account. For more information, refer[ Account Feature Gates]().                                                                                                   |
+| `UNSUPPORTED_COMBINATION` | A `segmentType` × `when.dateTime.type` × `what.messageType` combination this channel does not support, for example, a non-`Live` `segmentType`, a non-`userAction` trigger, or automated A/B.                     |
+| `INVALID_WHO`             | Semantic problem in the audience, an unresolvable event, property, or segment name, a restricted trigger event, an unsupported user profile filter rule or operator, a bad geo filter, or a disallowed `who` key. |
+| `INVALID_WHAT`            | Semantic problem in the content, bad distribution, invalid A/B config, unknown pivot property, a disallowed Liquid namespace, malformed `personalizationConfig`, or variant parsing.                              |
+| `INVALID_WHEN`            | Semantic problem in the display window or delivery preferences.                                                                                                                                                   |
+| `INVALID_COMBINATION`     | An interdependency violation across `who`, `what`, and `when`.                                                                                                                                                    |
 
 <Callout icon="⚠️" theme="warning">
   ### **Error Path Granularity**
@@ -735,11 +735,11 @@ The following table lists the error codes:
   Not every error carries a precise path. Field-level validation returns precise JSON paths for each problem. Errors in schedule or delivery preference parsing report at the block root (`$.when` or `$.what`) without a sub-path, so only the first problem in that block is returned per request. `conversionGoal` reports only the first problem found in the block.
 </Callout>
 
-**Common structured errors**
+**Common Structured Errors**
 
-The following table lists common structured errors.
+The following table lists common structured errors:
 
-| Code                      | path                                         | Example message                                                                                        |
+| Code                      | Path                                         | Example Message                                                                                        |
 | :------------------------ | :------------------------------------------- | :----------------------------------------------------------------------------------------------------- |
 | `UNSUPPORTED_COMBINATION` | `$.segmentType`                              | `segmentType 'PBS' is not valid for the online channel NativeDisplay, it is always Live`               |
 | `UNSUPPORTED_COMBINATION` | `$.when.dateTime.type`                       | `when.dateTime.type 'userInaction' is not supported with segmentType 'Live' for this channel`          |
