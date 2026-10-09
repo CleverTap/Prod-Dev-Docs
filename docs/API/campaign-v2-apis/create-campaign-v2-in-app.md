@@ -27,12 +27,6 @@ Every request is organized into three blocks.
   `segmentType` is always `Live` for In-App. You may omit it or send `Live`. Any other value, including `PBS` or `External Trigger`, is rejected with `UNSUPPORTED_COMBINATION` on `$.segmentType`. `when.dateTime.type` must always be `userAction`, all other schedule types are rejected.
 </Callout>
 
-<Callout icon="📘" theme="info">
-  ### **create.json Only**
-
-  v2 supports `create.json` only. `list`, `stop`, `report`, and `trigger` remain v1-only under `/1/targets/*`.
-</Callout>
-
 # Base URL
 
 The following is a sample base URL:
@@ -544,221 +538,432 @@ curl -X POST 'https://<region>.api.clevertap.com/2/targets/create.json' \
 -H 'X-CleverTap-Passcode: PASSCODE' \
 -H 'Content-Type: application/json' \
 -d '{
- "name": "Big Sale interstitial",
- "channel": "InApp",
- "segmentType": "Live",
- "draft": false,
- "who": {
- "trigger": { "event": "App Launched" },
- "deliverTo": {
- "operatingSystems": ["Android", "iOS"],
- "deviceTypes": ["Mobile", "Tablet"]
- }
- },
- "what": {
- "messageType": "single",
- "message": {
- "type": "custom-html",
- "layout_type": "interstitial",
- "d": {
- "html": "<!DOCTYPE html><html><body><h2>Big Sale is live</h2><p>Up to 50% off, today only.</p></body></html>"
- }
- }
- },
- "when": {
- "dateTime": { "type": "userAction" },
- "deliveryPreferences": { "priority": 5 }
- }
+    "name": "Big Sale interstitial",
+    "channel": "InApp",
+    "segmentType": "Live",
+    "draft": false,
+    "who": {
+        "trigger": {
+            "event": "App Launched"
+        },
+        "deliverTo": {
+            "operatingSystems": ["Android", "iOS"],
+            "deviceTypes": ["Mobile", "Tablet"]
+        }
+    },
+    "what": {
+        "messageType": "single",
+        "message": {
+            "type": "custom-html",
+            "layout_type": "interstitial",
+            "d": {
+                "html": "<!DOCTYPE html><html><body><h2>Big Sale is live</h2><p>Up to 50% off, today only.</p></body></html>"
+            }
+        }
+    },
+    "when": {
+        "dateTime": {
+            "type": "userAction"
+        },
+        "deliveryPreferences": {
+            "priority": 5
+        }
+    }
 }'
 ```
 ```json Custom HTML header with trigger filter, user profile filter, and schedule
 {
- "name": "Lunch deals header - Gold members",
- "channel": "InApp",
- "who": {
- "trigger": {
- "event": "Product Viewed",
- "property_filters": [ { "property": "Category", "operator": "=", "value": "Food" } ]
- },
- "deliverTo": { "operatingSystems": ["Android", "iOS"], "deviceTypes": ["Mobile"] },
- "query": {
- "all": [
- { "user_property": { "property": "Plan", "operator": "=", "value": "Gold" } },
- { "event": { "event_name": "Charged", "operator": "count >=", "value": 1 } }
- ]
- }
- },
- "what": {
- "messageType": "single",
- "message": {
- "type": "custom-html",
- "layout_type": "header",
- "d": { "html": "<!DOCTYPE html><html><body><h3>Lunch deals</h3><p>Ends at 3pm.</p></body></html>" },
- "w": { "yp": 20 }
- }
- },
- "when": {
- "dateTime": {
- "type": "userAction",
- "start": { "type": "now" },
- "end": { "type": "onDateTime", "date": "2026-07-31", "time": "11:59 PM" }
- },
- "deliveryPreferences": {
- "displaySchedule": {
- "MON": { "from": "11:00 AM", "to": "03:00 PM" },
- "TUE": { "from": "11:00 AM", "to": "03:00 PM" },
- "FRI": { "from": "11:00 AM", "to": "03:00 PM" }
- },
- "priority": 8
- }
- }
+    "name": "Lunch deals header - Gold members",
+    "channel": "InApp",
+    "who": {
+        "trigger": {
+            "event": "Product Viewed",
+            "property_filters": [
+                {
+                    "property": "Category",
+                    "operator": "=",
+                    "value": "Food"
+                }
+            ]
+        },
+        "deliverTo": {
+            "operatingSystems": ["Android", "iOS"],
+            "deviceTypes": ["Mobile"]
+        },
+        "query": {
+            "all": [
+                {
+                    "user_property": {
+                        "property": "Plan",
+                        "operator": "=",
+                        "value": "Gold"
+                    }
+                },
+                {
+                    "event": {
+                        "event_name": "Charged",
+                        "operator": "count >=",
+                        "value": 1
+                    }
+                }
+            ]
+        }
+    },
+    "what": {
+        "messageType": "single",
+        "message": {
+            "type": "custom-html",
+            "layout_type": "header",
+            "d": {
+                "html": "<!DOCTYPE html><html><body><h3>Lunch deals</h3><p>Ends at 3pm.</p></body></html>"
+            },
+            "w": {
+                "yp": 20
+            }
+        }
+    },
+    "when": {
+        "dateTime": {
+            "type": "userAction",
+            "start": {
+                "type": "now"
+            },
+            "end": {
+                "type": "onDateTime",
+                "date": "2026-07-31",
+                "time": "11:59 PM"
+            }
+        },
+        "deliveryPreferences": {
+            "displaySchedule": {
+                "MON": { "from": "11:00 AM", "to": "03:00 PM" },
+                "TUE": { "from": "11:00 AM", "to": "03:00 PM" },
+                "FRI": { "from": "11:00 AM", "to": "03:00 PM" }
+            },
+            "priority": 8
+        }
+    }
 }
 ```
 ```json Basic interstitial with media and two buttons
 {
- "name": "Big Sale interstitial - Basic",
- "channel": "InApp",
- "who": {
- "trigger": { "event": "App Launched" },
- "deliverTo": { "operatingSystems": ["Android", "iOS"], "deviceTypes": ["Mobile", "Tablet"] }
- },
- "what": {
- "messageType": "single",
- "message": {
- "type": "interstitial",
- "title": { "text": "Big Sale is live", "color": "#434761" },
- "message": { "text": "Up to 50% off, today only.", "color": "#434761" },
- "bg": "#ffffff",
- "media": { "url": "https://cdn.example.com/promo/hero.png" },
- "mediaLandscape": { "url": "https://cdn.example.com/promo/hero_wide.png" },
- "close": true,
- "buttons": [
- { "text": "Order now", "color": "#ffffff", "bg": "#1EB858", "border": "#1EB858", "radius": "4",
- "actions": { "type": "url", "android": "https://track.example.com/c/promo", "ios": "https://track.example.com/c/promo" } },
- { "text": "Save for later", "color": "#ffffff", "bg": "#1EB858", "border": "#1EB858", "radius": "4",
- "actions": { "type": "kv", "kv": [ { "key": "promo", "value": "SAVE20" } ] } }
- ]
- }
- },
- "when": { "dateTime": { "type": "userAction" }, "deliveryPreferences": { "priority": 5 } }
+    "name": "Big Sale interstitial - Basic",
+    "channel": "InApp",
+    "who": {
+        "trigger": {
+            "event": "App Launched"
+        },
+        "deliverTo": {
+            "operatingSystems": ["Android", "iOS"],
+            "deviceTypes": ["Mobile", "Tablet"]
+        }
+    },
+    "what": {
+        "messageType": "single",
+        "message": {
+            "type": "interstitial",
+            "title": {
+                "text": "Big Sale is live",
+                "color": "#434761"
+            },
+            "message": {
+                "text": "Up to 50% off, today only.",
+                "color": "#434761"
+            },
+            "bg": "#ffffff",
+            "media": {
+                "url": "https://cdn.example.com/promo/hero.png"
+            },
+            "mediaLandscape": {
+                "url": "https://cdn.example.com/promo/hero_wide.png"
+            },
+            "close": true,
+            "buttons": [
+                {
+                    "text": "Order now",
+                    "color": "#ffffff",
+                    "bg": "#1EB858",
+                    "border": "#1EB858",
+                    "radius": "4",
+                    "actions": {
+                        "type": "url",
+                        "android": "https://track.example.com/c/promo",
+                        "ios": "https://track.example.com/c/promo"
+                    }
+                },
+                {
+                    "text": "Save for later",
+                    "color": "#ffffff",
+                    "bg": "#1EB858",
+                    "border": "#1EB858",
+                    "radius": "4",
+                    "actions": {
+                        "type": "kv",
+                        "kv": [
+                            { "key": "promo", "value": "SAVE20" }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "when": {
+        "dateTime": {
+            "type": "userAction"
+        },
+        "deliveryPreferences": {
+            "priority": 5
+        }
+    }
 }
 ```
 ```json Basic alert-template saved as draft
 {
- "name": "Enable notifications - draft",
- "channel": "InApp",
- "draft": true,
- "who": {
- "trigger": { "event": "App Launched", "first_time": true },
- "deliverTo": { "operatingSystems": ["Android", "iOS"], "deviceTypes": ["Mobile", "Tablet"] }
- },
- "what": {
- "messageType": "single",
- "message": {
- "type": "alert-template",
- "title": { "text": "Enable notifications" },
- "message": { "text": "Stay on top of your order updates." },
- "buttons": [
- { "text": "Enable", "actions": { "type": "url", "android": "app://settings/notifications", "ios": "app://settings/notifications" } },
- { "text": "Not now", "actions": { "type": "close" } }
- ]
- }
- },
- "when": { "dateTime": { "type": "userAction" } }
+    "name": "Enable notifications - draft",
+    "channel": "InApp",
+    "draft": true,
+    "who": {
+        "trigger": {
+            "event": "App Launched",
+            "first_time": true
+        },
+        "deliverTo": {
+            "operatingSystems": ["Android", "iOS"],
+            "deviceTypes": ["Mobile", "Tablet"]
+        }
+    },
+    "what": {
+        "messageType": "single",
+        "message": {
+            "type": "alert-template",
+            "title": {
+                "text": "Enable notifications"
+            },
+            "message": {
+                "text": "Stay on top of your order updates."
+            },
+            "buttons": [
+                {
+                    "text": "Enable",
+                    "actions": {
+                        "type": "url",
+                        "android": "app://settings/notifications",
+                        "ios": "app://settings/notifications"
+                    }
+                },
+                {
+                    "text": "Not now",
+                    "actions": {
+                        "type": "close"
+                    }
+                }
+            ]
+        }
+    },
+    "when": {
+        "dateTime": {
+            "type": "userAction"
+        }
+    }
 }
 ```
 ```json image-interstitial with tap target and conversion goal
 {
- "name": "Hero image canvas",
- "channel": "InApp",
- "who": {
- "trigger": { "event": "App Launched" },
- "deliverTo": { "operatingSystems": ["Android", "iOS"], "deviceTypes": ["Mobile", "Tablet"] },
- "controlGroup": [ { "type": "campaign", "size": 10 } ]
- },
- "what": {
- "messageType": "single",
- "message": {
- "type": "image-interstitial",
- "content": {
- "backgroundImage": "https://cdn.example.com/promo/hero.png",
- "altText": "Up to 50% off",
- "margin": 10,
- "actions": { "type": "close" }
- },
- "overlay": { "backgroundColor": "rgba(0, 0, 0, 0.5)", "dismissOnTapOrClick": true },
- "buttons": [
- { "name": "Order now", "position": { "x": 30, "y": 70 }, "size": { "width": 40, "height": 12 },
- "actions": { "type": "url", "android": "https://track.example.com/c/promo", "ios": "https://track.example.com/c/promo" } }
- ]
- }
- },
- "when": { "dateTime": { "type": "userAction" } },
- "conversionGoal": { "eventName": "Charged", "revenueProperty": "Amount", "conversionTime": { "value": 1, "unit": "days" } }
+    "name": "Hero image canvas",
+    "channel": "InApp",
+    "who": {
+        "trigger": {
+            "event": "App Launched"
+        },
+        "deliverTo": {
+            "operatingSystems": ["Android", "iOS"],
+            "deviceTypes": ["Mobile", "Tablet"]
+        },
+        "controlGroup": [
+            { "type": "campaign", "size": 10 }
+        ]
+    },
+    "what": {
+        "messageType": "single",
+        "message": {
+            "type": "image-interstitial",
+            "content": {
+                "backgroundImage": "https://cdn.example.com/promo/hero.png",
+                "altText": "Up to 50% off",
+                "margin": 10,
+                "actions": {
+                    "type": "close"
+                }
+            },
+            "overlay": {
+                "backgroundColor": "rgba(0, 0, 0, 0.5)",
+                "dismissOnTapOrClick": true
+            },
+            "buttons": [
+                {
+                    "name": "Order now",
+                    "position": { "x": 30, "y": 70 },
+                    "size": { "width": 40, "height": 12 },
+                    "actions": {
+                        "type": "url",
+                        "android": "https://track.example.com/c/promo",
+                        "ios": "https://track.example.com/c/promo"
+                    }
+                }
+            ]
+        }
+    },
+    "when": {
+        "dateTime": {
+            "type": "userAction"
+        }
+    },
+    "conversionGoal": {
+        "eventName": "Charged",
+        "revenueProperty": "Amount",
+        "conversionTime": {
+            "value": 1,
+            "unit": "days"
+        }
+    }
 }
 ```
 ```json Split test
 {
- "name": "Offer copy split",
- "channel": "InApp",
- "who": {
- "trigger": { "event": "App Launched" },
- "deliverTo": { "operatingSystems": ["Android", "iOS"], "deviceTypes": ["Mobile", "Tablet"] }
- },
- "what": {
- "messageType": "split",
- "variants": [
- { "name": "Variant A", "type": "custom-html", "layout_type": "interstitial",
- "d": { "html": "<!DOCTYPE html><html><body><h2>Version A</h2><p>Up to 50% off.</p></body></html>" } },
- { "name": "Variant B", "type": "custom-html", "layout_type": "interstitial",
- "d": { "html": "<!DOCTYPE html><html><body><h2>Version B</h2><p>Half price today.</p></body></html>" } }
- ],
- "distribution": { "Variant A": 50, "Variant B": 50 }
- },
- "when": { "dateTime": { "type": "userAction" } }
+    "name": "Offer copy split",
+    "channel": "InApp",
+    "who": {
+        "trigger": {
+            "event": "App Launched"
+        },
+        "deliverTo": {
+            "operatingSystems": ["Android", "iOS"],
+            "deviceTypes": ["Mobile", "Tablet"]
+        }
+    },
+    "what": {
+        "messageType": "split",
+        "variants": [
+            {
+                "name": "Variant A",
+                "type": "custom-html",
+                "layout_type": "interstitial",
+                "d": {
+                    "html": "<!DOCTYPE html><html><body><h2>Version A</h2><p>Up to 50% off.</p></body></html>"
+                }
+            },
+            {
+                "name": "Variant B",
+                "type": "custom-html",
+                "layout_type": "interstitial",
+                "d": {
+                    "html": "<!DOCTYPE html><html><body><h2>Version B</h2><p>Half price today.</p></body></html>"
+                }
+            }
+        ],
+        "distribution": {
+            "Variant A": 50,
+            "Variant B": 50
+        }
+    },
+    "when": {
+        "dateTime": {
+            "type": "userAction"
+        }
+    }
 }
 ```
 ```json Manual A/B mixing Custom HTML and Basic
 {
- "name": "Cover A/B - HTML vs Basic",
- "channel": "InApp",
- "who": {
- "trigger": { "event": "App Launched" },
- "deliverTo": { "operatingSystems": ["Android", "iOS"], "deviceTypes": ["Mobile", "Tablet"] }
- },
- "what": {
- "messageType": "ab",
- "variants": [
- { "name": "Variant A", "type": "custom-html", "layout_type": "cover",
- "d": { "html": "<!DOCTYPE html><html><body><h2>Version A</h2><p>Up to 50% off.</p></body></html>" } },
- { "name": "Variant B", "type": "cover",
- "title": { "text": "Version B" }, "message": { "text": "Half price today." },
- "media": { "url": "https://cdn.example.com/promo/hero.png" },
- "buttons": [ { "text": "Order now", "color": "#ffffff", "bg": "#1EB858", "border": "#1EB858", "radius": "4",
- "actions": { "type": "url", "android": "https://track.example.com/c/promo", "ios": "https://track.example.com/c/promo" } } ] }
- ],
- "abTest": { "mode": "manual", "waitTime": 45 }
- },
- "when": { "dateTime": { "type": "userAction" } }
+    "name": "Cover A/B - HTML vs Basic",
+    "channel": "InApp",
+    "who": {
+        "trigger": {
+            "event": "App Launched"
+        },
+        "deliverTo": {
+            "operatingSystems": ["Android", "iOS"],
+            "deviceTypes": ["Mobile", "Tablet"]
+        }
+    },
+    "what": {
+        "messageType": "ab",
+        "variants": [
+            {
+                "name": "Variant A",
+                "type": "custom-html",
+                "layout_type": "cover",
+                "d": {
+                    "html": "<!DOCTYPE html><html><body><h2>Version A</h2><p>Up to 50% off.</p></body></html>"
+                }
+            },
+            {
+                "name": "Variant B",
+                "type": "cover",
+                "title": { "text": "Version B" },
+                "message": { "text": "Half price today." },
+                "media": {
+                    "url": "https://cdn.example.com/promo/hero.png"
+                },
+                "buttons": [
+                    {
+                        "text": "Order now",
+                        "color": "#ffffff",
+                        "bg": "#1EB858",
+                        "border": "#1EB858",
+                        "radius": "4",
+                        "actions": {
+                            "type": "url",
+                            "android": "https://track.example.com/c/promo",
+                            "ios": "https://track.example.com/c/promo"
+                        }
+                    }
+                ]
+            }
+        ],
+        "abTest": {
+            "mode": "manual",
+            "waitTime": 45
+        }
+    },
+    "when": {
+        "dateTime": {
+            "type": "userAction"
+        }
+    }
 }
 ```
 ```json Gamification spin-the-wheel
 {
- "name": "Spin to win",
- "channel": "InApp",
- "who": {
- "trigger": { "event": "App Launched" },
- "deliverTo": { "operatingSystems": ["Android", "iOS"], "deviceTypes": ["Mobile", "Tablet"] }
- },
- "what": {
- "messageType": "single",
- "message": {
- "type": "custom-html",
- "layout_type": "spin-the-wheel",
- "d": { "html": "<!DOCTYPE html><html><body><h2>Spin to win</h2><p>One spin per customer.</p></body></html>" }
- }
- },
- "when": { "dateTime": { "type": "userAction" }, "deliveryPreferences": { "priority": 5 } }
+    "name": "Spin to win",
+    "channel": "InApp",
+    "who": {
+        "trigger": {
+            "event": "App Launched"
+        },
+        "deliverTo": {
+            "operatingSystems": ["Android", "iOS"],
+            "deviceTypes": ["Mobile", "Tablet"]
+        }
+    },
+    "what": {
+        "messageType": "single",
+        "message": {
+            "type": "custom-html",
+            "layout_type": "spin-the-wheel",
+            "d": {
+                "html": "<!DOCTYPE html><html><body><h2>Spin to win</h2><p>One spin per customer.</p></body></html>"
+            }
+        }
+    },
+    "when": {
+        "dateTime": {
+            "type": "userAction"
+        },
+        "deliveryPreferences": {
+            "priority": 5
+        }
+    }
 }
 ```
 
