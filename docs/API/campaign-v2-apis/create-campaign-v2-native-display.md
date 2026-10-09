@@ -27,12 +27,6 @@ Every request is organized into three blocks.
   `segmentType` is always `Live` for Native Display. You may omit it or send `Live`. Any other value, including `PBS` or `External Trigger`, is rejected with `UNSUPPORTED_COMBINATION` on `$.segmentType`. `when.dateTime.type` must always be `userAction`, all other schedule types are rejected.
 </Callout>
 
-<Callout icon="📘" theme="info">
-  ### **create.json Only**
-
-  v2 supports `create.json` only. `list`, `stop`, `report`, and `trigger` remain v1-only under `/1/targets/*`.
-</Callout>
-
 # Base URL
 
 The following is a sample base URL:
@@ -442,7 +436,7 @@ The following table lists the `conversionGoal` fields:
 
 # Example Requests
 
-The following are sample requests for the Create Campaign v2 - Native Display:
+The following are sample requests for the Create Campaign - Native Display:
 
 ```curl Single simple creative
 curl -X POST 'https://<region>.api.clevertap.com/2/targets/create.json' \
@@ -854,7 +848,7 @@ curl -X POST 'https://<region>.api.clevertap.com/2/targets/create.json' \
 
 # Example Response
 
-The following are sample responses from the Create Campaign v2, Native Display API:
+The following are sample responses from the Create Campaign - Native Display API:
 
 ```json Success
 {
