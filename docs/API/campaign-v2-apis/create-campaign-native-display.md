@@ -335,11 +335,11 @@ Each user is shown the variant that matches their value for a chosen profile pro
 
 ## Personalization
 
-**Liquid**
+**Liquid Tags**
 
-`title`, `message`and other string-creative fields support Liquid.
+`title`, `message`and other string-creative fields support Liquid tags.
 
-The following table lists the Liquid rules:
+The following table lists the Liquid tag rules:
 
 | Rule                          | Detail                                                                                                                 |
 | :---------------------------- | :--------------------------------------------------------------------------------------------------------------------- |
@@ -349,7 +349,7 @@ The following table lists the Liquid rules:
 | Profile properties must exist | Each referenced `Profile.<x>` must be a property defined for the account.                                              |
 | Event personalization         | `{{ Event.<prop> }}` resolves from the properties of `who.trigger.event` at display time.                              |
 
-Malformed Liquid is always rejected. Profile and Event property validation applies when personalization validation is enabled for the account.
+A malformed Liquid tag is always rejected. Profile and Event property validation applies when personalization validation is enabled for the account.
 
 **personalizationConfig**
 
@@ -725,7 +725,7 @@ The following table lists the error codes:
 | `FEATURE_NOT_ENABLED`     | The request uses a feature not enabled for this account. For more information, refer[ Account Feature Gates](doc:create-campaign-v2-in-app#account-feature-gates).                                                |
 | `UNSUPPORTED_COMBINATION` | A `segmentType` × `when.dateTime.type` × `what.messageType` combination this channel does not support, for example, a non-`Live` `segmentType`, a non-`userAction` trigger, or automated A/B.                     |
 | `INVALID_WHO`             | Semantic problem in the audience, an unresolvable event, property, or segment name, a restricted trigger event, an unsupported user profile filter rule or operator, a bad geo filter, or a disallowed `who` key. |
-| `INVALID_WHAT`            | Semantic problem in the content, bad distribution, invalid A/B config, unknown pivot property, a disallowed Liquid namespace, malformed `personalizationConfig`, or variant parsing.                              |
+| `INVALID_WHAT`            | Semantic problem in the content, bad distribution, invalid A/B config, unknown pivot property, a disallowed Liquid tag namespace, malformed `personalizationConfig`, or variant parsing.                          |
 | `INVALID_WHEN`            | Semantic problem in the display window or delivery preferences.                                                                                                                                                   |
 | `INVALID_COMBINATION`     | An interdependency violation across `who`, `what`, and `when`.                                                                                                                                                    |
 
@@ -788,8 +788,8 @@ The following table lists the account feature gates:
 
 | Feature                    | Request Trigger                              | Behavior                                                                                                                                                                                        |
 | :------------------------- | :------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Personalization validation | Any `{{ Profile.* }}` or `{{ Event.* }}` tag | Profile and Event property validation applies when personalization validation is enabled for the account. Malformed Liquid is always rejected.                                                  |
-| Super device properties    | `device_fields` rule in `who.query`          | Available only when super device properties is enabled for the account. Otherwise `INVALID_WHO`.                                                                                                |
+| Personalization validation | Any `{{ Profile.* }}` or `{{ Event.* }}` tag | Profile and Event property validation applies when personalization validation is enabled for the account. A malformed Liquid tag is always rejected.                                            |
+| Super device properties    | `device_fields` rule in `who.query`          | Available only when super device properties are enabled for the account. Otherwise `INVALID_WHO`.                                                                                               |
 | Automated (continuous) A/B | `what.abTest.mode = automated`               | Not supported for Native Display. Accounts without the feature, check `FEATURE_NOT_ENABLED`, accounts with it, check  `UNSUPPORTED_COMBINATION`. Both return the error on `$.what.abTest.mode`. |
 
 # Cross-Block Rules
