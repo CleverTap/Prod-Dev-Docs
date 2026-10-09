@@ -859,27 +859,39 @@ The following are sample responses from the Create Campaign v2, Native Display A
 
 ```json Success
 {
- "result": "success",
- "data": { "campaignId": 1490871 },
- "status": "success"
+    "result": "success",
+    "data": {
+        "campaignId": 1490871
+    },
+    "status": "success"
 }
 ```
 ```json Validation Failure
 {
- "status": "fail",
- "error": "who.trigger.event is required for online campaigns, deliverTo.operatingSystems is required (select at least one operating system)",
- "errors": [
- { "code": "REQUIRED_FIELD_MISSING",
- "message": "who.trigger.event is required for online campaigns",
- "path": "$.who.trigger.event", "suggestions": null },
- { "code": "REQUIRED_FIELD_MISSING",
- "message": "deliverTo.operatingSystems is required (select at least one operating system)",
- "path": "$.who.deliverTo.operatingSystems", "suggestions": null }
- ]
+    "status": "fail",
+    "error": "who.trigger.event is required for online campaigns, deliverTo.operatingSystems is required (select at least one operating system)",
+    "errors": [
+        {
+            "code": "REQUIRED_FIELD_MISSING",
+            "message": "who.trigger.event is required for online campaigns",
+            "path": "$.who.trigger.event",
+            "suggestions": null
+        },
+        {
+            "code": "REQUIRED_FIELD_MISSING",
+            "message": "deliverTo.operatingSystems is required (select at least one operating system)",
+            "path": "$.who.deliverTo.operatingSystems",
+            "suggestions": null
+        }
+    ]
 }
 ```
 ```json Single-Reason Failure
-{ "result": "failure", "reason": "Daily API campaign creation limit reached", "status": "fail" }
+{
+    "result": "failure",
+    "reason": "Daily API campaign creation limit reached",
+    "status": "fail"
+}
 ```
 
 # Response Fields
