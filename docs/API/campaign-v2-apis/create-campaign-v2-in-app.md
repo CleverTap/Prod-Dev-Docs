@@ -1,7 +1,9 @@
 ---
 title: Create Campaign v2 - In App
 deprecated: false
-hidden: false
+hidden: true
+link:
+  new_tab: false
 metadata:
   robots: index
 ---
