@@ -47,7 +47,7 @@ POST
 
 # Headers
 
-Refer to [Headers](https://developer.clevertap.com/docs/common-api-components#headers) for more details. Every request must include the following headers:
+Refer to [Headers](doc:common-api-components#common-api-components#api-headers) for more details. Every request must include the following headers:
 
 | Header                 | Required | Description                      |
 | :--------------------- | :------- | :------------------------------- |
