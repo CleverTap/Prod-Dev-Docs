@@ -139,7 +139,7 @@ The following table lists the trigger property filter fields:
 | Field     | Type   | Required                                                | Description                                                                                                              |
 | :-------- | :----- | :------------------------------------------------------ | :----------------------------------------------------------------------------------------------------------------------- |
 | property  | string | Yes                                                     | Event property name. Must be a known property of the trigger event.                                                      |
-| operator  | string | No (`=`)                                                | For more information, refer the table below.                                                                             |
+| operator  | string | No (`=`)                                                | For more information, refer to the table below.                                                                          |
 | value     | any    | Required unless the operator is `exists` or `notExists` | Not needed for `exists`/`notExists`, required for every other operator.                                                  |
 | data_type | string | No                                                      | `string` (default), `number`, or `date`. `date` switches the filter to calendar-date comparison in the account timezone. |
 
