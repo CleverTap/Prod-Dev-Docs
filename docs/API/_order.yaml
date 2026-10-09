@@ -3,6 +3,7 @@
 - bulletins-api
 - external-trigger-api
 - campaign_object
+- campaign-v2-apis
 - catalog-api-endpoints
 - product-catalog-api
 - catalog-products-api
@@ -24,4 +25,3 @@
 - token-vault-apis
 - api-encryption
 - whatsapp-chatbot-integration
-- campaign-v2-apis
