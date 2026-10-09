@@ -83,16 +83,16 @@ The following table shows the supported `what.messageType` values for Native Dis
 
 The following table lists the top-level request fields:
 
-| Field          | Type    | Required | Default | Description                                                                                                                                  |
-| :------------- | :------ | :------- | :------ | :------------------------------------------------------------------------------------------------------------------------------------------- |
-| name           | string  | Yes      | \-      | Campaign name. Must be non-blank.                                                                                                            |
-| channel        | string  | Yes      | \-      | `NativeDisplay`. Case-insensitive.                                                                                                           |
-| segmentType    | string  | No       | `Live`  | Always `Live` for Native Display. We recommend omitting this field. If sent, must be `Live` , any other value is rejected.                   |
-| who            | object  | Yes      | \-      | Trigger event, device targeting, optional profile filter, and control group. For more information, refer who - Audience.                     |
-| what           | object  | Yes      | \-      | Creative and message-type strategy. For more information, refer what - Content.                                                              |
-| when           | object  | Yes      | \-      | Display window and display policy. For more information, refer when - Display Window and Display Policy.                                     |
-| draft          | boolean | No       | `false` | `true` saves the campaign in `DRAFT` status instead of activating it. A draft is not shown to users until it is launched from the dashboard. |
-| conversionGoal | object  | No       | \-      | Conversion tracking goal.For more information, refer conversionGoal.                                                                         |
+| Field          | Type    | Required | Default | Description                                                                                                                                                                             |
+| :------------- | :------ | :------- | :------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| name           | string  | Yes      | \-      | Campaign name. Must be non-blank.                                                                                                                                                       |
+| channel        | string  | Yes      | \-      | `NativeDisplay`. Case-insensitive.                                                                                                                                                      |
+| segmentType    | string  | No       | `Live`  | Always `Live` for Native Display. We recommend omitting this field. If sent, must be `Live` , any other value is rejected.                                                              |
+| who            | object  | Yes      | \-      | Trigger event, device targeting, optional profile filter, and control group. For more information, refer [who - Audience](doc:create-campaign-native-display#who---audience).           |
+| what           | object  | Yes      | \-      | Creative and message-type strategy. For more information, refer [what - Content](doc:create-campaign-v2-in-app#what---content).                                                         |
+| when           | object  | Yes      | \-      | Display window and display policy. For more information, refer [when - Display Window and Display Policy](doc:create-campaign-native-display#when---display-window-and-display-policy). |
+| draft          | boolean | No       | `false` | `true` saves the campaign in `DRAFT` status instead of activating it. A draft is not shown to users until it is launched from the dashboard.                                            |
+| conversionGoal | object  | No       | \-      | Conversion tracking goal. For more information, refer [conversionGoal](doc:create-campaign-native-display#conversiongoal).                                                              |
 
 <Callout icon="📘" theme="info">
   ### **Test with Draft Mode**
@@ -106,12 +106,12 @@ The Native Display audience is event-triggered. A user qualifies the instant the
 
 The following table lists the `who` fields:
 
-| Field        | Type   | Required | Description                                                                                                                         |
-| :----------- | :----- | :------- | :---------------------------------------------------------------------------------------------------------------------------------- |
-| trigger      | object | Yes      | The trigger event and its filters. For more information, refer [who.trigger](doc:create-campaign-native-display#whotrigger).        |
-| deliverTo    | object | Yes      | Operating systems and device types on which the campaign may be shown. For more information, refer [who.deliverTo]().               |
-| query        | object | No       | An optional user profile filter is evaluated at trigger time against the user's profile. For more information, refer [who.query](). |
-| controlGroup | array  | No       | Control-group (holdout) settings. For more information, refer [who.controlGroup.]()                                                 |
+| Field        | Type   | Required | Description                                                                                                                                                                                          |
+| :----------- | :----- | :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| trigger      | object | Yes      | The trigger event and its filters. For more information, refer [who.trigger](doc:create-campaign-native-display#whotrigger).                                                                         |
+| deliverTo    | object | Yes      | Operating systems and device types on which the campaign may be shown. For more information, refer [who.deliverTo](doc:create-campaign-v2-in-app#whodeliverto).                                      |
+| query        | object | No       | An optional user profile filter is evaluated at trigger time against the user's profile. For more information, refer [who.query](doc:create-campaign-native-display#whoquery---user-profile-filter). |
+| controlGroup | array  | No       | Control-group (holdout) settings. For more information, refer [who.controlGroup.](doc:/create-campaign-v2-in-app#whocontrolgroup)                                                                    |
 
 The following keys are rejected for Native Display with `INVALID_WHO` and the corresponding JSON path: `exclusion`, `inaction`, `trigger_property`. `prompt` returns `501`.
 
