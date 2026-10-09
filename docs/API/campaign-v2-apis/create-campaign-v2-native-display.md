@@ -451,206 +451,405 @@ curl -X POST 'https://<region>.api.clevertap.com/2/targets/create.json' \
 -H 'X-CleverTap-Passcode: PASSCODE' \
 -H 'Content-Type: application/json' \
 -d '{
- "name": "Home banner - Big Sale",
- "channel": "NativeDisplay",
- "segmentType": "Live",
- "draft": false,
- "who": {
- "trigger": { "event": "App Launched" },
- "deliverTo": {
- "operatingSystems": ["Android", "iOS"],
- "deviceTypes": ["Mobile", "Tablet"]
- }
- },
- "what": {
- "messageType": "single",
- "message": {
- "type": "simple",
- "content": [
- {
- "title": "Big Sale is live",
- "message": "Up to 50% off, today only",
- "media": "https://cdn.example.com/nd/hero.png",
- "action": { "url": { "android": "app://sale", "ios": "app://sale" } }
- }
- ]
- }
- },
- "when": {
- "dateTime": { "type": "userAction" },
- "deliveryPreferences": { "priority": 5 }
- }
+    "name": "Home banner - Big Sale",
+    "channel": "NativeDisplay",
+    "segmentType": "Live",
+    "draft": false,
+    "who": {
+        "trigger": {
+            "event": "App Launched"
+        },
+        "deliverTo": {
+            "operatingSystems": ["Android", "iOS"],
+            "deviceTypes": ["Mobile", "Tablet"]
+        }
+    },
+    "what": {
+        "messageType": "single",
+        "message": {
+            "type": "simple",
+            "content": [
+                {
+                    "title": "Big Sale is live",
+                    "message": "Up to 50% off, today only",
+                    "media": "https://cdn.example.com/nd/hero.png",
+                    "action": {
+                        "url": {
+                            "android": "app://sale",
+                            "ios": "app://sale"
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "when": {
+        "dateTime": {
+            "type": "userAction"
+        },
+        "deliveryPreferences": {
+            "priority": 5
+        }
+    }
 }'
 ```
 ```json Carousel with trigger filter, user profile filter, and schedule
 {
- "name": "Shoes carousel - Gold members",
- "channel": "NativeDisplay",
- "segmentType": "Live",
- "who": {
- "trigger": {
- "event": "Product Viewed",
- "property_filters": [ { "property": "Category", "operator": "=", "value": "Shoes" } ]
- },
- "deliverTo": { "operatingSystems": ["Android", "iOS"], "deviceTypes": ["Mobile"] },
- "query": {
- "all": [
- { "user_property": { "property": "Plan", "operator": "=", "value": "Gold" } },
- { "event": { "event_name": "Charged", "operator": "count >=", "value": 1 } }
- ]
- }
- },
- "what": {
- "messageType": "single",
- "message": {
- "type": "carousel",
- "content": [
- { "title": "Runners", "media": "https://cdn.example.com/nd/run.png",
- "action": { "url": { "android": "app://cat/run", "ios": "app://cat/run" } } },
- { "title": "Sneakers", "media": "https://cdn.example.com/nd/sneak.png",
- "action": { "url": { "android": "app://cat/sneak", "ios": "app://cat/sneak" } } }
- ]
- }
- },
- "when": {
- "dateTime": {
- "type": "userAction",
- "start": { "type": "now" },
- "end": { "type": "onDateTime", "date": "2026-07-31", "time": "11:59 PM" }
- },
- "deliveryPreferences": {
- "displaySchedule": {
- "MON": { "from": "09:00 AM", "to": "09:00 PM" },
- "TUE": { "from": "09:00 AM", "to": "09:00 PM" },
- "WED": { "from": "09:00 AM", "to": "09:00 PM" },
- "THU": { "from": "09:00 AM", "to": "09:00 PM" },
- "FRI": { "from": "09:00 AM", "to": "09:00 PM" }
- },
- "priority": 8
- }
- }
+    "name": "Shoes carousel - Gold members",
+    "channel": "NativeDisplay",
+    "segmentType": "Live",
+    "who": {
+        "trigger": {
+            "event": "Product Viewed",
+            "property_filters": [
+                {
+                    "property": "Category",
+                    "operator": "=",
+                    "value": "Shoes"
+                }
+            ]
+        },
+        "deliverTo": {
+            "operatingSystems": ["Android", "iOS"],
+            "deviceTypes": ["Mobile"]
+        },
+        "query": {
+            "all": [
+                {
+                    "user_property": {
+                        "property": "Plan",
+                        "operator": "=",
+                        "value": "Gold"
+                    }
+                },
+                {
+                    "event": {
+                        "event_name": "Charged",
+                        "operator": "count >=",
+                        "value": 1
+                    }
+                }
+            ]
+        }
+    },
+    "what": {
+        "messageType": "single",
+        "message": {
+            "type": "carousel",
+            "content": [
+                {
+                    "title": "Runners",
+                    "media": "https://cdn.example.com/nd/run.png",
+                    "action": {
+                        "url": {
+                            "android": "app://cat/run",
+                            "ios": "app://cat/run"
+                        }
+                    }
+                },
+                {
+                    "title": "Sneakers",
+                    "media": "https://cdn.example.com/nd/sneak.png",
+                    "action": {
+                        "url": {
+                            "android": "app://cat/sneak",
+                            "ios": "app://cat/sneak"
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "when": {
+        "dateTime": {
+            "type": "userAction",
+            "start": {
+                "type": "now"
+            },
+            "end": {
+                "type": "onDateTime",
+                "date": "2026-07-31",
+                "time": "11:59 PM"
+            }
+        },
+        "deliveryPreferences": {
+            "displaySchedule": {
+                "MON": { "from": "09:00 AM", "to": "09:00 PM" },
+                "TUE": { "from": "09:00 AM", "to": "09:00 PM" },
+                "WED": { "from": "09:00 AM", "to": "09:00 PM" },
+                "THU": { "from": "09:00 AM", "to": "09:00 PM" },
+                "FRI": { "from": "09:00 AM", "to": "09:00 PM" }
+            },
+            "priority": 8
+        }
+    }
 }
 ```
 ```json Split test
 {
- "name": "Offer copy split",
- "channel": "NativeDisplay",
- "who": {
- "trigger": { "event": "App Launched" },
- "deliverTo": { "operatingSystems": ["Android", "iOS"], "deviceTypes": ["Mobile", "Tablet"] }
- },
- "what": {
- "messageType": "split",
- "variants": [
- { "name": "Variant A", "type": "simple",
- "content": [ { "title": "Offer A", "message": "Flat 40% off",
- "action": { "url": { "android": "app://offer/a", "ios": "app://offer/a" } } } ] },
- { "name": "Variant B", "type": "simple",
- "content": [ { "title": "Offer B", "message": "Buy one get one",
- "action": { "url": { "android": "app://offer/b", "ios": "app://offer/b" } } } ] }
- ],
- "distribution": { "Variant A": 50, "Variant B": 50 }
- },
- "when": { "dateTime": { "type": "userAction" } }
+    "name": "Offer copy split",
+    "channel": "NativeDisplay",
+    "who": {
+        "trigger": {
+            "event": "App Launched"
+        },
+        "deliverTo": {
+            "operatingSystems": ["Android", "iOS"],
+            "deviceTypes": ["Mobile", "Tablet"]
+        }
+    },
+    "what": {
+        "messageType": "split",
+        "variants": [
+            {
+                "name": "Variant A",
+                "type": "simple",
+                "content": [
+                    {
+                        "title": "Offer A",
+                        "message": "Flat 40% off",
+                        "action": {
+                            "url": {
+                                "android": "app://offer/a",
+                                "ios": "app://offer/a"
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "Variant B",
+                "type": "simple",
+                "content": [
+                    {
+                        "title": "Offer B",
+                        "message": "Buy one get one",
+                        "action": {
+                            "url": {
+                                "android": "app://offer/b",
+                                "ios": "app://offer/b"
+                            }
+                        }
+                    }
+                ]
+            }
+        ],
+        "distribution": {
+            "Variant A": 50,
+            "Variant B": 50
+        }
+    },
+    "when": {
+        "dateTime": {
+            "type": "userAction"
+        }
+    }
 }
 ```
 ```json Manual A/B with conversion goal
 {
- "name": "Headline A/B",
- "channel": "NativeDisplay",
- "who": {
- "trigger": { "event": "App Launched" },
- "deliverTo": { "operatingSystems": ["Android", "iOS"], "deviceTypes": ["Mobile", "Tablet"] },
- "controlGroup": [ { "type": "campaign", "size": 10 } ]
- },
- "what": {
- "messageType": "ab",
- "variants": [
- { "name": "Variant A", "type": "simple",
- "content": [ { "title": "Headline A", "message": "Version A copy",
- "action": { "url": { "android": "app://ab/a", "ios": "app://ab/a" } } } ] },
- { "name": "Variant B", "type": "simple",
- "content": [ { "title": "Headline B", "message": "Version B copy",
- "action": { "url": { "android": "app://ab/b", "ios": "app://ab/b" } } } ] }
- ],
- "abTest": { "mode": "manual", "waitTime": 45 }
- },
- "when": { "dateTime": { "type": "userAction" } },
- "conversionGoal": {
- "eventName": "Charged",
- "revenueProperty": "Amount",
- "conversionTime": { "value": 1, "unit": "days" }
- }
+    "name": "Headline A/B",
+    "channel": "NativeDisplay",
+    "who": {
+        "trigger": {
+            "event": "App Launched"
+        },
+        "deliverTo": {
+            "operatingSystems": ["Android", "iOS"],
+            "deviceTypes": ["Mobile", "Tablet"]
+        },
+        "controlGroup": [
+            { "type": "campaign", "size": 10 }
+        ]
+    },
+    "what": {
+        "messageType": "ab",
+        "variants": [
+            {
+                "name": "Variant A",
+                "type": "simple",
+                "content": [
+                    {
+                        "title": "Headline A",
+                        "message": "Version A copy",
+                        "action": {
+                            "url": {
+                                "android": "app://ab/a",
+                                "ios": "app://ab/a"
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "Variant B",
+                "type": "simple",
+                "content": [
+                    {
+                        "title": "Headline B",
+                        "message": "Version B copy",
+                        "action": {
+                            "url": {
+                                "android": "app://ab/b",
+                                "ios": "app://ab/b"
+                            }
+                        }
+                    }
+                ]
+            }
+        ],
+        "abTest": {
+            "mode": "manual",
+            "waitTime": 45
+        }
+    },
+    "when": {
+        "dateTime": {
+            "type": "userAction"
+        }
+    },
+    "conversionGoal": {
+        "eventName": "Charged",
+        "revenueProperty": "Amount",
+        "conversionTime": {
+            "value": 1,
+            "unit": "days"
+        }
+    }
 }
 ```
 ```json messageOnUserProperty with Liquid
 {
- "name": "Tiered welcome",
- "channel": "NativeDisplay",
- "who": {
- "trigger": { "event": "App Launched" },
- "deliverTo": { "operatingSystems": ["Android", "iOS"], "deviceTypes": ["Mobile", "Tablet"] }
- },
- "what": {
- "messageType": "messageOnUserProperty",
- "userProperty": { "property": "Customer Type" },
- "variants": [
- { "value": "wzrk_default", "type": "simple",
- "content": [ { "title": "Welcome {{ Profile.Name | default: 'there' }}",
- "message": "Discover what's new",
- "action": { "url": { "android": "app://home", "ios": "app://home" } } } ] },
- { "value": "gold", "type": "simple",
- "content": [ { "title": "Hello Gold member", "message": "Your exclusive perks are ready",
- "action": { "url": { "android": "app://gold", "ios": "app://gold" } } } ] }
- ]
- },
- "when": { "dateTime": { "type": "userAction" } }
+    "name": "Tiered welcome",
+    "channel": "NativeDisplay",
+    "who": {
+        "trigger": {
+            "event": "App Launched"
+        },
+        "deliverTo": {
+            "operatingSystems": ["Android", "iOS"],
+            "deviceTypes": ["Mobile", "Tablet"]
+        }
+    },
+    "what": {
+        "messageType": "messageOnUserProperty",
+        "userProperty": {
+            "property": "Customer Type"
+        },
+        "variants": [
+            {
+                "value": "wzrk_default",
+                "type": "simple",
+                "content": [
+                    {
+                        "title": "Welcome {{ Profile.Name | default: 'there' }}",
+                        "message": "Discover what's new",
+                        "action": {
+                            "url": {
+                                "android": "app://home",
+                                "ios": "app://home"
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "value": "gold",
+                "type": "simple",
+                "content": [
+                    {
+                        "title": "Hello Gold member",
+                        "message": "Your exclusive perks are ready",
+                        "action": {
+                            "url": {
+                                "android": "app://gold",
+                                "ios": "app://gold"
+                            }
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "when": {
+        "dateTime": {
+            "type": "userAction"
+        }
+    }
 }
 ```
 ```json Custom key-value saved as draft
 {
- "name": "Home config - draft",
- "channel": "NativeDisplay",
- "draft": true,
- "who": {
- "trigger": { "event": "App Launched", "first_time": true },
- "deliverTo": { "operatingSystems": ["Android"], "deviceTypes": ["Mobile", "Tablet", "TV"] }
- },
- "what": {
- "messageType": "single",
- "message": {
- "type": "custom-key-value",
- "content": [ { "title": "Config push" } ],
- "customKVData": [
- { "key": "promo_code", "value": { "text": "SAVE50" } },
- { "key": "banner_id", "value": { "text": "home_top" } }
- ]
- }
- },
- "when": { "dateTime": { "type": "userAction" } }
+    "name": "Home config - draft",
+    "channel": "NativeDisplay",
+    "draft": true,
+    "who": {
+        "trigger": {
+            "event": "App Launched",
+            "first_time": true
+        },
+        "deliverTo": {
+            "operatingSystems": ["Android"],
+            "deviceTypes": ["Mobile", "Tablet", "TV"]
+        }
+    },
+    "what": {
+        "messageType": "single",
+        "message": {
+            "type": "custom-key-value",
+            "content": [
+                { "title": "Config push" }
+            ],
+            "customKVData": [
+                { "key": "promo_code", "value": { "text": "SAVE50" } },
+                { "key": "banner_id", "value": { "text": "home_top" } }
+            ]
+        }
+    },
+    "when": {
+        "dateTime": {
+            "type": "userAction"
+        }
+    }
 }
 ```
 ```json Advanced Builder
 {
- "name": "Builder CTA",
- "channel": "NativeDisplay",
- "who": {
- "trigger": { "event": "App Launched" },
- "deliverTo": { "operatingSystems": ["Android", "iOS"], "deviceTypes": ["Mobile", "Tablet"] }
- },
- "what": {
- "messageType": "single",
- "message": {
- "type": "advanced-builder",
- "builderConfig": {
- "buttons": [
- { "id": "btn1", "text": "Shop now",
- "actions": { "type": "url", "android": { "text": "app://sale" }, "ios": { "text": "app://sale" } } }
- ]
- }
- }
- },
- "when": { "dateTime": { "type": "userAction" } }
+    "name": "Builder CTA",
+    "channel": "NativeDisplay",
+    "who": {
+        "trigger": {
+            "event": "App Launched"
+        },
+        "deliverTo": {
+            "operatingSystems": ["Android", "iOS"],
+            "deviceTypes": ["Mobile", "Tablet"]
+        }
+    },
+    "what": {
+        "messageType": "single",
+        "message": {
+            "type": "advanced-builder",
+            "builderConfig": {
+                "buttons": [
+                    {
+                        "id": "btn1",
+                        "text": "Shop now",
+                        "actions": {
+                            "type": "url",
+                            "android": { "text": "app://sale" },
+                            "ios": { "text": "app://sale" }
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "when": {
+        "dateTime": {
+            "type": "userAction"
+        }
+    }
 }
 ```
 
