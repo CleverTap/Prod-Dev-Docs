@@ -119,12 +119,12 @@ The following keys are rejected for Native Display with `INVALID_WHO` and the co
 
 The following table lists the `who.trigger` fields:
 
-| Field            | Type    | Required     | Description                                                                                                                       |
-| :--------------- | :------ | :----------- | :-------------------------------------------------------------------------------------------------------------------------------- |
-| event            | string  | Yes          | Name of the event that triggers the display. Must exist in the account. System events cannot be used.                             |
-| first_time       | boolean | No (`false`) | `true` fires only on the user's first ever occurrence of the event.                                                               |
-| property_filters | array   | No           | Event-property conditions on the trigger event. All entries are AND-ed. For more information, refer [Trigger Property Filters](). |
-| geo_filters      | array   | No           | Geo-fence(s), the trigger event must fall inside. Non-empty when present. For more information, refer [Trigger Geo Filters]().    |
+| Field            | Type    | Required     | Description                                                                                                                                                                             |
+| :--------------- | :------ | :----------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| event            | string  | Yes          | Name of the event that triggers the display. Must exist in the account. System events cannot be used.                                                                                   |
+| first_time       | boolean | No (`false`) | `true` fires only on the user's first ever occurrence of the event.                                                                                                                     |
+| property_filters | array   | No           | Event-property conditions on the trigger event. All entries are AND-ed. For more information, refer [Trigger Property Filters](doc:create-campaign-v2-in-app#trigger-property-filters). |
+| geo_filters      | array   | No           | Geo-fence(s), the trigger event must fall inside. Non-empty when present. For more information, refer [Trigger Geo Filters](doc:create-campaign-v2-in-app#trigger-geo-filters).         |
 
 Any other key inside `trigger` is rejected by the structural schema.
 
@@ -217,15 +217,15 @@ The following table lists the control group types:
 
 The following table lists the `what` fields:
 
-| Field                 | Type   | Required                                            | Default  | Description                                                                             |
-| :-------------------- | :----- | :-------------------------------------------------- | :------- | :-------------------------------------------------------------------------------------- |
-| messageType           | string | No                                                  | `single` | `single`, `split`, `ab`, or `messageOnUserProperty`.                                    |
-| message               | object | Required for `single`                               | \-       | The single template object. For more information, refer [Template Object]().            |
-| variants              | array  | Required for `split`, `ab`, `messageOnUserProperty` | \-       | An array of template objects, each with a variant envelope key (`name` or `value`).     |
-| distribution          | object | Required for `split`                                | \-       | `{ "<variantName>": <percent> }`.                                                       |
-| abTest                | object | Required for `ab`                                   | \-       | A/B configuration. For more information, refer [messageType: ab]().                     |
-| userProperty          | object | Required for `messageOnUserProperty`                | \-       | `{ "property": "<profile property name>" }`.                                            |
-| personalizationConfig | object | No                                                  | \-       | Catalog and Recommendation 2.0 config. For more information, refer [Personalization](). |
+| Field                 | Type   | Required                                            | Default  | Description                                                                                                                          |
+| :-------------------- | :----- | :-------------------------------------------------- | :------- | :----------------------------------------------------------------------------------------------------------------------------------- |
+| messageType           | string | No                                                  | `single` | `single`, `split`, `ab`, or `messageOnUserProperty`.                                                                                 |
+| message               | object | Required for `single`                               | \-       | The single template object. For more information, refer [Template Object](doc:create-campaign-v2-in-app#template-object).            |
+| variants              | array  | Required for `split`, `ab`, `messageOnUserProperty` | \-       | An array of template objects, each with a variant envelope key (`name` or `value`).                                                  |
+| distribution          | object | Required for `split`                                | \-       | `{ "<variantName>": <percent> }`.                                                                                                    |
+| abTest                | object | Required for `ab`                                   | \-       | A/B configuration. For more information, refer [messageType: ab](doc:create-campaign-v2-in-app#messagetype-single).                  |
+| userProperty          | object | Required for `messageOnUserProperty`                | \-       | `{ "property": "<profile property name>" }`.                                                                                         |
+| personalizationConfig | object | No                                                  | \-       | Catalog and Recommendation 2.0 config. For more information, refer [Personalization](doc:create-campaign-v2-in-app#personalization). |
 
 ## Template Object
 
@@ -233,14 +233,14 @@ Each `what.message` or entry in `what.variants[]` is a Native Display template o
 
 The following table lists the template object fields:
 
-| Field         | Type   | Required                                         | Description                                                                                       |
-| :------------ | :----- | :----------------------------------------------- | :------------------------------------------------------------------------------------------------ |
-| type          | string | Yes                                              | Template type. For more information, refer [Template Types]() table.                              |
-| content       | array  | Required for all types except `advanced-builder` | The creative items (slides). Item count depends on the type.                                      |
-| customKVData  | array  | No                                               | Custom key-value pairs delivered with the creative: `[{ "key": "…", "value": { "text": "…" } }]`. |
-| builderConfig | object | Required for `advanced-builder`                  | The complete builder creative. For more information, refer [advanced-builder]().                  |
-| name          | string | Required for `split` and `ab` variants           | Unique, non-blank variant name. Used to key `distribution`.                                       |
-| value         | string | Required for `messageOnUserProperty` variants    | The profile-property value this variant targets. Unique across variants.                          |
+| Field         | Type   | Required                                         | Description                                                                                                       |
+| :------------ | :----- | :----------------------------------------------- | :---------------------------------------------------------------------------------------------------------------- |
+| type          | string | Yes                                              | Template type. For more information, refer [Template Types](doc:create-campaign-v2-in-app#personalization) table. |
+| content       | array  | Required for all types except `advanced-builder` | The creative items (slides). Item count depends on the type.                                                      |
+| customKVData  | array  | No                                               | Custom key-value pairs delivered with the creative: `[{ "key": "…", "value": { "text": "…" } }]`.                 |
+| builderConfig | object | Required for `advanced-builder`                  | The complete builder creative.                                                                                    |
+| name          | string | Required for `split` and `ab` variants           | Unique, non-blank variant name. Used to key `distribution`.                                                       |
+| value         | string | Required for `messageOnUserProperty` variants    | The profile-property value this variant targets. Unique across variants.                                          |
 
 ## Template Types
 
@@ -314,11 +314,11 @@ Variants are shown in an even split until the conversion window elapses, then th
 
 The following table lists the `abTest` fields:
 
-| Field                      | Type    | Required                    | Description                                                                                                                         |
-| :------------------------- | :------ | :-------------------------- | :---------------------------------------------------------------------------------------------------------------------------------- |
-| mode                       | string  | No (default `manual`)       | Must be `manual`. `automated` is rejected.                                                                                          |
-| waitTime                   | integer | Yes, must be greater than 0 | Conversion window in minutes. Online A/B has no test sample, the winner is decided from this window alone, and it must be positive. |
-| userPercentage, sampleSize | \-      | No                          | Not used for an online channel. Ignored if sent.                                                                                    |
+| Field                      | Type    | Required                    | Description                                                                                                                          |
+| :------------------------- | :------ | :-------------------------- | :----------------------------------------------------------------------------------------------------------------------------------- |
+| mode                       | string  | No (default `manual`)       | Must be `manual`. `automated` is rejected.                                                                                           |
+| waitTime                   | integer | Yes, must be greater than 0 | Conversion window in minutes. Online A/B has no test sample, the winner is decided solely from this window, and it must be positive. |
+| userPercentage, sampleSize | \-      | No                          | Not used for an online channel. Ignored if sent.                                                                                     |
 
 Variants count: 2–3. `abTest` is required when `messageType` is `ab`.
 
@@ -376,10 +376,10 @@ An online campaign is never sent. `when` describes when the campaign is live (th
 
 The following table lists the `when` fields:
 
-| Field               | Type   | Required | Description                                                                         |
-| :------------------ | :----- | :------- | :---------------------------------------------------------------------------------- |
-| dateTime            | object | Yes      | Trigger kind and display window. For more information, refer [dateTime]().          |
-| deliveryPreferences | object | No       | Display schedule and priority. For more information, refer [deliveryPreferences](). |
+| Field               | Type   | Required | Description                                                                                                                          |
+| :------------------ | :----- | :------- | :----------------------------------------------------------------------------------------------------------------------------------- |
+| dateTime            | object | Yes      | Trigger kind and display window. For more information, refer [dateTime](doc:create-campaign-v2-in-app#datetime).                     |
+| deliveryPreferences | object | No       | Display schedule and priority. For more information, refer [deliveryPreferences](doc:create-campaign-v2-in-app#deliverypreferences). |
 
 ## dateTime
 
@@ -433,7 +433,7 @@ The following table lists the `conversionGoal` fields:
 | eventName                | string | Yes      | The conversion event. Must exist in the account.                                                                                                                               |
 | revenueProperty          | string | No       | Numeric property of the conversion event to sum as revenue. Must be a known property of that event.                                                                            |
 | conversionTime           | object | Yes      | Attribution window: `{ "value": <int>, "unit": "<unit>" }`. `value` must be a whole number ≥ 1. `unit` one of `minutes`, `hours`, `days`, `weeks`, `months`. Maximum 5 months. |
-| filterType               | object | No       | Additional conditions on the conversion event. For more information, refer [filterType fields]().                                                                              |
+| filterType               | object | No       | Additional conditions on the conversion event.                                                                                                                                 |
 | filterType.eventProperty | array  | No       | `[{ "propertyName", "operator", "propertyValue" }]`. `operator` defaults to `=`. `propertyValue` is required except for `exists`/`notExists`.                                  |
 | filterType.firstTime     | string | No       | `"yes"`, only the user's first occurrence counts. `"no"` is a no-op.                                                                                                           |
 | filterType.lastTime      | string | No       | `"yes"` or `"no"`.                                                                                                                                                             |
@@ -722,7 +722,7 @@ The following table lists the error codes:
 | :------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `REQUIRED_FIELD_MISSING`  | A mandatory field is absent or blank.                                                                                                                                                                             |
 | `INVALID_VALUE`           | Wrong type, or an unrecognized discriminator token. Carries `suggestions` where a close match exists.                                                                                                             |
-| `FEATURE_NOT_ENABLED`     | The request uses a feature not enabled for this account. For more information, refer[ Account Feature Gates]().                                                                                                   |
+| `FEATURE_NOT_ENABLED`     | The request uses a feature not enabled for this account. For more information, refer[ Account Feature Gates](doc:create-campaign-v2-in-app#account-feature-gates).                                                |
 | `UNSUPPORTED_COMBINATION` | A `segmentType` × `when.dateTime.type` × `what.messageType` combination this channel does not support, for example, a non-`Live` `segmentType`, a non-`userAction` trigger, or automated A/B.                     |
 | `INVALID_WHO`             | Semantic problem in the audience, an unresolvable event, property, or segment name, a restricted trigger event, an unsupported user profile filter rule or operator, a bad geo filter, or a disallowed `who` key. |
 | `INVALID_WHAT`            | Semantic problem in the content, bad distribution, invalid A/B config, unknown pivot property, a disallowed Liquid namespace, malformed `personalizationConfig`, or variant parsing.                              |
