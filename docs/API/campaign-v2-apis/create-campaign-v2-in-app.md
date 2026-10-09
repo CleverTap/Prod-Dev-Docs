@@ -530,7 +530,7 @@ The following table lists the `conversionGoal` fields:
 
 # Example Requests
 
-The following are sample requests to the Create Campaign v2, In-App API:
+The following are sample requests to the Create Campaign, In-App API:
 
 ```curl Custom HTML interstitial
 curl -X POST 'https://<region>.api.clevertap.com/2/targets/create.json' \
@@ -969,7 +969,7 @@ curl -X POST 'https://<region>.api.clevertap.com/2/targets/create.json' \
 
 # Example Response
 
-The following are sample responses from the Create Campaign v2, In-App API:
+The following are sample responses from the Create Campaign, In-App API:
 
 ```json Success
 {
@@ -1115,7 +1115,7 @@ Used for failures raised after validation passes. These carry no `errors[]`, no 
 | 402         | `"Campaign creation limit reached for your current plan"`   | Plan campaign limit hit.                                                              |
 | 409         | `"A similar campaign was just created, please retry"`       | A near-identical campaign was created moments earlier. Retry after a short delay.     |
 | 400         | `"Campaign could not be saved"`                             | Save rejected with no more specific message.                                          |
-| 400         | `"Invalid request body"`                                    | Body is not a parseable JSON.                                                         |
+| 400         | `"Invalid request body"`                                    | The body is not a parseable JSON.                                                     |
 | 501         | `"channel 'Email' is not yet available on Campaign API v2"` | Channel has no v2 pipeline.                                                           |
 | 501         | `"who.prompt is not supported for InApp Live campaigns"`    | `who.prompt` sent.                                                                    |
 | 500         | `"Failed to persist campaign"`                              | Validation passed, but the save failed. Safe to retry.                                |
