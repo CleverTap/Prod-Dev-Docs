@@ -15,11 +15,11 @@ Unlike push or email, In-App campaigns are displayed, not sent. The audience is 
 
 Every request is organized into three blocks.
 
-| Block  | What it defines                                                                                                                     |
-| :----- | :---------------------------------------------------------------------------------------------------------------------------------- |
-| `who`  | The trigger event, optional event property filters, device targeting, and an optional user profile filter evaluated at trigger time |
-| `what` | The creative, template family, and message strategy (single, split, A/B, or property-based)                                         |
-| `when` | The display window and optional display policy (schedule and priority)                                                              |
+| Block  | What it defines                                                                                                                         |
+| :----- | :-------------------------------------------------------------------------------------------------------------------------------------- |
+| `who`  | The trigger event, optional event property filters, device targeting, and an optional user profile filter are evaluated at trigger time |
+| `what` | The creative, template family, and message strategy (single, split, A/B, or property-based)                                             |
+| `when` | The display window and optional display policy (schedule and priority)                                                                  |
 
 <Callout icon="📘" theme="info">
   ### **In-App is always a Live Campaign**
