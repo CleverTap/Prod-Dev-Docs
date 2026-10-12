@@ -1,6 +1,6 @@
 - wallet-apis
 - coupon-apis
 - partner-vouchers-api
-- fetch-reward-api
 - reward-status-api
+- fetch-reward-api
 - api-error-cases
