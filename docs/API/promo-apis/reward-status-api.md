@@ -4,7 +4,9 @@ excerpt: >-
   Learn how to use the Reward Status API to create or update a user's reward
   state with immediate read-after-write consistency.
 deprecated: false
-hidden: false
+hidden: true
+link:
+  new_tab: false
 metadata:
   robots: index
 ---
