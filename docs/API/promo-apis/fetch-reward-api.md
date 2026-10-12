@@ -10,78 +10,172 @@ link:
 metadata:
   robots: index
 ---
-# Wallet API Errors
+# Overview
 
-The following are the custom API errors that you may encounter upon failed requests of the Wallet APIs:
+The Fetch Reward API retrieves the reward state previously stored for a user with the [Reward Status API](doc:reward-status-api). The response returns exactly the latest stored state for the requested identity, with immediate read-after-write consistency. A value written with the Reward Status API is available here as soon as the write succeeds.
 
-| Error Code | Error Case                                                     | Error Details                                                                                                                                                                                                                                                                                                                          | Applicable API              |
-| ---------- | :------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------- |
-| 777        | Invalid or incorrect `wallet_Id`                               | The specified Wallet ID is invalid or does not exist.                                                                                                                                                                                                                                                                                  | All Wallet APIs             |
-| 400        | Missing required path parameter                                | The path parameter key is missing. For example, calling a wallet API without `walletId` in the path.                                                                                                                                                                                                                                   | All Wallet APIs             |
-| 777        | Invalid date format, expected in epoch                         | `from` or `to` was passed as a formatted date string. For example, `2026-01-01` instead of a Unix epoch timestamp.                                                                                                                                                                                                                     | Get Wallet Transactions API |
-| 777        | Invalid date format                                            | `from` or `to` was passed with a non-numeric or malformed epoch value.                                                                                                                                                                                                                                                                 | Get Wallet Transactions API |
-| 777        | Invalid date range                                             | The `from` value is greater than the `to` value.                                                                                                                                                                                                                                                                                       | Get Wallet Transactions API |
-| 777        | Multiple values are not supported against a query param        | More than one value was passed for a filter key that only accepts a single value. For example, `txnSource=api,campaign`.                                                                                                                                                                                                               | Get Wallet Transactions API |
-| 777        | Invalid query parameter                                        | An unrecognized query parameter key was passed. For example, `sale_channel` instead of `saleChannel`.                                                                                                                                                                                                                                  | Get Wallet Transactions API |
-| 777        | Invalid value for `type`                                       | An invalid value was passed for the type parameter. For example, `type=credited`.                                                                                                                                                                                                                                                      | Get Wallet Transactions API |
-| 777        | Invalid `transactionType`                                      | This error occurs when the `transactionType` key is invalid. It must be either `DEBIT` or `CREDIT`.                                                                                                                                                                                                                                    | Debit/Credit Wallet API     |
-| 777        | Missing mandatory key in the payload                           | `KEY_NAME` is required.                                                                                                                                                                                                                                                                                                                | Debit/Credit Wallet API     |
-| 500        | Incorrect data type for `points`                               | The `points` field must be numeric.                                                                                                                                                                                                                                                                                                    | Debit/Credit Wallet API     |
-| 777        | Negative points passed in the request                          | `points` must always be a positive value.                                                                                                                                                                                                                                                                                              | Debit/Credit Wallet API     |
-| 702        | Debit points exceed the available active points balance        | The requested debit exceeds the user's available active points balance. Under concurrent debit requests for the same wallet, exactly one request is granted; any other request that would exceed the balance receives this error. Passing `force` as `true` clamps the debit to the available balance instead of returning this error. | Debit/Credit Wallet API     |
-| 777        | Internal error while fetching the user's active points balance | The system encountered an internal error while fetching the user's active points balance before processing the debit or credit. Retry the request.                                                                                                                                                                                     | Debit/Credit Wallet API     |
+<Callout icon="📘" theme="info">
+  ### Shared endpoint
 
-# Coupon API Errors
+  The Fetch Reward API and the [Reward Status API](doc:reward-status-api) use the same URL. The HTTP method determines which operation runs. The `GET` method retrieves reward state, and `POST` updates it.
+</Callout>
 
-The following are the custom API errors that you may receive upon failed requests of the Coupon APIs:
+# Base URL
 
-| Error Codes | Error Case                                                                             | Error Details                                                                              | Applicable API           |
-| ----------- | :------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | :----------------------- |
-| 777         | Wrong field added in request body or mandatory fields not passed                       | A required field `KEY_NAME` is missing in the request body.                                | All APIs                 |
-| 777         | Coupon is expired                                                                      | The coupon code has expired and is no longer valid.                                        | All APIs                 |
-| 777         | Total coupon redemption limit exceeded                                                 | The redemption limit for the coupon has been exceeded.                                     | All APIs                 |
-| 777         | Per-user redemption limit exceeded                                                     | The per-user redemption limit for the coupon has been exceeded.                            | All APIs                 |
-| 777         | Daily/Weekly/Monthly redemption exceeded                                               | The coupon's daily, weekly, or monthly redemption limit has been exceeded.                 | All APIs                 |
-| 777         | Coupon not available for specific days or times                                        | The coupon is not valid today or at this time.                                             | All APIs                 |
-| 777         | Coupon cart validation failed                                                          | The coupon cart validation failed based on the specified conditions.                       | All APIs                 |
-| 777         | Coupon product validation failed                                                       | Product validation failed due to invalid conditions.                                       | All APIs                 |
-| 777         | User property validation failed                                                        | User property validation failed due to the specified conditions.                           | All APIs                 |
-| 777         | Selected items: No product property value matched                                      | The selected item's properties do not match the coupon requirements.                       | All APIs                 |
-| 777         | Applied coupon code is expired                                                         | The applied coupon code has expired.                                                       | Validate and Redeem APIs |
-| 777         | Coupon code or ID missing in the request body                                          | The coupon code or ID is missing or invalid in the request body.                           | Validate and Redeem APIs |
-| 777         | Non-redeemed coupon is reverted                                                        | The coupon cannot be reverted as it was never redeemed.                                    | Validate and Redeem APIs |
-| 777         | Coupon code or ID is invalid                                                           | The provided coupon code or ID is invalid or not found.                                    | Validate and Redeem APIs |
-| 777         | Validation is applied on metadata properties, but the key is not passed in the payload | The required metadata key for validation is missing in the payload.                        | Validate and Redeem APIs |
-| 777         | User is not logged in and is attempting to validate the campaign user coupon           | The user must log in or sign up before redeeming the coupon code.                          | Validate and Redeem APIs |
-| 777         | Validation for selected items failed                                                   | The discount validation for selected items has been failed.                                | Validate and Redeem APIs |
-| 777         | OrderStatus contains wrong values                                                      | The order status provided is invalid; it should be one of pending, completed, or reverted. | Redeem API               |
-| 777         | Duplicate `orderId` passed                                                             | The provided `orderId` has already been used for a previous transaction.                   | Redeem/Revert API        |
-| 400         | Query parameter not passed                                                             | A required query parameter `query_param_key` is missing in the request.                    | Redeem/Revert API        |
-| 400         | Query parameter is wrong                                                               | The query parameter type must be either `redeemed` or `reverted`.                          | Redeem/Revert API        |
-| 777         | `order` and `item` object not passed                                                   | Both `order` and `item` objects are required in the request body.                          | Redeem/Revert API        |
-| 777         | Mandatory keys in `item` or `order` object not passed                                  | A mandatory key is missing from the `order` or `item` object.                              | Redeem/Revert API        |
-| 777         | `order` and `item` objects passed, but mandatory keys have empty values                | The mandatory key value in the `order` or `item` object cannot be empty.                   | Redeem/Revert API        |
+Here is an example base URL from the account in the India region:
 
-# Partner Voucher API Errors
+[https://in1.api.clevertap.com/1/promo/rewards](https://in1.api.clevertap.com/1/promo/rewards)
 
-| Error Codes | Error Case                              | Error Behavior                                           | Applicable API    |
-| ----------- | :-------------------------------------- | -------------------------------------------------------- | :---------------- |
-| 777         | Identity is valid, vouchers assigned    | Returns all vouchers tied to the identity                | Fetch Voucher API |
-| 400         | Identity is not passed                  | Returns HTTP 400 with `"error": "Invalid identity"`      | Fetch Voucher API |
-| 777         | Identity is valid, no vouchers assigned | Returns empty `records` array with `"status": "success"` | Fetch Voucher API |
+## Region
 
-# Reward Status API Errors
+To identify the API endpoint for your account's region, refer to [Region](doc:common-api-components#region).
 
-The following are the custom API errors you may encounter when requests to the Reward Status and Fetch Reward APIs fail.
+# Headers
 
-| Error Codes | Error Case                               | Error Details                                                                                                     | Applicable API                      |
-| ----------- | :--------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | :---------------------------------- |
-| 400         | Identity is not passed                   | Returns HTTP 400 with `"error": "identity is required"`.                                                          | Fetch Reward API                    |
-| 738         | Request body has no key-value pairs      | The request body is `{}`. At least one key-value pair is required.                                                | Reward Status API                   |
-| 741         | Request body is not valid JSON           | The request body is malformed, or the top-level JSON value is not an object.                                      | Reward Status API                   |
-| 740         | `null` value in the request body         | A value is `null`, at any nesting depth, including inside an array or a nested object.                            | Reward Status API                   |
-| 742         | `namespace` exceeds maximum length       | `namespace` is longer than 64 characters.                                                                         | Reward Status and Fetch Reward APIs |
-| 743         | `identity` exceeds maximum length        | `identity` is longer than 255 characters.                                                                         | Reward Status and Fetch Reward APIs |
-| 744         | Stray control character in key or value  | A key or value in the request body contains a stray control character.                                            | Reward Status API                   |
-| 745         | Reserved `namespace` value used on write | `namespace = *` was passed on a write request. `*` is reserved for the Fetch Reward API's "every bucket" request. | Reward Status API                   |
-| 777         | An unexpected error occurs               | The request failed due to an unexpected server-side error not covered by any of the cases above.                  | Reward Status and Fetch Reward APIs |
+For more information about API headers used while processing API requests, refer to [Headers](doc:common-api-components#headers).
+
+# HTTP Method
+
+GET
+
+# Query parameters
+
+The following query parameters apply to this API:
+
+| Parameter   | Description                                                                                                                                                                                           | Required/Optional | Data Type | Sample Value   |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | --------- | -------------- |
+| `identity`  | The user identifier. Accepts an identity string, a phone number (with a `+` prefix), or an email address.                                                                                             | Required          | String    | `user123`      |
+| `namespace` | The reward bucket to read. Omit this parameter to read the default bucket. For more information, refer to [Multiple Reward Buckets Handling](doc:reward-status-api#multiple-reward-buckets-handling). | Optional          | String    | `festive-sale` |
+
+## Sample Request
+
+Here's the example request to the Fetch Reward API, including the header needed to authenticate the request:
+
+```bash
+curl -X GET "https://<region>.api.clevertap.com/1/promo/rewards?identity=user123" \
+  -H "X-CleverTap-Account-Id: <account_id>" \
+  -H "X-CleverTap-Passcode: <passcode>"
+```
+
+## Find CleverTap Account ID and Passcode
+
+You can find the CleverTap Account ID and Passcode from the CleverTap dashboard by navigating to the _Settings_ > _Project_ page on the CleverTap dashboard.
+
+
+<Image src="https://files.readme.io/42c7e4ef1d09542be6811863b60f2190b4050c785f52740353f55e8434d1d4bf-image.png" alt="Find CleverTap Project Details" align="center" caption="Find CleverTap Project Details" border={true} />
+
+
+## Sample Response
+
+The following is a sample response when a reward state has been stored for the identity:
+
+```json
+{
+  "status": "success",
+  "records": [
+    {
+      "namespace": "default",
+      "state": {
+        "all_coupons": ["coupon1", "coupon2", "coupon3"],
+        "activated_coupons": ["coupon1", "coupon2"]
+      }
+    }
+  ]
+}
+```
+
+The following is a sample response when nothing has been stored yet for the identity:
+
+```json
+{
+  "status": "success",
+  "records": []
+}
+```
+
+<Callout icon="📘" theme="info">
+  ### No Error for an Identity with no Stored State
+
+  If nothing has been stored yet for the identity you pass, this API still returns a success response, with an empty `records` array. It does not return an error.
+</Callout>
+
+The following is a sample response for a failed request.
+
+```json
+{
+  "status": "fail",
+  "error": "identity is required",
+  "code": 400
+}
+```
+
+<Callout icon="📘" theme="info">
+  ### HTTP Status
+
+  This API always returns HTTP 200. Check the `status` field in the response body to determine whether the request succeeded or failed.
+</Callout>
+
+## Response Fields
+
+The following fields appear in the response:
+
+| Field                 | Description                                                                                                                       | Data Type |
+| --------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| `status`              | The status of the API response.                                                                                                   | String    |
+| `records`             | On success, an array of stored `namespace` documents. Empty if nothing has been stored for this identity.                         | Array     |
+| `records[].namespace` | The reward bucket this record belongs to.                                                                                         | String    |
+| `records[].state`     | The stored state for this namespace. A key with no values stored is returned as an empty array, not omitted.                      | Object    |
+| `error`               | Present only on failure. A human-readable description of what went wrong.                                                         | String    |
+| `code`                | Present only on failure. For more information, refer to [Reward Status API Errors](doc:api-error-cases#reward-status-api-errors). | Integer   |
+
+## Multiple Reward Buckets Handling
+
+Fetching without a `namespace` returns only the `default` bucket, not every bucket you have created for that identity.
+
+The following is a sample request and response for the default bucket:
+
+```
+GET /1/promo/rewards?identity=user123
+```
+
+```json
+{
+  "status": "success",
+  "records": [
+    { "namespace": "default", "state": { "all_coupons": ["coupon1", "coupon2"] } }
+  ]
+}
+```
+
+To fetch every bucket stored for a user in one response, pass the reserved value `namespace = *`.
+
+```
+GET /1/promo/rewards?identity=user123&namespace=*
+```
+
+```json
+{
+  "status": "success",
+  "records": [
+    { "namespace": "default", "state": { "all_coupons": ["coupon1", "coupon2"] } },
+    { "namespace": "festive-sale", "state": { "all_coupons": ["coupon10", "coupon11"], "redeemed_coupons": ["coupon10"] } }
+  ]
+}
+```
+
+`*` is reserved for this purpose on Fetch. Sending `namespace = *` on the [Reward Status API](doc:reward-status-api) fails with an error code `745`.
+
+## API Behavior
+
+Array order preservation and the no-history/latest-state-only guarantee work the same way for this API as they do for the Reward Status API. For more information, refer to [API Behavior](doc:reward-status-api#api-behavior).
+
+# API Errors
+
+The following are the custom API errors you may encounter when requests to the Fetch Reward API fail:
+
+| Error Codes | Error Case                         | Error Details                                                                                    | Applicable API   |
+| ----------- | :--------------------------------- | ------------------------------------------------------------------------------------------------ | :--------------- |
+| 400         | Identity is not passed             | Returns HTTP 400 with `"error": "identity is required"`.                                         | Fetch Reward API |
+| 742         | `namespace` exceeds maximum length | `namespace` is longer than 64 characters.                                                        | Fetch Reward API |
+| 743         | `identity` exceeds maximum length  | `identity` is longer than 255 characters.                                                        | Fetch Reward API |
+| 777         | An unexpected error occurs         | The request failed due to an unexpected server-side error not covered by any of the cases above. | Fetch Reward API |
