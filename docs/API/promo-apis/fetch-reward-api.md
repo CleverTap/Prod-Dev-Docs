@@ -4,7 +4,9 @@ excerpt: >-
   Learn how to use the Fetch Reward API to retrieve a user's reward state with
   immediate read-after-write consistency.
 deprecated: false
-hidden: false
+hidden: true
+link:
+  new_tab: false
 metadata:
   robots: index
 ---
