@@ -204,6 +204,18 @@ The following table describes how the Reward Status API behaves for every update
   If a request updates several keys and any one of them fails validation, the entire request fails. No partial updates are made.
 </Callout>
 
-# Errors
+# API Errors
 
-To know about the errors applicable to the Reward Status API, refer to [Reward Status API Errors](doc:api-error-cases#reward-status-api-errors).
+The following are the custom API errors you may encounter when requests to the Reward Status APIs fail:
+
+| Error Codes | Error Case                               | Error Details                                                                                                     |
+| ----------- | :--------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| 400         | Identity is not passed                   | Returns HTTP 400 with `"error": "identity is required"`.                                                          |
+| 738         | Request body has no key-value pairs      | The request body is `{}`. At least one key-value pair is required.                                                |
+| 741         | Request body is not valid JSON           | The request body is malformed, or the top-level JSON value is not an object.                                      |
+| 740         | `null` value in the request body         | A value is `null`, at any nesting depth, including inside an array or a nested object.                            |
+| 742         | `namespace` exceeds maximum length       | `namespace` is longer than 64 characters.                                                                         |
+| 743         | `identity` exceeds maximum length        | `identity` is longer than 255 characters.                                                                         |
+| 744         | Stray control character in key or value  | A key or value in the request body contains a stray control character.                                            |
+| 745         | Reserved `namespace` value used on write | `namespace = *` was passed on a write request. `*` is reserved for the Fetch Reward API's "every bucket" request. |
+| 777         | An unexpected error occurs               | The request failed due to an unexpected server-side error not covered by any of the cases above.                  |
