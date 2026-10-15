@@ -80,9 +80,9 @@ const var2 = clevertap.defineVariable("var_boolean", true)
 
 CleverTap SDK provides several callbacks for the developer to receive feedback from the SDK. The following are a few instances where developers can set up callbacks:
 
-- [Status of Fetch Variables request](https://staging.docs.dev.clevertap.net/docs/web-remote-config#status-of-fetch-variables-request)
-- [Change of individual variable value](https://staging.docs.dev.clevertap.net/docs/web-remote-config#change-in-individual-variable-value)
-- [Initialize all variables or change variables](https://staging.docs.dev.clevertap.net/docs/web-remote-config#initialize-all-variables-or-change-all-variable-values)
+- [Status of Fetch Variables request](docs:web-remote-config#status-of-fetch-variables-request)
+- [Change of individual variable value](doc:web-remote-config#change-in-individual-variable-value)
+- [Initialize all variables or change variables](doc:web-remote-config#initialize-all-variables-or-change-all-variable-values)
 
 ## Status of Fetch Variables Request
 
