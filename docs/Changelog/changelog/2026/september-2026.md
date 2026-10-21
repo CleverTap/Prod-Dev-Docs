@@ -5,6 +5,14 @@ hidden: false
 metadata:
   robots: index
 ---
+We are excited to share the September SDK changelog for our product!
+
+<Callout icon="📘" theme="info">
+  #### Note
+
+  Click each SDK header to view the corresponding GitHub repository for release details.
+</Callout>
+
 # September 04
 
 ## [iOS 7.8.2](https://github.com/CleverTap/clevertap-ios-sdk/blob/master/CHANGELOG.md#version-782-september-4-2026)
