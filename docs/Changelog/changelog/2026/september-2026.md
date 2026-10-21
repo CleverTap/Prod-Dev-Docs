@@ -19,9 +19,9 @@ We are excited to share the September SDK changelog for our product!
 
 ### Bug Fixes
 
-- Fixes a bug where In-App campaigns triggered by custom events could not match device and app properties.
+- Fixes a bug where in-app campaigns triggered by custom events could not match device and app properties.
 - Fixes a bug where discarded event names were stored in preferences and sent back to the server on every request.
-- Fixes a bug where stored In-App messages were cleared when the delivery mode was missing.
+- Fixes a bug where stored in-app messages were cleared when the delivery mode was missing.
 
 # September 03
 
