@@ -1,0 +1,45 @@
+name: Notify Staging of External PR
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+
+    if: github.event.pull_request.user.login != 'user-docs-bot[bot]' && !contains(github.event.pull_request.title, '[skip-sync]')
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Dispatch to Staging repo
+        run: |
+          curl -s -X POST \
+            -H "Authorization: Bearer ${{ secrets.STAGING_PAT }}" \
+            -H "Accept: application/vnd.github+json" \
+            https://api.github.com/repos/CleverTap/Staging-User-Docs/dispatches \
+            -d '{
+              "event_type": "external-pr-forward",
+              "client_payload": {
+                "pr_number": "${{ github.event.pull_request.number }}",
+                "pr_title": "${{ github.event.pull_request.title }}",
+                "pr_url": "${{ github.event.pull_request.html_url }}",
+                "author": "${{ github.event.pull_request.user.login }}",
+                "head_ref": "${{ github.head_ref }}"
+              }
+            }'
+
+      - name: Comment on public PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr comment ${{ github.event.pull_request.number }} \
+            --repo CleverTap/Prod-User-Docs \
+            --body "Thank you for your contribution! 🚀  
+            Your PR has been forwarded to our internal review system."
