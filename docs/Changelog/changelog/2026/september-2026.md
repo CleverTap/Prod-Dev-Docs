@@ -13,6 +13,42 @@ We are excited to share the September SDK changelog for our product!
   Click each SDK header to view the corresponding GitHub repository for release details.
 </Callout>
 
+# September 30
+
+## [CTNotificationContent 1.6.0](https://github.com/CleverTap/CTNotificationContent/blob/master/CHANGELOG.md#version-160-30-september-2026)
+
+### What's New
+
+- Icons Template: Adds a new Icons push notification template ( `pt_icons`) that displays a row of 3 to 5 tappable icons, each with its own optional deep link and alt text. Falls back to a title/message text layout when fewer than 3 icons can be loaded.
+- Image Border & Corner Radius: Adds image corner radius and border customisation in the Basic, Auto Carousel, Manual Carousel, Timer, Rating, and Vertical Image templates.
+
+# September 23
+
+## [Cordova 5.1.0](https://github.com/CleverTap/clevertap-cordova/blob/master/CHANGELOG.md#version-510-september-23-2026)
+
+### What's New
+
+#### Android
+
+* Supports [CleverTap Android SDK v8.4.1](https://github.com/CleverTap/clevertap-android-sdk/blob/master/docs/CTCORECHANGELOG.md#version-841-august-7-2026).
+
+#### iOS
+
+* Supports [CleverTap iOS SDK v7.8.2](https://github.com/CleverTap/clevertap-ios-sdk/blob/master/CHANGELOG.md#version-782-september-4-2026).
+* **App Inbox Cross-Device Sync**: Reading or deleting a message on one device is now automatically reflected on the user's other devices.
+* **Gamified In-App templates**: Adds Spin-the-Wheel and Scratch Card templates to the Advanced In-App Builder.
+* **Configurable In-App dismiss gestures**: Tap-outside and swipe-to-dismiss gestures are now configurable per campaign and tracked as `Notification Clicked` events.
+* **Accessibility improvements**: VoiceOver labels and a larger dismiss-button tap area across In-App notifications and App Inbox.
+* **Silent in-foreground push notifications**: A push containing `wzrk_sif:true` is delivered silently to the notification tray instead of as a heads-up alert while the app is in the foreground. Apps using manual push integration (without `autoIntegrate`) must call the native `handleWillPresentNotification` method from `UNUserNotificationCenterDelegate`'s `willPresent` callback.
+
+### API Changes
+
+#### Android and iOS
+
+* `dismissPipInApp()` — dismisses the currently visible Picture-in-Picture (PIP) In-App notification. Safe to call from any thread; a no-op when no PIP is visible.
+* `fetchInbox(successCallback)` — triggers an on-demand App Inbox refresh from the server, throttled to once every 5 minutes. The optional callback receives a boolean indicating whether messages were fetched and applied.
+* `pushDisplayUnitElementClickedEventForID(unitId, additionalProperties)` — records a `Notification Clicked` event for a specific element within a Display Unit.
+
 # September 16
 
 ## [Unity 5.5.6](https://github.com/CleverTap/clevertap-unity-sdk/blob/master/CHANGELOG.md#version-556-sep-2026)
