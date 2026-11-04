@@ -20,8 +20,19 @@ jobs:
       PR_URL: ${{ github.event.pull_request.html_url }}
       PR_AUTHOR: ${{ github.event.pull_request.user.login }}
       HEAD_REF: ${{ github.event.pull_request.head.ref }}
+      BASE_REF: ${{ github.event.pull_request.base.ref }}
 
     steps:
+      - name: Retarget PR to v1.0
+        if: github.event.pull_request.base.ref != 'v1.0'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh api -X PATCH "repos/CleverTap/Prod-User-Docs/pulls/${PR_NUMBER}" -f base=v1.0 --silent
+          gh pr comment "$PR_NUMBER" \
+            --repo CleverTap/Prod-User-Docs \
+            --body "This PR targeted \`${BASE_REF}\`; it has been retargeted to \`v1.0\`, the branch all documentation changes go to."
+
       - name: Dispatch to Staging repo
         env:
           STAGING_PAT: ${{ secrets.STAGING_PAT }}
