@@ -1,8 +1,8 @@
 name: Notify Staging of External PR
 
 on:
-  pull_request:
-    types: [opened, synchronize]
+  pull_request_target:
+    types: [opened, reopened, synchronize]
 
 permissions:
   contents: read
@@ -14,32 +14,39 @@ jobs:
 
     if: github.event.pull_request.user.login != 'user-docs-bot[bot]' && !contains(github.event.pull_request.title, '[skip-sync]')
 
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
+    env:
+      PR_NUMBER: ${{ github.event.pull_request.number }}
+      PR_TITLE: ${{ github.event.pull_request.title }}
+      PR_URL: ${{ github.event.pull_request.html_url }}
+      PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+      HEAD_REF: ${{ github.event.pull_request.head.ref }}
 
+    steps:
       - name: Dispatch to Staging repo
+        env:
+          STAGING_PAT: ${{ secrets.STAGING_PAT }}
         run: |
-          curl -s -X POST \
-            -H "Authorization: Bearer ${{ secrets.STAGING_PAT }}" \
+          jq -n \
+            --arg pr_number "$PR_NUMBER" \
+            --arg pr_title "$PR_TITLE" \
+            --arg pr_url "$PR_URL" \
+            --arg author "$PR_AUTHOR" \
+            --arg head_ref "$HEAD_REF" \
+            '{event_type: "external-pr-forward", client_payload: {pr_number: $pr_number, pr_title: $pr_title, pr_url: $pr_url, author: $author, head_ref: $head_ref}}' \
+            > /tmp/payload.json
+
+          curl -fsS -X POST \
+            -H "Authorization: Bearer ${STAGING_PAT}" \
             -H "Accept: application/vnd.github+json" \
             https://api.github.com/repos/CleverTap/Staging-User-Docs/dispatches \
-            -d '{
-              "event_type": "external-pr-forward",
-              "client_payload": {
-                "pr_number": "${{ github.event.pull_request.number }}",
-                "pr_title": "${{ github.event.pull_request.title }}",
-                "pr_url": "${{ github.event.pull_request.html_url }}",
-                "author": "${{ github.event.pull_request.user.login }}",
-                "head_ref": "${{ github.head_ref }}"
-              }
-            }'
+            -d @/tmp/payload.json
 
       - name: Comment on public PR
+        if: github.event.action != 'synchronize'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh pr comment ${{ github.event.pull_request.number }} \
+          gh pr comment "$PR_NUMBER" \
             --repo CleverTap/Prod-User-Docs \
-            --body "Thank you for your contribution! 🚀  
-            Your PR has been forwarded to our internal review system."
+            --body "Thank you for your contribution! 🚀
+          Your PR has been forwarded to our internal review system."
