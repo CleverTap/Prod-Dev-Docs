@@ -13,6 +13,37 @@ We are excited to share the September SDK changelog for our product!
   Click each SDK header to view the corresponding GitHub repository for release details.
 </Callout>
 
+# September 16
+
+## [Unity 5.5.6](https://github.com/CleverTap/clevertap-unity-sdk/blob/master/CHANGELOG.md#version-556-sep-2026)
+
+### What's New
+
+- Updated to [CleverTap iOS SDK v7.8.2](https://github.com/CleverTap/clevertap-ios-sdk/releases/tag/7.8.2).
+
+* `SetPushTokenAsString(string)`: Exposes the iOS APNs token setter through the full Unity call chain, allowing a push token string to be passed directly without converting to `NSData` first.
+
+* `CleverTapEncryptionLevel`**&#x20;**&#x73;etting: Configure PII field encryption level at build time from CleverTap Settings: `None`, `Medium`, or `High`. Written automatically to `AndroidManifest.xml` (`CLEVERTAP_ENCRYPTION_LEVEL`) and `Info.plist` (`CleverTapEncryptionLevel`) during post-build. No runtime API changes needed.
+
+# September 07
+
+## [Expo Plugin 1.1.0](https://github.com/CleverTap/clevertap-expo-plugin/blob/main/CHANGELOG.md#version-110-september-7-2026)
+
+### What's New
+
+- Adds support for Expo SDK 57.0.0 and React Native 0.86.
+- Adds support for CleverTap React Native SDK 4.3.1
+
+#### Android
+
+- Adds support for CleverTap Android SDK 8.4.1.
+- Adds support for CleverTap Push Templates SDK 2.5.0.
+- Adds `android.inAppFragmentlessBanners` config option, which writes the `CLEVERTAP_INAPP_FRAGMENTLESS_BANNERS` manifest flag so custom-HTML header and footer in-apps render when the host Activity is not a `FragmentActivity`. Off by default.
+
+#### iOS&#x20;
+
+- Adds support for CleverTap iOS SDK 7.8.1, resolved transitively through clevertap-react-native.
+
 # September 04
 
 ## [iOS 7.8.2](https://github.com/CleverTap/clevertap-ios-sdk/blob/master/CHANGELOG.md#version-782-september-4-2026)
