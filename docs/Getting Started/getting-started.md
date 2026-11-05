@@ -14,9 +14,9 @@ next:
 
 CleverTap is a customer retention platform that provides the functionality to integrate app analytics and marketing. The platform helps customers increase user engagement in three ways: 
 
-* Tracks actions users are taking and analyzes how people use the product. 
-* [Segment](doc:segment) users based on their actions and run targeted [campaigns](https://docs.clevertap.com/docs/intro-to-campaigns) to these segments. 
-* [Analyze](https://docs.clevertap.com/docs/intro-to-reports) each campaign to understand their effect on user engagement and business metrics.
+* Tracks actions users are taking and analyzes how people use the product 
+* [Segment](doc:segment) users based on their actions and run targeted [campaigns](https://docs.clevertap.com/docs/intro-to-campaigns) to these segments 
+* [Analyze](https://docs.clevertap.com/docs/intro-to-reports) each campaign to understand their effect on user engagement and business metrics
 
 # Platform Features
 
