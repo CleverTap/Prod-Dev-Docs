@@ -20,3 +20,4 @@ Welcome to the CleverTap SDK changelog for 2026. This document provides a month-
 - [August 2026](https://developer.clevertap.com/docs/august-2026)
 - [September 2026](https://developer.clevertap.com/docs/september-2026)
 - [October 2026](https://developer.clevertap.com/docs/october-2026)
+- [November 2026](https://developer.clevertap.com/docs/november-2026)
