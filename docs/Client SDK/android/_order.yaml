@@ -1,12 +1,10 @@
 - android-quickstart-guide
-- configure-firebase-cloud-messaging-fcm
 - user-profiles-android
 - user-events-android
 - android-push
 - clevertap-huawei-push-integration
 - baidu-push-notifications
 - xiaomi-push-notifications
-- android-in-app-notifications
 - android-app-inbox
 - android-remote-config
 - product-experiences-android
@@ -16,6 +14,8 @@
 - android-custom-proxy-domain
 - android-advanced-features
 - android-resources
+- configure-firebase-cloud-messaging-fcm
+- android-in-app-notifications
 - migration-guide-to-clevertap-variables
 - migrate-from-leanplum-to-clevertap
 - android-tv-integration-with-android-sdk
