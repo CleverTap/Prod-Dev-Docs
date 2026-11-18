@@ -139,7 +139,7 @@ CleverTap.pushDisplayUnitClickedEventForID("unitID");
 <Callout icon="📘" theme="info">
   ### Feature Availability
 
-  A new and enhanced version of Product Experiences is coming soon. New customers (CleverTap for Enterprise or CleverTap for Startups) who have not enabled the current functionalities can use this feature only when the new version is released. However, the existing users can continue to use it. The [methods](https://developer.clevertap.com/docs/august-2023#cordova-270) for the Product Experiences feature have been deprecated and will be removed from the code by September 2024.
+  A new and enhanced version of Product Experiences is coming soon. New customers (CleverTap for Enterprise or CleverTap for Startups) who have not enabled the current functionalities can use this feature only when the new version is released. However, the existing users can continue to use it. The [methods](https://staging.docs.dev.clevertap.net/docs/august-2023#august-8) for the Product Experiences feature have been deprecated and will be removed from the code by September 2024.
 </Callout>
 
 ### Set Product Configuration to Default
@@ -254,14 +254,6 @@ To completely disable event tracking and stop sending any communication (persona
 CleverTap.setOptOut(true); // Will opt out the user to send data to CleverTap
 ```
 
-#### Opt Out from Tracking Only, but Allow Generic Communication
-
-To disable event tracking, but still allow you to send non-personalized messages (such as broadcast announcements) to the user.
-
-```javascript
-CleverTap.setOptOut(true, true); // Only stop tracking, allow generic communication
-```
-
 #### Opt In to Tracking and Communication
 
 To re-enable event tracking and allow sending personalized messages to the user, assuming prior consent was collected.
@@ -329,5 +321,3 @@ To learn more, refer to:
 
 - [Encryption in Transit for Android](doc:android-advanced-features#encryption-in-transit)
 - [Encryption in Transit for iOS](doc:advanced-options-ios#encryption-in-transit)
-
-<br />
