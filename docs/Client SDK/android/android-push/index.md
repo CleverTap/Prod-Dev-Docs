@@ -542,11 +542,11 @@ val cleverTapAPI = CleverTapAPI.getDefaultInstance(getApplicationContext())
 cleverTapAPI.setCTPushAmpListener(this)
 ```
 
-4. After the listener is set, whenever a notification is sent to the device via Pull Notification, the app will receive the payload in the onPushPayloadReceived method. Implement this method as follows and ensure that your rendering logic of the Push Notification is written here:
+4. After the listener is set, whenever a notification is sent to the device via Pull Notification, the app will receive the payload in the onPushAmpPayloadReceived() method. Implement this method as follows and ensure that your rendering logic of the Push Notification is written here:
 
 ```java JAVA
 @Override
-public void onPushPayloadReceived(Bundle bundle) {
+public void onPushAmpPayloadReceived(Bundle bundle) {
   CTFcmMessageHandler()
                 .createNotification(getApplicationContext(), message);
   //OR
