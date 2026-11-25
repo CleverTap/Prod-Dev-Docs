@@ -27,6 +27,13 @@ We are excited to share the November SDK changelog for our product!
 * Supports [CleverTap Android SDK v7.7.0](https://github.com/CleverTap/clevertap-android-sdk/blob/master/docs/CTCORECHANGELOG.md#version-770-november-21-2025).
 * Supports [CleverTap iOS SDK v7.4.0](https://github.com/CleverTap/clevertap-ios-sdk/blob/master/CHANGELOG.md#version-740-november-21-2025).
 
+## [Web 2.3.3](https://github.com/CleverTap/clevertap-web-sdk/blob/master/CHANGELOG.md#233-25th-nov-2025)
+
+### What's New
+
+- Session counts for WP and WND now reset when the session changes.
+- StorageManager now supports specifying a domain when managing cookies.
+
 # November 21
 
 ## [Android 7.7.0](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/corev7.7.0)
@@ -60,6 +67,22 @@ We are excited to share the November SDK changelog for our product!
 >
 > After upgrading the SDK to version 7.4.0 or later, do not downgrade in subsequent app releases if encryption is enabled. If you encounter issues, contact the [CleverTap Support](https://help.clevertap.com/hc/en-us/requests/new) team.
 
+# November 19
+
+## [Web 2.3.2](https://github.com/CleverTap/clevertap-web-sdk/blob/master/CHANGELOG.md#232-19th-nov-2025)
+
+### What's New
+
+- Improved the handling of runtime exceptions to address security issues.
+
+# November 13
+
+## [Web 2.3.1](https://github.com/CleverTap/clevertap-web-sdk/blob/master/CHANGELOG.md#231-13th-nov-2025)
+
+### What's New
+
+- Fixed an issue where the visual editor did not clear intervals. Intervals now clear as expected.
+
 # November 03
 
 ## [Flutter 3.6.0](https://github.com/CleverTap/clevertap-flutter/releases/tag/3.6.0)
@@ -74,4 +97,4 @@ We are excited to share the November SDK changelog for our product!
 
 * Adds *Preserve* attribute to the property setters in `UnityNativeEventDBEntry`. This ensures that Unity retains these setters during IL2CPP (Intermediate Language to `C++`) builds, so event data is stored and retrieved correctly.
 * Supports [CleverTap Android SDK v7.6.0](https://github.com/CleverTap/clevertap-android-sdk/blob/master/docs/CTCORECHANGELOG.md#version-760-october-17-2025).
-* Supports [CleverTap iOS SDK v7.3.4](https://github.com/CleverTap/clevertap-ios-sdk/blob/master/CHANGELOG.md#version-734-october-29-2025)
+* Supports [CleverTap iOS SDK v7.3.4](https://github.com/CleverTap/clevertap-ios-sdk/blob/master/CHANGELOG.md#version-734-october-29-2025).
