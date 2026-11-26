@@ -62,29 +62,19 @@ By default, the SDK will send data to CleverTap, and the opt-out will be set to 
 
 ## Device Network Information Reporting in Android
 
-From CleverTap Android SDK 3.1.9 onwards, in compliance with GDPR, the CleverTap Android SDK will not capture any kind of personal information like WiFi, Bluetooth, Network Information and user IP information. To enable the capturing of all this information, you can call the following method:
+From CleverTap Android SDK 3.1.9 onwards, in compliance with GDPR, the CleverTap Android SDK will not capture any kind of personal information like WiFi, Bluetooth, Network Information and user IP information. To enable the capturing of all this information, you can call the following method,
 
-```kotlin
-val cleverTap = CleverTapAPI.getDefaultInstance(this)
-cleverTap.enableDeviceNetworkInfoReporting(true)
-```
 ```java
-CleverTapAPI cleverTap = CleverTapAPI.getDefaultInstance(this);
 cleverTap.enableDeviceNetworkInfoReporting(true);
 ```
 
 To disable Device Network information to be sent to CleverTap you can use the same method as follows.
 
-```kotlin
-val cleverTap = CleverTapAPI.getDefaultInstance(this)
-cleverTap.enableDeviceNetworkInfoReporting(false)
-```
 ```java
-CleverTapAPI cleverTap = CleverTapAPI.getDefaultInstance(this);
 cleverTap.enableDeviceNetworkInfoReporting(false);
 ```
 
-By default, CleverTap does not collect device network information.
+By default, Device Network Information will not be collected by CleverTap.
 
 ## Marketing Opt Out
 
@@ -126,7 +116,7 @@ By default, the SDK will send data to CleverTap, and the opt-out will be set to 
 
 ## Device Network Information Reporting in iOS
 
-From CleverTap iOS SDK 3.1.7 onwards, in compliance with GDPR, the CleverTap iOS SDK will not capture any kind of personal information like WiFi, Network Information, and user IP information. To enable the capturing of all this information, you can call the following method:
+From CleverTap iOS SDK 3.1.7 onwards, in compliance with GDPR, the CleverTap iOS SDK will not capture any kind of personal information like WiFi, Network Information, and user IP information. To enable the capturing of all this information, you can call the following method.
 
 ```swift
 CleverTap.sharedInstance().enableDeviceNetworkInfoReporting(true)
@@ -144,7 +134,7 @@ CleverTap.sharedInstance().enableDeviceNetworkInfoReporting(false)
 [[CleverTap sharedInstance] enableDeviceNetworkInfoReporting:NO];
 ```
 
-By default, CleverTap does not collect device network information.
+By default, Device Network Information will not be collected by CleverTap.
 
 ## Marketing Opt Out
 
@@ -195,6 +185,29 @@ clevertap.privacy.push({optOut: true}); //call the flag to true, if the user of 
 clevertap.privacy.push({useIP: false}); //call the flag to true, if the user agrees to share their IP data
 ```
 
+## Content Security Policy (CSP)
+
+If your website uses a Content Security Policy (CSP), you must allow the CleverTap domain in it. The Web SDK sends all event calls to this domain. If your CSP does not allow it, the browser blocks the requests and CleverTap does not receive any events.
+
+Add `*.clevertap-prod.com` to the following CSP directives.
+
+| Directive | Value to add |
+| :-------- | :----------- |
+| `connect-src` | `*.clevertap-prod.com` |
+| `script-src` | `*.clevertap-prod.com` |
+
+If you use a custom proxy domain, allow that domain instead of `*.clevertap-prod.com`.
+
+The following example shows a CSP header that includes the CleverTap domain. Keep the other values that your website needs.
+
+```text
+Content-Security-Policy: default-src 'self'; connect-src 'self' *.clevertap-prod.com; script-src 'self' *.clevertap-prod.com
+```
+
+> 📘 Check blocked requests
+>
+> If events stop reaching CleverTap, open your browser's developer console and look for CSP errors that mention `clevertap-prod.com`.
+
 ## CleverTap Cookie Details
 
 CleverTap sets first-party cookies and they are used to anonymously identify the website visitors/users. Customers explicitly choose to record data against the user's profile & activity. There's no implicit PII data recorded by the cookie. Refer to the table below to learn about the different cookies.
@@ -204,6 +217,24 @@ CleverTap sets first-party cookies and they are used to anonymously identify the
 | WZRK_G      | This cookie stores the guid/anonymous identifier of the user                                | Expires 10 years from the time it is set.                                                             |
 | WZRK_S      | This cookie stores the session details like last session timestamp, number of sessions etc. | Expires 20 mins from the time it is set.                                                              |
 | WZRK_P      | This cookie tracks the web page url.                                                        | Expires as soon as it is set. This is not used and will be deprecated in the next version of the SDK. |
+
+### Cookie and Local Storage Key Naming
+
+From Web SDK 3.2.0, the SDK adds your CleverTap account ID to the names of the cookies and local storage keys that it creates. The naming pattern changed again in Web SDK 3.3.0. The following table shows the pattern for each version.
+
+| Web SDK version | Naming pattern | Example |
+| :-------------- | :------------- | :------ |
+| Before 3.2.0 | `KEY` for the default instance, `{accountId}:KEY` for other instances | `WZRK_G` |
+| 3.2.0 and 3.2.1 | `{accountId}:KEY` | `{accountId}:WZRK_G` |
+| 3.3.0 and later | `KEY:{accountId}` | `WZRK_G:{accountId}` |
+
+In Web SDK 3.3.0 and later, the session cookie is `WZRK_S:{accountId}`. The SDK migrates data from the older naming patterns automatically. Keys that are not tied to an account, such as `WZRK_GEO`, `WZRK_ACCOUNTS`, and `WZRK_MIGRATED`, do not include the account ID.
+
+> 🚧 Firewall rules on cookie names
+>
+> If your web application firewall (WAF) matches cookie names against `WZRK_*`, it does not match the `{accountId}:WZRK_G` pattern from Web SDK 3.2.0 and 3.2.1. The firewall can then block requests, for example with a 403 Forbidden response.
+>
+> Upgrade to Web SDK 3.3.0 or later, where the names start with `WZRK_` again. If you cannot upgrade yet, allow both `WZRK_*` and `*:WZRK_*` in your firewall rules.
 
 ### Parameters for Local Storage
 
