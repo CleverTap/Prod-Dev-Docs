@@ -5,14 +5,6 @@ hidden: false
 metadata:
   robots: index
 ---
-We are excited to share the September SDK changelog for our product!
-
-<Callout icon="📘" theme="info">
-  #### Note
-
-  Click each SDK header to view the corresponding GitHub repository for release details.
-</Callout>
-
 # September 30
 
 ## [CTNotificationContent 1.6.0](https://github.com/CleverTap/CTNotificationContent/blob/master/CHANGELOG.md#version-160-30-september-2026)
@@ -80,15 +72,21 @@ We are excited to share the September SDK changelog for our product!
 
 - Adds support for CleverTap iOS SDK 7.8.1, resolved transitively through clevertap-react-native.
 
+## [Web 3.0.3](https://github.com/CleverTap/clevertap-web-sdk/blob/master/CHANGELOG.md#303-7th-september-2026)
+
+### Bug Fixes
+
+- Fixed the frequency capping logic.
+
 # September 04
 
 ## [iOS 7.8.2](https://github.com/CleverTap/clevertap-ios-sdk/blob/master/CHANGELOG.md#version-782-september-4-2026)
 
 ### Bug Fixes
 
-- Fixes a bug where in-app campaigns triggered by custom events could not match device and app properties.
+- Fixes a bug where In-App campaigns triggered by custom events could not match device and app properties.
 - Fixes a bug where discarded event names were stored in preferences and sent back to the server on every request.
-- Fixes a bug where stored in-app messages were cleared when the delivery mode was missing.
+- Fixes a bug where stored In-App messages were cleared when the delivery mode was missing.
 
 # September 03
 
@@ -150,3 +148,11 @@ We are excited to share the September SDK changelog for our product!
 #### Android and iOS&#x20;
 
 - Fixes an issue where the built-in App Inbox did not repaint the message list after a pull-to-refresh, newly fetched messages only appeared after closing and reopening the inbox.
+
+# September 01
+
+## [Web 3.0.2](https://github.com/CleverTap/clevertap-web-sdk/blob/master/CHANGELOG.md#302-1st-september-2026)
+
+### Bug Fixes
+
+- Fixed the multi-instance handling for email subscribe.

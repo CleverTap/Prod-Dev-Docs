@@ -7,9 +7,19 @@ metadata:
 ---
 We are excited to share the February SDK changelog for our product!
 
-> 📘 Note
->
-> Click each SDK header to view the corresponding GitHub repository for release details.
+<Callout icon="📘" theme="info">
+  #### Note
+
+  Click each SDK header to view the corresponding GitHub repository for release details.
+</Callout>
+
+# February 26
+
+## [Web 2.5.5](https://github.com/CleverTap/clevertap-web-sdk/blob/master/CHANGELOG.md#255-26th-feb-2026)
+
+### What's New
+
+- Added support for remote interaction for Web Popups, Native Display, and Inbox on TV platforms.
 
 # February 20
 
@@ -39,6 +49,12 @@ We are excited to share the February SDK changelog for our product!
 * Supports displaying GIFs in `Basic`, `Timer`, `Zero Bezel`, and `Rating` templates.
 * Supports configuring transparency for title, message, and background colors.
 
+## [Web 2.5.4](https://github.com/CleverTap/clevertap-web-sdk/blob/master/CHANGELOG.md#254-19th-feb-2026)
+
+### What's New
+
+- Added CleverTap Custom ID support in On User Login.
+
 # February 18
 
 ## [Unity 5.5.2](https://github.com/CleverTap/clevertap-unity-sdk/releases/tag/5.5.2)
@@ -48,6 +64,25 @@ We are excited to share the February SDK changelog for our product!
 * Supports [CleverTap Android SDK v7.8.0](https://github.com/CleverTap/clevertap-android-sdk/blob/master/docs/CTCORECHANGELOG.md#version-780-january-22-2026).
 * Supports [CleverTap iOS SDK v7.5.0](https://github.com/CleverTap/clevertap-ios-sdk/blob/master/CHANGELOG.md#version-750-february-9-2026).
 * Support for ingestion of _Nested Objects_ in event properties and profile properties, enabling richer engagement through more structured analytics.
+
+# February 17
+
+## [React Native 3.9.0](https://github.com/CleverTap/clevertap-react-native/releases)
+
+### What's new
+
+* Supports [CleverTap Android SDK v7.8.0](https://github.com/CleverTap/clevertap-android-sdk/blob/master/docs/CTCORECHANGELOG.md#version-780-january-22-2026).
+* Supports [CleverTap iOS SDK v7.5.0](https://github.com/CleverTap/clevertap-ios-sdk/blob/master/CHANGELOG.md#version-750-february-9-2026).
+* Support for ingestion of _Nested Objects_ in event properties and profile properties, enabling richer engagement through more structured analytics.
+* Supports inaction-based In-App notifications, allowing In-App messages to be triggered when users do not perform a specified action within a configured timeframe.
+
+# February 16
+
+## [Web 2.5.3](https://github.com/CleverTap/clevertap-web-sdk/blob/master/CHANGELOG.md#253-16th-feb-2026)
+
+### Bug Fixes
+
+- Fixed repeated geolocation permission prompt on every page navigation in Safari. The SDK now caches the user's accept/deny response in localStorage, preventing redundant prompts.
 
 # February 09
 
@@ -96,3 +131,11 @@ We are excited to share the February SDK changelog for our product!
 ### Bug Fixes
 
 * Fixes an issue where `IOSPostBuildProcessor` was excluded in iOS builds.
+
+# February 03
+
+## [Web 2.5.2](https://github.com/CleverTap/clevertap-web-sdk/blob/master/CHANGELOG.md#252-3rd-feb-2026)
+
+### What's New
+
+- Added srcset and sizes attribute support for images in the visual editor.

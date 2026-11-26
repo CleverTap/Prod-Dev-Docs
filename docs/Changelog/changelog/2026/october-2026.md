@@ -11,7 +11,7 @@ metadata:
 
 ### What's New
 
-- Raise Notification Viewed event per carousel slide in Web Native Display.
+- Added Support for individual Carousel slide clicks and raising the Notification Viewed event.
 
 # October 23
 

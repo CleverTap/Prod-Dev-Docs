@@ -11,6 +11,30 @@ We are excited to share the January SDK changelog for our product!
 >
 > Click each SDK header to view the corresponding GitHub repository for release details.
 
+# January 30
+
+## [Web 2.5.1](https://github.com/CleverTap/clevertap-web-sdk/blob/master/CHANGELOG.md#251-30-jan-2026)
+
+### Bug Fixes
+
+- Fixed the Campaign delivery triggers logic.
+
+# January 29
+
+## [Web 2.5.0](https://github.com/CleverTap/clevertap-web-sdk/blob/master/CHANGELOG.md#250-29th-jan-2026)
+
+### What's New
+
+- Fetch API and encryption support.
+
+# January 27
+
+## [Web 2.4.0](https://github.com/CleverTap/clevertap-web-sdk/blob/master/CHANGELOG.md#240-27-jan-2026)
+
+### What's New
+
+- Added [Nested object support ](doc:ingesting-nested-objects-via-clevertap-sdks)in profile and event properties.
+
 # January 22
 
 ## [Android 7.8.0](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/corev7.8.0)

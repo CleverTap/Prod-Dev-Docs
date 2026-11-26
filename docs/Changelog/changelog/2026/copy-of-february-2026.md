@@ -7,9 +7,11 @@ metadata:
 ---
 We are excited to share the March SDK changelog for our product!
 
-> 📘 Note
->
-> Click each SDK header to view the corresponding GitHub repository for release details.
+<Callout icon="📘" theme="info">
+  #### Note
+
+  Click each SDK header to view the corresponding GitHub repository for release details.
+</Callout>
 
 # March 26
 
@@ -21,27 +23,21 @@ We are excited to share the March SDK changelog for our product!
 
 ### Android
 
-* Adds `android.notificationIcon` configuration option for custom push notification icons. This is required for Expo v55+, because `notification.icon` was removed from `app.json`.
+* Adds `android.notificationIcon` configuration option for custom push notification icons. This is required for Expo v55+, as `notification.icon` was removed from `app.json`.
 
-# March 17
+# March 18
 
-## [React Native 4.0.0](https://github.com/CleverTap/clevertap-react-native/blob/master/CHANGELOG.md#version-400-march-17-2026)
+## [Web 2.6.0](https://github.com/CleverTap/clevertap-web-sdk/blob/master/CHANGELOG.md#260-18th-mar-2026)
 
-### Android
+### What's New
 
-Supports CleverTap Android SDK v8.0.0.
-
-### iOS
-
-Supports CleverTap iOS SDK v7.5.1.
-
-#### Bug Fixes
-
-* Fixes a bug where `CleverTapInAppNotificationShowed` was not called.
+- Added support for CommonJS, ES, AMD, IIFE and SystemJS build formats.
 
 # March 4
 
-## [iOS 7.5.1](https://github.com/CleverTap/clevertap-ios-sdk/blob/master/CHANGELOG.md#version-751-march-4-2026)
+### iOS
+
+Supports [CleverTap iOS SDK v7.5.1](https://github.com/CleverTap/clevertap-ios-sdk/blob/master/CHANGELOG.md#version-751-march-4-2026).
 
 **What's new**
 
@@ -50,6 +46,14 @@ Supports CleverTap iOS SDK v7.5.1.
 **Bug Fixes**
 
 * Fixes a bug where `onUserLogin` was creating additional GUIDs only for encryption level high.
+
+## Android SDK 7.8.0 / iOS SDK 7.5.0
+
+### What's new
+
+* Supports ingestion of nested objects in event properties and user profile properties, enabling developers to send structured and grouped data such as preferences, purchase history, and account details.
+* Enables incremental updates to numeric values inside nested objects using dot notation and array indexing.
+* Adds validation support for nested object payloads, including limits for nesting depth, key length, object size, and array length to ensure reliable ingestion.
 
 # March 2
 

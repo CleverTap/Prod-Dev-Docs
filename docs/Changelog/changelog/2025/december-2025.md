@@ -33,6 +33,14 @@ We are excited to share the December SDK changelog for our product!
 * Adds overloaded version of the `discardInAppNotifications()` method. When called with `true`, it immediately dismisses any currently visible In-App notification and clears all pending notifications from the queue.
   * `discardInAppNotifications(dismissInAppIfVisible: Boolean)`
 
+# December 12
+
+## [Web 2.3.4](https://github.com/CleverTap/clevertap-web-sdk/blob/master/CHANGELOG.md#234-12th-dec-2025)
+
+### Bug Fixes
+
+- Fixed the issue where interval was not cleared in web native display.
+
 # December 02
 
 ## [Android 7.7.1](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/corev7.7.1)

@@ -67,11 +67,11 @@ We are excited to share the April SDK changelog for our product!
 
 # April 28
 
-## [Xamarin DotNet 4.0.0](https://github.com/CleverTap/clevertap-xamarin/blob/master/CHANGELOG.md#version-400-android-dotnet-april-28-2026)
+## [Xamarin DotNet 4.0.0](https://github.com/CleverTap/clevertap-xamarin/blob/master/CHANGELOG.md#version-400-android-dotnet-april-28-2026) 
 
 ### What's New
 
-* Supports CleverTap [Android SDK v8.1.0](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/corev8.1.0).
+* Supports CleverTap [Android SDK v8.1.0](https://github.com/CleverTap/clevertap-android-sdk/releases/tag/corev8.1.0). 
 
 # April 23
 
@@ -106,11 +106,19 @@ We are excited to share the April SDK changelog for our product!
 
 #### iOS
 
-* Fixes a bug where `onUserLogin` was creating additional guids for high level encryption.
+* Fixes a bug where `onUserLogin` was creating additional GUIDs for high-level encryption.
 
 > ❗️ Critical Update
 >
 > The minimum supported Android API level has been raised to **23 (Android 6.0)**. Devices running Android 5.x (API levels 21–22) are no longer supported.
+
+# April 22
+
+## [Web 2.6.3](https://github.com/CleverTap/clevertap-web-sdk/blob/master/CHANGELOG.md#263-22nd-april-2026)
+
+### What's New
+
+- Dismiss Popup on SPA logic fix.
 
 # April 17
 
@@ -118,7 +126,7 @@ We are excited to share the April SDK changelog for our product!
 
 ### What's New
 
-* Adds a new Vertical Image push notification template which supports images and GIFs with CTA.
+* Adds a new Vertical Image push notification template which supports images and GIF with CTA.
 
 ## [Android 8.1.0](https://github.com/CleverTap/clevertap-android-sdk/blob/master/docs/CTCORECHANGELOG.md#version-810-april-17-2026)
 
@@ -168,3 +176,18 @@ We are excited to share the April SDK changelog for our product!
 
 * **Image with CTA**: Adds a new Vertical Image with CTA push notification template with support for multiple images, action buttons, gradient backgrounds, and rounded corners. Button border radius `pt_btn_border_radius` and width `pt_btn_border_width` are also configurable.
 * **Timer Template Enhancements**: Adds configurable border radius `pt_chrono_border_radius`, border width `pt_chrono_border_width`, border color `pt_chrono_border_clr`, and gradient background support `pt_chrono_style, pt_chrono_grad_clr1, pt_chrono_grad_clr2, pt_chrono_grad_dir` for the chronometer display.
+
+## [Web 2.6.2](https://github.com/CleverTap/clevertap-web-sdk/blob/master/CHANGELOG.md#262-13th-april-2026)
+
+### What's New
+
+- Added a color scheme for handling the background in the Adv Builder Web Popup.
+
+# April 02
+
+## [Web 2.6.1](https://github.com/CleverTap/clevertap-web-sdk/blob/master/CHANGELOG.md#261-2nd-april-2026)
+
+### What's New
+
+- Added support for legacy browsers.
+- Dismiss active Web Popups on SPA route change.
